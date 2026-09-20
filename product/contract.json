@@ -2,23 +2,74 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "fit_check",
-  "summary": "Pi Zero 与 Sharp LS027B7DH01 电池供电掌上/桌面电脑；本轮建立需求草案，后续交付适配真实硬件的外壳 STEP，不代表已完成电子或功能验证。",
+  "summary": "Pi Zero 2 W 与 Sharp LS027B7DH01 掌上/桌面终端电脑：基本按键与外接键盘，USB-A 外设，USB-C 仅充电供电，轻度使用基线续航目标两小时；后续外壳 STEP 用于真实硬件装配检查。",
   "required_interfaces": [
-    {"id": "pi_zero_mount", "kind": "internal_fit", "description": "所选 Pi Zero 板型的真实安装孔、器件高度、存储卡和线缆空间", "source": "user_requested", "required": true},
-    {"id": "sharp_display_fit", "kind": "internal_fit", "description": "LS027B7DH01 显示窗口、无应力固定、FPC 和连接器空间", "source": "user_requested", "required": true},
-    {"id": "usb_access", "kind": "external_access", "description": "一个 USB-A 和一个 USB-C 的插拔开口、插头包络及固定", "source": "user_requested", "required": true},
-    {"id": "battery_fit", "kind": "internal_fit", "description": "可充电电池、电源管理组件及电池维护空间", "source": "user_requested", "required": true},
-    {"id": "control_access", "kind": "external_access", "description": "待选定机身输入器件的安装、行程和手指操作空间", "source": "contract_interface", "required": true}
+    {
+      "id": "pi_zero_mount",
+      "kind": "internal_fit",
+      "description": "Pi Zero 2 W 的真实安装孔、器件高度、存储卡和线缆空间",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "sharp_display_fit",
+      "kind": "internal_fit",
+      "description": "LS027B7DH01 显示窗口、无应力固定、FPC 和连接器空间",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "usb_access",
+      "kind": "external_access",
+      "description": "一个 USB-A 和一个 USB-C 的插拔开口、插头包络及固定",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "battery_fit",
+      "kind": "internal_fit",
+      "description": "可充电电池、电源管理组件及电池维护空间",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "control_access",
+      "kind": "external_access",
+      "description": "机身导航、确认、返回和电源按键的安装、行程和操作空间；文字输入使用外接键盘",
+      "source": "contract_interface",
+      "required": true
+    }
   ],
   "external_references": [
-    {"id": "reference_photo_angled", "source": "user_requested", "description": "斜视外观参考，不用于反推尺寸或隐藏功能", "path": "product/references/uploads/20260920T083508002Z-1-cleanshot-2026-09-20-at-17-32-32-2x.png"},
-    {"id": "reference_photo_front", "source": "user_requested", "description": "正视外观参考，下半区输入方式仍待选择", "path": "product/references/uploads/20260920T083508002Z-2-cleanshot-2026-09-20-at-17-34-41-2x.png"},
-    {"id": "sharp_datasheet", "source": "user_requested", "description": "Sharp LCY-1210401A LS027B7DH01 原厂规格书，DigiKey 托管；页 10、11、13 已核实基本参数，完整结构图在硬件阶段复核", "path": "product/references/LS027B7DH01-sharp-2010.pdf"}
+    {
+      "id": "reference_photo_angled",
+      "source": "user_requested",
+      "description": "斜视外观参考，不用于反推尺寸或隐藏功能",
+      "path": "product/references/uploads/20260920T083508002Z-1-cleanshot-2026-09-20-at-17-32-32-2x.png"
+    },
+    {
+      "id": "reference_photo_front",
+      "source": "user_requested",
+      "description": "正视外观参考；本设计采用基本按键和外接键盘，不从照片推定触摸板",
+      "path": "product/references/uploads/20260920T083508002Z-2-cleanshot-2026-09-20-at-17-34-41-2x.png"
+    },
+    {
+      "id": "sharp_datasheet",
+      "source": "user_requested",
+      "description": "Sharp LCY-1210401A LS027B7DH01 原厂规格书，DigiKey 托管；页 10、11、13 已核实基本参数，完整结构图在硬件阶段复核",
+      "path": "product/references/LS027B7DH01-sharp-2010.pdf"
+    }
   ],
   "assembly_story": {
     "installation": "先固定屏幕与控制器件，再安装 Pi 和电源/接口组件，连接 FPC 并固定电池，最后关闭可拆底盖；具体紧固件在硬件阶段选定。",
     "maintenance": "断电后拆开底盖访问电池、主板和内部连接；不可将屏幕玻璃或电池作为受力支撑。",
-    "user_access": ["USB-A", "USB-C", "selected local controls", "power and controlled shutdown", "service access to battery and microSD"]
+    "user_access": [
+      "USB-A",
+      "USB-C",
+      "selected local controls",
+      "power and controlled shutdown",
+      "service access to battery and microSD"
+    ]
   },
   "cad": {
     "requirement": "required",
@@ -28,9 +79,21 @@
         "design_id": "handheld_computer",
         "description": "包含屏幕框、主体与底盖的单一装配设计；按真实硬件接口验证并导出 STEP。",
         "delivery_target": "fit_check",
-        "required_formats": ["step"],
-        "interface_ids": ["pi_zero_mount", "sharp_display_fit", "usb_access", "battery_fit", "control_access"],
-        "reference_ids": ["reference_photo_angled", "reference_photo_front", "sharp_datasheet"]
+        "required_formats": [
+          "step"
+        ],
+        "interface_ids": [
+          "pi_zero_mount",
+          "sharp_display_fit",
+          "usb_access",
+          "battery_fit",
+          "control_access"
+        ],
+        "reference_ids": [
+          "reference_photo_angled",
+          "reference_photo_front",
+          "sharp_datasheet"
+        ]
       }
     ]
   },

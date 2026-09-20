@@ -1,38 +1,163 @@
 {
   "requirements": {
-    "product_class": {"value": "portable_desktop_computer", "source": "default"},
-    "compute_family": {"value": "Raspberry Pi Zero", "source": "user"},
-    "compute_variant": {"value": "Pi Zero 2 W candidate; pending user selection", "source": "default"},
-    "display_model": {"value": "Sharp LS027B7DH01", "source": "user"},
-    "form_factor": {"value": "handheld and desktop device inspired by the two uploaded images", "source": "user"},
-    "usb_a_required": {"value": true, "source": "user"},
-    "usb_c_required": {"value": true, "source": "user"},
-    "untethered_operation": {"value": true, "source": "user"},
-    "usb_a_role": {"value": {"quantity": 1, "role": "USB 2.0 host for keyboard, mouse or storage", "phone_fast_charging": false}, "source": "default"},
-    "usb_c_role": {"value": "one 5 V charging and power input; data role pending user selection", "source": "default"},
-    "primary_use": {"value": "compact monochrome menu-based computer; primary use pending user selection", "source": "default"},
-    "local_input": {"value": "proposed pressable rotary control plus back button; pending user selection", "source": "default"},
-    "battery_runtime_hours": {"value": 4, "source": "default"},
-    "battery_runtime_test": {"value": "20–25 C; representative light use; no added illumination or USB-powered peripherals; Wi-Fi connected idle if supported; workload finalized with primary use", "source": "default"},
-    "battery_architecture": {"value": "internal rechargeable protected single-cell battery; exact cell and capacity selected in hardware phase", "source": "default"},
-    "power_behavior": {"value": ["operate while charging", "no reboot on external power insertion or removal", "battery status and low-battery warning", "controlled Linux shutdown before battery cutoff"], "source": "default"},
-    "appearance": {"value": "orange screen surround, dark inner bezel, light rounded body; no inferred original-product internals", "source": "default"},
-    "screen_mount": {"value": "fixed-angle integrated body; no hinge", "source": "default"},
-    "initial_layout_envelope_mm": {"value": {"width": 85, "depth": 115, "max_height": 40, "status": "provisional layout target, not verified fit"}, "source": "default"},
-    "prototype_process": {"value": "FDM enclosure; STEP CAD handoff; printing preparation separately scoped", "source": "default"},
-    "excluded_by_default": {"value": ["screen illumination", "touchscreen overlay", "microphone", "speaker", "decorative light", "hinge"], "source": "default"},
-    "display_resolution": {"value": {"width_px": 400, "height_px": 240, "bits_per_pixel": 1, "diagonal_in": 2.7}, "source": "research"},
-    "display_viewing_area_mm": {"value": [58.8, 35.28], "source": "research"},
-    "display_body_mm": {"value": {"width": 62.8, "height": 42.82, "thickness": 1.64, "excludes_protrusions": true}, "source": "research"},
-    "display_supply_v": {"value": {"min": 4.8, "typ": 5.0, "max": 5.5}, "source": "research"},
-    "display_interface": {"value": "10-terminal serial interface with COM inversion; not HDMI; GPIO electrical compatibility and power sequencing require implementation verification", "source": "research"},
-    "acceptance": {"value": ["boot selected Pi and operate native monochrome UI on specified panel", "complete menu navigation with selected controls", "meet selected baseline battery runtime in measured prototype test", "operate and charge concurrently without reboot on power transition", "recognize keyboard and storage on USB-A within declared power budget", "test USB-C role and simultaneous use if data is selected", "verify display clamping, FPC routing, battery clearance, thermals and desktop stability"], "source": "default"}
+    "product_class": {
+      "value": "portable_desktop_computer",
+      "source": "default"
+    },
+    "compute_family": {
+      "value": "Raspberry Pi Zero",
+      "source": "user"
+    },
+    "compute_variant": {
+      "value": "Raspberry Pi Zero 2 W",
+      "source": "user"
+    },
+    "display_model": {
+      "value": "Sharp LS027B7DH01",
+      "source": "user"
+    },
+    "form_factor": {
+      "value": "handheld and desktop device inspired by the two uploaded images",
+      "source": "user"
+    },
+    "usb_a_required": {
+      "value": true,
+      "source": "user"
+    },
+    "usb_c_required": {
+      "value": true,
+      "source": "user"
+    },
+    "untethered_operation": {
+      "value": true,
+      "source": "user"
+    },
+    "usb_a_role": {
+      "value": {
+        "quantity": 1,
+        "role": "USB 2.0 host for keyboard, mouse or storage",
+        "phone_fast_charging": false
+      },
+      "source": "default"
+    },
+    "usb_c_role": {
+      "value": "charging and power input only; peripherals use USB-A",
+      "source": "user"
+    },
+    "primary_use": {
+      "value": "Linux terminal, SSH and portable tools",
+      "source": "user"
+    },
+    "local_input": {
+      "value": "basic on-device buttons; text entry via external keyboard",
+      "source": "user"
+    },
+    "battery_runtime_hours": {
+      "value": 2,
+      "source": "user"
+    },
+    "battery_runtime_test": {
+      "value": "20–25 C; no added illumination or USB-powered peripherals; Wi-Fi connected; terminal open with a low-traffic SSH session and periodic text updates. Separately characterize runtime with a wired USB keyboard; do not claim the baseline covers it.",
+      "source": "default"
+    },
+    "battery_architecture": {
+      "value": "internal rechargeable protected single-cell battery; exact cell and capacity selected in hardware phase",
+      "source": "default"
+    },
+    "power_behavior": {
+      "value": [
+        "operate while charging",
+        "no reboot on external power insertion or removal",
+        "battery status and low-battery warning",
+        "controlled Linux shutdown before battery cutoff"
+      ],
+      "source": "default"
+    },
+    "appearance": {
+      "value": "orange screen surround, dark inner bezel, light rounded body; no inferred original-product internals",
+      "source": "default"
+    },
+    "screen_mount": {
+      "value": "fixed-angle integrated body; no hinge",
+      "source": "default"
+    },
+    "initial_layout_envelope_mm": {
+      "value": {
+        "width": 85,
+        "depth": 115,
+        "max_height": 40,
+        "status": "provisional layout target, not verified fit"
+      },
+      "source": "default"
+    },
+    "prototype_process": {
+      "value": "FDM enclosure; STEP CAD handoff; printing preparation separately scoped",
+      "source": "default"
+    },
+    "excluded_by_default": {
+      "value": [
+        "screen illumination",
+        "touchscreen overlay",
+        "microphone",
+        "speaker",
+        "decorative light",
+        "hinge"
+      ],
+      "source": "default"
+    },
+    "display_resolution": {
+      "value": {
+        "width_px": 400,
+        "height_px": 240,
+        "bits_per_pixel": 1,
+        "diagonal_in": 2.7
+      },
+      "source": "research"
+    },
+    "display_viewing_area_mm": {
+      "value": [
+        58.8,
+        35.28
+      ],
+      "source": "research"
+    },
+    "display_body_mm": {
+      "value": {
+        "width": 62.8,
+        "height": 42.82,
+        "thickness": 1.64,
+        "excludes_protrusions": true
+      },
+      "source": "research"
+    },
+    "display_supply_v": {
+      "value": {
+        "min": 4.8,
+        "typ": 5.0,
+        "max": 5.5
+      },
+      "source": "research"
+    },
+    "display_interface": {
+      "value": "10-terminal serial interface with COM inversion; not HDMI; GPIO electrical compatibility and power sequencing require implementation verification",
+      "source": "research"
+    },
+    "acceptance": {
+      "value": [
+        "boot Pi Zero 2 W and operate a native monochrome terminal UI on LS027B7DH01",
+        "navigate menus with on-device buttons and enter shell commands with an external USB keyboard",
+        "demonstrate an SSH session over Wi-Fi",
+        "achieve at least 2 hours in the defined no-USB-peripheral light-use baseline; measure and report USB-keyboard runtime separately",
+        "operate and charge concurrently without reboot on power transition",
+        "recognize keyboard and storage on USB-A within a declared power budget; USB-C carries input power only",
+        "verify display clamping, FPC routing, battery clearance, thermals and desktop stability"
+      ],
+      "source": "default"
+    },
+    "local_button_default": {
+      "value": "directional navigation, confirm and back buttons plus controlled power/shutdown; exact button parts selected in hardware phase",
+      "source": "default"
+    }
   },
-  "open_questions": [
-    "compute_variant: Which Pi Zero variant will be used?",
-    "primary_use: What is the principal application?",
-    "local_input: What input method should the lower area provide?",
-    "usb_c_role: Charging only, peripheral host data, or computer-link data?",
-    "battery_runtime_hours: What light-use runtime is required?"
-  ]
+  "open_questions": []
 }
