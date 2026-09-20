@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "status": "research_record",
+  "observed_date": "2026-09-20",
+  "sources": [
+    {
+      "id": "pi",
+      "path": "product/references/pi-zero2-brief.pdf",
+      "sha256": "503f348880c00c543e99383ca8759a0b60c1b511cc3c27f216720866159a2bff",
+      "pages": [
+        3,
+        4
+      ],
+      "source_url": "https://datasheets.raspberrypi.com/rpizero2/raspberry-pi-zero-2-w-product-brief.pdf",
+      "interpretation": "65x30 outline; mounting centers/port centers; official 5V 2.5A supply"
+    },
+    {
+      "id": "lcd",
+      "path": "product/references/LS027B7DH01-sharp-2010.pdf",
+      "sha256": "997ecbcb7f020fbe077632dc90f6bf82d9e0e49ccf2211484093dec348965d98",
+      "pages": [
+        10,
+        11,
+        13,
+        15,
+        26,
+        27
+      ],
+      "source_url": "https://media.digikey.com/pdf/Data%20Sheets/Sharp%20PDFs/LS027B7DH01.pdf",
+      "interpretation": "Exact non-A panel, FPC, timing, recommended circuit"
+    },
+    {
+      "id": "battery",
+      "path": "product/references/battery-sparkfun-6ah.pdf",
+      "sha256": "f0615ee85a156c7dd799f7859a3579a6018a187c7c43710d5ad91f6544a69ba2",
+      "pages": [
+        4,
+        7,
+        9
+      ],
+      "source_url": "https://cdn.sparkfun.com/datasheets/Prototyping/spe-00-DTP605068-3P-6000mah-en-1.0ver.pdf",
+      "interpretation": "Distinguish cell current and pack PCM trip; 51x73x20 whole pack; AWG22; anomalous polarity labels"
+    },
+    {
+      "id": "rejected_battery",
+      "path": "product/references/battery-328.pdf",
+      "sha256": "52c475a8de02b4aad73c6e6de93ca2a385a0250a9228e9e4a738ddc6a6d5c2c1",
+      "pages": [
+        2,
+        6,
+        7
+      ],
+      "source_url": null,
+      "interpretation": "1500mA continuous discharge; candidate rejected"
+    },
+    {
+      "id": "usb_c",
+      "path": "product/references/usb4105.pdf",
+      "sha256": "fb331fbabee8392ed2937ed757c1610cb0f174b84625147c0b580a18eea8c0e5",
+      "pages": [
+        1,
+        2
+      ],
+      "source_url": "https://gct.co/files/drawings/usb4105.pdf",
+      "interpretation": "GF-A ordering identity, 0.95mm stakes, dimensions/pinout"
+    },
+    {
+      "id": "usb_a",
+      "path": "product/references/ss-52100-001.pdf",
+      "sha256": "c5b836bf9d00e10216b62274ade2ca711b9047c709731fd644b81e79f5a3c5f2",
+      "pages": [
+        1
+      ],
+      "source_url": null,
+      "interpretation": "Exact 001 drawing; supplier 002 drawing rejected"
+    },
+    {
+      "id": "display_fpc",
+      "path": "references/suppliers/c506791/c506791-datasheet.pdf",
+      "sha256": "97317f3c46dbd01f1ae814c24bd20ff3cca0d46933119b180c34038792d32d34",
+      "pages": [
+        1,
+        3,
+        5
+      ],
+      "source_url": null,
+      "interpretation": "10P dimensional table on page 5, bottom contact, 0.3mm FPC"
+    },
+    {
+      "id": "display_buffer",
+      "path": "product/references/sn74ahc125.pdf",
+      "sha256": "79196bf7cfa81bbf264a7e37a11130f43918ba9e4366931ba15bea66e7614660",
+      "pages": [
+        6,
+        7
+      ],
+      "source_url": "https://www.ti.com/lit/ds/symlink/sn74ahc125.pdf",
+      "interpretation": "50uA VOH/VOL design conditions; not proof of timing"
+    },
+    {
+      "id": "jst_ph",
+      "path": "product/references/jst-ph.pdf",
+      "sha256": "447624f4f2f7d37c58c1eaa7ee314ad757fe7aff48f6186491ef6f69fbc00b96",
+      "pages": [
+        1,
+        3
+      ],
+      "source_url": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+      "interpretation": "Unusable numeric text/render; NOT footprint-verified. Manufacturer series webpage establishes 2A AWG24 and exact family."
+    },
+    {
+      "id": "charger",
+      "path": "references/suppliers/c54313/c54313-datasheet.pdf",
+      "sha256": "43e87bbb1254f71b16b0f972923f3b101aed7049b89207bf5b7e1213b1c99856",
+      "pages": [
+        33,
+        34,
+        35
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/bq24074.pdf",
+      "interpretation": "Power path, input/charge limits, NTC"
+    },
+    {
+      "id": "boost",
+      "path": "references/suppliers/c87357/c87357-datasheet.pdf",
+      "sha256": "455dfbf33447c611a4f4d438655c3a04c1f80e0aa1b3d0c811a9b4d001d00d54",
+      "pages": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/tps61088.pdf",
+      "interpretation": "Boost topology, compensation/inductor design; output is not isolated in shutdown"
+    },
+    {
+      "id": "cc",
+      "path": "references/suppliers/c132554/c132554-datasheet.pdf",
+      "sha256": "e92040f102a9b5ed7074ebb6d4459e2c659917f6545c5ae1d331b8993e12b078",
+      "pages": [
+        3,
+        5,
+        22,
+        23,
+        25
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/tusb320lai.pdf",
+      "interpretation": "Sink current detection separate from power-only USB data"
+    },
+    {
+      "id": "usb_switch",
+      "path": "references/suppliers/c55266/c55266-datasheet.pdf",
+      "sha256": "88e453700cea2b263cdb5b44fce1e883e0f6d3b975457f879ac1423eeea42071",
+      "pages": [
+        17,
+        18,
+        20
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/tps2553.pdf",
+      "interpretation": "Current-set resistor and fault indication"
+    },
+    {
+      "id": "disconnect",
+      "path": "references/suppliers/c131941/c131941-datasheet.pdf",
+      "sha256": "3c640be199351829d5aaf79a5e3a3c02c71f11883b91d4d55873d538dacef776",
+      "pages": [
+        4,
+        16,
+        18
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/tps22918.pdf",
+      "interpretation": "2A load switch, not universally reverse-blocking or a Pi 2.5A supply"
+    },
+    {
+      "id": "ldo",
+      "path": "references/suppliers/c404027/c404027-datasheet.pdf",
+      "sha256": "9ccbfd00ee962133f392375383b65ec69ae563a8538ef065a74654c1fbb4f36e",
+      "pages": [
+        4,
+        19
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/tlv755p.pdf",
+      "interpretation": "Input range, required effective capacitance; dropout matters"
+    },
+    {
+      "id": "supervisor",
+      "path": "references/suppliers/c614136/c614136-datasheet.pdf",
+      "sha256": "382df42b05acd53e1a34d0430c99116c6fee4f5a2a709aa085a2919b0d012bc2",
+      "pages": [
+        15,
+        505,
+        506
+      ],
+      "source_url": null,
+      "interpretation": "SOIC pinout and voltage/clock rating; not complete firmware/pin assignment"
+    },
+    {
+      "id": "buttons",
+      "path": "references/suppliers/c93157/c93157-datasheet.pdf",
+      "sha256": "be9cf69e5f43fb7689448a2097c19858e5643c0e2e49cd77d018881543e27a1f",
+      "pages": [
+        4
+      ],
+      "source_url": null,
+      "interpretation": "Omron B3F dimensions; not power-current switch"
+    },
+    {
+      "id": "inductor",
+      "path": "references/suppliers/c6101073/c6101073-datasheet.pdf",
+      "sha256": "7b21a72152abdaa7fb82af2f7d6af1a26638662d5d1105f8a9dfe3833e95f6e6",
+      "pages": [
+        1
+      ],
+      "source_url": "https://www.we-online.com/components/products/datasheet/74437349022.pdf",
+      "interpretation": "2.2uH, rated vs saturation current"
+    },
+    {
+      "id": "esd",
+      "path": "references/suppliers/c138714/c138714-datasheet.pdf",
+      "sha256": "5e0efc27442229a70c536b57cb9b2efb42d27e795749153f2dfc6982bfe76ee3",
+      "pages": [
+        3,
+        4
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/tpd4e05u06.pdf",
+      "interpretation": "Pinout/data and CC ESD selection; system compliance not tested"
+    },
+    {
+      "id": "current_guard",
+      "path": "references/suppliers/c2155674/c2155674-datasheet.pdf",
+      "sha256": "c6982dad9247501e45a7fca0a214e3389d1c362b0a3987f837b0047b5833dac4",
+      "pages": [
+        3,
+        7,
+        21
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/tps2595.pdf",
+      "interpretation": "531 variant 5.7V clamp, auto-retry, no QOD; current accuracy must be included"
+    },
+    {
+      "id": "domain_buffer",
+      "path": "references/suppliers/c7829/c7829-datasheet.pdf",
+      "sha256": "1c946a60b20f13b142d5c0288ac8d04027981cb70d1d8e33325f45376b2966f1",
+      "pages": [
+        1,
+        3,
+        5,
+        6
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/sn74lvc1g07.pdf",
+      "interpretation": "Ioff/open-drain level crossing, DBV pinout, VOL and partial-power-down limits"
+    }
+  ],
+  "web_evidence": [
+    {
+      "source_url": "https://www.jst-mfg.com/product/index.php?series=199&request_locale=en",
+      "facts": "PH series 2A with AWG24, 2mm pitch; exact B2B-PH-K-S family; detailed drawing requires email registration."
+    },
+    {
+      "source_url": "https://www.sparkfun.com/lithium-ion-battery-6ah.html",
+      "facts": "PRT-13856 links DTP605068-3P PDF; 1S parallel pack, PH connector; shipping restrictions."
+    }
+  ],
+  "verification_boundary": "Datasheet selection research, not circuit implementation approval, electrical safety certification, PCB DRC or prototype validation. PDF bytes remain local reference cache; this file preserves source hashes and interpretations."
+}

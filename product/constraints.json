@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "bom_ready": false,
+  "requirements_digest": "10d71363c891ec2cd7ceeffdd8e80e38cd24fcaef55cc1bc74491f7155d1424c",
+  "architecture": {
+    "compute": "Raspberry Pi Zero 2 W",
+    "display": "LS027B7DH01 serial Memory LCD",
+    "power_path": "USB-C 5V -> BQ24074 IN/OUT with protected 1S battery on BAT; OUT -> TPS259531 current guard -> TPS61088 -> TPS22918 -> 5V_MAIN. Always-on TLV75533 before main switch. Conditional low-power branch.",
+    "usb_a": "single host port, protected switched VBUS; no hub required",
+    "usb_c": "sink only; CC current detection; no USB data or PD voltage request"
+  },
+  "display": {
+    "module_body_mm": [
+      62.8,
+      42.82,
+      1.64
+    ],
+    "active_area_mm": [
+      58.8,
+      35.28
+    ],
+    "fpc": {
+      "pin_count": 10,
+      "pitch_mm": 0.5,
+      "thickness_mm": 0.3,
+      "bend_zone_from_glass_edge_mm": [
+        0.8,
+        6.0
+      ],
+      "min_inner_radius_mm": 0.45,
+      "max_bend_cycles": 3,
+      "evidence": "product/references/LS027B7DH01-sharp-2010.pdf page 26",
+      "connector": "FH12-10S-0.5SH(55)",
+      "contact_face": "toward_pcb",
+      "tail_width_mm": 5.5,
+      "tail_thickness_tolerance_mm": 0.03,
+      "connector_body_width_mm": 8.1,
+      "connector_total_width_mm": 9.1,
+      "connector_depth_mm": 5.6,
+      "connector_height_mm": 2,
+      "open_latch_height_mm": 4.8,
+      "connector_dim_evidence": "Hirose drawing pp1,5; dimensions include tolerances per drawing",
+      "assembly_configuration": "Straight/unfolded tail in bottom-contact connector. Copper exposed on panel-back side; PCB/component face toward that exposed side. Pin 1 must follow back-view drawing; do not mirror from front view. A 180-degree folded tail requires a changed connector/placement review, not stretching this layout.",
+      "insertion_note": "Fully insert 0.30mm stiffened tail, close latch, inspect continuity. Do not add a generic FFC as if it were the panel tail."
+    },
+    "source": "research",
+    "electrical": {
+      "supply_v": [
+        4.8,
+        5.5
+      ],
+      "logic_v": 3.3,
+      "buffer": "2 x SN74AHC125PWR, supplied from dedicated switched 3.3V LDO",
+      "pins": {
+        "1": "SCLK",
+        "2": "SI",
+        "3": "SCS",
+        "4": "EXTCOMIN",
+        "5": "DISP",
+        "6": "VDDA",
+        "7": "VDD",
+        "8": "EXTMODE",
+        "9": "VSS",
+        "10": "VSSA"
+      },
+      "extmode": "Tie EXTMODE to switched LCD VDD for hardware inversion; NOT MCU 3.3V logic.",
+      "logic_margin": "AHC VOL<=0.1V at 50uA at 3V supply test; screen VIL<=0.15V. VOH>=2.9V at 50uA vs VIH>=2.7V. Keep total static output load <=50uA, no strong pullups or LEDs; verify edges and ground drop at FPC.",
+      "timing_default": {
+        "spi_clock_hz": 1000000,
+        "extcomin_hz": 2,
+        "owner": "MCU hardware timer",
+        "note": "Datasheet fEXTCOMIN 1-20Hz, frame 1-20Hz. Maintain COM when Linux stalls; assert DISP low on failure before stopping COM."
+      },
+      "decoupling": "Sharp example: VDDA >=0.1uF, VDD >=1uF, DISP-GND 0.1uF. Review DISP edge and sequencing with that capacitor; do not blindly add equivalent capacitance to SPI/COM. Each IC bypass 100nF, LDO input/output >=1uF effective.",
+      "sequencing": "DISP low and all signal outputs benign until LCD rails valid. Start COM, clear/update panel, then DISP high. On shutdown blank/clear per Sharp timing, DISP low, isolate buffers, then remove main power. LCD input overshoot must stay within absolute limits."
+    }
+  },
+  "unresolved_items": [
+    {
+      "id": "usb_a_power_budget",
+      "owner": "user",
+      "design_critical": true,
+      "component_refs": [
+        "battery",
+        "charger",
+        "boost",
+        "main_disconnect",
+        "path_current_guard",
+        "usb_a_switch",
+        "battery_header"
+      ],
+      "question": "USB-A优先支持低功耗键盘/鼠标，还是要为更广泛外设提供500mA？",
+      "options": [
+        {
+          "id": "low_power_100ma",
+          "description": "100mA外设预算，保留当前小电流电池链；必须验证Pi启动峰值并可能限制负载。"
+        },
+        {
+          "id": "general_500ma",
+          "description": "500mA外设预算（推荐），重新选定较大电流电池连接、供电路径和主开关，不承诺现有功率器件全部保留。"
+        }
+      ],
+      "resolution": "Record the selected load class, then agent closes peak/current/thermal budgets and any affected component identities; answering alone must not flip bom_ready."
+    },
+    {
+      "id": "battery_header_land_pattern",
+      "owner": "agent",
+      "design_critical": true,
+      "component_refs": [
+        "battery_header"
+      ],
+      "resolution": "Obtain legible manufacturer exact B2B-PH-K-S drawing from another authoritative copy before marking the electrical BOM ready; current series PDF drops numeric labels. No user approval of a guessed footprint."
+    }
+  ],
+  "supply_risks": [
+    {
+      "id": "power_not_closed",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Current 1S/PH/charger/disconnect chain is a low-power candidate, not a verified 5V 2.5A Pi supply. USB load-class decision is pending; no unrestricted load or seamless-switch guarantee."
+    },
+    {
+      "id": "screen_supply",
+      "component_id": "display",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "Exact DH01 stock 0 at lookup; DH01A is not an approved substitute. Shared supplier A-suffix PDF rejected."
+    },
+    {
+      "id": "battery_document_conflict",
+      "component_id": "battery",
+      "severity": "warning",
+      "design_critical": false,
+      "description": "p4 6A cell characteristic conflicts with p7 assembled PCM trip 2.5-4.5A; PH connector rated 2A (JST AWG24 test). p9 labels black (+), red (-), contrary to usual colors. Never infer polarity from wire color; incoming voltage/polarity measurement and keyed harness verification required."
+    },
+    {
+      "id": "battery_supply",
+      "component_id": "battery",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "SparkFun shipping restrictions apply; no stock quantity established. Verify actual received DTP605068-3P pack revision."
+    },
+    {
+      "id": "no_cad_fit",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "85x115x40mm remains a provisional layout target; battery 51x73x20mm before allowances may drive envelope. No CAD or exact Pi STEP verified."
+    },
+    {
+      "id": "connector_evidence",
+      "component_id": "battery_header",
+      "severity": "warning",
+      "design_critical": false,
+      "description": "Manufacturer confirms exact B2B-PH-K-S family; detailed PDF renders without text labels; dedicated drawing behind email registration. PCB stage must obtain legible exact land pattern, not guess it."
+    },
+    {
+      "id": "support_passives",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "This is a functional selection BOM, not PCB population or ordering CSV. All decoupling, bias, feedback, compensation, ESD power clamps, footprints and quantities must be enumerated before PCB fabrication."
+    },
+    {
+      "id": "storage_accessory",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "One boot microSD required, target 32GB A1/class10. SDSQUA4-032G-GN6MA catalog search lacked exact row and manufacturer page rendered another capacity; not falsely marked selected. Stock/price and exact card procurement remain advisory to board design."
+    },
+    {
+      "id": "prototype_testing",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "Runtime, boot transients, source removal, charging heat, low-battery shutdown, signal levels, FPC insertion and USB ESD remain untested."
+    }
+  ],
+  "power": {
+    "source": "default",
+    "selection_status": "pending_usb_a_power_budget",
+    "candidate_output_v": 5.1,
+    "candidate_total_continuous_a": 0.75,
+    "candidate_short_peak_a": 0.8,
+    "candidate_usb_a_budget_ma": 100,
+    "candidate_pi_and_display_peak_a": 0.7,
+    "boost_efficiency_assumption": 0.85,
+    "battery_guard_nominal_a": 1.75,
+    "battery_path_design_ceiling_a": 2,
+    "guard_requirement": "Worst-case efuse limit plus always-on draw must remain below 2A; select resistor using full tolerance curves, not nominal formula alone. Protect before boost to bound battery path. No claim that the IC switching-current rating equals system output rating.",
+    "official_pi_supply": "5V DC 2.5A in official brief p3; low-power branch requires boot/workload evidence, not equivalent rating.",
+    "charger_cc_a": 0.5,
+    "charger_input_limit": "At most 1.5A including setting tolerance, only after CC advertises >=1.5A. 3A advertisement does not increase BQ24074 capability.",
+    "usb_c_default_current": "No enumeration or BC1.2 on power-only D+/D-. On default/unknown advertisement, conservative 100mA input mode, battery-assisted operation and charging disabled; dedicated >=1.5A Type-C source required for normal simultaneous use/charge.",
+    "thermal": "Linear charger at 0.5A has approx (5-3.4)*0.5=0.8W cell-charge dissipation alone, plus system path heat. Copper spreading, exposed-pad vias and enclosure tests required; reduce charge current thermally.",
+    "temperature": "103AT-2 on TS, plus independent 103AT-2 divider to supervisor ADC. Charge enabled only after valid sensors; candidate firmware window 5-40C to stay inside cell 0-45C. CE default disables charging; watchdog/fault returns disabled. Sensor open/short tests mandatory.",
+    "current_guard_variant": "TPS259531: 5.7V clamp, auto-retry, no QOD. Used as low-voltage input current guard, NOT as sufficient 5.5V-output overvoltage protection for LCD."
+  },
+  "runtime_budget": {
+    "source": "default",
+    "nominal_wh": 22.2,
+    "usable_capacity_fraction_assumed": 0.65,
+    "conversion_efficiency_assumed": 0.85,
+    "always_on_and_aux_battery_w_assumed": 0.1,
+    "baseline_output_w_assumed": 2.5,
+    "calculated_hours": 4.74,
+    "two_hour_average_output_ceiling_w": 6.05,
+    "status": "Calculation only. Capacity to early shutdown, Pi power and conversion efficiency are unmeasured. Keep user 2h requirement unchanged; keyboard runtime separate."
+  },
+  "battery": {
+    "source": "research",
+    "candidate": "PRT-13856 / DTP605068-3P",
+    "max_body_mm": [
+      51,
+      73,
+      20
+    ],
+    "lead_length_mm": 100,
+    "lead_tolerance_mm": 3,
+    "lead_wire": "UL3302 AWG22 per p9",
+    "connector": "JST-PHR-2Pin",
+    "dimensions_evidence": "product/references/battery-sparkfun-6ah.pdf p9; p4 describes individual cells, NOT full pack",
+    "design_allowance": {
+      "value": {
+        "reserve_mm": [
+          55,
+          80,
+          24
+        ],
+        "lead_bay_extra_mm": 15,
+        "retention": "nonconductive tray/strap, no screw compression, no sharp edges, no heat source touching pack"
+      },
+      "source": "default"
+    },
+    "polarity": "p9 color/polarity labels unusual; fixed board BAT+ must be matched by measured incoming pack pin polarity, not color."
+  },
+  "compute": {
+    "source": "research",
+    "outline_mm": [
+      65,
+      30
+    ],
+    "frame": "top view as official p4, origin lower-left board edge, +x right,+y up",
+    "mount_centers_mm": [
+      [
+        3.5,
+        3.5
+      ],
+      [
+        61.5,
+        3.5
+      ],
+      [
+        3.5,
+        26.5
+      ],
+      [
+        61.5,
+        26.5
+      ]
+    ],
+    "hole_diameter_mm": null,
+    "port_center_x_mm": {
+      "mini_hdmi": 12.4,
+      "usb_otg": 41.4,
+      "power_micro_usb": 54
+    },
+    "evidence": "product/references/pi-zero2-brief.pdf pp3-4",
+    "mounting_note": "Hole diameter and component heights not dimensioned here; obtain exact mechanical data in CAD. Pi mounted independently, not a soldered HAT; leave antenna region away from battery and metal."
+  },
+  "ports": [
+    {
+      "id": "usb_c",
+      "mpn": "USB4105-GF-A",
+      "body_mm": [
+        8.94,
+        7.35,
+        3.31
+      ],
+      "shell_stake_length_mm": 0.95,
+      "drawing": "product/references/usb4105.pdf p1",
+      "connections": "A4/A9/B4/B9 VBUS; A1/A12/B1/B12 GND; A5 CC1 and B5 CC2 separately to TUSB320LAI sink; DP/DN and SBU NC. Do not add duplicate Rd in parallel with controller termination.",
+      "cutout_candidate_mm": {
+        "value": [
+          9.6,
+          3.8
+        ],
+        "source": "default"
+      },
+      "footprint_on_face_mm": {
+        "w": 13.6,
+        "h": 7.8
+      }
+    },
+    {
+      "id": "usb_a",
+      "mpn": "SS-52100-001",
+      "body_mm": [
+        14.5,
+        14,
+        6.9
+      ],
+      "front_height_mm": 7.12,
+      "shell_mount_pitch_mm": 13.14,
+      "shell_hole_diameter_mm": 2.3,
+      "signal_hole_diameter_mm": 0.92,
+      "drawing": "product/references/ss-52100-001.pdf p1, CT520004 A0; supplier 002 PDF rejected",
+      "connections": "Single Pi OTG host -> custom short data cable -> D+/D- ESD -> Type A socket. VBUS from TPS2553; no hub, no data path to USB-C.",
+      "cutout_candidate_mm": {
+        "value": [
+          15.2,
+          7.7
+        ],
+        "source": "default"
+      },
+      "footprint_on_face_mm": {
+        "w": 19.2,
+        "h": 11.7
+      }
+    }
+  ],
+  "controls": {
+    "source": "default",
+    "mpn": "B3F-1000",
+    "quantity": 7,
+    "functions": [
+      "up",
+      "down",
+      "left",
+      "right",
+      "confirm",
+      "back",
+      "power/shutdown"
+    ],
+    "body_mm": [
+      6,
+      6,
+      4.3
+    ],
+    "footprint_on_face_mm": {
+      "w": 10,
+      "h": 10
+    },
+    "button_centers": "Deferred to PCB placement; not inferred from reference images."
+  },
+  "supervisor": {
+    "source": "default",
+    "mpn": "ATTINY1616-SN",
+    "supply": "3V3_AON via TLV75533 from BQ OUT",
+    "clock_mhz": 5,
+    "bod": "Enable appropriate brownout and watchdog for this voltage/clock; no 20MHz claim at 3.3V.",
+    "gpio_budget": "17 of 18 I/O planned: UPDI 1, power key 1, request/ack/status TX/RX 4, battery+independent NTC ADC 2, charger CE 1, input-mode select 1 (EN1 fixed low; EN2 selects 100mA/ILIM), CHG 1, CC I2C 2 (poll, no IRQ), COM/DISP 2, main EN 1, boost EN 1. PGOOD testpoint only. Exact peripheral mux assignment still required in schematic.",
+    "domain_crossing": "4 x SN74LVC1G07, each powered from its sender domain; outputs pulled up only to receiving domain. Never pull Pi GPIO to always-on rail. Measure off-state leakage; no direct push-pull MCU -> unpowered Pi.",
+    "shutdown_defaults": {
+      "warn_battery_v": 3.65,
+      "request_shutdown_v": 3.5,
+      "emergency_cut_v": 3.35,
+      "restart_battery_v": 3.75,
+      "ack_timeout_s": 30,
+      "qualification": "Thresholds/hysteresis provisional and load-dependent; voltage is not an accurate fuel gauge. Request Linux sync/shutdown then wait acknowledgement; timeout or critical voltage is emergency cut with data-loss risk."
+    },
+    "off_state": "Main switch off plus boost EN off; AON low-power sleep, charging/CC remain supervised. No claim of zero battery drain."
+  },
+  "pcb_handoff_tasks": [
+    "Resolve the pending load-class decision before circuit implementation.",
+    "Enumerate every resistor/capacitor, compensator, current setpoint and power-rail protection; current values here are requirements, not final populated schematic.",
+    "Read all relevant typical application/layout sections; assign pins, package land patterns and full electrical evidence before routing.",
+    "Obtain a legible exact JST footprint; do not use unlabeled render or infer pad drill from pitch.",
+    "Perform boost stability and thermal design at minimum battery voltage, inrush/current-limit tolerance, cold-start and USB attach tests.",
+    "Model final released PCB and real Pi mounting details in CAD only in an authorized later query."
+  ]
+}
