@@ -402,6 +402,74 @@
       ],
       "interpretation": "Hardware research only; see constraints for exact supported facts and pending integration. No circuit, mechanical fit or thermal validation.",
       "status": "retired_gpio_docking_reference"
+    },
+    {
+      "id": "gpio_socket_catalog",
+      "path": "product/references/ssq-ssw-samtec-catalog.pdf",
+      "source_url": "https://atta.szlcsc.com//upload/public/pdf/source/231023/C17230646-eee8e7b4de5102e9d06880fcb7ab015e.pdf",
+      "sha256": "a97c1358aae9c037676a3f0a9135cee7d15df17a124dcbc1a8e5c7bccf6c8aed",
+      "pages": [
+        1
+      ],
+      "interpretation": "Samtec catalog coversSSQ/SSW. Do not mix4.7A SSWratingwith6.3ASSQrating; test2poweredcontacts. RealPi matingunverified."
+    },
+    {
+      "id": "gpio_socket_exact_page",
+      "path": "product/references/ssq-120-02-g-d-page.txt",
+      "source_url": "https://www.samtec.com/products/ssq-120-02-g-d",
+      "sha256": "a3e36c7b8dabf2363d4e12d7f4653484f994484d1bf732186cb637746fffbb60",
+      "pages": [],
+      "interpretation": "Exact2x20straightthroughholemodel confirmed. Manufacturerwarnsseriesprintneededbeforefinaldesign."
+    },
+    {
+      "id": "gpio_efuse_datasheet",
+      "path": "product/references/tps25947-ti-2026.pdf",
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/tps25947.pdf",
+      "sha256": "da23939616eb37a583dd460c305bb0419bb8c0db52ca695405ab5bedd15925f7",
+      "pages": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        26,
+        27,
+        28,
+        34,
+        35,
+        42,
+        49,
+        60,
+        61,
+        71,
+        72
+      ],
+      "interpretation": "PrimaryICcandidate,notimplementedreferencecircuit. Variantandreverseblock directionrecorded; nofulltwo-sourceprotectionclaim."
+    },
+    {
+      "id": "lipol_protected3300_catalog",
+      "path": "product/references/lipol-3000-catalog.txt",
+      "source_url": "https://www.lipolbattery.com/LiPo-Battery-3000mAh+.html",
+      "sha256": "c020675f971202f64b132ff94bef2e3dd5d6c2ac3d4aee1041b7c6bf9bd9216b",
+      "pages": [],
+      "interpretation": "LP446598 protected3300mAh4.4x65x99mm manufacturerlisting; missingratedpackcurrent."
+    },
+    {
+      "id": "lipol_highrate_catalog",
+      "path": "product/references/lipol-high-rate.txt",
+      "source_url": "https://www.lipolbattery.com/high%20rate%20discharge%20lithium%20polymer%20battery.html",
+      "sha256": "0e711e6c940e1b33f05a5de44c3e3c25452622d66e8cf51237df932d9a54e897",
+      "pages": [],
+      "interpretation": "LPHD7859098 3300mAh25C7.8x59x98mm celllistingonly. No factoryprotectedpackinferred."
+    },
+    {
+      "id": "lipol_home_discovery",
+      "path": "product/references/lipol-home.txt",
+      "source_url": "https://www.lipolbattery.com/",
+      "sha256": "045fe2ace2924053ec0b86e2df54efc6328ec6400b38c2b6e6d55d1693ebaa2a",
+      "pages": [],
+      "interpretation": "Manufacturer catalog discovery only, notpackqualification."
     }
   ],
   "web_evidence": [
@@ -435,9 +503,11 @@
     "CAD catalog returned unrelated bearings/fasteners for cooler; step.parts zero results. Manufacturer cooler research used; no model acquired.",
     "StarTech product HTML403; no retry on same host; manufacturer media datasheet succeeded.",
     "battery.nitecore.com DNS failure. No battery identity inferred from guessed name.",
-    "Pololu4085 is2A class, rejected for Pi4B3A supply; not in active BOM."
+    "Pololu4085 is2A class, rejected for Pi4B3A supply; not in active BOM.",
+    "2026-09-21 native web search returned no results. Samtec product page accessible; suddendocs catalog URL403, hostnotretried. UsedLCSCcachedSamteccatalog, fullseriesproductionprintgapretained.",
+    "EEMBsiteHTTP500 andlipobattery.netDNSfailure; no batteryidentityinferred. LiPolmanufacturerpagesaccessible andsaved. LP446598cataloglookup noexactLCSCmatch; manufactureridentity retained aslead only."
   ],
-  "current_application_status": "BYOPGPIOdocking update: userPi excluded from procurement; cooler retained with baseboardfanbreakout; internalUSB-Ccable retired. Exact3300mAhpack, docksocket andprotectedGPIOoutput unresolved; noPCBorCAD.",
+  "current_application_status": "22rowdraft;SamtecSSQdockandTIeFuseprimarycandidates;two3300mAhmanufacturerleadsunqualified. UserchoiceonPiUSB-Cinterfacerequired; battery,currentandfitgapsremain. NoPCB/CAD.",
   "board_model_references": [
     {
       "id": "raspberry_pi_4_model_b",

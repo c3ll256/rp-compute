@@ -635,6 +635,72 @@
         "product/references/pi4-fan-pwm-wiring.jpg"
       ],
       "part_identity": "f0233680fb421850"
+    },
+    {
+      "quantity": 1,
+      "source": "default",
+      "observed_date": "2026-09-21",
+      "required_user_evidence": [],
+      "id": "gpio_dock",
+      "role": "pi_gpio_docking_socket",
+      "name": "SSQ-120-02-G-D",
+      "mpn": "SSQ-120-02-G-D",
+      "part_number": "SSQ-120-02-G-D",
+      "manufacturer": "SAMTEC",
+      "supplier": "LCSC / Samtec external procurement",
+      "lcsc_code": "C7370433",
+      "stock": null,
+      "procurement_status": "external_procurement_required",
+      "product_url": "https://www.samtec.com/products/ssq-120-02-g-d",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/231023/C17230646-eee8e7b4de5102e9d06880fcb7ab015e.pdf",
+      "package": "2x20 through-hole female socket,2.54mm pitch,straight",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "selection_status": "primary_candidate_mating_and_stack_validation_pending",
+      "description": "Exact supplier/manufacturer match. SSQ square-tail socket,20positions each of2rows. Catalog:8.51mm housing,4.93mm -02tail; insertion3.68–6.35mm. SSQ/TSW current6.3A perpin with2pins powered; this is NOT a Pi-header pair qualification.",
+      "selection_reason": "Branded through-hole socket with documented insertion and current test conditions; factory baseboard soldering, user cold-plugsPi. No Basic matching row; manually assemble rather than implying SMTplacement. Keep originalPi male header unmodified.",
+      "supply_risk": "Manufacturer reports zero distributor stock forG variant; price/availability advisory. ExactPi header geometry and mixed-vendor contact performance not qualified.8.51mm housing is not completedboard spacing. Standard insertion force across40contacts may require support. Manufacturer seriesprint download blocked; productionfootprint/dimension tolerances remain unverified.",
+      "evidence_refs": [
+        "product/references/ssq-ssw-samtec-catalog.pdf p1",
+        "product/references/ssq-120-02-g-d-page.txt"
+      ],
+      "part_identity": "69de17879d23f238"
+    },
+    {
+      "quantity": 1,
+      "source": "default",
+      "observed_date": "2026-09-21",
+      "required_user_evidence": [],
+      "id": "gpio_efuse",
+      "role": "gpio_5v_output_current_and_reverse_protection",
+      "name": "TPS259470LRPWR",
+      "mpn": "TPS259470LRPWR",
+      "part_number": "TPS259470LRPWR",
+      "manufacturer": "TI(德州仪器)",
+      "supplier": "LCSC",
+      "lcsc_code": "C3662793",
+      "stock": 2876,
+      "unit_price_cny": 8.87,
+      "procurement_status": "catalog_verified",
+      "jlc_smt_library": "extended",
+      "product_url": "https://item.szlcsc.com/4230592.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20240822/AC07C83CEEAF8CFDA4DBB78458D52376.jpg",
+      "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tps25947.pdf",
+      "package": "RPW10 VQFN-HR2x2mm",
+      "assembly": {
+        "population": "mounted",
+        "method": "jlc_smt"
+      },
+      "selection_status": "primary_candidate_external_network_and_dual_source_not_closed",
+      "description": "TPS259470L:adjustableOVLO,activecurrentlimit,AUXOFF/FLT,latchedfault variant,not5.7Vclampvariant. Integrated back-to-backFET reverseblock OUT->IN. Recommended2.7–23V,5.5A class; RON45mohm max atspecified3A andtemperature conditions.3A drop135mV and0.405W computed frommaxRON,not boardmeasurements.",
+      "selection_reason": "Added GPIO-branch protection without silently replacing existingTPS22990identity. Latchoff avoids automatic repeatedfaultrestart. Exact extended row verified; noBasicmatch supplied. Not proof of globaldual-source safety: forwardcurrent intoPiUSB-C adapter remains possible.",
+      "supply_risk": "Branch topology,ILM/OVLO/EN networks,dVdt/ITIMER,transientprotection andthermaldesign not implemented. One protected baseboard branch cannot establish safety of every possiblePiUSB-Csource. No pinout-only circuit approval.",
+      "evidence_refs": [
+        "product/references/tps25947-ti-2026.pdf pp4-11,26-28,34-35,42,49,60-61,71-72"
+      ],
+      "part_identity": "4970b7bbd1727680"
     }
   ],
   "alternatives": [
@@ -1066,6 +1132,42 @@
         "supply_risk": "Requires a separate managed source-side USB-C output interface on power board; current USB-C input sink cannot serve both roles. That source interface is unresolved. Plug axial envelope, bend radius and resistance not fully specified; no claim it fits85x115x40mm.",
         "part_identity": "be2103a54ca1af24"
       }
+    },
+    {
+      "role": "battery",
+      "manufacturer": "LiPol Battery Co., Ltd.",
+      "mpn": "LP446598",
+      "status": "inquiry_candidate_not_approved",
+      "source": "research",
+      "product_url": "https://www.lipolbattery.com/LiPo-Battery-3000mAh+.html",
+      "image_url": "https://www.lipolbattery.com/image/lipo-battery-lp446598-3300mah.jpg",
+      "reported_nominal_v": 3.7,
+      "reported_capacity_mah": 3300,
+      "reported_dimensions_mm": [
+        4.4,
+        65,
+        99
+      ],
+      "reported_configuration": "Protection Circuit and wires",
+      "continuous_pack_current_a": null,
+      "reason": "Manufacturer explicitly names3300mAhprotectedvariant. NoPCMcurrent,leadwiregauge,connector,chargeconditions orfulltolerancedassemblydrawing. Not approved for5.6254A budget; no exactLCSCmatch. Reportedbodyenvelope not finalCADmaximum."
+    },
+    {
+      "role": "battery",
+      "manufacturer": "LiPol Battery Co., Ltd.",
+      "mpn": "LPHD7859098",
+      "status": "high_rate_cell_inquiry_only",
+      "source": "research",
+      "product_url": "https://www.lipolbattery.com/high%20rate%20discharge%20lithium%20polymer%20battery.html",
+      "reported_nominal_v": 3.7,
+      "reported_capacity_mah": 3300,
+      "reported_dimensions_mm": [
+        7.8,
+        59,
+        98
+      ],
+      "reported_c_rate": 25,
+      "reason": "Catalog3300mAhhighratecell row, not evidence ofcompleteprotectedpack. NoPCM/connector, fullassembly envelope ordischargeconditions. Never treat25Ccatalogline as protectionboard/currentrating. Ask manufacturer forfactoryprotectedassembly; no fabricatedpackMPN."
     }
   ],
   "supply_risks": [
@@ -1239,18 +1341,6 @@
       "description": "No qualified drop-in alternative established for BQ25622, TPS22990, new charger inductor or XT30U pair; substitutions require new interface review."
     },
     {
-      "id": "battery_complete_pack_spec",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Exact3.7V3300mAh factory protected pack still not found. Need complete pack continuous current, PCM trip/time, leads/connector and full drawing. Calculated path5.6254A under stated bounds; provisional procurement target>=8A continuous entire assembly (not a proven candidate, not a user capacity change). Search failures cannot establish unavailability. Do not use bare-cell rating or change3300mAh silently."
-    },
-    {
-      "id": "pi4b_power_margin",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "5.6254A calculated vs6A BQ BAT path depends on SYS>=3.5V, efficiency>=85%,3.2A total5V output and30mA AON. Current margin only0.3746A; fan startup/inrush, UV handling, battery sag and controlled shutdown reserve need bounded design. No full-load claim below3.5V. Add display-safe overvoltage protection; TPS2595315.7V input clamp does not protect5.5V-max display rail. No PCB or physical test performed."
-    },
-    {
       "id": "cooling_integration",
       "severity": "advisory",
       "design_critical": false,
@@ -1263,16 +1353,40 @@
       "description": "No qualified drop-in cooling alternative established; replacement needs mechanical and GPIO/power review."
     },
     {
+      "id": "battery_complete_pack_spec",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Two concrete manufacturer leads now recorded: LP446598 protected3300mAh variant lacks completepackcurrent/PCM/lead/charge evidence; LPHD7859098 is highratecell only, factoryprotectedversion unestablished. Keep exact3.7V3300mAh requirement, no activebatteryrow until evidence supports load. Supplierinquiry drafted locally, notsent. Still need completepackcontinuouscurrent,protection curves,charge limits andassemblydrawing."
+    },
+    {
+      "id": "pi4b_power_margin",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "5.6254A calculated vs6A BQ BAT path depends on SYS>=3.5V, efficiency>=85%,3.2A total5V output and30mA AON. Current margin only0.3746A; fan startup/inrush, UV handling, battery sag and controlled shutdown reserve need bounded design. No full-load claim below3.5V. Add display-safe overvoltage protection; TPS2595315.7V input clamp does not protect5.5V-max display rail. No PCB or physical test performed."
+    },
+    {
       "id": "gpio_docking_connector",
       "severity": "blocking",
       "design_critical": true,
-      "description": "Select exact2x20 female2.54mm socket mating toPi4B header; verify contact current/derating and resistance, insertion depth, stack height, PCB footprint and mechanical support. Power fromphysical2/4+5V, multiple grounds. Do not assume equal sharing or GPIO signal drive rating as power-contact rating. Preserve pin1/orientation and prevent180-degree/one-row-offset insertion with mechanical guides. Cold plug only."
+      "description": "SSQ-120-02-G-D primarycandidate exactidentity established, datasheet insertion3.68–6.35mm,body8.51mm,tail4.93mm. Need actualPi header mating/engagement andcontactderating, mechanicalsupport, socketfootprint, assemblyheight andcoolerclearance. Samtec6.3A SSQ/TSW2-powered-pin rating cannot qualifyPiheader. Do not treatbodyheight asstandoffheight."
     },
     {
       "id": "gpio_power_protection",
       "severity": "blocking",
       "design_critical": true,
-      "description": "Select actual protected5V GPIO output path including overcurrent/short-circuit, reverse-current blocking and unintendedPiUSB-C dual-source behavior. TPS22990 is only disconnect, not reverse blocking; inputTPS259531 does not prove header-output protection. Cover off-state backpower via3.3V signals, power-up and shutdown. Do not rely solely on instructing users not to connectPiUSB-C."
+      "description": "TPS259470LRPWR selectedascandidate forGPIObranch reverseblock,currentlimit andadjustableOVLO. Close externalnetwork,inrush andvoltage/thermalbudget. OUT->IN blocking preventsPi->baseboardflow, not baseboard->PiUSB-Cadapterflow; singlebranchprotection isnotfull dual-sourceORing. Need chosenport-usepolicy plusbothdirectionfaultanalysis. GPIO3.3Voffdomainbehavior remains."
+    },
+    {
+      "id": "pi_usb_c_usage",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Concrete interface choice: shouldPi ownUSB-C be mechanically interlocked/covered while docked and electrically supplied fromGPIO, or remain an active separatelyprotected secondinput? Draft recommendation isinterlockedcover with power-enableinterlock, not warninglabel/removabledustcapalone. This may revise defaultport-access interpretation afteruserchoice; no port requirement changedyet. Activeoption needs additionalinputisolationandpossiblyconnectoradapter, addingassemblycomplexity. Exactinterlock/interfaceparts notyet selected."
+    },
+    {
+      "id": "gpio_candidates_no_qualified_alternatives",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No qualifieddrop-in alternative toSSQ-120-02-G-D orTPS259470LRPWRselected. Samtec RA/-020 andTPS259472 clampvariantnot substituted. Existingidentities preserved."
     }
   ],
   "unresolved_items": [
@@ -1287,7 +1401,7 @@
         "battery_cable_mate"
       ],
       "procurement_status": "external_procurement_required",
-      "resolution": "Exact3.7V3300mAh factory protected pack still not found. Need complete pack continuous current, PCM trip/time, leads/connector and full drawing. Calculated path5.6254A under stated bounds; provisional procurement target>=8A continuous entire assembly (not a proven candidate, not a user capacity change). Search failures cannot establish unavailability. Do not use bare-cell rating or change3300mAh silently."
+      "resolution": "Two concrete manufacturer leads now recorded: LP446598 protected3300mAh variant lacks completepackcurrent/PCM/lead/charge evidence; LPHD7859098 is highratecell only, factoryprotectedversion unestablished. Keep exact3.7V3300mAh requirement, no activebatteryrow until evidence supports load. Supplierinquiry drafted locally, notsent. Still need completepackcontinuouscurrent,protection curves,charge limits andassemblydrawing."
     },
     {
       "id": "pi4b_power_margin",
@@ -1313,7 +1427,7 @@
         "cooling"
       ],
       "procurement_status": "external_procurement_required",
-      "resolution": "Select exact2x20 female2.54mm socket mating toPi4B header; verify contact current/derating and resistance, insertion depth, stack height, PCB footprint and mechanical support. Power fromphysical2/4+5V, multiple grounds. Do not assume equal sharing or GPIO signal drive rating as power-contact rating. Preserve pin1/orientation and prevent180-degree/one-row-offset insertion with mechanical guides. Cold plug only."
+      "resolution": "SSQ-120-02-G-D primarycandidate exactidentity established, datasheet insertion3.68–6.35mm,body8.51mm,tail4.93mm. Need actualPi header mating/engagement andcontactderating, mechanicalsupport, socketfootprint, assemblyheight andcoolerclearance. Samtec6.3A SSQ/TSW2-powered-pin rating cannot qualifyPiheader. Do not treatbodyheight asstandoffheight."
     },
     {
       "id": "gpio_power_protection",
@@ -1321,12 +1435,23 @@
       "target_stage": "hardware",
       "design_critical": true,
       "component_refs": [
+        "gpio_efuse",
         "main_disconnect",
-        "path_current_guard",
         "compute"
       ],
-      "resolution": "Select actual protected5V GPIO output path including overcurrent/short-circuit, reverse-current blocking and unintendedPiUSB-C dual-source behavior. TPS22990 is only disconnect, not reverse blocking; inputTPS259531 does not prove header-output protection. Cover off-state backpower via3.3V signals, power-up and shutdown. Do not rely solely on instructing users not to connectPiUSB-C."
+      "resolution": "TPS259470LRPWR selectedascandidate forGPIObranch reverseblock,currentlimit andadjustableOVLO. Close externalnetwork,inrush andvoltage/thermalbudget. OUT->IN blocking preventsPi->baseboardflow, not baseboard->PiUSB-Cadapterflow; singlebranchprotection isnotfull dual-sourceORing. Need chosenport-usepolicy plusbothdirectionfaultanalysis. GPIO3.3Voffdomainbehavior remains."
+    },
+    {
+      "id": "pi_usb_c_usage",
+      "owner": "user",
+      "target_stage": "hardware",
+      "design_critical": true,
+      "component_refs": [
+        "compute",
+        "gpio_efuse"
+      ],
+      "resolution": "Concrete interface choice: shouldPi ownUSB-C be mechanically interlocked/covered while docked and electrically supplied fromGPIO, or remain an active separatelyprotected secondinput? Draft recommendation isinterlockedcover with power-enableinterlock, not warninglabel/removabledustcapalone. This may revise defaultport-access interpretation afteruserchoice; no port requirement changedyet. Activeoption needs additionalinputisolationandpossiblyconnectoradapter, addingassemblycomplexity. Exactinterlock/interfaceparts notyet selected."
     }
   ],
-  "scope": "BYOP Pi4B simple-docking prototype; baseboard expands power and display only, no extra USB-A or navigation button bank. One default power button, protection and necessary cooling retained. Native port openings required. Hardware draft: battery, GPIO socket and protection unresolved; noPCB/CAD."
+  "scope": "MinimalBYOPPi4B power/displayhardware:22rows includingcustomerPi; SSQdock andTPS259470L protectionprimarycandidatesadded. Battery exactprotected3300mAh leadfound butunqualified. PiUSB-Cusepolicyrequiresuserchoice. NoPCB/CAD."
 }
