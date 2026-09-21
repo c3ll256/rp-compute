@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "5d3ff35d9085d04f0d475bd4bc04fd74d634e3bd9f80f504ae79459c42e510c6",
+  "requirements_digest": "758a2ca806c8158b0de0f5ba0237bbfc3ee4e9da1321dde23914405e76a546f9",
   "architecture": {
     "compute": "Raspberry Pi Zero 2 W",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -79,14 +79,14 @@
   "unresolved_items": [
     {
       "id": "battery_complete_pack_spec",
-      "owner": "agent_with_manufacturer_evidence",
+      "owner": "agent",
       "design_critical": true,
       "component_refs": [
         "battery",
         "battery_header",
         "battery_cable_mate"
       ],
-      "resolution": "Obtain exact factory protected-pack variant with >=8A continuous discharge including PCM and leads; protection trip/time, wire gauge and XT30U-F polarity, 4.2V charge rating, complete dimensions and temperature limits. Product 870 is a candidate, not the finalized assembly. See battery-spec-request.md."
+      "resolution": "User has resolved battery type as nominal 3.7V; no further user selection/approval is needed. Agent to select an exact 3.7V factory protected-pack variant meeting existing current budget, including PCM/leads, protection trip/time, polarity, charge rating, full dimensions and temperature limits. Product 870 remains a historical 3.6V-labeled research candidate, not a finalized 3.7V assembly. Prefer an evidenced off-the-shelf pack; factory request is an optional evidence route, not a task imposed on the user."
     }
   ],
   "supply_risks": [
@@ -287,7 +287,7 @@
       "component_id": "battery",
       "severity": "blocking",
       "design_critical": true,
-      "description": "Candidate factory pack has no complete electrical/mechanical drawing for requested high-current harness. This is a design-evidence gap, not a missing shop link or stock."
+      "description": "Exact nominal-3.7V protected pack still to be selected/verified by agent. User has settled voltage/type, not accepted unsupported current/harness/dimension claims for the old candidate."
     },
     {
       "id": "power_implementation",
@@ -342,12 +342,12 @@
     "always_on_and_aux_battery_w_assumed": 0.1,
     "baseline_output_w_assumed": 2.5,
     "calculated_hours": 2.444,
-    "status": "Sensitivity estimate only for candidate capacity and conservative assumed usable fraction; early SYS cutoff may change it. User 2h baseline unchanged. No USB peripherals for baseline, USB-keyboard/full-500mA runtimes separate."
+    "status": "Sensitivity estimate only for candidate capacity and conservative assumed usable fraction; early SYS cutoff may change it. User 2h baseline unchanged. No USB peripherals for baseline, USB-keyboard/full-500mA runtimes separate. Existing numerical estimate remains tied to the old 3.6V candidate and must be recalculated for the final 3.7V pack; this turn does not certify capacity/runtime."
   },
   "battery": {
     "source": "research",
     "candidate": "1S1P 21700 6000mAh wires-out (product 870; variant unresolved)",
-    "selection_status": "not_final",
+    "selection_status": "not_final_pending_3v7_variant",
     "nominal_v": 3.6,
     "nominal_mah": 6000,
     "minimum_mah": 5900,
@@ -366,7 +366,12 @@
     },
     "dimensions_evidence": "Manufacturer product 870 lacks complete pack drawing; no dimensions inferred from photograph or 21700 label.",
     "retention": "Nonconductive cradle/strap, no compression or screw contact, isolate heat sources; clearance follows exact pack drawing later.",
-    "polarity": "Molded +/− marks and measured voltage must agree; never infer from wire color."
+    "polarity": "Molded +/− marks and measured voltage must agree; never infer from wire color.",
+    "nominal_voltage_requirement": {
+      "value": 3.7,
+      "source": "user"
+    },
+    "candidate_evidence_note": "nominal_v=3.6 is the old candidate manufacturer fact, not the user target. Do not overwrite evidence as 3.7V; select/verify an exact matching pack."
   },
   "compute": {
     "source": "research",

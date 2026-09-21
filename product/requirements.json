@@ -161,6 +161,10 @@
     "usb_a_available_current_ma": {
       "value": 500,
       "source": "user"
+    },
+    "battery_nominal_voltage_v": {
+      "value": 3.7,
+      "source": "user"
     }
   },
   "open_questions": []

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "5d3ff35d9085d04f0d475bd4bc04fd74d634e3bd9f80f504ae79459c42e510c6",
+  "requirements_digest": "758a2ca806c8158b0de0f5ba0237bbfc3ee4e9da1321dde23914405e76a546f9",
   "items": [
     {
       "id": "compute",
@@ -248,11 +248,15 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "selection_status": "candidate_not_final",
+      "selection_status": "candidate_not_final_pending_3v7_variant",
       "description": "Manufacturer lists protected 1S1P, nominal 3.6V 6000mAh, minimum 5900mAh, maximum discharge 12A. Exact protected assembly rating, wire gauge, connector variant and whole-pack drawing not established; do not treat maximum as continuous or infer dimensions from 21700 name.",
-      "supply_risk": "Blocking manufacturer specification needed. XT30U-F/18AWG/100mm is a project requested harness option, NOT an evidenced catalog pack variant.",
+      "supply_risk": "User selected nominal 3.7V battery type, not this exact MPN or a capacity. Existing product 870 research lists 3.6V; retain that evidence unchanged. Agent must select/verify an exact 3.7V protected pack and its current, protection, harness and dimensions; not a user-owned specification task. Do not mark this candidate compliant merely by relabeling it.",
       "observed_date": "2026-09-21",
-      "part_identity": "b48a56cc0a5dd2d1"
+      "part_identity": "b48a56cc0a5dd2d1",
+      "nominal_voltage_requirement": {
+        "value": 3.7,
+        "source": "user"
+      }
     },
     {
       "id": "supervisor",
@@ -1075,7 +1079,7 @@
       "component_id": "battery",
       "severity": "blocking",
       "design_critical": true,
-      "description": "Candidate factory pack has no complete electrical/mechanical drawing for requested high-current harness. This is a design-evidence gap, not a missing shop link or stock."
+      "description": "Exact nominal-3.7V protected pack still to be selected/verified by agent. User has settled voltage/type, not accepted unsupported current/harness/dimension claims for the old candidate."
     },
     {
       "id": "power_implementation",
@@ -1093,14 +1097,14 @@
   "unresolved_items": [
     {
       "id": "battery_complete_pack_spec",
-      "owner": "agent_with_manufacturer_evidence",
+      "owner": "agent",
       "design_critical": true,
       "component_refs": [
         "battery",
         "battery_header",
         "battery_cable_mate"
       ],
-      "resolution": "Obtain exact factory protected-pack variant with >=8A continuous discharge including PCM and leads; protection trip/time, wire gauge and XT30U-F polarity, 4.2V charge rating, complete dimensions and temperature limits. Product 870 is a candidate, not the finalized assembly. See battery-spec-request.md."
+      "resolution": "User has resolved battery type as nominal 3.7V; no further user selection/approval is needed. Agent to select an exact 3.7V factory protected-pack variant meeting existing current budget, including PCM/leads, protection trip/time, polarity, charge rating, full dimensions and temperature limits. Product 870 remains a historical 3.6V-labeled research candidate, not a finalized 3.7V assembly. Prefer an evidenced off-the-shelf pack; factory request is an optional evidence route, not a task imposed on the user."
     }
   ],
   "scope": "Functional 500mA hardware selection draft; complete protected battery pack specification unresolved. Not procurement-ready and not PCB population BOM.",
