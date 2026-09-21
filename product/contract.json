@@ -42,14 +42,14 @@
     {
       "id": "gpio_dock",
       "kind": "internal_fit",
-      "description": "40针GPIO电源/信号插接接口：接触电流、排针方向、完整插入及防偏排，基板受保护5V供电；仅断电插拔，不以GPIO同形宣称兼容其他Pi。",
+      "description": "40针GPIO电源/信号插接接口：接触电流、排针方向、完整插入及防偏排，基板受保护5V供电；仅断电插拔，不以GPIO同形宣称兼容其他Pi。 联锁盖打开或联锁断线时硬件禁止基板GPIO供电；释放端口前须断开并处理残留能量，关盖后不得自动重启。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "pi_native_ports",
       "kind": "external_access",
-      "description": "外壳为Pi原生板边接口预留开口和插头插拔空间。默认覆盖USB-A、Ethernet、micro-HDMI、3.5mm接口和Pi USB-C，另留microSD维护空间；不扩展内部CSI/DSI。Pi USB-C可接近不代表允许并联供电，误双电源保护仍为电气验收项。准确开口坐标待真实板卡/模型验证。",
+      "description": "Pi原生USB-A、Ethernet、micro-HDMI和3.5mm接口保留外部插拔空间，microSD保留维护通道，不增加CSI/DSI扩展。Pi自身USB-C在装机状态由防误插联锁盖覆盖，拆下Pi后恢复；基板USB-C是日常唯一充电/供电入口。开口坐标及插拔空间待真实几何验证。",
       "source": "user_requested",
       "required": true
     }
@@ -81,13 +81,13 @@
     }
   ],
   "assembly_story": {
-    "installation": "基板屏幕、电池及必要散热附件预装；用户准备Pi与系统卡，断开全部电源并隔离电池后对准GPIO母座插入Pi，用少量独立固定件固定并合壳。无需焊接、逐根GPIO跳线、额外USB-A或内部PiUSB-C线。准确装配顺序待插座与散热堆叠核实。",
-    "maintenance": "正常Linux关机，断外部电源并隔离电池后才拔Pi；不能把GPIO座当唯一承力件，不能撬动屏幕或电池。",
+    "installation": "基板屏幕、电池及必要散热附件预装；用户准备Pi与系统卡，断开全部电源并隔离电池后对准GPIO母座插入Pi，用少量独立固定件固定并合壳。无需焊接、逐根GPIO跳线、额外USB-A或内部PiUSB-C线。准确装配顺序待插座与散热堆叠核实。 用户已选择只使用基板充电口；Pi自身USB-C联锁盖闭合后才允许GPIO供电。无需用户增加内部电源转接线。",
+    "maintenance": "正常Linux关机，断外部电源并隔离电池后才拔Pi；不能把GPIO座当唯一承力件，不能撬动屏幕或电池。 正常关机并隔离电池后再打开联锁盖。盖的紧急断电功能不替代正常Linux关机，带电强开可能损坏文件系统。",
     "user_access": [
-      "Pi native board-edge ports and cable clearance",
-      "baseboard chargingUSB-C",
-      "single default power/shutdown control",
-      "microSD and battery service access"
+      "Pi nativeboard-edgeports exceptcoveredPiUSB-C",
+      "baseboardchargingUSB-C onlyfordailyinput",
+      "singledefaultpower/shutdowncontrol",
+      "microSD/batteryservice;PiUSB-Crestoredafterundocking"
     ]
   },
   "cad": {

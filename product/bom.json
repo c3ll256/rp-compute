@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "7aa392a3df87a525cfc932dd429b742d943d9450628d81da463bb0099bec4ab8",
+  "requirements_digest": "cb5a324c05b8294d558764f8a78e5d3284dcb7cbbbc62e9265fe13d2963b7c7f",
   "items": [
     {
       "id": "compute",
@@ -33,7 +33,7 @@
         "source": "default"
       },
       "description": "Complete Raspberry Pi 4 Model B, 4GB LPDDR4 variant. Official product brief p3: BCM2711 quad-core Cortex-A72, two USB 2.0 and two USB 3.0 ports, 40-pin GPIO, microSD storage, USB-C 5V supply minimum 3A subject to p5 footnote. 3A is supply sizing, not measured consumption. Customer-supplied SBC docks through40-pin GPIO and is mechanically supported; not CM or a soldered component. Baseboard supplies regulated5V through header power contacts; no internalUSB-C cable.",
-      "selection_reason": "User-supplied Pi4B,4GB remains default reference. Quantity1 is the assembled reference, not a board to buy with product kit. Baseboard mates viaGPIO; board revision/other models not yet qualified. User requests simple mount and enclosure access to native ports; no addedbaseboardUSB-A. User installation should not require soldering or individual GPIO jumpers.",
+      "selection_reason": "User-supplied Pi4B,4GB remains default reference. Quantity1 is the assembled reference, not a board to buy with product kit. Baseboard mates viaGPIO; board revision/other models not yet qualified. User requests simple mount and enclosure access to native ports; no addedbaseboardUSB-A. User installation should not require soldering or individual GPIO jumpers. UsernowselectsPiUSB-Ccovered/interlockedwhiledocked;baseboardinputonly. Othernativeportsremainaccessible.",
       "supply_risk": "Supplier query returned unrelated passive/diode/crystal rows; all rejected. No stock, price, reseller SKU or board-revision claim. Procurement availability is advisory; thermal and power integration remain unresolved.",
       "board_model_reference": {
         "id": "raspberry_pi_4_model_b",
@@ -695,12 +695,46 @@
       },
       "selection_status": "primary_candidate_external_network_and_dual_source_not_closed",
       "description": "TPS259470L:adjustableOVLO,activecurrentlimit,AUXOFF/FLT,latchedfault variant,not5.7Vclampvariant. Integrated back-to-backFET reverseblock OUT->IN. Recommended2.7–23V,5.5A class; RON45mohm max atspecified3A andtemperature conditions.3A drop135mV and0.405W computed frommaxRON,not boardmeasurements.",
-      "selection_reason": "Added GPIO-branch protection without silently replacing existingTPS22990identity. Latchoff avoids automatic repeatedfaultrestart. Exact extended row verified; noBasicmatch supplied. Not proof of globaldual-source safety: forwardcurrent intoPiUSB-C adapter remains possible.",
+      "selection_reason": "Added GPIO-branch protection without silently replacing existingTPS22990identity. Latchoff avoids automatic repeatedfaultrestart. Exact extended row verified; noBasicmatch supplied. UserselectsinterlockedcovertoexcludePiUSB-Csecondinput; eFusestillnotglobalORing. CoveropenmustoverrideMCUenableinhardware. Interlockimplementationnotqualified.",
       "supply_risk": "Branch topology,ILM/OVLO/EN networks,dVdt/ITIMER,transientprotection andthermaldesign not implemented. One protected baseboard branch cannot establish safety of every possiblePiUSB-Csource. No pinout-only circuit approval.",
       "evidence_refs": [
         "product/references/tps25947-ti-2026.pdf pp4-11,26-28,34-35,42,49,60-61,71-72"
       ],
       "part_identity": "4970b7bbd1727680"
+    },
+    {
+      "id": "pi_port_interlock",
+      "role": "pi_usb_c_cover_position_interlock",
+      "name": "D2F-01L",
+      "mpn": "D2F-01L",
+      "part_number": "D2F-01L",
+      "manufacturer": "OMRON(欧姆龙)",
+      "supplier": "LCSC",
+      "lcsc_code": "C231335",
+      "quantity": 1,
+      "stock": 1970,
+      "unit_price_cny": 6.24,
+      "observed_date": "2026-09-21",
+      "source": "default",
+      "procurement_status": "catalog_verified",
+      "jlc_smt_library": "extended",
+      "package": "PCBstraightthrough-holeSPDTlevermicroswitch",
+      "assembly": {
+        "population": "mounted",
+        "method": "through_hole"
+      },
+      "product_url": "https://item.szlcsc.com/231222.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20250911/D6D821450DD44F35E56F3D83AC4A8799.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20250306/22F4880E2FD8067A90B465BC0ECA06B7.pdf",
+      "required_user_evidence": [],
+      "selection_status": "primary_candidate_interlock_integration_pending",
+      "selection_reason": "UserchosePiUSB-Cinterlockedcover. Exactlow-currentlevervariant,notL2/L3orhigher-currentvariant. FactoryPCBassembly; switchonlyenablescontrolsignal,NEVERcarries3APisupply. NOBasicmatch; manualthrough-holeassembly.",
+      "description": "OmronD2F-01LSPDT,DC30V0.1A contactclass; p4leverOFmax0.78N,OP6.8±1.5mm,FPmax10mm,OTmin0.55mm. Supplier150gf isnotleveractuationforceandisnotused. P3straightPCBterminalreference:3holesdiam1.2mm,5.08mmpitch. Notasafety-certifiedinterlock.",
+      "supply_risk": "Contactwettingcurrentatlogicvoltage,COM/NOfootprintorientation,debounce/rearm,stuckcontactrisk andmechanicalrelease-before-portaccess notyetvalidated. Preserveindependenthardpull-downandmechanicalplugblocking; donotuseMCUpollingalone. Unknownalternative; no substitutiontoL2/L3.",
+      "evidence_refs": [
+        "product/references/d2f-omron.pdf pp1,3,4"
+      ],
+      "part_identity": "991d43293fddd739"
     }
   ],
   "alternatives": [
@@ -1353,6 +1387,12 @@
       "description": "No qualified drop-in cooling alternative established; replacement needs mechanical and GPIO/power review."
     },
     {
+      "id": "gpio_candidates_no_qualified_alternatives",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No qualifieddrop-in alternative toSSQ-120-02-G-D orTPS259470LRPWRselected. Samtec RA/-020 andTPS259472 clampvariantnot substituted. Existingidentities preserved."
+    },
+    {
       "id": "battery_complete_pack_spec",
       "severity": "blocking",
       "design_critical": true,
@@ -1374,19 +1414,13 @@
       "id": "gpio_power_protection",
       "severity": "blocking",
       "design_critical": true,
-      "description": "TPS259470LRPWR selectedascandidate forGPIObranch reverseblock,currentlimit andadjustableOVLO. Close externalnetwork,inrush andvoltage/thermalbudget. OUT->IN blocking preventsPi->baseboardflow, not baseboard->PiUSB-Cadapterflow; singlebranchprotection isnotfull dual-sourceORing. Need chosenport-usepolicy plusbothdirectionfaultanalysis. GPIO3.3Voffdomainbehavior remains."
+      "description": "Userresolvedinterface:baseboardinputonlywithPiUSB-Cinterlockedcover. TPS259470Lprimarycandidate+existingdisconnect; nowcloseCOM/NOhardwareenablegating,pull-downfail-off,rearm,nooffdomainbackpower,discharge-before-portaccess andstuckcontactfaultanalysis. D2F-01Lcandidatechosen, not safetycertifiedsystem. Externalresistor/capacitor/transientnetwork andvoltage/thermalbudgetstillopen. Neverclaiminterlockvalidatedwithoutphysical/electricaltests."
     },
     {
-      "id": "pi_usb_c_usage",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Concrete interface choice: shouldPi ownUSB-C be mechanically interlocked/covered while docked and electrically supplied fromGPIO, or remain an active separatelyprotected secondinput? Draft recommendation isinterlockedcover with power-enableinterlock, not warninglabel/removabledustcapalone. This may revise defaultport-access interpretation afteruserchoice; no port requirement changedyet. Activeoption needs additionalinputisolationandpossiblyconnectoradapter, addingassemblycomplexity. Exactinterlock/interfaceparts notyet selected."
-    },
-    {
-      "id": "gpio_candidates_no_qualified_alternatives",
+      "id": "interlock_no_qualified_alternative",
       "severity": "advisory",
       "design_critical": false,
-      "description": "No qualifieddrop-in alternative toSSQ-120-02-G-D orTPS259470LRPWRselected. Samtec RA/-020 andTPS259472 clampvariantnot substituted. Existingidentities preserved."
+      "description": "D2F-01Lonlyprimarycandidate;otherlevervariantsnotdrop-in. Not a certifiedsafetyswitch;hardwareandmechanicalfaultassessmentpending."
     }
   ],
   "unresolved_items": [
@@ -1437,22 +1471,12 @@
       "component_refs": [
         "gpio_efuse",
         "main_disconnect",
+        "pi_port_interlock",
         "compute"
       ],
-      "resolution": "TPS259470LRPWR selectedascandidate forGPIObranch reverseblock,currentlimit andadjustableOVLO. Close externalnetwork,inrush andvoltage/thermalbudget. OUT->IN blocking preventsPi->baseboardflow, not baseboard->PiUSB-Cadapterflow; singlebranchprotection isnotfull dual-sourceORing. Need chosenport-usepolicy plusbothdirectionfaultanalysis. GPIO3.3Voffdomainbehavior remains."
-    },
-    {
-      "id": "pi_usb_c_usage",
-      "owner": "user",
-      "target_stage": "hardware",
-      "design_critical": true,
-      "component_refs": [
-        "compute",
-        "gpio_efuse"
-      ],
-      "resolution": "Concrete interface choice: shouldPi ownUSB-C be mechanically interlocked/covered while docked and electrically supplied fromGPIO, or remain an active separatelyprotected secondinput? Draft recommendation isinterlockedcover with power-enableinterlock, not warninglabel/removabledustcapalone. This may revise defaultport-access interpretation afteruserchoice; no port requirement changedyet. Activeoption needs additionalinputisolationandpossiblyconnectoradapter, addingassemblycomplexity. Exactinterlock/interfaceparts notyet selected."
+      "resolution": "Userresolvedinterface:baseboardinputonlywithPiUSB-Cinterlockedcover. TPS259470Lprimarycandidate+existingdisconnect; nowcloseCOM/NOhardwareenablegating,pull-downfail-off,rearm,nooffdomainbackpower,discharge-before-portaccess andstuckcontactfaultanalysis. D2F-01Lcandidatechosen, not safetycertifiedsystem. Externalresistor/capacitor/transientnetwork andvoltage/thermalbudgetstillopen. Neverclaiminterlockvalidatedwithoutphysical/electricaltests."
     }
   ],
-  "scope": "MinimalBYOPPi4B power/displayhardware:22rows includingcustomerPi; SSQdock andTPS259470L protectionprimarycandidatesadded. Battery exactprotected3300mAh leadfound butunqualified. PiUSB-Cusepolicyrequiresuserchoice. NoPCB/CAD.",
+  "scope": "MinimalBYOPPi4Bpower/displayhardware;23rowsinclcustomerPi. UserchosebaseboardinputonlyandPiUSB-Cinterlockedcover. ThreeaccuratecandidateMPNsadded; battery/actualmating/protectionnotqualified. NoPCB/CAD.",
   "review_status": "partial_hardware_review_not_circuit_or_prototype_validation"
 }

@@ -152,8 +152,9 @@
         "operate and charge concurrently without reboot on power transition",
         "recognize keyboard and storage on USB-A within a declared power budget; USB-C carries input power only",
         "verify display clamping, FPC routing, battery clearance, thermals and desktop stability",
-        "Verify GPIO docking orientation, contact current/temperature, reverse-current and accidental PiUSB-C dual-source protection; no hot-plug or multi-model compatibility claim.",
-        "User installs Pi without soldering or individual jumper wiring; verify enclosure openings and real plug/cable insertion, release and bend clearance for native ports, plus microSD service access. Ports accessible does not certify concurrent powered use."
+        "Verify GPIO docking orientation, contact current/temperature, reverse-current protection and PiUSB-C cover interlock preventing simultaneous source connection; no hot-plug or multi-model compatibility claim.",
+        "User installs Pi without soldering or individual jumper wiring; verify enclosure openings and real plug/cable insertion, release and bend clearance for accessible native ports other than coveredPiUSB-C, plus microSD service access. Ports accessible does not certify concurrent powered use.",
+        "ValidatePiUSB-Ccover interlock: coveropenorwirebreak musthardware-inhibitGPIOsource; portcannotacceptplugwhileGPIOsourceenabled; verifybreak-before-access/discharge timing and noautomaticrestartaftercoverclosure. Normalservice requiresLinuxshutdown andbatteryisolation first."
       ],
       "source": "default"
     },
@@ -213,12 +214,16 @@
       "source": "user"
     },
     "pi_native_port_access": {
-      "value": "Enclosure must leave access and cable insertion/removal space for Pi native interfaces; use native Pi USB-A rather than adding baseboard USB-A",
+      "value": "Enclosure exposesPi nativeinterfaces forplugaccess exceptPi ownUSB-C,which hasaninterlockedcoverwhiledocked. UsePi nativeUSB-A,notaddedbaseboardUSB-A.",
       "source": "user"
     },
     "installation_default": {
-      "value": "Preassembled baseboard: user installs prepared microSD in Pi, cold-plugs GPIO socket, secures board and closes case. No soldering or individual GPIO jumper wiring by user. Default external access to all native board-edge ports and microSD service access; no external breakout for internal CSI/DSI or occupied GPIO. Port access does not promise simultaneous powered use beyond existing500mA peripheral budget.",
+      "value": "Preassembledbaseboard: userinstallsPiwithsystemmicroSD,cold-plugsGPIOsocket,fastensPiandclosesinterlockedcover/case; no soldering orindividualjumperwiring. Nativeboard-edgeports accessibleexceptcoveredPiUSB-C; microSDserviceaccess. No CSI/DSIbreakouts. Accessdoesnotexpandexisting500mAperipheralbudget.",
       "source": "default"
+    },
+    "pi_usb_c_docked_use": {
+      "value": "Daily power/charging throughbaseboardUSB-C only. Pi ownUSB-C blocked byanti-misplug interlockedcover while docked; usableagainafterPi removed. Othernativeinterfacesremainaccessible.",
+      "source": "user"
     }
   },
   "open_questions": []

@@ -2,14 +2,14 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "7aa392a3df87a525cfc932dd429b742d943d9450628d81da463bb0099bec4ab8",
+  "requirements_digest": "cb5a324c05b8294d558764f8a78e5d3284dcb7cbbbc62e9265fe13d2963b7c7f",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
     "battery": "protected 1S 3.7V 3300mAh Li-ion factory assembly",
     "power_path": "ProductUSB-Cinput -> input protection/NVDCcharger -> boost5.1V -> protected/disconnect GPIO5V output -> userPi headerpins2/4. Protected3300mAh1Spack -> BAT; display/AON branches. Output reverse/overcurrent protection and mating connector unresolved.",
     "usb_a": "NativePiUSB-A only. No baseboardUSB-A socket, hub or data extension. Enclosure must expose native ports; existing500mA peripheral budget remains and is not per-port simultaneous capacity.",
-    "usb_c": "Only baseboard external charging/input port active; PiUSB-C is not intended operating supply while docked. Design accidental dual-source safety, not an internalUSB-C source port.",
+    "usb_c": "BaseboardUSB-Csole dailyinput;PiownUSB-Cmechanicallycovered/interlockedwhiledocked,userselected. Noactive dualinputadapter.",
     "baseboard_scope": {
       "value": [
         "power",
@@ -133,20 +133,10 @@
       "component_refs": [
         "gpio_efuse",
         "main_disconnect",
+        "pi_port_interlock",
         "compute"
       ],
-      "resolution": "TPS259470LRPWR selectedascandidate forGPIObranch reverseblock,currentlimit andadjustableOVLO. Close externalnetwork,inrush andvoltage/thermalbudget. OUT->IN blocking preventsPi->baseboardflow, not baseboard->PiUSB-Cadapterflow; singlebranchprotection isnotfull dual-sourceORing. Need chosenport-usepolicy plusbothdirectionfaultanalysis. GPIO3.3Voffdomainbehavior remains."
-    },
-    {
-      "id": "pi_usb_c_usage",
-      "owner": "user",
-      "target_stage": "hardware",
-      "design_critical": true,
-      "component_refs": [
-        "compute",
-        "gpio_efuse"
-      ],
-      "resolution": "Concrete interface choice: shouldPi ownUSB-C be mechanically interlocked/covered while docked and electrically supplied fromGPIO, or remain an active separatelyprotected secondinput? Draft recommendation isinterlockedcover with power-enableinterlock, not warninglabel/removabledustcapalone. This may revise defaultport-access interpretation afteruserchoice; no port requirement changedyet. Activeoption needs additionalinputisolationandpossiblyconnectoradapter, addingassemblycomplexity. Exactinterlock/interfaceparts notyet selected."
+      "resolution": "Userresolvedinterface:baseboardinputonlywithPiUSB-Cinterlockedcover. TPS259470Lprimarycandidate+existingdisconnect; nowcloseCOM/NOhardwareenablegating,pull-downfail-off,rearm,nooffdomainbackpower,discharge-before-portaccess andstuckcontactfaultanalysis. D2F-01Lcandidatechosen, not safetycertifiedsystem. Externalresistor/capacitor/transientnetwork andvoltage/thermalbudgetstillopen. Neverclaiminterlockvalidatedwithoutphysical/electricaltests."
     }
   ],
   "supply_risks": [
@@ -332,6 +322,12 @@
       "description": "No qualified drop-in cooling alternative established; replacement needs mechanical and GPIO/power review."
     },
     {
+      "id": "gpio_candidates_no_qualified_alternatives",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No qualifieddrop-in alternative toSSQ-120-02-G-D orTPS259470LRPWRselected. Samtec RA/-020 andTPS259472 clampvariantnot substituted. Existingidentities preserved."
+    },
+    {
       "id": "battery_complete_pack_spec",
       "severity": "blocking",
       "design_critical": true,
@@ -353,19 +349,13 @@
       "id": "gpio_power_protection",
       "severity": "blocking",
       "design_critical": true,
-      "description": "TPS259470LRPWR selectedascandidate forGPIObranch reverseblock,currentlimit andadjustableOVLO. Close externalnetwork,inrush andvoltage/thermalbudget. OUT->IN blocking preventsPi->baseboardflow, not baseboard->PiUSB-Cadapterflow; singlebranchprotection isnotfull dual-sourceORing. Need chosenport-usepolicy plusbothdirectionfaultanalysis. GPIO3.3Voffdomainbehavior remains."
+      "description": "Userresolvedinterface:baseboardinputonlywithPiUSB-Cinterlockedcover. TPS259470Lprimarycandidate+existingdisconnect; nowcloseCOM/NOhardwareenablegating,pull-downfail-off,rearm,nooffdomainbackpower,discharge-before-portaccess andstuckcontactfaultanalysis. D2F-01Lcandidatechosen, not safetycertifiedsystem. Externalresistor/capacitor/transientnetwork andvoltage/thermalbudgetstillopen. Neverclaiminterlockvalidatedwithoutphysical/electricaltests."
     },
     {
-      "id": "pi_usb_c_usage",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Concrete interface choice: shouldPi ownUSB-C be mechanically interlocked/covered while docked and electrically supplied fromGPIO, or remain an active separatelyprotected secondinput? Draft recommendation isinterlockedcover with power-enableinterlock, not warninglabel/removabledustcapalone. This may revise defaultport-access interpretation afteruserchoice; no port requirement changedyet. Activeoption needs additionalinputisolationandpossiblyconnectoradapter, addingassemblycomplexity. Exactinterlock/interfaceparts notyet selected."
-    },
-    {
-      "id": "gpio_candidates_no_qualified_alternatives",
+      "id": "interlock_no_qualified_alternative",
       "severity": "advisory",
       "design_critical": false,
-      "description": "No qualifieddrop-in alternative toSSQ-120-02-G-D orTPS259470LRPWRselected. Samtec RA/-020 andTPS259472 clampvariantnot substituted. Existingidentities preserved."
+      "description": "D2F-01Lonlyprimarycandidate;otherlevervariantsnotdrop-in. Not a certifiedsafetyswitch;hardwareandmechanicalfaultassessmentpending."
     }
   ],
   "power": {
@@ -407,7 +397,7 @@
     "charging": "Actual settings remain inhibited until pack identified. Proposed0.5A/4.2V only if pack permits. BQ25622 reset1040mA is not safe default for unknown pack: external CE pulled disabled until configured; watchdog/reset/CC downshift must fail safe. Existing charger/CC ILIM gating remains implementation work.",
     "input": "5V3A Type-C source target; existing conservative2.6A input limit for3A advertisement,1.2A for1.5A; unknown<=100mA/no charging. Even13W input before conversion cannot sustain16.32W design output; battery supplements, charging reduces/stops. No indefinite peak operation on external power or batteryless claim.",
     "thermal": "At nominal16.32W output and85% efficiency boost dissipates2.88W, before charger, switch, wiring and input losses. Needs board copper/thermal design separate from Pi heatsink; no thermal pass.",
-    "gpio_output_protection": "PrimarycandidateTPS259470LRPWR onPi GPIO5Vbranch, inserieswith existingmain_disconnectcandidate. ProtectedOUT node onlyPiGPIO; displayremainsseparate branchtoavoidunknownPiUSB-CvoltagefeedingLCD. Reverseblock directionPi->baseboard; forwarddrive intoPiownUSB-Cport still needsportpolicy andhardwareprotection. No completeddual-sourceclaim.",
+    "gpio_output_protection": "PrimarycandidateTPS259470LRPWR onPi GPIO5Vbranch, inserieswith existingmain_disconnectcandidate. ProtectedOUT node onlyPiGPIO; displayremainsseparate branchtoavoidunknownPiUSB-CvoltagefeedingLCD. Reverseblock directionPi->baseboard; forwarddrive intoPiownUSB-Cport still needsportpolicy andhardwareprotection. No completeddual-sourceclaim. Interfacechoiceclosed: userrequiresPiUSB-Cinterlockedcover; validatehardwaregateandmechanicalnonoverlapbeforeclaimingfaultprotection.",
     "gpio_efuse": {
       "source": "research",
       "mpn": "TPS259470LRPWR",
@@ -605,7 +595,7 @@
       ],
       "shell_stake_length_mm": 0.95,
       "drawing": "product/references/usb4105.pdf p1",
-      "connections": "External input onbaseboard tocharger path; PiUSB-C unused in normal docked use. No internalUSB-C source/cable. Implement dual-source fault safety.",
+      "connections": "Baseboardexternalsinktocharger;sole dailyinput. PiownUSB-Ccovered/interlockedwhileGPIOdocked. No internalUSB-Ccable.",
       "cutout_candidate_mm": {
         "value": [
           9.6,
@@ -932,6 +922,24 @@
         "PiGPIO12PWM"
       ],
       "note": "Fan leads land on baseboard, not occupiedPiheader. Include fan load within existing3A compute/fan/USB budget; exact breakout connector chosen with dock."
+    },
+    "pi_port_cover_interlock": {
+      "source": "default",
+      "switch_mpn": "D2F-01L",
+      "user_policy": "Baseboardinputonly;PiUSB-Ccoveredwhiledocked",
+      "signal_only": true,
+      "contact_current_rating_a": 0.1,
+      "contact_voltage_rating_v": 30,
+      "lever_operating_force_max_n": 0.78,
+      "lever_operating_position_mm": {
+        "nominal": 6.8,
+        "tolerance": 1.5
+      },
+      "free_position_max_mm": 10,
+      "overtravel_min_mm": 0.55,
+      "hardware_intent": "COM/NOpathallowsenableonlywhenblockedportcoverlatched;fixedpull-downforcesoffonopen/brokenwire. BothMCUpermissionandphysicalclosure required. Choosecontactbiasresistorsfromwetting/contactreliabilityreview,notassumedzerocurrent. Never route3Athroughswitch.",
+      "sequencing": "CovermustphysicallydenyplugentrywhileGPIOenabled;mechanicaltravelanddischargemustensurebreakbeforeexposure. Reclosingcoverdoesnotautoenable; manualpowerrequestafterfaultclear. EmergencyopeningcutsGPIOwithoutwaitingforLinux; normalservicealwaysshutdowngracefullyfirst.",
+      "qualification": "Referencepin/leverdrawingsreviewedbutnocustomfootprint,interlockcircuitorCADcreated;productiontolerances,stuckcontactfaultandlow-currentreliabilityunverified."
     }
   },
   "superseded_usb_c_pi_interconnect": {
@@ -1000,15 +1008,14 @@
   },
   "enclosure_native_port_access": {
     "requirement": {
-      "value": "Provide openings and practical plug/cable access for Pi native interfaces",
+      "value": "Enclosure exposesPi nativeinterfaces forplugaccess exceptPi ownUSB-C,which hasaninterlockedcoverwhiledocked. UsePi nativeUSB-A,notaddedbaseboardUSB-A.",
       "source": "user"
     },
     "default_external_interfaces": [
       "USB-A",
       "Ethernet",
       "micro-HDMI",
-      "3.5mm AV",
-      "Pi USB-C"
+      "3.5mm AV"
     ],
     "service_access": [
       "microSD"
@@ -1019,19 +1026,13 @@
       "GPIO expansion beyond occupied dock"
     ],
     "source": "default",
-    "pi_usb_c_policy": "Physically accessible but not normal docked supply input; label separately frombaseboardchargingUSB-C and implement accidentaldual-source protection. Do not use a blocked port as substitute for electrical protection.",
+    "pi_usb_c_policy": "Userselectedinterlockedcoverwhiledocked,notanactivenormalinput. Othernativeportsaccessible. Piownportusableafterundocking. CovermechanismmustpreventplugentryuntilbaseboardGPIOoutputdisabledandresidualenergyhandled.",
     "opening_dimensions_mm": null,
     "qualification": "No geometry authored or fitverified. Verify connector bodies, plug overmolds, cable bend, release tab/finger access against actualPi and completedbaseboard. No audio circuitry added merely by exposingPiAVport."
   },
   "pi_usb_c_interface_decision": {
-    "id": "pi_usb_c_usage",
-    "owner": "user",
-    "target_stage": "hardware",
-    "design_critical": true,
-    "component_refs": [
-      "compute",
-      "gpio_efuse"
-    ],
-    "resolution": "Concrete interface choice: shouldPi ownUSB-C be mechanically interlocked/covered while docked and electrically supplied fromGPIO, or remain an active separatelyprotected secondinput? Draft recommendation isinterlockedcover with power-enableinterlock, not warninglabel/removabledustcapalone. This may revise defaultport-access interpretation afteruserchoice; no port requirement changedyet. Activeoption needs additionalinputisolationandpossiblyconnectoradapter, addingassemblycomplexity. Exactinterlock/interfaceparts notyet selected."
+    "value": "baseboard_input_only_interlocked_pi_port",
+    "source": "user",
+    "status": "resolved_interface_choice_implementation_pending"
   }
 }

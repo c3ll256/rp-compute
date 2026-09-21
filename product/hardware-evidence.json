@@ -470,6 +470,19 @@
       "sha256": "045fe2ace2924053ec0b86e2df54efc6328ec6400b38c2b6e6d55d1693ebaa2a",
       "pages": [],
       "interpretation": "Manufacturer catalog discovery only, notpackqualification."
+    },
+    {
+      "id": "pi_port_interlock_switch",
+      "path": "product/references/d2f-omron.pdf",
+      "source_url": "https://atta.szlcsc.com//upload/public/pdf/source/20250306/22F4880E2FD8067A90B465BC0ECA06B7.pdf",
+      "sha256": "4fdce9ecc8c7d988c3b03935e1ca0b2c6af041820eddffba126d538c1d6599ee",
+      "pages": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "interpretation": "LevervariantD2F-01L;OF0.78N fromleverp4not1.47Nplungerp1.30V0.1A contactclass,controlonly. Notcompleteinterlockqualification."
     }
   ],
   "web_evidence": [
@@ -507,7 +520,7 @@
     "2026-09-21 native web search returned no results. Samtec product page accessible; suddendocs catalog URL403, hostnotretried. UsedLCSCcachedSamteccatalog, fullseriesproductionprintgapretained.",
     "EEMBsiteHTTP500 andlipobattery.netDNSfailure; no batteryidentityinferred. LiPolmanufacturerpagesaccessible andsaved. LP446598cataloglookup noexactLCSCmatch; manufactureridentity retained aslead only."
   ],
-  "current_application_status": "22rowdraft;SamtecSSQdockandTIeFuseprimarycandidates;two3300mAhmanufacturerleadsunqualified. UserchoiceonPiUSB-Cinterfacerequired; battery,currentandfitgapsremain. NoPCB/CAD.",
+  "current_application_status": "23rowdraft;userconfirmedbaseboardinputonlyandcovered/interlockedPiUSB-C. SSQsocket,TPS259470L,D2F-01Lprimarycandidatesrecorded. Noopenuserquestions; batterycompletepackevidence andinterfaceimplementation remainagentowned. NoPCB/CAD.",
   "board_model_references": [
     {
       "id": "raspberry_pi_4_model_b",
