@@ -2,12 +2,12 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "fit_check",
-  "summary": "非 Zero 的 Raspberry Pi / Compute Module 与 Sharp LS027B7DH01 掌上终端；3.7V 3300mAh Li-ion，续航按所选硬件和使用条件实测报告，不设两小时硬性门槛。当前仅更新硬件需求，不开展 PCB/CAD。",
+  "summary": "Raspberry Pi 4 Model B 与 Sharp LS027B7DH01 掌上终端；3.7V 3300mAh Li-ion，续航按所选硬件和使用条件实测报告，不设两小时硬性门槛。当前仅更新硬件需求，不开展 PCB/CAD。",
   "required_interfaces": [
     {
       "id": "compute_mount",
       "kind": "internal_fit",
-      "description": "所选非 Zero Raspberry Pi 主板或 CM 加载板的真实安装接口、完整堆叠高度、存储、散热、天线及线缆空间；不得复用 Zero 孔位。",
+      "description": "Raspberry Pi 4 Model B 的独立固定、完整器件高度、microSD、散热、天线及内部 USB-C/GPIO 线缆空间；不用 CM 载板，不复用 Zero 孔位。",
       "source": "user_requested",
       "required": true
     },
@@ -21,7 +21,7 @@
     {
       "id": "usb_access",
       "kind": "external_access",
-      "description": "一个 USB-A 和一个 USB-C 的插拔开口、插头包络及固定",
+      "description": "一个主要使用的 Pi 4B 原生 USB-A 端口及独立充电输入 USB-C 的插拔空间；计入板上其他连接器实体，不承诺额外外设同时供电。",
       "source": "user_requested",
       "required": true
     },
@@ -58,6 +58,12 @@
       "source": "user_requested",
       "description": "Sharp LCY-1210401A LS027B7DH01 原厂规格书，DigiKey 托管；页 10、11、13 已核实基本参数，完整结构图在硬件阶段复核",
       "path": "product/references/LS027B7DH01-sharp-2010.pdf"
+    },
+    {
+      "id": "pi4b_product_brief",
+      "source": "user_requested",
+      "description": "Pi 4B 官方产品简介：p3 规格/电源，p5 近似参考尺寸与警告；不是生产用机械图。",
+      "path": "product/references/pi4b-product-brief.pdf"
     }
   ],
   "assembly_story": {
@@ -92,7 +98,8 @@
         "reference_ids": [
           "reference_photo_angled",
           "reference_photo_front",
-          "sharp_datasheet"
+          "sharp_datasheet",
+          "pi4b_product_brief"
         ]
       }
     ]

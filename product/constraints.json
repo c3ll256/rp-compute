@@ -2,14 +2,14 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "47d09422f1071a24b452e30a60eac8923d0b3ed66985f62b26b9aaa9f7ef1fc8",
+  "requirements_digest": "07174f7f503941fb6290872977ccd290675cf1527272db2d80f5af35f3d51906",
   "architecture": {
-    "compute": "non-Zero Raspberry Pi or Compute Module; exact assembly unresolved",
+    "compute": "Raspberry Pi 4 Model B; 4GB RAM default; complete SBC, no CM carrier",
     "display": "LS027B7DH01 serial Memory LCD",
     "battery": "protected 1S 3.7V 3300mAh Li-ion factory assembly",
-    "power_path": "pending host and pack sizing; old charger/boost parts are research candidates only",
-    "usb_a": "one host port, 500mA external budget; routing and host interface to be selected",
-    "usb_c": "charging and power input only; electrical input capability to be re-evaluated"
+    "power_path": "Product USB-C power input -> charger/power-path candidate -> regulated system rail -> Pi 4B USB-C internal cable; screen/AON branches separate. Battery -> power-path candidate. Parts/current margins and exact interconnect not yet closed.",
+    "usb_a": "Use one native USB 2.0 Type-A port on Pi 4B for 500mA peripheral budget. Other physical native ports remain present but additional simultaneous peripheral load is not promised.",
+    "usb_c": "External charging/input-only receptacle on power subsystem, distinct from internal Pi USB-C inlet; no USB data link through product input."
   },
   "display": {
     "module_body_mm": [
@@ -76,20 +76,9 @@
       "decoupling": "Sharp example: VDDA >=0.1uF, VDD >=1uF, DISP-GND 0.1uF. Review DISP edge and sequencing with that capacitor; do not blindly add equivalent capacitance to SPI/COM. Each IC bypass 100nF, LDO input/output >=1uF effective.",
       "sequencing": "DISP low and all signal outputs benign until LCD rails valid. Start COM, clear/update panel, then DISP high. On shutdown blank/clear per Sharp timing, DISP low, isolate buffers, then remove main power. LCD input overshoot must stay within absolute limits."
     },
-    "host_integration_status": "New host GPIO/SPI pin map, voltage domains, shutdown sequencing and driver integration pending; panel facts unchanged."
+    "host_integration_status": "Pi 4B 40-pin GPIO/SPI signals to retained LCD interface; exact pins, driver and shutdown sequencing pending. Not HDMI; no CM carrier."
   },
   "unresolved_items": [
-    {
-      "id": "nonzero_compute_selection",
-      "owner": "agent",
-      "target_stage": "hardware",
-      "design_critical": true,
-      "component_refs": [
-        "compute"
-      ],
-      "procurement_status": "external_procurement_required",
-      "resolution": "Select exact Compute Module plus carrier or standard Pi for existing Linux terminal/SSH/tools use; establish RAM/storage, interfaces, power, cooling and dimensions. No Zero substitute."
-    },
     {
       "id": "battery_complete_pack_spec",
       "owner": "agent",
@@ -104,39 +93,48 @@
       "resolution": "Select factory protected 3.7V nominal 3300mAh Li-ion pack. Capacity is not a discharge-current rating. Verify complete pack current/protection, charge limits, harness polarity and dimensions against selected host. No user engineering specification required. No matching candidate found in focused supplier lookup; unrelated logic IC rows rejected."
     },
     {
-      "id": "nonzero_power_runtime_interfaces",
+      "id": "pi4b_power_runtime_interfaces",
       "owner": "agent",
       "target_stage": "hardware",
       "design_critical": true,
       "component_refs": [
+        "compute",
         "charger",
         "boost",
         "main_disconnect",
         "supervisor",
-        "usb_a",
         "usb_c_cc"
       ],
-      "resolution": "Rebuild power, transient and thermal budget; estimate and later measure actual no-USB and USB-keyboard runtimes with 12.21Wh nominal battery, with no fixed minimum duration. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
+      "resolution": "Rebuild Pi 4B power/transient/thermal budget and shutdown/GPIO integration with 3.7V 3300mAh battery. Official 5V/3A supply guidance includes attached USB load: do not add the same 500mA twice. Reserve separate display/AON/cooling loads and path losses. Verify converter/current path at low battery and during startup. Estimate and later measure runtime without minimum duration; 3A rating is not typical consumption. Keep charging/no-reboot behavior as unverified targets."
+    },
+    {
+      "id": "pi4b_power_interconnect",
+      "owner": "agent",
+      "target_stage": "hardware",
+      "design_critical": true,
+      "component_refs": [
+        "compute",
+        "main_disconnect"
+      ],
+      "resolution": "Default regulated system rail into Pi 4B USB-C via a factory cable; select cable/plug current rating, resistance/drop and bend envelope. External product USB-C feeds charger, not Pi directly; do not parallel an independent Pi PSU with battery rail. 40-pin GPIO used for signals/shutdown only by default; exact harness and pin allocation still required."
+    },
+    {
+      "id": "pi4b_thermal_storage_integration",
+      "owner": "agent",
+      "target_stage": "hardware",
+      "design_critical": true,
+      "component_refs": [
+        "compute"
+      ],
+      "resolution": "Choose exact heat sink/cooling and its mechanical clearance for enclosure, plus GPIO cable and microSD service access. 32GB A1/Class10 microSD remains a disclosed accessory target, not an exact selected MPN. Characterize throttling/temperature under expected load; do not claim fanless operation or validated 85x115x40mm fit."
     }
   ],
   "supply_risks": [
-    {
-      "id": "nonzero_compute_selection",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Select exact Compute Module plus carrier or standard Pi for existing Linux terminal/SSH/tools use; establish RAM/storage, interfaces, power, cooling and dimensions. No Zero substitute."
-    },
     {
       "id": "battery_complete_pack_spec",
       "severity": "blocking",
       "design_critical": true,
       "description": "Select factory protected 3.7V nominal 3300mAh Li-ion pack. Capacity is not a discharge-current rating. Verify complete pack current/protection, charge limits, harness polarity and dimensions against selected host. No user engineering specification required. No matching candidate found in focused supplier lookup; unrelated logic IC rows rejected."
-    },
-    {
-      "id": "nonzero_power_runtime_interfaces",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Rebuild power, transient and thermal budget; estimate and later measure actual no-USB and USB-keyboard runtimes with 12.21Wh nominal battery, with no fixed minimum duration. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
     },
     {
       "id": "screen_supply",
@@ -205,22 +203,8 @@
       "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
     },
     {
-      "id": "single_source_usb_a_switch",
-      "component_id": "usb_a_switch",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
-    },
-    {
       "id": "single_source_usb_c_cc",
       "component_id": "usb_c_cc",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
-    },
-    {
-      "id": "single_source_usb_a",
-      "component_id": "usb_a",
       "severity": "advisory",
       "design_critical": false,
       "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
@@ -296,13 +280,6 @@
       "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
     },
     {
-      "id": "single_source_port_esd",
-      "component_id": "port_esd",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
-    },
-    {
       "id": "single_source_path_current_guard",
       "component_id": "path_current_guard",
       "severity": "advisory",
@@ -317,35 +294,39 @@
       "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
     },
     {
-      "id": "single_source_pi_usb_harness",
-      "component_id": "pi_usb_harness",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
-    },
-    {
-      "id": "single_source_pi_gpio_harness",
-      "component_id": "pi_gpio_harness",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
-    },
-    {
       "id": "power_implementation",
       "severity": "warning",
       "design_critical": false,
-      "description": "New power chain is selection-level only. Verify BQ25622 6A continuous battery path, boost current/efficiency/thermal limits, USB switch tolerances, safe CC input boot/current-downshift and low-voltage shutdown before fabrication. No seamless-switch or runtime measurement exists."
+      "description": "Pi 4B system power is not validated. Existing BQ25622/TPS61088/TPS22990 are candidate research only; account for their documented limits at low battery, startup, input-current negotiation, hot enclosure and shutdown. Retired custom USB switch is not part of native Pi USB. No runtime or no-reboot measurement exists."
     },
     {
       "id": "new_parts_single_source",
       "severity": "advisory",
       "design_critical": false,
       "description": "No qualified drop-in alternative established for BQ25622, TPS22990, new charger inductor or XT30U pair; substitutions require new interface review."
+    },
+    {
+      "id": "pi4b_power_runtime_interfaces",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Rebuild Pi 4B power/transient/thermal budget and shutdown/GPIO integration with 3.7V 3300mAh battery. Official 5V/3A supply guidance includes attached USB load: do not add the same 500mA twice. Reserve separate display/AON/cooling loads and path losses. Verify converter/current path at low battery and during startup. Estimate and later measure runtime without minimum duration; 3A rating is not typical consumption. Keep charging/no-reboot behavior as unverified targets."
+    },
+    {
+      "id": "pi4b_power_interconnect",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Default regulated system rail into Pi 4B USB-C via a factory cable; select cable/plug current rating, resistance/drop and bend envelope. External product USB-C feeds charger, not Pi directly; do not parallel an independent Pi PSU with battery rail. 40-pin GPIO used for signals/shutdown only by default; exact harness and pin allocation still required."
+    },
+    {
+      "id": "pi4b_thermal_storage_integration",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Choose exact heat sink/cooling and its mechanical clearance for enclosure, plus GPIO cable and microSD service access. 32GB A1/Class10 microSD remains a disclosed accessory target, not an exact selected MPN. Characterize throttling/temperature under expected load; do not claim fanless operation or validated 85x115x40mm fit."
     }
   ],
   "power": {
     "source": "default",
-    "selection_status": "recalculate_after_nonzero_selection",
+    "selection_status": "pi4b_reference_supply_known_system_budget_pending",
     "usb_a_available_current_ma": {
       "value": 500,
       "source": "user"
@@ -354,7 +335,14 @@
     "total_design_target_a": null,
     "battery_path_a": null,
     "charger_cc_a": null,
-    "note": "Old power chain is not certified for CM/Pi; assess complete system including carrier, cooling, display, USB faults, boot peaks and battery sag. Retain no-reboot power transitions as a target, not a proven feature."
+    "note": "Do not directly connect 3.7V battery to Pi. Regulated rail and power-path candidates need low-battery, current/thermal, startup and insertion/removal review. Reserve separate screen/AON/cooling loads. No perpetual full-load operation plus charging or batteryless promise.",
+    "board_supply_reference": {
+      "voltage_v": 5,
+      "current_a": 3,
+      "source": "research",
+      "evidence": "pi4b-product-brief.pdf pp3,5",
+      "note": "Supply recommendation including downstream USB, not measured board draw; no double-counting of native 500mA port."
+    }
   },
   "runtime_budget": {
     "source": "default",
@@ -389,12 +377,56 @@
     "note": "Do not transfer old 6000mAh candidate ratings or geometry; pack current and charge settings require actual datasheet. Existing XT30U pair remains provisional, not mandatory user specification."
   },
   "compute": {
-    "source": "default",
-    "selection_status": "unresolved_nonzero",
-    "outline_mm": null,
-    "mount_centers_mm": null,
+    "source": "research",
+    "model": "Raspberry Pi 4 Model B",
+    "selection_status": "board_selected_integration_pending",
+    "ram_gb": {
+      "value": 4,
+      "source": "default"
+    },
+    "outline_mm": [
+      85,
+      56
+    ],
+    "mount_centers_mm": [
+      [
+        3.5,
+        3.5
+      ],
+      [
+        61.5,
+        3.5
+      ],
+      [
+        3.5,
+        52.5
+      ],
+      [
+        61.5,
+        52.5
+      ]
+    ],
+    "hole_diameter_mm": 2.7,
+    "frame": "Top view in official brief p5: USB/Ethernet toward +X, GPIO along +Y; origin lower-left nominal board edge. Hole centers derived from 3.5mm edge offset and 58x49mm spacing.",
+    "geometry_qualification": "Brief p5 explicitly approximate, reference-only, NOT production data; connector protrusions and component/thermal/cable heights not included. Validate against exact board revision and model before CAD/fabrication.",
     "port_positions_mm": null,
-    "note": "Select complete assembly and thermal envelope; no Zero geometry or USB harness reuse."
+    "gpio_header_pins": 40,
+    "native_usb": {
+      "usb_2_type_a": 2,
+      "usb_3_type_a": 2
+    },
+    "storage": "microSD; 32GB A1/Class10 accessory target retained, exact card unselected",
+    "power_input": "5V DC USB-C minimum 3A, as brief p3/p5; p5 permits good 2.5A supply only if downstream USB total is less than 500mA. Do not use exception as proof for promised 500mA.",
+    "cooling": "Provide ventilation and establish exact cooling parts/envelope; no fanless or throttling claim.",
+    "evidence": "product/references/pi4b-product-brief.pdf pp3,5; p5 visually inspected",
+    "board_model_reference": {
+      "id": "raspberry_pi_4_model_b",
+      "source_version": "FreeCAD Parts Library pinned at be5e71491051cef75da46831b6fd77c6313cb497",
+      "source_url": "https://github.com/FreeCAD/FreeCAD-library/blob/be5e71491051cef75da46831b6fd77c6313cb497/Electronics%20Parts/Boards/Raspberry/Raspberry%20Pi%204B/Raspberry%20Pi%204B.step",
+      "sha256": "82c055acbed781e623d8c32acfdec2254400104f2cfa21ddbc2ba0e8b80797da",
+      "license": "CC-BY-3.0",
+      "status": "exact board-level catalog match; not installed or imported; memory capacity not mechanically distinguished"
+    }
   },
   "ports": [
     {
@@ -407,7 +439,7 @@
       ],
       "shell_stake_length_mm": 0.95,
       "drawing": "product/references/usb4105.pdf p1",
-      "connections": "Pending selected non-Zero host and power topology; previous physical connector drawing remains candidate evidence only.",
+      "connections": "External input into charger/power-path subsystem, not directly paralleled to Pi USB-C. Existing receptacle/CC controller remain candidates pending input power budget.",
       "cutout_candidate_mm": {
         "value": [
           9.6,
@@ -423,30 +455,14 @@
     },
     {
       "id": "usb_a",
-      "mpn": "SS-52100-001",
-      "body_mm": [
-        14.5,
-        14,
-        6.9
-      ],
-      "front_height_mm": 7.12,
-      "shell_mount_pitch_mm": 13.14,
-      "shell_hole_diameter_mm": 2.3,
-      "signal_hole_diameter_mm": 0.92,
-      "drawing": "product/references/ss-52100-001.pdf p1, CT520004 A0; supplier 002 PDF rejected",
-      "connections": "Pending selected non-Zero host and power topology; previous physical connector drawing remains candidate evidence only.",
-      "cutout_candidate_mm": {
-        "value": [
-          15.2,
-          7.7
-        ],
-        "source": "default"
-      },
-      "footprint_on_face_mm": {
-        "w": 19.2,
-        "h": 11.7
-      },
-      "selection_status": "candidate_revalidate"
+      "implementation": "native Pi 4B USB 2.0 Type-A connector",
+      "component_ref": "compute",
+      "selection_status": "native_port_selected_layout_pending",
+      "quantity_for_product_use": 1,
+      "available_current_ma": 500,
+      "connections": "Keyboard/storage directly into selected native Type-A; no Zero micro-B data harness, custom socket, added hub or separate external VBUS feed. Existing other Pi ports are not removed.",
+      "cutout_candidate_mm": null,
+      "note": "Use actual Pi connector/model geometry; do not use SS-52100-001 dimensions for native socket. Board orientation and exposure of other ports remain layout work; one-port usage budget is not a claim of independent 500mA hardware trip."
     }
   ],
   "controls": {
@@ -477,10 +493,10 @@
     "source": "default",
     "mpn": "ATTINY1616-SN",
     "selection_status": "candidate_revalidate",
-    "note": "Reallocate GPIO, shutdown handshake, power gating and voltage thresholds for exact host and 3300mAh pack; old loaded-voltage settings and pin budget are historical only."
+    "note": "Reallocate Pi 4B GPIO/shutdown handshake and power gating for 3300mAh pack; old thresholds/pin budget remain historical. Supervisor must wait for Linux safe shutdown before removing regulated power."
   },
   "pcb_handoff_tasks": [
-    "Resolve nonzero_compute_selection, battery_complete_pack_spec and nonzero_power_runtime_interfaces before BOM readiness.",
+    "Close battery_complete_pack_spec, pi4b_power_runtime_interfaces, pi4b_power_interconnect and pi4b_thermal_storage_integration before BOM readiness.",
     "Revalidate retained IC application circuits, power input, USB routing, display protection, shutdown and thermal margins against exact host/pack.",
     "Keep no-reboot power transitions and controlled shutdown as acceptance targets; measure and report runtime without a fixed minimum-hour threshold.",
     "No PCB/CAD is authorized in this query."
@@ -617,6 +633,36 @@
         "qualification": "Provisional loaded-voltage defaults for higher-current chain, not measured state of charge. SYS below 3.5V invalidates full-load power proof; shed USB load/request immediate safe shutdown while reserve remains. Controlled shutdown needs sufficient energy for Linux acknowledgement; emergency cut risks data loss. Validate thresholds/hysteresis and revise defaults from prototype, never lower user runtime goal."
       },
       "off_state": "Main switch off plus boost EN off; AON low-power sleep, charging/CC remain supervised. No claim of zero battery drain."
+    }
+  },
+  "superseded_custom_usb_reference": {
+    "status": "retired_native_pi4_usb",
+    "port": {
+      "id": "usb_a",
+      "mpn": "SS-52100-001",
+      "body_mm": [
+        14.5,
+        14,
+        6.9
+      ],
+      "front_height_mm": 7.12,
+      "shell_mount_pitch_mm": 13.14,
+      "shell_hole_diameter_mm": 2.3,
+      "signal_hole_diameter_mm": 0.92,
+      "drawing": "product/references/ss-52100-001.pdf p1, CT520004 A0; supplier 002 PDF rejected",
+      "connections": "Pending selected non-Zero host and power topology; previous physical connector drawing remains candidate evidence only.",
+      "cutout_candidate_mm": {
+        "value": [
+          15.2,
+          7.7
+        ],
+        "source": "default"
+      },
+      "footprint_on_face_mm": {
+        "w": 19.2,
+        "h": 11.7
+      },
+      "selection_status": "candidate_revalidate"
     }
   }
 }

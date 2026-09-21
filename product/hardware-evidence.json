@@ -337,6 +337,17 @@
       ],
       "source_url": "https://www.ti.com/cn/lit/ds/symlink/bq25895.pdf",
       "interpretation": "BQ25895 exact supplier candidate studied, not selected; never transfer its ratings/pins to primary."
+    },
+    {
+      "id": "pi4b_product_brief",
+      "path": "product/references/pi4b-product-brief.pdf",
+      "sha256": "00411dddb1ac92cf40bb8daa4e1389d991a9faa7620bcc1293dfaf478f92b1c3",
+      "pages": [
+        3,
+        5
+      ],
+      "source_url": "https://pip-assets.raspberrypi.com/categories/545-raspberry-pi-4-model-b/documents/RP-008344-DS-5-raspberry-pi-4-product-brief.pdf",
+      "interpretation": "Pi 4B 4GB variant supported. 5V/3A reference includes USB peripheral supply, not typical consumption. p5 rendered: 85x56 nominal outline, 58x49 mounting pitch, 3.5 edge offsets, diameter2.7; approximate reference-only drawing, not manufacturing authority."
     }
   ],
   "web_evidence": [
@@ -363,7 +374,18 @@
     "TPS2121 supplier timeout; not selected and no availability conclusion.",
     "Some researched battery pages were 404; no product-unavailability inference.",
     "Non-Zero/3300mAh revision: native searches returned no usable results; Raspberry Pi product-page fetch returned 403 and was not retried.",
-    "Focused 3.7V 3300mAh battery catalog query returned 74HC04,74HC08 and MOSFET rows; all rejected as unrelated. No exact battery identity selected, and no inference that suitable packs do not exist."
+    "Focused 3.7V 3300mAh battery catalog query returned 74HC04,74HC08 and MOSFET rows; all rejected as unrelated. No exact battery identity selected, and no inference that suitable packs do not exist.",
+    "Pi4B turn: native search returned no results; official brief PDF successfully downloaded. Supplier query returned unrelated resistor/diode/crystal, rejected; no SKU/stock/price invented. Board-spec catalog JSON not present in workspace; official brief used instead."
   ],
-  "current_application_status": "Existing part datasheet facts remain research evidence. Zero-specific integration and 6000mAh-pack budget are superseded; no approval for non-Zero/3300mAh branch."
+  "current_application_status": "Pi 4B selected by user; RAM4GB default. Native USB host chosen; old custom USB socket/switch/ESD retired. Existing charger/boost candidates require Pi4B integration review; no BOM readiness or prototype claims.",
+  "board_model_references": [
+    {
+      "id": "raspberry_pi_4_model_b",
+      "source_version": "FreeCAD Parts Library pinned at be5e71491051cef75da46831b6fd77c6313cb497",
+      "source_url": "https://github.com/FreeCAD/FreeCAD-library/blob/be5e71491051cef75da46831b6fd77c6313cb497/Electronics%20Parts/Boards/Raspberry/Raspberry%20Pi%204B/Raspberry%20Pi%204B.step",
+      "sha256": "82c055acbed781e623d8c32acfdec2254400104f2cfa21ddbc2ba0e8b80797da",
+      "license": "CC-BY-3.0",
+      "status": "exact board-level catalog match; not installed or imported; memory capacity not mechanically distinguished"
+    }
+  ]
 }

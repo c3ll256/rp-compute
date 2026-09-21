@@ -2,8 +2,49 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "47d09422f1071a24b452e30a60eac8923d0b3ed66985f62b26b9aaa9f7ef1fc8",
+  "requirements_digest": "07174f7f503941fb6290872977ccd290675cf1527272db2d80f5af35f3d51906",
   "items": [
+    {
+      "id": "compute",
+      "role": "linux_compute_board",
+      "name": "Raspberry Pi 4 Model B — 4GB default",
+      "quantity": 1,
+      "supplier": "External Raspberry Pi reseller; not yet selected",
+      "manufacturer": "Raspberry Pi",
+      "part_number": "Raspberry Pi 4 Model B 4GB",
+      "mpn": "Raspberry Pi 4 Model B 4GB",
+      "stock": null,
+      "source": "default",
+      "product_url": "https://www.raspberrypi.com/products/raspberry-pi-4-model-b/",
+      "datasheet_url": "https://pip-assets.raspberrypi.com/categories/545-raspberry-pi-4-model-b/documents/RP-008344-DS-5-raspberry-pi-4-product-brief.pdf",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected_board_and_default_ram",
+      "model_requirement": {
+        "value": "Raspberry Pi 4 Model B",
+        "source": "user"
+      },
+      "ram_gb": {
+        "value": 4,
+        "source": "default"
+      },
+      "description": "Complete Raspberry Pi 4 Model B, 4GB LPDDR4 variant. Official product brief p3: BCM2711 quad-core Cortex-A72, two USB 2.0 and two USB 3.0 ports, 40-pin GPIO, microSD storage, USB-C 5V supply minimum 3A subject to p5 footnote. 3A is supply sizing, not measured consumption. Independently mounted SBC, not CM or a populated component of the custom power PCB.",
+      "selection_reason": "User fixes Pi 4B. Agent default 4GB for the existing Linux terminal/SSH/tools use, not a user performance guarantee. Official brief confirms the variant; no new custom CM carrier is required.",
+      "supply_risk": "Supplier query returned unrelated passive/diode/crystal rows; all rejected. No stock, price, reseller SKU or board-revision claim. Procurement availability is advisory; thermal and power integration remain unresolved.",
+      "board_model_reference": {
+        "id": "raspberry_pi_4_model_b",
+        "source_version": "FreeCAD Parts Library pinned at be5e71491051cef75da46831b6fd77c6313cb497",
+        "source_url": "https://github.com/FreeCAD/FreeCAD-library/blob/be5e71491051cef75da46831b6fd77c6313cb497/Electronics%20Parts/Boards/Raspberry/Raspberry%20Pi%204B/Raspberry%20Pi%204B.step",
+        "sha256": "82c055acbed781e623d8c32acfdec2254400104f2cfa21ddbc2ba0e8b80797da",
+        "license": "CC-BY-3.0",
+        "status": "exact board-level catalog match; not installed or imported; memory capacity not mechanically distinguished"
+      },
+      "part_identity": "9274337c427b1308"
+    },
     {
       "id": "display",
       "role": "display",
@@ -29,7 +70,7 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "requirements_review": "Physical part retained; host integration and layout remain unverified for the non-Zero platform."
+      "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform."
     },
     {
       "id": "charger",
@@ -57,10 +98,10 @@
       "required_user_evidence": [],
       "observed_date": "2026-09-21",
       "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: New 500mA branch default: NVDC switching charger, documented 6A continuous BATFET path and external ILIM plus I2C; unlike BQ25620, pins 4/5 are ILIM/TS_BIAS, not USB D-/D+. Not a proof of system thermal capability.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: New 500mA branch default: NVDC switching charger, documented 6A continuous BATFET path and external ILIM plus I2C; unlike BQ25620, pins 4/5 are ILIM/TS_BIAS, not USB D-/D+. Not a proof of system thermal capability.",
       "part_identity": "0a5569731dd6e54c",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "boost",
@@ -88,9 +129,9 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "selection_reason": "Existing TPS61088 research candidate, not an approved CM/Pi supply. Recalculate voltage/current, inductance, low-voltage limit, efficiency and thermal design after exact host selection; do not equate switch rating with output rating.",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_reason": "Existing TPS61088 research candidate, not an approved Pi 4B supply. Recalculate voltage/current, inductance, low-voltage limit, efficiency and thermal design after exact host selection; do not equate switch rating with output rating.",
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "display_fpc",
@@ -130,37 +171,7 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "requirements_review": "Physical part retained; host integration and layout remain unverified for the non-Zero platform."
-    },
-    {
-      "id": "usb_a_switch",
-      "role": "usb_current_limit",
-      "name": "TPS2553DBVR",
-      "quantity": 1,
-      "supplier": "LCSC",
-      "manufacturer": "Texas Instruments",
-      "part_number": "TPS2553DBVR",
-      "mpn": "TPS2553DBVR",
-      "stock": 61706,
-      "source": "default",
-      "procurement_status": "catalog_verified",
-      "lcsc_code": "C55266",
-      "jlc_smt_library": "extended",
-      "product_url": "https://item.szlcsc.com/56292.html",
-      "unit_price_cny": 3.31,
-      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221230/F4D76D02F51E4A8E5541C904B6302D19.jpg",
-      "assembly": {
-        "population": "mounted",
-        "method": "manual"
-      },
-      "part_identity": "75e6ea40403af1fc",
-      "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tps2553.pdf",
-      "observed_date": "2026-09-20",
-      "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: TPS2553 retained for user-confirmed 500mA available USB-A current. PCB set resistor for minimum trip above 500mA and worst-case trip <=650mA; verify start-up/inrush and fault flag. Not phone fast charging.",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform."
     },
     {
       "id": "usb_c_cc",
@@ -188,37 +199,8 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
-    },
-    {
-      "id": "usb_a",
-      "role": "usb_a_receptacle",
-      "name": "SS-52100-001",
-      "quantity": 1,
-      "supplier": "LCSC",
-      "manufacturer": "Bel Fuse",
-      "part_number": "SS-52100-001",
-      "mpn": "SS-52100-001",
-      "stock": 115,
-      "source": "default",
-      "procurement_status": "catalog_verified",
-      "lcsc_code": "C3197637",
-      "jlc_smt_library": "extended",
-      "product_url": "https://item.szlcsc.com/3759398.html",
-      "unit_price_cny": 3.34,
-      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20260721/310E482FB16E04D78166C531C02BB02F.jpg",
-      "assembly": {
-        "population": "mounted",
-        "method": "through_hole"
-      },
-      "part_identity": "9767993ca58dff40",
-      "datasheet_path": "product/references/ss-52100-001.pdf",
-      "observed_date": "2026-09-20",
-      "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "supervisor",
@@ -247,8 +229,8 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "96f5e6e6ee836ff1",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "main_disconnect",
@@ -276,10 +258,10 @@
       "required_user_evidence": [],
       "observed_date": "2026-09-21",
       "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: New 500mA branch default: 10A-rated switch replaces 2A TPS22918. VBIAS from unswitched boost output; exposed thermal pad is VIN, NOT GND. External CT sets inrush; no reverse-block claim.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: New 500mA branch default: 10A-rated switch replaces 2A TPS22918. VBIAS from unswitched boost output; exposed thermal pad is VIN, NOT GND. External CT sets inrush; no reverse-block claim.",
       "part_identity": "3245a083b6a433c2",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "ldo_3v3",
@@ -308,8 +290,8 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "7286a48c8388d7b9",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "display_buffer",
@@ -334,13 +316,13 @@
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/sn74ahc125.pdf",
       "package": "TSSOP-14",
       "jlc_smt_library": "extended",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: AHC125 guarantees VOL<=0.1V at 50uA versus DH01 VIL<=0.15V. Two packages cover SCLK, SI, SCS, DISP, EXTCOMIN; only 3.3V logic supply, not 5V.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: AHC125 guarantees VOL<=0.1V at 50uA versus DH01 VIL<=0.15V. Two packages cover SCLK, SI, SCS, DISP, EXTCOMIN; only 3.3V logic supply, not 5V.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "a64234362567ca9d",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "domain_buffer",
@@ -365,13 +347,13 @@
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/sn74lvc1g07.pdf",
       "package": "SOT-23-5",
       "jlc_smt_library": "extended",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: Ioff and open-drain outputs for shutdown request, shutdown acknowledgement and two status serial directions; receiver-domain pullups avoid powering an off Pi.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Ioff and open-drain outputs for shutdown request, shutdown acknowledgement and two status serial directions; receiver-domain pullups avoid powering an off Pi.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "70ff0d06399d0bca",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "buttons",
@@ -400,7 +382,7 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "c9a8b6f5543e7718",
-      "requirements_review": "Physical part retained; host integration and layout remain unverified for the non-Zero platform."
+      "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform."
     },
     {
       "id": "usb_c",
@@ -421,12 +403,12 @@
       "product_url": "https://gct.co/connector/usb4105",
       "datasheet_url": "https://gct.co/files/drawings/usb4105.pdf",
       "package": "USB Type-C USB2.0 16 contact SMT with through-hole shell stakes",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: Exact GF plating / A tape-reel / blank 0.95mm stakes from manufacturer ordering grid. No fuzzy supplier connector substitution.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Exact GF plating / A tape-reel / blank 0.95mm stakes from manufacturer ordering grid. No fuzzy supplier connector substitution.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "part_identity": "e0d73f826ac01403",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "boost_inductor",
@@ -462,8 +444,8 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "0075f3bc4297d45c",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "battery_ntc",
@@ -492,39 +474,9 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "02c2daebd93eb64c",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: Two independent 103AT-2 sensors: BQ25622 TS using TS_BIAS divider and MCU ADC. Recompute TS network; no inherited BQ24074 resistor values.",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
-    },
-    {
-      "id": "port_esd",
-      "role": "usb_data_and_cc_esd",
-      "name": "TPD4E05U06DQAR",
-      "quantity": 1,
-      "supplier": "LCSC",
-      "manufacturer": "Texas Instruments",
-      "part_number": "TPD4E05U06DQAR",
-      "mpn": "TPD4E05U06DQAR",
-      "stock": 48700,
-      "source": "default",
-      "procurement_status": "catalog_verified",
-      "assembly": {
-        "population": "mounted",
-        "method": "manual"
-      },
-      "lcsc_code": "C138714",
-      "unit_price_cny": 0.531,
-      "product_url": "https://item.szlcsc.com/150033.html",
-      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230110/907A3CAAE258DFEE9C4CBA3B33FDBE49.jpg",
-      "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tpd4e05u06.pdf",
-      "package": "USON-10 1x2.5mm",
-      "jlc_smt_library": "extended",
-      "observed_date": "2026-09-20",
-      "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "072493d7a6985afa",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Two independent 103AT-2 sensors: BQ25622 TS using TS_BIAS divider and MCU ADC. Recompute TS network; no inherited BQ24074 resistor values.",
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "path_current_guard",
@@ -553,9 +505,9 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "28df8117905a9943",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: Retained TPS259531 moved to USB-C input, before BQ25622. No longer a 2A battery path limiter. Set input limit within CC allowance with tolerance; 5.7V clamp is not LCD output overvoltage protection.",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Retained TPS259531 moved to USB-C input, before BQ25622. No longer a 2A battery path limiter. Set input limit within CC allowance with tolerance; 5.7V clamp is not LCD output overvoltage protection.",
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "battery_header",
@@ -583,10 +535,10 @@
       "required_user_evidence": [],
       "observed_date": "2026-09-21",
       "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: XT30U-M on board-side pigtail, mates XT30U-F on battery. Neither is a PCB header. No PH land-pattern obligation remains. PCB wire pads/strain relief are project-designed later.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: XT30U-M on board-side pigtail, mates XT30U-F on battery. Neither is a PCB header. No PH land-pattern obligation remains. PCB wire pads/strain relief are project-designed later.",
       "part_identity": "1bf917b377113a39",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "battery_cable_mate",
@@ -614,10 +566,10 @@
       "required_user_evidence": [],
       "observed_date": "2026-09-21",
       "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: Female contacts on battery side; manufacturer-installed harness requested. Included once in pack harness procurement, not an extra loose connector to modify a live battery. Confirm mating polarity against molded marks and measurement.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Female contacts on battery side; manufacturer-installed harness requested. Included once in pack harness procurement, not an extra loose connector to modify a live battery. Confirm mating polarity against molded marks and measurement.",
       "part_identity": "336e79353c0c2757",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "charger_inductor",
@@ -645,10 +597,10 @@
       "required_user_evidence": [],
       "observed_date": "2026-09-21",
       "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: 1uH ±20%, 10A rated, 19.5A saturation, 6.5mOhm DCR; selected for BQ25622 1uH application, separate from retained 2.2uH boost inductor. Recalculate ripple at selected 1.5MHz and derate thermally.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: 1uH ±20%, 10A rated, 19.5A saturation, 6.5mOhm DCR; selected for BQ25622 1uH application, separate from retained 2.2uH boost inductor. Recalculate ripple at selected 1.5MHz and derate thermally.",
       "part_identity": "aef1c26f527a2d8a",
-      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
-      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      "selection_status": "candidate_requires_pi4b_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for Raspberry Pi 4 Model B and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     }
   ],
   "alternatives": [
@@ -942,26 +894,121 @@
         "required_user_evidence": [],
         "part_identity": "07c09d43d8790a84"
       }
+    },
+    {
+      "role": "usb_current_limit",
+      "mpn": "TPS2553DBVR",
+      "status": "retired_native_pi4_usb",
+      "reason": "Use a native Pi 4B USB 2.0 Type-A port for the declared peripheral role; no custom USB data socket, external VBUS switch or data ESD added by default. Board-level protection remains part of the purchased board. Revisit only if a relocated port is later selected.",
+      "previous_row": {
+        "id": "usb_a_switch",
+        "role": "usb_current_limit",
+        "name": "TPS2553DBVR",
+        "quantity": 1,
+        "supplier": "LCSC",
+        "manufacturer": "Texas Instruments",
+        "part_number": "TPS2553DBVR",
+        "mpn": "TPS2553DBVR",
+        "stock": 61706,
+        "source": "default",
+        "procurement_status": "catalog_verified",
+        "lcsc_code": "C55266",
+        "jlc_smt_library": "extended",
+        "product_url": "https://item.szlcsc.com/56292.html",
+        "unit_price_cny": 3.31,
+        "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221230/F4D76D02F51E4A8E5541C904B6302D19.jpg",
+        "assembly": {
+          "population": "mounted",
+          "method": "manual"
+        },
+        "part_identity": "75e6ea40403af1fc",
+        "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tps2553.pdf",
+        "observed_date": "2026-09-20",
+        "required_user_evidence": [],
+        "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+        "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: TPS2553 retained for user-confirmed 500mA available USB-A current. PCB set resistor for minimum trip above 500mA and worst-case trip <=650mA; verify start-up/inrush and fault flag. Not phone fast charging.",
+        "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+        "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      }
+    },
+    {
+      "role": "usb_a_receptacle",
+      "mpn": "SS-52100-001",
+      "status": "retired_native_pi4_usb",
+      "reason": "Use a native Pi 4B USB 2.0 Type-A port for the declared peripheral role; no custom USB data socket, external VBUS switch or data ESD added by default. Board-level protection remains part of the purchased board. Revisit only if a relocated port is later selected.",
+      "previous_row": {
+        "id": "usb_a",
+        "role": "usb_a_receptacle",
+        "name": "SS-52100-001",
+        "quantity": 1,
+        "supplier": "LCSC",
+        "manufacturer": "Bel Fuse",
+        "part_number": "SS-52100-001",
+        "mpn": "SS-52100-001",
+        "stock": 115,
+        "source": "default",
+        "procurement_status": "catalog_verified",
+        "lcsc_code": "C3197637",
+        "jlc_smt_library": "extended",
+        "product_url": "https://item.szlcsc.com/3759398.html",
+        "unit_price_cny": 3.34,
+        "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20260721/310E482FB16E04D78166C531C02BB02F.jpg",
+        "assembly": {
+          "population": "mounted",
+          "method": "through_hole"
+        },
+        "part_identity": "9767993ca58dff40",
+        "datasheet_path": "product/references/ss-52100-001.pdf",
+        "observed_date": "2026-09-20",
+        "required_user_evidence": [],
+        "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+        "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+        "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      }
+    },
+    {
+      "role": "usb_data_and_cc_esd",
+      "mpn": "TPD4E05U06DQAR",
+      "status": "retired_native_pi4_usb",
+      "reason": "Use a native Pi 4B USB 2.0 Type-A port for the declared peripheral role; no custom USB data socket, external VBUS switch or data ESD added by default. Board-level protection remains part of the purchased board. Revisit only if a relocated port is later selected.",
+      "previous_row": {
+        "id": "port_esd",
+        "role": "usb_data_and_cc_esd",
+        "name": "TPD4E05U06DQAR",
+        "quantity": 1,
+        "supplier": "LCSC",
+        "manufacturer": "Texas Instruments",
+        "part_number": "TPD4E05U06DQAR",
+        "mpn": "TPD4E05U06DQAR",
+        "stock": 48700,
+        "source": "default",
+        "procurement_status": "catalog_verified",
+        "assembly": {
+          "population": "mounted",
+          "method": "manual"
+        },
+        "lcsc_code": "C138714",
+        "unit_price_cny": 0.531,
+        "product_url": "https://item.szlcsc.com/150033.html",
+        "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230110/907A3CAAE258DFEE9C4CBA3B33FDBE49.jpg",
+        "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tpd4e05u06.pdf",
+        "package": "USON-10 1x2.5mm",
+        "jlc_smt_library": "extended",
+        "observed_date": "2026-09-20",
+        "required_user_evidence": [],
+        "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+        "part_identity": "072493d7a6985afa",
+        "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+        "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
+      }
     }
   ],
   "supply_risks": [
-    {
-      "id": "nonzero_compute_selection",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Select exact Compute Module plus carrier or standard Pi for existing Linux terminal/SSH/tools use; establish RAM/storage, interfaces, power, cooling and dimensions. No Zero substitute."
-    },
     {
       "id": "battery_complete_pack_spec",
       "severity": "blocking",
       "design_critical": true,
       "description": "Select factory protected 3.7V nominal 3300mAh Li-ion pack. Capacity is not a discharge-current rating. Verify complete pack current/protection, charge limits, harness polarity and dimensions against selected host. No user engineering specification required. No matching candidate found in focused supplier lookup; unrelated logic IC rows rejected."
-    },
-    {
-      "id": "nonzero_power_runtime_interfaces",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Rebuild power, transient and thermal budget; estimate and later measure actual no-USB and USB-keyboard runtimes with 12.21Wh nominal battery, with no fixed minimum duration. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
     },
     {
       "id": "screen_supply",
@@ -1030,22 +1077,8 @@
       "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
     },
     {
-      "id": "single_source_usb_a_switch",
-      "component_id": "usb_a_switch",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
-    },
-    {
       "id": "single_source_usb_c_cc",
       "component_id": "usb_c_cc",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
-    },
-    {
-      "id": "single_source_usb_a",
-      "component_id": "usb_a",
       "severity": "advisory",
       "design_critical": false,
       "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
@@ -1121,13 +1154,6 @@
       "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
     },
     {
-      "id": "single_source_port_esd",
-      "component_id": "port_esd",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
-    },
-    {
       "id": "single_source_path_current_guard",
       "component_id": "path_current_guard",
       "severity": "advisory",
@@ -1142,44 +1168,37 @@
       "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
     },
     {
-      "id": "single_source_pi_usb_harness",
-      "component_id": "pi_usb_harness",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
-    },
-    {
-      "id": "single_source_pi_gpio_harness",
-      "component_id": "pi_gpio_harness",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
-    },
-    {
       "id": "power_implementation",
       "severity": "warning",
       "design_critical": false,
-      "description": "New power chain is selection-level only. Verify BQ25622 6A continuous battery path, boost current/efficiency/thermal limits, USB switch tolerances, safe CC input boot/current-downshift and low-voltage shutdown before fabrication. No seamless-switch or runtime measurement exists."
+      "description": "Pi 4B system power is not validated. Existing BQ25622/TPS61088/TPS22990 are candidate research only; account for their documented limits at low battery, startup, input-current negotiation, hot enclosure and shutdown. Retired custom USB switch is not part of native Pi USB. No runtime or no-reboot measurement exists."
     },
     {
       "id": "new_parts_single_source",
       "severity": "advisory",
       "design_critical": false,
       "description": "No qualified drop-in alternative established for BQ25622, TPS22990, new charger inductor or XT30U pair; substitutions require new interface review."
+    },
+    {
+      "id": "pi4b_power_runtime_interfaces",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Rebuild Pi 4B power/transient/thermal budget and shutdown/GPIO integration with 3.7V 3300mAh battery. Official 5V/3A supply guidance includes attached USB load: do not add the same 500mA twice. Reserve separate display/AON/cooling loads and path losses. Verify converter/current path at low battery and during startup. Estimate and later measure runtime without minimum duration; 3A rating is not typical consumption. Keep charging/no-reboot behavior as unverified targets."
+    },
+    {
+      "id": "pi4b_power_interconnect",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Default regulated system rail into Pi 4B USB-C via a factory cable; select cable/plug current rating, resistance/drop and bend envelope. External product USB-C feeds charger, not Pi directly; do not parallel an independent Pi PSU with battery rail. 40-pin GPIO used for signals/shutdown only by default; exact harness and pin allocation still required."
+    },
+    {
+      "id": "pi4b_thermal_storage_integration",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Choose exact heat sink/cooling and its mechanical clearance for enclosure, plus GPIO cable and microSD service access. 32GB A1/Class10 microSD remains a disclosed accessory target, not an exact selected MPN. Characterize throttling/temperature under expected load; do not claim fanless operation or validated 85x115x40mm fit."
     }
   ],
   "unresolved_items": [
-    {
-      "id": "nonzero_compute_selection",
-      "owner": "agent",
-      "target_stage": "hardware",
-      "design_critical": true,
-      "component_refs": [
-        "compute"
-      ],
-      "procurement_status": "external_procurement_required",
-      "resolution": "Select exact Compute Module plus carrier or standard Pi for existing Linux terminal/SSH/tools use; establish RAM/storage, interfaces, power, cooling and dimensions. No Zero substitute."
-    },
     {
       "id": "battery_complete_pack_spec",
       "owner": "agent",
@@ -1194,21 +1213,42 @@
       "resolution": "Select factory protected 3.7V nominal 3300mAh Li-ion pack. Capacity is not a discharge-current rating. Verify complete pack current/protection, charge limits, harness polarity and dimensions against selected host. No user engineering specification required. No matching candidate found in focused supplier lookup; unrelated logic IC rows rejected."
     },
     {
-      "id": "nonzero_power_runtime_interfaces",
+      "id": "pi4b_power_runtime_interfaces",
       "owner": "agent",
       "target_stage": "hardware",
       "design_critical": true,
       "component_refs": [
+        "compute",
         "charger",
         "boost",
         "main_disconnect",
         "supervisor",
-        "usb_a",
         "usb_c_cc"
       ],
-      "resolution": "Rebuild power, transient and thermal budget; estimate and later measure actual no-USB and USB-keyboard runtimes with 12.21Wh nominal battery, with no fixed minimum duration. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
+      "resolution": "Rebuild Pi 4B power/transient/thermal budget and shutdown/GPIO integration with 3.7V 3300mAh battery. Official 5V/3A supply guidance includes attached USB load: do not add the same 500mA twice. Reserve separate display/AON/cooling loads and path losses. Verify converter/current path at low battery and during startup. Estimate and later measure runtime without minimum duration; 3A rating is not typical consumption. Keep charging/no-reboot behavior as unverified targets."
+    },
+    {
+      "id": "pi4b_power_interconnect",
+      "owner": "agent",
+      "target_stage": "hardware",
+      "design_critical": true,
+      "component_refs": [
+        "compute",
+        "main_disconnect"
+      ],
+      "resolution": "Default regulated system rail into Pi 4B USB-C via a factory cable; select cable/plug current rating, resistance/drop and bend envelope. External product USB-C feeds charger, not Pi directly; do not parallel an independent Pi PSU with battery rail. 40-pin GPIO used for signals/shutdown only by default; exact harness and pin allocation still required."
+    },
+    {
+      "id": "pi4b_thermal_storage_integration",
+      "owner": "agent",
+      "target_stage": "hardware",
+      "design_critical": true,
+      "component_refs": [
+        "compute"
+      ],
+      "resolution": "Choose exact heat sink/cooling and its mechanical clearance for enclosure, plus GPIO cable and microSD service access. 32GB A1/Class10 microSD remains a disclosed accessory target, not an exact selected MPN. Characterize throttling/temperature under expected load; do not claim fanless operation or validated 85x115x40mm fit."
     }
   ],
-  "scope": "Requirements-aligned functional draft: non-Zero compute and 3.7V 3300mAh Li-ion battery roles unresolved; 21 retained component candidates, not procurement/PCB ready.",
-  "review_status": "requires_nonzero_power_and_interface_review"
+  "scope": "Pi 4B 4GB default functional draft, native USB host. Exact battery pack, power interconnect and thermal integration unresolved. Not a procurement or PCB population release.",
+  "review_status": "pi4b_board_spec_review_complete_system_integration_pending"
 }
