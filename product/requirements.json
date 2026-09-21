@@ -53,7 +53,7 @@
       "source": "user"
     },
     "battery_runtime_hours": {
-      "value": 2,
+      "value": null,
       "source": "user"
     },
     "battery_runtime_test": {
@@ -147,7 +147,7 @@
         "boot selected non-Zero Raspberry Pi or Compute Module and operate a native monochrome terminal UI on LS027B7DH01",
         "navigate menus with on-device buttons and enter shell commands with an external USB keyboard",
         "demonstrate an SSH session over Wi-Fi",
-        "achieve at least 2 hours in the defined no-USB-peripheral light-use baseline; measure and report USB-keyboard runtime separately",
+        "measure and report actual runtime in the defined no-USB-peripheral light-use baseline and separately with a USB keyboard; no fixed minimum-hour pass/fail threshold",
         "operate and charge concurrently without reboot on power transition",
         "recognize keyboard and storage on USB-A within a declared power budget; USB-C carries input power only",
         "verify display clamping, FPC routing, battery clearance, thermals and desktop stability"
@@ -172,6 +172,10 @@
     },
     "battery_chemistry": {
       "value": "Li-ion",
+      "source": "user"
+    },
+    "battery_runtime_policy": {
+      "value": "No fixed minimum runtime; evaluate and report actual runtime for selected hardware and use conditions rather than requiring two hours.",
       "source": "user"
     }
   },

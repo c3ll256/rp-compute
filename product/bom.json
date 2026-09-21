@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "8f6a901fe24ad4da93079822a36ac967a95ad8622556b643ea8b96c69562ac36",
+  "requirements_digest": "47d09422f1071a24b452e30a60eac8923d0b3ed66985f62b26b9aaa9f7ef1fc8",
   "items": [
     {
       "id": "display",
@@ -961,7 +961,7 @@
       "id": "nonzero_power_runtime_interfaces",
       "severity": "blocking",
       "design_critical": true,
-      "description": "Rebuild power, transient and thermal budget; verify two-hour no-USB baseline with 12.21Wh nominal battery. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
+      "description": "Rebuild power, transient and thermal budget; estimate and later measure actual no-USB and USB-keyboard runtimes with 12.21Wh nominal battery, with no fixed minimum duration. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
     },
     {
       "id": "screen_supply",
@@ -1206,7 +1206,7 @@
         "usb_a",
         "usb_c_cc"
       ],
-      "resolution": "Rebuild power, transient and thermal budget; verify two-hour no-USB baseline with 12.21Wh nominal battery. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
+      "resolution": "Rebuild power, transient and thermal budget; estimate and later measure actual no-USB and USB-keyboard runtimes with 12.21Wh nominal battery, with no fixed minimum duration. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
     }
   ],
   "scope": "Requirements-aligned functional draft: non-Zero compute and 3.7V 3300mAh Li-ion battery roles unresolved; 21 retained component candidates, not procurement/PCB ready.",

@@ -2,7 +2,7 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "fit_check",
-  "summary": "非 Zero 的 Raspberry Pi / Compute Module 与 Sharp LS027B7DH01 掌上终端；3.7V 3300mAh Li-ion，轻载至少两小时仍为待验证目标。当前仅更新硬件需求，不开展 PCB/CAD。",
+  "summary": "非 Zero 的 Raspberry Pi / Compute Module 与 Sharp LS027B7DH01 掌上终端；3.7V 3300mAh Li-ion，续航按所选硬件和使用条件实测报告，不设两小时硬性门槛。当前仅更新硬件需求，不开展 PCB/CAD。",
   "required_interfaces": [
     {
       "id": "compute_mount",

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "8f6a901fe24ad4da93079822a36ac967a95ad8622556b643ea8b96c69562ac36",
+  "requirements_digest": "47d09422f1071a24b452e30a60eac8923d0b3ed66985f62b26b9aaa9f7ef1fc8",
   "architecture": {
     "compute": "non-Zero Raspberry Pi or Compute Module; exact assembly unresolved",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -116,7 +116,7 @@
         "usb_a",
         "usb_c_cc"
       ],
-      "resolution": "Rebuild power, transient and thermal budget; verify two-hour no-USB baseline with 12.21Wh nominal battery. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
+      "resolution": "Rebuild power, transient and thermal budget; estimate and later measure actual no-USB and USB-keyboard runtimes with 12.21Wh nominal battery, with no fixed minimum duration. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
     }
   ],
   "supply_risks": [
@@ -136,7 +136,7 @@
       "id": "nonzero_power_runtime_interfaces",
       "severity": "blocking",
       "design_critical": true,
-      "description": "Rebuild power, transient and thermal budget; verify two-hour no-USB baseline with 12.21Wh nominal battery. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
+      "description": "Rebuild power, transient and thermal budget; estimate and later measure actual no-USB and USB-keyboard runtimes with 12.21Wh nominal battery, with no fixed minimum duration. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
     },
     {
       "id": "screen_supply",
@@ -359,13 +359,16 @@
   "runtime_budget": {
     "source": "default",
     "nominal_wh": 12.21,
-    "calculation": "3.7V * 3.3Ah = 12.21Wh; 12.21Wh / 2h = 6.105W average battery-side ideal ceiling",
-    "target_hours": 2,
-    "ideal_battery_side_average_w_ceiling": 6.105,
+    "calculation": "3.7V * 3.3Ah = 12.21Wh nominal; runtime estimate = usable battery energy / average battery-side power. Neither usable energy nor system load is yet established.",
+    "target_hours": null,
     "usable_fraction": null,
     "efficiency": null,
     "calculated_hours": null,
-    "status": "No runtime prediction until exact pack discharge data and measured/defensible non-Zero system load exist. Actual usable energy and shutdown reserve lower the available budget; conversion loss is included in battery-side load. No USB peripheral in baseline."
+    "status": "Actual runtime not yet measured. Characterize no-USB light-use and USB-keyboard use separately; include usable energy, shutdown reserve and conversion losses. No two-hour acceptance threshold or derived 6.105W power ceiling.",
+    "runtime_policy": {
+      "value": "No fixed minimum duration; report actual results under declared conditions.",
+      "source": "user"
+    }
   },
   "battery": {
     "source": "user",
@@ -479,7 +482,7 @@
   "pcb_handoff_tasks": [
     "Resolve nonzero_compute_selection, battery_complete_pack_spec and nonzero_power_runtime_interfaces before BOM readiness.",
     "Revalidate retained IC application circuits, power input, USB routing, display protection, shutdown and thermal margins against exact host/pack.",
-    "Keep no-reboot charging and >=2h no-USB light-use as acceptance targets; test prototypes.",
+    "Keep no-reboot power transitions and controlled shutdown as acceptance targets; measure and report runtime without a fixed minimum-hour threshold.",
     "No PCB/CAD is authorized in this query."
   ],
   "superseded_zero_reference": {
