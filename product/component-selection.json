@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "22e494b9b58d98d6acb4c217a94ce1033488f28329905f0433f6e3730a743c23",
+  "requirements_digest": "d0993dca9dbd0119aebef37f88b67d9ef04189f85be7020a52f45d94034100b6",
   "selected_components": [
     {
       "id": "compute",
@@ -33,7 +33,7 @@
         "source": "default"
       },
       "description": "Complete Raspberry Pi 4 Model B, 4GB LPDDR4 variant. Official product brief p3: BCM2711 quad-core Cortex-A72, two USB 2.0 and two USB 3.0 ports, 40-pin GPIO, microSD storage, USB-C 5V supply minimum 3A subject to p5 footnote. 3A is supply sizing, not measured consumption. Customer-supplied SBC docks through40-pin GPIO and is mechanically supported; not CM or a soldered component. Baseboard supplies regulated5V through header power contacts; no internalUSB-C cable.",
-      "selection_reason": "User-supplied Pi4B,4GB remains default reference. Quantity1 is the assembled reference, not a board to buy with product kit. Baseboard mates viaGPIO; board revision/other models not yet qualified. User requests simple mount and enclosure access to native ports; no addedbaseboardUSB-A. User installation should not require soldering or individual GPIO jumpers. UsernowselectsPiUSB-Ccovered/interlockedwhiledocked;baseboardinputonly. Othernativeportsremainaccessible.",
+      "selection_reason": "User-supplied Pi4B,4GB remains default reference. Quantity1 is the assembled reference, not a board to buy with product kit. Baseboard mates viaGPIO; board revision/other models not yet qualified. User requests simple mount and enclosure access to native ports; no addedbaseboardUSB-A. User installation should not require soldering or individual GPIO jumpers. UsernowselectsPiUSB-Ccovered/interlockedwhiledocked;baseboardinputonly. Othernativeportsremainaccessible. CAD-first visual shell does not establish Pi orientation, mounting or native-port fit; all original interface requirements remain.",
       "supply_risk": "Supplier query returned unrelated passive/diode/crystal rows; all rejected. No stock, price, reseller SKU or board-revision claim. Procurement availability is advisory; thermal and power integration remain unresolved.",
       "board_model_reference": {
         "id": "raspberry_pi_4_model_b",
@@ -73,7 +73,8 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform."
+      "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform.",
+      "selection_reason": " CAD-first aperture uses the stored active area only; no glass retention, FPC routing or panel fit is certified."
     },
     {
       "id": "charger",
@@ -386,7 +387,7 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "c9a8b6f5543e7718",
       "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform.",
-      "selection_reason": "Retain one existingB3F-1000 for power/shutdown only as disclosed default; remove six navigation keys because user narrows prototype to power and display. No part identity or package change."
+      "selection_reason": "Retain one existingB3F-1000 for power/shutdown only as disclosed default; remove six navigation keys because user narrows prototype to power and display. No part identity or package change. Single9mm visual cap position is a styling proposal; travel and exact B3F-1000 mounting remain to be implemented."
     },
     {
       "id": "usb_c",
@@ -407,7 +408,7 @@
       "product_url": "https://gct.co/connector/usb4105",
       "datasheet_url": "https://gct.co/files/drawings/usb4105.pdf",
       "package": "USB Type-C USB2.0 16 contact SMT with through-hole shell stakes",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Exact GF plating / A tape-reel / blank 0.95mm stakes from manufacturer ordering grid. No fuzzy supplier connector substitution.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Exact GF plating / A tape-reel / blank 0.95mm stakes from manufacturer ordering grid. No fuzzy supplier connector substitution. Front12x5mm visual opening is a placement proposal, not a verified USB4105/plug mating cutout.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "part_identity": "e0d73f826ac01403",
@@ -728,7 +729,7 @@
       "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20250306/22F4880E2FD8067A90B465BC0ECA06B7.pdf",
       "required_user_evidence": [],
       "selection_status": "selected_for_schematic_implementation",
-      "selection_reason": "UserchosePiUSB-Cinterlockedcover. Exactlow-currentlevervariant,notL2/L3orhigher-currentvariant. FactoryPCBassembly; switchonlyenablescontrolsignal,NEVERcarries3APisupply. NOBasicmatch; manualthrough-holeassembly.",
+      "selection_reason": "UserchosePiUSB-Cinterlockedcover. Exactlow-currentlevervariant,notL2/L3orhigher-currentvariant. FactoryPCBassembly; switchonlyenablescontrolsignal,NEVERcarries3APisupply. NOBasicmatch; manualthrough-holeassembly. Styling interface blanks do not implement the interlock. Real cover and switch motion remain required for final integration.",
       "description": "OmronD2F-01LSPDT,DC30V0.1A contactclass; p4leverOFmax0.78N,OP6.8±1.5mm,FPmax10mm,OTmin0.55mm. Supplier150gf isnotleveractuationforceandisnotused. P3straightPCBterminalreference:3holesdiam1.2mm,5.08mmpitch. Notasafety-certifiedinterlock.",
       "supply_risk": "Contactwettingcurrentatlogicvoltage,COM/NOfootprintorientation,debounce/rearm,stuckcontactrisk andmechanicalrelease-before-portaccess notyetvalidated. Preserveindependenthardpull-downandmechanicalplugblocking; donotuseMCUpollingalone. Unknownalternative; no substitutiontoL2/L3.",
       "evidence_refs": [
@@ -886,7 +887,7 @@
       },
       "exclude_from_procurement": true,
       "selection_status": "user_supplied_specification_interface_not_selected_mpn",
-      "selection_reason": "User explicitly owns battery sourcing and requests development to continue. Electrical interface in product/battery-interface.md. No invented MPN, price, measured rating or dimensions.",
+      "selection_reason": "User explicitly owns battery sourcing and requests development to continue. Electrical interface in product/battery-interface.md. No invented MPN, price, measured rating or dimensions. CAD-first delivery omits pack geometry and does not freeze a battery bay; actual pack dimensions remain required for final fit.",
       "required_user_evidence": [],
       "supply_risk": "Actual pack must pass polarity/charge/current/temperature acceptance before energized use; dimensions remain necessary for final enclosure fit.",
       "part_identity": "709e80c88487a241"

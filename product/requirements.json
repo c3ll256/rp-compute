@@ -228,6 +228,14 @@
     "battery_supply_model": {
       "value": "User will source a compatible battery; proceed with baseboard development without waiting for an agent-selected battery MPN. Battery is excluded from kit procurement.",
       "source": "user"
+    },
+    "development_order": {
+      "value": "CAD styling before PCB; appearance is important. Use exterior design to guide later board layout.",
+      "source": "user"
+    },
+    "cad_first_scope": {
+      "value": "First CAD delivery is an editable exterior visual study, not final hardware fit or a printable production enclosure; preserve final electrical/assembly requirements for subsequent integration.",
+      "source": "default"
     }
   },
   "open_questions": []

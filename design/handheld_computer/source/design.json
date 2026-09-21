@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "units": "mm",
+  "coordinateFrame": "replicator-world-z-up",
+  "targets": [
+    {
+      "id": "shell",
+      "label": "shell",
+      "cells": [
+        {
+          "id": "shell",
+          "target": "shell",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/shell/000-shell.py",
+          "sha256": "99f14929bfe5cb0b52afb0687717244e560a8be6c67822c17dee44b1be9b8fcd"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "base",
+      "label": "base",
+      "cells": [
+        {
+          "id": "base",
+          "target": "base",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/base/000-base.py",
+          "sha256": "3b20a251258265277722e66da6352bdc9d0861b2f14c9e38401d937017e28ff5"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "fascia",
+      "label": "fascia",
+      "cells": [
+        {
+          "id": "fascia",
+          "target": "fascia",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/fascia/000-fascia.py",
+          "sha256": "422cef34826acd1d1b8b3cd475360265a89823f0c67477cb12da7b63cc4ac8a3"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "bezel",
+      "label": "bezel",
+      "cells": [
+        {
+          "id": "bezel",
+          "target": "bezel",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/bezel/000-bezel.py",
+          "sha256": "6e03e07477d8d04bd0a5bcdb438ddb0796a09126f692092fdad9f86509019a12"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "power_cap",
+      "label": "power_cap",
+      "cells": [
+        {
+          "id": "power_cap",
+          "target": "power_cap",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/power_cap/000-power_cap.py",
+          "sha256": "68c889bf45a9a2a9027624e03079a5073cd393df3cbfe12e4f0c594d3e812561"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "rear_panel",
+      "label": "rear_panel",
+      "cells": [
+        {
+          "id": "rear_panel",
+          "target": "rear_panel",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/rear_panel/000-rear_panel.py",
+          "sha256": "298c0263c0de33ce05328eb91ef84f0b5ff44ea369622658e75d55d74efc12ad"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "side_panel",
+      "label": "side_panel",
+      "cells": [
+        {
+          "id": "side_panel",
+          "target": "side_panel",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/side_panel/000-side_panel.py",
+          "sha256": "1716f67f100366d2c695acffabe940149ca90c56855bb75e7730fa93a27cfccd"
+        }
+      ],
+      "dependencies": []
+    }
+  ],
+  "objects": [
+    {
+      "id": "shell",
+      "target": "shell",
+      "label": "Ivory main shell",
+      "kind": "generated",
+      "shapeHash": "7983bce248900195d0cafa002352be61f9ce63d946447b4f731830b72a238738",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "base",
+      "target": "base",
+      "label": "Ivory bottom cover",
+      "kind": "generated",
+      "shapeHash": "89c7422a914f61470c6ac8d6c2f770747ef951f8b10b4c2e4c4edaeab112cfe2",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "fascia",
+      "target": "fascia",
+      "label": "Orange display surround",
+      "kind": "generated",
+      "shapeHash": "6969b8d081eeeff66f13db655604a2019fe03c2d8810201254112b390d4c5df0",
+      "transform": {
+        "positionMm": [
+          0,
+          13.863753,
+          31.948423
+        ],
+        "rotationDeg": [
+          8,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "bezel",
+      "target": "bezel",
+      "label": "Charcoal aperture bezel",
+      "kind": "generated",
+      "shapeHash": "60f23b05680c58e61b5bbdf95d0f7a2e7bf038e4834bc6f8ade9a745e9b26306",
+      "transform": {
+        "positionMm": [
+          0,
+          13.863753,
+          31.948423
+        ],
+        "rotationDeg": [
+          8,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "power_cap",
+      "target": "power_cap",
+      "label": "Orange power cap",
+      "kind": "generated",
+      "shapeHash": "dc2fb66051a8fd27fdeafa699661a6dc12b15890dc2d1ec092e159b42c015d86",
+      "transform": {
+        "positionMm": [
+          26,
+          -36.639919,
+          24.850596
+        ],
+        "rotationDeg": [
+          8,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "rear_panel",
+      "target": "rear_panel",
+      "label": "Rear interface blank",
+      "kind": "generated",
+      "shapeHash": "9445cdd9cebd8e8ed98a95c49f5cd7cad930cd1aaebc8010472dedb36c775bfb",
+      "transform": {
+        "positionMm": [
+          0,
+          57.15,
+          17
+        ],
+        "rotationDeg": [
+          90,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "side_panel",
+      "target": "side_panel",
+      "label": "Side interface blank",
+      "kind": "generated",
+      "shapeHash": "c153fc701fb0017822860cca7012751a7e96dcc17859ddf1e3f65858ea6deb17",
+      "transform": {
+        "positionMm": [
+          40.15,
+          6,
+          13
+        ],
+        "rotationDeg": [
+          90,
+          90,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    }
+  ],
+  "assets": [],
+  "fits": [],
+  "updatedAt": "2026-09-21T11:47:09.870Z",
+  "parameters": {
+    "shell": {
+      "case_width": 85,
+      "case_depth": 115,
+      "case_corner": 9,
+      "case_top_center": 30,
+      "case_slope": 8,
+      "shell_wall": 2.4,
+      "shell_lower_z": 2.7,
+      "fascia_width": 77,
+      "fascia_depth": 65,
+      "fascia_y": 14,
+      "fascia_radius": 6,
+      "panel_gap": 0.25,
+      "button_x": 26,
+      "button_y": -37,
+      "button_diameter": 9,
+      "rear_panel_width": 65,
+      "rear_panel_height": 21,
+      "rear_panel_z": 17,
+      "side_panel_length": 66,
+      "side_panel_height": 13,
+      "side_panel_y": 6,
+      "side_panel_z": 13,
+      "charge_width": 12,
+      "charge_height": 5,
+      "charge_z": 12,
+      "shell_edge_radius": 1
+    },
+    "base": {
+      "base_width": 85,
+      "base_depth": 115,
+      "base_corner": 9,
+      "base_thickness": 2.4,
+      "base_edge_radius": 0.7
+    },
+    "fascia": {
+      "fascia_width": 77,
+      "fascia_depth": 65,
+      "fascia_radius": 6,
+      "fascia_thickness": 3,
+      "fascia_recess": 2.4,
+      "fascia_window_width": 66.5,
+      "fascia_window_height": 46.5,
+      "fascia_window_radius": 2.75,
+      "fascia_edge_radius": 0.6
+    },
+    "bezel": {
+      "bezel_width": 66,
+      "bezel_height": 46,
+      "bezel_thickness": 2.3,
+      "bezel_recess": 2.2,
+      "bezel_radius": 2.5,
+      "bezel_window_clearance": 0.3,
+      "bezel_window_radius": 0.35
+    },
+    "power_cap": {
+      "button_diameter": 9,
+      "power_cap_thickness": 3,
+      "power_cap_recess": 2,
+      "power_cap_edge": 0.7
+    },
+    "rear_panel": {
+      "rear_panel_width": 65,
+      "rear_panel_height": 21,
+      "rear_panel_thickness": 2,
+      "rear_panel_radius": 1.75,
+      "rear_panel_edge": 0.35
+    },
+    "side_panel": {
+      "side_panel_length": 66,
+      "side_panel_height": 13,
+      "side_panel_thickness": 2,
+      "side_panel_radius": 1.75,
+      "side_panel_edge": 0.35
+    }
+  }
+}

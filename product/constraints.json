@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "22e494b9b58d98d6acb4c217a94ce1033488f28329905f0433f6e3730a743c23",
+  "requirements_digest": "d0993dca9dbd0119aebef37f88b67d9ef04189f85be7020a52f45d94034100b6",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -1047,5 +1047,17 @@
     "value": "baseboard_input_only_interlocked_pi_port",
     "source": "user",
     "status": "resolved_interface_choice_implementation_pending"
+  },
+  "cad_styling_phase": {
+    "source": "user",
+    "order": "CAD_before_PCB",
+    "qualification": "Exterior visual study only; no new PCB, Pi or battery stand-in solids. Final internal fit and native port apertures remain required later.",
+    "default_envelope_mm": [
+      85,
+      115,
+      40
+    ],
+    "default_top_slope_deg": 8,
+    "interface_strategy": "Replaceable rear/right side panels carry deferred native Pi apertures. Default front charging opening and power button location are styling proposals to constrain PCB."
   }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
   "artifact_level": "assembly",
-  "deliverable_intent": "fit_check",
-  "summary": "BYOP Pi4B简化原型：用户将Pi简单GPIO插接并固定到基板；基板仅扩展供电及Sharp屏幕，外壳保留Pi原生接口，不增加USB-A或导航按键。Pi及兼容电池由用户自备，电池采购不阻塞基板开发；最终电池仓适配仍按整包实物/图纸核实。",
+  "deliverable_intent": "visual_draft",
+  "summary": "用户要求先CAD再PCB，优先造型。本轮交付参数化外壳外观STEP：浅色圆角楔体、橙色屏框、深色内框、单电源键和接口面板分区；最终Pi/电池/PCB适配要求全部保留，不以外观稿冒充通过。",
   "required_interfaces": [
     {
       "id": "compute_mount",
@@ -96,8 +96,8 @@
       {
         "role": "computer_enclosure",
         "design_id": "handheld_computer",
-        "description": "包含屏幕框、主体与底盖的单一装配设计；按真实硬件接口验证并导出 STEP。",
-        "delivery_target": "fit_check",
+        "description": "先交付造型外观模型和STEP，之后由真实硬件/PCB迭代为适配外壳；本轮不验证紧固、联锁、接口插拔或电池仓。",
+        "delivery_target": "visual_review",
         "required_formats": [
           "step"
         ],
