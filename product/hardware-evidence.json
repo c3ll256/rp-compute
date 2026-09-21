@@ -361,6 +361,9 @@
     "Native web search returned no usable results; manufacturer pages and supplier-hosted datasheets used directly.",
     "illumn.com 403; not retried.",
     "TPS2121 supplier timeout; not selected and no availability conclusion.",
-    "Some researched battery pages were 404; no product-unavailability inference."
-  ]
+    "Some researched battery pages were 404; no product-unavailability inference.",
+    "Non-Zero/3300mAh revision: native searches returned no usable results; Raspberry Pi product-page fetch returned 403 and was not retried.",
+    "Focused 3.7V 3300mAh battery catalog query returned 74HC04,74HC08 and MOSFET rows; all rejected as unrelated. No exact battery identity selected, and no inference that suitable packs do not exist."
+  ],
+  "current_application_status": "Existing part datasheet facts remain research evidence. Zero-specific integration and 6000mAh-pack budget are superseded; no approval for non-Zero/3300mAh branch."
 }

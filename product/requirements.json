@@ -5,12 +5,12 @@
       "source": "default"
     },
     "compute_family": {
-      "value": "Raspberry Pi Zero",
+      "value": "Raspberry Pi Compute Module or standard Raspberry Pi board; exclude Zero family",
       "source": "user"
     },
     "compute_variant": {
-      "value": "Raspberry Pi Zero 2 W",
-      "source": "user"
+      "value": "Exact non-Zero model, RAM and storage to be selected in hardware stage",
+      "source": "default"
     },
     "display_model": {
       "value": "Sharp LS027B7DH01",
@@ -61,7 +61,7 @@
       "source": "default"
     },
     "battery_architecture": {
-      "value": "internal rechargeable protected single-cell battery; exact cell and capacity selected in hardware phase",
+      "value": "internal rechargeable protected single-cell Li-ion battery; user specifies nominal 3.7V and 3300mAh; exact factory pack selected in hardware phase",
       "source": "default"
     },
     "power_behavior": {
@@ -144,7 +144,7 @@
     },
     "acceptance": {
       "value": [
-        "boot Pi Zero 2 W and operate a native monochrome terminal UI on LS027B7DH01",
+        "boot selected non-Zero Raspberry Pi or Compute Module and operate a native monochrome terminal UI on LS027B7DH01",
         "navigate menus with on-device buttons and enter shell commands with an external USB keyboard",
         "demonstrate an SSH session over Wi-Fi",
         "achieve at least 2 hours in the defined no-USB-peripheral light-use baseline; measure and report USB-keyboard runtime separately",
@@ -164,6 +164,14 @@
     },
     "battery_nominal_voltage_v": {
       "value": 3.7,
+      "source": "user"
+    },
+    "battery_nominal_capacity_mah": {
+      "value": 3300,
+      "source": "user"
+    },
+    "battery_chemistry": {
+      "value": "Li-ion",
       "source": "user"
     }
   },

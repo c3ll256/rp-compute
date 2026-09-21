@@ -2,12 +2,12 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "fit_check",
-  "summary": "Pi Zero 2 W 与 Sharp LS027B7DH01 掌上/桌面终端电脑：基本按键与外接键盘，USB-A 外设，USB-C 仅充电供电，轻度使用基线续航目标两小时；后续外壳 STEP 用于真实硬件装配检查。",
+  "summary": "非 Zero 的 Raspberry Pi / Compute Module 与 Sharp LS027B7DH01 掌上终端；3.7V 3300mAh Li-ion，轻载至少两小时仍为待验证目标。当前仅更新硬件需求，不开展 PCB/CAD。",
   "required_interfaces": [
     {
-      "id": "pi_zero_mount",
+      "id": "compute_mount",
       "kind": "internal_fit",
-      "description": "Pi Zero 2 W 的真实安装孔、器件高度、存储卡和线缆空间",
+      "description": "所选非 Zero Raspberry Pi 主板或 CM 加载板的真实安装接口、完整堆叠高度、存储、散热、天线及线缆空间；不得复用 Zero 孔位。",
       "source": "user_requested",
       "required": true
     },
@@ -28,7 +28,7 @@
     {
       "id": "battery_fit",
       "kind": "internal_fit",
-      "description": "可充电电池、电源管理组件及电池维护空间",
+      "description": "3.7V 3300mAh Li-ion 完整保护包、电源管理组件及维护空间；按所选整包图纸设计。",
       "source": "user_requested",
       "required": true
     },
@@ -68,7 +68,7 @@
       "USB-C",
       "selected local controls",
       "power and controlled shutdown",
-      "service access to battery and microSD"
+      "service access to battery and selected storage interface"
     ]
   },
   "cad": {
@@ -83,7 +83,7 @@
           "step"
         ],
         "interface_ids": [
-          "pi_zero_mount",
+          "compute_mount",
           "sharp_display_fit",
           "usb_access",
           "battery_fit",

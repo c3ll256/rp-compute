@@ -2,29 +2,8 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "758a2ca806c8158b0de0f5ba0237bbfc3ee4e9da1321dde23914405e76a546f9",
+  "requirements_digest": "8f6a901fe24ad4da93079822a36ac967a95ad8622556b643ea8b96c69562ac36",
   "selected_components": [
-    {
-      "id": "compute",
-      "role": "compute",
-      "name": "Raspberry Pi Zero 2 W",
-      "quantity": 1,
-      "supplier": "Raspberry Pi authorized reseller",
-      "manufacturer": "Raspberry Pi",
-      "part_number": "Raspberry Pi Zero 2 W",
-      "mpn": "Raspberry Pi Zero 2 W",
-      "stock": null,
-      "source": "user",
-      "procurement_status": "external_procurement_required",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "part_identity": "b914798d956221d5",
-      "datasheet_url": "https://datasheets.raspberrypi.com/rpizero2/raspberry-pi-zero-2-w-product-brief.pdf",
-      "observed_date": "2026-09-20",
-      "required_user_evidence": []
-    },
     {
       "id": "display",
       "role": "display",
@@ -49,7 +28,8 @@
       "datasheet_url": "https://media.digikey.com/pdf/Data%20Sheets/Sharp%20PDFs/LS027B7DH01.pdf",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM."
+      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "requirements_review": "Physical part retained; host integration and layout remain unverified for the non-Zero platform."
     },
     {
       "id": "charger",
@@ -77,8 +57,10 @@
       "required_user_evidence": [],
       "observed_date": "2026-09-21",
       "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
-      "selection_reason": "New 500mA branch default: NVDC switching charger, documented 6A continuous BATFET path and external ILIM plus I2C; unlike BQ25620, pins 4/5 are ILIM/TS_BIAS, not USB D-/D+. Not a proof of system thermal capability.",
-      "part_identity": "0a5569731dd6e54c"
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: New 500mA branch default: NVDC switching charger, documented 6A continuous BATFET path and external ILIM plus I2C; unlike BQ25620, pins 4/5 are ILIM/TS_BIAS, not USB D-/D+. Not a proof of system thermal capability.",
+      "part_identity": "0a5569731dd6e54c",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "boost",
@@ -106,7 +88,9 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "selection_reason": "TPS61088 retained for new 5.1V 3.3A design target with 2.2uH inductor; minimum boost input 3.5V and efficiency/current/thermal bounds must be proved. Do not equate 10A switch with 10A output."
+      "selection_reason": "Existing TPS61088 research candidate, not an approved CM/Pi supply. Recalculate voltage/current, inductance, low-voltage limit, efficiency and thermal design after exact host selection; do not equate switch rating with output rating.",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "display_fpc",
@@ -145,7 +129,8 @@
       "selection_reason": "0.30mm cable, 10 contacts at 0.5mm, bottom-contact. Use straight/unfolded panel tail layout; folded-back layout is not interchangeable.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM."
+      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "requirements_review": "Physical part retained; host integration and layout remain unverified for the non-Zero platform."
     },
     {
       "id": "usb_a_switch",
@@ -173,7 +158,9 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "selection_reason": "TPS2553 retained for user-confirmed 500mA available USB-A current. PCB set resistor for minimum trip above 500mA and worst-case trip <=650mA; verify start-up/inrush and fault flag. Not phone fast charging."
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: TPS2553 retained for user-confirmed 500mA available USB-A current. PCB set resistor for minimum trip above 500mA and worst-case trip <=650mA; verify start-up/inrush and fault flag. Not phone fast charging.",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "usb_c_cc",
@@ -200,7 +187,9 @@
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tusb320lai.pdf",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM."
+      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "usb_a",
@@ -227,36 +216,9 @@
       "datasheet_path": "product/references/ss-52100-001.pdf",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM."
-    },
-    {
-      "id": "battery",
-      "role": "protected_1s_battery_pack",
-      "name": "Keeppower 1S1P 21700 6000mAh wires-out candidate (product 870)",
-      "quantity": 1,
-      "supplier": "Keeppower",
-      "manufacturer": "Keeppower",
-      "part_number": "1S1P 21700 6000mAh wires-out (product 870; variant unresolved)",
-      "mpn": "1S1P 21700 6000mAh wires-out (product 870; variant unresolved)",
-      "stock": null,
-      "source": "default",
-      "product_url": "https://www.keeppower.com.cn/products_detail.php?id=870",
-      "image_url": "https://www.keeppower.com.cn/UploadFiles/20251229093505.png",
-      "procurement_status": "external_procurement_required",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "required_user_evidence": [],
-      "selection_status": "candidate_not_final_pending_3v7_variant",
-      "description": "Manufacturer lists protected 1S1P, nominal 3.6V 6000mAh, minimum 5900mAh, maximum discharge 12A. Exact protected assembly rating, wire gauge, connector variant and whole-pack drawing not established; do not treat maximum as continuous or infer dimensions from 21700 name.",
-      "supply_risk": "User selected nominal 3.7V battery type, not this exact MPN or a capacity. Existing product 870 research lists 3.6V; retain that evidence unchanged. Agent must select/verify an exact 3.7V protected pack and its current, protection, harness and dimensions; not a user-owned specification task. Do not mark this candidate compliant merely by relabeling it.",
-      "observed_date": "2026-09-21",
-      "part_identity": "b48a56cc0a5dd2d1",
-      "nominal_voltage_requirement": {
-        "value": 3.7,
-        "source": "user"
-      }
+      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "supervisor",
@@ -284,7 +246,9 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "96f5e6e6ee836ff1"
+      "part_identity": "96f5e6e6ee836ff1",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "main_disconnect",
@@ -312,8 +276,10 @@
       "required_user_evidence": [],
       "observed_date": "2026-09-21",
       "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
-      "selection_reason": "New 500mA branch default: 10A-rated switch replaces 2A TPS22918. VBIAS from unswitched boost output; exposed thermal pad is VIN, NOT GND. External CT sets inrush; no reverse-block claim.",
-      "part_identity": "3245a083b6a433c2"
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: New 500mA branch default: 10A-rated switch replaces 2A TPS22918. VBIAS from unswitched boost output; exposed thermal pad is VIN, NOT GND. External CT sets inrush; no reverse-block claim.",
+      "part_identity": "3245a083b6a433c2",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "ldo_3v3",
@@ -341,7 +307,9 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "7286a48c8388d7b9"
+      "part_identity": "7286a48c8388d7b9",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "display_buffer",
@@ -366,11 +334,13 @@
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/sn74ahc125.pdf",
       "package": "TSSOP-14",
       "jlc_smt_library": "extended",
-      "selection_reason": "AHC125 guarantees VOL<=0.1V at 50uA versus DH01 VIL<=0.15V. Two packages cover SCLK, SI, SCS, DISP, EXTCOMIN; only 3.3V logic supply, not 5V.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: AHC125 guarantees VOL<=0.1V at 50uA versus DH01 VIL<=0.15V. Two packages cover SCLK, SI, SCS, DISP, EXTCOMIN; only 3.3V logic supply, not 5V.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "a64234362567ca9d"
+      "part_identity": "a64234362567ca9d",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "domain_buffer",
@@ -395,11 +365,13 @@
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/sn74lvc1g07.pdf",
       "package": "SOT-23-5",
       "jlc_smt_library": "extended",
-      "selection_reason": "Ioff and open-drain outputs for shutdown request, shutdown acknowledgement and two status serial directions; receiver-domain pullups avoid powering an off Pi.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: Ioff and open-drain outputs for shutdown request, shutdown acknowledgement and two status serial directions; receiver-domain pullups avoid powering an off Pi.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "70ff0d06399d0bca"
+      "part_identity": "70ff0d06399d0bca",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "buttons",
@@ -427,7 +399,8 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "c9a8b6f5543e7718"
+      "part_identity": "c9a8b6f5543e7718",
+      "requirements_review": "Physical part retained; host integration and layout remain unverified for the non-Zero platform."
     },
     {
       "id": "usb_c",
@@ -448,10 +421,12 @@
       "product_url": "https://gct.co/connector/usb4105",
       "datasheet_url": "https://gct.co/files/drawings/usb4105.pdf",
       "package": "USB Type-C USB2.0 16 contact SMT with through-hole shell stakes",
-      "selection_reason": "Exact GF plating / A tape-reel / blank 0.95mm stakes from manufacturer ordering grid. No fuzzy supplier connector substitution.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: Exact GF plating / A tape-reel / blank 0.95mm stakes from manufacturer ordering grid. No fuzzy supplier connector substitution.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "part_identity": "e0d73f826ac01403"
+      "part_identity": "e0d73f826ac01403",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "boost_inductor",
@@ -486,7 +461,9 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "0075f3bc4297d45c"
+      "part_identity": "0075f3bc4297d45c",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "battery_ntc",
@@ -515,7 +492,9 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "02c2daebd93eb64c",
-      "selection_reason": "Two independent 103AT-2 sensors: BQ25622 TS using TS_BIAS divider and MCU ADC. Recompute TS network; no inherited BQ24074 resistor values."
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: Two independent 103AT-2 sensors: BQ25622 TS using TS_BIAS divider and MCU ADC. Recompute TS network; no inherited BQ24074 resistor values.",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "port_esd",
@@ -543,7 +522,9 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "072493d7a6985afa"
+      "part_identity": "072493d7a6985afa",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "path_current_guard",
@@ -572,7 +553,9 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "28df8117905a9943",
-      "selection_reason": "Retained TPS259531 moved to USB-C input, before BQ25622. No longer a 2A battery path limiter. Set input limit within CC allowance with tolerance; 5.7V clamp is not LCD output overvoltage protection."
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: Retained TPS259531 moved to USB-C input, before BQ25622. No longer a 2A battery path limiter. Set input limit within CC allowance with tolerance; 5.7V clamp is not LCD output overvoltage protection.",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "battery_header",
@@ -600,61 +583,10 @@
       "required_user_evidence": [],
       "observed_date": "2026-09-21",
       "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
-      "selection_reason": "XT30U-M on board-side pigtail, mates XT30U-F on battery. Neither is a PCB header. No PH land-pattern obligation remains. PCB wire pads/strain relief are project-designed later.",
-      "part_identity": "1bf917b377113a39"
-    },
-    {
-      "id": "pi_usb_harness",
-      "role": "internal_usb_data_link",
-      "name": "USB2-MICROB-DATA-100MM",
-      "quantity": 1,
-      "supplier": "Project cable assembly",
-      "manufacturer": "Project cable assembly",
-      "part_number": "USB2-MICROB-DATA-100MM",
-      "mpn": "USB2-MICROB-DATA-100MM",
-      "stock": null,
-      "source": "default",
-      "procurement_status": "external_procurement_required",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "specification": {
-        "length_mm": 100,
-        "interface": "USB2.0 micro-B male to soldered board pads",
-        "connections": "D+ D- GND and shield only; VBUS isolated at Pi end; ID NC, software force host",
-        "pair_impedance_ohm": 90,
-        "assembly_test": "Continuity and no VBUS bridge before insertion; no bare twisted loose GPIO wires for USB data."
-      },
-      "observed_date": "2026-09-20",
-      "required_user_evidence": [],
-      "part_identity": "9a5b1adce997a83a"
-    },
-    {
-      "id": "pi_gpio_harness",
-      "role": "pi_power_and_gpio_link",
-      "name": "PI-ZERO-GPIO-SOLDER-HARNESS",
-      "quantity": 1,
-      "supplier": "Project cable assembly",
-      "manufacturer": "Project cable assembly",
-      "part_number": "PI-ZERO-GPIO-SOLDER-HARNESS",
-      "mpn": "PI-ZERO-GPIO-SOLDER-HARNESS",
-      "stock": null,
-      "source": "default",
-      "procurement_status": "external_procurement_required",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "specification": {
-        "length_mm": 100,
-        "power_wire": "24 AWG stranded copper, two +5V and two GND conductors",
-        "signals": "SPI SCLK/SI/SCS, navigation buttons, supervisor handshake/status; exact GPIO allocation belongs to schematic",
-        "connection": "solder to Pi 40-pin footprint and carrier plated pads with strain relief; no mounted HAT claim"
-      },
-      "observed_date": "2026-09-20",
-      "required_user_evidence": [],
-      "part_identity": "07c09d43d8790a84"
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: XT30U-M on board-side pigtail, mates XT30U-F on battery. Neither is a PCB header. No PH land-pattern obligation remains. PCB wire pads/strain relief are project-designed later.",
+      "part_identity": "1bf917b377113a39",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "battery_cable_mate",
@@ -682,8 +614,10 @@
       "required_user_evidence": [],
       "observed_date": "2026-09-21",
       "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
-      "selection_reason": "Female contacts on battery side; manufacturer-installed harness requested. Included once in pack harness procurement, not an extra loose connector to modify a live battery. Confirm mating polarity against molded marks and measurement.",
-      "part_identity": "336e79353c0c2757"
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: Female contacts on battery side; manufacturer-installed harness requested. Included once in pack harness procurement, not an extra loose connector to modify a live battery. Confirm mating polarity against molded marks and measurement.",
+      "part_identity": "336e79353c0c2757",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     },
     {
       "id": "charger_inductor",
@@ -711,8 +645,10 @@
       "required_user_evidence": [],
       "observed_date": "2026-09-21",
       "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
-      "selection_reason": "1uH ±20%, 10A rated, 19.5A saturation, 6.5mOhm DCR; selected for BQ25622 1uH application, separate from retained 2.2uH boost inductor. Recalculate ripple at selected 1.5MHz and derate thermally.",
-      "part_identity": "aef1c26f527a2d8a"
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated new-platform selection: 1uH ±20%, 10A rated, 19.5A saturation, 6.5mOhm DCR; selected for BQ25622 1uH application, separate from retained 2.2uH boost inductor. Recalculate ripple at selected 1.5MHz and derate thermally.",
+      "part_identity": "aef1c26f527a2d8a",
+      "selection_status": "candidate_requires_nonzero_3300mah_revalidation",
+      "requirements_review": "Existing part evidence only; system use, quantity and interfaces must be revalidated for selected non-Zero host and 3.7V 3300mAh factory pack. No inherited power or runtime approval."
     }
   ],
   "alternatives": [
@@ -879,9 +815,154 @@
       "mpn": "1S2P 12Ah Battery Pack-AMXT30U (product 792)",
       "status": "not_selected",
       "reason": "Manufacturer establishes 72.5x44x22mm and XT30U, but maximum discharge is customizable and not specified; capacity is not current evidence."
+    },
+    {
+      "role": "compute",
+      "mpn": "Raspberry Pi Zero 2 W",
+      "status": "retired_by_nonzero_3300mah_requirements",
+      "reason": "Not an active candidate: user excludes Zero and fixes 3.7V 3300mAh Li-ion. Original identity, specifications and supplier images preserved without relabeling.",
+      "previous_row": {
+        "id": "compute",
+        "role": "compute",
+        "name": "Raspberry Pi Zero 2 W",
+        "quantity": 1,
+        "supplier": "Raspberry Pi authorized reseller",
+        "manufacturer": "Raspberry Pi",
+        "part_number": "Raspberry Pi Zero 2 W",
+        "mpn": "Raspberry Pi Zero 2 W",
+        "stock": null,
+        "source": "user",
+        "procurement_status": "external_procurement_required",
+        "assembly": {
+          "population": "not_mounted",
+          "method": "not_assembled"
+        },
+        "part_identity": "b914798d956221d5",
+        "datasheet_url": "https://datasheets.raspberrypi.com/rpizero2/raspberry-pi-zero-2-w-product-brief.pdf",
+        "observed_date": "2026-09-20",
+        "required_user_evidence": []
+      }
+    },
+    {
+      "role": "protected_1s_battery_pack",
+      "mpn": "1S1P 21700 6000mAh wires-out (product 870; variant unresolved)",
+      "status": "retired_by_nonzero_3300mah_requirements",
+      "reason": "Not an active candidate: user excludes Zero and fixes 3.7V 3300mAh Li-ion. Original identity, specifications and supplier images preserved without relabeling.",
+      "previous_row": {
+        "id": "battery",
+        "role": "protected_1s_battery_pack",
+        "name": "Keeppower 1S1P 21700 6000mAh wires-out candidate (product 870)",
+        "quantity": 1,
+        "supplier": "Keeppower",
+        "manufacturer": "Keeppower",
+        "part_number": "1S1P 21700 6000mAh wires-out (product 870; variant unresolved)",
+        "mpn": "1S1P 21700 6000mAh wires-out (product 870; variant unresolved)",
+        "stock": null,
+        "source": "default",
+        "product_url": "https://www.keeppower.com.cn/products_detail.php?id=870",
+        "image_url": "https://www.keeppower.com.cn/UploadFiles/20251229093505.png",
+        "procurement_status": "external_procurement_required",
+        "assembly": {
+          "population": "not_mounted",
+          "method": "not_assembled"
+        },
+        "required_user_evidence": [],
+        "selection_status": "candidate_not_final_pending_3v7_variant",
+        "description": "Manufacturer lists protected 1S1P, nominal 3.6V 6000mAh, minimum 5900mAh, maximum discharge 12A. Exact protected assembly rating, wire gauge, connector variant and whole-pack drawing not established; do not treat maximum as continuous or infer dimensions from 21700 name.",
+        "supply_risk": "User selected nominal 3.7V battery type, not this exact MPN or a capacity. Existing product 870 research lists 3.6V; retain that evidence unchanged. Agent must select/verify an exact 3.7V protected pack and its current, protection, harness and dimensions; not a user-owned specification task. Do not mark this candidate compliant merely by relabeling it.",
+        "observed_date": "2026-09-21",
+        "part_identity": "b48a56cc0a5dd2d1",
+        "nominal_voltage_requirement": {
+          "value": 3.7,
+          "source": "user"
+        }
+      }
+    },
+    {
+      "role": "internal_usb_data_link",
+      "mpn": "USB2-MICROB-DATA-100MM",
+      "status": "retired_by_nonzero_3300mah_requirements",
+      "reason": "Not an active candidate: user excludes Zero and fixes 3.7V 3300mAh Li-ion. Original identity, specifications and supplier images preserved without relabeling.",
+      "previous_row": {
+        "id": "pi_usb_harness",
+        "role": "internal_usb_data_link",
+        "name": "USB2-MICROB-DATA-100MM",
+        "quantity": 1,
+        "supplier": "Project cable assembly",
+        "manufacturer": "Project cable assembly",
+        "part_number": "USB2-MICROB-DATA-100MM",
+        "mpn": "USB2-MICROB-DATA-100MM",
+        "stock": null,
+        "source": "default",
+        "procurement_status": "external_procurement_required",
+        "assembly": {
+          "population": "not_mounted",
+          "method": "not_assembled"
+        },
+        "specification": {
+          "length_mm": 100,
+          "interface": "USB2.0 micro-B male to soldered board pads",
+          "connections": "D+ D- GND and shield only; VBUS isolated at Pi end; ID NC, software force host",
+          "pair_impedance_ohm": 90,
+          "assembly_test": "Continuity and no VBUS bridge before insertion; no bare twisted loose GPIO wires for USB data."
+        },
+        "observed_date": "2026-09-20",
+        "required_user_evidence": [],
+        "part_identity": "9a5b1adce997a83a"
+      }
+    },
+    {
+      "role": "pi_power_and_gpio_link",
+      "mpn": "PI-ZERO-GPIO-SOLDER-HARNESS",
+      "status": "retired_by_nonzero_3300mah_requirements",
+      "reason": "Not an active candidate: user excludes Zero and fixes 3.7V 3300mAh Li-ion. Original identity, specifications and supplier images preserved without relabeling.",
+      "previous_row": {
+        "id": "pi_gpio_harness",
+        "role": "pi_power_and_gpio_link",
+        "name": "PI-ZERO-GPIO-SOLDER-HARNESS",
+        "quantity": 1,
+        "supplier": "Project cable assembly",
+        "manufacturer": "Project cable assembly",
+        "part_number": "PI-ZERO-GPIO-SOLDER-HARNESS",
+        "mpn": "PI-ZERO-GPIO-SOLDER-HARNESS",
+        "stock": null,
+        "source": "default",
+        "procurement_status": "external_procurement_required",
+        "assembly": {
+          "population": "not_mounted",
+          "method": "not_assembled"
+        },
+        "specification": {
+          "length_mm": 100,
+          "power_wire": "24 AWG stranded copper, two +5V and two GND conductors",
+          "signals": "SPI SCLK/SI/SCS, navigation buttons, supervisor handshake/status; exact GPIO allocation belongs to schematic",
+          "connection": "solder to Pi 40-pin footprint and carrier plated pads with strain relief; no mounted HAT claim"
+        },
+        "observed_date": "2026-09-20",
+        "required_user_evidence": [],
+        "part_identity": "07c09d43d8790a84"
+      }
     }
   ],
   "supply_risks": [
+    {
+      "id": "nonzero_compute_selection",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Select exact Compute Module plus carrier or standard Pi for existing Linux terminal/SSH/tools use; establish RAM/storage, interfaces, power, cooling and dimensions. No Zero substitute."
+    },
+    {
+      "id": "battery_complete_pack_spec",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Select factory protected 3.7V nominal 3300mAh Li-ion pack. Capacity is not a discharge-current rating. Verify complete pack current/protection, charge limits, harness polarity and dimensions against selected host. No user engineering specification required. No matching candidate found in focused supplier lookup; unrelated logic IC rows rejected."
+    },
+    {
+      "id": "nonzero_power_runtime_interfaces",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Rebuild power, transient and thermal budget; verify two-hour no-USB baseline with 12.21Wh nominal battery. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
+    },
     {
       "id": "screen_supply",
       "component_id": "display",
@@ -1075,13 +1156,6 @@
       "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
     },
     {
-      "id": "battery_complete_pack_spec",
-      "component_id": "battery",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Exact nominal-3.7V protected pack still to be selected/verified by agent. User has settled voltage/type, not accepted unsupported current/harness/dimension claims for the old candidate."
-    },
-    {
       "id": "power_implementation",
       "severity": "warning",
       "design_critical": false,
@@ -1096,15 +1170,43 @@
   ],
   "unresolved_items": [
     {
+      "id": "nonzero_compute_selection",
+      "owner": "agent",
+      "target_stage": "hardware",
+      "design_critical": true,
+      "component_refs": [
+        "compute"
+      ],
+      "procurement_status": "external_procurement_required",
+      "resolution": "Select exact Compute Module plus carrier or standard Pi for existing Linux terminal/SSH/tools use; establish RAM/storage, interfaces, power, cooling and dimensions. No Zero substitute."
+    },
+    {
       "id": "battery_complete_pack_spec",
       "owner": "agent",
+      "target_stage": "hardware",
       "design_critical": true,
       "component_refs": [
         "battery",
         "battery_header",
         "battery_cable_mate"
       ],
-      "resolution": "User has resolved battery type as nominal 3.7V; no further user selection/approval is needed. Agent to select an exact 3.7V factory protected-pack variant meeting existing current budget, including PCM/leads, protection trip/time, polarity, charge rating, full dimensions and temperature limits. Product 870 remains a historical 3.6V-labeled research candidate, not a finalized 3.7V assembly. Prefer an evidenced off-the-shelf pack; factory request is an optional evidence route, not a task imposed on the user."
+      "procurement_status": "external_procurement_required",
+      "resolution": "Select factory protected 3.7V nominal 3300mAh Li-ion pack. Capacity is not a discharge-current rating. Verify complete pack current/protection, charge limits, harness polarity and dimensions against selected host. No user engineering specification required. No matching candidate found in focused supplier lookup; unrelated logic IC rows rejected."
+    },
+    {
+      "id": "nonzero_power_runtime_interfaces",
+      "owner": "agent",
+      "target_stage": "hardware",
+      "design_critical": true,
+      "component_refs": [
+        "charger",
+        "boost",
+        "main_disconnect",
+        "supervisor",
+        "usb_a",
+        "usb_c_cc"
+      ],
+      "resolution": "Rebuild power, transient and thermal budget; verify two-hour no-USB baseline with 12.21Wh nominal battery. Reassess USB host routing, boot/storage, GPIO/shutdown, charging path and battery cutoff. Old 2.5A Pi allowance, 3.3A output target and runtime estimate are retired, not inherited."
     }
   ]
 }
