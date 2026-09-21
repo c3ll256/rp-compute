@@ -17,7 +17,7 @@
       "source": "user"
     },
     "form_factor": {
-      "value": "handheld and desktop device inspired by the two uploaded images",
+      "value": "handheld and desktop terminal following the latest two uploaded reference images: low horizontal base, raised rear sloping screen housing, exposed flat front deck; not a single shallow wedge",
       "source": "user"
     },
     "usb_a_required": {
@@ -75,19 +75,19 @@
       "source": "default"
     },
     "appearance": {
-      "value": "orange screen surround, dark inner bezel, light rounded body; no inferred original-product internals",
+      "value": "orange raised screen housing with dark inset bezel on an ivory low horizontal base; front horizontal deck; no inferred hidden functions",
       "source": "default"
     },
     "screen_mount": {
-      "value": "fixed-angle integrated body; no hinge",
+      "value": "fixed-angle raised rear screen housing on horizontal base; no hinge",
       "source": "default"
     },
     "initial_layout_envelope_mm": {
       "value": {
         "width": 85,
         "depth": 115,
-        "max_height": 40,
-        "status": "provisional layout target, not verified fit"
+        "max_height": 60,
+        "status": "provisional corrected styling envelope, not verified hardware fit"
       },
       "source": "default"
     },
@@ -235,6 +235,18 @@
     },
     "cad_first_scope": {
       "value": "First CAD delivery is an editable exterior visual study, not final hardware fit or a printable production enclosure; preserve final electrical/assembly requirements for subsequent integration.",
+      "source": "default"
+    },
+    "cad_styling_defaults": {
+      "value": {
+        "base_height_mm": 20,
+        "screen_angle_deg_from_horizontal": 30,
+        "screen_pod_front_height_mm": 6,
+        "screen_pod_width_mm": 77,
+        "screen_face_depth_mm": 65,
+        "front_groove": "shallow cosmetic recess only, no added function",
+        "power_button": "single existing control relocated to right side"
+      },
       "source": "default"
     }
   },

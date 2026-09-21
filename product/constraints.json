@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "d0993dca9dbd0119aebef37f88b67d9ef04189f85be7020a52f45d94034100b6",
+  "requirements_digest": "b3f6ab960f6b3b1d98ceb8db3f6c65452cea8e0ffffe4f0a3cf7faaa537826c7",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -1059,5 +1059,18 @@
     ],
     "default_top_slope_deg": 8,
     "interface_strategy": "Replaceable rear/right side panels carry deferred native Pi apertures. Default front charging opening and power button location are styling proposals to constrain PCB."
+  },
+  "cad_styling": {
+    "status": "visual_only",
+    "source": "default",
+    "envelope_mm": [
+      85,
+      115,
+      60
+    ],
+    "horizontal_base_height_mm": 20,
+    "screen_angle_from_horizontal_deg": 30,
+    "reference": "product/contract.json correction_reference_1 and correction_reference_2",
+    "integration_note": "Raised screen housing and right-side power control are exterior proposals. Pi/PCB/battery retention and all native-port geometry remain unverified."
   }
 }

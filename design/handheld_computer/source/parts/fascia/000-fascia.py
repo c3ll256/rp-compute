@@ -1,15 +1,30 @@
+import math
 fascia_width=param('fascia_width',77.0)
 fascia_depth=param('fascia_depth',65.0)
 fascia_radius=param('fascia_radius',6.0)
 fascia_thickness=param('fascia_thickness',3.0)
-fascia_recess=param('fascia_recess',2.4)
 fascia_window_width=param('fascia_window_width',66.5)
 fascia_window_height=param('fascia_window_height',46.5)
 fascia_window_radius=param('fascia_window_radius',2.75)
 fascia_edge_radius=param('fascia_edge_radius',0.6)
-fascia=extrude(RectangleRounded(fascia_width,fascia_depth,fascia_radius),amount=fascia_thickness)
-fascia=fillet(fascia.edges().filter_by(Plane.XY),fascia_edge_radius)
-fascia-=extrude(RectangleRounded(fascia_window_width,fascia_window_height,fascia_window_radius),amount=fascia_thickness)
-fascia=Pos(0,0,-fascia_recess)*fascia
-fascia.color=Color(0.96,0.31,0.07)
-publish('fascia',fascia,'Orange display surround')
+fascia_slope=param('fascia_slope',30.0)
+fascia_front_height=param('fascia_front_height',6.0)
+fascia_wall=param('fascia_wall',2.4)
+fascia_window_x=param('fascia_window_x',0.0)
+fascia_window_y=param('fascia_window_y',0.0)
+a=math.radians(fascia_slope)
+d=fascia_depth*math.cos(a)
+zc=fascia_front_height+fascia_depth*math.sin(a)/2
+h=fascia_front_height+fascia_depth*math.sin(a)
+outer=extrude(RectangleRounded(fascia_width,d,fascia_radius),amount=h+fascia_thickness)
+clip=Pos(0,0,zc)*Rot(fascia_slope,0,0)*Pos(0,0,-2*h)*Box(4*fascia_width,4*fascia_depth,4*h)
+outer=outer & clip
+edges=[e for e in outer.edges() if all(abs(v.Z-zc-v.Y*math.tan(a))<0.001 for v in e.vertices())]
+outer=fillet(edges,fascia_edge_radius)
+inner=Pos(0,0,-fascia_wall)*extrude(RectangleRounded(fascia_width-2*fascia_wall,d-2*fascia_wall,fascia_radius-fascia_wall),amount=h+2*fascia_wall)
+innerclip=Pos(0,0,zc-fascia_thickness/math.cos(a))*Rot(fascia_slope,0,0)*Pos(0,0,-2*h)*Box(4*fascia_width,4*fascia_depth,4*h)
+body=outer-(inner & innerclip)
+window=Pos(0,0,zc)*Rot(fascia_slope,0,0)*Pos(fascia_window_x,fascia_window_y,-2*fascia_thickness)*extrude(RectangleRounded(fascia_window_width,fascia_window_height,fascia_window_radius),amount=4*fascia_thickness)
+body-=window
+body.color=Color(0.96,0.31,0.07)
+publish('fascia',body,'Raised orange screen housing')

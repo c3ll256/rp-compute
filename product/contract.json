@@ -2,7 +2,7 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "visual_draft",
-  "summary": "用户要求先CAD再PCB，优先造型。本轮交付参数化外壳外观STEP：浅色圆角楔体、橙色屏框、深色内框、单电源键和接口面板分区；最终Pi/电池/PCB适配要求全部保留，不以外观稿冒充通过。",
+  "summary": "按用户最新两张参考图修正CAD外观：低矮水平浅色底座、后置抬高橙色斜屏舱、深色内框及前方水平平台；不再采用整块缓坡机身。仍为外观STEP，不证明最终硬件适配。",
   "required_interfaces": [
     {
       "id": "compute_mount",
@@ -78,6 +78,18 @@
       "source": "user_requested",
       "description": "Pi 4B 官方产品简介：p3 规格/电源，p5 近似参考尺寸与警告；不是生产用机械图。",
       "path": "product/references/pi4b-product-brief.pdf"
+    },
+    {
+      "id": "correction_reference_1",
+      "source": "user_requested",
+      "description": "本轮纠正造型关系的主要参考；无比例尺，不据此声称精确尺寸或功能",
+      "path": "product/references/uploads/20260921T125420119Z-1-cleanshot-2026-09-21-at-21-53-40-2x.png"
+    },
+    {
+      "id": "correction_reference_2",
+      "source": "user_requested",
+      "description": "本轮纠正造型关系的主要参考；无比例尺，不据此声称精确尺寸或功能",
+      "path": "product/references/uploads/20260921T125420119Z-2-cleanshot-2026-09-21-at-21-54-09-2x.png"
     }
   ],
   "assembly_story": {
@@ -114,7 +126,9 @@
           "reference_photo_angled",
           "reference_photo_front",
           "sharp_datasheet",
-          "pi4b_product_brief"
+          "pi4b_product_brief",
+          "correction_reference_1",
+          "correction_reference_2"
         ]
       }
     ]
