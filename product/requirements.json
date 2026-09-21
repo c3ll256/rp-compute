@@ -34,8 +34,9 @@
     },
     "usb_a_role": {
       "value": {
-        "quantity": 1,
-        "role": "USB 2.0 host for keyboard, mouse or storage",
+        "quantity_for_budget": 1,
+        "implementation": "Pi native USB-A, no baseboard socket, hub or extension cable",
+        "role": "keyboard, mouse or storage",
         "phone_fast_charging": false
       },
       "source": "default"
@@ -49,7 +50,7 @@
       "source": "user"
     },
     "local_input": {
-      "value": "basic on-device buttons; text entry via external keyboard",
+      "value": "Prototype baseboard expands power and display only; no navigation/confirm/back button bank; text and navigation via external keyboard on Pi native USB",
       "source": "user"
     },
     "battery_runtime_hours": {
@@ -145,18 +146,19 @@
     "acceptance": {
       "value": [
         "With all power disconnected, user mates their Pi4B to the baseboard GPIO socket and mechanically secures it; baseboard powers Pi and LS027B7DH01 terminal operates without an internal USB-C power cable.",
-        "navigate menus with on-device buttons and enter shell commands with an external USB keyboard",
+        "Use external keyboard on Pi native USB for navigation and shell commands; no added navigation keys or baseboard USB-A.",
         "demonstrate an SSH session over Wi-Fi",
         "measure and report actual runtime in the defined no-USB-peripheral light-use baseline and separately with a USB keyboard; no fixed minimum-hour pass/fail threshold",
         "operate and charge concurrently without reboot on power transition",
         "recognize keyboard and storage on USB-A within a declared power budget; USB-C carries input power only",
         "verify display clamping, FPC routing, battery clearance, thermals and desktop stability",
-        "Verify GPIO docking orientation, contact current/temperature, reverse-current and accidental PiUSB-C dual-source protection; no hot-plug or multi-model compatibility claim."
+        "Verify GPIO docking orientation, contact current/temperature, reverse-current and accidental PiUSB-C dual-source protection; no hot-plug or multi-model compatibility claim.",
+        "User installs Pi without soldering or individual jumper wiring; verify enclosure openings and real plug/cable insertion, release and bend clearance for native ports, plus microSD service access. Ports accessible does not certify concurrent powered use."
       ],
       "source": "default"
     },
     "local_button_default": {
-      "value": "directional navigation, confirm and back buttons plus controlled power/shutdown; exact button parts selected in hardware phase",
+      "value": "One controlled power/shutdown button retained as a power-management control, not a navigation interface",
       "source": "default"
     },
     "usb_a_available_current_ma": {
@@ -188,7 +190,7 @@
       "source": "user"
     },
     "compute_attachment": {
-      "value": "User plugs Raspberry Pi GPIO header into the custom baseboard; no separate internal Pi power cable",
+      "value": "Simple installation of user-owned Pi4B onto our baseboard by GPIO docking and minimal mechanical fastening; no separate internal Pi power cable",
       "source": "user"
     },
     "supported_compute_scope": {
@@ -197,6 +199,25 @@
     },
     "pi_power_interface": {
       "value": "Baseboard regulated and protected5V to Pi via40-pin header power contacts; SPI/control via3.3V-domain signal contacts; cold-plug only",
+      "source": "default"
+    },
+    "baseboard_extension_scope": {
+      "value": [
+        "power and battery management",
+        "Sharp LS027B7DH01 display interface"
+      ],
+      "source": "user"
+    },
+    "additional_usb_a_on_baseboard": {
+      "value": false,
+      "source": "user"
+    },
+    "pi_native_port_access": {
+      "value": "Enclosure must leave access and cable insertion/removal space for Pi native interfaces; use native Pi USB-A rather than adding baseboard USB-A",
+      "source": "user"
+    },
+    "installation_default": {
+      "value": "Preassembled baseboard: user installs prepared microSD in Pi, cold-plugs GPIO socket, secures board and closes case. No soldering or individual GPIO jumper wiring by user. Default external access to all native board-edge ports and microSD service access; no external breakout for internal CSI/DSI or occupied GPIO. Port access does not promise simultaneous powered use beyond existing500mA peripheral budget.",
       "source": "default"
     }
   },

@@ -2,14 +2,21 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "75f9bebc4ffd6904abd4972730f4c86b26084146a734cb019862a4a4968cc6e1",
+  "requirements_digest": "7aa392a3df87a525cfc932dd429b742d943d9450628d81da463bb0099bec4ab8",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
     "battery": "protected 1S 3.7V 3300mAh Li-ion factory assembly",
     "power_path": "ProductUSB-Cinput -> input protection/NVDCcharger -> boost5.1V -> protected/disconnect GPIO5V output -> userPi headerpins2/4. Protected3300mAh1Spack -> BAT; display/AON branches. Output reverse/overcurrent protection and mating connector unresolved.",
-    "usb_a": "Use one native USB 2.0 Type-A port on Pi 4B for 500mA peripheral budget. Other physical native ports remain present but additional simultaneous peripheral load is not promised.",
-    "usb_c": "Only baseboard external charging/input port active; PiUSB-C is not intended operating supply while docked. Design accidental dual-source safety, not an internalUSB-C source port."
+    "usb_a": "NativePiUSB-A only. No baseboardUSB-A socket, hub or data extension. Enclosure must expose native ports; existing500mA peripheral budget remains and is not per-port simultaneous capacity.",
+    "usb_c": "Only baseboard external charging/input port active; PiUSB-C is not intended operating supply while docked. Design accidental dual-source safety, not an internalUSB-C source port.",
+    "baseboard_scope": {
+      "value": [
+        "power",
+        "display"
+      ],
+      "source": "user"
+    }
   },
   "display": {
     "module_body_mm": [
@@ -547,20 +554,14 @@
       "available_current_ma": 500,
       "connections": "Keyboard/storage directly into selected native Type-A; no Zero micro-B data harness, custom socket, added hub or separate external VBUS feed. Existing other Pi ports are not removed.",
       "cutout_candidate_mm": null,
-      "note": "Use actual Pi connector/model geometry; do not use SS-52100-001 dimensions for native socket. Board orientation and exposure of other ports remain layout work; one-port usage budget is not a claim of independent 500mA hardware trip."
+      "note": "Pi nativeUSB sockets must remain accessible through enclosure. Physical access is not an increase of500mA productperipheralbudget. Use actualPi geometry, not retiredcustomUSBsocket drawing."
     }
   ],
   "controls": {
     "source": "default",
     "mpn": "B3F-1000",
-    "quantity": 7,
+    "quantity": 1,
     "functions": [
-      "up",
-      "down",
-      "left",
-      "right",
-      "confirm",
-      "back",
       "power/shutdown"
     ],
     "body_mm": [
@@ -572,19 +573,21 @@
       "w": 10,
       "h": 10
     },
-    "button_centers": "Deferred to PCB placement; not inferred from reference images."
+    "button_centers": "One power control only; no navigation bank. Position deferred toPCB/CAD, not inferred from images."
   },
   "supervisor": {
     "source": "default",
     "mpn": "ATTINY1616-SN",
     "selection_status": "selected_candidate_interface_allocated",
-    "note": "ATtiny1616 AON retained. Pi BCM17 shutdown request/BCM27 acknowledgement and UART14/15 reserved, fanGPIO12 separately. Wait for Linux safe shutdown, not fixed delay alone. ADC loaded-voltage thresholds await exact pack discharge/sag; no validated state-of-charge estimate."
+    "note": "ATtiny1616 AON retained. Pi BCM17 shutdown request/BCM27 acknowledgement and UART14/15 reserved, fanGPIO12 separately. Wait for Linux safe shutdown, not fixed delay alone. ADC loaded-voltage thresholds await exact pack discharge/sag; no validated state-of-charge estimate.",
+    "user_controls": "One default power/shutdown button only; navigation button scan not required. Existing power, battery, shutdown anddisplayCOM duties retained."
   },
   "pcb_handoff_tasks": [
     "Resolve3300mAhprotectedpack, exactGPIOsocket andprotected5Voutput with reverse/short/dual-source protection beforeBOMready.",
     "Revalidate conditional5.1V3.2Abudget including header/contact andprotectiondrop; thermal/current bounds remain unproven.",
     "ReservePi4BnativeUSBaccess and fanbreakout; verify dockorientation, stackheight, mechanicalsupport andGPIOsoftwareconfiguration.",
-    "NoPCB/CADauthorized inthisquery; later implementation includes circuit/footprint review andprototype tests."
+    "NoPCB/CADauthorized inthisquery; later implementation includes circuit/footprint review andprototype tests.",
+    "Limitbaseboard to power/display; one defaultpowerbutton and necessarycooling only. No navigationbank/additionalUSB-A. PreservePi nativeport/cableaccess and simple userinstallation."
   ],
   "superseded_zero_reference": {
     "status": "historical_only_not_for_new_design",
@@ -831,7 +834,8 @@
       "stack_height_mm": null,
       "mpn": null,
       "electrical_qualification": "5V supply pins are notGPIO logic outputs. Connector contact sharing/drop/heat unverified, no hot-plug. Power circuit must independently protect output and prevent backfeed/dual-source damage.",
-      "mechanical_qualification": "SupportPi on mounting posts, not socket alone. Pin1 clear marking plus guides to preventrotation or row offset. Keep heatsink/fan, USB/Ethernet, microSD and extraction access clear. NoHAT certification or allPi compatibility claim."
+      "mechanical_qualification": "SupportPi on mounting posts, not socket alone. Pin1 clear marking plus guides to preventrotation or row offset. Keep heatsink/fan, USB/Ethernet, microSD and extraction access clear. NoHAT certification or allPi compatibility claim.",
+      "installation": "Preassembled baseboard; cold-plugPi into socket then fasten independent supports. No soldering or per-signal jumpers by user. Do not promise tool-free or hot-swap."
     },
     "fan_breakout": {
       "source": "default",
@@ -906,5 +910,30 @@
         "qualification": "Proposed nonoverlapping Pi pin allocation, verify wiring orientation/peripheral mux and software overlays in electrical implementation. Cross-domain signals through retained open-drain buffers; never pull unpowered Pi to AON rail."
       }
     }
+  },
+  "enclosure_native_port_access": {
+    "requirement": {
+      "value": "Provide openings and practical plug/cable access for Pi native interfaces",
+      "source": "user"
+    },
+    "default_external_interfaces": [
+      "USB-A",
+      "Ethernet",
+      "micro-HDMI",
+      "3.5mm AV",
+      "Pi USB-C"
+    ],
+    "service_access": [
+      "microSD"
+    ],
+    "excluded_new_breakouts": [
+      "CSI",
+      "DSI",
+      "GPIO expansion beyond occupied dock"
+    ],
+    "source": "default",
+    "pi_usb_c_policy": "Physically accessible but not normal docked supply input; label separately frombaseboardchargingUSB-C and implement accidentaldual-source protection. Do not use a blocked port as substitute for electrical protection.",
+    "opening_dimensions_mm": null,
+    "qualification": "No geometry authored or fitverified. Verify connector bodies, plug overmolds, cable bend, release tab/finger access against actualPi and completedbaseboard. No audio circuitry added merely by exposingPiAVport."
   }
 }

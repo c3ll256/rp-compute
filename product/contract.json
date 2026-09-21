@@ -2,12 +2,12 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "fit_check",
-  "summary": "BYOP用户自带Pi4B的GPIO插接基板终端套件：自制基板整合电源、屏幕与按键；3.7V3300mAhLi-ion，续航按实际报告。当前仅需求/硬件，不做PCB/CAD。",
+  "summary": "BYOP Pi4B简化原型：用户将Pi简单GPIO插接并固定到基板；基板仅扩展供电及Sharp屏幕，外壳保留Pi原生接口，不增加USB-A或导航按键。当前不做PCB/CAD。",
   "required_interfaces": [
     {
       "id": "compute_mount",
       "kind": "internal_fit",
-      "description": "用户自带Pi4B通过40针GPIO插入基板，配独立机械固定和防错插导向；验证母座堆叠、散热、microSD、USB/Ethernet及拆卸空间。无需内部USB-C电源线。",
+      "description": "用户自带Pi4B通过40针GPIO插入基板，配独立机械固定和防错插导向；验证母座堆叠、散热、microSD、USB/Ethernet及拆卸空间。无需内部USB-C电源线。 简化为断电对准插入及少量固定件，无用户焊接或逐根GPIO跳线。",
       "source": "user_requested",
       "required": true
     },
@@ -21,7 +21,7 @@
     {
       "id": "usb_access",
       "kind": "external_access",
-      "description": "一个主要使用的 Pi 4B 原生 USB-A 端口及独立充电输入 USB-C 的插拔空间；计入板上其他连接器实体，不承诺额外外设同时供电。",
+      "description": "Pi原生USB-A接口与基板充电USB-C插拔空间；基板不新增USB-A、Hub或USB延长线。开口不能挡住插头外壳和手指操作空间；外设预算仍500mA，不承诺多口同时满载。",
       "source": "user_requested",
       "required": true
     },
@@ -35,7 +35,7 @@
     {
       "id": "control_access",
       "kind": "external_access",
-      "description": "机身导航、确认、返回和电源按键的安装、行程和操作空间；文字输入使用外接键盘",
+      "description": "只保留一枚默认电源/受控关机按键的安装及操作空间；无导航、确认、返回按键阵列。",
       "source": "contract_interface",
       "required": true
     },
@@ -43,6 +43,13 @@
       "id": "gpio_dock",
       "kind": "internal_fit",
       "description": "40针GPIO电源/信号插接接口：接触电流、排针方向、完整插入及防偏排，基板受保护5V供电；仅断电插拔，不以GPIO同形宣称兼容其他Pi。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "pi_native_ports",
+      "kind": "external_access",
+      "description": "外壳为Pi原生板边接口预留开口和插头插拔空间。默认覆盖USB-A、Ethernet、micro-HDMI、3.5mm接口和Pi USB-C，另留microSD维护空间；不扩展内部CSI/DSI。Pi USB-C可接近不代表允许并联供电，误双电源保护仍为电气验收项。准确开口坐标待真实板卡/模型验证。",
       "source": "user_requested",
       "required": true
     }
@@ -74,14 +81,13 @@
     }
   ],
   "assembly_story": {
-    "installation": "断开外部供电并隔离电池；用户将预装合适系统的Pi4B按防错方向插入基板GPIO母座，使用独立固定件锁定。基板侧连接风扇、屏幕、电池与按键；完成固定后才通电。无内部PiUSB-C电源线，不支持带电插拔。",
+    "installation": "基板屏幕、电池及必要散热附件预装；用户准备Pi与系统卡，断开全部电源并隔离电池后对准GPIO母座插入Pi，用少量独立固定件固定并合壳。无需焊接、逐根GPIO跳线、额外USB-A或内部PiUSB-C线。准确装配顺序待插座与散热堆叠核实。",
     "maintenance": "正常Linux关机，断外部电源并隔离电池后才拔Pi；不能把GPIO座当唯一承力件，不能撬动屏幕或电池。",
     "user_access": [
-      "USB-A",
-      "USB-C",
-      "selected local controls",
-      "power and controlled shutdown",
-      "service access to battery and selected storage interface"
+      "Pi native board-edge ports and cable clearance",
+      "baseboard chargingUSB-C",
+      "single default power/shutdown control",
+      "microSD and battery service access"
     ]
   },
   "cad": {
@@ -101,7 +107,8 @@
           "usb_access",
           "battery_fit",
           "control_access",
-          "gpio_dock"
+          "gpio_dock",
+          "pi_native_ports"
         ],
         "reference_ids": [
           "reference_photo_angled",

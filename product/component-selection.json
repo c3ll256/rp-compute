@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "75f9bebc4ffd6904abd4972730f4c86b26084146a734cb019862a4a4968cc6e1",
+  "requirements_digest": "7aa392a3df87a525cfc932dd429b742d943d9450628d81da463bb0099bec4ab8",
   "selected_components": [
     {
       "id": "compute",
@@ -33,7 +33,7 @@
         "source": "default"
       },
       "description": "Complete Raspberry Pi 4 Model B, 4GB LPDDR4 variant. Official product brief p3: BCM2711 quad-core Cortex-A72, two USB 2.0 and two USB 3.0 ports, 40-pin GPIO, microSD storage, USB-C 5V supply minimum 3A subject to p5 footnote. 3A is supply sizing, not measured consumption. Customer-supplied SBC docks through40-pin GPIO and is mechanically supported; not CM or a soldered component. Baseboard supplies regulated5V through header power contacts; no internalUSB-C cable.",
-      "selection_reason": "User-supplied Pi4B,4GB remains default reference. Quantity1 is the assembled reference, not a board to buy with product kit. Baseboard mates viaGPIO; board revision/other models not yet qualified.",
+      "selection_reason": "User-supplied Pi4B,4GB remains default reference. Quantity1 is the assembled reference, not a board to buy with product kit. Baseboard mates viaGPIO; board revision/other models not yet qualified. User requests simple mount and enclosure access to native ports; no addedbaseboardUSB-A. User installation should not require soldering or individual GPIO jumpers.",
       "supply_risk": "Supplier query returned unrelated passive/diode/crystal rows; all rejected. No stock, price, reseller SKU or board-revision claim. Procurement availability is advisory; thermal and power integration remain unresolved.",
       "board_model_reference": {
         "id": "raspberry_pi_4_model_b",
@@ -360,9 +360,9 @@
     },
     {
       "id": "buttons",
-      "role": "up_down_left_right_confirm_back_power",
+      "role": "controlled_power_shutdown_button",
       "name": "B3F-1000",
-      "quantity": 7,
+      "quantity": 1,
       "supplier": "LCSC",
       "manufacturer": "Omron",
       "part_number": "B3F-1000",
@@ -385,7 +385,8 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "c9a8b6f5543e7718",
-      "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform."
+      "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform.",
+      "selection_reason": "Retain one existingB3F-1000 for power/shutdown only as disclosed default; remove six navigation keys because user narrows prototype to power and display. No part identity or package change."
     },
     {
       "id": "usb_c",
@@ -1326,5 +1327,6 @@
       ],
       "resolution": "Select actual protected5V GPIO output path including overcurrent/short-circuit, reverse-current blocking and unintendedPiUSB-C dual-source behavior. TPS22990 is only disconnect, not reverse blocking; inputTPS259531 does not prove header-output protection. Cover off-state backpower via3.3V signals, power-up and shutdown. Do not rely solely on instructing users not to connectPiUSB-C."
     }
-  ]
+  ],
+  "scope": "BYOP Pi4B simple-docking prototype; baseboard expands power and display only, no extra USB-A or navigation button bank. One default power button, protection and necessary cooling retained. Native port openings required. Hardware draft: battery, GPIO socket and protection unresolved; noPCB/CAD."
 }
