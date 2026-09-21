@@ -1,0 +1,23 @@
+{
+  "status": "local_static_checks_passed_not_electrical_validation",
+  "requirements_digest": "22e494b9b58d98d6acb4c217a94ce1033488f28329905f0433f6e3730a743c23",
+  "bom_rows": 28,
+  "preserved_previous_identity_image_quantity_rows": 23,
+  "verified_source_hashes": 46,
+  "lcd_ovlo_static_corners_v": [
+    5.240946,
+    5.441986
+  ],
+  "pi_static_min_v_given_resistance_target": 4.758,
+  "battery_current_a_given_assumptions": 5.625429,
+  "checks_not_performed": [
+    "schematic ERC",
+    "PCB DRC",
+    "dynamic LCD overshoot",
+    "power short circuit thermal and startup",
+    "interlock functional safety",
+    "battery actual compatibility",
+    "CAD fit",
+    "runtime"
+  ]
+}

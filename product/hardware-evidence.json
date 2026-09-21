@@ -483,6 +483,47 @@
         6
       ],
       "interpretation": "LevervariantD2F-01L;OF0.78N fromleverp4not1.47Nplungerp1.30V0.1A contactclass,controlonly. Notcompleteinterlockqualification."
+    },
+    {
+      "id": "interlock_latch",
+      "path": "product/references/interlock-latch-ti.pdf",
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/sn74lvc1g74.pdf",
+      "sha256": "e46a5a867fec742290000dca5ed3b291535f3c4418ef2ae267acc4ab51b26d8a",
+      "interpretation": "Pinout, operating limits, application and layout pages visually reviewed; no PCB or physical validation."
+    },
+    {
+      "id": "interlock_por",
+      "path": "product/references/interlock-por-ti.pdf",
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/tps3808.pdf",
+      "sha256": "508cd6b5f24c9f2587e6f005d2ff63287d0434f84c425061e8f63eda167fae06",
+      "interpretation": "Pinout, operating limits, application and layout pages visually reviewed; no PCB or physical validation."
+    },
+    {
+      "id": "interlock_schmitt",
+      "path": "product/references/interlock-schmitt-ti.pdf",
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/sn74lvc2g17.pdf",
+      "sha256": "624dbe55679d2fed4123b0d7708cd0d295efcc78de395e71a0caf5cd13cbc216",
+      "interpretation": "Pinout, operating limits, application and layout pages visually reviewed; no PCB or physical validation."
+    },
+    {
+      "id": "gpio_socket_production",
+      "path": "product/references/ssq-series-print.pdf",
+      "source_url": "https://suddendocs.samtec.com/prints/ssq-1xx-xx-xxx-x-xx-xxx-xx-x-mkt.pdf",
+      "sha256": "3609be190ef021cc260abf423296449d797dd474fe1618dcf0fec719e2a05141",
+      "pages": [
+        1
+      ],
+      "interpretation": "Visual drawing review; exact -D straight row variant, not RA or Q. Does not certify actual Pi mating or entire assembly."
+    },
+    {
+      "id": "gpio_socket_footprint",
+      "path": "product/references/ssq-footprint.pdf",
+      "source_url": "https://suddendocs.samtec.com/prints/ssq-1xx-xx-xx-x-xx-xxx-xx-xx.pdf",
+      "sha256": "22412225a71a963f7337ba8057011971d161901832198f98770636aa7912b19c",
+      "pages": [
+        1
+      ],
+      "interpretation": "Visual drawing review; exact -D straight row variant, not RA or Q. Does not certify actual Pi mating or entire assembly."
     }
   ],
   "web_evidence": [
@@ -520,7 +561,7 @@
     "2026-09-21 native web search returned no results. Samtec product page accessible; suddendocs catalog URL403, hostnotretried. UsedLCSCcachedSamteccatalog, fullseriesproductionprintgapretained.",
     "EEMBsiteHTTP500 andlipobattery.netDNSfailure; no batteryidentityinferred. LiPolmanufacturerpagesaccessible andsaved. LP446598cataloglookup noexactLCSCmatch; manufactureridentity retained aslead only."
   ],
-  "current_application_status": "23rowdraft;userconfirmedbaseboardinputonlyandcovered/interlockedPiUSB-C. SSQsocket,TPS259470L,D2F-01Lprimarycandidatesrecorded. Noopenuserquestions; batterycompletepackevidence andinterfaceimplementation remainagentowned. NoPCB/CAD.",
+  "current_application_status": "Functional selection ready for electrical implementation against user-supplied battery interface.28rows incl2 external user-supplied references; no fabrication/thermal/fit qualification.",
   "board_model_references": [
     {
       "id": "raspberry_pi_4_model_b",

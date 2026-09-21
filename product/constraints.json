@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "status": "draft",
-  "bom_ready": false,
-  "requirements_digest": "cb5a324c05b8294d558764f8a78e5d3284dcb7cbbbc62e9265fe13d2963b7c7f",
+  "status": "ready",
+  "bom_ready": true,
+  "requirements_digest": "22e494b9b58d98d6acb4c217a94ce1033488f28329905f0433f6e3730a743c23",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
-    "battery": "protected 1S 3.7V 3300mAh Li-ion factory assembly",
-    "power_path": "ProductUSB-Cinput -> input protection/NVDCcharger -> boost5.1V -> protected/disconnect GPIO5V output -> userPi headerpins2/4. Protected3300mAh1Spack -> BAT; display/AON branches. Output reverse/overcurrent protection and mating connector unresolved.",
+    "battery": "User-supplied factory-protected1S3.7V3300mAh; interface fixed, exact MPN excluded from procurement.",
+    "power_path": "USB-C -> TPS259531 -> BQ25622; BAT accepts user pack; SYS -> TPS61088 -> TPS22990 -> independent TPS259470L Pi/LCD branches. AON3.3V reset/latch supervises start. Circuit not authored.",
     "usb_a": "NativePiUSB-A only. No baseboardUSB-A socket, hub or data extension. Enclosure must expose native ports; existing500mA peripheral budget remains and is not per-port simultaneous capacity.",
     "usb_c": "BaseboardUSB-Csole dailyinput;PiownUSB-Cmechanicallycovered/interlockedwhiledocked,userselected. Noactive dualinputadapter.",
     "baseboard_scope": {
@@ -87,56 +87,24 @@
   },
   "unresolved_items": [
     {
-      "id": "battery_complete_pack_spec",
-      "owner": "agent",
-      "target_stage": "hardware",
-      "design_critical": true,
+      "id": "battery_acceptance_before_use",
+      "owner": "user",
+      "target_stage": "prototype_integration",
+      "design_critical": false,
       "component_refs": [
-        "battery",
-        "battery_header",
-        "battery_cable_mate"
+        "battery"
       ],
-      "procurement_status": "external_procurement_required",
-      "resolution": "Two concrete manufacturer leads now recorded: LP446598 protected3300mAh variant lacks completepackcurrent/PCM/lead/charge evidence; LPHD7859098 is highratecell only, factoryprotectedversion unestablished. Keep exact3.7V3300mAh requirement, no activebatteryrow until evidence supports load. Supplierinquiry drafted locally, notsent. Still need completepackcontinuouscurrent,protection curves,charge limits andassemblydrawing."
+      "resolution": "Supply factory-protected compatible pack per battery-interface.md; engineer checks actual evidence before charging/operation. No purchase-link requirement now."
     },
     {
-      "id": "pi4b_power_margin",
-      "owner": "agent",
-      "target_stage": "hardware",
-      "design_critical": true,
+      "id": "battery_final_enclosure_envelope",
+      "owner": "user",
+      "target_stage": "cad_fit_check",
+      "design_critical": false,
       "component_refs": [
-        "charger",
-        "boost",
-        "supervisor",
-        "cooling"
+        "battery"
       ],
-      "resolution": "5.6254A calculated vs6A BQ BAT path depends on SYS>=3.5V, efficiency>=85%,3.2A total5V output and30mA AON. Current margin only0.3746A; fan startup/inrush, UV handling, battery sag and controlled shutdown reserve need bounded design. No full-load claim below3.5V. Add display-safe overvoltage protection; TPS2595315.7V input clamp does not protect5.5V-max display rail. No PCB or physical test performed."
-    },
-    {
-      "id": "gpio_docking_connector",
-      "owner": "agent",
-      "target_stage": "hardware",
-      "design_critical": true,
-      "component_refs": [
-        "gpio_dock",
-        "compute",
-        "cooling"
-      ],
-      "procurement_status": "external_procurement_required",
-      "resolution": "SSQ-120-02-G-D primarycandidate exactidentity established, datasheet insertion3.68–6.35mm,body8.51mm,tail4.93mm. Need actualPi header mating/engagement andcontactderating, mechanicalsupport, socketfootprint, assemblyheight andcoolerclearance. Samtec6.3A SSQ/TSW2-powered-pin rating cannot qualifyPiheader. Do not treatbodyheight asstandoffheight."
-    },
-    {
-      "id": "gpio_power_protection",
-      "owner": "agent",
-      "target_stage": "hardware",
-      "design_critical": true,
-      "component_refs": [
-        "gpio_efuse",
-        "main_disconnect",
-        "pi_port_interlock",
-        "compute"
-      ],
-      "resolution": "Userresolvedinterface:baseboardinputonlywithPiUSB-Cinterlockedcover. TPS259470Lprimarycandidate+existingdisconnect; nowcloseCOM/NOhardwareenablegating,pull-downfail-off,rearm,nooffdomainbackpower,discharge-before-portaccess andstuckcontactfaultanalysis. D2F-01Lcandidatechosen, not safetycertifiedsystem. Externalresistor/capacitor/transientnetwork andvoltage/thermalbudgetstillopen. Neverclaiminterlockvalidatedwithoutphysical/electricaltests."
+      "resolution": "Actual complete-pack dimensions/outlet required before final enclosure fit; not needed for board-side electrical design. Do not publish a battery-fit pass without them."
     }
   ],
   "supply_risks": [
@@ -328,34 +296,46 @@
       "description": "No qualifieddrop-in alternative toSSQ-120-02-G-D orTPS259470LRPWRselected. Samtec RA/-020 andTPS259472 clampvariantnot substituted. Existingidentities preserved."
     },
     {
-      "id": "battery_complete_pack_spec",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Two concrete manufacturer leads now recorded: LP446598 protected3300mAh variant lacks completepackcurrent/PCM/lead/charge evidence; LPHD7859098 is highratecell only, factoryprotectedversion unestablished. Keep exact3.7V3300mAh requirement, no activebatteryrow until evidence supports load. Supplierinquiry drafted locally, notsent. Still need completepackcontinuouscurrent,protection curves,charge limits andassemblydrawing."
-    },
-    {
-      "id": "pi4b_power_margin",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "5.6254A calculated vs6A BQ BAT path depends on SYS>=3.5V, efficiency>=85%,3.2A total5V output and30mA AON. Current margin only0.3746A; fan startup/inrush, UV handling, battery sag and controlled shutdown reserve need bounded design. No full-load claim below3.5V. Add display-safe overvoltage protection; TPS2595315.7V input clamp does not protect5.5V-max display rail. No PCB or physical test performed."
-    },
-    {
-      "id": "gpio_docking_connector",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "SSQ-120-02-G-D primarycandidate exactidentity established, datasheet insertion3.68–6.35mm,body8.51mm,tail4.93mm. Need actualPi header mating/engagement andcontactderating, mechanicalsupport, socketfootprint, assemblyheight andcoolerclearance. Samtec6.3A SSQ/TSW2-powered-pin rating cannot qualifyPiheader. Do not treatbodyheight asstandoffheight."
-    },
-    {
-      "id": "gpio_power_protection",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Userresolvedinterface:baseboardinputonlywithPiUSB-Cinterlockedcover. TPS259470Lprimarycandidate+existingdisconnect; nowcloseCOM/NOhardwareenablegating,pull-downfail-off,rearm,nooffdomainbackpower,discharge-before-portaccess andstuckcontactfaultanalysis. D2F-01Lcandidatechosen, not safetycertifiedsystem. Externalresistor/capacitor/transientnetwork andvoltage/thermalbudgetstillopen. Neverclaiminterlockvalidatedwithoutphysical/electricaltests."
-    },
-    {
       "id": "interlock_no_qualified_alternative",
       "severity": "advisory",
       "design_critical": false,
       "description": "D2F-01Lonlyprimarycandidate;otherlevervariantsnotdrop-in. Not a certifiedsafetyswitch;hardwareandmechanicalfaultassessmentpending."
+    },
+    {
+      "id": "user_battery_acceptance",
+      "severity": "warning",
+      "design_critical": false,
+      "description": "Battery model intentionally user-supplied. No pack procurement gate on schematic work. Before connecting: verify full-pack ratings, polarity, charging and sensors. Final enclosure battery bay remains unfrozen until real dimensions exist."
+    },
+    {
+      "id": "gpio_fit_acceptance",
+      "severity": "warning",
+      "design_critical": false,
+      "description": "Socket exact identity and hole pattern resolved. Final Pi header engagement/standoffs, independent support, cooler and contact-temperature measurements remain CAD/prototype acceptance, not a claim of fit."
+    },
+    {
+      "id": "power_prototype_acceptance",
+      "severity": "warning",
+      "design_critical": false,
+      "description": "5.1V/3.2A calculation conditional on SYS>=3.5V,efficiency>=85%; no peak/fault or thermal guarantee. Detailed circuitry must protect the6A BAT path; arbitrary eFuse nominal limits do not prove this."
+    },
+    {
+      "id": "interlock_implementation_acceptance",
+      "severity": "warning",
+      "design_critical": false,
+      "description": "Latch/POR/Schmitt parts selected. Actual netlist, reset ramps, fault clear, contacts and cover sequencing require implementation and tests. No single-fault functional-safety certification."
+    },
+    {
+      "id": "lcd_dynamic_ov_acceptance",
+      "severity": "warning",
+      "design_critical": false,
+      "description": "LCD eFuse adds bounded static OVLO design point; dynamic overshoot during OVLO delay is not yet established. Complete transient suppression/capacitance analysis before fabrication."
+    },
+    {
+      "id": "interlock_logic_single_source",
+      "severity": "warning",
+      "design_critical": false,
+      "description": "No qualified alternate to SN74LVC1G74DCUR/TPS3808G33DBVR/SN74LVC2G17DCKR; preserve packages. Initial DCUR lookup for2G17 returned only wrong2G157 and was rejected; exactDCKR selected after package correction."
     }
   ],
   "power": {
@@ -369,7 +349,7 @@
     "total_design_target_a": 3.2,
     "battery_path_a": 5.625429,
     "charger_cc_a": null,
-    "note": "Budget retained as conditional regulator-side estimate; replace cable losses with dock/protection losses. Exact power header ratings, output protection and3300mAh pack not closed. No hot-plug, all-model support, safe dual-source or no-reboot claim before validation.",
+    "note": "Functional selection complete against defined external battery interface. Budget is conditional, not measured3A atPi. power-interface-design.md specifies downstream acceptance and no hotplug.",
     "board_supply_reference": {
       "voltage_v": 5,
       "current_a": 3,
@@ -390,14 +370,14 @@
     "assumed_min_efficiency": 0.85,
     "aon_budget_a": 0.03,
     "charger_batfet_continuous_limit_a": 6,
-    "charge_current_proposal_a": 0.5,
+    "charge_current_proposal_a": 0.48,
     "charge_voltage_proposal_v": 4.2,
     "nominal_boost_loss_w": 2.88,
     "limits": "5.6254A arithmetic is conditional, not qualification.3A includes nativeUSB and baseboard fan, no added500mA or fan counted twice. LCD/logic100mA+100mA margin yield3.2A. BelowSYS3.5V the budget is invalid; early controlled shutdown requires actual pack data. No promise of full load to2.5V pack cutoff.",
-    "charging": "Actual settings remain inhibited until pack identified. Proposed0.5A/4.2V only if pack permits. BQ25622 reset1040mA is not safe default for unknown pack: external CE pulled disabled until configured; watchdog/reset/CC downshift must fail safe. Existing charger/CC ILIM gating remains implementation work.",
+    "charging": "Default configured target480mA (ICHG6 x80mA),4.2V (VREG420 x10mV), only after compatible pack and sensors accepted. CE external default-disabled; POR1040mA must never reach unidentified pack. Watchdog/register reset/CC downshift fail-safe network remains schematic task.",
     "input": "5V3A Type-C source target; existing conservative2.6A input limit for3A advertisement,1.2A for1.5A; unknown<=100mA/no charging. Even13W input before conversion cannot sustain16.32W design output; battery supplements, charging reduces/stops. No indefinite peak operation on external power or batteryless claim.",
     "thermal": "At nominal16.32W output and85% efficiency boost dissipates2.88W, before charger, switch, wiring and input losses. Needs board copper/thermal design separate from Pi heatsink; no thermal pass.",
-    "gpio_output_protection": "PrimarycandidateTPS259470LRPWR onPi GPIO5Vbranch, inserieswith existingmain_disconnectcandidate. ProtectedOUT node onlyPiGPIO; displayremainsseparate branchtoavoidunknownPiUSB-CvoltagefeedingLCD. Reverseblock directionPi->baseboard; forwarddrive intoPiownUSB-Cport still needsportpolicy andhardwareprotection. No completeddual-sourceclaim. Interfacechoiceclosed: userrequiresPiUSB-Cinterlockedcover; validatehardwaregateandmechanicalnonoverlapbeforeclaimingfaultprotection.",
+    "gpio_output_protection": "Selected TPS259470LRPWR Pi branch afterTPS22990, with independentLCD branch and selected hardware latch/POR/Schmitt interlock. Reverse blocking is Pi->baseboard only; cover excludes simultaneousPiUSB-C input. Actual circuit and mechanical timing not validated.",
     "gpio_efuse": {
       "source": "research",
       "mpn": "TPS259470LRPWR",
@@ -407,9 +387,26 @@
       "drop_at_3a_v": 0.135,
       "dissipation_at_3a_w": 0.405,
       "placement_intent": "boost -> existingTPS22990candidate -> GPIOeFuse -> GPIO5V; do not connectLCD toexternallydrivablePi5Vnode",
-      "externals": "ChooseRILM,EN/UVLO andOVLOdividers,CdVdt,CITIMER,FLTpullupandrequireddecoupling/transientdiodesfromfullapplicationdesign. >=0.1uFINand>=1uFOUTnearIC perTI p60 areminimumguidance,notfinalvalues.ILMparasiticC<50pF. No floatingcontrolpins.",
+      "externals": "Exact supporting network remains circuit implementation: RILM,EN/UVLO,OVLO,CdVdt,CITIMER,FLT,decoupling and transient suppression. Do not infer6A upstream safety from nominal3A branch threshold. manufacturer minimumIN0.1uF/OUT1uF,ILMparasitic<50pF; fullcornerreview required.",
       "fault_recovery": "Faultlatch reset underAONsupervisorcontrol afterfaultremoved; not repeatedautomaticrestart.",
       "qualification": "ActualminimumPi voltage,sumofswitch/contactdrops,limit tolerances,thermalandstartupnotverified.5.6254Abudget remainsregulator-side conditionalbound,not proof3A arrivesatPi."
+    },
+    "static_pi_drop_budget": {
+      "source": "default",
+      "other_loop_resistance_max_ohm": 0.035,
+      "includes": "TPS22990, copper, both supply contacts and all ground returns; excludes45mOhm eFuse already budgeted",
+      "v_min_calculated": 4.758,
+      "v_target_min": 4.75,
+      "note": "Only8mV static headroom; not transient/no-undervoltage proof. Layout and prototype must improve or meet bound without changing500mA external budget."
+    },
+    "lcd_protection": {
+      "source": "default",
+      "component_ref": "lcd_efuse",
+      "ovlo_top_ohm": 34400,
+      "ovlo_bottom_ohm": 10000,
+      "resistor_tolerance": 0.001,
+      "ilm_ohm": 6650,
+      "qualification": "Static trip calculation in power-interface-design.md; resistor/leakage/threshold corners checked locally. Dynamic fault voltage still unverified; no LCD protection-pass claim."
     }
   },
   "runtime_budget": {
@@ -474,7 +471,7 @@
     "nominal_mah": 3300,
     "chemistry": "Li-ion",
     "candidate": null,
-    "selection_status": "protected3300mah_lead_identified_but_current_and_assembly_unqualified",
+    "selection_status": "user_supplied_interface_defined",
     "protection": {
       "value": "factory protected single-cell pack",
       "source": "default"
@@ -484,13 +481,13 @@
     "actual_lead_wire": null,
     "actual_connector": null,
     "charge_voltage_v": null,
-    "note": "Do not transfer old 6000mAh candidate ratings or geometry; pack current and charge settings require actual datasheet. Existing XT30U pair remains provisional, not mandatory user specification.",
+    "note": "Exact pack not selected. Default baseboard mating interface XT30U-M / factory pack XT30U-F; user sourcing no longer gates schematic. Actual whole-pack acceptance precedes charging. Final battery-fit CAD requires actual envelope.",
     "procurement_target": {
       "source": "default",
       "min_pack_continuous_a": 8,
-      "charge_proposal_a": 0.5,
+      "charge_proposal_a": 0.48,
       "charge_proposal_v": 4.2,
-      "note": "Entire factory assembly includingPCM/leads; selected pack actual values remain null. May revise implementation target using trusted pack evidence, never alter user capacity."
+      "note": "Default acceptance target for whole factory pack, not a rating claimed for an existing product.0.48A is programmable BQ current below prior0.5A proposal; full tolerance must remain inside pack limits."
     },
     "candidate_leads": [
       {
@@ -529,12 +526,17 @@
         "reported_c_rate": 25,
         "reason": "Catalog3300mAhhighratecell row, not evidence ofcompleteprotectedpack. NoPCM/connector, fullassembly envelope ordischargeconditions. Never treat25Ccatalogline as protectionboard/currentrating. Ask manufacturer forfactoryprotectedassembly; no fabricatedpackMPN."
       }
-    ]
+    ],
+    "supply_model": {
+      "value": "user_supplied",
+      "source": "user"
+    },
+    "interface_document": "product/battery-interface.md"
   },
   "compute": {
     "source": "research",
     "model": "Raspberry Pi 4 Model B",
-    "selection_status": "byop_pi4b_reference_gpio_dock_pending",
+    "selection_status": "byop_pi4b_reference_socket_selected_fit_pending",
     "ram_gb": {
       "value": 4,
       "source": "default"
@@ -647,11 +649,11 @@
     "user_controls": "One default power/shutdown button only; navigation button scan not required. Existing power, battery, shutdown anddisplayCOM duties retained."
   },
   "pcb_handoff_tasks": [
-    "Resolve3300mAhprotectedpack, exactGPIOsocket andprotected5Voutput with reverse/short/dual-source protection beforeBOMready.",
-    "Revalidate conditional5.1V3.2Abudget including header/contact andprotectiondrop; thermal/current bounds remain unproven.",
-    "ReservePi4BnativeUSBaccess and fanbreakout; verify dockorientation, stackheight, mechanicalsupport andGPIOsoftwareconfiguration.",
-    "NoPCB/CADauthorized inthisquery; later implementation includes circuit/footprint review andprototype tests.",
-    "Limitbaseboard to power/display; one defaultpowerbutton and necessarycooling only. No navigationbank/additionalUSB-A. PreservePi nativeport/cableaccess and simple userinstallation."
+    "Implement defined BYOP/BYOB power/display schematic; no repeat battery supplier hunt. Add every support passive, transient clamp and exact footprint to manufacturing BOM.",
+    "Implement interlock/POR/Schmitt/latch netlist and power-up/reset/shutdown sequencing from power-interface-design.md; do not use firmware-only interlock.",
+    "Engineer current limits/inrush so6A BAT continuous limit is not exceeded; verify low-voltage shutdown reserve and Type-C downshift; retain500mA external budget.",
+    "Verify LCD fault overshoot and minimum supply across tolerance/load before fabrication.",
+    "Use Samtec source drawing for2x20footprint; mechanical stack and actual battery envelope are CAD/prototype acceptance. Do not assert fit now."
   ],
   "superseded_zero_reference": {
     "status": "historical_only_not_for_new_design",
@@ -834,7 +836,7 @@
   },
   "interconnect": {
     "gpio_docking": {
-      "status": "primary_candidate_mating_stack_pending",
+      "status": "selected_socket_manufacturer_drawing_verified_pcb_binding_pending",
       "kind": "2x20femaleGPIOsocket",
       "pitch_mm": 2.54,
       "contacts": 40,
@@ -912,7 +914,12 @@
         "powered_contact_count": 2,
         "note": "Not ratingofPi headerorfull40contactconfiguration; donotmultiplyby40"
       },
-      "production_footprint_verified": false
+      "production_footprint_verified": false,
+      "socket_body_length_mm": 51.31,
+      "socket_body_width_mm": 4.95,
+      "production_footprint_evidence": "product/references/ssq-footprint.pdf p1 Fig1:2rows2.54mm,20positions,1.02mmhole. ActualPCB footprint has not been built.",
+      "production_hole_diameter_mm": 1.02,
+      "manufacturer_hole_pattern_verified": true
     },
     "fan_breakout": {
       "source": "default",
@@ -939,7 +946,13 @@
       "overtravel_min_mm": 0.55,
       "hardware_intent": "COM/NOpathallowsenableonlywhenblockedportcoverlatched;fixedpull-downforcesoffonopen/brokenwire. BothMCUpermissionandphysicalclosure required. Choosecontactbiasresistorsfromwetting/contactreliabilityreview,notassumedzerocurrent. Never route3Athroughswitch.",
       "sequencing": "CovermustphysicallydenyplugentrywhileGPIOenabled;mechanicaltravelanddischargemustensurebreakbeforeexposure. Reclosingcoverdoesnotautoenable; manualpowerrequestafterfaultclear. EmergencyopeningcutsGPIOwithoutwaitingforLinux; normalservicealwaysshutdowngracefullyfirst.",
-      "qualification": "Referencepin/leverdrawingsreviewedbutnocustomfootprint,interlockcircuitorCADcreated;productiontolerances,stuckcontactfaultandlow-currentreliabilityunverified."
+      "qualification": "Manufacturer pinout/application/layout reviewed for selected logic; no PCB, time-domain fault test or mechanical proof. Reset and Schmitt logic are design intent, not safety certification.",
+      "logic_components": [
+        "interlock_por",
+        "interlock_schmitt",
+        "interlock_latch"
+      ],
+      "implementation_document": "product/power-interface-design.md"
     }
   },
   "superseded_usb_c_pi_interconnect": {

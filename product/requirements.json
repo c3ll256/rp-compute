@@ -62,7 +62,7 @@
       "source": "default"
     },
     "battery_architecture": {
-      "value": "internal rechargeable protected single-cell Li-ion battery; user specifies nominal 3.7V and 3300mAh; exact factory pack selected in hardware phase",
+      "value": "Internal factory-protected 1S Li-ion pack, nominal 3.7V/3300mAh, user-supplied against the baseboard battery interface specification; not an arbitrary bare cell.",
       "source": "default"
     },
     "power_behavior": {
@@ -223,6 +223,10 @@
     },
     "pi_usb_c_docked_use": {
       "value": "Daily power/charging throughbaseboardUSB-C only. Pi ownUSB-C blocked byanti-misplug interlockedcover while docked; usableagainafterPi removed. Othernativeinterfacesremainaccessible.",
+      "source": "user"
+    },
+    "battery_supply_model": {
+      "value": "User will source a compatible battery; proceed with baseboard development without waiting for an agent-selected battery MPN. Battery is excluded from kit procurement.",
       "source": "user"
     }
   },

@@ -2,7 +2,7 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "fit_check",
-  "summary": "BYOP Pi4B简化原型：用户将Pi简单GPIO插接并固定到基板；基板仅扩展供电及Sharp屏幕，外壳保留Pi原生接口，不增加USB-A或导航按键。当前不做PCB/CAD。",
+  "summary": "BYOP Pi4B简化原型：用户将Pi简单GPIO插接并固定到基板；基板仅扩展供电及Sharp屏幕，外壳保留Pi原生接口，不增加USB-A或导航按键。Pi及兼容电池由用户自备，电池采购不阻塞基板开发；最终电池仓适配仍按整包实物/图纸核实。",
   "required_interfaces": [
     {
       "id": "compute_mount",
@@ -28,7 +28,7 @@
     {
       "id": "battery_fit",
       "kind": "internal_fit",
-      "description": "3.7V 3300mAh Li-ion 完整保护包、电源管理组件及维护空间；按所选整包图纸设计。",
+      "description": "用户自备3.7V 3300mAh工厂保护Li-ion整包；基板接口按battery-interface.md。电池尚无完整外形，不冻结电池仓，不把待定包画成已适配实体；最终内置安装需核实最大尺寸、出线与温度探头贴合。",
       "source": "user_requested",
       "required": true
     },
@@ -81,7 +81,7 @@
     }
   ],
   "assembly_story": {
-    "installation": "基板屏幕、电池及必要散热附件预装；用户准备Pi与系统卡，断开全部电源并隔离电池后对准GPIO母座插入Pi，用少量独立固定件固定并合壳。无需焊接、逐根GPIO跳线、额外USB-A或内部PiUSB-C线。准确装配顺序待插座与散热堆叠核实。 用户已选择只使用基板充电口；Pi自身USB-C联锁盖闭合后才允许GPIO供电。无需用户增加内部电源转接线。",
+    "installation": "基板屏幕及必要散热附件预装；电池由用户另购兼容成品包，核对接口/极性后断电插接；用户准备Pi与系统卡，断开全部电源并隔离电池后对准GPIO母座插入Pi，用少量独立固定件固定并合壳。无需焊接、逐根GPIO跳线、额外USB-A或内部PiUSB-C线。准确装配顺序待插座与散热堆叠核实。 用户已选择只使用基板充电口；Pi自身USB-C联锁盖闭合后才允许GPIO供电。无需用户增加内部电源转接线。",
     "maintenance": "正常Linux关机，断外部电源并隔离电池后才拔Pi；不能把GPIO座当唯一承力件，不能撬动屏幕或电池。 正常关机并隔离电池后再打开联锁盖。盖的紧急断电功能不替代正常Linux关机，带电强开可能损坏文件系统。",
     "user_access": [
       "Pi nativeboard-edgeports exceptcoveredPiUSB-C",
