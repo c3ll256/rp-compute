@@ -2,14 +2,14 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "07174f7f503941fb6290872977ccd290675cf1527272db2d80f5af35f3d51906",
+  "requirements_digest": "75f9bebc4ffd6904abd4972730f4c86b26084146a734cb019862a4a4968cc6e1",
   "architecture": {
-    "compute": "Raspberry Pi 4 Model B; 4GB RAM default; complete SBC, no CM carrier",
+    "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
     "battery": "protected 1S 3.7V 3300mAh Li-ion factory assembly",
-    "power_path": "Product USB-C power input -> charger/power-path candidate -> regulated system rail -> Pi 4B USB-C internal cable; screen/AON branches separate. Battery -> power-path candidate. Parts/current margins and exact interconnect not yet closed.",
+    "power_path": "ProductUSB-Cinput -> input protection/NVDCcharger -> boost5.1V -> protected/disconnect GPIO5V output -> userPi headerpins2/4. Protected3300mAh1Spack -> BAT; display/AON branches. Output reverse/overcurrent protection and mating connector unresolved.",
     "usb_a": "Use one native USB 2.0 Type-A port on Pi 4B for 500mA peripheral budget. Other physical native ports remain present but additional simultaneous peripheral load is not promised.",
-    "usb_c": "External charging/input-only receptacle on power subsystem, distinct from internal Pi USB-C inlet; no USB data link through product input."
+    "usb_c": "Only baseboard external charging/input port active; PiUSB-C is not intended operating supply while docked. Design accidental dual-source safety, not an internalUSB-C source port."
   },
   "display": {
     "module_body_mm": [
@@ -90,52 +90,48 @@
         "battery_cable_mate"
       ],
       "procurement_status": "external_procurement_required",
-      "resolution": "Select factory protected 3.7V nominal 3300mAh Li-ion pack. Capacity is not a discharge-current rating. Verify complete pack current/protection, charge limits, harness polarity and dimensions against selected host. No user engineering specification required. No matching candidate found in focused supplier lookup; unrelated logic IC rows rejected."
+      "resolution": "Exact3.7V3300mAh factory protected pack still not found. Need complete pack continuous current, PCM trip/time, leads/connector and full drawing. Calculated path5.6254A under stated bounds; provisional procurement target>=8A continuous entire assembly (not a proven candidate, not a user capacity change). Search failures cannot establish unavailability. Do not use bare-cell rating or change3300mAh silently."
     },
     {
-      "id": "pi4b_power_runtime_interfaces",
+      "id": "pi4b_power_margin",
       "owner": "agent",
       "target_stage": "hardware",
       "design_critical": true,
       "component_refs": [
-        "compute",
         "charger",
         "boost",
-        "main_disconnect",
         "supervisor",
-        "usb_c_cc"
+        "cooling"
       ],
-      "resolution": "Rebuild Pi 4B power/transient/thermal budget and shutdown/GPIO integration with 3.7V 3300mAh battery. Official 5V/3A supply guidance includes attached USB load: do not add the same 500mA twice. Reserve separate display/AON/cooling loads and path losses. Verify converter/current path at low battery and during startup. Estimate and later measure runtime without minimum duration; 3A rating is not typical consumption. Keep charging/no-reboot behavior as unverified targets."
+      "resolution": "5.6254A calculated vs6A BQ BAT path depends on SYS>=3.5V, efficiency>=85%,3.2A total5V output and30mA AON. Current margin only0.3746A; fan startup/inrush, UV handling, battery sag and controlled shutdown reserve need bounded design. No full-load claim below3.5V. Add display-safe overvoltage protection; TPS2595315.7V input clamp does not protect5.5V-max display rail. No PCB or physical test performed."
     },
     {
-      "id": "pi4b_power_interconnect",
+      "id": "gpio_docking_connector",
       "owner": "agent",
       "target_stage": "hardware",
       "design_critical": true,
       "component_refs": [
+        "gpio_dock",
         "compute",
-        "main_disconnect"
+        "cooling"
       ],
-      "resolution": "Default regulated system rail into Pi 4B USB-C via a factory cable; select cable/plug current rating, resistance/drop and bend envelope. External product USB-C feeds charger, not Pi directly; do not parallel an independent Pi PSU with battery rail. 40-pin GPIO used for signals/shutdown only by default; exact harness and pin allocation still required."
+      "procurement_status": "external_procurement_required",
+      "resolution": "Select exact2x20 female2.54mm socket mating toPi4B header; verify contact current/derating and resistance, insertion depth, stack height, PCB footprint and mechanical support. Power fromphysical2/4+5V, multiple grounds. Do not assume equal sharing or GPIO signal drive rating as power-contact rating. Preserve pin1/orientation and prevent180-degree/one-row-offset insertion with mechanical guides. Cold plug only."
     },
     {
-      "id": "pi4b_thermal_storage_integration",
+      "id": "gpio_power_protection",
       "owner": "agent",
       "target_stage": "hardware",
       "design_critical": true,
       "component_refs": [
+        "main_disconnect",
+        "path_current_guard",
         "compute"
       ],
-      "resolution": "Choose exact heat sink/cooling and its mechanical clearance for enclosure, plus GPIO cable and microSD service access. 32GB A1/Class10 microSD remains a disclosed accessory target, not an exact selected MPN. Characterize throttling/temperature under expected load; do not claim fanless operation or validated 85x115x40mm fit."
+      "resolution": "Select actual protected5V GPIO output path including overcurrent/short-circuit, reverse-current blocking and unintendedPiUSB-C dual-source behavior. TPS22990 is only disconnect, not reverse blocking; inputTPS259531 does not prove header-output protection. Cover off-state backpower via3.3V signals, power-up and shutdown. Do not rely solely on instructing users not to connectPiUSB-C."
     }
   ],
   "supply_risks": [
-    {
-      "id": "battery_complete_pack_spec",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Select factory protected 3.7V nominal 3300mAh Li-ion pack. Capacity is not a discharge-current rating. Verify complete pack current/protection, charge limits, harness polarity and dimensions against selected host. No user engineering specification required. No matching candidate found in focused supplier lookup; unrelated logic IC rows rejected."
-    },
     {
       "id": "screen_supply",
       "component_id": "display",
@@ -306,57 +302,138 @@
       "description": "No qualified drop-in alternative established for BQ25622, TPS22990, new charger inductor or XT30U pair; substitutions require new interface review."
     },
     {
-      "id": "pi4b_power_runtime_interfaces",
+      "id": "battery_complete_pack_spec",
       "severity": "blocking",
       "design_critical": true,
-      "description": "Rebuild Pi 4B power/transient/thermal budget and shutdown/GPIO integration with 3.7V 3300mAh battery. Official 5V/3A supply guidance includes attached USB load: do not add the same 500mA twice. Reserve separate display/AON/cooling loads and path losses. Verify converter/current path at low battery and during startup. Estimate and later measure runtime without minimum duration; 3A rating is not typical consumption. Keep charging/no-reboot behavior as unverified targets."
+      "description": "Exact3.7V3300mAh factory protected pack still not found. Need complete pack continuous current, PCM trip/time, leads/connector and full drawing. Calculated path5.6254A under stated bounds; provisional procurement target>=8A continuous entire assembly (not a proven candidate, not a user capacity change). Search failures cannot establish unavailability. Do not use bare-cell rating or change3300mAh silently."
     },
     {
-      "id": "pi4b_power_interconnect",
+      "id": "pi4b_power_margin",
       "severity": "blocking",
       "design_critical": true,
-      "description": "Default regulated system rail into Pi 4B USB-C via a factory cable; select cable/plug current rating, resistance/drop and bend envelope. External product USB-C feeds charger, not Pi directly; do not parallel an independent Pi PSU with battery rail. 40-pin GPIO used for signals/shutdown only by default; exact harness and pin allocation still required."
+      "description": "5.6254A calculated vs6A BQ BAT path depends on SYS>=3.5V, efficiency>=85%,3.2A total5V output and30mA AON. Current margin only0.3746A; fan startup/inrush, UV handling, battery sag and controlled shutdown reserve need bounded design. No full-load claim below3.5V. Add display-safe overvoltage protection; TPS2595315.7V input clamp does not protect5.5V-max display rail. No PCB or physical test performed."
     },
     {
-      "id": "pi4b_thermal_storage_integration",
+      "id": "cooling_integration",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "PI4-FAN-PWM selected with supplied pads/screws, no adapter. Keep airflow path open and battery away from sink/exhaust. Confirm fan startup current, PWM behavior, wiring and mounting clearance; no measured thermal/noise performance. GPIO docking consumesPi header; baseboard must provide3-wire fan breakout and clearance, not a second plug on same header."
+    },
+    {
+      "id": "cooling_no_dropin",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No qualified drop-in cooling alternative established; replacement needs mechanical and GPIO/power review."
+    },
+    {
+      "id": "gpio_docking_connector",
       "severity": "blocking",
       "design_critical": true,
-      "description": "Choose exact heat sink/cooling and its mechanical clearance for enclosure, plus GPIO cable and microSD service access. 32GB A1/Class10 microSD remains a disclosed accessory target, not an exact selected MPN. Characterize throttling/temperature under expected load; do not claim fanless operation or validated 85x115x40mm fit."
+      "description": "Select exact2x20 female2.54mm socket mating toPi4B header; verify contact current/derating and resistance, insertion depth, stack height, PCB footprint and mechanical support. Power fromphysical2/4+5V, multiple grounds. Do not assume equal sharing or GPIO signal drive rating as power-contact rating. Preserve pin1/orientation and prevent180-degree/one-row-offset insertion with mechanical guides. Cold plug only."
+    },
+    {
+      "id": "gpio_power_protection",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Select actual protected5V GPIO output path including overcurrent/short-circuit, reverse-current blocking and unintendedPiUSB-C dual-source behavior. TPS22990 is only disconnect, not reverse blocking; inputTPS259531 does not prove header-output protection. Cover off-state backpower via3.3V signals, power-up and shutdown. Do not rely solely on instructing users not to connectPiUSB-C."
     }
   ],
   "power": {
     "source": "default",
-    "selection_status": "pi4b_reference_supply_known_system_budget_pending",
+    "selection_status": "conditional_budget_defined_not_electrically_validated",
     "usb_a_available_current_ma": {
       "value": 500,
       "source": "user"
     },
-    "pi_allocation_a": null,
-    "total_design_target_a": null,
-    "battery_path_a": null,
+    "pi_allocation_a": 3.0,
+    "total_design_target_a": 3.2,
+    "battery_path_a": 5.625429,
     "charger_cc_a": null,
-    "note": "Do not directly connect 3.7V battery to Pi. Regulated rail and power-path candidates need low-battery, current/thermal, startup and insertion/removal review. Reserve separate screen/AON/cooling loads. No perpetual full-load operation plus charging or batteryless promise.",
+    "note": "Budget retained as conditional regulator-side estimate; replace cable losses with dock/protection losses. Exact power header ratings, output protection and3300mAh pack not closed. No hot-plug, all-model support, safe dual-source or no-reboot claim before validation.",
     "board_supply_reference": {
       "voltage_v": 5,
       "current_a": 3,
       "source": "research",
       "evidence": "pi4b-product-brief.pdf pp3,5",
       "note": "Supply recommendation including downstream USB, not measured board draw; no double-counting of native 500mA port."
-    }
+    },
+    "output_v": 5.1,
+    "output_tolerance_fraction": 0.02,
+    "pi_allocation_includes": [
+      "Pi4B",
+      "one nativeUSB peripheral up to500mA",
+      "GPIO-powered fan up to assumed100mA"
+    ],
+    "display_logic_reserve_a": 0.1,
+    "additional_margin_a": 0.1,
+    "min_sys_v_for_full_budget": 3.5,
+    "assumed_min_efficiency": 0.85,
+    "aon_budget_a": 0.03,
+    "charger_batfet_continuous_limit_a": 6,
+    "charge_current_proposal_a": 0.5,
+    "charge_voltage_proposal_v": 4.2,
+    "nominal_boost_loss_w": 2.88,
+    "limits": "5.6254A arithmetic is conditional, not qualification.3A includes nativeUSB and baseboard fan, no added500mA or fan counted twice. LCD/logic100mA+100mA margin yield3.2A. BelowSYS3.5V the budget is invalid; early controlled shutdown requires actual pack data. No promise of full load to2.5V pack cutoff.",
+    "charging": "Actual settings remain inhibited until pack identified. Proposed0.5A/4.2V only if pack permits. BQ25622 reset1040mA is not safe default for unknown pack: external CE pulled disabled until configured; watchdog/reset/CC downshift must fail safe. Existing charger/CC ILIM gating remains implementation work.",
+    "input": "5V3A Type-C source target; existing conservative2.6A input limit for3A advertisement,1.2A for1.5A; unknown<=100mA/no charging. Even13W input before conversion cannot sustain16.32W design output; battery supplements, charging reduces/stops. No indefinite peak operation on external power or batteryless claim.",
+    "thermal": "At nominal16.32W output and85% efficiency boost dissipates2.88W, before charger, switch, wiring and input losses. Needs board copper/thermal design separate from Pi heatsink; no thermal pass.",
+    "gpio_output_protection": "Required new role: current limit/short protection and reverse-current isolation, including accidentalPiUSB-Cpower, unpoweredPiGPIOleakage and shutdown sequencing. ExistingTPS22990 alone insufficient. Never connect battery3.7V directly to5Vpins or apply5V toGPIOsignals."
   },
   "runtime_budget": {
     "source": "default",
     "nominal_wh": 12.21,
-    "calculation": "3.7V * 3.3Ah = 12.21Wh nominal; runtime estimate = usable battery energy / average battery-side power. Neither usable energy nor system load is yet established.",
+    "calculation": "t=12.21Wh*usable_fraction/(total_regulated_load_W/efficiency+0.1W); scenario load includes Pi+display+fan+any USB peripheral.",
     "target_hours": null,
     "usable_fraction": null,
     "efficiency": null,
     "calculated_hours": null,
-    "status": "Actual runtime not yet measured. Characterize no-USB light-use and USB-keyboard use separately; include usable energy, shutdown reserve and conversion losses. No two-hour acceptance threshold or derived 6.105W power ceiling.",
+    "status": "No actual runtime claimed; scenario loads4/6/9/16.32W are hypothetical, not assigned as measured light/typical/heavyPi power. Baseline and USB-keyboard tests still required; no minimum duration. GPIOdocking protection loss is not characterized; sensitivity table unchanged, not actual runtime.",
     "runtime_policy": {
       "value": "No fixed minimum duration; report actual results under declared conditions.",
       "source": "user"
-    }
+    },
+    "scenario_assumptions": {
+      "usable_energy_fraction": [
+        0.65,
+        0.85
+      ],
+      "conversion_efficiency": [
+        0.85,
+        0.92
+      ],
+      "aon_battery_w": 0.1,
+      "qualification": "Sensitivity assumptions, not pack data or measured efficiency. Early voltage shutdown may yield less than65% energy; results may be below table."
+    },
+    "scenarios": [
+      {
+        "total_regulated_load_w": 4,
+        "hours_range": [
+          1.65,
+          2.33
+        ]
+      },
+      {
+        "total_regulated_load_w": 6,
+        "hours_range": [
+          1.11,
+          1.57
+        ]
+      },
+      {
+        "total_regulated_load_w": 9,
+        "hours_range": [
+          0.74,
+          1.05
+        ]
+      },
+      {
+        "total_regulated_load_w": 16.32,
+        "hours_range": [
+          0.41,
+          0.58
+        ]
+      }
+    ]
   },
   "battery": {
     "source": "user",
@@ -374,12 +451,19 @@
     "actual_lead_wire": null,
     "actual_connector": null,
     "charge_voltage_v": null,
-    "note": "Do not transfer old 6000mAh candidate ratings or geometry; pack current and charge settings require actual datasheet. Existing XT30U pair remains provisional, not mandatory user specification."
+    "note": "Do not transfer old 6000mAh candidate ratings or geometry; pack current and charge settings require actual datasheet. Existing XT30U pair remains provisional, not mandatory user specification.",
+    "procurement_target": {
+      "source": "default",
+      "min_pack_continuous_a": 8,
+      "charge_proposal_a": 0.5,
+      "charge_proposal_v": 4.2,
+      "note": "Entire factory assembly includingPCM/leads; selected pack actual values remain null. May revise implementation target using trusted pack evidence, never alter user capacity."
+    }
   },
   "compute": {
     "source": "research",
     "model": "Raspberry Pi 4 Model B",
-    "selection_status": "board_selected_integration_pending",
+    "selection_status": "byop_pi4b_reference_gpio_dock_pending",
     "ram_gb": {
       "value": 4,
       "source": "default"
@@ -416,8 +500,8 @@
       "usb_3_type_a": 2
     },
     "storage": "microSD; 32GB A1/Class10 accessory target retained, exact card unselected",
-    "power_input": "5V DC USB-C minimum 3A, as brief p3/p5; p5 permits good 2.5A supply only if downstream USB total is less than 500mA. Do not use exception as proof for promised 500mA.",
-    "cooling": "Provide ventilation and establish exact cooling parts/envelope; no fanless or throttling claim.",
+    "power_input": "Baseboard regulated/protected5V via GPIOpowercontacts, not internalUSB-C; retainPi3A supply reference, includingUSBload. Exact protection/header-rating design pending.",
+    "cooling": "PI4-FAN-PWM withoutadapter retained subject toGPIOsocket height/mount fit; fan leads tobaseboardbreakout.",
     "evidence": "product/references/pi4b-product-brief.pdf pp3,5; p5 visually inspected",
     "board_model_reference": {
       "id": "raspberry_pi_4_model_b",
@@ -426,7 +510,8 @@
       "sha256": "82c055acbed781e623d8c32acfdec2254400104f2cfa21ddbc2ba0e8b80797da",
       "license": "CC-BY-3.0",
       "status": "exact board-level catalog match; not installed or imported; memory capacity not mechanically distinguished"
-    }
+    },
+    "supply_model": "customer_supplied_not_in_product_purchase"
   },
   "ports": [
     {
@@ -439,7 +524,7 @@
       ],
       "shell_stake_length_mm": 0.95,
       "drawing": "product/references/usb4105.pdf p1",
-      "connections": "External input into charger/power-path subsystem, not directly paralleled to Pi USB-C. Existing receptacle/CC controller remain candidates pending input power budget.",
+      "connections": "External input onbaseboard tocharger path; PiUSB-C unused in normal docked use. No internalUSB-C source/cable. Implement dual-source fault safety.",
       "cutout_candidate_mm": {
         "value": [
           9.6,
@@ -492,14 +577,14 @@
   "supervisor": {
     "source": "default",
     "mpn": "ATTINY1616-SN",
-    "selection_status": "candidate_revalidate",
-    "note": "Reallocate Pi 4B GPIO/shutdown handshake and power gating for 3300mAh pack; old thresholds/pin budget remain historical. Supervisor must wait for Linux safe shutdown before removing regulated power."
+    "selection_status": "selected_candidate_interface_allocated",
+    "note": "ATtiny1616 AON retained. Pi BCM17 shutdown request/BCM27 acknowledgement and UART14/15 reserved, fanGPIO12 separately. Wait for Linux safe shutdown, not fixed delay alone. ADC loaded-voltage thresholds await exact pack discharge/sag; no validated state-of-charge estimate."
   },
   "pcb_handoff_tasks": [
-    "Close battery_complete_pack_spec, pi4b_power_runtime_interfaces, pi4b_power_interconnect and pi4b_thermal_storage_integration before BOM readiness.",
-    "Revalidate retained IC application circuits, power input, USB routing, display protection, shutdown and thermal margins against exact host/pack.",
-    "Keep no-reboot power transitions and controlled shutdown as acceptance targets; measure and report runtime without a fixed minimum-hour threshold.",
-    "No PCB/CAD is authorized in this query."
+    "Resolve3300mAhprotectedpack, exactGPIOsocket andprotected5Voutput with reverse/short/dual-source protection beforeBOMready.",
+    "Revalidate conditional5.1V3.2Abudget including header/contact andprotectiondrop; thermal/current bounds remain unproven.",
+    "ReservePi4BnativeUSBaccess and fanbreakout; verify dockorientation, stackheight, mechanicalsupport andGPIOsoftwareconfiguration.",
+    "NoPCB/CADauthorized inthisquery; later implementation includes circuit/footprint review andprototype tests."
   ],
   "superseded_zero_reference": {
     "status": "historical_only_not_for_new_design",
@@ -663,6 +748,163 @@
         "h": 11.7
       },
       "selection_status": "candidate_revalidate"
+    }
+  },
+  "cooling": {
+    "source": "default",
+    "mpn": "PI4-FAN-PWM",
+    "variant": "without optionalFAN Adapter",
+    "status": "selected_model_not_enclosure_thermal_verified",
+    "supply_v": 5,
+    "power_w_budget_assumed": 0.5,
+    "budget_note": "100mA allowance is not rated fan current; included inside3A Pi branch. Verify startup/running draw.",
+    "control": "Baseboard routesPiGPIO12physical32 tofanPWM; red5V,blackGND frombaseboardfanbreakout. OccupiedPiheader cannot take loosefanplug simultaneously. Do not source fan current fromGPIO logic.",
+    "kit": "Heatsink,3510fan,thermal pads,2xM2.5x6screws per manufacturer; no separate loose pads/screws double-counted.",
+    "dimensions_reference": "product/references/pi4-fan-pwm-dimensions.jpg; preserve manufacturer drawing rather than invent a STEP or numerical envelope",
+    "mounting": "Use supplied thermal pads and underside screws per manufacturer. Later enclosure retention must not collide with occupied Pi holes. Check docking socket standoff stack and fan lead access.",
+    "thermal_policy": "Default fan on by60C CPU, target below75C under characterized load; these are design targets, not guarantees. Avoid no-start low PWM; use start boost/full speed and characterize. Do not trust ambiguous manufacturer demo thresholds as validated firmware.",
+    "airflow": "Unobstructed inlet/exhaust, default at least5mm air gap above fan where possible; battery out of exhaust and mechanically separated from heatsink. Enclosure dimensions remain provisional."
+  },
+  "interconnect": {
+    "gpio_docking": {
+      "status": "interface_defined_exact_connector_pending",
+      "kind": "2x20femaleGPIOsocket",
+      "pitch_mm": 2.54,
+      "contacts": 40,
+      "mating_board": "User-owned RaspberryPi4ModelB",
+      "power_contacts": {
+        "5V": [
+          2,
+          4
+        ],
+        "GND": [
+          6,
+          9,
+          14,
+          20,
+          25,
+          30,
+          34,
+          39
+        ]
+      },
+      "signal_reservations": {
+        "SPI0_MOSI": {
+          "bcm": 10,
+          "physical": 19
+        },
+        "SPI0_SCLK": {
+          "bcm": 11,
+          "physical": 23
+        },
+        "SPI0_CE0": {
+          "bcm": 8,
+          "physical": 24
+        },
+        "supervisor_UART_TX": {
+          "bcm": 14,
+          "physical": 8
+        },
+        "supervisor_UART_RX": {
+          "bcm": 15,
+          "physical": 10
+        },
+        "shutdown_request": {
+          "bcm": 17,
+          "physical": 11
+        },
+        "shutdown_ack": {
+          "bcm": 27,
+          "physical": 13
+        },
+        "fan_PWM": {
+          "bcm": 12,
+          "physical": 32
+        }
+      },
+      "pi3v3_contacts": [
+        1,
+        17
+      ],
+      "pi3v3_rule": "Do not feed external3.3V intoPi rail; keep separate frombaseboardAON3.3V. Exact pin-direction/domain mapping required before circuit implementation.",
+      "header_current_target_a": 3.0,
+      "stack_height_mm": null,
+      "mpn": null,
+      "electrical_qualification": "5V supply pins are notGPIO logic outputs. Connector contact sharing/drop/heat unverified, no hot-plug. Power circuit must independently protect output and prevent backfeed/dual-source damage.",
+      "mechanical_qualification": "SupportPi on mounting posts, not socket alone. Pin1 clear marking plus guides to preventrotation or row offset. Keep heatsink/fan, USB/Ethernet, microSD and extraction access clear. NoHAT certification or allPi compatibility claim."
+    },
+    "fan_breakout": {
+      "source": "default",
+      "signals": [
+        "regulated5V",
+        "GND",
+        "PiGPIO12PWM"
+      ],
+      "note": "Fan leads land on baseboard, not occupiedPiheader. Include fan load within existing3A compute/fan/USB budget; exact breakout connector chosen with dock."
+    }
+  },
+  "superseded_usb_c_pi_interconnect": {
+    "status": "retired_gpio_docking",
+    "interconnect": {
+      "pi_power_cable": {
+        "mpn": "USB2CC50CM",
+        "status": "prototype_candidate",
+        "length_mm": 500,
+        "current_rating_a": 3,
+        "wire_awg": "22/30",
+        "plug_style": "straight",
+        "manufacturer_width_height_mm": [
+          12,
+          6
+        ],
+        "source": "research",
+        "evidence": "product/references/usb2cc50cm.pdf pp1-2",
+        "limitations": "Manufacturer outer-product figures are not complete per-plug CAD drawing. Bend radius, axial plug length and loop resistance unestablished.0.5m may not fit provisional enclosure; no cable cutting default.",
+        "loop_resistance_target_ohm": 0.065,
+        "max_drop_at_3a_v": 0.195,
+        "qualification": "Target for entire3A path excluding regulator tolerance;5.1V-2%-.195V=4.803V arithmetic, not measured voltage or guaranteed cable resistance. Internal managed source port absent."
+      },
+      "gpio_signal_harness": {
+        "status": "functional_spec_not_exact_part",
+        "pitch_mm": 2.54,
+        "length_target_mm": 100,
+        "power_usage": "signals only; Pi supply remainsUSB-C. Fan kit plugs directly onto Pi.",
+        "pin_reservations": {
+          "SPI0_MOSI": {
+            "bcm": 10,
+            "physical": 19
+          },
+          "SPI0_SCLK": {
+            "bcm": 11,
+            "physical": 23
+          },
+          "SPI0_CE0": {
+            "bcm": 8,
+            "physical": 24
+          },
+          "supervisor_UART_TX": {
+            "bcm": 14,
+            "physical": 8
+          },
+          "supervisor_UART_RX": {
+            "bcm": 15,
+            "physical": 10
+          },
+          "shutdown_request": {
+            "bcm": 17,
+            "physical": 11
+          },
+          "shutdown_ack": {
+            "bcm": 27,
+            "physical": 13
+          },
+          "fan_PWM": {
+            "bcm": 12,
+            "physical": 32
+          }
+        },
+        "qualification": "Proposed nonoverlapping Pi pin allocation, verify wiring orientation/peripheral mux and software overlays in electrical implementation. Cross-domain signals through retained open-drain buffers; never pull unpowered Pi to AON rail."
+      }
     }
   }
 }

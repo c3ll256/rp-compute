@@ -1,8 +1,8 @@
 {
   "requirements": {
     "product_class": {
-      "value": "portable_desktop_computer",
-      "source": "default"
+      "value": "bring_your_own_pi_gpio_baseboard_terminal_kit",
+      "source": "user"
     },
     "compute_family": {
       "value": "Raspberry Pi 4",
@@ -144,13 +144,14 @@
     },
     "acceptance": {
       "value": [
-        "boot Raspberry Pi 4 Model B and operate a native monochrome terminal UI on LS027B7DH01",
+        "With all power disconnected, user mates their Pi4B to the baseboard GPIO socket and mechanically secures it; baseboard powers Pi and LS027B7DH01 terminal operates without an internal USB-C power cable.",
         "navigate menus with on-device buttons and enter shell commands with an external USB keyboard",
         "demonstrate an SSH session over Wi-Fi",
         "measure and report actual runtime in the defined no-USB-peripheral light-use baseline and separately with a USB keyboard; no fixed minimum-hour pass/fail threshold",
         "operate and charge concurrently without reboot on power transition",
         "recognize keyboard and storage on USB-A within a declared power budget; USB-C carries input power only",
-        "verify display clamping, FPC routing, battery clearance, thermals and desktop stability"
+        "verify display clamping, FPC routing, battery clearance, thermals and desktop stability",
+        "Verify GPIO docking orientation, contact current/temperature, reverse-current and accidental PiUSB-C dual-source protection; no hot-plug or multi-model compatibility claim."
       ],
       "source": "default"
     },
@@ -180,6 +181,22 @@
     },
     "compute_ram_gb": {
       "value": 4,
+      "source": "default"
+    },
+    "compute_supply_model": {
+      "value": "User supplies Raspberry Pi; product is our custom baseboard and peripherals, not a bundled Raspberry Pi",
+      "source": "user"
+    },
+    "compute_attachment": {
+      "value": "User plugs Raspberry Pi GPIO header into the custom baseboard; no separate internal Pi power cable",
+      "source": "user"
+    },
+    "supported_compute_scope": {
+      "value": "Initial compatibility target Raspberry Pi 4 Model B,4GB reference configuration; other Raspberry Pi models not qualified by header similarity alone",
+      "source": "default"
+    },
+    "pi_power_interface": {
+      "value": "Baseboard regulated and protected5V to Pi via40-pin header power contacts; SPI/control via3.3V-domain signal contacts; cold-plug only",
       "source": "default"
     }
   },

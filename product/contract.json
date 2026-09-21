@@ -2,12 +2,12 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "fit_check",
-  "summary": "Raspberry Pi 4 Model B 与 Sharp LS027B7DH01 掌上终端；3.7V 3300mAh Li-ion，续航按所选硬件和使用条件实测报告，不设两小时硬性门槛。当前仅更新硬件需求，不开展 PCB/CAD。",
+  "summary": "BYOP用户自带Pi4B的GPIO插接基板终端套件：自制基板整合电源、屏幕与按键；3.7V3300mAhLi-ion，续航按实际报告。当前仅需求/硬件，不做PCB/CAD。",
   "required_interfaces": [
     {
       "id": "compute_mount",
       "kind": "internal_fit",
-      "description": "Raspberry Pi 4 Model B 的独立固定、完整器件高度、microSD、散热、天线及内部 USB-C/GPIO 线缆空间；不用 CM 载板，不复用 Zero 孔位。",
+      "description": "用户自带Pi4B通过40针GPIO插入基板，配独立机械固定和防错插导向；验证母座堆叠、散热、microSD、USB/Ethernet及拆卸空间。无需内部USB-C电源线。",
       "source": "user_requested",
       "required": true
     },
@@ -38,6 +38,13 @@
       "description": "机身导航、确认、返回和电源按键的安装、行程和操作空间；文字输入使用外接键盘",
       "source": "contract_interface",
       "required": true
+    },
+    {
+      "id": "gpio_dock",
+      "kind": "internal_fit",
+      "description": "40针GPIO电源/信号插接接口：接触电流、排针方向、完整插入及防偏排，基板受保护5V供电；仅断电插拔，不以GPIO同形宣称兼容其他Pi。",
+      "source": "user_requested",
+      "required": true
     }
   ],
   "external_references": [
@@ -67,8 +74,8 @@
     }
   ],
   "assembly_story": {
-    "installation": "先固定屏幕与控制器件，再安装 Pi 和电源/接口组件，连接 FPC 并固定电池，最后关闭可拆底盖；具体紧固件在硬件阶段选定。",
-    "maintenance": "断电后拆开底盖访问电池、主板和内部连接；不可将屏幕玻璃或电池作为受力支撑。",
+    "installation": "断开外部供电并隔离电池；用户将预装合适系统的Pi4B按防错方向插入基板GPIO母座，使用独立固定件锁定。基板侧连接风扇、屏幕、电池与按键；完成固定后才通电。无内部PiUSB-C电源线，不支持带电插拔。",
+    "maintenance": "正常Linux关机，断外部电源并隔离电池后才拔Pi；不能把GPIO座当唯一承力件，不能撬动屏幕或电池。",
     "user_access": [
       "USB-A",
       "USB-C",
@@ -93,7 +100,8 @@
           "sharp_display_fit",
           "usb_access",
           "battery_fit",
-          "control_access"
+          "control_access",
+          "gpio_dock"
         ],
         "reference_ids": [
           "reference_photo_angled",

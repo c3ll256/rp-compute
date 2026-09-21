@@ -348,6 +348,60 @@
       ],
       "source_url": "https://pip-assets.raspberrypi.com/categories/545-raspberry-pi-4-model-b/documents/RP-008344-DS-5-raspberry-pi-4-product-brief.pdf",
       "interpretation": "Pi 4B 4GB variant supported. 5V/3A reference includes USB peripheral supply, not typical consumption. p5 rendered: 85x56 nominal outline, 58x49 mounting pitch, 3.5 edge offsets, diameter2.7; approximate reference-only drawing, not manufacturing authority."
+    },
+    {
+      "id": "cooler_page",
+      "path": "product/references/pi4-fan-pwm-page.txt",
+      "source_url": "https://www.waveshare.com/PI4-FAN-PWM.htm",
+      "sha256": "3983d2ff0da33d28271d8f7851ea71d5dbd745d3a7fd840fef24a09256f3de02",
+      "pages": [],
+      "interpretation": "Hardware research only; see constraints for exact supported facts and pending integration. No circuit, mechanical fit or thermal validation."
+    },
+    {
+      "id": "cooler_wiki",
+      "path": "product/references/pi4-fan-pwm-wiki.txt",
+      "source_url": "https://www.waveshare.com/wiki/PI4-FAN-PWM",
+      "sha256": "2dadd1c454cd29206edbfcadde18ad155e6db7666dd283034c8914c3c2a9c010",
+      "pages": [],
+      "interpretation": "Hardware research only; see constraints for exact supported facts and pending integration. No circuit, mechanical fit or thermal validation."
+    },
+    {
+      "id": "cooler_dimensions",
+      "path": "product/references/pi4-fan-pwm-dimensions.jpg",
+      "source_url": "https://www.waveshare.com/img/devkit/accessories/PI4-FAN-PWM/PI4-FAN-PWM-details-size.jpg",
+      "sha256": "75998780ff6d2d19c6cda68b897bca53d22f248135f6b407df0c048339f833c8",
+      "pages": [],
+      "interpretation": "Hardware research only; see constraints for exact supported facts and pending integration. No circuit, mechanical fit or thermal validation."
+    },
+    {
+      "id": "cooler_wiring",
+      "path": "product/references/pi4-fan-pwm-wiring.jpg",
+      "source_url": "https://www.waveshare.com/img/devkit/accessories/PI4-FAN-PWM/PI4-FAN-PWM-details-11-3.jpg",
+      "sha256": "452d677a9bfadcfef09867741bf1833cd398d2d359797b57dc985f9c0f2fcb6a",
+      "pages": [],
+      "interpretation": "Hardware research only; see constraints for exact supported facts and pending integration. No circuit, mechanical fit or thermal validation."
+    },
+    {
+      "id": "pi4_reduced_schematic",
+      "path": "product/references/pi4b-reduced-schematics.pdf",
+      "source_url": "https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-reduced-schematics.pdf",
+      "sha256": "0ee3fd2b4976b1d614fc817b0d28564226d3ee8656a9108ccb69c099715d2374",
+      "pages": [
+        1
+      ],
+      "interpretation": "Hardware research only; see constraints for exact supported facts and pending integration. No circuit, mechanical fit or thermal validation."
+    },
+    {
+      "id": "pi_power_cable",
+      "path": "product/references/usb2cc50cm.pdf",
+      "source_url": "https://media.startech.com/cms/pdfs/usb2cc50cm_datasheet.pdf",
+      "sha256": "6d050e77a3f863bebbf1965b9b8fb870b8dac00d42310f6e3ea6e74eb160b0f9",
+      "pages": [
+        1,
+        2
+      ],
+      "interpretation": "Hardware research only; see constraints for exact supported facts and pending integration. No circuit, mechanical fit or thermal validation.",
+      "status": "retired_gpio_docking_reference"
     }
   ],
   "web_evidence": [
@@ -375,9 +429,15 @@
     "Some researched battery pages were 404; no product-unavailability inference.",
     "Non-Zero/3300mAh revision: native searches returned no usable results; Raspberry Pi product-page fetch returned 403 and was not retried.",
     "Focused 3.7V 3300mAh battery catalog query returned 74HC04,74HC08 and MOSFET rows; all rejected as unrelated. No exact battery identity selected, and no inference that suitable packs do not exist.",
-    "Pi4B turn: native search returned no results; official brief PDF successfully downloaded. Supplier query returned unrelated resistor/diode/crystal, rejected; no SKU/stock/price invented. Board-spec catalog JSON not present in workspace; official brief used instead."
+    "Pi4B turn: native search returned no results; official brief PDF successfully downloaded. Supplier query returned unrelated resistor/diode/crystal, rejected; no SKU/stock/price invented. Board-spec catalog JSON not present in workspace; official brief used instead.",
+    "Current-turn native web search returned empty; supplier3300mAh lookup returned unrelated logic/MOSFET and was rejected.",
+    "Keeppower native catalog keyword3300 returnedNo record; not proof of market unavailability. Olimex catalog has3000mAh, not3300mAh; guessed3300pages404, no substitution.",
+    "CAD catalog returned unrelated bearings/fasteners for cooler; step.parts zero results. Manufacturer cooler research used; no model acquired.",
+    "StarTech product HTML403; no retry on same host; manufacturer media datasheet succeeded.",
+    "battery.nitecore.com DNS failure. No battery identity inferred from guessed name.",
+    "Pololu4085 is2A class, rejected for Pi4B3A supply; not in active BOM."
   ],
-  "current_application_status": "Pi 4B selected by user; RAM4GB default. Native USB host chosen; old custom USB socket/switch/ESD retired. Existing charger/boost candidates require Pi4B integration review; no BOM readiness or prototype claims.",
+  "current_application_status": "BYOPGPIOdocking update: userPi excluded from procurement; cooler retained with baseboardfanbreakout; internalUSB-Ccable retired. Exact3300mAhpack, docksocket andprotectedGPIOoutput unresolved; noPCBorCAD.",
   "board_model_references": [
     {
       "id": "raspberry_pi_4_model_b",
