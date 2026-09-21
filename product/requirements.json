@@ -157,6 +157,10 @@
     "local_button_default": {
       "value": "directional navigation, confirm and back buttons plus controlled power/shutdown; exact button parts selected in hardware phase",
       "source": "default"
+    },
+    "usb_a_available_current_ma": {
+      "value": 500,
+      "source": "user"
     }
   },
   "open_questions": []

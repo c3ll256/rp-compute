@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "10d71363c891ec2cd7ceeffdd8e80e38cd24fcaef55cc1bc74491f7155d1424c",
+  "requirements_digest": "5d3ff35d9085d04f0d475bd4bc04fd74d634e3bd9f80f504ae79459c42e510c6",
   "items": [
     {
       "id": "compute",
@@ -54,29 +54,31 @@
     {
       "id": "charger",
       "role": "charger_power_path",
-      "name": "BQ24074RGTR",
+      "name": "BQ25622RYKR",
       "quantity": 1,
       "supplier": "LCSC",
       "manufacturer": "Texas Instruments",
-      "part_number": "BQ24074RGTR",
-      "mpn": "BQ24074RGTR",
-      "stock": 218,
-      "source": "default",
-      "procurement_status": "catalog_verified",
-      "lcsc_code": "C54313",
+      "part_number": "BQ25622RYKR",
+      "mpn": "BQ25622RYKR",
+      "lcsc_code": "C6135214",
       "jlc_smt_library": "extended",
-      "product_url": "https://item.szlcsc.com/55331.html",
-      "unit_price_cny": 13.06,
-      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221230/1928ADBB5C08FB4143F0C4E318441FC6.jpg",
+      "procurement_status": "catalog_verified",
+      "package": "WQFN-18 RYK, 2.5x3mm",
+      "stock": 9,
+      "unit_price_cny": 28.9,
+      "source": "default",
+      "product_url": "https://item.szlcsc.com/7078398.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20240612/45370EA65A97CD1CAC4020D8CF30B305.jpg",
+      "datasheet_url": "https://www.ti.com/lit/ds/symlink/bq25620.pdf",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
-      "part_identity": "3c54ce11952d9f4a",
-      "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/bq24074.pdf",
-      "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM."
+      "observed_date": "2026-09-21",
+      "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
+      "selection_reason": "New 500mA branch default: NVDC switching charger, documented 6A continuous BATFET path and external ILIM plus I2C; unlike BQ25620, pins 4/5 are ILIM/TS_BIAS, not USB D-/D+. Not a proof of system thermal capability.",
+      "part_identity": "0a5569731dd6e54c"
     },
     {
       "id": "boost",
@@ -103,7 +105,8 @@
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tps61088.pdf",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM."
+      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "selection_reason": "TPS61088 retained for new 5.1V 3.3A design target with 2.2uH inductor; minimum boost input 3.5V and efficiency/current/thermal bounds must be proved. Do not equate 10A switch with 10A output."
     },
     {
       "id": "display_fpc",
@@ -169,7 +172,8 @@
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tps2553.pdf",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM."
+      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "selection_reason": "TPS2553 retained for user-confirmed 500mA available USB-A current. PCB set resistor for minimum trip above 500mA and worst-case trip <=650mA; verify start-up/inrush and fault flag. Not phone fast charging."
     },
     {
       "id": "usb_c_cc",
@@ -227,38 +231,28 @@
     },
     {
       "id": "battery",
-      "role": "protected_battery_pack",
-      "name": "PRT-13856 / DTP605068-3P",
+      "role": "protected_1s_battery_pack",
+      "name": "Keeppower 1S1P 21700 6000mAh wires-out candidate (product 870)",
       "quantity": 1,
-      "supplier": "SparkFun / Data Power",
-      "manufacturer": "SparkFun / Data Power",
-      "part_number": "PRT-13856 / DTP605068-3P",
-      "mpn": "PRT-13856 / DTP605068-3P",
+      "supplier": "Keeppower",
+      "manufacturer": "Keeppower",
+      "part_number": "1S1P 21700 6000mAh wires-out (product 870; variant unresolved)",
+      "mpn": "1S1P 21700 6000mAh wires-out (product 870; variant unresolved)",
       "stock": null,
       "source": "default",
+      "product_url": "https://www.keeppower.com.cn/products_detail.php?id=870",
+      "image_url": "https://www.keeppower.com.cn/UploadFiles/20251229093505.png",
       "procurement_status": "external_procurement_required",
       "assembly": {
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "product_url": "https://www.sparkfun.com/lithium-ion-battery-6ah.html",
-      "datasheet_url": "https://cdn.sparkfun.com/datasheets/Prototyping/spe-00-DTP605068-3P-6000mah-en-1.0ver.pdf",
-      "unit_price_usd": 48.44,
-      "selection_status": "conditional_on_power_budget",
-      "electrical": {
-        "nominal_voltage_v": 3.7,
-        "capacity_mah": 6000,
-        "topology": "1S3P, factory matched protected pack; not three series cells",
-        "cell_level_max_continuous_discharge_a": 6,
-        "pcm_overcurrent_trip_a": [
-          2.5,
-          4.5
-        ],
-        "note": "6 A cell characteristic is NOT an assembled-pack/connector rating. PH path constrained to <=2 A including tolerances."
-      },
-      "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "part_identity": "c2619465b0629ff8"
+      "selection_status": "candidate_not_final",
+      "description": "Manufacturer lists protected 1S1P, nominal 3.6V 6000mAh, minimum 5900mAh, maximum discharge 12A. Exact protected assembly rating, wire gauge, connector variant and whole-pack drawing not established; do not treat maximum as continuous or infer dimensions from 21700 name.",
+      "supply_risk": "Blocking manufacturer specification needed. XT30U-F/18AWG/100mm is a project requested harness option, NOT an evidenced catalog pack variant.",
+      "observed_date": "2026-09-21",
+      "part_identity": "b48a56cc0a5dd2d1"
     },
     {
       "id": "supervisor",
@@ -290,32 +284,32 @@
     },
     {
       "id": "main_disconnect",
-      "role": "main_rail_load_switch",
-      "name": "TPS22918DBVR",
+      "role": "main_power_disconnect",
+      "name": "TPS22990DMLR",
       "quantity": 1,
       "supplier": "LCSC",
       "manufacturer": "Texas Instruments",
-      "part_number": "TPS22918DBVR",
-      "mpn": "TPS22918DBVR",
-      "stock": 8791,
-      "source": "default",
+      "part_number": "TPS22990DMLR",
+      "mpn": "TPS22990DMLR",
+      "lcsc_code": "C962990",
+      "jlc_smt_library": "extended",
       "procurement_status": "catalog_verified",
+      "package": "WSON-10 DML, 2x3mm",
+      "stock": 3027,
+      "unit_price_cny": 5.19,
+      "source": "default",
+      "product_url": "https://item.szlcsc.com/1046089.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230104/A75D8676002EA1A2616F21BD2259B484.jpg",
+      "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tps22990.pdf",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
-      "lcsc_code": "C131941",
-      "unit_price_cny": 2.452,
-      "product_url": "https://item.szlcsc.com/143237.html",
-      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230108/CAC4BE276E9265E30C93CEA9232E9885.jpg",
-      "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tps22918.pdf",
-      "package": "SOT-23-6",
-      "jlc_smt_library": "extended",
-      "selection_reason": "TPS61088 shutdown does not disconnect input from output. Separate output switch required; this 2A part is conditional on low-power branch, not full 2.5A Pi supply.",
-      "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "905b6fbbc25871f0"
+      "observed_date": "2026-09-21",
+      "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
+      "selection_reason": "New 500mA branch default: 10A-rated switch replaces 2A TPS22918. VBIAS from unswitched boost output; exposed thermal pad is VIN, NOT GND. External CT sets inrush; no reverse-block claim.",
+      "part_identity": "3245a083b6a433c2"
     },
     {
       "id": "ldo_3v3",
@@ -516,7 +510,8 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "02c2daebd93eb64c"
+      "part_identity": "02c2daebd93eb64c",
+      "selection_reason": "Two independent 103AT-2 sensors: BQ25622 TS using TS_BIAS divider and MCU ADC. Recompute TS network; no inherited BQ24074 resistor values."
     },
     {
       "id": "port_esd",
@@ -548,7 +543,7 @@
     },
     {
       "id": "path_current_guard",
-      "role": "boost_input_efuse",
+      "role": "usb_c_input_current_guard",
       "name": "TPS259531DSGR",
       "quantity": 1,
       "supplier": "LCSC",
@@ -572,30 +567,37 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "part_identity": "28df8117905a9943"
+      "part_identity": "28df8117905a9943",
+      "selection_reason": "Retained TPS259531 moved to USB-C input, before BQ25622. No longer a 2A battery path limiter. Set input limit within CC allowance with tolerance; 5.7V clamp is not LCD output overvoltage protection."
     },
     {
       "id": "battery_header",
-      "role": "battery_pack_mating_header",
-      "name": "B2B-PH-K-S(LF)(SN)",
+      "role": "board_side_battery_cable_connector",
+      "name": "XT30U-M",
       "quantity": 1,
-      "supplier": "JST",
-      "manufacturer": "JST",
-      "part_number": "B2B-PH-K-S(LF)(SN)",
-      "mpn": "B2B-PH-K-S(LF)(SN)",
-      "stock": null,
+      "supplier": "LCSC",
+      "manufacturer": "AMASS",
+      "part_number": "XT30U-M",
+      "mpn": "XT30U-M",
+      "lcsc_code": "C99101",
+      "jlc_smt_library": "extended",
+      "procurement_status": "catalog_verified",
+      "package": "wire-to-wire solder cup",
+      "stock": 83817,
+      "unit_price_cny": 1.397,
       "source": "default",
-      "procurement_status": "external_procurement_required",
+      "product_url": "https://item.szlcsc.com/100314.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230329/0C3535E878BE41912A957DCA9F2E0130.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20250825/A092CD0EFAD6EF1E5DCBA6096BF2EA61.pdf",
       "assembly": {
-        "population": "mounted",
-        "method": "through_hole"
+        "population": "not_mounted",
+        "method": "not_assembled"
       },
-      "product_url": "https://www.jst-mfg.com/product/index.php?series=199&request_locale=en",
-      "datasheet_url": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
-      "package": "2-pin 2mm top-entry THT",
-      "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "part_identity": "d331b723424a65d7"
+      "observed_date": "2026-09-21",
+      "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
+      "selection_reason": "XT30U-M on board-side pigtail, mates XT30U-F on battery. Neither is a PCB header. No PH land-pattern obligation remains. PCB wire pads/strain relief are project-designed later.",
+      "part_identity": "1bf917b377113a39"
     },
     {
       "id": "pi_usb_harness",
@@ -649,16 +651,233 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "part_identity": "07c09d43d8790a84"
+    },
+    {
+      "id": "battery_cable_mate",
+      "role": "battery_side_connector_in_pack_harness",
+      "name": "XT30U-F",
+      "quantity": 1,
+      "supplier": "LCSC",
+      "manufacturer": "AMASS",
+      "part_number": "XT30U-F",
+      "mpn": "XT30U-F",
+      "lcsc_code": "C99102",
+      "jlc_smt_library": "extended",
+      "procurement_status": "catalog_verified",
+      "package": "wire-to-wire solder cup",
+      "stock": 69943,
+      "unit_price_cny": 1.261,
+      "source": "default",
+      "product_url": "https://item.szlcsc.com/100315.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221231/D7D4597D7210E0193458D2763C858D2D.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20260811/BA5861504A44B10473C7C74ACEF79560.pdf",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "observed_date": "2026-09-21",
+      "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
+      "selection_reason": "Female contacts on battery side; manufacturer-installed harness requested. Included once in pack harness procurement, not an extra loose connector to modify a live battery. Confirm mating polarity against molded marks and measurement.",
+      "part_identity": "336e79353c0c2757"
+    },
+    {
+      "id": "charger_inductor",
+      "role": "buck_charger_inductor",
+      "name": "74437349010",
+      "quantity": 1,
+      "supplier": "LCSC",
+      "manufacturer": "Wurth",
+      "part_number": "74437349010",
+      "mpn": "74437349010",
+      "lcsc_code": "C1332247",
+      "jlc_smt_library": "extended",
+      "procurement_status": "catalog_verified",
+      "package": "SMD 7.3x6.6mm",
+      "stock": 420,
+      "unit_price_cny": 9.74,
+      "source": "default",
+      "product_url": "https://item.szlcsc.com/1422526.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20240719/3A8A6D7F45A380110E98A78FB7756715.jpg",
+      "datasheet_url": "https://www.we-online.com/components/products/datasheet/74437349010.pdf",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "required_user_evidence": [],
+      "observed_date": "2026-09-21",
+      "supply_risk": "Exact catalog lookup returned Extended fallback; no credible Basic substitute established. Prototype reflow/manual assembly; not JLC placement-verified.",
+      "selection_reason": "1uH ±20%, 10A rated, 19.5A saturation, 6.5mOhm DCR; selected for BQ25622 1uH application, separate from retained 2.2uH boost inductor. Recalculate ripple at selected 1.5MHz and derate thermally.",
+      "part_identity": "aef1c26f527a2d8a"
     }
   ],
-  "alternatives": [],
-  "supply_risks": [
+  "alternatives": [
     {
-      "id": "power_not_closed",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Current 1S/PH/charger/disconnect chain is a low-power candidate, not a verified 5V 2.5A Pi supply. USB load-class decision is pending; no unrestricted load or seamless-switch guarantee."
+      "role": "charger_power_path",
+      "mpn": "BQ24074RGTR",
+      "status": "retired_low_power_branch",
+      "reason": "500mA branch: retire 1.5A linear power-path candidate; use switching charger with a documented 6A battery path.",
+      "previous_row": {
+        "id": "charger",
+        "role": "charger_power_path",
+        "name": "BQ24074RGTR",
+        "quantity": 1,
+        "supplier": "LCSC",
+        "manufacturer": "Texas Instruments",
+        "part_number": "BQ24074RGTR",
+        "mpn": "BQ24074RGTR",
+        "stock": 218,
+        "source": "default",
+        "procurement_status": "catalog_verified",
+        "lcsc_code": "C54313",
+        "jlc_smt_library": "extended",
+        "product_url": "https://item.szlcsc.com/55331.html",
+        "unit_price_cny": 13.06,
+        "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221230/1928ADBB5C08FB4143F0C4E318441FC6.jpg",
+        "assembly": {
+          "population": "mounted",
+          "method": "manual"
+        },
+        "part_identity": "3c54ce11952d9f4a",
+        "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/bq24074.pdf",
+        "observed_date": "2026-09-20",
+        "required_user_evidence": [],
+        "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM."
+      }
     },
+    {
+      "role": "main_rail_load_switch",
+      "mpn": "TPS22918DBVR",
+      "status": "retired_low_power_branch",
+      "reason": "500mA branch: retire 2A switch; cover Pi allocation plus USB load.",
+      "previous_row": {
+        "id": "main_disconnect",
+        "role": "main_rail_load_switch",
+        "name": "TPS22918DBVR",
+        "quantity": 1,
+        "supplier": "LCSC",
+        "manufacturer": "Texas Instruments",
+        "part_number": "TPS22918DBVR",
+        "mpn": "TPS22918DBVR",
+        "stock": 8791,
+        "source": "default",
+        "procurement_status": "catalog_verified",
+        "assembly": {
+          "population": "mounted",
+          "method": "manual"
+        },
+        "lcsc_code": "C131941",
+        "unit_price_cny": 2.452,
+        "product_url": "https://item.szlcsc.com/143237.html",
+        "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230108/CAC4BE276E9265E30C93CEA9232E9885.jpg",
+        "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tps22918.pdf",
+        "package": "SOT-23-6",
+        "jlc_smt_library": "extended",
+        "selection_reason": "TPS61088 shutdown does not disconnect input from output. Separate output switch required; this 2A part is conditional on low-power branch, not full 2.5A Pi supply.",
+        "observed_date": "2026-09-20",
+        "required_user_evidence": [],
+        "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+        "part_identity": "905b6fbbc25871f0"
+      }
+    },
+    {
+      "role": "protected_battery_pack",
+      "mpn": "PRT-13856 / DTP605068-3P",
+      "status": "retired_low_power_branch",
+      "reason": "PH/PCM whole-pack current evidence insufficient for new branch; not an approved fallback.",
+      "previous_row": {
+        "id": "battery",
+        "role": "protected_battery_pack",
+        "name": "PRT-13856 / DTP605068-3P",
+        "quantity": 1,
+        "supplier": "SparkFun / Data Power",
+        "manufacturer": "SparkFun / Data Power",
+        "part_number": "PRT-13856 / DTP605068-3P",
+        "mpn": "PRT-13856 / DTP605068-3P",
+        "stock": null,
+        "source": "default",
+        "procurement_status": "external_procurement_required",
+        "assembly": {
+          "population": "not_mounted",
+          "method": "not_assembled"
+        },
+        "product_url": "https://www.sparkfun.com/lithium-ion-battery-6ah.html",
+        "datasheet_url": "https://cdn.sparkfun.com/datasheets/Prototyping/spe-00-DTP605068-3P-6000mah-en-1.0ver.pdf",
+        "unit_price_usd": 48.44,
+        "selection_status": "conditional_on_power_budget",
+        "electrical": {
+          "nominal_voltage_v": 3.7,
+          "capacity_mah": 6000,
+          "topology": "1S3P, factory matched protected pack; not three series cells",
+          "cell_level_max_continuous_discharge_a": 6,
+          "pcm_overcurrent_trip_a": [
+            2.5,
+            4.5
+          ],
+          "note": "6 A cell characteristic is NOT an assembled-pack/connector rating. PH path constrained to <=2 A including tolerances."
+        },
+        "observed_date": "2026-09-20",
+        "required_user_evidence": [],
+        "part_identity": "c2619465b0629ff8"
+      }
+    },
+    {
+      "role": "battery_pack_mating_header",
+      "mpn": "B2B-PH-K-S(LF)(SN)",
+      "status": "retired_low_power_branch",
+      "reason": "Retire PH interface; new branch uses wire-to-wire XT30U, not a guessed PCB PH footprint.",
+      "previous_row": {
+        "id": "battery_header",
+        "role": "battery_pack_mating_header",
+        "name": "B2B-PH-K-S(LF)(SN)",
+        "quantity": 1,
+        "supplier": "JST",
+        "manufacturer": "JST",
+        "part_number": "B2B-PH-K-S(LF)(SN)",
+        "mpn": "B2B-PH-K-S(LF)(SN)",
+        "stock": null,
+        "source": "default",
+        "procurement_status": "external_procurement_required",
+        "assembly": {
+          "population": "mounted",
+          "method": "through_hole"
+        },
+        "product_url": "https://www.jst-mfg.com/product/index.php?series=199&request_locale=en",
+        "datasheet_url": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
+        "package": "2-pin 2mm top-entry THT",
+        "observed_date": "2026-09-20",
+        "required_user_evidence": [],
+        "part_identity": "d331b723424a65d7"
+      }
+    },
+    {
+      "role": "charger_power_path",
+      "mpn": "BQ25620RYKR",
+      "status": "not_selected",
+      "lcsc_code": "C6164243",
+      "reason": "Exact catalog match, but D+/D- detection not needed for power-only USB-C; BQ25622 external ILIM selected. Pins 4/5 differ; not drop-in firmware/wiring."
+    },
+    {
+      "role": "charger_power_path",
+      "mpn": "BQ25895RTWR",
+      "status": "not_selected",
+      "lcsc_code": "C80200",
+      "reason": "Studied candidate; do not silently replace BQ25622. 9A peak discharging is not evidence for continuous 9A."
+    },
+    {
+      "role": "protected_1s_battery_pack",
+      "mpn": "P2150R with JST SYP-02 (product 688)",
+      "status": "not_selected",
+      "reason": "Manufacturer lists protected battery at 15A continuous, 21.6x74.5mm, but supplied SYP-02 harness not established for this whole-path current. Do not inherit cell rating across connector."
+    },
+    {
+      "role": "protected_1s_battery_pack",
+      "mpn": "1S2P 12Ah Battery Pack-AMXT30U (product 792)",
+      "status": "not_selected",
+      "reason": "Manufacturer establishes 72.5x44x22mm and XT30U, but maximum discharge is customizable and not specified; capacity is not current evidence."
+    }
+  ],
+  "supply_risks": [
     {
       "id": "screen_supply",
       "component_id": "display",
@@ -667,31 +886,10 @@
       "description": "Exact DH01 stock 0 at lookup; DH01A is not an approved substitute. Shared supplier A-suffix PDF rejected."
     },
     {
-      "id": "battery_document_conflict",
-      "component_id": "battery",
-      "severity": "warning",
-      "design_critical": false,
-      "description": "p4 6A cell characteristic conflicts with p7 assembled PCM trip 2.5-4.5A; PH connector rated 2A (JST AWG24 test). p9 labels black (+), red (-), contrary to usual colors. Never infer polarity from wire color; incoming voltage/polarity measurement and keyed harness verification required."
-    },
-    {
-      "id": "battery_supply",
-      "component_id": "battery",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "SparkFun shipping restrictions apply; no stock quantity established. Verify actual received DTP605068-3P pack revision."
-    },
-    {
       "id": "no_cad_fit",
       "severity": "advisory",
       "design_critical": false,
-      "description": "85x115x40mm remains a provisional layout target; battery 51x73x20mm before allowances may drive envelope. No CAD or exact Pi STEP verified."
-    },
-    {
-      "id": "connector_evidence",
-      "component_id": "battery_header",
-      "severity": "warning",
-      "design_critical": false,
-      "description": "Manufacturer confirms exact B2B-PH-K-S family; detailed PDF renders without text labels; dedicated drawing behind email registration. PCB stage must obtain legible exact land pattern, not guess it."
+      "description": "85x115x40mm provisional only; new battery whole-pack dimensions unavailable. Never reuse retired 51x73x20mm envelope or infer pack size from cell format."
     },
     {
       "id": "support_passives",
@@ -871,45 +1069,40 @@
       "severity": "advisory",
       "design_critical": false,
       "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "battery_complete_pack_spec",
+      "component_id": "battery",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Candidate factory pack has no complete electrical/mechanical drawing for requested high-current harness. This is a design-evidence gap, not a missing shop link or stock."
+    },
+    {
+      "id": "power_implementation",
+      "severity": "warning",
+      "design_critical": false,
+      "description": "New power chain is selection-level only. Verify BQ25622 6A continuous battery path, boost current/efficiency/thermal limits, USB switch tolerances, safe CC input boot/current-downshift and low-voltage shutdown before fabrication. No seamless-switch or runtime measurement exists."
+    },
+    {
+      "id": "new_parts_single_source",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No qualified drop-in alternative established for BQ25622, TPS22990, new charger inductor or XT30U pair; substitutions require new interface review."
     }
   ],
   "unresolved_items": [
     {
-      "id": "usb_a_power_budget",
-      "owner": "user",
+      "id": "battery_complete_pack_spec",
+      "owner": "agent_with_manufacturer_evidence",
       "design_critical": true,
       "component_refs": [
         "battery",
-        "charger",
-        "boost",
-        "main_disconnect",
-        "path_current_guard",
-        "usb_a_switch",
-        "battery_header"
+        "battery_header",
+        "battery_cable_mate"
       ],
-      "question": "USB-A优先支持低功耗键盘/鼠标，还是要为更广泛外设提供500mA？",
-      "options": [
-        {
-          "id": "low_power_100ma",
-          "description": "100mA外设预算，保留当前小电流电池链；必须验证Pi启动峰值并可能限制负载。"
-        },
-        {
-          "id": "general_500ma",
-          "description": "500mA外设预算（推荐），重新选定较大电流电池连接、供电路径和主开关，不承诺现有功率器件全部保留。"
-        }
-      ],
-      "resolution": "Record the selected load class, then agent closes peak/current/thermal budgets and any affected component identities; answering alone must not flip bom_ready."
-    },
-    {
-      "id": "battery_header_land_pattern",
-      "owner": "agent",
-      "design_critical": true,
-      "component_refs": [
-        "battery_header"
-      ],
-      "resolution": "Obtain legible manufacturer exact B2B-PH-K-S drawing from another authoritative copy before marking the electrical BOM ready; current series PDF drops numeric labels. No user approval of a guessed footprint."
+      "resolution": "Obtain exact factory protected-pack variant with >=8A continuous discharge including PCM and leads; protection trip/time, wire gauge and XT30U-F polarity, 4.2V charge rating, complete dimensions and temperature limits. Product 870 is a candidate, not the finalized assembly. See battery-spec-request.md."
     }
   ],
-  "scope": "Functional hardware selection review package; power-load decision pending; NOT a final procurement/PCB population BOM.",
-  "review_status": "research_checked_not_prototype_validated"
+  "scope": "Functional 500mA hardware selection draft; complete protected battery pack specification unresolved. Not procurement-ready and not PCB population BOM.",
+  "review_status": "datasheet_selection_review_not_circuit_or_prototype_validation"
 }

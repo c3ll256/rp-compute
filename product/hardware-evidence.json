@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "status": "research_record",
-  "observed_date": "2026-09-20",
+  "observed_date": "2026-09-21",
   "sources": [
     {
       "id": "pi",
@@ -39,7 +39,8 @@
         9
       ],
       "source_url": "https://cdn.sparkfun.com/datasheets/Prototyping/spe-00-DTP605068-3P-6000mah-en-1.0ver.pdf",
-      "interpretation": "Distinguish cell current and pack PCM trip; 51x73x20 whole pack; AWG22; anomalous polarity labels"
+      "interpretation": "Distinguish cell current and pack PCM trip; 51x73x20 whole pack; AWG22; anomalous polarity labels",
+      "status": "retired_low_power_branch_evidence"
     },
     {
       "id": "rejected_battery",
@@ -106,7 +107,8 @@
         3
       ],
       "source_url": "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf",
-      "interpretation": "Unusable numeric text/render; NOT footprint-verified. Manufacturer series webpage establishes 2A AWG24 and exact family."
+      "interpretation": "Unusable numeric text/render; NOT footprint-verified. Manufacturer series webpage establishes 2A AWG24 and exact family.",
+      "status": "retired_low_power_branch_evidence"
     },
     {
       "id": "charger",
@@ -251,17 +253,114 @@
       ],
       "source_url": "https://www.ti.com/cn/lit/ds/symlink/sn74lvc1g07.pdf",
       "interpretation": "Ioff/open-drain level crossing, DBV pinout, VOL and partial-power-down limits"
+    },
+    {
+      "id": "charger_500ma",
+      "path": "product/references/bq25620.pdf",
+      "sha256": "c22135ccb7e3845220e978c071a7f611eb1ae0dbebccface58961ce8077c9e22",
+      "pages": [
+        5,
+        6,
+        7,
+        11,
+        23,
+        33,
+        68,
+        69,
+        70,
+        71,
+        72,
+        75,
+        76,
+        83
+      ],
+      "source_url": "https://www.ti.com/lit/ds/symlink/bq25620.pdf",
+      "interpretation": "BQ25622 selected; ILIM/TS_BIAS pin differences; recommended BATFET 6A continuous, not 10A continuous. Application/layout viewed; p83 is tape, not land pattern."
+    },
+    {
+      "id": "main_disconnect_500ma",
+      "path": "references/suppliers/c962990/c962990-datasheet.pdf",
+      "sha256": "7f62e2e91fab880c5cb2d1de65c312da8a8e655cc7930b7953a3d68d956f1bdb",
+      "pages": [
+        3,
+        4,
+        22,
+        23,
+        25
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/tps22990.pdf",
+      "interpretation": "TPS22990: exposed pad VIN, not GND; VBIAS/CT/ON sequencing."
+    },
+    {
+      "id": "battery_connector_male",
+      "path": "references/suppliers/c99101/c99101-datasheet.pdf",
+      "sha256": "87a1001cc158d45c0051d09789761ea1fd9482ee29c19592b903c3bdbbe12563",
+      "pages": [
+        1
+      ],
+      "source_url": "https://atta.szlcsc.com//upload/public/pdf/source/20250825/A092CD0EFAD6EF1E5DCBA6096BF2EA61.pdf",
+      "interpretation": "Exact XT30U-M solder-wire connector; not PCB header."
+    },
+    {
+      "id": "battery_connector_female",
+      "path": "references/suppliers/c99102/c99102-datasheet.pdf",
+      "sha256": "7a7037bba033e319c03b6a3dc28e690e42d5364618400e9f8858e9647ffa88eb",
+      "pages": [
+        1,
+        2
+      ],
+      "source_url": "https://atta.szlcsc.com//upload/public/pdf/source/20260811/BA5861504A44B10473C7C74ACEF79560.pdf",
+      "interpretation": "XT30U-F mating battery-side wire connector; requested factory pack option not verified."
+    },
+    {
+      "id": "charger_inductor",
+      "path": "references/suppliers/c1332247/c1332247-datasheet.pdf",
+      "sha256": "4b1144e0ad995065978b5d1131ab5f83490710a6f6fa265a349ea9231955dce8",
+      "pages": [
+        1
+      ],
+      "source_url": "https://www.we-online.com/components/products/datasheet/74437349010.pdf",
+      "interpretation": "1uH ±20%; distinguish rated 10A from saturation 19.5A. Separate from boost inductor."
+    },
+    {
+      "id": "charger_alternative_not_selected",
+      "path": "references/suppliers/c80200/c80200-datasheet.pdf",
+      "sha256": "9e00f1f30064dad8283cc31fad7fe3cb5687bb7076b55717f7be70a43bb274bf",
+      "pages": [
+        4,
+        5,
+        6,
+        49,
+        50,
+        51,
+        55
+      ],
+      "source_url": "https://www.ti.com/cn/lit/ds/symlink/bq25895.pdf",
+      "interpretation": "BQ25895 exact supplier candidate studied, not selected; never transfer its ratings/pins to primary."
     }
   ],
   "web_evidence": [
     {
-      "source_url": "https://www.jst-mfg.com/product/index.php?series=199&request_locale=en",
-      "facts": "PH series 2A with AWG24, 2mm pitch; exact B2B-PH-K-S family; detailed drawing requires email registration."
+      "source_url": "https://www.keeppower.com.cn/products_detail.php?id=870",
+      "facts": "Candidate protected 1S1P 3.6V 6000mAh/min5900mAh wires-out; maximum discharge12A, charge1200mA standard/3000mA max. Continuous whole-pack/harness/PCM limits and dimensions NOT established.",
+      "observed_date": "2026-09-21"
     },
     {
-      "source_url": "https://www.sparkfun.com/lithium-ion-battery-6ah.html",
-      "facts": "PRT-13856 links DTP605068-3P PDF; 1S parallel pack, PH connector; shipping restrictions."
+      "source_url": "https://www.keeppower.com.cn/products_detail.php?id=688",
+      "facts": "P2150R with SYP-02; 15A continuous battery,21.6x74.5mm. Does not establish supplied connector/wires for our complete current path; not selected.",
+      "observed_date": "2026-09-21"
+    },
+    {
+      "source_url": "https://www.keeppower.com.cn/products_detail.php?id=792",
+      "facts": "1S2P12Ah XT30U,72.5x44x22mm; discharge current customized/unspecified. Not selected.",
+      "observed_date": "2026-09-21"
     }
   ],
-  "verification_boundary": "Datasheet selection research, not circuit implementation approval, electrical safety certification, PCB DRC or prototype validation. PDF bytes remain local reference cache; this file preserves source hashes and interpretations."
+  "verification_boundary": "Datasheet selection research, not circuit implementation approval, electrical safety certification, PCB DRC or prototype validation. PDF bytes remain local reference cache; this file preserves source hashes and interpretations.",
+  "access_limitations": [
+    "Native web search returned no usable results; manufacturer pages and supplier-hosted datasheets used directly.",
+    "illumn.com 403; not retried.",
+    "TPS2121 supplier timeout; not selected and no availability conclusion.",
+    "Some researched battery pages were 404; no product-unavailability inference."
+  ]
 }

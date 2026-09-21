@@ -2,11 +2,11 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "10d71363c891ec2cd7ceeffdd8e80e38cd24fcaef55cc1bc74491f7155d1424c",
+  "requirements_digest": "5d3ff35d9085d04f0d475bd4bc04fd74d634e3bd9f80f504ae79459c42e510c6",
   "architecture": {
     "compute": "Raspberry Pi Zero 2 W",
     "display": "LS027B7DH01 serial Memory LCD",
-    "power_path": "USB-C 5V -> BQ24074 IN/OUT with protected 1S battery on BAT; OUT -> TPS259531 current guard -> TPS61088 -> TPS22918 -> 5V_MAIN. Always-on TLV75533 before main switch. Conditional low-power branch.",
+    "power_path": "USB-C 5V -> TPS259531 input protection -> BQ25622 VBUS; protected 1S pack -> BAT; SYS -> TPS61088 -> TPS22990 -> 5V_MAIN. TLV75533/ATtiny1616 always-on from SYS. Battery exact factory variant unresolved.",
     "usb_a": "single host port, protected switched VBUS; no hub required",
     "usb_c": "sink only; CC current detection; no USB data or PD voltage request"
   },
@@ -78,48 +78,18 @@
   },
   "unresolved_items": [
     {
-      "id": "usb_a_power_budget",
-      "owner": "user",
+      "id": "battery_complete_pack_spec",
+      "owner": "agent_with_manufacturer_evidence",
       "design_critical": true,
       "component_refs": [
         "battery",
-        "charger",
-        "boost",
-        "main_disconnect",
-        "path_current_guard",
-        "usb_a_switch",
-        "battery_header"
+        "battery_header",
+        "battery_cable_mate"
       ],
-      "question": "USB-A优先支持低功耗键盘/鼠标，还是要为更广泛外设提供500mA？",
-      "options": [
-        {
-          "id": "low_power_100ma",
-          "description": "100mA外设预算，保留当前小电流电池链；必须验证Pi启动峰值并可能限制负载。"
-        },
-        {
-          "id": "general_500ma",
-          "description": "500mA外设预算（推荐），重新选定较大电流电池连接、供电路径和主开关，不承诺现有功率器件全部保留。"
-        }
-      ],
-      "resolution": "Record the selected load class, then agent closes peak/current/thermal budgets and any affected component identities; answering alone must not flip bom_ready."
-    },
-    {
-      "id": "battery_header_land_pattern",
-      "owner": "agent",
-      "design_critical": true,
-      "component_refs": [
-        "battery_header"
-      ],
-      "resolution": "Obtain legible manufacturer exact B2B-PH-K-S drawing from another authoritative copy before marking the electrical BOM ready; current series PDF drops numeric labels. No user approval of a guessed footprint."
+      "resolution": "Obtain exact factory protected-pack variant with >=8A continuous discharge including PCM and leads; protection trip/time, wire gauge and XT30U-F polarity, 4.2V charge rating, complete dimensions and temperature limits. Product 870 is a candidate, not the finalized assembly. See battery-spec-request.md."
     }
   ],
   "supply_risks": [
-    {
-      "id": "power_not_closed",
-      "severity": "blocking",
-      "design_critical": true,
-      "description": "Current 1S/PH/charger/disconnect chain is a low-power candidate, not a verified 5V 2.5A Pi supply. USB load-class decision is pending; no unrestricted load or seamless-switch guarantee."
-    },
     {
       "id": "screen_supply",
       "component_id": "display",
@@ -128,31 +98,10 @@
       "description": "Exact DH01 stock 0 at lookup; DH01A is not an approved substitute. Shared supplier A-suffix PDF rejected."
     },
     {
-      "id": "battery_document_conflict",
-      "component_id": "battery",
-      "severity": "warning",
-      "design_critical": false,
-      "description": "p4 6A cell characteristic conflicts with p7 assembled PCM trip 2.5-4.5A; PH connector rated 2A (JST AWG24 test). p9 labels black (+), red (-), contrary to usual colors. Never infer polarity from wire color; incoming voltage/polarity measurement and keyed harness verification required."
-    },
-    {
-      "id": "battery_supply",
-      "component_id": "battery",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "SparkFun shipping restrictions apply; no stock quantity established. Verify actual received DTP605068-3P pack revision."
-    },
-    {
       "id": "no_cad_fit",
       "severity": "advisory",
       "design_critical": false,
-      "description": "85x115x40mm remains a provisional layout target; battery 51x73x20mm before allowances may drive envelope. No CAD or exact Pi STEP verified."
-    },
-    {
-      "id": "connector_evidence",
-      "component_id": "battery_header",
-      "severity": "warning",
-      "design_critical": false,
-      "description": "Manufacturer confirms exact B2B-PH-K-S family; detailed PDF renders without text labels; dedicated drawing behind email registration. PCB stage must obtain legible exact land pattern, not guess it."
+      "description": "85x115x40mm provisional only; new battery whole-pack dimensions unavailable. Never reuse retired 51x73x20mm envelope or infer pack size from cell format."
     },
     {
       "id": "support_passives",
@@ -171,65 +120,253 @@
       "severity": "advisory",
       "design_critical": false,
       "description": "Runtime, boot transients, source removal, charging heat, low-battery shutdown, signal levels, FPC insertion and USB ESD remain untested."
+    },
+    {
+      "id": "single_source_compute",
+      "component_id": "compute",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_display",
+      "component_id": "display",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_charger",
+      "component_id": "charger",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_boost",
+      "component_id": "boost",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_display_fpc",
+      "component_id": "display_fpc",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_usb_a_switch",
+      "component_id": "usb_a_switch",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_usb_c_cc",
+      "component_id": "usb_c_cc",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_usb_a",
+      "component_id": "usb_a",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_battery",
+      "component_id": "battery",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_supervisor",
+      "component_id": "supervisor",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_main_disconnect",
+      "component_id": "main_disconnect",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_ldo_3v3",
+      "component_id": "ldo_3v3",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_display_buffer",
+      "component_id": "display_buffer",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_domain_buffer",
+      "component_id": "domain_buffer",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_buttons",
+      "component_id": "buttons",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_usb_c",
+      "component_id": "usb_c",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_boost_inductor",
+      "component_id": "boost_inductor",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_battery_ntc",
+      "component_id": "battery_ntc",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_port_esd",
+      "component_id": "port_esd",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_path_current_guard",
+      "component_id": "path_current_guard",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_battery_header",
+      "component_id": "battery_header",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_pi_usb_harness",
+      "component_id": "pi_usb_harness",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "single_source_pi_gpio_harness",
+      "component_id": "pi_gpio_harness",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No validated drop-in alternate. Preserve exact identity; any replacement needs interface and supply revalidation."
+    },
+    {
+      "id": "battery_complete_pack_spec",
+      "component_id": "battery",
+      "severity": "blocking",
+      "design_critical": true,
+      "description": "Candidate factory pack has no complete electrical/mechanical drawing for requested high-current harness. This is a design-evidence gap, not a missing shop link or stock."
+    },
+    {
+      "id": "power_implementation",
+      "severity": "warning",
+      "design_critical": false,
+      "description": "New power chain is selection-level only. Verify BQ25622 6A continuous battery path, boost current/efficiency/thermal limits, USB switch tolerances, safe CC input boot/current-downshift and low-voltage shutdown before fabrication. No seamless-switch or runtime measurement exists."
+    },
+    {
+      "id": "new_parts_single_source",
+      "severity": "advisory",
+      "design_critical": false,
+      "description": "No qualified drop-in alternative established for BQ25622, TPS22990, new charger inductor or XT30U pair; substitutions require new interface review."
     }
   ],
   "power": {
     "source": "default",
-    "selection_status": "pending_usb_a_power_budget",
-    "candidate_output_v": 5.1,
-    "candidate_total_continuous_a": 0.75,
-    "candidate_short_peak_a": 0.8,
-    "candidate_usb_a_budget_ma": 100,
-    "candidate_pi_and_display_peak_a": 0.7,
-    "boost_efficiency_assumption": 0.85,
-    "battery_guard_nominal_a": 1.75,
-    "battery_path_design_ceiling_a": 2,
-    "guard_requirement": "Worst-case efuse limit plus always-on draw must remain below 2A; select resistor using full tolerance curves, not nominal formula alone. Protect before boost to bound battery path. No claim that the IC switching-current rating equals system output rating.",
-    "official_pi_supply": "5V DC 2.5A in official brief p3; low-power branch requires boot/workload evidence, not equivalent rating.",
+    "selection_status": "500mA_branch_selected_battery_spec_pending",
+    "usb_a_available_current_ma": {
+      "value": 500,
+      "source": "user"
+    },
+    "output_v": 5.1,
+    "output_tolerance_target_fraction": 0.02,
+    "pi_allocation_a": 2.5,
+    "usb_continuous_a": 0.5,
+    "lcd_aux_reserve_a": 0.1,
+    "total_normal_allocation_a": 3.1,
+    "total_design_target_a": 3.3,
+    "usb_fault_limit_max_a": 0.65,
+    "min_boost_input_v": 3.5,
+    "minimum_efficiency_design_target": 0.85,
+    "aon_budget_a": 0.03,
+    "calculated_battery_path_a_at_max_output_v": 5.8003,
+    "charger_batfet_continuous_rating_a": 6,
+    "proof_boundary": "Calculation assumes measured boost efficiency >=85%, SYS >=3.5V, 5.1V±2%, auxiliary <=30mA. Not a guaranteed efficiency from a typical curve; do not enable full-load operation unless validated. 10A/50ms charger peak is not a continuous rating. Pack procurement minimum 8A does not upgrade BQ25622 beyond 6A.",
     "charger_cc_a": 0.5,
-    "charger_input_limit": "At most 1.5A including setting tolerance, only after CC advertises >=1.5A. 3A advertisement does not increase BQ24074 capability.",
-    "usb_c_default_current": "No enumeration or BC1.2 on power-only D+/D-. On default/unknown advertisement, conservative 100mA input mode, battery-assisted operation and charging disabled; dedicated >=1.5A Type-C source required for normal simultaneous use/charge.",
-    "thermal": "Linear charger at 0.5A has approx (5-3.4)*0.5=0.8W cell-charge dissipation alone, plus system path heat. Copper spreading, exposed-pad vias and enclosure tests required; reduce charge current thermally.",
-    "temperature": "103AT-2 on TS, plus independent 103AT-2 divider to supervisor ADC. Charge enabled only after valid sensors; candidate firmware window 5-40C to stay inside cell 0-45C. CE default disables charging; watchdog/fault returns disabled. Sensor open/short tests mandatory.",
-    "current_guard_variant": "TPS259531: 5.7V clamp, auto-retry, no QOD. Used as low-voltage input current guard, NOT as sufficient 5.5V-output overvoltage protection for LCD."
+    "charger_voltage_target_v": 4.2,
+    "charger_input_control": "BQ25622 external ILIM plus IINDPM, EN_EXTILIM enabled. TUSB320LAI reports Type-C current via I2C. Default/unknown source: no charging, conservative <=100mA input; confirmed 1.5A/3A source: nominal 1.2A/2.6A limits, full tolerance plus always-on draw below advertisement. Hardware must remain safe at boot, MCU reset, CC downshift and register reset; no BC1.2 assumption. Exact setpoint/gating network is PCB implementation work.",
+    "external_power_balance": "Use 5V 3A Type-C source for normal light-use/charge target. At maximum combined output, available input power and 3.5A charger SW current are insufficient for unlimited operation plus charging; charging reduces/stops and battery supplements. Do not promise indefinite peak-load use or operation without battery.",
+    "current_guard_variant": "TPS259531 moved to USB-C input; not in high-current battery path. Its 5.7V clamp is not sufficient LCD 5.5V protection.",
+    "thermal": "At 3.3A*5.1V and 85% boost efficiency, boost losses approach 2.97W before other losses. Validate hot enclosure, copper/thermal vias, BQ BATFET loss and connector/wire heating. Not a thermally validated design.",
+    "temperature": "Two 103AT-2; charger TS_BIAS divider plus independent MCU sensor; target charge enable 5–40C only if exact pack permits. CE pulled inactive until configuration/sensors valid; fault/watchdog fails safe. Open/short tests mandatory.",
+    "main_disconnect": "TPS22990 VBIAS from unswitched 5.1V boost; thermal pad tied VIN, NOT GND. CT slew sized for total load capacitance. Pull ON inactive; main off before boost disable. No reverse-block or short-circuit current-limit claim.",
+    "charger_application": "BQ25622 pins 4 ILIM, 5 TS_BIAS; use 1uH 74437349010. Reference: VBUS 1uF, PMID 10uF + 0.1uF, SYS 20uF, BAT 10uF, REGN 4.7uF, BTST-SW 47nF; effective capacitance/voltage/ESR and SYS <=500uF checked in PCB design. OTG disabled. Layout p75-77 prioritizes PMID high-frequency loop and full-length power lands; use RYK drawing, not a generic equal-pad WQFN."
   },
   "runtime_budget": {
     "source": "default",
-    "nominal_wh": 22.2,
-    "usable_capacity_fraction_assumed": 0.65,
+    "nominal_wh": 21.6,
+    "minimum_capacity_energy_wh": 21.24,
+    "usable_capacity_fraction_assumed": 0.35,
     "conversion_efficiency_assumed": 0.85,
     "always_on_and_aux_battery_w_assumed": 0.1,
     "baseline_output_w_assumed": 2.5,
-    "calculated_hours": 4.74,
-    "two_hour_average_output_ceiling_w": 6.05,
-    "status": "Calculation only. Capacity to early shutdown, Pi power and conversion efficiency are unmeasured. Keep user 2h requirement unchanged; keyboard runtime separate."
+    "calculated_hours": 2.444,
+    "status": "Sensitivity estimate only for candidate capacity and conservative assumed usable fraction; early SYS cutoff may change it. User 2h baseline unchanged. No USB peripherals for baseline, USB-keyboard/full-500mA runtimes separate."
   },
   "battery": {
     "source": "research",
-    "candidate": "PRT-13856 / DTP605068-3P",
-    "max_body_mm": [
-      51,
-      73,
-      20
-    ],
-    "lead_length_mm": 100,
-    "lead_tolerance_mm": 3,
-    "lead_wire": "UL3302 AWG22 per p9",
-    "connector": "JST-PHR-2Pin",
-    "dimensions_evidence": "product/references/battery-sparkfun-6ah.pdf p9; p4 describes individual cells, NOT full pack",
-    "design_allowance": {
-      "value": {
-        "reserve_mm": [
-          55,
-          80,
-          24
-        ],
-        "lead_bay_extra_mm": 15,
-        "retention": "nonconductive tray/strap, no screw compression, no sharp edges, no heat source touching pack"
-      },
-      "source": "default"
+    "candidate": "1S1P 21700 6000mAh wires-out (product 870; variant unresolved)",
+    "selection_status": "not_final",
+    "nominal_v": 3.6,
+    "nominal_mah": 6000,
+    "minimum_mah": 5900,
+    "manufacturer_listed_max_discharge_a": 12,
+    "continuous_whole_pack_rating_verified": false,
+    "max_body_mm": null,
+    "actual_lead_wire": null,
+    "actual_connector": null,
+    "requested_harness": {
+      "source": "default",
+      "connector": "AMASS XT30U-F battery side / XT30U-M board-side pigtail",
+      "wire": "18AWG flexible insulated stranded copper",
+      "lead_length_mm": 100,
+      "continuous_pack_current_min_a": 8,
+      "note": "Factory-supplied protected assembly only. Requested option not yet confirmed. No soldering directly to cells or bypassing protection."
     },
-    "polarity": "p9 color/polarity labels unusual; fixed board BAT+ must be matched by measured incoming pack pin polarity, not color."
+    "dimensions_evidence": "Manufacturer product 870 lacks complete pack drawing; no dimensions inferred from photograph or 21700 label.",
+    "retention": "Nonconductive cradle/strap, no compression or screw contact, isolate heat sources; clearance follows exact pack drawing later.",
+    "polarity": "Molded +/− marks and measured voltage must agree; never infer from wire color."
   },
   "compute": {
     "source": "research",
@@ -343,27 +480,27 @@
   "supervisor": {
     "source": "default",
     "mpn": "ATTINY1616-SN",
-    "supply": "3V3_AON via TLV75533 from BQ OUT",
+    "supply": "3V3_AON via TLV75533 from BQ25622 SYS; verify dropout/headroom at lowest SYS",
     "clock_mhz": 5,
     "bod": "Enable appropriate brownout and watchdog for this voltage/clock; no 20MHz claim at 3.3V.",
-    "gpio_budget": "17 of 18 I/O planned: UPDI 1, power key 1, request/ack/status TX/RX 4, battery+independent NTC ADC 2, charger CE 1, input-mode select 1 (EN1 fixed low; EN2 selects 100mA/ILIM), CHG 1, CC I2C 2 (poll, no IRQ), COM/DISP 2, main EN 1, boost EN 1. PGOOD testpoint only. Exact peripheral mux assignment still required in schematic.",
+    "gpio_budget": "16 of 18 I/O budget: UPDI 1, power key 1, request/ack/UART TX/RX 4, battery+NTC+SYS ADC 3, charger CE 1, shared charger/CC I2C 2, COM/DISP 2, main EN 1, boost EN 1. Two I/O reserved for input-limit/gating fail-safe implementation; charger status read via I2C. Exact peripheral mux and addresses reviewed in schematic. No old BQ24074 EN1/EN2/CHG allocation.",
     "domain_crossing": "4 x SN74LVC1G07, each powered from its sender domain; outputs pulled up only to receiving domain. Never pull Pi GPIO to always-on rail. Measure off-state leakage; no direct push-pull MCU -> unpowered Pi.",
     "shutdown_defaults": {
-      "warn_battery_v": 3.65,
-      "request_shutdown_v": 3.5,
-      "emergency_cut_v": 3.35,
-      "restart_battery_v": 3.75,
+      "warn_battery_v": 3.8,
+      "request_shutdown_v": 3.7,
+      "emergency_cut_v": 3.6,
+      "restart_battery_v": 3.9,
       "ack_timeout_s": 30,
-      "qualification": "Thresholds/hysteresis provisional and load-dependent; voltage is not an accurate fuel gauge. Request Linux sync/shutdown then wait acknowledgement; timeout or critical voltage is emergency cut with data-loss risk."
+      "qualification": "Provisional loaded-voltage defaults for higher-current chain, not measured state of charge. SYS below 3.5V invalidates full-load power proof; shed USB load/request immediate safe shutdown while reserve remains. Controlled shutdown needs sufficient energy for Linux acknowledgement; emergency cut risks data loss. Validate thresholds/hysteresis and revise defaults from prototype, never lower user runtime goal."
     },
     "off_state": "Main switch off plus boost EN off; AON low-power sleep, charging/CC remain supervised. No claim of zero battery drain."
   },
   "pcb_handoff_tasks": [
-    "Resolve the pending load-class decision before circuit implementation.",
-    "Enumerate every resistor/capacitor, compensator, current setpoint and power-rail protection; current values here are requirements, not final populated schematic.",
-    "Read all relevant typical application/layout sections; assign pins, package land patterns and full electrical evidence before routing.",
-    "Obtain a legible exact JST footprint; do not use unlabeled render or infer pad drill from pitch.",
-    "Perform boost stability and thermal design at minimum battery voltage, inrush/current-limit tolerance, cold-start and USB attach tests.",
-    "Model final released PCB and real Pi mounting details in CAD only in an authorized later query."
+    "Close battery_complete_pack_spec before claiming BOM ready; no repeat question about 500mA.",
+    "Enumerate full bias, compensation, ILIM/current-gating and capacitor networks; validate fail-safe source current for cold boot/dead battery/MCU reset/CC downshift.",
+    "Bind BQ25622 RYK unequal power lands and TPS22990 VIN thermal pad correctly; XT30U are wired connectors, not PCB headers.",
+    "Check boost peak current, 6A charger path, wire/drop budget, USB current tolerance/inrush, heat and low-voltage shutdown; no guaranteed efficiency assumed.",
+    "Complete screen timing and off-domain leakage, USB enumeration, supply insertion/removal and two-hour prototype tests.",
+    "Only begin PCB/CAD in a later authorized query after design-critical BOM closure."
   ]
 }
