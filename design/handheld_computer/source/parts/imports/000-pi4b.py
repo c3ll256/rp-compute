@@ -1,0 +1,1 @@
+publish("pi4b", asset("design/handheld_computer/source/assets/1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe.step"), "Pi 4B reference")

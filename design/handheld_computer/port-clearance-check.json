@@ -1,0 +1,11 @@
+{
+  "revision": "c9cdf8a35da2d8c8941913ff39b7584af691ee66a647033b73867e8aaf36ac4e",
+  "method": "supplementary read-only OCC per-solid intersections of committed STEP objects; Workbench automatic pair check exceeds 89-solid limit",
+  "pi_solid_count": 89,
+  "overlaps": [],
+  "tolerance_mm3": 1e-05,
+  "limits": [
+    "Not insertion-path or plug-body fit verification",
+    "No hardware retention or electrical interlock verified"
+  ]
+}

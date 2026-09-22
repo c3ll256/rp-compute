@@ -2,7 +2,7 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "visual_draft",
-  "summary": "按用户最新两张参考图修正CAD外观：低矮水平浅色底座、后置抬高橙色斜屏舱、深色内框及前方水平平台；不再采用整块缓坡机身。仍为外观STEP，不证明最终硬件适配。",
+  "summary": "保留13°浅斜屏舱与水平底座，集成真实Pi4B参考模型，将接口全部布置在后方/侧面；当前是接口布局外观STEP，不证明完整装机适配。",
   "required_interfaces": [
     {
       "id": "compute_mount",
@@ -21,7 +21,7 @@
     {
       "id": "usb_access",
       "kind": "external_access",
-      "description": "Pi原生USB-A接口与基板充电USB-C插拔空间；基板不新增USB-A、Hub或USB延长线。开口不能挡住插头外壳和手指操作空间；外设预算仍500mA，不承诺多口同时满载。",
+      "description": "Pi原生USB-A接口与基板充电USB-C插拔空间；基板不新增USB-A、Hub或USB延长线。开口不能挡住插头外壳和手指操作空间；外设预算仍500mA，不承诺多口同时满载。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。",
       "source": "user_requested",
       "required": true
     },
@@ -49,7 +49,7 @@
     {
       "id": "pi_native_ports",
       "kind": "external_access",
-      "description": "Pi原生USB-A、Ethernet、micro-HDMI和3.5mm接口保留外部插拔空间，microSD保留维护通道，不增加CSI/DSI扩展。Pi自身USB-C在装机状态由防误插联锁盖覆盖，拆下Pi后恢复；基板USB-C是日常唯一充电/供电入口。开口坐标及插拔空间待真实几何验证。",
+      "description": "Pi原生USB-A、Ethernet、micro-HDMI和3.5mm接口保留外部插拔空间，microSD保留维护通道，不增加CSI/DSI扩展。Pi自身USB-C在装机状态由防误插联锁盖覆盖，拆下Pi后恢复；基板USB-C是日常唯一充电/供电入口。开口坐标及插拔空间待真实几何验证。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。",
       "source": "user_requested",
       "required": true
     }
@@ -114,7 +114,7 @@
       {
         "role": "computer_enclosure",
         "design_id": "handheld_computer",
-        "description": "先交付造型外观模型和STEP，之后由真实硬件/PCB迭代为适配外壳；本轮不验证紧固、联锁、接口插拔或电池仓。",
+        "description": "外观及Pi接口布局STEP：后方USB/RJ45，右侧micro-HDMI/AV，左侧充电；未验证紧固、工作联锁、真实插头或电池仓。",
         "delivery_target": "visual_review",
         "required_formats": [
           "step"

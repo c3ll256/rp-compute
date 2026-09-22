@@ -239,7 +239,7 @@
     },
     "cad_styling_defaults": {
       "value": {
-        "base_height_mm": 20,
+        "base_height_mm": 27,
         "screen_angle_deg_from_horizontal": 13,
         "screen_pod_front_height_mm": 6,
         "screen_pod_width_mm": 77,
@@ -252,6 +252,28 @@
     "screen_angle_direction": {
       "value": "Reduce the steep screen slope toward the shallow red-line profile in mark.png; no exact angle specified.",
       "source": "user"
+    },
+    "external_port_location": {
+      "value": "All external cable interfaces on rear or sides, none on front; reserve openings for Pi native USB and RJ45.",
+      "source": "user"
+    },
+    "cad_port_layout_defaults": {
+      "value": {
+        "rear": [
+          "Pi 4 USB-A sockets in two stacks",
+          "RJ45"
+        ],
+        "right": [
+          "2 micro-HDMI",
+          "3.5mm native AV"
+        ],
+        "left": [
+          "baseboard charging USB-C"
+        ],
+        "pi_own_usb_c": "covered, not an external opening",
+        "microSD": "internal service after removal of bottom and isolation of all power"
+      },
+      "source": "default"
     }
   },
   "open_questions": []

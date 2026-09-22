@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "454c70cfe60de37fdb8515677a85175bd31e45b48c61a1e4a2d9290f7c979a3e"
+          "sha256": "d603d5cb709fc1349b33c727baa3dd4c969751e5fdb8c8e4f1c33f0b1c71322a"
         }
       ],
       "dependencies": []
@@ -72,15 +72,29 @@
         }
       ],
       "dependencies": []
+    },
+    {
+      "id": "imports",
+      "label": "imports",
+      "cells": [
+        {
+          "id": "pi4b",
+          "target": "imports",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/imports/000-pi4b.py",
+          "sha256": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40"
+        }
+      ],
+      "dependencies": []
     }
   ],
   "objects": [
     {
       "id": "shell",
       "target": "shell",
-      "label": "Horizontal ivory base",
+      "label": "Rear and side port shell",
       "kind": "generated",
-      "shapeHash": "64fe42556453cb951e87eca596bbb7646f33863008d40a7726c4ffe052dbb2d9",
+      "shapeHash": "130c7c0bafc5a3caba3ad84c4d48f44e3f2dd658b958b29ec5bd306197ef80c7",
       "transform": {
         "positionMm": [
           0,
@@ -132,12 +146,12 @@
       "target": "fascia",
       "label": "Raised orange screen housing",
       "kind": "generated",
-      "shapeHash": "c8b08e50255a826bf334fbb5a8c39d08bcd9ee9fed089ceb8d01b1bf66b67638",
+      "shapeHash": "3ffab3b40aa8466f7d4b8b7d253bde2d98d220165909cf4722921b0a5b27cc63",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          20.3
+          27.3
         ],
         "rotationDeg": [
           0,
@@ -158,12 +172,12 @@
       "target": "bezel",
       "label": "Charcoal aperture bezel",
       "kind": "generated",
-      "shapeHash": "2cd2bdd2deec125801a2ad32a5b75c1d3bbe4eb4d65650296b8f823b71a9cfb3",
+      "shapeHash": "775a21dafedb0343b5474470fcb6d1d6923e54de3eb936f35f4dfab9818dde91",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          33.610909266
+          40.610909266
         ],
         "rotationDeg": [
           13,
@@ -204,17 +218,58 @@
         ]
       },
       "datums": []
+    },
+    {
+      "id": "pi4b",
+      "target": "imports",
+      "label": "Pi 4B reference",
+      "kind": "imported",
+      "shapeHash": "4bd5d2afb9631f2310f417c1aad088568c7fcf2ab7307b583b18018f58bfd4c9",
+      "transform": {
+        "positionMm": [
+          39,
+          -30.5,
+          7
+        ],
+        "rotationDeg": [
+          90,
+          90,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "pi4b",
+      "kind": "step",
+      "path": "design/handheld_computer/source/assets/1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe.step",
+      "sha256": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe",
+      "label": "Pi 4B reference",
+      "provenance": {
+        "sourcePath": ".work/cache/step-parts/raspberry_pi_4_model_b.step",
+        "provider": "step.parts",
+        "sourceUrl": "https://www.step.parts/parts/raspberry_pi_4_model_b",
+        "sourceVersion": "c6113328a5695b976a010a203a90fe86191769bf",
+        "declaredSha256": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe"
+      }
+    }
+  ],
   "fits": [],
-  "updatedAt": "2026-09-22T05:22:49.939Z",
+  "updatedAt": "2026-09-22T07:25:06.549Z",
   "parameters": {
     "shell": {
       "case_width": 85,
       "case_depth": 115,
       "case_corner": 9,
-      "case_top_center": 20,
+      "case_top_center": 27,
       "shell_wall": 2.4,
       "shell_lower_z": 2.7,
       "panel_gap": 0.25,
@@ -231,7 +286,34 @@
       "shell_groove_y": -33,
       "shell_passage_width": 42,
       "shell_passage_depth": 24,
-      "shell_passage_y": 18
+      "shell_passage_y": 18,
+      "shell_charge_y": -37,
+      "shell_rj45_x": -6.75,
+      "shell_rj45_z": 14,
+      "shell_rj45_width": 17.5,
+      "shell_rj45_height": 17,
+      "shell_usb_mid_x": 12,
+      "shell_usb_mid_z": 15,
+      "shell_usb_mid_width": 16,
+      "shell_usb_mid_height": 19,
+      "shell_usb_right_x": 30,
+      "shell_usb_right_z": 14.5,
+      "shell_usb_right_width": 18.5,
+      "shell_usb_right_height": 20,
+      "shell_hdmi1_y": -4.5,
+      "shell_hdmi2_y": 9,
+      "shell_hdmi_z": 8.6,
+      "shell_hdmi_width": 10,
+      "shell_hdmi_height": 6,
+      "shell_jack_y": 23.5,
+      "shell_jack_z": 10,
+      "shell_jack_diameter": 10,
+      "shell_port_radius": 0.5,
+      "shell_pi_usb_c_y": -19.3,
+      "shell_pi_usb_c_z": 9,
+      "shell_pi_usb_c_width": 12,
+      "shell_pi_usb_c_height": 8,
+      "shell_pi_usb_c_outer_wall": 1.5
     },
     "base": {
       "base_width": 85,
@@ -269,6 +351,7 @@
       "power_cap_thickness": 3,
       "power_cap_recess": 2,
       "power_cap_edge": 0.7
-    }
+    },
+    "imports": {}
   }
 }

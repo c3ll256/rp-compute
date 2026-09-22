@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "cce700fdc54c446fd87da4950694c4fbefeb05302593be2b5baa4a761987b1e9",
+  "requirements_digest": "3f14a49b76218f37f8a95ba492aa68aff7bc02ddc5181a58640de775663c6ac7",
   "selected_components": [
     {
       "id": "compute",
@@ -33,15 +33,17 @@
         "source": "default"
       },
       "description": "Complete Raspberry Pi 4 Model B, 4GB LPDDR4 variant. Official product brief p3: BCM2711 quad-core Cortex-A72, two USB 2.0 and two USB 3.0 ports, 40-pin GPIO, microSD storage, USB-C 5V supply minimum 3A subject to p5 footnote. 3A is supply sizing, not measured consumption. Customer-supplied SBC docks through40-pin GPIO and is mechanically supported; not CM or a soldered component. Baseboard supplies regulated5V through header power contacts; no internalUSB-C cable.",
-      "selection_reason": "User-supplied Pi4B,4GB remains default reference. Quantity1 is the assembled reference, not a board to buy with product kit. Baseboard mates viaGPIO; board revision/other models not yet qualified. User requests simple mount and enclosure access to native ports; no addedbaseboardUSB-A. User installation should not require soldering or individual GPIO jumpers. UsernowselectsPiUSB-Ccovered/interlockedwhiledocked;baseboardinputonly. Othernativeportsremainaccessible. CAD-first visual shell does not establish Pi orientation, mounting or native-port fit; all original interface requirements remain.",
+      "selection_reason": "User-supplied Pi4B,4GB remains default reference. Quantity1 is the assembled reference, not a board to buy with product kit. Baseboard mates viaGPIO; board revision/other models not yet qualified. User requests simple mount and enclosure access to native ports; no addedbaseboardUSB-A. User installation should not require soldering or individual GPIO jumpers. UsernowselectsPiUSB-Ccovered/interlockedwhiledocked;baseboardinputonly. Othernativeportsremainaccessible. Pi4B reference now placed with USB/RJ45 rear and micro-HDMI/AV right. Openings derive from imported board geometry; retention, actual plugs, GPIO stack and production fit remain unverified. No front ports.",
       "supply_risk": "Supplier query returned unrelated passive/diode/crystal rows; all rejected. No stock, price, reseller SKU or board-revision claim. Procurement availability is advisory; thermal and power integration remain unresolved.",
       "board_model_reference": {
         "id": "raspberry_pi_4_model_b",
-        "source_version": "FreeCAD Parts Library pinned at be5e71491051cef75da46831b6fd77c6313cb497",
-        "source_url": "https://github.com/FreeCAD/FreeCAD-library/blob/be5e71491051cef75da46831b6fd77c6313cb497/Electronics%20Parts/Boards/Raspberry/Raspberry%20Pi%204B/Raspberry%20Pi%204B.step",
-        "sha256": "82c055acbed781e623d8c32acfdec2254400104f2cfa21ddbc2ba0e8b80797da",
-        "license": "CC-BY-3.0",
-        "status": "exact board-level catalog match; not installed or imported; memory capacity not mechanically distinguished"
+        "provider": "step.parts",
+        "source_version": "c6113328a5695b976a010a203a90fe86191769bf",
+        "source_url": "https://www.step.parts/parts/raspberry_pi_4_model_b",
+        "sha256": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe",
+        "status": "downloaded checksum verified and imported into Workbench as pi4b; RAM not mechanically distinguished",
+        "license": "not returned by provider; do not infer the license of the different FreeCAD seed asset",
+        "asset_note": "Bundled exact FreeCAD STEP missing at installation; exact-model fallback, not a Pi5/Pico substitution."
       },
       "part_identity": "9274337c427b1308",
       "supply_model": "customer_supplied_reference_board",
@@ -408,7 +410,7 @@
       "product_url": "https://gct.co/connector/usb4105",
       "datasheet_url": "https://gct.co/files/drawings/usb4105.pdf",
       "package": "USB Type-C USB2.0 16 contact SMT with through-hole shell stakes",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Exact GF plating / A tape-reel / blank 0.95mm stakes from manufacturer ordering grid. No fuzzy supplier connector substitution. Front12x5mm visual opening is a placement proposal, not a verified USB4105/plug mating cutout.",
+      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Exact GF plating / A tape-reel / blank 0.95mm stakes from manufacturer ordering grid. No fuzzy supplier connector substitution. Left-side12x5mm opening at Y=-37,Z=12 replaces front opening; remains a placement proposal, not verified USB4105/plug mating geometry. Must be supplied by final baseboard layout, not an assumed cable.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "part_identity": "e0d73f826ac01403",

@@ -1,31 +1,31 @@
 {
   "designId": "handheld_computer",
-  "revision": "7802c2ee53303e509959802d406c468c046798d841bd975b1614375be2a5ddc6",
+  "revision": "c9cdf8a35da2d8c8941913ff39b7584af691ee66a647033b73867e8aaf36ac4e",
   "schemaVersion": 2,
-  "exportId": "export-bf88a573cd53bb28fc71dfc143fc12dd",
-  "generatedAt": "2026-09-22T05:22:49.939Z",
-  "designSha256": "bce2228c97bbe395f11fd3949419d364fdb7e85ce41a8b1f30b738ef54af62d6",
+  "exportId": "export-5eb618768ee3fff3cb91f9021b46ddb2",
+  "generatedAt": "2026-09-22T07:25:06.549Z",
+  "designSha256": "4d20f7a9fc51d7f775efaa319b00f6798d1634f8c4bdc8307a052b65079cb072",
   "role": "computer_enclosure",
-  "stateHash": "7bbef6d7f33bc195a8990a7c42543fded599471e88c8e2cec4e73e00de073e77",
+  "stateHash": "97225790a631e86554701105295b27389c464c0c0feb96b9372157b0a2fcc9e1",
   "stateManifest": {
     "schemaVersion": 3,
     "designId": "handheld_computer",
     "role": "computer_enclosure",
     "design": {
-      "revision": "7802c2ee53303e509959802d406c468c046798d841bd975b1614375be2a5ddc6",
-      "designSha256": "64a21e3047d6a1b09f776a49369b29981a9fd35fef34440f45812e20be30b743",
-      "manifestSha256": "2e18662735573e3f235e07292b5f14e7334639feb986486d6489ac362a71d0b3",
-      "stepSha256": "c0247b6f26ad38fa8eebdb5fdaa896895ac95246b0abb1862729038ef1c2775b",
+      "revision": "c9cdf8a35da2d8c8941913ff39b7584af691ee66a647033b73867e8aaf36ac4e",
+      "designSha256": "91eec9ba50ddc8234379a92f46b117180366d25bb952489dd196e0e6ec3deb99",
+      "manifestSha256": "e71cd2cbb63a862fb77a5de38ce42b347eca88ec806f409452b79ed0316f6ba4",
+      "stepSha256": "ef21a2707e02a8753bc8b8ee3397e131722e97baa687c11102f36d7f218784b0",
       "pcbReleases": []
     },
     "brief": {
       "path": "design/handheld_computer/README.md",
-      "sha256": "b96286d9e5c9ad5f29fecf5b5b98d852c95dcc82e120ca873db28cc4ce025d72"
+      "sha256": "78ed6cf8722f91fe8fe12b2cf0a667c469560e14da9c33ce86c21a2470cc44f8"
     },
     "requirement": {
       "artifactContractPath": "product/contract.json",
-      "artifactContractSha256": "2319da7bab3ab15f60ecc452256f6b593f266dac378d0173e775bac3c55e9165",
-      "designRequirementSha256": "c7b28dea08d8dd29a84df3c6b27288145fe5f7b8d0786a00ae1089ac7774b5b9",
+      "artifactContractSha256": "223d73c0e1180f33e51235cd9eb28399957e1ec0589a580fad7bba7b6a96226a",
+      "designRequirementSha256": "18037640965b9ec002c8d2ffa1550391331c9c1075bd1a6c5fade733996f5df6",
       "inputs": [
         {
           "role": "external-reference",
@@ -84,11 +84,11 @@
         "step"
       ]
     },
-    "stateHash": "7bbef6d7f33bc195a8990a7c42543fded599471e88c8e2cec4e73e00de073e77"
+    "stateHash": "97225790a631e86554701105295b27389c464c0c0feb96b9372157b0a2fcc9e1"
   },
   "buildArtifacts": {
-    "manifestSha256": "2e18662735573e3f235e07292b5f14e7334639feb986486d6489ac362a71d0b3",
-    "stepSha256": "c0247b6f26ad38fa8eebdb5fdaa896895ac95246b0abb1862729038ef1c2775b"
+    "manifestSha256": "e71cd2cbb63a862fb77a5de38ce42b347eca88ec806f409452b79ed0316f6ba4",
+    "stepSha256": "ef21a2707e02a8753bc8b8ee3397e131722e97baa687c11102f36d7f218784b0"
   },
   "exportAlgorithm": {
     "version": 1,
@@ -98,16 +98,20 @@
     "base/base": "3b20a251258265277722e66da6352bdc9d0861b2f14c9e38401d937017e28ff5",
     "bezel/bezel": "6e03e07477d8d04bd0a5bcdb438ddb0796a09126f692092fdad9f86509019a12",
     "fascia/fascia": "a07e95cda5eb06651b13892e1b286403800cbe23372afda946711d2757c66a04",
+    "imports/pi4b": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40",
     "power_cap/power_cap": "68c889bf45a9a2a9027624e03079a5073cd393df3cbfe12e4f0c594d3e812561",
-    "shell/shell": "454c70cfe60de37fdb8515677a85175bd31e45b48c61a1e4a2d9290f7c979a3e"
+    "shell/shell": "d603d5cb709fc1349b33c727baa3dd4c969751e5fdb8c8e4f1c33f0b1c71322a"
   },
-  "assetHashes": {},
+  "assetHashes": {
+    "pi4b": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe"
+  },
   "shapeHashes": {
     "base": "89c7422a914f61470c6ac8d6c2f770747ef951f8b10b4c2e4c4edaeab112cfe2",
-    "bezel": "2cd2bdd2deec125801a2ad32a5b75c1d3bbe4eb4d65650296b8f823b71a9cfb3",
-    "fascia": "c8b08e50255a826bf334fbb5a8c39d08bcd9ee9fed089ceb8d01b1bf66b67638",
+    "bezel": "775a21dafedb0343b5474470fcb6d1d6923e54de3eb936f35f4dfab9818dde91",
+    "fascia": "3ffab3b40aa8466f7d4b8b7d253bde2d98d220165909cf4722921b0a5b27cc63",
+    "pi4b": "4bd5d2afb9631f2310f417c1aad088568c7fcf2ab7307b583b18018f58bfd4c9",
     "power_cap": "b3b94ebd813f00795b55a3127e0a2bae97e98555d2f09deefc8188a9bf8efaed",
-    "shell": "64fe42556453cb951e87eca596bbb7646f33863008d40a7726c4ffe052dbb2d9"
+    "shell": "130c7c0bafc5a3caba3ad84c4d48f44e3f2dd658b958b29ec5bd306197ef80c7"
   },
   "runtime": {
     "manifestHash": "997a40945133ea2b736de65c60f7f1ede22ffb326946d6e9f57d23e591612b45",
@@ -118,23 +122,23 @@
   },
   "artifacts": [
     {
-      "path": "manufacturing/handheld_computer/releases/export-bf88a573cd53bb28fc71dfc143fc12dd/model.step",
+      "path": "manufacturing/handheld_computer/releases/export-5eb618768ee3fff3cb91f9021b46ddb2/model.step",
       "role": "model/step",
-      "sha256": "c0247b6f26ad38fa8eebdb5fdaa896895ac95246b0abb1862729038ef1c2775b",
-      "sizeBytes": 545950
+      "sha256": "ef21a2707e02a8753bc8b8ee3397e131722e97baa687c11102f36d7f218784b0",
+      "sizeBytes": 57994578
     }
   ],
   "interference": {
-    "summary": "No interference across 10 object pairs.",
+    "summary": "0 interfering pairs, 1 undetermined",
     "counts": {
-      "objects": 5,
-      "pairs": 10,
+      "objects": 6,
+      "pairs": 15,
       "exact": 0,
-      "cached": 2,
+      "cached": 4,
       "interference": 0,
       "undeclared": 0,
       "over_budget": 0,
-      "undetermined": 0
+      "undetermined": 1
     },
     "overlaps": []
   },
@@ -143,9 +147,9 @@
     "algorithm": "hmac-sha256",
     "keyId": "bcf92b0ef0c9bdb29ac662e9143b6212",
     "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
-    "receiptPath": "manufacturing/handheld_computer/releases/export-bf88a573cd53bb28fc71dfc143fc12dd/receipt.json",
-    "payloadSha256": "fafc9bb76c86b8f3e1fd97570a5722a766abdf68ec73e76ffe061e14b39a3b82",
-    "mac": "0bfa720416bf6f9350077506668500384bf46ead0444a9ae14dc0f1a3c9b1cb1"
+    "receiptPath": "manufacturing/handheld_computer/releases/export-5eb618768ee3fff3cb91f9021b46ddb2/receipt.json",
+    "payloadSha256": "5fa1fb1cc233f43eaaec8770a92a1c5c5950b4ff3c2c3dba31e102a8dc2aa137",
+    "mac": "bf579b453a63cd3a1a82e3ca072861b5b44ef6f652f03497999b48177d4da6ac"
   },
   "status": "exported_unreviewed",
   "reviewSkip": {

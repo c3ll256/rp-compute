@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "cce700fdc54c446fd87da4950694c4fbefeb05302593be2b5baa4a761987b1e9",
+  "requirements_digest": "3f14a49b76218f37f8a95ba492aa68aff7bc02ddc5181a58640de775663c6ac7",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -578,13 +578,30 @@
     "evidence": "product/references/pi4b-product-brief.pdf pp3,5; p5 visually inspected",
     "board_model_reference": {
       "id": "raspberry_pi_4_model_b",
-      "source_version": "FreeCAD Parts Library pinned at be5e71491051cef75da46831b6fd77c6313cb497",
-      "source_url": "https://github.com/FreeCAD/FreeCAD-library/blob/be5e71491051cef75da46831b6fd77c6313cb497/Electronics%20Parts/Boards/Raspberry/Raspberry%20Pi%204B/Raspberry%20Pi%204B.step",
-      "sha256": "82c055acbed781e623d8c32acfdec2254400104f2cfa21ddbc2ba0e8b80797da",
-      "license": "CC-BY-3.0",
-      "status": "exact board-level catalog match; not installed or imported; memory capacity not mechanically distinguished"
+      "provider": "step.parts",
+      "source_version": "c6113328a5695b976a010a203a90fe86191769bf",
+      "source_url": "https://www.step.parts/parts/raspberry_pi_4_model_b",
+      "sha256": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe",
+      "status": "downloaded checksum verified and imported into Workbench as pi4b; RAM not mechanically distinguished",
+      "license": "not returned by provider; do not infer the license of the different FreeCAD seed asset",
+      "asset_note": "Bundled exact FreeCAD STEP missing at installation; exact-model fallback, not a Pi5/Pico substitution."
     },
-    "supply_model": "customer_supplied_not_in_product_purchase"
+    "supply_model": "customer_supplied_not_in_product_purchase",
+    "cad_placement": {
+      "source": "default",
+      "position_mm": [
+        39,
+        -30.5,
+        7
+      ],
+      "rotation_deg": [
+        90,
+        90,
+        0
+      ],
+      "mapping": "world X=asset Z+39; world Y=asset X-30.5; world Z=asset Y+7",
+      "qualification": "Port-layout reference only; no final GPIO socket or mounting constraints implied"
+    }
   },
   "ports": [
     {
@@ -1040,8 +1057,90 @@
     ],
     "source": "default",
     "pi_usb_c_policy": "Userselectedinterlockedcoverwhiledocked,notanactivenormalinput. Othernativeportsaccessible. Piownportusableafterundocking. CovermechanismmustpreventplugentryuntilbaseboardGPIOoutputdisabledandresidualenergyhandled.",
-    "opening_dimensions_mm": null,
-    "qualification": "No geometry authored or fitverified. Verify connector bodies, plug overmolds, cable bend, release tab/finger access against actualPi and completedbaseboard. No audio circuitry added merely by exposingPiAVport."
+    "opening_dimensions_mm": [
+      {
+        "id": "rj45",
+        "side": "rear",
+        "center_xz_mm": [
+          -6.75,
+          14
+        ],
+        "size_mm": [
+          17.5,
+          17
+        ]
+      },
+      {
+        "id": "usb_mid",
+        "side": "rear",
+        "center_xz_mm": [
+          12,
+          15
+        ],
+        "size_mm": [
+          16,
+          19
+        ]
+      },
+      {
+        "id": "usb_right",
+        "side": "rear",
+        "center_xz_mm": [
+          30,
+          14.5
+        ],
+        "size_mm": [
+          18.5,
+          20
+        ]
+      },
+      {
+        "id": "hdmi1",
+        "side": "right",
+        "center_yz_mm": [
+          -4.5,
+          8.6
+        ],
+        "size_mm": [
+          10,
+          6
+        ]
+      },
+      {
+        "id": "hdmi2",
+        "side": "right",
+        "center_yz_mm": [
+          9,
+          8.6
+        ],
+        "size_mm": [
+          10,
+          6
+        ]
+      },
+      {
+        "id": "av",
+        "side": "right",
+        "center_yz_mm": [
+          23.5,
+          10
+        ],
+        "diameter_mm": 10
+      },
+      {
+        "id": "charge",
+        "side": "left",
+        "center_yz_mm": [
+          -37,
+          12
+        ],
+        "size_mm": [
+          12,
+          5
+        ]
+      }
+    ],
+    "qualification": "Connector openings authored against exact-model step.parts asset. Supplementary per-solid boolean found no Pi/shell solid overlap. Not production or plug-body/latch/finger access validation. PiUSB-C remains covered by blind wall, working interlock not implemented."
   },
   "pi_usb_c_interface_decision": {
     "value": "baseboard_input_only_interlocked_pi_port",
@@ -1051,14 +1150,14 @@
   "cad_styling_phase": {
     "source": "user",
     "order": "CAD_before_PCB",
-    "qualification": "Exterior visual study only; no new PCB, Pi or battery stand-in solids. Final internal fit and native port apertures remain required later.",
+    "qualification": "Visual draft with real imported Pi reference; no invented PCB/battery/LCD solids; not printable fit-verified enclosure.",
     "default_envelope_mm": [
       85,
       115,
-      40
+      60
     ],
-    "default_top_slope_deg": 8,
-    "interface_strategy": "Replaceable rear/right side panels carry deferred native Pi apertures. Default front charging opening and power button location are styling proposals to constrain PCB."
+    "default_top_slope_deg": 13,
+    "interface_strategy": "Continuous front; USB/RJ45 rear; micro-HDMI/AV right; charging left. No removable port panels in current geometry."
   },
   "cad_styling": {
     "status": "visual_only",
@@ -1068,9 +1167,9 @@
       115,
       60
     ],
-    "horizontal_base_height_mm": 20,
+    "horizontal_base_height_mm": 27,
     "screen_angle_from_horizontal_deg": 13,
     "reference": "product/contract.json correction_reference_1 and correction_reference_2; shallow_angle_markup",
-    "integration_note": "Raised screen housing and right-side power control are exterior proposals. Pi/PCB/battery retention and all native-port geometry remain unverified."
+    "integration_note": "Real Pi4B reference imported and native connector openings positioned rear/right. Charging proposal left; no front ports. Retention, GPIO daughterboard stack, battery/LCD/cooling and plug fit remain pending."
   }
 }
