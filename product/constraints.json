@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "3f14a49b76218f37f8a95ba492aa68aff7bc02ddc5181a58640de775663c6ac7",
+  "requirements_digest": "32123ea7a011896453d4f96b4ceb78c90690f9531ad4f9ad1e75f60c147809fd",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -1170,6 +1170,13 @@
     "horizontal_base_height_mm": 27,
     "screen_angle_from_horizontal_deg": 13,
     "reference": "product/contract.json correction_reference_1 and correction_reference_2; shallow_angle_markup",
-    "integration_note": "Real Pi4B reference imported and native connector openings positioned rear/right. Charging proposal left; no front ports. Retention, GPIO daughterboard stack, battery/LCD/cooling and plug fit remain pending."
+    "integration_note": "Real Pi4B reference imported and native connector openings positioned rear/right. Charging proposal left; no front ports. Retention, GPIO daughterboard stack, battery/LCD/cooling and plug fit remain pending. Front rise1mm total, including0.3mm seam; nominal front edge before roundover. Screen/bezel down5.3mm, LCD/FPC must be checked in reduced volume.",
+    "screen_front_rise_above_deck_mm": {
+      "value": 1,
+      "source": "user"
+    },
+    "screen_front_body_height_mm": 0.7,
+    "screen_base_seam_mm": 0.3,
+    "actual_enclosure_height_mm": 42.467515253
   }
 }

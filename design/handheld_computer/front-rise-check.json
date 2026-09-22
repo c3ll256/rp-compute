@@ -1,0 +1,16 @@
+{
+  "revision": "59a92a25ffb35e410960806eab6c57a2dcca3fff65737c2e6d4c8975142d086f",
+  "datum": "nominal front slope-plane intersection before roundover",
+  "deck_z_mm": 27,
+  "fascia_base_z_mm": 27.3,
+  "fascia_front_height_mm": 0.7,
+  "total_rise_mm": 1,
+  "unchanged_objects": [
+    "shell",
+    "base",
+    "power_cap",
+    "pi4b"
+  ],
+  "checks": "source/placement arithmetic and unchanged object hashes; visual iso/right and Workbench collision inspected",
+  "qualification": "LCD/FPC absent; no physical fit or print validation"
+}

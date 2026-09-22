@@ -241,7 +241,6 @@
       "value": {
         "base_height_mm": 27,
         "screen_angle_deg_from_horizontal": 13,
-        "screen_pod_front_height_mm": 6,
         "screen_pod_width_mm": 77,
         "screen_face_depth_mm": 65,
         "front_groove": "shallow cosmetic recess only, no added function",
@@ -273,6 +272,14 @@
         "pi_own_usb_c": "covered, not an external opening",
         "microSD": "internal service after removal of bottom and isolation of all power"
       },
+      "source": "default"
+    },
+    "screen_pod_front_rise_mm": {
+      "value": 1,
+      "source": "user"
+    },
+    "screen_pod_front_rise_datum": {
+      "value": "Nominal sharp intersection of sloping top and foremost housing plane, measured vertically above horizontal deck, including the existing0.3mm assembly seam; rounded edge rolls below nominal.",
       "source": "default"
     }
   },

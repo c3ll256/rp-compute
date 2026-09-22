@@ -146,7 +146,7 @@
       "target": "fascia",
       "label": "Raised orange screen housing",
       "kind": "generated",
-      "shapeHash": "3ffab3b40aa8466f7d4b8b7d253bde2d98d220165909cf4722921b0a5b27cc63",
+      "shapeHash": "8446b2e21c08f4df59ac8e93c2f819e58ee46be29b81f96bd5f53f4409f5b265",
       "transform": {
         "positionMm": [
           0,
@@ -172,12 +172,12 @@
       "target": "bezel",
       "label": "Charcoal aperture bezel",
       "kind": "generated",
-      "shapeHash": "775a21dafedb0343b5474470fcb6d1d6923e54de3eb936f35f4dfab9818dde91",
+      "shapeHash": "c81190bcffb3b623d3afdf580f29d603445a84fb90660d30c968bd11117644a2",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          40.610909266
+          35.310909266
         ],
         "rotationDeg": [
           13,
@@ -263,7 +263,7 @@
     }
   ],
   "fits": [],
-  "updatedAt": "2026-09-22T07:25:06.549Z",
+  "updatedAt": "2026-09-22T12:23:08.918Z",
   "parameters": {
     "shell": {
       "case_width": 85,
@@ -332,7 +332,7 @@
       "fascia_window_radius": 2.75,
       "fascia_edge_radius": 0.6,
       "fascia_slope": 13,
-      "fascia_front_height": 6,
+      "fascia_front_height": 0.7,
       "fascia_wall": 2.4,
       "fascia_window_x": 0,
       "fascia_window_y": 0

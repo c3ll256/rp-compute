@@ -96,6 +96,12 @@
       "source": "user_requested",
       "description": "用户红线要求降低屏舱倾角；未指定精确角度。",
       "path": "product/references/uploads/20260922T052150882Z-1-mark.png"
+    },
+    {
+      "id": "screen_front_1mm_markup",
+      "source": "user_requested",
+      "description": "用户红框指定屏舱前沿只留1mm，不是底座高度；前沿名义高度含分缝，圆角低于名义交线。",
+      "path": "product/references/uploads/20260922T122038436Z-1-mark.png"
     }
   ],
   "assembly_story": {
@@ -114,7 +120,7 @@
       {
         "role": "computer_enclosure",
         "design_id": "handheld_computer",
-        "description": "外观及Pi接口布局STEP：后方USB/RJ45，右侧micro-HDMI/AV，左侧充电；未验证紧固、工作联锁、真实插头或电池仓。",
+        "description": "外观及Pi接口布局STEP：后方USB/RJ45，右侧micro-HDMI/AV，左侧充电；未验证紧固、工作联锁、真实插头或电池仓。 屏舱前沿高出平台名义1mm。",
         "delivery_target": "visual_review",
         "required_formats": [
           "step"
@@ -135,7 +141,8 @@
           "pi4b_product_brief",
           "correction_reference_1",
           "correction_reference_2",
-          "shallow_angle_markup"
+          "shallow_angle_markup",
+          "screen_front_1mm_markup"
         ]
       }
     ]
