@@ -40,7 +40,7 @@
           "target": "fascia",
           "order": 0,
           "path": "design/handheld_computer/source/parts/fascia/000-fascia.py",
-          "sha256": "a07e95cda5eb06651b13892e1b286403800cbe23372afda946711d2757c66a04"
+          "sha256": "554301c32d59e66aa42c8d7e2be763784370341cc49afffda2184b95aee23f77"
         }
       ],
       "dependencies": []
@@ -54,7 +54,7 @@
           "target": "bezel",
           "order": 0,
           "path": "design/handheld_computer/source/parts/bezel/000-bezel.py",
-          "sha256": "6e03e07477d8d04bd0a5bcdb438ddb0796a09126f692092fdad9f86509019a12"
+          "sha256": "42a25f69ba12eee190677414f0843210eca4ee162aef4d8f3bfd4e191f6a6e00"
         }
       ],
       "dependencies": []
@@ -94,7 +94,7 @@
       "target": "shell",
       "label": "Rear and side port shell",
       "kind": "generated",
-      "shapeHash": "130c7c0bafc5a3caba3ad84c4d48f44e3f2dd658b958b29ec5bd306197ef80c7",
+      "shapeHash": "37ae9f6ccfe588b1019b1abc35a69ea48430d1b8f53f113a111191e46d2b0b74",
       "transform": {
         "positionMm": [
           0,
@@ -144,9 +144,9 @@
     {
       "id": "fascia",
       "target": "fascia",
-      "label": "Raised orange screen housing",
+      "label": "Screen housing tail relief",
       "kind": "generated",
-      "shapeHash": "8446b2e21c08f4df59ac8e93c2f819e58ee46be29b81f96bd5f53f4409f5b265",
+      "shapeHash": "d147d3552d9a97754cda0c51f96865dec3b4f1b63bcae17aec552f4dda30e5b4",
       "transform": {
         "positionMm": [
           0,
@@ -170,9 +170,9 @@
     {
       "id": "bezel",
       "target": "bezel",
-      "label": "Charcoal aperture bezel",
+      "label": "LCD locating bezel",
       "kind": "generated",
-      "shapeHash": "c81190bcffb3b623d3afdf580f29d603445a84fb90660d30c968bd11117644a2",
+      "shapeHash": "c8ec0125d5a862e250d35457193ca5d69b3bb1ec448f903103c714e6a7d8ab87",
       "transform": {
         "positionMm": [
           0,
@@ -263,7 +263,7 @@
     }
   ],
   "fits": [],
-  "updatedAt": "2026-09-22T12:23:08.918Z",
+  "updatedAt": "2026-09-22T13:23:16.315Z",
   "parameters": {
     "shell": {
       "case_width": 85,
@@ -284,9 +284,9 @@
       "shell_groove_height": 2,
       "shell_groove_depth": 0.7,
       "shell_groove_y": -33,
-      "shell_passage_width": 42,
-      "shell_passage_depth": 24,
-      "shell_passage_y": 18,
+      "shell_passage_width": 68,
+      "shell_passage_depth": 54,
+      "shell_passage_y": 21.5,
       "shell_charge_y": -37,
       "shell_rj45_x": -6.75,
       "shell_rj45_z": 14,
@@ -328,23 +328,33 @@
       "fascia_radius": 6,
       "fascia_thickness": 3,
       "fascia_window_width": 66.5,
-      "fascia_window_height": 46.5,
+      "fascia_window_height": 49.5,
       "fascia_window_radius": 2.75,
       "fascia_edge_radius": 0.6,
       "fascia_slope": 13,
       "fascia_front_height": 0.7,
       "fascia_wall": 2.4,
       "fascia_window_x": 0,
-      "fascia_window_y": 0
+      "fascia_window_y": 0,
+      "fascia_fpc_width": 14,
+      "fascia_fpc_length": 10,
+      "fascia_fpc_y": -25,
+      "fascia_fpc_roof": 1.5,
+      "fascia_fpc_depth": 5
     },
     "bezel": {
       "bezel_width": 66,
-      "bezel_height": 46,
-      "bezel_thickness": 2.3,
-      "bezel_recess": 2.2,
+      "bezel_height": 49,
+      "bezel_thickness": 3.6,
+      "bezel_recess": 3.5,
       "bezel_radius": 2.5,
       "bezel_window_clearance": 0.3,
-      "bezel_window_radius": 0.35
+      "bezel_window_radius": 0.35,
+      "bezel_pocket_clearance": 0.3,
+      "bezel_front_lip": 1.2,
+      "bezel_glass_airgap": 0.2,
+      "bezel_fpc_width": 12,
+      "bezel_fpc_relief_height": 2.3
     },
     "power_cap": {
       "button_diameter": 9,

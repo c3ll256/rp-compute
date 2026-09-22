@@ -76,7 +76,7 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform.",
-      "selection_reason": " CAD-first aperture uses the stored active area only; no glass retention, FPC routing or panel fit is certified. Corrected styling places the aperture on a raised 13-degree rear housing; this default is not an LCD mounting/FPC solution. User now requests1mm nominal front rise above deck. Housing front body0.7mm plus0.3mm seam, bezel moved down5.3mm; LCD/FPC retained identity, physical retention/clearance not verified."
+      "selection_reason": "Exact LS027B7DH01 retained. CAD now has a rear-loading63.4x43.42mm negative pocket with0.3mm nominal per-side allowance and1.77mm active-area offset. Front rise1mm and slope13deg retained. No exact panel STEP found. Glass retention, rear support, polarizer load and actual fit are NOT completed; current pocket is not a secured mount."
     },
     {
       "id": "charger",
@@ -173,7 +173,7 @@
           "product/references/LS027B7DH01-sharp-2010.pdf p26"
         ]
       },
-      "selection_reason": "0.30mm cable, 10 contacts at 0.5mm, bottom-contact. Use straight/unfolded panel tail layout; folded-back layout is not interchangeable.",
+      "selection_reason": "0.30mm cable,10contacts at0.5mm, bottom-contact identity unchanged. CAD provides12mm bezel exit and14mm pod underside entry relief only. Connector position, full route and open-latch operation remain unresolved. Same-family KiCad STEP downloaded for dimensional research (6.4mm full depth including terminals), not installed and not evidence of(55) suffix qualification. Do not infer a folded-back contact configuration.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",

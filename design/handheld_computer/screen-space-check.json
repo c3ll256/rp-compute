@@ -1,0 +1,8 @@
+{
+  "revision": "268540ec06317d244a5bf510bcb53a19680152b53ef17af0cfd2cab8ad0a71d6",
+  "pi_shell_overlap_mm3": [],
+  "method": "Supplementary per-solid OCC intersection on committed STEP",
+  "nominal_front_rise_mm": 1,
+  "retention_status": "not implemented; printed screw kit attempts failed",
+  "fpc_status": "entry relief only, endpoint and latch envelope not positioned; no PCB"
+}

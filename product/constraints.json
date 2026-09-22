@@ -83,7 +83,50 @@
       "decoupling": "Sharp example: VDDA >=0.1uF, VDD >=1uF, DISP-GND 0.1uF. Review DISP edge and sequencing with that capacitor; do not blindly add equivalent capacitance to SPI/COM. Each IC bypass 100nF, LDO input/output >=1uF effective.",
       "sequencing": "DISP low and all signal outputs benign until LCD rails valid. Start COM, clear/update panel, then DISP high. On shutdown blank/clear per Sharp timing, DISP low, isolate buffers, then remove main power. LCD input overshoot must stay within absolute limits."
     },
-    "host_integration_status": "Pi 4B 40-pin GPIO/SPI signals to retained LCD interface; exact pins, driver and shutdown sequencing pending. Not HDMI; no CM carrier."
+    "host_integration_status": "Pi 4B 40-pin GPIO/SPI signals to retained LCD interface; exact pins, driver and shutdown sequencing pending. Not HDMI; no CM carrier.",
+    "mechanical_cad": {
+      "status": "partial_installation_space_only",
+      "source": "default",
+      "drawing": "product/references/LS027B7DH01-sharp-2010.pdf p26",
+      "pocket_mm": [
+        63.4,
+        43.42
+      ],
+      "pocket_center_in_active_frame_mm": [
+        0,
+        -1.77
+      ],
+      "nominal_clearance_per_side_mm": 0.3,
+      "seat_plane_normal_z_mm": -1.2,
+      "glass_top_target_normal_z_mm": -1.4,
+      "glass_bottom_target_normal_z_mm": -3.04,
+      "bezel_outer_mm": [
+        66,
+        49,
+        3.6
+      ],
+      "tail_relief_width_mm": 12,
+      "pod_underside_relief_mm": [
+        14,
+        10,
+        5
+      ],
+      "pod_relief_center_local_y_mm": -25,
+      "pod_relief_roof_mm": 1.5,
+      "deck_internal_opening_mm": [
+        68,
+        54
+      ],
+      "deck_opening_center_y_mm": 21.5,
+      "retention": "NOT IMPLEMENTED; printed screw kit unavailable M2 button, socket-cap attempt timed out, replicated joint attempt failed on empty geometry. No failed source committed.",
+      "route": "Entry relief only. No complete physical FPC curve, connector endpoint, latch-open operating envelope or PCB mounting defined. Existing bottom-contact electrical choice unchanged.",
+      "risks": [
+        "No panel solid: exact CAD lookup returned none; pocket is negative space derived from drawing, not a validated replacement model.",
+        "No rear support/frame or gasket installed, so the glass must not be installed in current unsecured model.",
+        "Front lip1mm retained; thin local sections and enlarged deck opening require print/strength tests.",
+        "Full tolerance stack, driver light shielding, polarizer stress and assembly path unresolved."
+      ]
+    }
   },
   "unresolved_items": [
     {

@@ -31,3 +31,6 @@ ISO证据：.work/cache/cad-workbench/designs/handheld_computer/observations/c9c
 参考screen_front_1mm_markup。fascia_front_height=0.7mm（加0.3mm装配缝为用户要求1mm），圆角之前的名义尺寸，不把曲面最低处当顶面。内框同步下降5.3mm。底座、Pi及接口几何未改，旧Pi/壳逐实体检查仍仅对应那对未改几何。当前构建94有效实体，无新增相交；自动Pi/壳检查仍超复杂度限制，不声称全自动碰撞检查通过。前唇局部薄边强度/打印待验证。
 最新ISO：.work/cache/cad-workbench/designs/handheld_computer/builds/59a92a25ffb35e410960806eab6c57a2dcca3fff65737c2e6d4c8975142d086f/validated/previews/workbench_iso.png
 最新右视：.work/cache/cad-workbench/designs/handheld_computer/observations/59a92a25ffb35e410960806eab6c57a2dcca3fff65737c2e6d4c8975142d086f/look-18967734b25ff39dc61ba003/workbench_right.png
+
+## 后续屏幕空间修订
+当前机械状态以screen-installation.md为准。内框49mm深并增加玻璃定位槽；屏舱及底座增加内部让位。原1mm前沿和外部端口不变。固定压框及完整FPC路线仍受阻，不能宣称已完成安装。
