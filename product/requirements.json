@@ -240,7 +240,7 @@
     "cad_styling_defaults": {
       "value": {
         "base_height_mm": 20,
-        "screen_angle_deg_from_horizontal": 30,
+        "screen_angle_deg_from_horizontal": 13,
         "screen_pod_front_height_mm": 6,
         "screen_pod_width_mm": 77,
         "screen_face_depth_mm": 65,
@@ -248,6 +248,10 @@
         "power_button": "single existing control relocated to right side"
       },
       "source": "default"
+    },
+    "screen_angle_direction": {
+      "value": "Reduce the steep screen slope toward the shallow red-line profile in mark.png; no exact angle specified.",
+      "source": "user"
     }
   },
   "open_questions": []

@@ -90,6 +90,12 @@
       "source": "user_requested",
       "description": "本轮纠正造型关系的主要参考；无比例尺，不据此声称精确尺寸或功能",
       "path": "product/references/uploads/20260921T125420119Z-2-cleanshot-2026-09-21-at-21-54-09-2x.png"
+    },
+    {
+      "id": "shallow_angle_markup",
+      "source": "user_requested",
+      "description": "用户红线要求降低屏舱倾角；未指定精确角度。",
+      "path": "product/references/uploads/20260922T052150882Z-1-mark.png"
     }
   ],
   "assembly_story": {
@@ -128,7 +134,8 @@
           "sharp_datasheet",
           "pi4b_product_brief",
           "correction_reference_1",
-          "correction_reference_2"
+          "correction_reference_2",
+          "shallow_angle_markup"
         ]
       }
     ]

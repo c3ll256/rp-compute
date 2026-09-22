@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "b3f6ab960f6b3b1d98ceb8db3f6c65452cea8e0ffffe4f0a3cf7faaa537826c7",
+  "requirements_digest": "cce700fdc54c446fd87da4950694c4fbefeb05302593be2b5baa4a761987b1e9",
   "items": [
     {
       "id": "compute",
@@ -74,7 +74,7 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform.",
-      "selection_reason": " CAD-first aperture uses the stored active area only; no glass retention, FPC routing or panel fit is certified. Corrected styling places the aperture on a raised 30-degree rear housing; this default is not an LCD mounting/FPC solution."
+      "selection_reason": " CAD-first aperture uses the stored active area only; no glass retention, FPC routing or panel fit is certified. Corrected styling places the aperture on a raised 13-degree rear housing; this default is not an LCD mounting/FPC solution."
     },
     {
       "id": "charger",

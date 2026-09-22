@@ -1,0 +1,155 @@
+{
+  "designId": "handheld_computer",
+  "revision": "7802c2ee53303e509959802d406c468c046798d841bd975b1614375be2a5ddc6",
+  "schemaVersion": 2,
+  "exportId": "export-bf88a573cd53bb28fc71dfc143fc12dd",
+  "generatedAt": "2026-09-22T05:22:49.939Z",
+  "designSha256": "bce2228c97bbe395f11fd3949419d364fdb7e85ce41a8b1f30b738ef54af62d6",
+  "role": "computer_enclosure",
+  "stateHash": "7bbef6d7f33bc195a8990a7c42543fded599471e88c8e2cec4e73e00de073e77",
+  "stateManifest": {
+    "schemaVersion": 3,
+    "designId": "handheld_computer",
+    "role": "computer_enclosure",
+    "design": {
+      "revision": "7802c2ee53303e509959802d406c468c046798d841bd975b1614375be2a5ddc6",
+      "designSha256": "64a21e3047d6a1b09f776a49369b29981a9fd35fef34440f45812e20be30b743",
+      "manifestSha256": "2e18662735573e3f235e07292b5f14e7334639feb986486d6489ac362a71d0b3",
+      "stepSha256": "c0247b6f26ad38fa8eebdb5fdaa896895ac95246b0abb1862729038ef1c2775b",
+      "pcbReleases": []
+    },
+    "brief": {
+      "path": "design/handheld_computer/README.md",
+      "sha256": "b96286d9e5c9ad5f29fecf5b5b98d852c95dcc82e120ca873db28cc4ce025d72"
+    },
+    "requirement": {
+      "artifactContractPath": "product/contract.json",
+      "artifactContractSha256": "2319da7bab3ab15f60ecc452256f6b593f266dac378d0173e775bac3c55e9165",
+      "designRequirementSha256": "c7b28dea08d8dd29a84df3c6b27288145fe5f7b8d0786a00ae1089ac7774b5b9",
+      "inputs": [
+        {
+          "role": "external-reference",
+          "id": "correction_reference_1",
+          "path": "product/references/uploads/20260921T125420119Z-1-cleanshot-2026-09-21-at-21-53-40-2x.png",
+          "sha256": "5b816571a1d03f9ccf44cc8807905be7877af222f3ded8e8d3c042eb08038ac7",
+          "sizeBytes": 438116
+        },
+        {
+          "role": "external-reference",
+          "id": "correction_reference_2",
+          "path": "product/references/uploads/20260921T125420119Z-2-cleanshot-2026-09-21-at-21-54-09-2x.png",
+          "sha256": "1e97a706bb92a25a388cdd51ef75435ada9f0441946ecc0988e96fef16e84420",
+          "sizeBytes": 594496
+        },
+        {
+          "role": "external-reference",
+          "id": "pi4b_product_brief",
+          "path": "product/references/pi4b-product-brief.pdf",
+          "sha256": "00411dddb1ac92cf40bb8daa4e1389d991a9faa7620bcc1293dfaf478f92b1c3",
+          "sizeBytes": 1028776
+        },
+        {
+          "role": "external-reference",
+          "id": "reference_photo_angled",
+          "path": "product/references/uploads/20260920T083508002Z-1-cleanshot-2026-09-20-at-17-32-32-2x.png",
+          "sha256": "56e0b78d601e99279211bbf50b95178de03664ff0698e26a46e0403f26f11c04",
+          "sizeBytes": 789421
+        },
+        {
+          "role": "external-reference",
+          "id": "reference_photo_front",
+          "path": "product/references/uploads/20260920T083508002Z-2-cleanshot-2026-09-20-at-17-34-41-2x.png",
+          "sha256": "5d703f4fab13516c1b40f6fd674a65fa50d0822f253e2f110fea983e4064d8ad",
+          "sizeBytes": 1516484
+        },
+        {
+          "role": "external-reference",
+          "id": "shallow_angle_markup",
+          "path": "product/references/uploads/20260922T052150882Z-1-mark.png",
+          "sha256": "285f59de9d212fbf3e3797e7e0f970c223027ba70cd09f9d6543ce65df0e6bae",
+          "sizeBytes": 94975
+        },
+        {
+          "role": "external-reference",
+          "id": "sharp_datasheet",
+          "path": "product/references/LS027B7DH01-sharp-2010.pdf",
+          "sha256": "997ecbcb7f020fbe077632dc90f6bf82d9e0e49ccf2211484093dec348965d98",
+          "sizeBytes": 790088
+        }
+      ]
+    },
+    "delivery": {
+      "target": "visual_review",
+      "formats": [
+        "step"
+      ]
+    },
+    "stateHash": "7bbef6d7f33bc195a8990a7c42543fded599471e88c8e2cec4e73e00de073e77"
+  },
+  "buildArtifacts": {
+    "manifestSha256": "2e18662735573e3f235e07292b5f14e7334639feb986486d6489ac362a71d0b3",
+    "stepSha256": "c0247b6f26ad38fa8eebdb5fdaa896895ac95246b0abb1862729038ef1c2775b"
+  },
+  "exportAlgorithm": {
+    "version": 1,
+    "bootstrapSha256": "6c6e6b2f1e584f401c842d42a64deaec8a158cc9384c4ad4630662d91b6e790b"
+  },
+  "sourceHashes": {
+    "base/base": "3b20a251258265277722e66da6352bdc9d0861b2f14c9e38401d937017e28ff5",
+    "bezel/bezel": "6e03e07477d8d04bd0a5bcdb438ddb0796a09126f692092fdad9f86509019a12",
+    "fascia/fascia": "a07e95cda5eb06651b13892e1b286403800cbe23372afda946711d2757c66a04",
+    "power_cap/power_cap": "68c889bf45a9a2a9027624e03079a5073cd393df3cbfe12e4f0c594d3e812561",
+    "shell/shell": "454c70cfe60de37fdb8515677a85175bd31e45b48c61a1e4a2d9290f7c979a3e"
+  },
+  "assetHashes": {},
+  "shapeHashes": {
+    "base": "89c7422a914f61470c6ac8d6c2f770747ef951f8b10b4c2e4c4edaeab112cfe2",
+    "bezel": "2cd2bdd2deec125801a2ad32a5b75c1d3bbe4eb4d65650296b8f823b71a9cfb3",
+    "fascia": "c8b08e50255a826bf334fbb5a8c39d08bcd9ee9fed089ceb8d01b1bf66b67638",
+    "power_cap": "b3b94ebd813f00795b55a3127e0a2bae97e98555d2f09deefc8188a9bf8efaed",
+    "shell": "64fe42556453cb951e87eca596bbb7646f33863008d40a7726c4ffe052dbb2d9"
+  },
+  "runtime": {
+    "manifestHash": "997a40945133ea2b736de65c60f7f1ede22ffb326946d6e9f57d23e591612b45",
+    "pythonVersion": "3.12.13",
+    "build123dVersion": "0.10.0",
+    "ocpVersion": "7.8.1.1.post1",
+    "cadpyHash": "74f250de9b3dff3b5e0b94523625dd13c3710d3f81c487102225650971b064a6"
+  },
+  "artifacts": [
+    {
+      "path": "manufacturing/handheld_computer/releases/export-bf88a573cd53bb28fc71dfc143fc12dd/model.step",
+      "role": "model/step",
+      "sha256": "c0247b6f26ad38fa8eebdb5fdaa896895ac95246b0abb1862729038ef1c2775b",
+      "sizeBytes": 545950
+    }
+  ],
+  "interference": {
+    "summary": "No interference across 10 object pairs.",
+    "counts": {
+      "objects": 5,
+      "pairs": 10,
+      "exact": 0,
+      "cached": 2,
+      "interference": 0,
+      "undeclared": 0,
+      "over_budget": 0,
+      "undetermined": 0
+    },
+    "overlaps": []
+  },
+  "authority": {
+    "version": 1,
+    "algorithm": "hmac-sha256",
+    "keyId": "bcf92b0ef0c9bdb29ac662e9143b6212",
+    "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
+    "receiptPath": "manufacturing/handheld_computer/releases/export-bf88a573cd53bb28fc71dfc143fc12dd/receipt.json",
+    "payloadSha256": "fafc9bb76c86b8f3e1fd97570a5722a766abdf68ec73e76ffe061e14b39a3b82",
+    "mac": "0bfa720416bf6f9350077506668500384bf46ead0444a9ae14dc0f1a3c9b1cb1"
+  },
+  "status": "exported_unreviewed",
+  "reviewSkip": {
+    "reason": "review_failed",
+    "divergingFields": []
+  }
+}
