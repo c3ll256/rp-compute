@@ -1,26 +1,26 @@
 {
   "designId": "handheld_computer",
-  "revision": "f1b3965728c51a459fa5cadbf4c7175cc290bdffdca400c7d71b543576a931db",
+  "revision": "0c9da40905130a403d4a592ac2a6b89336da1ec6758a97f57b2b87c73b6f8e14",
   "schemaVersion": 2,
-  "exportId": "export-3a605b99b98e568cc95ffe33d38c8e8c",
-  "generatedAt": "2026-09-23T05:24:26.034Z",
-  "designSha256": "da01d77fa77c12f068c18f68970a85f2a97978fa6410e919f0fda10d3dcd744d",
+  "exportId": "export-068859358bec11927787c6b8ee5cc0ab",
+  "generatedAt": "2026-09-23T07:14:20.698Z",
+  "designSha256": "212d567bfb2406d73f94a0e85975dc2c50efbf0b91110062cbd26d9a4951e845",
   "role": "computer_enclosure",
-  "stateHash": "bfb2b97f389cff245c232dff20e8d53b83a12fc289ac4e88a658d5cb98dcf0c9",
+  "stateHash": "5737eac2d1aae5c39d4bcf875d2d55e4b27f0a7409e61ac9d81c1f567e0e0bd3",
   "stateManifest": {
     "schemaVersion": 3,
     "designId": "handheld_computer",
     "role": "computer_enclosure",
     "design": {
-      "revision": "f1b3965728c51a459fa5cadbf4c7175cc290bdffdca400c7d71b543576a931db",
-      "designSha256": "4bba6e25af078f32822f00aae70530041a78ab44dc7308dd0fdb21f3bcf95fc8",
-      "manifestSha256": "af97abd401169db970b94f72e9e3ebf8cf438882d6003578d4f3d52aef8b129a",
-      "stepSha256": "8f908d77c036adbb19f1048399cc94c3edf54a0ab64602a14ec171d4a981ce55",
+      "revision": "0c9da40905130a403d4a592ac2a6b89336da1ec6758a97f57b2b87c73b6f8e14",
+      "designSha256": "6917bc641fc5cdf2d4321520fabc918eb48f3efda1cef8a4f91af734ddaa1ed0",
+      "manifestSha256": "b4f99a5875e0fa572db11c958f23f1d6e090f7aee80559e4e8eb4a395fc1b0a9",
+      "stepSha256": "cb9b4cdb060b2bea4f1ff4eaa6fb4343dc254878be9f6b31d944efa93135a38a",
       "pcbReleases": []
     },
     "brief": {
       "path": "design/handheld_computer/README.md",
-      "sha256": "556c807654ce78ea6f4ebd8bcb5f59e11d7fd6054da6a06276055cc51206633d"
+      "sha256": "485bd2d65ac46dee6555b2dae26b1120b63e3503103fc42215be17fe3c9133a0"
     },
     "requirement": {
       "artifactContractPath": "product/contract.json",
@@ -91,11 +91,11 @@
         "step"
       ]
     },
-    "stateHash": "bfb2b97f389cff245c232dff20e8d53b83a12fc289ac4e88a658d5cb98dcf0c9"
+    "stateHash": "5737eac2d1aae5c39d4bcf875d2d55e4b27f0a7409e61ac9d81c1f567e0e0bd3"
   },
   "buildArtifacts": {
-    "manifestSha256": "af97abd401169db970b94f72e9e3ebf8cf438882d6003578d4f3d52aef8b129a",
-    "stepSha256": "8f908d77c036adbb19f1048399cc94c3edf54a0ab64602a14ec171d4a981ce55"
+    "manifestSha256": "b4f99a5875e0fa572db11c958f23f1d6e090f7aee80559e4e8eb4a395fc1b0a9",
+    "stepSha256": "cb9b4cdb060b2bea4f1ff4eaa6fb4343dc254878be9f6b31d944efa93135a38a"
   },
   "exportAlgorithm": {
     "version": 1,
@@ -109,7 +109,7 @@
     "imports/pi4b": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40",
     "power_cap/power_cap": "68c889bf45a9a2a9027624e03079a5073cd393df3cbfe12e4f0c594d3e812561",
     "screen_cushions/screen_cushions": "99d4412dc2fdf2ffd47b86592ce3e38e8b1721dca7f9abdb04f3b28bfa861ac2",
-    "shell/shell": "b0e7e3d20dd65efd1d5ac8736a71426d76d5149bc99f9811e562e20e4bedfb64"
+    "shell/shell": "32abfbebc2f871bdf712cc9b6466c6be3e80da178a3c782380b211e59462308d"
   },
   "assetHashes": {
     "fpc_zif": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9",
@@ -119,7 +119,7 @@
     "base": "89c7422a914f61470c6ac8d6c2f770747ef951f8b10b4c2e4c4edaeab112cfe2",
     "bezel": "8774de76e9005319f79bdaac97948d01a5322135ab4d30ecd8ee75b0bd251129",
     "fascia": "c84eb09d76c6cb40c1a7d169c6d40efd585d2058b0529f06264073d3f0d64616",
-    "fpc_zif": "a8dcc594d6b724561b9222a2cf0f1fcbca9757dfb4ceba64f1c24bffc877523e",
+    "fpc_zif": "f4cc25c1f52a105b029ccd8594aadb61a07ed2bba0d3854439c55d4828535d19",
     "front_cushion": "3e1683f4becbf3cd5306da3885fe73f734d2aa45350c9ef77c0aa57710576bec",
     "pi4b": "4bd5d2afb9631f2310f417c1aad088568c7fcf2ab7307b583b18018f58bfd4c9",
     "power_cap": "b3b94ebd813f00795b55a3127e0a2bae97e98555d2f09deefc8188a9bf8efaed",
@@ -129,7 +129,7 @@
     "retainer_screw_2": "0b96ac36b8691a622f7c302e75512e04aaab6bbb67774e33a0a9fa08601d46c6",
     "retainer_screw_3": "3ec7236af5e718359f39c75bd65a0cab823e0e76cbce1a192e1b865547979531",
     "retainer_screw_4": "ab84de37b2dd7ba8c7836704b0d7e052b3d8bf8d03d4c902972291272f7b69bf",
-    "shell": "a038b48649236ceeb639c37375be78d3c2b8dbf38220ce7a179b3ec9dee29667"
+    "shell": "02d7990f81a5f514569cbacffddc5c7e0b8c3f8a31121c74212dec1dadd51a81"
   },
   "runtime": {
     "manifestHash": "461cffa5c4a26674882c8735588c84b77d13d7a6da6bee86a7d15dce184a1067",
@@ -140,10 +140,10 @@
   },
   "artifacts": [
     {
-      "path": "manufacturing/handheld_computer/releases/export-3a605b99b98e568cc95ffe33d38c8e8c/model.step",
+      "path": "manufacturing/handheld_computer/releases/export-068859358bec11927787c6b8ee5cc0ab/model.step",
       "role": "model/step",
-      "sha256": "8f908d77c036adbb19f1048399cc94c3edf54a0ab64602a14ec171d4a981ce55",
-      "sizeBytes": 59830109
+      "sha256": "cb9b4cdb060b2bea4f1ff4eaa6fb4343dc254878be9f6b31d944efa93135a38a",
+      "sizeBytes": 59858363
     }
   ],
   "interference": {
@@ -151,8 +151,8 @@
     "counts": {
       "objects": 14,
       "pairs": 91,
-      "exact": 22,
-      "cached": 10,
+      "exact": 0,
+      "cached": 35,
       "interference": 0,
       "undeclared": 0,
       "over_budget": 0,
@@ -165,9 +165,9 @@
     "algorithm": "hmac-sha256",
     "keyId": "bcf92b0ef0c9bdb29ac662e9143b6212",
     "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
-    "receiptPath": "manufacturing/handheld_computer/releases/export-3a605b99b98e568cc95ffe33d38c8e8c/receipt.json",
-    "payloadSha256": "fd0b9d4bd321c08b29605f21785af9627809f9e7f2f004ab6a95280acae3c173",
-    "mac": "e8b1e5b07bb4fd68fbdf7b7fd5b3426a5c0c4d94fcfb61727cd7213218519711"
+    "receiptPath": "manufacturing/handheld_computer/releases/export-068859358bec11927787c6b8ee5cc0ab/receipt.json",
+    "payloadSha256": "252c0bba1d338ddec89cb2f61fb5e60a717fc24e99b163580b897bc7fc44fad8",
+    "mac": "98b94e0067f7aebc8f68c4332155d71440c668fdda6bd4dc5ec4290a131413b4"
   },
   "status": "exported_unreviewed",
   "reviewSkip": {

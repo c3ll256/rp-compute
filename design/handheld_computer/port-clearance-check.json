@@ -1,8 +1,10 @@
 {
-  "revision": "c9cdf8a35da2d8c8941913ff39b7584af691ee66a647033b73867e8aaf36ac4e",
+  "revision": "0c9da40905130a403d4a592ac2a6b89336da1ec6758a97f57b2b87c73b6f8e14",
   "method": "supplementary read-only OCC per-solid intersections of committed STEP objects; Workbench automatic pair check exceeds 89-solid limit",
   "pi_solid_count": 89,
   "overlaps": [],
+  "checked_objects": ["pi4b", "shell"],
+  "result": "All 89 placed Pi4B STEP solids were intersected individually with the committed shell STEP; no shared solid volume exceeded 0.00001 mm3. The tighter right USB opening required an internal blind board-corner relief.",
   "tolerance_mm3": 1e-05,
   "limits": [
     "Not insertion-path or plug-body fit verification",

@@ -1111,8 +1111,8 @@
           14
         ],
         "size_mm": [
-          17.5,
-          17
+          17,
+          15
         ]
       },
       {
@@ -1123,8 +1123,8 @@
           15
         ],
         "size_mm": [
-          16,
-          19
+          15,
+          17
         ]
       },
       {
@@ -1135,8 +1135,8 @@
           14.5
         ],
         "size_mm": [
-          18.5,
-          20
+          16,
+          18
         ]
       },
       {
@@ -1147,8 +1147,8 @@
           8.6
         ],
         "size_mm": [
-          10,
-          6
+          8.5,
+          5.2
         ]
       },
       {
@@ -1159,8 +1159,8 @@
           8.6
         ],
         "size_mm": [
-          10,
-          6
+          8.5,
+          5.2
         ]
       },
       {
@@ -1170,7 +1170,7 @@
           23.5,
           10
         ],
-        "diameter_mm": 10
+        "diameter_mm": 8.5
       },
       {
         "id": "charge",
@@ -1180,12 +1180,12 @@
           12
         ],
         "size_mm": [
-          12,
-          5
+          10.5,
+          4.4
         ]
       }
     ],
-    "qualification": "Connector openings authored against exact-model step.parts asset. Supplementary per-solid boolean found no Pi/shell solid overlap. Not production or plug-body/latch/finger access validation. PiUSB-C remains covered by blind wall, working interlock not implemented."
+    "qualification": "Tightened opening parameters against placed Pi4B STEP and visual CAD views. Right-rear Pi board corner uses an internal blind relief, retaining the smaller outer USB aperture. Supplementary per-solid boolean found no Pi/shell solid overlap on the final committed build. Plug-body/latch/finger access, printed tolerances and the provisional baseboard charging connector still need physical validation. PiUSB-C remains covered by blind wall, working interlock not implemented."
   },
   "pi_usb_c_interface_decision": {
     "value": "baseboard_input_only_interlocked_pi_port",

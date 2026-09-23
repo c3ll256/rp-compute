@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "b0e7e3d20dd65efd1d5ac8736a71426d76d5149bc99f9811e562e20e4bedfb64"
+          "sha256": "32abfbebc2f871bdf712cc9b6466c6be3e80da178a3c782380b211e59462308d"
         }
       ],
       "dependencies": []
@@ -115,7 +115,7 @@
       "target": "shell",
       "label": "Rear and side port shell",
       "kind": "generated",
-      "shapeHash": "a038b48649236ceeb639c37375be78d3c2b8dbf38220ce7a179b3ec9dee29667",
+      "shapeHash": "02d7990f81a5f514569cbacffddc5c7e0b8c3f8a31121c74212dec1dadd51a81",
       "transform": {
         "positionMm": [
           0,
@@ -375,7 +375,7 @@
       "target": "imports",
       "label": "fpc_zif",
       "kind": "imported",
-      "shapeHash": "a8dcc594d6b724561b9222a2cf0f1fcbca9757dfb4ceba64f1c24bffc877523e",
+      "shapeHash": "f4cc25c1f52a105b029ccd8594aadb61a07ed2bba0d3854439c55d4828535d19",
       "transform": {
         "positionMm": [
           0,
@@ -506,7 +506,7 @@
     }
   ],
   "fits": [],
-  "updatedAt": "2026-09-23T05:24:26.034Z",
+  "updatedAt": "2026-09-23T07:14:20.698Z",
   "parameters": {
     "shell": {
       "case_width": 85,
@@ -518,8 +518,8 @@
       "panel_gap": 0.25,
       "button_y": -37,
       "button_diameter": 9,
-      "charge_width": 12,
-      "charge_height": 5,
+      "charge_width": 10.5,
+      "charge_height": 4.4,
       "charge_z": 12,
       "shell_edge_radius": 1,
       "shell_button_z": 12,
@@ -533,24 +533,24 @@
       "shell_charge_y": -37,
       "shell_rj45_x": -6.75,
       "shell_rj45_z": 14,
-      "shell_rj45_width": 17.5,
-      "shell_rj45_height": 17,
+      "shell_rj45_width": 17,
+      "shell_rj45_height": 15,
       "shell_usb_mid_x": 12,
       "shell_usb_mid_z": 15,
-      "shell_usb_mid_width": 16,
-      "shell_usb_mid_height": 19,
+      "shell_usb_mid_width": 15,
+      "shell_usb_mid_height": 17,
       "shell_usb_right_x": 30,
       "shell_usb_right_z": 14.5,
-      "shell_usb_right_width": 18.5,
-      "shell_usb_right_height": 20,
+      "shell_usb_right_width": 16,
+      "shell_usb_right_height": 18,
       "shell_hdmi1_y": -4.5,
       "shell_hdmi2_y": 9,
       "shell_hdmi_z": 8.6,
-      "shell_hdmi_width": 10,
-      "shell_hdmi_height": 6,
+      "shell_hdmi_width": 8.5,
+      "shell_hdmi_height": 5.2,
       "shell_jack_y": 23.5,
       "shell_jack_z": 10,
-      "shell_jack_diameter": 10,
+      "shell_jack_diameter": 8.5,
       "shell_port_radius": 0.5,
       "shell_pi_usb_c_y": -19.3,
       "shell_pi_usb_c_z": 9,

@@ -1,12 +1,15 @@
-# Pi4B terminal — display rear retention and native FPC route
+# Pi4B terminal — screen retention, FPC route and tighter I/O
 
 ## Goal and scope
-Current user request: 保留这版定位槽和1mm前沿，继续解决屏幕背面固定结构及完整FPC路径，不做PCB.
-This delivery is the screen-subassembly CAD prototype: rear retaining frame, captured bezel rear flange, compliant support cut patterns, four M2 fasteners, native-tail negative route and a positioned connector family reference. No PCB, real panel solid, wiring redesign or manufacturing-fit claim.
+Current user request: 收紧外壳 I/O 开口，同时保留定位槽、1mm前沿、屏幕背面固定结构与完整FPC路径；不做PCB.
+This delivery refines the existing screen-subassembly CAD prototype and the exterior I/O cutouts. It preserves the rear retaining frame, captured bezel rear flange, four M2 fasteners, native-tail negative route and positioned connector family reference. No PCB, real panel solid, wiring redesign or manufacturing-fit claim.
 
 ## Preserved exterior and locator
 Base85x115x27mm, housing77mm wide/65mm face at13deg. Housing origin[0,21.521201483,27.3], front body height0.7mm. Nominal front rise1mm includes0.3mm seam, at theoretical sharp slope/front-plane intersection before roundover. Overall height42.467515mm unchanged. Bezel origin[0,21.521201483,35.310909266],rotation[13,0,0], original outer66x49,thickness3.6/recess3.5, window,63.4x43.42 glass locator and Y=-1.77 offset unchanged.
-Bezel adds an under-roof70x47x1.2mm flange at normalZ=-4.2..-3.0. Existing pocket is not resized. Shell opening is71x54mm centeredY21.5 with four concealed mount wells; exterior ports, front groove, base/button/Pi placements unchanged.
+Bezel adds an under-roof70x47x1.2mm flange at normalZ=-4.2..-3.0. Existing pocket is not resized. Shell opening is71x54mm centeredY21.5 with four concealed mount wells; front groove, base/button/Pi placements unchanged. Exterior port aperture dimensions are updated below, with centers retained.
+
+## Tightened I/O apertures
+Rear RJ45 is 17x15mm, middle USB stack 15x17mm and right USB stack 16x18mm. The two right-side micro-HDMI apertures are each 8.5x5.2mm, the AV aperture is diameter8.5mm, and the left charging aperture is 10.5x4.4mm. Centers are unchanged. The Pi4B STEP rear board corner now has an internal blind relief while the outer right USB aperture remains tight; at least 2.2mm rear outer material remains there. The committed final build passes supplementary per-solid exact intersection checks against all89 Pi solids. This does not verify molded plug bodies, latch/finger access, charging socket placement or printed tolerances; test those on a prototype before ordering a working enclosure.
 
 ## Retention and FPC
 Four ISO4762 M2x5 underside joints, X=+-20,Y=-28/+25.5 in screen plane,2mm through thickness,3mm selected engagement. Printed-screw-joint-v1 generates holes and hardware. Receiver faces and retainer ears are hard stops; glass is not in screw clamping stack. Retainer supports nominal0.20mm front and1.00mm rear nonadhesive die-cut cushions. Pad material/compression, polarizer stress and print strength are NOT verified. Use low-outgassing non-chloroprene compatible material, no adhesive on polarizer; nominal pads are not a qualified supplier product.
