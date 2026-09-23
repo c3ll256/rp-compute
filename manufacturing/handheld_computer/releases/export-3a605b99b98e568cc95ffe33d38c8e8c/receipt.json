@@ -1,26 +1,26 @@
 {
   "designId": "handheld_computer",
-  "revision": "268540ec06317d244a5bf510bcb53a19680152b53ef17af0cfd2cab8ad0a71d6",
+  "revision": "f1b3965728c51a459fa5cadbf4c7175cc290bdffdca400c7d71b543576a931db",
   "schemaVersion": 2,
-  "exportId": "export-185e7a4797d893d1f1b728b761910d91",
-  "generatedAt": "2026-09-22T13:23:16.315Z",
-  "designSha256": "a99e42e9acc1a721bf252ed55b97019bfe86ad7672ed4b1a550f53b586777e6f",
+  "exportId": "export-3a605b99b98e568cc95ffe33d38c8e8c",
+  "generatedAt": "2026-09-23T05:24:26.034Z",
+  "designSha256": "da01d77fa77c12f068c18f68970a85f2a97978fa6410e919f0fda10d3dcd744d",
   "role": "computer_enclosure",
-  "stateHash": "9a3c8ee1f1ceaea7e72e529c99c87fd06568c7d46d81081957485f476eb7e596",
+  "stateHash": "bfb2b97f389cff245c232dff20e8d53b83a12fc289ac4e88a658d5cb98dcf0c9",
   "stateManifest": {
     "schemaVersion": 3,
     "designId": "handheld_computer",
     "role": "computer_enclosure",
     "design": {
-      "revision": "268540ec06317d244a5bf510bcb53a19680152b53ef17af0cfd2cab8ad0a71d6",
-      "designSha256": "87e5bf9eab92de70863fb63f1e11262b774dd7ed428388d54dfcac5841845741",
-      "manifestSha256": "0ab32f9a935874b2a888fd6c5563cefa0b9624c7a1a7cb74f46c3ca1a9687790",
-      "stepSha256": "b49571f969d7b2743174b830740bffe0691f1e93fc2af5d4f242d1686560b16f",
+      "revision": "f1b3965728c51a459fa5cadbf4c7175cc290bdffdca400c7d71b543576a931db",
+      "designSha256": "4bba6e25af078f32822f00aae70530041a78ab44dc7308dd0fdb21f3bcf95fc8",
+      "manifestSha256": "af97abd401169db970b94f72e9e3ebf8cf438882d6003578d4f3d52aef8b129a",
+      "stepSha256": "8f908d77c036adbb19f1048399cc94c3edf54a0ab64602a14ec171d4a981ce55",
       "pcbReleases": []
     },
     "brief": {
       "path": "design/handheld_computer/README.md",
-      "sha256": "ba73a91febd512694e7bb977f1b2a0cf422c581b41ab9a5c432a466a2126bb74"
+      "sha256": "556c807654ce78ea6f4ebd8bcb5f59e11d7fd6054da6a06276055cc51206633d"
     },
     "requirement": {
       "artifactContractPath": "product/contract.json",
@@ -91,11 +91,11 @@
         "step"
       ]
     },
-    "stateHash": "9a3c8ee1f1ceaea7e72e529c99c87fd06568c7d46d81081957485f476eb7e596"
+    "stateHash": "bfb2b97f389cff245c232dff20e8d53b83a12fc289ac4e88a658d5cb98dcf0c9"
   },
   "buildArtifacts": {
-    "manifestSha256": "0ab32f9a935874b2a888fd6c5563cefa0b9624c7a1a7cb74f46c3ca1a9687790",
-    "stepSha256": "b49571f969d7b2743174b830740bffe0691f1e93fc2af5d4f242d1686560b16f"
+    "manifestSha256": "af97abd401169db970b94f72e9e3ebf8cf438882d6003578d4f3d52aef8b129a",
+    "stepSha256": "8f908d77c036adbb19f1048399cc94c3edf54a0ab64602a14ec171d4a981ce55"
   },
   "exportAlgorithm": {
     "version": 1,
@@ -103,45 +103,56 @@
   },
   "sourceHashes": {
     "base/base": "3b20a251258265277722e66da6352bdc9d0861b2f14c9e38401d937017e28ff5",
-    "bezel/bezel": "42a25f69ba12eee190677414f0843210eca4ee162aef4d8f3bfd4e191f6a6e00",
-    "fascia/fascia": "554301c32d59e66aa42c8d7e2be763784370341cc49afffda2184b95aee23f77",
+    "bezel/bezel": "cb752d27f215b046a382b7ede17afc0a9594195d361e57bc0cc735d18d451823",
+    "fascia/fascia": "72ed37e83b58ceb8ad1d71a99b849fa68a5987bb1d12a4b375c820611432277d",
+    "imports/fpc_zif": "5321d0e619d3d08ab5e4ec2dc60610fffb0091b49572cfdf44c456344fe5e69e",
     "imports/pi4b": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40",
     "power_cap/power_cap": "68c889bf45a9a2a9027624e03079a5073cd393df3cbfe12e4f0c594d3e812561",
-    "shell/shell": "d603d5cb709fc1349b33c727baa3dd4c969751e5fdb8c8e4f1c33f0b1c71322a"
+    "screen_cushions/screen_cushions": "99d4412dc2fdf2ffd47b86592ce3e38e8b1721dca7f9abdb04f3b28bfa861ac2",
+    "shell/shell": "b0e7e3d20dd65efd1d5ac8736a71426d76d5149bc99f9811e562e20e4bedfb64"
   },
   "assetHashes": {
+    "fpc_zif": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9",
     "pi4b": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe"
   },
   "shapeHashes": {
     "base": "89c7422a914f61470c6ac8d6c2f770747ef951f8b10b4c2e4c4edaeab112cfe2",
-    "bezel": "c8ec0125d5a862e250d35457193ca5d69b3bb1ec448f903103c714e6a7d8ab87",
-    "fascia": "d147d3552d9a97754cda0c51f96865dec3b4f1b63bcae17aec552f4dda30e5b4",
+    "bezel": "8774de76e9005319f79bdaac97948d01a5322135ab4d30ecd8ee75b0bd251129",
+    "fascia": "c84eb09d76c6cb40c1a7d169c6d40efd585d2058b0529f06264073d3f0d64616",
+    "fpc_zif": "a8dcc594d6b724561b9222a2cf0f1fcbca9757dfb4ceba64f1c24bffc877523e",
+    "front_cushion": "3e1683f4becbf3cd5306da3885fe73f734d2aa45350c9ef77c0aa57710576bec",
     "pi4b": "4bd5d2afb9631f2310f417c1aad088568c7fcf2ab7307b583b18018f58bfd4c9",
     "power_cap": "b3b94ebd813f00795b55a3127e0a2bae97e98555d2f09deefc8188a9bf8efaed",
-    "shell": "37ae9f6ccfe588b1019b1abc35a69ea48430d1b8f53f113a111191e46d2b0b74"
+    "rear_cushion": "503045f26a376484855ba2afd345160ce6eca3d1ac4f4da88f4a2b26ec3e4e30",
+    "retainer": "fea02387aed5566c0979ae86e6064fb2e25e9eb46c9ca483974116cf42abb870",
+    "retainer_screw_1": "cf3a96a9477766c67220b0e58811e6f7329a26ebb6bb32d982dd2e18a5ebc536",
+    "retainer_screw_2": "0b96ac36b8691a622f7c302e75512e04aaab6bbb67774e33a0a9fa08601d46c6",
+    "retainer_screw_3": "3ec7236af5e718359f39c75bd65a0cab823e0e76cbce1a192e1b865547979531",
+    "retainer_screw_4": "ab84de37b2dd7ba8c7836704b0d7e052b3d8bf8d03d4c902972291272f7b69bf",
+    "shell": "a038b48649236ceeb639c37375be78d3c2b8dbf38220ce7a179b3ec9dee29667"
   },
   "runtime": {
-    "manifestHash": "997a40945133ea2b736de65c60f7f1ede22ffb326946d6e9f57d23e591612b45",
+    "manifestHash": "461cffa5c4a26674882c8735588c84b77d13d7a6da6bee86a7d15dce184a1067",
     "pythonVersion": "3.12.13",
     "build123dVersion": "0.10.0",
     "ocpVersion": "7.8.1.1.post1",
-    "cadpyHash": "74f250de9b3dff3b5e0b94523625dd13c3710d3f81c487102225650971b064a6"
+    "cadpyHash": "c4acce026090f200e34480ce99ac2ca288b6071fb522bcd6d8fd05a0ddc9c83f"
   },
   "artifacts": [
     {
-      "path": "manufacturing/handheld_computer/releases/export-185e7a4797d893d1f1b728b761910d91/model.step",
+      "path": "manufacturing/handheld_computer/releases/export-3a605b99b98e568cc95ffe33d38c8e8c/model.step",
       "role": "model/step",
-      "sha256": "b49571f969d7b2743174b830740bffe0691f1e93fc2af5d4f242d1686560b16f",
-      "sizeBytes": 58026055
+      "sha256": "8f908d77c036adbb19f1048399cc94c3edf54a0ab64602a14ec171d4a981ce55",
+      "sizeBytes": 59830109
     }
   ],
   "interference": {
     "summary": "0 interfering pairs, 1 undetermined",
     "counts": {
-      "objects": 6,
-      "pairs": 15,
-      "exact": 0,
-      "cached": 5,
+      "objects": 14,
+      "pairs": 91,
+      "exact": 22,
+      "cached": 10,
       "interference": 0,
       "undeclared": 0,
       "over_budget": 0,
@@ -154,13 +165,13 @@
     "algorithm": "hmac-sha256",
     "keyId": "bcf92b0ef0c9bdb29ac662e9143b6212",
     "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
-    "receiptPath": "manufacturing/handheld_computer/releases/export-185e7a4797d893d1f1b728b761910d91/receipt.json",
-    "payloadSha256": "61858e631e6cc3211a47ccf68d0207c570ceaedefd379ddd75293b9b36ac1e24",
-    "mac": "36e34684ce7242d9643d633f387990dcb72c10c770f65f1f8b4b8abefd16ffba"
+    "receiptPath": "manufacturing/handheld_computer/releases/export-3a605b99b98e568cc95ffe33d38c8e8c/receipt.json",
+    "payloadSha256": "fd0b9d4bd321c08b29605f21785af9627809f9e7f2f004ab6a95280acae3c173",
+    "mac": "e8b1e5b07bb4fd68fbdf7b7fd5b3426a5c0c4d94fcfb61727cd7213218519711"
   },
   "status": "exported_unreviewed",
   "reviewSkip": {
-    "reason": "review_failed",
+    "reason": "review_unavailable",
     "divergingFields": []
   }
 }

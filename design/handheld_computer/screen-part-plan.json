@@ -1,39 +1,5 @@
 {
-  "status": "partial",
-  "requested_path": "cad/part-plan.json",
-  "path_note": "Requested root/cad directory creation denied EPERM; evidence saved here within writable design tree, not claiming canonical plan validation.",
-  "items": [
-    {
-      "id": "display",
-      "identity": "LS027B7DH01",
-      "catalog": "cad.catalog and step.parts no exact model",
-      "decision": "No substitution; negative installation space only; no fake panel geometry."
-    },
-    {
-      "id": "display_fpc",
-      "identity": "FH12-10S-0.5SH(55)",
-      "model_id": "hirose_fh12_10s_0_5sh_1x10_1mp_p0_50mm_horizontal",
-      "source_url": "https://www.step.parts/parts/hirose_fh12_10s_0_5sh_1x10_1mp_p0_50mm_horizontal",
-      "sha256": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9",
-      "classification": "same-family dimensional reference only; suffix not documented",
-      "decision": "Downloaded/inspected, not imported or positioned."
-    }
-  ],
-  "connections": [
-    {
-      "id": "glass_to_bezel",
-      "method": "free rear-loading locator pocket",
-      "status": "geometry present, not retained"
-    },
-    {
-      "id": "rear_retainer_to_pod",
-      "method": "printed-screw-joint-v1",
-      "status": "blocked; attempted candidates failed, not committed"
-    },
-    {
-      "id": "fpc_to_connector",
-      "method": "native panel tail into bottom-contact FH12",
-      "status": "entry space only; endpoint/route not committed"
-    }
-  ]
+  "status": "superseded_by_current_plan",
+  "authoritative_plan": "cad/part-plan.json",
+  "note": "Previous kit failures resolved by using exact socket-cap variant, conditional empty-boss handling and front/rear hard-stop receivers. Current connections are tracked in the authoritative plan."
 }

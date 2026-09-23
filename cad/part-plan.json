@@ -1,0 +1,55 @@
+{
+  "scope": "Display rear retention and native FPC routing only; preserve locator and 1mm front rise; no PCB",
+  "items": [
+    {
+      "id": "retainer_screws",
+      "catalog_id": "bd-warehouse:bd_warehouse.fastener.SocketHeadCapScrew",
+      "standard": "ISO 4762",
+      "size": "M2-0.4",
+      "quantity": 4,
+      "status": "selected",
+      "source": "default",
+      "implementation": "printed-screw-joint-v1; solved5mm length,2mm through layer,3mm selected engagement; empty returned bosses handled conditionally",
+      "length_mm": 5
+    },
+    {
+      "id": "display",
+      "identity": "LS027B7DH01",
+      "status": "no exact STEP; manufacturer drawing negative fit space only",
+      "evidence": "product/references/LS027B7DH01-sharp-2010.pdf p26"
+    },
+    {
+      "id": "fpc_connector_reference",
+      "identity": "FH12-10S-0.5SH(55)",
+      "status": "selected family dimensional reference; suffix not certified by STEP",
+      "step_parts_id": "hirose_fh12_10s_0_5sh_1x10_1mp_p0_50mm_horizontal",
+      "sha256": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9",
+      "evidence": "references/suppliers/c506791/c506791-datasheet.pdf pp1,5"
+    }
+  ],
+  "connections": [
+    {
+      "id": "glass_to_locator",
+      "method": "free",
+      "implementation": "existing rear loading pocket, unchanged"
+    },
+    {
+      "id": "retainer_to_housing",
+      "method": "printed-screw-joint-v1",
+      "implementation": "four underside M2 joints on hard stops; no glass in screw compression stack",
+      "status": "implemented"
+    },
+    {
+      "id": "native_tail_to_zif",
+      "method": "free",
+      "implementation": "manufacturer constrained fold and connector mechanical target; no PCB",
+      "status": "complete mechanical target;13.7mm total tail length unverified, no supported board"
+    },
+    {
+      "id": "glass_compliant_support",
+      "method": "free",
+      "implementation": "custom nonadhesive0.2mm front/1.0mm rear die-cut pads; material/pressure qualification pending"
+    }
+  ],
+  "status": "modeled prototype; physical-fit qualifications remain"
+}

@@ -49,8 +49,9 @@
       "connector_height_mm": 2,
       "open_latch_height_mm": 4.8,
       "connector_dim_evidence": "Hirose drawing pp1,5; dimensions include tolerances per drawing",
-      "assembly_configuration": "Straight/unfolded tail in bottom-contact connector. Copper exposed on panel-back side; PCB/component face toward that exposed side. Pin 1 must follow back-view drawing; do not mirror from front view. A 180-degree folded tail requires a changed connector/placement review, not stretching this layout.",
-      "insertion_note": "Fully insert 0.30mm stiffened tail, close latch, inspect continuity. Do not add a generic FFC as if it were the panel tail."
+      "assembly_configuration": "180deg fold toward display back,1.35mm nominal inner radius and bend over unfolded1.0..5.7124mm. Invert retained bottom-contact connector around local Y so its board faces the now upward exposed contacts. See fpc-route.json; total native length13.7mm is a default layout estimate pending measurement. No PCB generated or connector board fixation claimed.",
+      "insertion_note": "Fully insert 0.30mm stiffened tail, close latch, inspect continuity. Do not add a generic FFC as if it were the panel tail.",
+      "mechanical_route_ref": "design/handheld_computer/fpc-route.json"
     },
     "source": "research",
     "electrical": {
@@ -85,7 +86,7 @@
     },
     "host_integration_status": "Pi 4B 40-pin GPIO/SPI signals to retained LCD interface; exact pins, driver and shutdown sequencing pending. Not HDMI; no CM carrier.",
     "mechanical_cad": {
-      "status": "partial_installation_space_only",
+      "status": "rear_retention_and_route_prototype",
       "source": "default",
       "drawing": "product/references/LS027B7DH01-sharp-2010.pdf p26",
       "pocket_mm": [
@@ -114,17 +115,18 @@
       "pod_relief_center_local_y_mm": -25,
       "pod_relief_roof_mm": 1.5,
       "deck_internal_opening_mm": [
-        68,
+        71,
         54
       ],
       "deck_opening_center_y_mm": 21.5,
-      "retention": "NOT IMPLEMENTED; printed screw kit unavailable M2 button, socket-cap attempt timed out, replicated joint attempt failed on empty geometry. No failed source committed.",
-      "route": "Entry relief only. No complete physical FPC curve, connector endpoint, latch-open operating envelope or PCB mounting defined. Existing bottom-contact electrical choice unchanged.",
+      "retention": "Four kit-generated M2x5 joints with hard stops, rear frame, captured bezel flange and nonadhesive0.2/1.0mm front/rear supports. No glass in screw compression stack; pad pressure and print strength not verified.",
+      "route": "Complete native-tail mechanical target and inverted FH12 reference, full6.4mm asset depth and4.8mm latch-open reservation; physical tail length and eventual supported board remain to be bound.",
       "risks": [
-        "No panel solid: exact CAD lookup returned none; pocket is negative space derived from drawing, not a validated replacement model.",
-        "No rear support/frame or gasket installed, so the glass must not be installed in current unsecured model.",
-        "Front lip1mm retained; thin local sections and enlarged deck opening require print/strength tests.",
-        "Full tolerance stack, driver light shielding, polarizer stress and assembly path unresolved."
+        "No exact panel STEP; glass fit is checked against manufacturer drawing envelope only.",
+        "Native total tail length13.7mm is a provisional layout target; actual free length and insertion depth must be measured before board placement.",
+        "Soft support materials/stack, polarizer pressure, driver light shielding and print strength require physical test.",
+        "Connector is a mechanical reference target; there is no supporting PCB or electrical verification.",
+        "1mm front rise and original locator dimensions retained; other enclosure/battery/Pi/interlock integration remains outside this edit."
       ]
     }
   },

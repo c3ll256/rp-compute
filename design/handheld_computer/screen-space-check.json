@@ -1,8 +1,251 @@
 {
-  "revision": "268540ec06317d244a5bf510bcb53a19680152b53ef17af0cfd2cab8ad0a71d6",
+  "revision": "f1b3965728c51a459fa5cadbf4c7175cc290bdffdca400c7d71b543576a931db",
+  "step_sha256": "8f908d77c036adbb19f1048399cc94c3edf54a0ab64602a14ec171d4a981ce55",
+  "method": "Supplementary per-solid OCC checks on exact exported STEP; drawing-derived negative envelopes are not real panel/FPC models",
+  "solid_count": 104,
+  "valid": true,
   "pi_shell_overlap_mm3": [],
-  "method": "Supplementary per-solid OCC intersection on committed STEP",
-  "nominal_front_rise_mm": 1,
-  "retention_status": "not implemented; printed screw kit attempts failed",
-  "fpc_status": "entry relief only, endpoint and latch envelope not positioned; no PCB"
+  "fpc_negative_envelope_overlap_mm3": {
+    "entry": {
+      "shell": 0.0,
+      "fascia": 0,
+      "bezel": 0,
+      "retainer": 0,
+      "front_cushion": 0.0,
+      "rear_cushion": 0.0,
+      "pi4b": 0.0
+    },
+    "bend": {
+      "shell": 0,
+      "fascia": 0,
+      "bezel": 0,
+      "retainer": 0,
+      "front_cushion": 0.0,
+      "rear_cushion": 0.0,
+      "pi4b": 0.0
+    },
+    "return": {
+      "shell": 0,
+      "fascia": 0,
+      "bezel": 0,
+      "retainer": 0,
+      "front_cushion": 0.0,
+      "rear_cushion": 0,
+      "pi4b": 0.0
+    }
+  },
+  "latch_reservation_overlap_mm3": {
+    "shell": 0,
+    "fascia": 0,
+    "bezel": 0,
+    "retainer": 0,
+    "front_cushion": 0.0,
+    "rear_cushion": 0,
+    "pi4b": 0.0
+  },
+  "nominal_glass_overlap_mm3": {
+    "shell": 0.0,
+    "fascia": 0,
+    "bezel": 0,
+    "retainer": 0,
+    "front_cushion": 0,
+    "rear_cushion": 0,
+    "pi4b": 0.0
+  },
+  "contact_distances_mm": {
+    "front_cushion/bezel": 0.0,
+    "rear_cushion/retainer": 0.0,
+    "bezel/fascia": 1.7147918824156921e-10,
+    "bezel/retainer": 0.0,
+    "retainer/fascia": 1.4210854715202004e-14
+  },
+  "object_bounds_mm": {
+    "shell": {
+      "min": [
+        -42.5,
+        -57.5,
+        2.6999999000000003
+      ],
+      "max": [
+        42.5000001,
+        57.5000001,
+        27.0
+      ]
+    },
+    "base": {
+      "min": [
+        -42.5,
+        -57.5,
+        -1.110223024625e-16
+      ],
+      "max": [
+        42.5000001,
+        57.5,
+        2.4
+      ]
+    },
+    "fascia": {
+      "min": [
+        -38.50000010000001,
+        -10.145825722518206,
+        21.516836128014255
+      ],
+      "max": [
+        38.5000001,
+        53.18822868852147,
+        42.46751525300607
+      ]
+    },
+    "retainer": {
+      "min": [
+        -33.0,
+        -7.109613144932691,
+        19.56809599826787
+      ],
+      "max": [
+        33.0,
+        50.78822858852091,
+        35.85997822788807
+      ]
+    },
+    "retainer_screw_1": {
+      "min": [
+        -21.9900001,
+        -5.675597270811558,
+        17.87645450145435
+      ],
+      "max": [
+        -18.01,
+        -1.3776003721477823,
+        25.291047207652532
+      ]
+    },
+    "retainer_screw_2": {
+      "min": [
+        -21.9900001,
+        46.45320119519631,
+        29.911335908860746
+      ],
+      "max": [
+        -18.0099999,
+        50.75119809386008,
+        37.32592861505893
+      ]
+    },
+    "retainer_screw_3": {
+      "min": [
+        18.0099999,
+        -5.675597270811558,
+        17.87645450145435
+      ],
+      "max": [
+        21.99,
+        -1.3776003721477823,
+        25.291047207652532
+      ]
+    },
+    "retainer_screw_4": {
+      "min": [
+        18.0099999,
+        46.45320119519631,
+        29.911335908860746
+      ],
+      "max": [
+        21.9900001,
+        50.75119809386008,
+        37.32592861505893
+      ]
+    },
+    "bezel": {
+      "min": [
+        -35.0,
+        -2.4262768910897123,
+        25.534041850628178
+      ],
+      "max": [
+        35.0,
+        46.180596760441404,
+        40.91964710390762
+      ]
+    },
+    "power_cap": {
+      "min": [
+        40.15,
+        -41.5000001,
+        7.499999999999999
+      ],
+      "max": [
+        43.150000000000006,
+        -32.5,
+        16.5
+      ]
+    },
+    "fpc_zif": {
+      "min": [
+        -4.55,
+        2.509365032396753,
+        24.415653689880436
+      ],
+      "max": [
+        4.55,
+        8.779076105173601,
+        27.704420007688093
+      ]
+    },
+    "pi4b": {
+      "min": [
+        -17.000000000005002,
+        -34.99999999999999,
+        3.449999899999983
+      ],
+      "max": [
+        41.500000000000014,
+        57.860000000000035,
+        23.339999999999982
+      ]
+    },
+    "front_cushion": {
+      "min": [
+        -31.4,
+        -0.7947553535079389,
+        28.732425735605773
+      ],
+      "max": [
+        31.4,
+        40.972761031462866,
+        38.559703895574806
+      ]
+    },
+    "rear_cushion": {
+      "min": [
+        -31.4,
+        -0.380845413514896,
+        26.160088764572862
+      ],
+      "max": [
+        31.4,
+        41.56663181493114,
+        36.76686297637005
+      ]
+    }
+  },
+  "nominal_front_rise_mm": 1.0,
+  "glass_locator_mm": [
+    63.4,
+    43.42
+  ],
+  "physical_qualification": "13.7mm native tail total length, pad stress/material and actual insertion stop remain unverified; no PCB",
+  "inspection_views": [
+    ".work/cache/cad-workbench/designs/handheld_computer/observations/f1b3965728c51a459fa5cadbf4c7175cc290bdffdca400c7d71b543576a931db/look-466776c6fccedd68ecb8ad60/workbench_bottom.png",
+    ".work/cache/cad-workbench/designs/handheld_computer/observations/f1b3965728c51a459fa5cadbf4c7175cc290bdffdca400c7d71b543576a931db/look-466776c6fccedd68ecb8ad60/workbench_iso_back.png"
+  ],
+  "clearances_from_workbench_mm": {
+    "bezel_shell": 0.5,
+    "retainer_shell": 0.404,
+    "connector_retainer": 4.1218,
+    "connector_bezel": 3.33,
+    "fascia_shell": 0.3
+  },
+  "retention_status": "implemented four M2x5 hard-stop frame and captured bezel, physical stress/strength unverified",
+  "fpc_status": "complete negative route and connector target; physical total tail length and board fixation unverified"
 }

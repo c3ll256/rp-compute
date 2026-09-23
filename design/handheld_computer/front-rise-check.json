@@ -1,16 +1,21 @@
 {
-  "revision": "59a92a25ffb35e410960806eab6c57a2dcca3fff65737c2e6d4c8975142d086f",
+  "revision": "f1b3965728c51a459fa5cadbf4c7175cc290bdffdca400c7d71b543576a931db",
   "datum": "nominal front slope-plane intersection before roundover",
   "deck_z_mm": 27,
   "fascia_base_z_mm": 27.3,
   "fascia_front_height_mm": 0.7,
-  "total_rise_mm": 1,
-  "unchanged_objects": [
-    "shell",
-    "base",
-    "power_cap",
-    "pi4b"
-  ],
-  "checks": "source/placement arithmetic and unchanged object hashes; visual iso/right and Workbench collision inspected",
-  "qualification": "LCD/FPC absent; no physical fit or print validation"
+  "total_rise_mm": 1.0,
+  "all_preexisting_bezel_and_fascia_parameters_unchanged": {
+    "bezel": true,
+    "fascia": true
+  },
+  "all_preexisting_object_placements_unchanged": {
+    "shell": true,
+    "base": true,
+    "fascia": true,
+    "bezel": true,
+    "power_cap": true,
+    "pi4b": true
+  },
+  "qualification": "Source/placement proof; added rear flange and retention change topology without resizing original glass pocket. No physical tolerance or strength test."
 }

@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "d603d5cb709fc1349b33c727baa3dd4c969751e5fdb8c8e4f1c33f0b1c71322a"
+          "sha256": "b0e7e3d20dd65efd1d5ac8736a71426d76d5149bc99f9811e562e20e4bedfb64"
         }
       ],
       "dependencies": []
@@ -40,7 +40,7 @@
           "target": "fascia",
           "order": 0,
           "path": "design/handheld_computer/source/parts/fascia/000-fascia.py",
-          "sha256": "554301c32d59e66aa42c8d7e2be763784370341cc49afffda2184b95aee23f77"
+          "sha256": "72ed37e83b58ceb8ad1d71a99b849fa68a5987bb1d12a4b375c820611432277d"
         }
       ],
       "dependencies": []
@@ -54,7 +54,7 @@
           "target": "bezel",
           "order": 0,
           "path": "design/handheld_computer/source/parts/bezel/000-bezel.py",
-          "sha256": "42a25f69ba12eee190677414f0843210eca4ee162aef4d8f3bfd4e191f6a6e00"
+          "sha256": "cb752d27f215b046a382b7ede17afc0a9594195d361e57bc0cc735d18d451823"
         }
       ],
       "dependencies": []
@@ -83,6 +83,27 @@
           "order": 0,
           "path": "design/handheld_computer/source/parts/imports/000-pi4b.py",
           "sha256": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40"
+        },
+        {
+          "id": "fpc_zif",
+          "target": "imports",
+          "order": 1,
+          "path": "design/handheld_computer/source/parts/imports/001-fpc_zif.py",
+          "sha256": "5321d0e619d3d08ab5e4ec2dc60610fffb0091b49572cfdf44c456344fe5e69e"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "screen_cushions",
+      "label": "screen_cushions",
+      "cells": [
+        {
+          "id": "screen_cushions",
+          "target": "screen_cushions",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/screen_cushions/000-screen_cushions.py",
+          "sha256": "99d4412dc2fdf2ffd47b86592ce3e38e8b1721dca7f9abdb04f3b28bfa861ac2"
         }
       ],
       "dependencies": []
@@ -94,7 +115,7 @@
       "target": "shell",
       "label": "Rear and side port shell",
       "kind": "generated",
-      "shapeHash": "37ae9f6ccfe588b1019b1abc35a69ea48430d1b8f53f113a111191e46d2b0b74",
+      "shapeHash": "a038b48649236ceeb639c37375be78d3c2b8dbf38220ce7a179b3ec9dee29667",
       "transform": {
         "positionMm": [
           0,
@@ -144,9 +165,9 @@
     {
       "id": "fascia",
       "target": "fascia",
-      "label": "Screen housing tail relief",
+      "label": "Screen housing mounts",
       "kind": "generated",
-      "shapeHash": "d147d3552d9a97754cda0c51f96865dec3b4f1b63bcae17aec552f4dda30e5b4",
+      "shapeHash": "c84eb09d76c6cb40c1a7d169c6d40efd585d2058b0529f06264073d3f0d64616",
       "transform": {
         "positionMm": [
           0,
@@ -168,11 +189,141 @@
       "datums": []
     },
     {
+      "id": "retainer",
+      "target": "fascia",
+      "label": "Rear retaining frame",
+      "kind": "generated",
+      "shapeHash": "fea02387aed5566c0979ae86e6064fb2e25e9eb46c9ca483974116cf42abb870",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "retainer_screw_1",
+      "target": "fascia",
+      "label": "M2 retaining screw",
+      "kind": "generated",
+      "shapeHash": "cf3a96a9477766c67220b0e58811e6f7329a26ebb6bb32d982dd2e18a5ebc536",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "retainer_screw_2",
+      "target": "fascia",
+      "label": "M2 retaining screw",
+      "kind": "generated",
+      "shapeHash": "0b96ac36b8691a622f7c302e75512e04aaab6bbb67774e33a0a9fa08601d46c6",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "retainer_screw_3",
+      "target": "fascia",
+      "label": "M2 retaining screw",
+      "kind": "generated",
+      "shapeHash": "3ec7236af5e718359f39c75bd65a0cab823e0e76cbce1a192e1b865547979531",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "retainer_screw_4",
+      "target": "fascia",
+      "label": "M2 retaining screw",
+      "kind": "generated",
+      "shapeHash": "ab84de37b2dd7ba8c7836704b0d7e052b3d8bf8d03d4c902972291272f7b69bf",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
       "id": "bezel",
       "target": "bezel",
       "label": "LCD locating bezel",
       "kind": "generated",
-      "shapeHash": "c8ec0125d5a862e250d35457193ca5d69b3bb1ec448f903103c714e6a7d8ab87",
+      "shapeHash": "8774de76e9005319f79bdaac97948d01a5322135ab4d30ecd8ee75b0bd251129",
       "transform": {
         "positionMm": [
           0,
@@ -220,6 +371,32 @@
       "datums": []
     },
     {
+      "id": "fpc_zif",
+      "target": "imports",
+      "label": "fpc_zif",
+      "kind": "imported",
+      "shapeHash": "a8dcc594d6b724561b9222a2cf0f1fcbca9757dfb4ceba64f1c24bffc877523e",
+      "transform": {
+        "positionMm": [
+          0,
+          6.7628506593,
+          27.254517899
+        ],
+        "rotationDeg": [
+          -167,
+          0,
+          -180
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
       "id": "pi4b",
       "target": "imports",
       "label": "Pi 4B reference",
@@ -234,6 +411,58 @@
         "rotationDeg": [
           90,
           90,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "front_cushion",
+      "target": "screen_cushions",
+      "label": "Front light seal",
+      "kind": "generated",
+      "shapeHash": "3e1683f4becbf3cd5306da3885fe73f734d2aa45350c9ef77c0aa57710576bec",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "rear_cushion",
+      "target": "screen_cushions",
+      "label": "Rear compliant support",
+      "kind": "generated",
+      "shapeHash": "503045f26a376484855ba2afd345160ce6eca3d1ac4f4da88f4a2b26ec3e4e30",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
           0
         ],
         "rotationOrder": "XYZ",
@@ -260,10 +489,24 @@
         "sourceVersion": "c6113328a5695b976a010a203a90fe86191769bf",
         "declaredSha256": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe"
       }
+    },
+    {
+      "id": "fpc_zif",
+      "kind": "step",
+      "path": "design/handheld_computer/source/assets/e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9.step",
+      "sha256": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9",
+      "label": "fpc_zif",
+      "provenance": {
+        "sourcePath": ".work/cache/step-parts/hirose_fh12_10s_0_5sh_1x10_1mp_p0_50mm_horizontal.step",
+        "provider": "step.parts / KiCad family reference",
+        "sourceUrl": "https://www.step.parts/parts/hirose_fh12_10s_0_5sh_1x10_1mp_p0_50mm_horizontal",
+        "sourceVersion": "c6113328a5695b976a010a203a90fe86191769bf",
+        "declaredSha256": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9"
+      }
     }
   ],
   "fits": [],
-  "updatedAt": "2026-09-22T13:23:16.315Z",
+  "updatedAt": "2026-09-23T05:24:26.034Z",
   "parameters": {
     "shell": {
       "case_width": 85,
@@ -284,7 +527,7 @@
       "shell_groove_height": 2,
       "shell_groove_depth": 0.7,
       "shell_groove_y": -33,
-      "shell_passage_width": 68,
+      "shell_passage_width": 71,
       "shell_passage_depth": 54,
       "shell_passage_y": 21.5,
       "shell_charge_y": -37,
@@ -313,7 +556,12 @@
       "shell_pi_usb_c_z": 9,
       "shell_pi_usb_c_width": 12,
       "shell_pi_usb_c_height": 8,
-      "shell_pi_usb_c_outer_wall": 1.5
+      "shell_pi_usb_c_outer_wall": 1.5,
+      "shell_lcd_mount_x": 20,
+      "shell_lcd_mount_y_front": -28,
+      "shell_lcd_mount_y_rear": 25.5,
+      "shell_lcd_well_width": 6.4,
+      "shell_lcd_well_depth": 7
     },
     "base": {
       "base_width": 85,
@@ -340,7 +588,29 @@
       "fascia_fpc_length": 10,
       "fascia_fpc_y": -25,
       "fascia_fpc_roof": 1.5,
-      "fascia_fpc_depth": 5
+      "fascia_fpc_depth": 5,
+      "retainer_width": 66,
+      "retainer_depth": 44,
+      "retainer_y": -1.77,
+      "retainer_thickness": 2,
+      "retainer_back_gap": 1,
+      "retainer_rail_width": 3,
+      "retainer_tail_gap": 16,
+      "retainer_ear_width": 5.4,
+      "retainer_ear_depth": 6,
+      "retainer_engagement": 3,
+      "retainer_screw_x": 20,
+      "retainer_screw_y_front": -28,
+      "retainer_screw_y_rear": 25.5,
+      "retainer_seat_z": -7,
+      "retainer_guard_width": 19,
+      "retainer_guard_depth": 7,
+      "retainer_guard_wall": 1.5,
+      "retainer_guard_y": -24.75,
+      "fpc_bend_start": 1,
+      "fpc_inner_radius": 1.35,
+      "fpc_free_length": 13.7,
+      "fpc_path_clearance": 0.25
     },
     "bezel": {
       "bezel_width": 66,
@@ -354,7 +624,13 @@
       "bezel_front_lip": 1.2,
       "bezel_glass_airgap": 0.2,
       "bezel_fpc_width": 12,
-      "bezel_fpc_relief_height": 2.3
+      "bezel_fpc_relief_height": 2.3,
+      "bezel_flange_width": 70,
+      "bezel_flange_depth": 47,
+      "bezel_flange_thickness": 1.2,
+      "bezel_flange_top": -3,
+      "bezel_flange_tail_gap": 16,
+      "bezel_flange_mount_clearance": 0.3
     },
     "power_cap": {
       "button_diameter": 9,
@@ -362,6 +638,20 @@
       "power_cap_recess": 2,
       "power_cap_edge": 0.7
     },
-    "imports": {}
+    "imports": {},
+    "screen_cushions": {
+      "front_cushion_thickness": 0.2,
+      "front_cushion_inset": 0,
+      "front_cushion_window_w": 59.4,
+      "front_cushion_window_h": 35.88,
+      "front_cushion_tail_gap": 12,
+      "front_cushion_z": -1.4,
+      "rear_cushion_thickness": 1,
+      "rear_cushion_inset": 0,
+      "rear_cushion_window_w": 60,
+      "rear_cushion_window_h": 38,
+      "rear_cushion_tail_gap": 16,
+      "rear_cushion_z": -4.04
+    }
   }
 }

@@ -76,7 +76,8 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform.",
-      "selection_reason": "Exact LS027B7DH01 retained. CAD now has a rear-loading63.4x43.42mm negative pocket with0.3mm nominal per-side allowance and1.77mm active-area offset. Front rise1mm and slope13deg retained. No exact panel STEP found. Glass retention, rear support, polarizer load and actual fit are NOT completed; current pocket is not a secured mount."
+      "selection_reason": "Exact LS027B7DH01 retained. CAD now has a rear-loading63.4x43.42mm negative pocket with0.3mm nominal per-side allowance and1.77mm active-area offset. Front rise1mm and slope13deg retained. No exact panel STEP found. Glass retention, rear support, polarizer load and actual fit are NOT completed; current pocket is not a secured mount.",
+      "mechanical_integration": "Rear-loading locator retained; four M2 hard-stop rear frame, bezel rear flange, nonadhesive front/rear supports and guarded native FPC fold modeled. Physical pressure/material/length checks remain."
     },
     {
       "id": "charger",
@@ -173,7 +174,7 @@
           "product/references/LS027B7DH01-sharp-2010.pdf p26"
         ]
       },
-      "selection_reason": "0.30mm cable,10contacts at0.5mm, bottom-contact identity unchanged. CAD provides12mm bezel exit and14mm pod underside entry relief only. Connector position, full route and open-latch operation remain unresolved. Same-family KiCad STEP downloaded for dimensional research (6.4mm full depth including terminals), not installed and not evidence of(55) suffix qualification. Do not infer a folded-back contact configuration.",
+      "selection_reason": "Exact bottom-contact FH12-10S-0.5SH(55), 10 contacts at0.5mm for0.30mm tail, retained. CAD uses a 180deg fold with inverted connector so contacts still face its future board. Same-family KiCad STEP is a dimensional reference, not suffix certification. Full mechanical path and latch reservation are in fpc-route.json; no PCB. Native tail overall13.7mm is an unverified layout target requiring physical measurement before board placement is frozen.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
@@ -893,6 +894,90 @@
       "required_user_evidence": [],
       "supply_risk": "Actual pack must pass polarity/charge/current/temperature acceptance before energized use; dimensions remain necessary for final enclosure fit.",
       "part_identity": "709e80c88487a241"
+    },
+    {
+      "id": "lcd_retainer_screws",
+      "role": "standard fastener",
+      "name": "ISO 4762 M2-0.4 x5 mm socket-head cap screw",
+      "quantity": 4,
+      "supplier": "User-selected standard hardware or prototype fabrication",
+      "manufacturer": "Generic",
+      "part_number": "ISO4762-M2x5",
+      "mpn": "ISO4762-M2x5",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "description": "Four underside screws; 2mm through stack and3mm selected engagement, kit-generated holes. PLA prototype calibration and torque remain untested.",
+      "selection_reason": "Mechanical prototype specification for this CAD stage; not an order or manufacturing release.",
+      "part_identity": "55d31cc0476126b1"
+    },
+    {
+      "id": "lcd_rear_frame",
+      "role": "project printed part",
+      "name": "Custom printed LCD rear retaining frame",
+      "quantity": 1,
+      "supplier": "User-selected standard hardware or prototype fabrication",
+      "manufacturer": "Project custom",
+      "part_number": "handheld_computer-retainer",
+      "mpn": "handheld_computer-retainer",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "description": "Prototype rear frame with hard stops and open FPC guard. PLA is the disclosed modeling default, not thermal qualification.",
+      "selection_reason": "Mechanical prototype specification for this CAD stage; not an order or manufacturing release.",
+      "part_identity": "51db9b06172e21d4"
+    },
+    {
+      "id": "lcd_front_cushion",
+      "role": "custom die-cut part",
+      "name": "Custom nonadhesive black front light seal,0.20mm",
+      "quantity": 1,
+      "supplier": "User-selected standard hardware or prototype fabrication",
+      "manufacturer": "Project custom",
+      "part_number": "handheld_computer-front-cushion",
+      "mpn": "handheld_computer-front-cushion",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "description": "62.8x42.82 outline with active-area aperture; source geometry defines cut shape. Non-chloroprene, low-outgassing compliant material, physical compatibility and pressure untested.",
+      "selection_reason": "Mechanical prototype specification for this CAD stage; not an order or manufacturing release.",
+      "part_identity": "7838955eb9b5953f"
+    },
+    {
+      "id": "lcd_rear_cushion",
+      "role": "custom die-cut part",
+      "name": "Custom nonadhesive rear compliant support,1.00mm",
+      "quantity": 1,
+      "supplier": "User-selected standard hardware or prototype fabrication",
+      "manufacturer": "Project custom",
+      "part_number": "handheld_computer-rear-cushion",
+      "mpn": "handheld_computer-rear-cushion",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "description": "62.8x42.82 outline,60x38 opening and16mm tail gap; low-outgassing non-chloroprene compliant material, physical compatibility and pressure untested.",
+      "selection_reason": "Mechanical prototype specification for this CAD stage; not an order or manufacturing release.",
+      "part_identity": "4ee7416e04d40eb3"
     }
   ],
   "alternatives": [

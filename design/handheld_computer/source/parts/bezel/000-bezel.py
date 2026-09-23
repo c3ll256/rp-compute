@@ -26,5 +26,20 @@ bezel-=Pos(0,GLASS_Y,-bezel_recess-1)*extrude(Rectangle(GLASS_W+2*bezel_pocket_c
 bezel-=Pos(0,-bezel_height/2,-bezel_recess+bezel_fpc_relief_height/2)*Box(bezel_fpc_width,6,bezel_fpc_relief_height)
 assert bezel_pocket_clearance>0
 print('GLASS_TOP_TARGET',seat_z-bezel_glass_airgap,'GLASS_BOTTOM_TARGET',seat_z-bezel_glass_airgap-GLASS_T)
+# Back flange traps the inner bezel between housing roof and rear frame.
+# The original glass pocket, window and 1mm housing rise are unchanged.
+bezel_flange_width=param('bezel_flange_width',70.0)
+bezel_flange_depth=param('bezel_flange_depth',47.0)
+bezel_flange_thickness=param('bezel_flange_thickness',1.2)
+bezel_flange_top=param('bezel_flange_top',-3.0)
+bezel_flange_tail_gap=param('bezel_flange_tail_gap',16.0)
+flange=Pos(0,GLASS_Y,bezel_flange_top-bezel_flange_thickness)*extrude(Rectangle(bezel_flange_width,bezel_flange_depth)-Rectangle(GLASS_W+2*bezel_pocket_clearance,GLASS_H+2*bezel_pocket_clearance),amount=bezel_flange_thickness)
+flange-=Pos(0,-bezel_flange_depth/2+GLASS_Y,bezel_flange_top)*Box(bezel_flange_tail_gap,6,4*bezel_flange_thickness)
+bezel_flange_mount_clearance=param('bezel_flange_mount_clearance',0.3)
+# Notches affect only new flange; original 66x49 locator is preserved.
+for xx in [-20,20]:
+ flange-=Pos(xx,-28,bezel_flange_top)*Box(5.4+2*bezel_flange_mount_clearance,6+2*bezel_flange_mount_clearance,4*bezel_flange_thickness)
+bezel=bezel.fuse(flange)
+assert len(bezel.solids())==1
 bezel.color=Color(0.08,0.09,0.09)
 publish('bezel',bezel,'LCD locating bezel')

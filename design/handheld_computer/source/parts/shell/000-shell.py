@@ -65,5 +65,16 @@ body-=Pos(case_width/2,shell_jack_y,shell_jack_z)*Rot(0,90,0)*Cylinder(shell_jac
 # This blocks access geometrically; it is NOT the future working electrical interlock.
 blind=Pos(case_width/2-shell_pi_usb_c_outer_wall,shell_pi_usb_c_y,shell_pi_usb_c_z)*extrude(Plane.YZ*RectangleRounded(shell_pi_usb_c_width,shell_pi_usb_c_height,shell_port_radius),amount=-4*shell_wall)
 body-=blind
+# Concealed wells under the screen pod clear the rear-frame mounting ears.
+# Outer shell, front groove and all external port openings remain untouched.
+shell_lcd_mount_x=param('shell_lcd_mount_x',20.0)
+shell_lcd_mount_y_front=param('shell_lcd_mount_y_front',-28.0)
+shell_lcd_mount_y_rear=param('shell_lcd_mount_y_rear',25.5)
+shell_lcd_well_width=param('shell_lcd_well_width',6.4)
+shell_lcd_well_depth=param('shell_lcd_well_depth',7.0)
+SCREEN_FRAME=Pos(0,21.521201483,35.310909266)*Rot(13,0,0)
+for xx in [-shell_lcd_mount_x,shell_lcd_mount_x]:
+ for yy in [shell_lcd_mount_y_front,shell_lcd_mount_y_rear]:
+  body-=SCREEN_FRAME*Pos(xx,yy,-8)*Box(shell_lcd_well_width,shell_lcd_well_depth,20)
 body.color=Color(0.88,0.86,0.79)
 publish('shell',body,'Rear and side port shell')

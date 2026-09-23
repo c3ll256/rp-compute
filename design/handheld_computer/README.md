@@ -1,22 +1,34 @@
-# Pi4B terminal — 1mm front rise, screen installation space
+# Pi4B terminal — display rear retention and native FPC route
 
 ## Goal and scope
-Active user request: 按现在1mm前沿的造型继续完善屏幕安装和FPC空间. CAD only, no PCB. Partial delivery: rear-loading glass locator and tail entry relief implemented; mechanical retention and full FPC routing NOT finished because printed screw joint candidates failed.
+Current user request: 保留这版定位槽和1mm前沿，继续解决屏幕背面固定结构及完整FPC路径，不做PCB.
+This delivery is the screen-subassembly CAD prototype: rear retaining frame, captured bezel rear flange, compliant support cut patterns, four M2 fasteners, native-tail negative route and a positioned connector family reference. No PCB, real panel solid, wiring redesign or manufacturing-fit claim.
 
-## Exterior direction
-Base85x115x27mm, housing77mm wide/65mm face at13deg unchanged. Housing[0,21.521201483,27.3], front body height0.7mm. Nominal front rise1mm includes0.3mm seam, measured at theoretical sharp slope/front-plane intersection before0.6mm roundover; not uniform wall thickness. Overall height42.467515mm. Bezel origin[0,21.521201483,35.310909266],rotation[13,0,0] unchanged. Its depth now49mm, thickness3.6/recess3.5, preserving top elevation. Glass negative pocket63.4x43.42, centerY=-1.77 in active-area frame. Nominal side clearance0.3.12mm tail exit,14x10x5mm housing underside relief;1.5mm remaining local roof. Deck interior opening68x54mm atY21.5 clears inward bezel extension.
+## Preserved exterior and locator
+Base85x115x27mm, housing77mm wide/65mm face at13deg. Housing origin[0,21.521201483,27.3], front body height0.7mm. Nominal front rise1mm includes0.3mm seam, at theoretical sharp slope/front-plane intersection before roundover. Overall height42.467515mm unchanged. Bezel origin[0,21.521201483,35.310909266],rotation[13,0,0], original outer66x49,thickness3.6/recess3.5, window,63.4x43.42 glass locator and Y=-1.77 offset unchanged.
+Bezel adds an under-roof70x47x1.2mm flange at normalZ=-4.2..-3.0. Existing pocket is not resized. Shell opening is71x54mm centeredY21.5 with four concealed mount wells; exterior ports, front groove, base/button/Pi placements unchanged.
 
-## Port layout and evidence
-USB/RJ45 rear, two micro-HDMI/nativeAV right, charging left. No front port. PiUSB-C blind clearance is NOT a working interlock; microSD service after bottom removal/power isolation remains unverified. Pi placement[39,-30.5,7],rotation[90,90,0] unchanged; base, button and all external port shapes unchanged. Shell interior opening alone changed.
-Pi asset SHA1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe, step.parts version c6113328a5695b976a010a203a90fe86191769bf; provider license not returned. Exact Sharp LS027B7DH01 p5/26 governs the negative pocket; no matching LCD STEP found. FH12 family model researched but not imported/positioned, suffix not certified by that asset.
+## Retention and FPC
+Four ISO4762 M2x5 underside joints, X=+-20,Y=-28/+25.5 in screen plane,2mm through thickness,3mm selected engagement. Printed-screw-joint-v1 generates holes and hardware. Receiver faces and retainer ears are hard stops; glass is not in screw clamping stack. Retainer supports nominal0.20mm front and1.00mm rear nonadhesive die-cut cushions. Pad material/compression, polarizer stress and print strength are NOT verified. Use low-outgassing non-chloroprene compatible material, no adhesive on polarizer; nominal pads are not a qualified supplier product.
+Native FPC starts atY=-23.18,Z=-2.23;1mm straight,180deg back fold, innerR1.35, centerR1.5. Unfolded bend interval1..5.712389mm is within Sharp0.8..6.0mm; minimumR0.45 and max3 bend cycles retained.11mm-wide negative route includes0.25mm surface clearance and ends atY=-16.192389,Z=-5.23, with4mm straight stiffener and3.4mm nominal insertion.
+IMPORTANT:13.7mm free-tail total is a disclosed layout estimate from drawing proportions, not an exact toleranced Sharp dimension. Physical tail length, actual insertion stop and pin1 must be verified before freezing the board interface. Thus the route is complete as a CAD target, not certified physical fit.
+FH12 bottom-contact identity retained. Invert reference around localY so folded copper still faces the future PCB. Connector worldposition[0,6.7628506593,27.254517899],XYZ[-167,0,-180]; local board datumZ=-4.53. Asset includes6.4mm full terminal depth.4.8mm open latch plus clearance reserved for operation on removed pod. No supporting PCB or connector fixation is modeled. The imported model proves family geometry only, not(55)suffix.
+See screen-installation.md and fpc-route.json for full path, assembly order and remaining physical checks.
 
-## Model boundary and checks
-Five custom solids plus89-solid Pi reference,94 valid solids. Isolated underside and ISO inspected; automaticPi/shell test exceeds89 candidate limit. Fresh supplementary per-solid OCC test found no overlap>1e-5mm³, recorded in screen-space-check.json. This is NOT whole-hardware clearance: LCD, FPC, connector, PCB and battery are absent. No rear retention frame, standoffs or fasteners were successfully generated. Current bezel is only a locator, cannot retain glass. FPC relief is only entry space, not validated bend/latch/assembly path. Full tolerance/driver-light-shielding/polarizer-pressure/print-strength tests pending. See screen-installation.md and screen-part-plan.json. No final hardware-fit or manufacturing claim.
+## Evidence and model boundary
+Sharp LS027B7DH01 original PDF pp5,26; Hirose exact(55) drawing pp1,5. Panel model search previously found no exact STEP; drawing-based negative envelopes are used for clearance without publishing a fake panel/FPC.
+Pi assetSHA1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe remains unchanged. Connector family assetSHAe9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9 from step.parts/KiCad, sourceversionc6113328a5695b976a010a203a90fe86191769bf. Source licenses not inferred.
+Workbench overlap observations and supplementary exact-export checks are recorded in screen-space-check.json. Only exact final export is the handoff; physical tests have not occurred.
 
-## Interfaces and downstream
-Preserve compute_mount,sharp_display_fit,usb_access,battery_fit,control_access,gpio_dock,pi_native_ports. Parameters and absolute placements require coordinated edits, not auto-linked. Finish rear support/retention and complete FPC endpoint/open-latch envelope before treating the display installation as complete. GPIO stack, battery, cooling, bottom/pod fixation and working interlock remain outstanding. No PCB this query.
+## Out of scope
+Pi attachment, GPIO docking stack, battery size/compartment, cooling, pod/base overall fasteners, working USB-C interlock and complete electrical implementation remain outstanding. PiUSB-C blind wall is not an electrical interlock. This query does not generate a PCB. Do not judge this screen-only prototype as a complete production terminal.
 
 ## Making and assembly
 Visual study only: do not order/print as a working enclosure. Walls nominal2.4mm, detachable bottom with a visual seam; no retention features or fasteners yet. Parts may sit with intentional assembly clearances and are not fixed together. Material colours: ivory shell/lid, orange display housing/button, charcoal bezel. No physical assembly, support strategy, print calibration or fit test has been performed. Powered use and battery installation are not authorized by this CAD deliverable.
 
 Rear-loading locator pocket is now present but cannot hold the screen by itself. Proposed later assembly is screen into removed pod from rear, fit low-stress support/retainer, connect tail with full latch access, then attach pod. Do not suspend LCD by FPC, stick adhesive on polarizer or bend at glass edge. Enlarged interior deck opening and thin front regions require strength checks. Failed printed-screw-kit candidates committed no geometry; retain their failure record rather than substituting hand-modeled screw joints.
+
+
+### Current prototype update
+The preceding making notes are retained historical records: the statements about no rear retainer/fasteners and entry-only FPC describe the previous revision and are superseded by this query's geometry above. There has still been no physical print or assembly test.
+Default PLA is a CAD prototype assumption; calibrate M2 holes and verify local thin-wall strength. Print screw axes upright where possible; sloping housing and mounting receivers may need supports. Soft pads are die-cut, not FDM parts. Assemble glass/pads/frame on the removed inverted pod, alternate the four screws only to their hard stops, shape the tail once with a radius guide, insert its stiffener and close the latch before pod installation. Remove Pi for tool access if necessary. Verify pad chemistry/compression and display image uniformity before powered integration. The future supported connector board is not part of this delivery.
