@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "ready",
+  "status": "draft",
   "bom_ready": true,
   "requirements_digest": "fb15c7b1e0a2d65439d20784fd3c9efc4502d520bcdef9fab979d8033d816c01",
   "items": [
@@ -208,6 +208,38 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "selection_status": "conditional_pi4b_reference_design_candidate",
       "requirements_review": "Pi4B budget now 5.1V nominal/3.2A total design target, SYS>=3.5V and assumed efficiency>=85%; not a measured or guaranteed output. Complete pack and GPIO docking power path unresolved."
+    },
+    {
+      "id": "cc_3a_gate",
+      "role": "usb_c_3a_advertisement_hardware_gate",
+      "name": "SN74AHC1G32DBVR",
+      "designators": [
+        "U_CC_OR"
+      ],
+      "quantity": 1,
+      "supplier": "LCSC",
+      "manufacturer": "Texas Instruments",
+      "part_number": "SN74AHC1G32DBVR",
+      "mpn": "SN74AHC1G32DBVR",
+      "lcsc_code": "C7470",
+      "jlc_smt_library": "extended",
+      "procurement_status": "catalog_verified",
+      "package": "SOT-23-5 (DBV), 5 pins",
+      "stock": 36799,
+      "unit_price_cny": 0.438,
+      "source": "default",
+      "product_url": "https://item.szlcsc.com/7947.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221228/12542364885AFFACC5C8B45402C2A3D3.jpg",
+      "datasheet_url": "https://www.ti.com/lit/ds/symlink/sn74ahc1g32.pdf",
+      "assembly": {
+        "population": "mounted",
+        "method": "jlc_smt",
+        "side": "top"
+      },
+      "required_user_evidence": [],
+      "supply_risk": "JLC Extended library; no qualifying Basic result in exact part search. USB-C input remains unverified until prototype tests.",
+      "selection_reason": "TI SN74AHC1G32DBVR datasheet SCLS317 package table and DBV top-view pin diagram: 5-pin SOT-23 OR gate; A=1, B=2, GND=3, Y=4, VCC=5. Used only to hold TPS259531 EN/OVLO disabled unless both TUSB320LAI GPIO outputs report the 3 A advertisement. The Type-C interface remains bench-unverified.",
+      "part_identity": "6c6f417c9753a425"
     },
     {
       "id": "supervisor",
@@ -995,7 +1027,11 @@
       "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200810/C594409_FCB6DAC01E90F430A6828D5E2.pdf",
       "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20251204/456A3ED579F4C83BA33F55E1000B8099.jpg",
       "procurement_status": "selected",
-      "assembly": {"population": "mounted", "method": "jlc_smt", "side": "top"},
+      "assembly": {
+        "population": "mounted",
+        "method": "jlc_smt",
+        "side": "top"
+      },
       "description": "Original JST GHD 16-circuit, 1.25mm, locking SMT board header. Internal cold-swap GPIO module connector; pinout in front-module-interface.md.",
       "selection_reason": "Exact mate and crimp contacts documented in JST GHD datasheet; 1.25A contact rating is not the module power budget.",
       "part_identity": "68b22d39e2876966"
@@ -1016,7 +1052,10 @@
       "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200825/C594558_2C350399E093CC4C4F25696E7F27BE98.pdf",
       "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20250325/B9163C596E0782C8298D4E541F773404.jpg",
       "procurement_status": "selected",
-      "assembly": {"population": "not_mounted", "method": "not_assembled"},
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
       "description": "Original JST 16-position GHD mating cable housing, locking, keyed; line-end of removable GPIO module harness.",
       "selection_reason": "JST GHD series datasheet lists this exact 16-circuit mate for the selected board header.",
       "part_identity": "db43090c11030fe7"
@@ -1036,7 +1075,10 @@
       "product_url": "https://item.szlcsc.com/622903.html",
       "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200810/C594409_FCB6DAC01E90F430A6828D5E2.pdf",
       "procurement_status": "selected",
-      "assembly": {"population": "not_mounted", "method": "not_assembled"},
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
       "description": "Original JST GHD crimp contact for 26–30AWG wire; 16 contacts per module cable housing. Harness length and strain relief still need integration.",
       "selection_reason": "Exact crimp terminal and supported wire range from JST GHD series datasheet.",
       "part_identity": "7fe94ac3f44de139"
@@ -1053,7 +1095,10 @@
       "stock": null,
       "source": "default",
       "procurement_status": "project_fabrication_required",
-      "assembly": {"population": "not_mounted", "method": "not_assembled"},
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
       "description": "Flush 70x37x1.4mm blank front module with locating tongue; future function modules copy the same mechanical datum.",
       "selection_reason": "Defined by committed enclosure geometry and the user-marked interchangeable area.",
       "part_identity": "622d0f7d7c815f29"
@@ -1070,7 +1115,10 @@
       "stock": null,
       "source": "default",
       "procurement_status": "external_procurement_required",
-      "assembly": {"population": "not_mounted", "method": "not_assembled"},
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
       "description": "Four M2x4 socket-head screws for the user-replaceable front cassette; printed joint geometry generated by printed-screw-joint-v1. Screw length confirmed against 4mm underhead CAD height.",
       "selection_reason": "Top-access removable module fastening; repeated self-forming-thread service life remains untested.",
       "part_identity": "642d0879861d9f2f"
@@ -1794,8 +1842,41 @@
         "battery"
       ],
       "resolution": "Actual complete-pack dimensions/outlet required before final enclosure fit; not needed for board-side electrical design. Do not publish a battery-fit pass without them."
+    },
+    {
+      "id": "boost_thermal_footprint",
+      "owner": "engineering",
+      "target_stage": "pcb",
+      "design_critical": false,
+      "component_refs": [
+        "boost"
+      ],
+      "resolution": "TI TPS61088 datasheet RHL0020A land pattern marks the eight pad vias optional; exact KiCad RHL0020A standard footprint without embedded vias is now bound. Thermal spreading, assembly and measured temperature remain PCB/prototype gates."
+    },
+    {
+      "id": "power_passives_final_identity",
+      "owner": "engineering",
+      "target_stage": "pcb",
+      "design_critical": false,
+      "component_refs": [
+        "charger",
+        "boost",
+        "gpio_efuse",
+        "lcd_efuse"
+      ],
+      "resolution": "Exact 1%/0.1% resistor and voltage/DC-bias qualified capacitor purchase identities remain PCB release gates. Generic electrically dimensioned passives in current draft are not qualified for manufacturing."
+    },
+    {
+      "id": "gpio_aux_power_switch",
+      "owner": "engineering",
+      "target_stage": "pcb",
+      "design_critical": false,
+      "component_refs": [
+        "front_module_header"
+      ],
+      "resolution": "AUX_3V3 is unpowered in the current PCB draft; select the auxiliary switch and supply when closing the GPIO circuit, before PCB release."
     }
   ],
   "scope": "One custom baseboard integrates Pi power, 1S battery charging, Sharp display and replaceable front GPIO-module interface. User-owned battery accepted as specified external interface; no selected pack MPN. Not manufacturing or whole-enclosure fit approval.",
-  "review_status": "Local selection consistency checked; circuit, physical tests and independent release review not performed."
+  "review_status": "Selected primary hardware is ready for PCB drafting. Exact support-passive purchase identity, module auxiliary rail, thermal proof and finished circuit remain PCB release gates; no manufacturing BOM is approved."
 }

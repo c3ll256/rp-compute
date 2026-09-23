@@ -1,4 +1,7 @@
 import { board, interfaces } from "./layout";
+import { PowerInput } from "./power-input";
+import { Charger } from "./charger";
+import { PowerOutput } from "./power-output";
 import {
   boardPropsFromRules,
   groundPourPropsFromRules,
@@ -7,9 +10,8 @@ import {
   pcbRules,
 } from "./lib/replicator-pcb";
 
-// Interface placement study only. V5_PI, V5_LCD, and AUX_3V3 have no source in
-// this draft, and the LCD control pins are intentionally unconnected. Do not
-// release or energize this partial circuit as a functional baseboard.
+// Electrical draft. Power rails and MCU control are still incomplete; do not
+// release or energize this board until every source, sink and startup state is closed.
 
 const PcbRuleElements = () => (
   <>
@@ -37,6 +39,14 @@ const modulePins = Object.fromEntries(
   Array.from({ length: 16 }, (_, index) => [`pin${index + 1}`, [`M${index + 1}`]]),
 );
 
+// TI SN74AHC125 (PW), datasheet SCLS256 / supplier C54529 pp3, 5-7.
+const ahc125Pins = {
+  pin1: "OE1_N", pin2: "A1", pin3: "Y1", pin4: "OE2_N",
+  pin5: "A2", pin6: "Y2", pin7: "GND", pin8: "Y3",
+  pin9: "A3", pin10: "OE3_N", pin11: "Y4", pin12: "A4",
+  pin13: "OE4_N", pin14: "VCC",
+};
+
 // Pin numbers below are Pi physical header numbers, verified against the official Pi 4B pinout.
 const moduleSignalPins: Array<[number, number, string]> = [
   [3, 3, "GPIO2"], [4, 5, "GPIO3"], [5, 19, "GPIO10"],
@@ -55,12 +65,16 @@ export default () => (
     {...boardPropsFromRules()}
   >
     <PcbRuleElements />
+    <PowerInput />
+    <Charger />
+    <PowerOutput />
     <connector
       name="J_PI"
       manufacturerPartNumber="SSQ-120-02-G-D"
       footprint="jlcpcb:C7370433"
       supplierPartNumbers={{ jlcpcb: ["C7370433"] }}
       pinLabels={piPins}
+      connections={Object.fromEntries([6, 9, 14, 20, 25, 30, 34, 39].map((pin) => [`P${pin}`, "net.GND"]))}
       layer={interfaces.piDock.side}
       pcbX={interfaces.piDock.x}
       pcbY={interfaces.piDock.y}
@@ -72,6 +86,11 @@ export default () => (
       footprint="jlcpcb:C506791"
       supplierPartNumbers={{ jlcpcb: ["C506791"] }}
       pinLabels={lcdPins}
+      connections={{
+        SCLK: "net.LCD_SCLK", SI: "net.LCD_SI", SCS: "net.LCD_SCS",
+        EXTCOMIN: "net.LCD_COM", DISP: "net.LCD_DISP",
+        VSS: "net.GND", VSSA: "net.GND",
+      }}
       layer={interfaces.displayFpc.side}
       pcbX={interfaces.displayFpc.x}
       pcbY={interfaces.displayFpc.y}
@@ -83,26 +102,73 @@ export default () => (
       footprint="jlcpcb:C594409"
       supplierPartNumbers={{ jlcpcb: ["C594409"] }}
       pinLabels={modulePins}
+      connections={{ M1: "net.GND", M16: "net.GND" }}
       layer={interfaces.frontModule.side}
       pcbX={interfaces.frontModule.x}
       pcbY={interfaces.frontModule.y}
       pcbRotation={interfaces.frontModule.rotation}
     />
-    {[6, 9, 14, 20, 25, 30, 34, 39].map((pin) => (
-      <trace key={`pi-gnd-${pin}`} from={`.J_PI > .pin${pin}`} to="net.GND" />
-    ))}
-    {[1, 16].map((pin) => (
-      <trace key={`mod-gnd-${pin}`} from={`.J_MOD > .pin${pin}`} to="net.GND" />
-    ))}
-    {[9, 10].map((pin) => (
-      <trace key={`lcd-gnd-${pin}`} from={`.J_LCD > .pin${pin}`} to="net.GND" />
-    ))}
+    {/* LCD logic rail is derived from the independently switched LCD 5 V rail.
+        TI TLV75533 DBV: IN=1, GND=2, EN=3, NC=4, OUT=5. */}
+    <chip
+      name="U_LCD_LDO" manufacturerPartNumber="TLV75533PDBVR"
+      footprint="jlcpcb:C404027" supplierPartNumbers={{ jlcpcb: ["C404027"] }}
+      pinLabels={{ pin1: "IN", pin2: "GND", pin3: "EN", pin4: "NC", pin5: "OUT" }}
+      connections={{ IN: "net.V5_LCD", GND: "net.GND", EN: "net.V5_LCD", OUT: "net.V3V3_LCD" }}
+      layer="bottom" pcbX={-24} pcbY={-8}
+    />
+    <capacitor name="C_LCD_LDO_IN" capacitance="1uF" footprint="0603"
+      connections={{ pin1: "net.V5_LCD", pin2: "net.GND" }} layer="bottom" pcbX={-28} pcbY={-8} />
+    <capacitor name="C_LCD_LDO_OUT" capacitance="1uF" footprint="0603"
+      connections={{ pin1: "net.V3V3_LCD", pin2: "net.GND" }} layer="bottom" pcbX={-20} pcbY={-8} />
+    {/* Five independent LCD inputs. AHC inputs tolerate 5.5 V even with VCC=0;
+        outputs are powered only from V3V3_LCD. Active-low OE is grounded for
+        used channels. Unused channels are disabled at their own local rail. */}
+    <chip
+      name="U_LCD_BUF1" manufacturerPartNumber="SN74AHC125PWR"
+      footprint="jlcpcb:C54529" supplierPartNumbers={{ jlcpcb: ["C54529"] }}
+      pinLabels={ahc125Pins} layer="bottom" pcbX={12} pcbY={-8}
+      connections={{
+        VCC: "net.V3V3_LCD", GND: "net.GND",
+        OE1_N: "net.GND", A1: "net.GPIO11", Y1: "net.LCD_SCLK",
+        OE2_N: "net.GND", A2: "net.GPIO10", Y2: "net.LCD_SI",
+        OE3_N: "net.GND", A3: "net.GPIO8", Y3: "net.LCD_SCS",
+        OE4_N: "net.GND", A4: "net.MCU_DISP", Y4: "net.LCD_DISP",
+      }}
+    />
+    <chip
+      name="U_LCD_BUF2" manufacturerPartNumber="SN74AHC125PWR"
+      footprint="jlcpcb:C54529" supplierPartNumbers={{ jlcpcb: ["C54529"] }}
+      pinLabels={ahc125Pins} layer="bottom" pcbX={0} pcbY={-8}
+      connections={{
+        VCC: "net.V3V3_LCD", GND: "net.GND",
+        OE1_N: "net.GND", A1: "net.MCU_COM", Y1: "net.LCD_COM",
+        OE2_N: "net.V3V3_LCD", A2: "net.GND",
+        OE3_N: "net.V3V3_LCD", A3: "net.GND",
+        OE4_N: "net.V3V3_LCD", A4: "net.GND",
+      }}
+    />
+    <capacitor name="C_LCD_BUF1" capacitance="100nF" footprint="0603"
+      connections={{ pin1: "net.V3V3_LCD", pin2: "net.GND" }} layer="bottom" pcbX={12} pcbY={-13} />
+    <capacitor name="C_LCD_BUF2" capacitance="100nF" footprint="0603"
+      connections={{ pin1: "net.V3V3_LCD", pin2: "net.GND" }} layer="bottom" pcbX={0} pcbY={-13} />
+    <resistor name="R_LCD_CS_OFF" resistance="100k" footprint="0603"
+      connections={{ pin1: "net.GPIO8", pin2: "net.GND" }} layer="bottom" pcbX={-8} pcbY={-15} />
+    <resistor name="R_LCD_DISP_OFF" resistance="100k" footprint="0603"
+      connections={{ pin1: "net.MCU_DISP", pin2: "net.GND" }} layer="bottom" pcbX={-4} pcbY={-15} />
+    <capacitor name="C_LCD_VDDA" capacitance="100nF" footprint="0603"
+      connections={{ pin1: "net.V5_LCD", pin2: "net.GND" }} layer="bottom" pcbX={8} pcbY={1} />
+    <capacitor name="C_LCD_VDD" capacitance="1uF" footprint="0603"
+      connections={{ pin1: "net.V5_LCD", pin2: "net.GND" }} layer="bottom" pcbX={12} pcbY={1} />
+    <capacitor name="C_LCD_DISP" capacitance="100nF" footprint="0603"
+      connections={{ pin1: "net.LCD_DISP", pin2: "net.GND" }} layer="bottom" pcbX={16} pcbY={1} />
     {[2, 4].map((pin) => (
       <trace key={`pi-power-${pin}`} from={`.J_PI > .pin${pin}`} to="net.V5_PI" />
     ))}
     {[1, 17].map((pin) => (
       <trace key={`pi-3v3-${pin}`} from={`.J_PI > .pin${pin}`} to="net.V3V3_PI" />
     ))}
+    <trace from=".J_PI > .pin24" to="net.GPIO8" />
     {[6, 7].map((pin) => (
       <trace key={`lcd-power-${pin}`} from={`.J_LCD > .pin${pin}`} to="net.V5_LCD" />
     ))}
