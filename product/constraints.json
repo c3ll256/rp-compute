@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "d58c473d00a4c39def14135496cbf81b10f7560f7acfa3c48e4362c3044aff96",
+  "requirements_digest": "fb15c7b1e0a2d65439d20784fd3c9efc4502d520bcdef9fab979d8033d816c01",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -531,6 +531,13 @@
       "status": "interface selected; no routed PCB or qualified harness"
     },
     "service": "cold-swap only; external power disconnected and battery isolated"
+  },
+  "baseboard_integration": {
+    "source": "user",
+    "design_id": "pi_baseboard",
+    "functions": ["Pi 4B GPIO docking and regulated power", "1S battery charging and power path", "Sharp LS027B7DH01 FPC interface", "replaceable front GPIO module interface"],
+    "board_count": 1,
+    "note": "User confirmed all functions share one custom baseboard. Provisional 70x104mm planar placement holds Pi dock, FPC and front JST only; no power/display circuit or qualified stack. Retained CAD FPC connector plane is about 13deg from horizontal Pi docking plane, so a single rigid board requires a reworked horizontal FPC target and verified native-tail length while preserving the screen locator and 1mm front rise. Exact outline, Z datum, keepouts and hardware fit remain open."
   },
   "battery": {
     "source": "user",

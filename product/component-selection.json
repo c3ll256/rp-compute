@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "d58c473d00a4c39def14135496cbf81b10f7560f7acfa3c48e4362c3044aff96",
+  "requirements_digest": "fb15c7b1e0a2d65439d20784fd3c9efc4502d520bcdef9fab979d8033d816c01",
   "selected_components": [
     {
       "id": "compute",
@@ -1727,5 +1727,5 @@
       "resolution": "Actual complete-pack dimensions/outlet required before final enclosure fit; not needed for board-side electrical design. Do not publish a battery-fit pass without them."
     }
   ],
-  "scope": "Functional hardware selection for schematic/PCB implementation only. User-owned battery accepted as specified external interface; no selected pack MPN. Not manufacturing or whole-enclosure fit approval."
+  "scope": "One custom baseboard integrates Pi power, 1S battery charging, Sharp display and replaceable front GPIO-module interface. User-owned battery accepted as specified external interface; no selected pack MPN. Not manufacturing or whole-enclosure fit approval."
 }

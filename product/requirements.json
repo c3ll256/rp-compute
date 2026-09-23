@@ -290,6 +290,10 @@
     "front_module_service_policy": {
       "value": "Power off, disconnect external input and isolate the battery before removing or connecting a front module; no live hot swap claim.",
       "source": "default"
+    },
+    "single_baseboard_integration": {
+      "value": "One custom baseboard integrates the Sharp display interface, user-replaceable front GPIO expansion, battery charging and Pi 4B power supply; no separate board for these functions.",
+      "source": "user"
     }
   },
   "open_questions": []

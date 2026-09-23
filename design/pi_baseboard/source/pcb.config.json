@@ -1,11 +1,12 @@
 {
   "schemaVersion": 1,
-  "title": "Pi 4B power and Memory LCD baseboard",
+  "title": "Pi 4B integrated power, Sharp display and swappable GPIO baseboard",
   "manufacturing": {
-    "name": "ordinary-2layer-fr4-1oz",
-    "layers": 2,
+    "name": "prototype-4layer-fr4-2oz-outer",
+    "layers": 4,
     "copperThicknessOz": {
-      "outer": 1
+      "outer": 2,
+      "inner": 1
     },
     "finishedThicknessMm": 1.6,
     "defaultTraceWidthMm": 0.3,
@@ -39,8 +40,8 @@
       "clearanceMm": 0.25
     },
     "high_current": {
-      "nominalWidthMm": 0.5,
-      "minimumWidthMm": 0.4572,
+      "nominalWidthMm": 1.2,
+      "minimumWidthMm": 0.75,
       "clearanceMm": 0.25
     },
     "ground": {
@@ -65,14 +66,41 @@
     }
   },
   "nets": {
-    "GND": { "class": "ground" }
+    "GND": { "class": "ground" },
+    "V5_PI": {
+      "class": "high_current",
+      "currentCapacity": {
+        "currentA": 3.2,
+        "copperThicknessOz": 2,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.75,
+        "calculationMethod": "IPC-2221 external trace estimate",
+        "rationale": "I=0.048*(10C)^0.44*A^0.725 gives about 81 mil^2; at nominal 2oz (2.756 mil) this is 0.747mm. Use 1.2mm nominal and validate actual copper, vias, losses and temperature."
+      }
+    },
+    "V3V3_PI": { "class": "power" },
+    "V5_LCD": { "class": "power" },
+    "AUX_3V3": { "class": "power" },
+    "GPIO2": { "class": "cpu_io" },
+    "GPIO3": { "class": "cpu_io" },
+    "GPIO5": { "class": "cpu_io" },
+    "GPIO6": { "class": "cpu_io" },
+    "GPIO7": { "class": "cpu_io" },
+    "GPIO9": { "class": "cpu_io" },
+    "GPIO10": { "class": "cpu_io" },
+    "GPIO11": { "class": "cpu_io" },
+    "GPIO13": { "class": "cpu_io" },
+    "GPIO16": { "class": "cpu_io" },
+    "GPIO19": { "class": "cpu_io" },
+    "GPIO20": { "class": "cpu_io" },
+    "GPIO21": { "class": "cpu_io" }
   },
   "footprintExceptions": [],
   "copperPours": {
     "enabled": true,
     "groundLayers": [
-      "top",
-      "bottom"
+      "inner1",
+      "inner2"
     ],
     "clearanceMm": 0.3,
     "padMarginMm": 0.3,
@@ -87,5 +115,9 @@
   "allowedViaInPadComponents": [],
   "pcbRuleExceptions": [],
   "componentOrientations": [],
-  "bomBindings": []
+  "bomBindings": [
+    { "bomItemId": "gpio_dock", "designators": ["J_PI"], "populate": true },
+    { "bomItemId": "display_fpc", "designators": ["J_LCD"], "populate": true },
+    { "bomItemId": "front_module_header", "designators": ["J_MOD"], "populate": true }
+  ]
 }

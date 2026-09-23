@@ -56,7 +56,14 @@
     {
       "id": "front_gpio_module",
       "kind": "internal_fit",
-      "description": "用户标记的屏幕前方平台采用可从上方拆下的共用模块位，保留定位台阶、窗口、固定基准及内部GPIO连接空间；首版装空白盖板，未来模块断电更换。屏幕定位槽、FPC路线和屏舱1mm前沿不变。",
+      "description": "用户标记的屏幕前方平台采用可从上方拆下的共用模块位，保留定位台阶、窗口、固定基准及内部GPIO连接空间；首版装空白盖板，未来模块断电更换。屏幕定位槽和屏舱1mm前沿保持，完整FPC路线须与单基板重新核定。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "single_baseboard_fit",
+      "kind": "internal_fit",
+      "description": "一块定制基板同时承担Pi GPIO插接及供电、1S电池充电、Sharp屏幕FPC及前平台模块GPIO接口；应验证Pi水平插接平面、屏幕短FPC与连接器、前平台开口、端口、固定点和散热空间。当前斜置FPC参考连接器不是已验证的单块刚性板落点。",
       "source": "user_requested",
       "required": true
     }
@@ -146,7 +153,8 @@
           "control_access",
           "gpio_dock",
           "pi_native_ports",
-          "front_gpio_module"
+          "front_gpio_module",
+          "single_baseboard_fit"
         ],
         "reference_ids": [
           "reference_photo_angled",
