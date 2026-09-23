@@ -2,6 +2,8 @@ import { board, interfaces } from "./layout";
 import { PowerInput } from "./power-input";
 import { Charger } from "./charger";
 import { PowerOutput } from "./power-output";
+import { Controller } from "./controller";
+import { AuxPower } from "./aux-power";
 import {
   boardPropsFromRules,
   groundPourPropsFromRules,
@@ -10,8 +12,8 @@ import {
   pcbRules,
 } from "./lib/replicator-pcb";
 
-// Electrical draft. Power rails and MCU control are still incomplete; do not
-// release or energize this board until every source, sink and startup state is closed.
+// Integrated electrical draft: MCU, charging permission and module supply added.
+// Compile, routing, power transient and mechanical gates remain open; not for fabrication.
 
 const PcbRuleElements = () => (
   <>
@@ -65,10 +67,19 @@ export default () => (
     {...boardPropsFromRules()}
   >
     <PcbRuleElements />
+    <silkscreentext text="GPIO 3V3 / 100mA" fontSize="1mm" pcbX={0} pcbY={-27} layer="top" />
+    <silkscreentext text="UPDI" fontSize="1mm" pcbX={-10} pcbY={49} layer="bottom" />
+    <silkscreentext text="LID" fontSize="1mm" pcbX={-29} pcbY={49} layer="top" />
+    <silkscreentext text="KEY" fontSize="1mm" pcbX={25} pcbY={49} layer="bottom" />
+    <silkscreentext text="FAN" fontSize="1mm" pcbX={27} pcbY={-14} layer="top" />
     <PowerInput />
     <Charger />
     <PowerOutput />
-    <connector
+    <Controller />
+    <AuxPower />
+    {["Supervisor", "Host and permits", "Hardware interlock", "Battery sensing", "Module power", "USB input", "Charger", "Power outputs", "Display and interfaces"].map((name) =>
+      <schematicsection key={name} name={name} />)}
+    <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces"
       name="J_PI"
       manufacturerPartNumber="SSQ-120-02-G-D"
       footprint="jlcpcb:C7370433"
@@ -80,7 +91,7 @@ export default () => (
       pcbY={interfaces.piDock.y}
       pcbRotation={interfaces.piDock.rotation}
     />
-    <connector
+    <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces"
       name="J_LCD"
       manufacturerPartNumber="FH12-10S-0.5SH(55)"
       footprint="jlcpcb:C506791"
@@ -96,7 +107,7 @@ export default () => (
       pcbY={interfaces.displayFpc.y}
       pcbRotation={interfaces.displayFpc.rotation}
     />
-    <connector
+    <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces"
       name="J_MOD"
       manufacturerPartNumber="BM16B-GHDS-TF(LF)(SN)"
       footprint="jlcpcb:C594409"
@@ -110,21 +121,21 @@ export default () => (
     />
     {/* LCD logic rail is derived from the independently switched LCD 5 V rail.
         TI TLV75533 DBV: IN=1, GND=2, EN=3, NC=4, OUT=5. */}
-    <chip
+    <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces"
       name="U_LCD_LDO" manufacturerPartNumber="TLV75533PDBVR"
       footprint="jlcpcb:C404027" supplierPartNumbers={{ jlcpcb: ["C404027"] }}
       pinLabels={{ pin1: "IN", pin2: "GND", pin3: "EN", pin4: "NC", pin5: "OUT" }}
       connections={{ IN: "net.V5_LCD", GND: "net.GND", EN: "net.V5_LCD", OUT: "net.V3V3_LCD" }}
       layer="bottom" pcbX={-24} pcbY={-8}
     />
-    <capacitor name="C_LCD_LDO_IN" capacitance="1uF" footprint="0603"
+    <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces" name="C_LCD_LDO_IN" capacitance="1uF" footprint="0603"
       connections={{ pin1: "net.V5_LCD", pin2: "net.GND" }} layer="bottom" pcbX={-28} pcbY={-8} />
-    <capacitor name="C_LCD_LDO_OUT" capacitance="1uF" footprint="0603"
+    <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces" name="C_LCD_LDO_OUT" capacitance="1uF" footprint="0603"
       connections={{ pin1: "net.V3V3_LCD", pin2: "net.GND" }} layer="bottom" pcbX={-20} pcbY={-8} />
     {/* Five independent LCD inputs. AHC inputs tolerate 5.5 V even with VCC=0;
         outputs are powered only from V3V3_LCD. Active-low OE is grounded for
         used channels. Unused channels are disabled at their own local rail. */}
-    <chip
+    <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces"
       name="U_LCD_BUF1" manufacturerPartNumber="SN74AHC125PWR"
       footprint="jlcpcb:C54529" supplierPartNumbers={{ jlcpcb: ["C54529"] }}
       pinLabels={ahc125Pins} layer="bottom" pcbX={12} pcbY={-8}
@@ -136,7 +147,7 @@ export default () => (
         OE4_N: "net.GND", A4: "net.MCU_DISP", Y4: "net.LCD_DISP",
       }}
     />
-    <chip
+    <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces"
       name="U_LCD_BUF2" manufacturerPartNumber="SN74AHC125PWR"
       footprint="jlcpcb:C54529" supplierPartNumbers={{ jlcpcb: ["C54529"] }}
       pinLabels={ahc125Pins} layer="bottom" pcbX={0} pcbY={-8}
@@ -148,19 +159,19 @@ export default () => (
         OE4_N: "net.V3V3_LCD", A4: "net.GND",
       }}
     />
-    <capacitor name="C_LCD_BUF1" capacitance="100nF" footprint="0603"
+    <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces" name="C_LCD_BUF1" capacitance="100nF" footprint="0603"
       connections={{ pin1: "net.V3V3_LCD", pin2: "net.GND" }} layer="bottom" pcbX={12} pcbY={-13} />
-    <capacitor name="C_LCD_BUF2" capacitance="100nF" footprint="0603"
+    <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces" name="C_LCD_BUF2" capacitance="100nF" footprint="0603"
       connections={{ pin1: "net.V3V3_LCD", pin2: "net.GND" }} layer="bottom" pcbX={0} pcbY={-13} />
-    <resistor name="R_LCD_CS_OFF" resistance="100k" footprint="0603"
+    <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces" name="R_LCD_CS_OFF" resistance="100k" footprint="0603"
       connections={{ pin1: "net.GPIO8", pin2: "net.GND" }} layer="bottom" pcbX={-8} pcbY={-15} />
-    <resistor name="R_LCD_DISP_OFF" resistance="100k" footprint="0603"
+    <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces" name="R_LCD_DISP_OFF" resistance="100k" footprint="0603"
       connections={{ pin1: "net.MCU_DISP", pin2: "net.GND" }} layer="bottom" pcbX={-4} pcbY={-15} />
-    <capacitor name="C_LCD_VDDA" capacitance="100nF" footprint="0603"
+    <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces" name="C_LCD_VDDA" capacitance="100nF" footprint="0603"
       connections={{ pin1: "net.V5_LCD", pin2: "net.GND" }} layer="bottom" pcbX={8} pcbY={1} />
-    <capacitor name="C_LCD_VDD" capacitance="1uF" footprint="0603"
+    <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces" name="C_LCD_VDD" capacitance="1uF" footprint="0603"
       connections={{ pin1: "net.V5_LCD", pin2: "net.GND" }} layer="bottom" pcbX={12} pcbY={1} />
-    <capacitor name="C_LCD_DISP" capacitance="100nF" footprint="0603"
+    <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces" name="C_LCD_DISP" capacitance="100nF" footprint="0603"
       connections={{ pin1: "net.LCD_DISP", pin2: "net.GND" }} layer="bottom" pcbX={16} pcbY={1} />
     {[2, 4].map((pin) => (
       <trace key={`pi-power-${pin}`} from={`.J_PI > .pin${pin}`} to="net.V5_PI" />
@@ -169,6 +180,15 @@ export default () => (
       <trace key={`pi-3v3-${pin}`} from={`.J_PI > .pin${pin}`} to="net.V3V3_PI" />
     ))}
     <trace from=".J_PI > .pin24" to="net.GPIO8" />
+    <trace from=".J_PI > .pin8" to="net.PI_TX" />
+    <trace from=".J_PI > .pin10" to="net.PI_RX" />
+    <trace from=".J_PI > .pin11" to="net.PI_REQ_N" />
+    <trace from=".J_PI > .pin13" to="net.PI_ACK_N" />
+    <trace from=".J_PI > .pin32" to="net.FAN_PWM" />
+    <trace from=".J_PI > .pin22" to="net.AUX_FAULT_N" />
+    <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Display and interfaces" name="J_FAN" footprint="kicad:Connector_PinHeader_2.54mm/PinHeader_1x03_P2.54mm_Vertical"
+      connections={{ pin1: "net.V5_PI", pin2: "net.GND", pin3: "net.FAN_PWM" }}
+      layer="top" pcbX={27} pcbY={-18} pcbRotation={90} />
     {[6, 7].map((pin) => (
       <trace key={`lcd-power-${pin}`} from={`.J_LCD > .pin${pin}`} to="net.V5_LCD" />
     ))}

@@ -15,8 +15,8 @@
     "preferredRoutingClearanceMm": 0.25,
     "copperToBoardEdgeMm": 0.3,
     "via": {
-      "diameterMm": 0.4,
-      "drillMm": 0.2
+      "diameterMm": 0.6,
+      "drillMm": 0.3
     },
     "waveSolderVia": {
       "diameterMm": 0.8,
@@ -47,7 +47,7 @@
     "ground": {
       "nominalWidthMm": 0.5,
       "minimumWidthMm": 0.25,
-      "clearanceMm": 0.25
+      "clearanceMm": 0.15
     },
     "sensitive_analog": {
       "nominalWidthMm": 0.3,
@@ -66,97 +66,260 @@
     }
   },
   "nets": {
-    "GND": { "class": "ground" },
-    "USB_VBUS": { "class": "high_current", "currentCapacity": {
-      "currentA": 2.7, "copperThicknessOz": 2, "maxTemperatureRiseC": 10,
-      "requiredWidthMm": 0.75, "calculationMethod": "IPC-2221 external trace estimate",
-      "rationale": "3A Type-C advertisement only; 820 ohm TPS259531 ILM limits downstream to about 2.63A high corner before resistor tolerance. 0.75mm is conservative versus ~0.67mm IPC-2221 estimate for 2.7A/2oz/10C. Validate port-pin aggregation and actual copper."
-    } },
-    "USB_CC1": { "class": "signal" },
-    "USB_CC2": { "class": "signal" },
-    "USB_VBUS_SENSE": { "class": "signal" },
-    "USB_OUT1": { "class": "signal" },
-    "USB_OUT2": { "class": "signal" },
-    "USB_INPUT_DISABLE": { "class": "signal" },
-    "USB_ILM": { "class": "sensitive_analog" },
-    "USB_DVDT": { "class": "sensitive_analog" },
-    "CHG_VBUS": { "class": "high_current", "currentCapacity": {
-      "currentA": 2.7, "copperThicknessOz": 2, "maxTemperatureRiseC": 10,
-      "requiredWidthMm": 0.75, "calculationMethod": "IPC-2221 external trace estimate",
-      "rationale": "Post-TPS259531 input limited around 2.63A high corner before resistor tolerance; 0.75mm conservative versus ~0.67mm IPC-2221 for 2.7A/2oz/10C. Validate fault current and temperature."
-    } },
-    "BAT_RAW": { "class": "high_current", "nominalWidthMm": 2.0, "rationale": "Size copper trunk above 6A/2oz/10C estimate; package escape remains a local limitation.", "escape": {
-      "widthMm": 0.2, "clearanceMm": 0.15, "maxLengthMm": 1.0,
-      "componentRefs": ["U_CHARGER"],
-      "rationale": "BQ25622 RYK pad 8 is fine pitch; only the sub-1mm land escape may narrow to 0.2mm before a 2mm battery trunk. This is not a 6A trace rating."
-    }, "currentCapacity": {
-      "currentA": 6, "copperThicknessOz": 2, "maxTemperatureRiseC": 10,
-      "requiredWidthMm": 1.8, "calculationMethod": "IPC-2221 external trace estimate",
-      "rationale": "BQ25622 battery-path ceiling is 6A continuous; ~1.78mm external 2oz/10C estimate. This is a copper target, not a verified package or pack rating."
-    } },
-    "SYS_RAW": { "class": "high_current", "nominalWidthMm": 2.0, "rationale": "Size copper trunk above 6A/2oz/10C estimate; package escape remains a local limitation.", "escape": {
-      "widthMm": 0.2, "clearanceMm": 0.15, "maxLengthMm": 1.0,
-      "componentRefs": ["U_CHARGER"],
-      "rationale": "BQ25622 RYK pad 9 permits only a short fine-pitch land escape; bulk SYS must be 2mm or copper plane."
-    }, "currentCapacity": {
-      "currentA": 6, "copperThicknessOz": 2, "maxTemperatureRiseC": 10,
-      "requiredWidthMm": 1.8, "calculationMethod": "IPC-2221 external trace estimate",
-      "rationale": "SYS may carry almost the BQ25622 6A battery-path limit; ~1.78mm external 2oz/10C estimate. Actual package escape, vias, copper and thermal qualification remain required."
-    } },
-    "CHG_SW": { "class": "high_current", "escape": {
-      "widthMm": 0.2, "clearanceMm": 0.15, "maxLengthMm": 1.0,
-      "componentRefs": ["U_CHARGER"],
-      "rationale": "Short RYK pad 16 escape only; switch-loop trunk and inductor landing must remain wide."
-    }, "currentCapacity": {
-      "currentA": 3.5, "copperThicknessOz": 2, "maxTemperatureRiseC": 10,
-      "requiredWidthMm": 0.85, "calculationMethod": "IPC-2221 external trace estimate",
-      "rationale": "BQ25622 switch current limit is 3.5A class. Short, local SW-to-inductor copper still needs package-specific loop review and thermal validation."
-    } },
-    "CHG_PMID": { "class": "power" },
-    "CHG_BTST": { "class": "signal" },
-    "CHG_REGN": { "class": "power" },
-    "CHG_PG": { "class": "signal" },
-    "CHG_ILIM": { "class": "sensitive_analog" },
-    "CHG_TS_BIAS": { "class": "sensitive_analog" },
-    "CHG_TS": { "class": "sensitive_analog" },
-    "CHG_STAT": { "class": "signal" },
-    "CHG_INT": { "class": "signal" },
-    "CHG_SDA": { "class": "signal" },
-    "CHG_SCL": { "class": "signal" },
-    "CHG_CE_N": { "class": "signal" },
-    "V3V3_AON": { "class": "power" },
-    "BOOST_VCC": { "class": "power" },
-    "BOOST_EN": { "class": "signal" },
-    "BOOST_FSW": { "class": "signal" },
-    "BOOST_SW": { "class": "high_current", "nominalWidthMm": 2.0, "rationale": "Peak switch current approaches 8A; keep the inductor-switch loop short with wide copper.", "currentCapacity": {
-      "currentA": 6, "copperThicknessOz": 2, "maxTemperatureRiseC": 10,
-      "requiredWidthMm": 1.8, "calculationMethod": "IPC-2221 external trace estimate for approximate RMS",
-      "rationale": "Switch path carries >5.8A approximate input current at full load plus ripple; 6A/2oz/10C estimates ~1.78mm. This does not replace switching-loss/thermal validation."
-    } },
-    "BOOST_BOOT": { "class": "signal" },
-    "BOOST_SS": { "class": "signal" },
-    "BOOST_FB": { "class": "sensitive_analog" },
-    "BOOST_COMP": { "class": "sensitive_analog" },
-    "BOOST_COMP_RC": { "class": "sensitive_analog" },
-    "BOOST_ILIM": { "class": "sensitive_analog" },
-    "V5_BOOST": { "class": "high_current", "currentCapacity": {
-      "currentA": 3.3, "copperThicknessOz": 2, "maxTemperatureRiseC": 10,
-      "requiredWidthMm": 0.8, "calculationMethod": "IPC-2221 external trace estimate",
-      "rationale": "5.1V source target 3.3A, including Pi, LCD and margin; 0.8mm above ~0.78mm 2oz/10C estimate. Confirm regulator and load-switch thermal loss."
-    } },
-    "V5_MAIN": { "class": "high_current", "currentCapacity": {
-      "currentA": 3.3, "copperThicknessOz": 2, "maxTemperatureRiseC": 10,
-      "requiredWidthMm": 0.8, "calculationMethod": "IPC-2221 external trace estimate",
-      "rationale": "Switched 5.1V trunk carries 3.3A target before Pi/LCD branches; verify voltage drop and transients."
-    } },
-    "MAIN_CT": { "class": "signal" },
-    "MAIN_EN": { "class": "signal" },
-    "PI_OVLO": { "class": "sensitive_analog" },
-    "LCD_OVLO": { "class": "sensitive_analog" },
-    "PI_ILM": { "class": "sensitive_analog" },
-    "LCD_ILM": { "class": "sensitive_analog" },
-    "PI_DVDT": { "class": "signal" },
-    "LCD_DVDT": { "class": "signal" },
+    "GND": {
+      "class": "ground"
+    },
+    "USB_VBUS": {
+      "class": "high_current",
+      "currentCapacity": {
+        "currentA": 2.7,
+        "copperThicknessOz": 2,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.75,
+        "calculationMethod": "IPC-2221 external trace estimate",
+        "rationale": "3A Type-C advertisement only; 820 ohm TPS259531 ILM limits downstream to about 2.63A high corner before resistor tolerance. 0.75mm is conservative versus ~0.67mm IPC-2221 estimate for 2.7A/2oz/10C. Validate port-pin aggregation and actual copper."
+      }
+    },
+    "USB_CC1": {
+      "class": "signal"
+    },
+    "USB_CC2": {
+      "class": "signal"
+    },
+    "USB_VBUS_SENSE": {
+      "class": "signal"
+    },
+    "USB_OUT1": {
+      "class": "signal"
+    },
+    "USB_OUT2": {
+      "class": "signal"
+    },
+    "USB_INPUT_DISABLE": {
+      "class": "signal"
+    },
+    "USB_ILM": {
+      "class": "sensitive_analog"
+    },
+    "USB_DVDT": {
+      "class": "sensitive_analog"
+    },
+    "CHG_VBUS": {
+      "class": "high_current",
+      "currentCapacity": {
+        "currentA": 2.7,
+        "copperThicknessOz": 2,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.75,
+        "calculationMethod": "IPC-2221 external trace estimate",
+        "rationale": "Post-TPS259531 input limited around 2.63A high corner before resistor tolerance; 0.75mm conservative versus ~0.67mm IPC-2221 for 2.7A/2oz/10C. Validate fault current and temperature."
+      }
+    },
+    "BAT_RAW": {
+      "class": "high_current",
+      "nominalWidthMm": 2.0,
+      "rationale": "Size copper trunk above 6A/2oz/10C estimate; package escape remains a local limitation.",
+      "escape": {
+        "widthMm": 0.2,
+        "clearanceMm": 0.15,
+        "maxLengthMm": 1.0,
+        "componentRefs": [
+          "U_CHARGER"
+        ],
+        "rationale": "BQ25622 RYK pad 8 is fine pitch; only the sub-1mm land escape may narrow to 0.2mm before a 2mm battery trunk. This is not a 6A trace rating."
+      },
+      "currentCapacity": {
+        "currentA": 6,
+        "copperThicknessOz": 2,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 1.8,
+        "calculationMethod": "IPC-2221 external trace estimate",
+        "rationale": "BQ25622 battery-path ceiling is 6A continuous; ~1.78mm external 2oz/10C estimate. This is a copper target, not a verified package or pack rating."
+      }
+    },
+    "SYS_RAW": {
+      "class": "high_current",
+      "nominalWidthMm": 2.0,
+      "rationale": "Size copper trunk above 6A/2oz/10C estimate; package escape remains a local limitation.",
+      "escape": {
+        "widthMm": 0.2,
+        "clearanceMm": 0.15,
+        "maxLengthMm": 1.0,
+        "componentRefs": [
+          "U_CHARGER"
+        ],
+        "rationale": "BQ25622 RYK pad 9 permits only a short fine-pitch land escape; bulk SYS must be 2mm or copper plane."
+      },
+      "currentCapacity": {
+        "currentA": 6,
+        "copperThicknessOz": 2,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 1.8,
+        "calculationMethod": "IPC-2221 external trace estimate",
+        "rationale": "SYS may carry almost the BQ25622 6A battery-path limit; ~1.78mm external 2oz/10C estimate. Actual package escape, vias, copper and thermal qualification remain required."
+      }
+    },
+    "CHG_SW": {
+      "class": "high_current",
+      "escape": {
+        "widthMm": 0.2,
+        "clearanceMm": 0.15,
+        "maxLengthMm": 1.0,
+        "componentRefs": [
+          "U_CHARGER"
+        ],
+        "rationale": "Short RYK pad 16 escape only; switch-loop trunk and inductor landing must remain wide."
+      },
+      "currentCapacity": {
+        "currentA": 3.5,
+        "copperThicknessOz": 2,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.85,
+        "calculationMethod": "IPC-2221 external trace estimate",
+        "rationale": "BQ25622 switch current limit is 3.5A class. Short, local SW-to-inductor copper still needs package-specific loop review and thermal validation."
+      }
+    },
+    "CHG_PMID": {
+      "class": "power",
+      "minimumWidthMm": 0.224,
+      "rationale": "BQ25622 supplier land is0.2240026mm; routed KiCad copper is quantized to0.224mm. Declare that existing geometric minimum explicitly instead of a sub-micron false width failure. Nominal width is unchanged; this does not rate high-current trunks."
+    },
+    "CHG_BTST": {
+      "class": "signal"
+    },
+    "CHG_REGN": {
+      "class": "power",
+      "minimumWidthMm": 0.224,
+      "rationale": "BQ25622 supplier land is0.2240026mm; routed KiCad copper is quantized to0.224mm. Declare that existing geometric minimum explicitly instead of a sub-micron false width failure. Nominal width is unchanged; this does not rate high-current trunks."
+    },
+    "CHG_PG": {
+      "class": "signal"
+    },
+    "CHG_ILIM": {
+      "class": "sensitive_analog",
+      "minimumWidthMm": 0.224,
+      "rationale": "BQ25622 supplier land is0.2240026mm; routed KiCad copper is quantized to0.224mm. Declare that existing geometric minimum explicitly instead of a sub-micron false width failure. Nominal width is unchanged; this does not rate high-current trunks."
+    },
+    "CHG_TS_BIAS": {
+      "class": "sensitive_analog"
+    },
+    "CHG_TS": {
+      "class": "sensitive_analog",
+      "minimumWidthMm": 0.224,
+      "rationale": "BQ25622 supplier land is0.2240026mm; routed KiCad copper is quantized to0.224mm. Declare that existing geometric minimum explicitly instead of a sub-micron false width failure. Nominal width is unchanged; this does not rate high-current trunks."
+    },
+    "CHG_STAT": {
+      "class": "signal"
+    },
+    "CHG_INT": {
+      "class": "signal",
+      "minimumWidthMm": 0.224,
+      "rationale": "BQ25622 supplier land is0.2240026mm; routed KiCad copper is quantized to0.224mm. Declare that existing geometric minimum explicitly instead of a sub-micron false width failure. Nominal width is unchanged; this does not rate high-current trunks."
+    },
+    "CHG_SDA": {
+      "class": "signal",
+      "minimumWidthMm": 0.224,
+      "rationale": "BQ25622 supplier land is0.2240026mm; routed KiCad copper is quantized to0.224mm. Declare that existing geometric minimum explicitly instead of a sub-micron false width failure. Nominal width is unchanged; this does not rate high-current trunks."
+    },
+    "CHG_SCL": {
+      "class": "signal",
+      "minimumWidthMm": 0.224,
+      "rationale": "BQ25622 supplier land is0.2240026mm; routed KiCad copper is quantized to0.224mm. Declare that existing geometric minimum explicitly instead of a sub-micron false width failure. Nominal width is unchanged; this does not rate high-current trunks."
+    },
+    "CHG_CE_N": {
+      "class": "signal"
+    },
+    "V3V3_AON": {
+      "class": "power"
+    },
+    "BOOST_VCC": {
+      "class": "power"
+    },
+    "BOOST_EN": {
+      "class": "signal"
+    },
+    "BOOST_FSW": {
+      "class": "signal"
+    },
+    "BOOST_SW": {
+      "class": "high_current",
+      "nominalWidthMm": 2.0,
+      "rationale": "Peak switch current approaches 8A; keep the inductor-switch loop short with wide copper.",
+      "currentCapacity": {
+        "currentA": 6,
+        "copperThicknessOz": 2,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 1.8,
+        "calculationMethod": "IPC-2221 external trace estimate for approximate RMS",
+        "rationale": "Switch path carries >5.8A approximate input current at full load plus ripple; 6A/2oz/10C estimates ~1.78mm. This does not replace switching-loss/thermal validation."
+      }
+    },
+    "BOOST_BOOT": {
+      "class": "signal"
+    },
+    "BOOST_SS": {
+      "class": "signal"
+    },
+    "BOOST_FB": {
+      "class": "sensitive_analog"
+    },
+    "BOOST_COMP": {
+      "class": "sensitive_analog"
+    },
+    "BOOST_COMP_RC": {
+      "class": "sensitive_analog"
+    },
+    "BOOST_ILIM": {
+      "class": "sensitive_analog"
+    },
+    "V5_BOOST": {
+      "class": "high_current",
+      "currentCapacity": {
+        "currentA": 3.3,
+        "copperThicknessOz": 2,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.8,
+        "calculationMethod": "IPC-2221 external trace estimate",
+        "rationale": "5.1V source target 3.3A, including Pi, LCD and margin; 0.8mm above ~0.78mm 2oz/10C estimate. Confirm regulator and load-switch thermal loss."
+      }
+    },
+    "V5_MAIN": {
+      "class": "high_current",
+      "currentCapacity": {
+        "currentA": 3.3,
+        "copperThicknessOz": 2,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.8,
+        "calculationMethod": "IPC-2221 external trace estimate",
+        "rationale": "Switched 5.1V trunk carries 3.3A target before Pi/LCD branches; verify voltage drop and transients."
+      }
+    },
+    "MAIN_CT": {
+      "class": "signal"
+    },
+    "MAIN_EN": {
+      "class": "signal"
+    },
+    "PI_OVLO": {
+      "class": "sensitive_analog"
+    },
+    "LCD_OVLO": {
+      "class": "sensitive_analog"
+    },
+    "PI_ILM": {
+      "class": "sensitive_analog"
+    },
+    "LCD_ILM": {
+      "class": "sensitive_analog",
+      "clearanceMm": 0.15,
+      "rationale": "TPS259470 RPW adjacent land edges are only 0.200mm apart; 0.15mm is the declared fabrication clearance floor and permits the local escape. Trace-width and current limits are unchanged."
+    },
+    "PI_DVDT": {
+      "class": "signal"
+    },
+    "LCD_DVDT": {
+      "class": "signal"
+    },
     "V5_PI": {
       "class": "high_current",
       "currentCapacity": {
@@ -168,33 +331,165 @@
         "rationale": "I=0.048*(10C)^0.44*A^0.725 gives about 81 mil^2; at nominal 2oz (2.756 mil) this is 0.747mm. Use 1.2mm nominal and validate actual copper, vias, losses and temperature."
       }
     },
-    "V3V3_PI": { "class": "power" },
-    "V5_LCD": { "class": "power" },
-    "V3V3_LCD": { "class": "power" },
-    "AUX_3V3": { "class": "power" },
-    "LCD_SCLK": { "class": "signal" },
-    "LCD_SI": { "class": "signal" },
-    "LCD_SCS": { "class": "signal" },
-    "LCD_COM": { "class": "signal" },
-    "LCD_DISP": { "class": "signal" },
-    "MCU_COM": { "class": "signal" },
-    "MCU_DISP": { "class": "signal" },
-    "GPIO8": { "class": "cpu_io" },
-    "GPIO2": { "class": "cpu_io" },
-    "GPIO3": { "class": "cpu_io" },
-    "GPIO5": { "class": "cpu_io" },
-    "GPIO6": { "class": "cpu_io" },
-    "GPIO7": { "class": "cpu_io" },
-    "GPIO9": { "class": "cpu_io" },
-    "GPIO10": { "class": "cpu_io" },
-    "GPIO11": { "class": "cpu_io" },
-    "GPIO13": { "class": "cpu_io" },
-    "GPIO16": { "class": "cpu_io" },
-    "GPIO19": { "class": "cpu_io" },
-    "GPIO20": { "class": "cpu_io" },
-    "GPIO21": { "class": "cpu_io" }
+    "V3V3_PI": {
+      "class": "power"
+    },
+    "V5_LCD": {
+      "class": "power",
+      "clearanceMm": 0.15,
+      "rationale": "TPS259470 RPW adjacent land edges are only 0.200mm apart; 0.15mm is the declared fabrication clearance floor and permits the local escape. Trace-width and current limits are unchanged."
+    },
+    "V3V3_LCD": {
+      "class": "power"
+    },
+    "AUX_3V3": {
+      "class": "power"
+    },
+    "LCD_SCLK": {
+      "class": "signal"
+    },
+    "LCD_SI": {
+      "class": "signal"
+    },
+    "LCD_SCS": {
+      "class": "signal"
+    },
+    "LCD_COM": {
+      "class": "signal"
+    },
+    "LCD_DISP": {
+      "class": "signal"
+    },
+    "MCU_COM": {
+      "class": "signal"
+    },
+    "MCU_DISP": {
+      "class": "signal"
+    },
+    "GPIO8": {
+      "class": "cpu_io"
+    },
+    "GPIO2": {
+      "class": "cpu_io"
+    },
+    "GPIO3": {
+      "class": "cpu_io"
+    },
+    "GPIO5": {
+      "class": "cpu_io"
+    },
+    "GPIO6": {
+      "class": "cpu_io"
+    },
+    "GPIO7": {
+      "class": "cpu_io"
+    },
+    "GPIO9": {
+      "class": "cpu_io"
+    },
+    "GPIO10": {
+      "class": "cpu_io"
+    },
+    "GPIO11": {
+      "class": "cpu_io"
+    },
+    "GPIO13": {
+      "class": "cpu_io"
+    },
+    "GPIO16": {
+      "class": "cpu_io"
+    },
+    "GPIO19": {
+      "class": "cpu_io"
+    },
+    "GPIO20": {
+      "class": "cpu_io"
+    },
+    "GPIO21": {
+      "class": "cpu_io"
+    },
+    "MCU_TX": {
+      "class": "signal"
+    },
+    "MCU_RX": {
+      "class": "signal"
+    },
+    "MCU_REQ_N": {
+      "class": "signal"
+    },
+    "MCU_ACK_N": {
+      "class": "signal"
+    },
+    "PI_TX": {
+      "class": "signal"
+    },
+    "PI_RX": {
+      "class": "signal"
+    },
+    "PI_REQ_N": {
+      "class": "signal"
+    },
+    "PI_ACK_N": {
+      "class": "signal"
+    },
+    "UPDI": {
+      "class": "signal"
+    },
+    "MCU_RUN_OK": {
+      "class": "signal"
+    },
+    "MCU_ARM": {
+      "class": "signal"
+    },
+    "MCU_CHG_DISABLE": {
+      "class": "signal"
+    },
+    "ILK_RESET_N": {
+      "class": "signal"
+    },
+    "LID_CLOSED": {
+      "class": "signal"
+    },
+    "ARM_CLK": {
+      "class": "signal"
+    },
+    "LATCH_CLR_N": {
+      "class": "signal"
+    },
+    "POWER_KEY_N": {
+      "class": "signal"
+    },
+    "FAN_PWM": {
+      "class": "signal"
+    },
+    "AUX_FAULT_N": {
+      "class": "signal"
+    },
+    "BAT_ADC": {
+      "class": "sensitive_analog"
+    },
+    "SYS_ADC": {
+      "class": "sensitive_analog"
+    },
+    "NTC_ADC": {
+      "class": "sensitive_analog"
+    },
+    "AUX_ILIM": {
+      "class": "sensitive_analog"
+    },
+    "V5_AUX": {
+      "class": "power"
+    }
   },
-  "footprintExceptions": [],
+  "footprintExceptions": [
+    {
+      "componentRef": "U_MAIN_SW",
+      "identity": "TPS22990DMLR / C962990 native VOUT3 shapes",
+      "minimumInternalPadClearanceMm": 0.15,
+      "logicalPadGrouping": "same-pcb-port",
+      "rationale": "Supplier land has a pad10 rectangle and overlapping pad10/VOUT3 polygon. Both are one physical VOUT terminal, joined also to VOUT pins8/9 per TI DML pin map. Preserve same logical port/net; do not treat polygon as an unconnected second net."
+    }
+  ],
   "copperPours": {
     "enabled": true,
     "groundLayers": [
@@ -203,9 +498,9 @@
       "inner2",
       "bottom"
     ],
-    "clearanceMm": 0.3,
-    "padMarginMm": 0.3,
-    "traceMarginMm": 0.3,
+    "clearanceMm": 0.15,
+    "padMarginMm": 0.15,
+    "traceMarginMm": 0.25,
     "boardEdgeMarginMm": 0.3,
     "cutoutMarginMm": 0.5,
     "removeIslands": true
@@ -217,21 +512,167 @@
   "pcbRuleExceptions": [],
   "componentOrientations": [],
   "bomBindings": [
-    { "bomItemId": "gpio_dock", "designators": ["J_PI"], "populate": true },
-    { "bomItemId": "display_fpc", "designators": ["J_LCD"], "populate": true },
-    { "bomItemId": "front_module_header", "designators": ["J_MOD"], "populate": true },
-    { "bomItemId": "ldo_3v3", "designators": ["U_LCD_LDO", "U_AON_LDO"], "populate": true },
-    { "bomItemId": "display_buffer", "designators": ["U_LCD_BUF1", "U_LCD_BUF2"], "populate": true },
-    { "bomItemId": "usb_c_cc", "designators": ["U_CC"], "populate": true },
-    { "bomItemId": "cc_3a_gate", "designators": ["U_CC_OR"], "populate": true },
-    { "bomItemId": "path_current_guard", "designators": ["U_USB_EFUSE"], "populate": true },
-    { "bomItemId": "usb_c", "designators": ["J_USB_IN"], "populate": true },
-    { "bomItemId": "charger", "designators": ["U_CHARGER"], "populate": true },
-    { "bomItemId": "charger_inductor", "designators": ["L_CHG"], "populate": true },
-    { "bomItemId": "boost", "designators": ["U_BOOST"], "populate": true },
-    { "bomItemId": "boost_inductor", "designators": ["L_BOOST"], "populate": true },
-    { "bomItemId": "main_disconnect", "designators": ["U_MAIN_SW"], "populate": true },
-    { "bomItemId": "gpio_efuse", "designators": ["U_PI_EFUSE"], "populate": true },
-    { "bomItemId": "lcd_efuse", "designators": ["U_LCD_EFUSE"], "populate": true }
+    {
+      "bomItemId": "gpio_dock",
+      "designators": [
+        "J_PI"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "display_fpc",
+      "designators": [
+        "J_LCD"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "front_module_header",
+      "designators": [
+        "J_MOD"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "ldo_3v3",
+      "designators": [
+        "U_LCD_LDO",
+        "U_AON_LDO",
+        "U_AUX_LDO"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "display_buffer",
+      "designators": [
+        "U_LCD_BUF1",
+        "U_LCD_BUF2"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "usb_c_cc",
+      "designators": [
+        "U_CC"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "cc_3a_gate",
+      "designators": [
+        "U_CC_OR"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "path_current_guard",
+      "designators": [
+        "U_USB_EFUSE"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "usb_c",
+      "designators": [
+        "J_USB_IN"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "charger",
+      "designators": [
+        "U_CHARGER"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "charger_inductor",
+      "designators": [
+        "L_CHG"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "boost",
+      "designators": [
+        "U_BOOST"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "boost_inductor",
+      "designators": [
+        "L_BOOST"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "main_disconnect",
+      "designators": [
+        "U_MAIN_SW"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "gpio_efuse",
+      "designators": [
+        "U_PI_EFUSE"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "lcd_efuse",
+      "designators": [
+        "U_LCD_EFUSE"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "supervisor",
+      "designators": [
+        "U_MCU"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "domain_buffer",
+      "designators": [
+        "U_HOST_TX",
+        "U_HOST_RX",
+        "U_HOST_REQ",
+        "U_HOST_ACK",
+        "U_CHG_PERMIT",
+        "U_RUN_PERMIT"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "interlock_por",
+      "designators": [
+        "U_POR"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "interlock_schmitt",
+      "designators": [
+        "U_SCHMITT"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "interlock_latch",
+      "designators": [
+        "U_LATCH"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "gpio_aux_limiter",
+      "designators": [
+        "U_AUX_LIMIT"
+      ],
+      "populate": true
+    }
   ]
 }

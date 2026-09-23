@@ -12,12 +12,12 @@
 
 基板端选择 JST `BM16B-GHDS-TF(LF)(SN)`，16 位、1.25 mm、双排带锁板端，LCSC C594409。匹配线端壳 `GHDR-16V-S-1(F)`，LCSC C3265803；每根线用原厂 `SGHD-002T-C0.2A` 压接端子，LCSC C595084，适用 26–30 AWG，绝缘外径 0.76–1.0 mm。型号配对和额定电流取自 JST GHD 系列资料（供应商 PDF C594409，第 1–3 页）；板端额定 1.25 A 只说明触点上限，不是可供模块消耗的电源预算。线束长度、弯曲半径及夹持仍待 PCB/装配验证。
 
-引脚分配是 PCB 实现目标，未声称已有布线。管脚号以 JST 原厂板端/线端图的 1 脚标记为准，线束必须端到端逐芯导通和极性核对。Pi 物理脚位依据 [Raspberry Pi 官方 GPIO 图](https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png)。
+引脚分配已写入 PCB 电路源，新增电路已编译并通过布局预览，未声称已有合格布线。管脚号以 JST 原厂板端/线端图的 1 脚标记为准，线束必须端到端逐芯导通和极性核对。Pi 物理脚位依据 [Raspberry Pi 官方 GPIO 图](https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png)。
 
 | 模块针位 | 网络 | Pi 物理脚 | 用途/限制 |
 | --- | --- | ---: | --- |
 | 1 | GND | 6 | 共同参考 |
-| 2 | AUX_3V3 | 1 | 经独立限流开关的模块电源，默认设计目标不超过 100 mA，最终以实测定额 |
+| 2 | AUX_3V3 | — | 从主 5 V 经 TPS2553 限流和独立 TLV75533 产生，正常模块预算 100 mA；Pi 3.3 V 只作使能，最终以实测定额 |
 | 3 | GPIO2 / SDA1 | 3 | I²C；上拉只在基板实现一次 |
 | 4 | GPIO3 / SCL1 | 5 | I²C |
 | 5 | GPIO10 / MOSI | 19 | 与屏幕共享 SPI 数据，仅在屏幕片选无效时由模块使用 |
@@ -33,4 +33,4 @@
 | 15 | GPIO21 | 40 | 通用数字输入/输出 |
 | 16 | GND | 39 | 共同参考 |
 
-不引出 5 V。所有信号均为 Pi 的 3.3 V 域，禁止 5 V 输入；基板设计须补齐 ESD、防断电反灌和辅助电源限流。屏幕预留 GPIO8/10/11 及另行确定的 DISP、EXTCOMIN 控制脚；GPIO17/27 留给关机握手，GPIO12 留给风扇，GPIO14/15 留给调试串口。屏幕信号与上表共享的 MOSI/SCLK 要以片选和上电时序隔离，不能把独立 SPI 器件接成同选。未验证 Linux 设备树、驱动、启动默认电平、模块电源热态电流或线束串扰。
+不引出 5 V。所有信号均为 Pi 的 3.3 V 域，禁止 5 V 输入；辅助电源限流电路已写入；ESD 和限流故障时信号反灌隔离仍未完成，不能把电源限流当作 GPIO 保护。屏幕使用 GPIO8/10/11；DISP、EXTCOMIN 分别由 MCU PC0、PA5 控制；GPIO17/27 留给关机握手，GPIO12 留给风扇，GPIO14/15 用于监督器状态串口，GPIO25（物理22）读取辅助电源 FAULT_N。屏幕信号与上表共享的 MOSI/SCLK 要以片选和上电时序隔离，不能把独立 SPI 器件接成同选。未验证 Linux 设备树、驱动、启动默认电平、模块电源热态电流或线束串扰。

@@ -268,7 +268,7 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "56faddfea4ad9cfa",
-      "selection_status": "selected_functional_role_implementation_validation_pending",
+      "selection_status": "circuit_compiled_routing_drc_blocked",
       "requirements_review": "Identity retained for BYOP/BYOB power-and-display architecture; actual electrical implementation and tests remain downstream, not a tested system claim."
     },
     {
@@ -306,7 +306,7 @@
       "id": "ldo_3v3",
       "role": "always_on_and_display_logic_regulators",
       "name": "TLV75533PDBVR",
-      "quantity": 2,
+      "quantity": 3,
       "supplier": "LCSC",
       "manufacturer": "Texas Instruments",
       "part_number": "TLV75533PDBVR",
@@ -367,7 +367,7 @@
       "id": "domain_buffer",
       "role": "power_domain_open_drain_signals",
       "name": "SN74LVC1G07DBVR",
-      "quantity": 4,
+      "quantity": 6,
       "supplier": "LCSC",
       "manufacturer": "Texas Instruments",
       "part_number": "SN74LVC1G07DBVR",
@@ -386,12 +386,12 @@
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/sn74lvc1g07.pdf",
       "package": "SOT-23-5",
       "jlc_smt_library": "extended",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Ioff and open-drain outputs for shutdown request, shutdown acknowledgement and two status serial directions; receiver-domain pullups avoid powering an off Pi.",
+      "selection_reason": "Six SN74LVC1G07 open-drain buffers: four UART/shutdown handshake crossings with receiver-domain pullups, one charger CE permission, one fail-low RUN_OK latch clear. Ioff and pin mapping checked against TI data; board compilation and power transient validation remain open.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "db9a46eec6206b5b",
-      "selection_status": "selected_functional_role_implementation_validation_pending",
+      "selection_status": "circuit_compiled_routing_drc_blocked",
       "requirements_review": "Identity retained for BYOP/BYOB power-and-display architecture; actual electrical implementation and tests remain downstream, not a tested system claim."
     },
     {
@@ -407,8 +407,8 @@
       "source": "default",
       "procurement_status": "catalog_verified",
       "assembly": {
-        "population": "mounted",
-        "method": "through_hole"
+        "population": "not_mounted",
+        "method": "not_assembled"
       },
       "lcsc_code": "C93157",
       "unit_price_cny": 1.0537,
@@ -422,7 +422,8 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "e29961a9392b8cec",
       "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform.",
-      "selection_reason": "Retain one existing B3F-1000 for power/shutdown only as disclosed default; no fixed navigation keys despite the new replaceable front GPIO module region. No part identity or package change. Single 9mm cap is on the right side; B3F-1000 carrier, travel and actuation remain unverified."
+      "selection_reason": "Retain one existing B3F-1000 for power/shutdown only as disclosed default; no fixed navigation keys despite the new replaceable front GPIO module region. No part identity or package change. Single 9mm cap is on the right side; B3F-1000 carrier, travel and actuation remain unverified.",
+      "pcb_integration": "Factory-wired remote switch supported by the enclosure carrier, connected to J_KEY or J_LID solder-wire pads on the common baseboard. No additional PCB. Mechanical carrier and actuation to be verified in CAD."
     },
     {
       "id": "usb_c",
@@ -514,7 +515,7 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "db7843376ad062d6",
-      "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Two independent 103AT-2 sensors: BQ25622 TS using TS_BIAS divider and MCU ADC. Recompute TS network; no inherited BQ24074 resistor values.",
+      "selection_reason": "Two independent 103AT-2 probes: BQ25622 TS_BIAS 5.23k/30.1k network and MCU 10k pullup ADC. Both are factory-wired to the protected pack exterior; wiring fault handling and thermal contact need prototype validation.",
       "selection_status": "selected_functional_role_implementation_validation_pending",
       "requirements_review": "Identity retained for BYOP/BYOB power-and-display architecture; actual electrical implementation and tests remain downstream, not a tested system claim."
     },
@@ -756,8 +757,8 @@
       "jlc_smt_library": "extended",
       "package": "PCBstraightthrough-holeSPDTlevermicroswitch",
       "assembly": {
-        "population": "mounted",
-        "method": "through_hole"
+        "population": "not_mounted",
+        "method": "not_assembled"
       },
       "product_url": "https://item.szlcsc.com/231222.html",
       "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20250911/D6D821450DD44F35E56F3D83AC4A8799.jpg",
@@ -770,7 +771,8 @@
       "evidence_refs": [
         "product/references/d2f-omron.pdf pp1,3,4"
       ],
-      "part_identity": "47a3712460f0868a"
+      "part_identity": "47a3712460f0868a",
+      "pcb_integration": "Factory-wired remote switch supported by the enclosure carrier, connected to J_KEY or J_LID solder-wire pads on the common baseboard. No additional PCB. Mechanical carrier and actuation to be verified in CAD."
     },
     {
       "id": "interlock_latch",
@@ -797,7 +799,7 @@
       "product_url": "https://item.szlcsc.com/71380.html",
       "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221230/7D8AB5AB23B807FAD323C5D0C5188D6B.jpg",
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/sn74lvc1g74.pdf",
-      "selection_status": "selected_for_schematic_implementation",
+      "selection_status": "circuit_compiled_routing_drc_blocked",
       "selection_reason": "Hardware reset/latch/edge conditioning prevents cover closure alone from restoring power. Exact supplier match; no Basic match, Extended retained. This is a design selection, not a verified circuit. See power-interface-design.md.",
       "supply_risk": "No qualified drop-in alternate. Footprint binding, timing and assembly orientation must be verified in PCB implementation.",
       "required_user_evidence": [],
@@ -831,7 +833,7 @@
       "product_url": "https://item.szlcsc.com/44691.html",
       "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221229/2468063F44C2F88F40C0A1A51462F98B.jpg",
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tps3808.pdf",
-      "selection_status": "selected_for_schematic_implementation",
+      "selection_status": "circuit_compiled_routing_drc_blocked",
       "selection_reason": "Hardware reset/latch/edge conditioning prevents cover closure alone from restoring power. Exact supplier match; no Basic match, Extended retained. This is a design selection, not a verified circuit. See power-interface-design.md.",
       "supply_risk": "No qualified drop-in alternate. Footprint binding, timing and assembly orientation must be verified in PCB implementation.",
       "required_user_evidence": [],
@@ -865,7 +867,7 @@
       "product_url": "https://item.szlcsc.com/51724.html",
       "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221230/004C76DBB30AF1D4FA3EDF059C675399.jpg",
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/sn74lvc2g17.pdf",
-      "selection_status": "selected_for_schematic_implementation",
+      "selection_status": "circuit_compiled_routing_drc_blocked",
       "selection_reason": "Hardware reset/latch/edge conditioning prevents cover closure alone from restoring power. Exact supplier match; no Basic match, Extended retained. This is a design selection, not a verified circuit. See power-interface-design.md.",
       "supply_risk": "No qualified drop-in alternate. Footprint binding, timing and assembly orientation must be verified in PCB implementation.",
       "required_user_evidence": [],
@@ -1122,6 +1124,32 @@
       "description": "Four M2x4 socket-head screws for the user-replaceable front cassette; printed joint geometry generated by printed-screw-joint-v1. Screw length confirmed against 4mm underhead CAD height.",
       "selection_reason": "Top-access removable module fastening; repeated self-forming-thread service life remains untested.",
       "part_identity": "642d0879861d9f2f"
+    },
+    {
+      "id": "gpio_aux_limiter",
+      "role": "gpio_module_current_limit",
+      "name": "TPS2553DBVR",
+      "quantity": 1,
+      "supplier": "Texas Instruments / authorized distributor",
+      "manufacturer": "Texas Instruments",
+      "mpn": "TPS2553DBVR",
+      "part_number": "TPS2553DBVR",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "package": "SOT-23-6 DBV",
+      "product_url": "https://www.ti.com/product/TPS2553",
+      "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps2553.pdf",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual",
+        "side": "top"
+      },
+      "required_user_evidence": [],
+      "selection_reason": "TI SLVS841F pp5,6,15,25: active-high 2.5-6.5V adjustable current-limit switch, 169k 1% RILIM gives approximately 136-187mA limits ahead of a dedicated 3.3V LDO; normal module allocation is100mA. Pi3.3V only controls enable. Exact DBV stock KiCad footprint.",
+      "supply_risk": "Supplier search did not finish; no stock, price or JLC assembly claim. Manufacturer datasheet resolves exact electrical identity and package; procure exact TPS2553DBVR externally.",
+      "part_identity": "55bfe64614da6ce2",
+      "selection_status": "circuit_compiled_routing_drc_blocked"
     }
   ],
   "alternatives": [
@@ -1865,16 +1893,6 @@
         "lcd_efuse"
       ],
       "resolution": "Exact 1%/0.1% resistor and voltage/DC-bias qualified capacitor purchase identities remain PCB release gates. Generic electrically dimensioned passives in current draft are not qualified for manufacturing."
-    },
-    {
-      "id": "gpio_aux_power_switch",
-      "owner": "engineering",
-      "target_stage": "pcb",
-      "design_critical": false,
-      "component_refs": [
-        "front_module_header"
-      ],
-      "resolution": "AUX_3V3 is unpowered in the current PCB draft; select the auxiliary switch and supply when closing the GPIO circuit, before PCB release."
     }
   ],
   "scope": "One custom baseboard integrates Pi power, 1S battery charging, Sharp display and replaceable front GPIO-module interface. User-owned battery accepted as specified external interface; no selected pack MPN. Not manufacturing or whole-enclosure fit approval.",
