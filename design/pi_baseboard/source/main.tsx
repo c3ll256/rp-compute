@@ -106,6 +106,8 @@ export default () => (
     {[6, 7].map((pin) => (
       <trace key={`lcd-power-${pin}`} from={`.J_LCD > .pin${pin}`} to="net.V5_LCD" />
     ))}
+    {/* Sharp LCY-1210401A p8: EXTMODE high selects external COM inversion. */}
+    <trace from=".J_LCD > .pin8" to="net.V5_LCD" />
     {moduleSignalPins.flatMap(([modPin, piPin, netName]) => [
       <trace key={`pi-${netName}`} from={`.J_PI > .pin${piPin}`} to={`net.${netName}`} />,
       <trace key={`mod-${netName}`} from={`.J_MOD > .pin${modPin}`} to={`net.${netName}`} />,
