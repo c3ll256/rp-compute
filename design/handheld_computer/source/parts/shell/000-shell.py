@@ -13,10 +13,17 @@ charge_width=param('charge_width',10.5)
 charge_height=param('charge_height',4.4)
 charge_z=param('charge_z',12.0)
 shell_charge_y=param('shell_charge_y',-37.0)
-shell_groove_width=param('shell_groove_width',58.0)
-shell_groove_height=param('shell_groove_height',2.0)
-shell_groove_depth=param('shell_groove_depth',0.7)
-shell_groove_y=param('shell_groove_y',-33.0)
+front_module_width=param('front_module_width',70.0)
+front_module_depth=param('front_module_depth',37.0)
+front_module_y=param('front_module_y',-34.0)
+front_module_seat_clearance=param('front_module_seat_clearance',0.3)
+front_module_seat_depth=param('front_module_seat_depth',1.4)
+front_module_aperture_width=param('front_module_aperture_width',54.0)
+front_module_aperture_depth=param('front_module_aperture_depth',26.0)
+front_module_tongue_depth=param('front_module_tongue_depth',0.6)
+front_module_screw_x=param('front_module_screw_x',31.0)
+front_module_screw_y_offset=param('front_module_screw_y_offset',15.0)
+front_module_screw_engagement=param('front_module_screw_engagement',2.0)
 shell_passage_width=param('shell_passage_width',42.0)
 shell_passage_depth=param('shell_passage_depth',24.0)
 shell_passage_y=param('shell_passage_y',18.0)
@@ -52,7 +59,9 @@ outer=fillet(outer.edges().filter_by(Plane.XY),shell_edge_radius)
 inner=extrude(RectangleRounded(case_width-2*shell_wall,case_depth-2*shell_wall,case_corner-shell_wall),amount=case_top_center-shell_wall)
 body=outer-inner
 body-=Pos(0,shell_passage_y,case_top_center-shell_wall)*extrude(RectangleRounded(shell_passage_width,shell_passage_depth,2),amount=2*shell_wall)
-body-=Pos(0,shell_groove_y,case_top_center-shell_groove_depth)*extrude(RectangleRounded(shell_groove_width,shell_groove_height,shell_groove_height/2-0.01),amount=2*shell_groove_depth)
+# Reusable front-deck cassette: shallow locating seat over a true service aperture.
+body-=Pos(0,front_module_y,case_top_center-front_module_seat_depth)*extrude(RectangleRounded(front_module_width+front_module_seat_clearance,front_module_depth+front_module_seat_clearance,2.0),amount=front_module_seat_depth+0.5)
+body-=Pos(0,front_module_y,case_top_center-shell_wall-0.5)*extrude(RectangleRounded(front_module_aperture_width,front_module_aperture_depth,1.5),amount=shell_wall+1.0)
 body-=Pos(case_width/2,button_y,shell_button_z)*Rot(0,90,0)*Cylinder(button_diameter/2+panel_gap,4*shell_wall)
 # Charge input on LEFT SIDE, front is now continuous material.
 body-=Pos(-case_width/2,shell_charge_y,charge_z)*extrude(Plane.YZ*RectangleRounded(charge_width,charge_height,charge_height/2-0.01),amount=4*shell_wall,both=True)
@@ -81,5 +90,24 @@ for xx in [-shell_lcd_mount_x,shell_lcd_mount_x]:
 PI_REAR_CORNER_RELIEF_CENTER=(37.5,53.3,6.2)
 PI_REAR_CORNER_RELIEF_SIZE=(4.0,4.0,2.8)
 body-=Pos(*PI_REAR_CORNER_RELIEF_CENTER)*Box(*PI_REAR_CORNER_RELIEF_SIZE)
+from screwjoint import make_screw_joint_v1
+# A blank insert defines the shared mechanical envelope for later user-made modules.
+front_module=Pos(0,front_module_y,case_top_center-front_module_seat_depth/2)*extrude(RectangleRounded(front_module_width,front_module_depth,1.8),amount=front_module_seat_depth/2,both=True)
+front_module+=Pos(0,front_module_y,case_top_center-front_module_seat_depth-front_module_tongue_depth)*extrude(RectangleRounded(front_module_aperture_width-2*front_module_seat_clearance,front_module_aperture_depth-2*front_module_seat_clearance,1.2),amount=front_module_tongue_depth)
+front_module_screws=[]
+for xx in [-front_module_screw_x,front_module_screw_x]:
+ for yy in [front_module_y-front_module_screw_y_offset,front_module_y+front_module_screw_y_offset]:
+  joint=make_screw_joint_v1(size='M2',at=Location((xx,yy,case_top_center)),through=[(front_module,front_module_seat_depth)],engage_depth=front_module_screw_engagement,into=body,head='socket_cap',material='PLA',label='front-module')
+  front_module=front_module-joint.through_cuts[0]
+  if len(joint.bosses.solids())>0:
+   body=body+joint.bosses
+  body=body-joint.engage_cuts
+  front_module_screws.append(joint.hardware)
+assert len(front_module.solids())==1
+assert len(body.solids())==1
 body.color=Color(0.88,0.86,0.79)
+front_module.color=Color(0.23,0.25,0.27)
 publish('shell',body,'Rear and side port shell')
+publish('front_module_blank',front_module,'User replaceable front module blank')
+for i,screw in enumerate(front_module_screws):
+ publish('front_module_screw_'+str(i+1),screw,'M2 front module screw')

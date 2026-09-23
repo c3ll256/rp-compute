@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "32123ea7a011896453d4f96b4ceb78c90690f9531ad4f9ad1e75f60c147809fd",
+  "requirements_digest": "d58c473d00a4c39def14135496cbf81b10f7560f7acfa3c48e4362c3044aff96",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -509,6 +509,28 @@
         ]
       }
     ]
+  },
+  "front_module": {
+    "source": "user",
+    "reference_image": "product/references/uploads/20260923T073703116Z-1-mark.png",
+    "coordinate_frame": "handheld_computer CAD world, mm",
+    "seat_center_mm": [0, -34, 27],
+    "blank_size_mm": [70, 37, 1.4],
+    "seat_clearance_mm": 0.3,
+    "through_aperture_mm": [54, 26],
+    "underside_tongue_depth_mm": 0.6,
+    "m2_mount_xy_mm": [[-31, -49], [31, -49], [-31, -19], [31, -19]],
+    "electrical_connector": {
+      "board_mpn": "BM16B-GHDS-TF(LF)(SN)",
+      "board_lcsc": "C594409",
+      "wire_housing_mpn": "GHDR-16V-S-1(F)",
+      "wire_housing_lcsc": "C3265803",
+      "crimp_contact_mpn": "SGHD-002T-C0.2A",
+      "crimp_contact_lcsc": "C595084",
+      "pinout_document": "product/front-module-interface.md",
+      "status": "interface selected; no routed PCB or qualified harness"
+    },
+    "service": "cold-swap only; external power disconnected and battery isolated"
   },
   "battery": {
     "source": "user",

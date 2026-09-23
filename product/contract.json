@@ -52,6 +52,13 @@
       "description": "Pi原生USB-A、Ethernet、micro-HDMI和3.5mm接口保留外部插拔空间，microSD保留维护通道，不增加CSI/DSI扩展。Pi自身USB-C在装机状态由防误插联锁盖覆盖，拆下Pi后恢复；基板USB-C是日常唯一充电/供电入口。开口坐标及插拔空间待真实几何验证。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。",
       "source": "user_requested",
       "required": true
+    },
+    {
+      "id": "front_gpio_module",
+      "kind": "internal_fit",
+      "description": "用户标记的屏幕前方平台采用可从上方拆下的共用模块位，保留定位台阶、窗口、固定基准及内部GPIO连接空间；首版装空白盖板，未来模块断电更换。屏幕定位槽、FPC路线和屏舱1mm前沿不变。",
+      "source": "user_requested",
+      "required": true
     }
   ],
   "external_references": [
@@ -102,6 +109,12 @@
       "source": "user_requested",
       "description": "用户红框指定屏舱前沿只留1mm，不是底座高度；前沿名义高度含分缝，圆角低于名义交线。",
       "path": "product/references/uploads/20260922T122038436Z-1-mark.png"
+    },
+    {
+      "id": "front_gpio_module_markup",
+      "source": "user_requested",
+      "description": "用户红框指定整块屏幕前方平台为未来可替换GPIO功能模块区域；无比例尺。",
+      "path": "product/references/uploads/20260923T073703116Z-1-mark.png"
     }
   ],
   "assembly_story": {
@@ -132,7 +145,8 @@
           "battery_fit",
           "control_access",
           "gpio_dock",
-          "pi_native_ports"
+          "pi_native_ports",
+          "front_gpio_module"
         ],
         "reference_ids": [
           "reference_photo_angled",
@@ -142,7 +156,8 @@
           "correction_reference_1",
           "correction_reference_2",
           "shallow_angle_markup",
-          "screen_front_1mm_markup"
+          "screen_front_1mm_markup",
+          "front_gpio_module_markup"
         ]
       }
     ]

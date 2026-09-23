@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "32123ea7a011896453d4f96b4ceb78c90690f9531ad4f9ad1e75f60c147809fd",
+  "requirements_digest": "d58c473d00a4c39def14135496cbf81b10f7560f7acfa3c48e4362c3044aff96",
   "selected_components": [
     {
       "id": "compute",
@@ -389,7 +389,7 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "e29961a9392b8cec",
       "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform.",
-      "selection_reason": "Retain one existingB3F-1000 for power/shutdown only as disclosed default; remove six navigation keys because user narrows prototype to power and display. No part identity or package change. Single9mm cap is relocated to the right side in the corrected visual study; B3F-1000 carrier, travel and actuation remain unverified."
+      "selection_reason": "Retain one existing B3F-1000 for power/shutdown only as disclosed default; no fixed navigation keys despite the new replaceable front GPIO module region. No part identity or package change. Single 9mm cap is on the right side; B3F-1000 carrier, travel and actuation remain unverified."
     },
     {
       "id": "usb_c",
@@ -893,6 +893,118 @@
       "required_user_evidence": [],
       "supply_risk": "Actual pack must pass polarity/charge/current/temperature acceptance before energized use; dimensions remain necessary for final enclosure fit.",
       "part_identity": "df3f619804a92fdb"
+    },
+    {
+      "id": "front_module_header",
+      "role": "front_gpio_module_board_connector",
+      "name": "JST BM16B-GHDS-TF(LF)(SN)",
+      "quantity": 1,
+      "supplier": "LCSC",
+      "manufacturer": "JST",
+      "part_number": "BM16B-GHDS-TF(LF)(SN)",
+      "mpn": "BM16B-GHDS-TF(LF)(SN)",
+      "lcsc_code": "C594409",
+      "stock": 795,
+      "source": "default",
+      "product_url": "https://item.szlcsc.com/622225.html",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200810/C594409_FCB6DAC01E90F430A6828D5E2.pdf",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20251204/456A3ED579F4C83BA33F55E1000B8099.jpg",
+      "procurement_status": "selected",
+      "assembly": {
+        "population": "mounted",
+        "method": "jlc_smt",
+        "side": "top"
+      },
+      "description": "Original JST GHD 16-circuit, 1.25mm, locking SMT board header. Internal cold-swap GPIO module connector; pinout in front-module-interface.md.",
+      "selection_reason": "Exact mate and crimp contacts documented in JST GHD datasheet; 1.25A contact rating is not the module power budget.",
+      "part_identity": "68b22d39e2876966"
+    },
+    {
+      "id": "front_module_housing",
+      "role": "front_gpio_module_wire_housing",
+      "name": "JST GHDR-16V-S-1(F)",
+      "quantity": 1,
+      "supplier": "LCSC",
+      "manufacturer": "JST",
+      "part_number": "GHDR-16V-S-1(F)",
+      "mpn": "GHDR-16V-S-1(F)",
+      "lcsc_code": "C3265803",
+      "stock": 9176,
+      "source": "default",
+      "product_url": "https://item.szlcsc.com/3828695.html",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200825/C594558_2C350399E093CC4C4F25696E7F27BE98.pdf",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20250325/B9163C596E0782C8298D4E541F773404.jpg",
+      "procurement_status": "selected",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "description": "Original JST 16-position GHD mating cable housing, locking, keyed; line-end of removable GPIO module harness.",
+      "selection_reason": "JST GHD series datasheet lists this exact 16-circuit mate for the selected board header.",
+      "part_identity": "db43090c11030fe7"
+    },
+    {
+      "id": "front_module_contacts",
+      "role": "front_gpio_module_crimp_contacts",
+      "name": "JST SGHD-002T-C0.2A",
+      "quantity": 16,
+      "supplier": "LCSC",
+      "manufacturer": "JST",
+      "part_number": "SGHD-002T-C0.2A",
+      "mpn": "SGHD-002T-C0.2A",
+      "lcsc_code": "C595084",
+      "stock": 8078,
+      "source": "default",
+      "product_url": "https://item.szlcsc.com/622903.html",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200810/C594409_FCB6DAC01E90F430A6828D5E2.pdf",
+      "procurement_status": "selected",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "description": "Original JST GHD crimp contact for 26–30AWG wire; 16 contacts per module cable housing. Harness length and strain relief still need integration.",
+      "selection_reason": "Exact crimp terminal and supported wire range from JST GHD series datasheet.",
+      "part_identity": "7fe94ac3f44de139"
+    },
+    {
+      "id": "front_module_blank",
+      "role": "project_printed_part",
+      "name": "Custom replaceable front-module blank, 70x37mm",
+      "quantity": 1,
+      "supplier": "Prototype fabrication",
+      "manufacturer": "Project custom",
+      "part_number": "handheld_computer-front-module-blank",
+      "mpn": "handheld_computer-front-module-blank",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "project_fabrication_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "description": "Flush 70x37x1.4mm blank front module with locating tongue; future function modules copy the same mechanical datum.",
+      "selection_reason": "Defined by committed enclosure geometry and the user-marked interchangeable area.",
+      "part_identity": "622d0f7d7c815f29"
+    },
+    {
+      "id": "front_module_screws",
+      "role": "standard_fastener",
+      "name": "ISO 4762 M2-0.4 x4 mm socket-head cap screw",
+      "quantity": 4,
+      "supplier": "User-selected standard hardware",
+      "manufacturer": "ISO 4762 standard",
+      "part_number": "ISO 4762 M2-0.4 x4 mm",
+      "mpn": "ISO 4762 M2-0.4 x4 mm",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "description": "Four M2x4 socket-head screws for the user-replaceable front cassette; printed joint geometry generated by printed-screw-joint-v1. Screw length confirmed against 4mm underhead CAD height.",
+      "selection_reason": "Top-access removable module fastening; repeated self-forming-thread service life remains untested.",
+      "part_identity": "642d0879861d9f2f"
     }
   ],
   "alternatives": [

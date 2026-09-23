@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "32abfbebc2f871bdf712cc9b6466c6be3e80da178a3c782380b211e59462308d"
+          "sha256": "2608f745111e7e75abc553c42a57670bf8d309156a45577374ffbe9bb58222e7"
         }
       ],
       "dependencies": []
@@ -115,7 +115,137 @@
       "target": "shell",
       "label": "Rear and side port shell",
       "kind": "generated",
-      "shapeHash": "02d7990f81a5f514569cbacffddc5c7e0b8c3f8a31121c74212dec1dadd51a81",
+      "shapeHash": "1e7ffa58aaef7239a9bd2f4b9878c7c0c0f82371c7f5d9fbf9e68476cc3d7c58",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "front_module_blank",
+      "target": "shell",
+      "label": "User replaceable front module blank",
+      "kind": "generated",
+      "shapeHash": "95241bd1cd138cc66d9764cb60a62a8e408b011dde084f7c3be8560301685633",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "front_module_screw_1",
+      "target": "shell",
+      "label": "M2 front module screw",
+      "kind": "generated",
+      "shapeHash": "f1ca09fbf7ffbe48d01d8123ead455158c6b16e1bb3db849f2e6ff5bd7d78c67",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "front_module_screw_2",
+      "target": "shell",
+      "label": "M2 front module screw",
+      "kind": "generated",
+      "shapeHash": "f5863223de17ec297799cc9aa33588c0219b76aaaedec52bb17ad0467dfc150e",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "front_module_screw_3",
+      "target": "shell",
+      "label": "M2 front module screw",
+      "kind": "generated",
+      "shapeHash": "f5f48b8a488ce755bbd921848291ffa13897fcc2c7dad3b115b836b2f5cc365b",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "front_module_screw_4",
+      "target": "shell",
+      "label": "M2 front module screw",
+      "kind": "generated",
+      "shapeHash": "7b0a97f48abbeaf5d4e831f54f4de3e8bfd8fb1a33a5232f6ca3d45f69f44d39",
       "transform": {
         "positionMm": [
           0,
@@ -506,7 +636,7 @@
     }
   ],
   "fits": [],
-  "updatedAt": "2026-09-23T07:14:20.698Z",
+  "updatedAt": "2026-09-23T07:45:07.214Z",
   "parameters": {
     "shell": {
       "case_width": 85,
@@ -561,7 +691,18 @@
       "shell_lcd_mount_y_front": -28,
       "shell_lcd_mount_y_rear": 25.5,
       "shell_lcd_well_width": 6.4,
-      "shell_lcd_well_depth": 7
+      "shell_lcd_well_depth": 7,
+      "front_module_width": 70,
+      "front_module_depth": 37,
+      "front_module_y": -34,
+      "front_module_seat_clearance": 0.3,
+      "front_module_seat_depth": 1.4,
+      "front_module_aperture_width": 54,
+      "front_module_aperture_depth": 26,
+      "front_module_tongue_depth": 0.6,
+      "front_module_screw_x": 31,
+      "front_module_screw_y_offset": 15,
+      "front_module_screw_engagement": 2
     },
     "base": {
       "base_width": 85,

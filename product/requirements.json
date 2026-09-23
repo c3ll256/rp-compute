@@ -50,7 +50,7 @@
       "source": "user"
     },
     "local_input": {
-      "value": "Prototype baseboard expands power and display only; no navigation/confirm/back button bank; text and navigation via external keyboard on Pi native USB",
+      "value": "Prototype baseboard provides power, display and a user-replaceable front-deck GPIO module interface; no fixed navigation/confirm/back button bank; text and navigation via external keyboard on Pi native USB",
       "source": "user"
     },
     "battery_runtime_hours": {
@@ -205,7 +205,8 @@
     "baseboard_extension_scope": {
       "value": [
         "power and battery management",
-        "Sharp LS027B7DH01 display interface"
+        "Sharp LS027B7DH01 display interface",
+        "user-replaceable front-deck GPIO expansion interface"
       ],
       "source": "user"
     },
@@ -243,7 +244,7 @@
         "screen_angle_deg_from_horizontal": 13,
         "screen_pod_width_mm": 77,
         "screen_face_depth_mm": 65,
-        "front_groove": "shallow cosmetic recess only, no added function",
+        "front_groove": "replaced by a removable blank module in a common locating seat",
         "power_button": "single existing control relocated to right side"
       },
       "source": "default"
@@ -280,6 +281,14 @@
     },
     "screen_pod_front_rise_datum": {
       "value": "Nominal sharp intersection of sloping top and foremost housing plane, measured vertically above horizontal deck, including the existing0.3mm assembly seam; rounded edge rolls below nominal.",
+      "source": "default"
+    },
+    "front_module_replaceability": {
+      "value": "The marked front deck is a user-replaceable region for future GPIO function modules; the base product provides a removable blank and a reusable mechanical/electrical interface while preserving the display mounting and 1 mm screen-pod front rise.",
+      "source": "user"
+    },
+    "front_module_service_policy": {
+      "value": "Power off, disconnect external input and isolate the battery before removing or connecting a front module; no live hot swap claim.",
       "source": "default"
     }
   },
