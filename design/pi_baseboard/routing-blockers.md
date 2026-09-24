@@ -1,33 +1,73 @@
-# 单基板剩余布线问题与复现依据
+# 单基板布线修复与剩余工具阻断
 
-本记录用于继续修复，不是 DRC 豁免或制造许可。所有复测均从 editable source 运行 pcb.run(check)，未编辑生成的 KiCad、DSN、SES 或报告。
+这是修复证据和复现说明，不是 DRC 豁免、载流认证或制造许可。仅修改 editable source；没有手工修改 KiCad、DSN、SES、Circuit JSON 或检查报告。
 
-## TPS22990 多形状 VOUT 端子丢失网络
+## 最终状态
 
-- 器件 U_MAIN_SW，TPS22990DMLR / C962990，原厂引脚 8/9/10 都是 VOUT。电路源把 VOUT1/VOUT2/VOUT3 直接接 V5_MAIN。
-- 供应商 pad 10 同时有矩形和重叠多边形。生成 Circuit JSON 中有逻辑 pin 10 和 pin10_internal_1，并有 source_component_internal_connection 连接两者。前者具有 V5_MAIN 的 connectivity key，后者没有。
-- 输出 KiCad 的矩形 pad 10 有 V5_MAIN，多边形 pad 10 没有 net；多边形与 VOUT 的 8/9/10 重叠，造成 2 个 clearance、1 个 shorting_items、2 个 solder_mask_bridge 错误，并阻挡 VOUT 出线。
-- 已尝试与供应商一致的 VOUT1/VOUT2/VOUT3 名称，以及具证据的 same-pcb-port logicalPadGrouping 声明；多轮完整 check 仍出现相同结果。
-- 正确修复应让同一个物理端子的所有形状继承同一逻辑网络。不能删掉必要焊盘、捏造第二个端子或添加零欧姆元件来掩盖映射问题。验收：所有 pad 10 形状均为 V5_MAIN，以上 5 个错误消失，3 个 VOUT 端点真正布通。
+2026-09-24，`pcb.run(check)` run `fbc3e251-4e55-43ce-98a1-f0fbcad5871d`：仍 blocked，22 条错误诊断。最终 KiCad 板 SHA-256：`87ed52e981809ba4ae6f231b27331024ed8bd8e0a52149450bdcaa4eee509294`。
 
-## 大电流干线仍被全网细脚线宽替代
+- TPS22990 pin 10 矩形与多边形共享同一个 V5_MAIN 逻辑端口；先前 5 个封装错误消失。原厂封装几何和焊盘号未改动。
+- 主开关移至 (20,31) 并展开外围后，V5_MAIN 已不在未完成网表中。BOOST_COMP 电阻靠近芯片后，该网络亦已布通。仅表示电气连通，不表示电源线宽合格。
+- 非地网络仅 V5_BOOST 部分连通，仍需要从升压输出铜连至反馈上臂、主开关输入支路。分别重布和移动输出电容未消除此断点；产生电感间距冲突的电容位置已撤回。
+- 原始 KiCad 未连通项由中间 run d93429fd 的 15 项降至最终 5 项；工具归并为 4 项阻断（包括顶、底两个铜区分裂）。剩余实体错误为 J_USB_IN GND pad 19 顶层热连接实际 1 辐条、要求 2 辐条。pad 中心 KiCad (66.895,137.68)，源板坐标 (-33.105,-37.68) mm。区元数据的 (44.836905,48.25) 不是断点位置。
+- 最终没有元件重叠错误。板实测 70×104×1.6 mm、4 层、144 元件、140 个 0.6/0.3 mm 过孔。顶/底布线图、原理图及独立 KiCad 导出的两内层铜图已查看；整体仍不合格。
 
-- BAT_RAW 和 SYS_RAW 声明 2 mm 干线、6 A 条件目标、1.8 mm 估算最低铜宽，并只允许 U_CHARGER 周围最多 1 mm 的 0.2 mm 逃线。CHG_SW 也只允许最多 1 mm 短逃线。
-- 实际 DSN 对整个网络使用约 0.224003 mm 单一线宽；KiCad 以 0.224 mm 输出。长距离电源干线因此未形成，escape 检查持续失败。
-- CHG_VBUS、V5_MAIN 的自动细脚宽度还分别出现 0.224003→0.224 mm、0.280010→0.280 mm 的取整报错。这些网络同时承担大电流，未通过降低整网最小线宽消除报告。
-- BOOST_SW、V5_BOOST、V5_PI 等也必须按实际铜宽、长度、层别和过孔重新核验，不能因为某项 gate 未报错就视为满足电流。
-- 当前配置接口只能声明局部逃线规则；复测显示路由结果没有生成声明的宽干线。需要工具支持实际局部加宽/电源铜区，或可持久化且可复核的手工电源布线路径。不得把电源分成虚假的独立网络，不得直接修补输出文件。
+## 宽电源干线未生成
 
-## 已修复的表示问题
+所有 netClasses、nets（含 currentCapacity、escape）和 manufacturing 与本轮起点逐对象相等，未改变需求或通过放宽规则消除错误。
 
-TPS61088 原生 RHL 凹形热焊盘在 DSN 中被凸包填满，遮住 VCC/SS。以原生 KiCad 库为依据，把同一个 pad 21 表为面积和轮廓相同的两个矩形，保留焊盘号、周边焊盘、锡膏和方向后，BOOST_VCC 与 BOOST_SS 已布通。证据和哈希见 SOURCES.md。
+| 网络 | 最终实际线宽 mm | 保留的载流目标/要求 |
+|---|---:|---|
+| BAT_RAW | 0.224 | 6 A，2 mm 干线，估算最低 1.8 mm；0.2 mm 逃线至多 1 mm |
+| SYS_RAW | 0.224 | 6 A，2 mm 干线，估算最低 1.8 mm；0.2 mm 逃线至多 1 mm |
+| CHG_SW | 0.224 | 3.5 A，估算最低 0.85 mm；窄逃线至多 1 mm |
+| USB_VBUS / CHG_VBUS | 0.2 / 0.224 | 2.7 A，估算最低 0.75 mm |
+| BOOST_SW | 0.24 | 6 A 条件估算，最低 1.8 mm |
+| V5_BOOST / V5_MAIN | 0.24 / 0.28 | 3.3 A，估算最低 0.8 mm |
+| V5_PI | 0.3 | 3.2 A，估算最低 0.75 mm |
 
-GPIO AUX 正常预算为 100 mA；固件、信号故障反灌隔离、功率器件热验证、固定孔和 FPC 堆叠尚未完成。即使后续 DRC 清零，仍须分别验证这些项目。
+BAT_RAW/SYS_RAW/CHG_SW 最长窄路分别 48.84/43.17/9.17 mm。DSN 仍给网络统一的细脚宽度，局部 escape 配置没有形成宽干线。CHG_VBUS 与 V5_MAIN 另有 0.224003→0.224、0.280010→0.280 mm 的取整检查差异；不能把取整差异修掉后，就把整个细线电源视为达标。
 
-## 最后一次复测结果（2026-09-24）
+已按上游 Trace API 尝试源文件 `pcbPath` 1.2 mm 宽干线及短 `pcbStraightLine`。preview run `9a0437d5-7152-4037-abc9-02523896c589` 明确拒绝：
 
-Run `6e2cc748-8430-47df-a123-091fc622fcdd`：局部重布 BOOST_COMP 后，KiCad 仍为 5 个错误、0 个警告、8 个阻断连通发现（含 2 个铜区分裂）；BOOST_COMP 和 V5_MAIN 仍部分连通。工具确认连续两轮相同阻断集合，停止重复同类修补。Freerouting 的预地铜汇总为 40 个未完成项，不能把这个预填铜数当作最终 KiCad 断线数。
+> TSCIRCUIT_ROUTED_COPPER_IN_SOURCE: source produced 2 routed copper element(s) ... Declare connectivity only; routing is generated from the netlist.
 
-pcb.measure 实测：BAT_RAW/SYS_RAW/CHG_SW 为 0.224 mm，BOOST_SW/V5_BOOST 为 0.24 mm，V5_MAIN 为 0.28 mm，V5_PI 为 0.3 mm，USB_VBUS 为 0.2 mm。正常 GPIO 辅助电源轨为 0.5 mm。板为 70 × 104 × 1.6 mm、4 层、144 元件、122 个 0.6/0.3 mm 过孔。功率干线的实测宽度不是额定电流合格证明。
+这些被拒绝的铜线已移除。技能文档声称保留源文件手工铜线，实际编译器不接受，属于需解决的运行时能力冲突。当前配置也没有多个局部电源铜区的公开接口。重复同一自动布线不会产生所需宽干线。
 
-R_LCD_ILM 与 C_LCD_DVDT 的间距冲突已消除。LCD_ILM、V5_LCD、LID_CLOSED、BOOST_VCC、BOOST_SS 不再出现在未完成网络清单。内层独立渲染遇到 PCB sandbox 不能确定 design 归属的环境错误，未声称通过内层视觉复核。未生成 release 或制造文件。
+工具修复验收：同一真实电源网络必须能保留窄焊盘逃线与宽干线，源文件可持久化，最终 KiCad 和回写 Circuit JSON 的宽度、长度、层别、过孔都须可量测，并满足既有 currentCapacity 和 escape 限制。不得插入假零欧姆元件、拆分虚假电源网、删焊盘或修补生成文件。
+
+## 接地过孔检查结果不一致
+
+从 run `d93429fd-189f-4855-b3a5-f4cf8006a720` 的实际填铜轮廓定位分离铜区，以其他层大面积连通 GND 为桥接对象，检查各层异网走线、焊盘、过孔及孔位后，声明了下面 17 个 0.6/0.3 mm 通孔。所有坐标是源板坐标，不是 zone 的元数据原点；不是试探性的网格撒孔。
+
+| 名称 | X mm | Y mm |
+|---|---:|---:|
+| ST_GND_FCu_1 | 5.9694 | 38.5368 |
+| ST_GND_FCu_2 | 13.8162 | 7.0144 |
+| ST_GND_FCu_3 | 11.1360 | 6.8098 |
+| ST_GND_FCu_8 | -7.7046 | -42.1992 |
+| ST_GND_BCu_10 | 17.6933 | -34.7428 |
+| ST_GND_BCu_12 | -27.0353 | 12.5651 |
+| ST_GND_BCu_13 | -24.6788 | 14.3309 |
+| ST_GND_BCu_14 | -13.5078 | 22.1720 |
+| ST_GND_BCu_15 | 2.8780 | 27.6925 |
+| ST_GND_BCu_16 | 4.9298 | 43.8621 |
+| ST_GND_BCu_17 | -27.1448 | 5.9730 |
+| ST_GND_BCu_18 | -22.1662 | 5.9802 |
+| ST_GND_In1Cu_20 | -26.0956 | 32.5555 |
+| ST_GND_In1Cu_22 | -13.5120 | 39.9353 |
+| ST_GND_In1Cu_23 | -13.4922 | -4.4720 |
+| ST_GND_In2Cu_25 | -8.6350 | 17.3942 |
+| ST_GND_In2Cu_26 | -14.0738 | 30.4565 |
+
+最终独立 `pcb.kicad_cli pcb drc --format json` 对同一块板得到：1 个 starved_thermal 错误、5 个原始未连通项、144 个 lib_footprint_mismatch 警告，没有 clearance、shorting_items 或钻孔间距错误。CLI 没有指定遇到 violation 返回非零，所以 exitCode=0 **不代表 DRC 通过**。应用归一化后显示 0 个警告，不能混用这两个计数。
+
+应用仍给 14 个声明过孔报告 `declared_stitching_via_clearance`，多数距离为 -0.3 mm，且不提供具体异网铜对象；例如 ST_GND_FCu_1。该孔的最终 KiCad 数据是 GND，中心 (105.9694,61.463199)，直径/孔径 0.6/0.3；回写 Circuit JSON 中同位 pcb_via 没有网络字段。这是可复现的数据差异，尚未证明具体根因。保留实际改善连通的过孔，同时保留阻断，未删除检查、加豁免或声称通过。
+
+工具修复验收：给每个冲突提供异网对象、层别、实际最近边缘位置与距离，并与同一最终板的 KiCad DRC 对齐；若问题在回写网络身份，则恢复实际 GND 归属。随后重新检查全部过孔及地铜连通。现阶段不把该差异当作放行依据。
+
+## 仍需完成的板级修复
+
+支持可检查的局部铜线之后，完成 V5_BOOST 断点、所有大电流干线、剩余小地铜区、USB 焊脚热连接，重新跑完整 check。小孤立区域已有确切多边形位置（U_LCD_EFUSE、U_POR、USB、U_CC、U_CHARGER 邻近），不能把 zone 锚点当作过孔位置；未找到合规 0.6/0.3 mm 位点的区域不采用更小过孔或无依据的焊盘内孔。
+
+TPS61088 RHL 热焊盘的既有无损矩形表示继续保留，BOOST_VCC/BOOST_SS 仍连通，依据见 SOURCES.md。固件、GPIO 信号故障反灌隔离、功率器件热验证、固定孔和 FPC 堆叠仍按原合同独立验收。此轮没有运行 release，没有制造文件。

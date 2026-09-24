@@ -77,3 +77,28 @@ LCD_ILM and V5_LCD explicitly use the existing 0.15 mm clearance floor,
 without lowering their width or current targets. R_LCD_ILM is placed near
 U_LCD_EFUSE, C_LCD_DVDT is separated from its courtyard, and UPDI is moved
 away from the lid-reset escape. Final routing results are recorded in README.md.
+
+## TPS22990 logical pad binding and routing repair (2026-09-24)
+
+The supplier C962990 footprint is unchanged. Its pad 10 rectangle and polygon
+both have the native physical terminal number 10. `pin10: ["VOUT3",
+"pin10_internal_1"]` binds the importer hint to that same logical source port;
+`internallyConnectedPins` records VOUT1/VOUT2/VOUT3 as the same device output,
+consistent with the already cited TI DML pin map. No extra electrical terminal,
+net, link resistor, or invented footprint geometry was added.
+
+Final run `fbc3e251-4e55-43ce-98a1-f0fbcad5871d`: both pad-10 shapes share one
+PCB port carrying the V5_MAIN connectivity key; the prior two clearance errors,
+one short, and two solder-mask bridge errors are absent. V5_MAIN connectivity
+and BOOST_COMP are now complete, although their actual copper still has to meet
+the declared current rules. The main switch is at (20,31), its input capacitor
+at (20,26), CT capacitor at (26,29), enable pull-down at (20,38), and compensation
+resistor at (19,5.25), all top-side source coordinates in mm. Fixed connectors
+and all BOM identities remain unchanged.
+
+The 17 explicit GND bridge positions in pcb.config.json were derived from run
+`d93429fd-189f-4855-b3a5-f4cf8006a720` filled polygons, avoiding other-net tracks,
+physical pads and drill sites, and requiring overlapping connected GND on another
+layer. Final KiCad independently reports no copper/drill clearance or shorting
+errors for those bridges. The application reports 14 conflicting clearance
+findings; these remain blocking and are documented, not waived.

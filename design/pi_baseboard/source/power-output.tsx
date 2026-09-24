@@ -68,7 +68,7 @@ export const PowerOutput = () => (
         confirm ceramic bias, ESR and gain/phase margin on prototype. */}
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="R_BOOST_COMP" resistance="2.49k" footprint="0603"
       connections={{ pin1: "net.BOOST_COMP", pin2: "net.BOOST_COMP_RC" }}
-      layer="top" pcbX={9} pcbY={15} />
+      layer="top" pcbX={19} pcbY={5.25} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="C_BOOST_COMP_Z" capacitance="10nF" footprint="0603"
       connections={{ pin1: "net.BOOST_COMP_RC", pin2: "net.GND" }}
       layer="top" pcbX={5} pcbY={15} />
@@ -83,26 +83,30 @@ export const PowerOutput = () => (
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="C_BOOST_OUT_HF" capacitance="1uF" footprint="0603"
       connections={{ pin1: "net.V5_BOOST", pin2: "net.GND" }}
       layer="top" pcbX={27} pcbY={-9} />
-    {/* TPS22990 DML pin map TI ZHCSF87C p3; thermal pad belongs to VIN. */}
+    {/* TPS22990 DML pin map TI ZHCSF87C p3; thermal pad belongs to VIN.
+        Supplier pad 10 has a second shape named pin10_internal_1. Bind that
+        hint to the same logical VOUT3 port, so every shape inherits V5_MAIN.
+        Keep a clear output corridor toward the Pi input capacitor. */}
     <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="U_MAIN_SW" manufacturerPartNumber="TPS22990DMLR"
       footprint="jlcpcb:C962990" supplierPartNumbers={{ jlcpcb: ["C962990"] }}
       pinLabels={{ pin1: "CT", pin2: "NC", pin3: "VIN", pin4: "VBIAS",
         pin5: "ON", pin6: "GND", pin7: "PG", pin8: "VOUT1",
-        pin9: "VOUT2", pin10: "VOUT3", pin11: "PAD" }}
+        pin9: "VOUT2", pin10: ["VOUT3", "pin10_internal_1"], pin11: "PAD" }}
+      internallyConnectedPins={[["VOUT1", "VOUT2", "VOUT3"]]}
       connections={{ CT: "net.MAIN_CT", VIN: "net.V5_BOOST", VBIAS: "net.V5_BOOST",
         ON: "net.MAIN_EN", GND: "net.GND", PG: "net.GND",
         VOUT1: "net.V5_MAIN", VOUT2: "net.V5_MAIN", VOUT3: "net.V5_MAIN",
         PAD: "net.V5_BOOST" }}
-      layer="top" pcbX={18} pcbY={26} />
+      layer="top" pcbX={20} pcbY={31} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="C_MAIN_CT" capacitance="10nF" footprint="0603"
       connections={{ pin1: "net.MAIN_CT", pin2: "net.GND" }}
-      layer="top" pcbX={24} pcbY={26} />
+      layer="top" pcbX={26} pcbY={29} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="C_MAIN_IN" capacitance="1uF" footprint="0603"
       connections={{ pin1: "net.V5_BOOST", pin2: "net.GND" }}
-      layer="top" pcbX={12} pcbY={26} />
+      layer="top" pcbX={20} pcbY={26} />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="R_MAIN_EN_OFF" resistance="100k" footprint="0603"
       connections={{ pin1: "net.MAIN_EN", pin2: "net.GND" }}
-      layer="top" pcbX={18} pcbY={32} />
+      layer="top" pcbX={20} pcbY={38} />
     {/* Two separately switched 5V domains: Pi may be back-powered at its own
         USB-C, while Sharp must never see >5.5V or the Pi-reversible rail. */}
     <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="U_PI_EFUSE" manufacturerPartNumber="TPS259470LRPWR"

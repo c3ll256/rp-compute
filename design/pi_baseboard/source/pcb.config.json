@@ -505,7 +505,161 @@
     "cutoutMarginMm": 0.5,
     "removeIslands": true
   },
-  "stitchingVias": [],
+  "stitchingVias": [
+    {
+      "name": "ST_GND_FCu_1",
+      "net": "GND",
+      "xMm": 5.9694,
+      "yMm": 38.5368,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected F.Cu filled region 1, area 14.0810 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_FCu_2",
+      "net": "GND",
+      "xMm": 13.8162,
+      "yMm": 7.0144,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected F.Cu filled region 2, area 17.5561 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_FCu_3",
+      "net": "GND",
+      "xMm": 11.136,
+      "yMm": 6.8098,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected F.Cu filled region 3, area 6.1892 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_FCu_8",
+      "net": "GND",
+      "xMm": -7.7046,
+      "yMm": -42.1992,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected F.Cu filled region 8, area 4.9590 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_BCu_10",
+      "net": "GND",
+      "xMm": 17.6933,
+      "yMm": -34.7428,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected B.Cu filled region 10, area 30.1621 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_BCu_12",
+      "net": "GND",
+      "xMm": -27.0353,
+      "yMm": 12.5651,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected B.Cu filled region 12, area 7.5549 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_BCu_13",
+      "net": "GND",
+      "xMm": -24.6788,
+      "yMm": 14.3309,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected B.Cu filled region 13, area 15.6624 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_BCu_14",
+      "net": "GND",
+      "xMm": -13.5078,
+      "yMm": 22.172,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected B.Cu filled region 14, area 2.2315 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_BCu_15",
+      "net": "GND",
+      "xMm": 2.878,
+      "yMm": 27.6925,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected B.Cu filled region 15, area 11.7360 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_BCu_16",
+      "net": "GND",
+      "xMm": 4.9298,
+      "yMm": 43.8621,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected B.Cu filled region 16, area 14.2908 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_BCu_17",
+      "net": "GND",
+      "xMm": -27.1448,
+      "yMm": 5.973,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected B.Cu filled region 17, area 3.6314 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_BCu_18",
+      "net": "GND",
+      "xMm": -22.1662,
+      "yMm": 5.9802,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected B.Cu filled region 18, area 4.1530 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_In1Cu_20",
+      "net": "GND",
+      "xMm": -26.0956,
+      "yMm": 32.5555,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected In1.Cu filled region 20, area 221.6505 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_In1Cu_22",
+      "net": "GND",
+      "xMm": -13.512,
+      "yMm": 39.9353,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected In1.Cu filled region 22, area 2.2886 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_In1Cu_23",
+      "net": "GND",
+      "xMm": -13.4922,
+      "yMm": -4.472,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected In1.Cu filled region 23, area 2.2315 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_In2Cu_25",
+      "net": "GND",
+      "xMm": -8.635,
+      "yMm": 17.3942,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected In2.Cu filled region 25, area 116.8594 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    },
+    {
+      "name": "ST_GND_In2Cu_26",
+      "net": "GND",
+      "xMm": -14.0738,
+      "yMm": 30.4565,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Run d93429fd: disconnected In2.Cu filled region 26, area 2.2839 mm2. Point intersects this lobe and a >1000 mm2 filled GND region on another layer; checked all-layer tracks, vias and physical pads. Through via 0.6/0.3; no via-in-pad. Geometry evidence: routed-copper-dump; final KiCad DRC remains authoritative."
+    }
+  ],
   "keepouts": [],
   "allowedOverlaps": [],
   "allowedViaInPadComponents": [],
