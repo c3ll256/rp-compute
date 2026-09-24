@@ -28,35 +28,35 @@ export const PowerOutput = () => (
     <inductor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="L_BOOST" inductance="2.2uH" manufacturerPartNumber="74437349022"
       footprint="vendor:L_Wurth_WE-LHMI-7050" supplierPartNumbers={{ jlcpcb: ["C6101073"] }}
       connections={{ pin1: "net.SYS_RAW", pin2: "net.BOOST_SW" }}
-      layer="top" pcbX={25} pcbY={4} />
+      layer="top" pcbX={7} pcbY={4} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="C_BOOST_IN" capacitance="22uF" footprint="1206"
       connections={{ pin1: "net.SYS_RAW", pin2: "net.GND" }}
       layer="top" pcbX={10} pcbY={-3} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="C_BOOST_VIN_HF" capacitance="100nF" footprint="0603"
       connections={{ pin1: "net.SYS_RAW", pin2: "net.GND" }}
-      layer="top" pcbX={8} pcbY={4} />
+      layer="top" pcbX={6} pcbY={-3} pcbRotation={90} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="C_BOOST_VCC" capacitance="2.2uF" footprint="0805"
       connections={{ pin1: "net.BOOST_VCC", pin2: "net.GND" }}
-      layer="top" pcbX={9} pcbY={7} />
+      layer="top" pcbX={13} pcbY={9} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="C_BOOST_BOOT" capacitance="100nF" footprint="0603"
       connections={{ pin1: "net.BOOST_BOOT", pin2: "net.BOOST_SW" }}
-      layer="top" pcbX={20} pcbY={-3} />
+      layer="top" pcbX={10} pcbY={-0.6} />
     {/* R_FSW ~=267k for 600kHz at VIN 3.5/VOUT5.1 per TI p11. */}
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="R_BOOST_FSW" resistance="267k" footprint="0603"
       connections={{ pin1: "net.BOOST_FSW", pin2: "net.BOOST_SW" }}
-      layer="top" pcbX={22} pcbY={10} />
+      layer="top" pcbX={9} pcbY={10} />
     {/* R_ILIM 150k => 7.93A typical, ~6.63A minimum (TI p12). At VIN 3.5,
         VOUT5.1/3.3A, 85% efficiency, 2.2uH/600kHz: peak ~6.08A.
         Very small worst-case margin; actual efficiency and limits must be tested. */}
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="R_BOOST_ILIM" resistance="150k" footprint="0603"
       connections={{ pin1: "net.BOOST_ILIM", pin2: "net.GND" }}
-      layer="top" pcbX={4} pcbY={-2} />
+      layer="top" pcbX={3} pcbY={-2} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="C_BOOST_SS" capacitance="47nF" footprint="0603"
       connections={{ pin1: "net.BOOST_SS", pin2: "net.GND" }}
       layer="top" pcbX={16} pcbY={-1} />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="R_BOOST_EN_OFF" resistance="100k" footprint="0603"
       connections={{ pin1: "net.BOOST_EN", pin2: "net.GND" }}
-      layer="top" pcbX={4} pcbY={5} />
+      layer="top" pcbX={3} pcbY={10} />
     {/* Feedback 56k lower / 182k upper gives 5.117V nominal. */}
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="R_BOOST_FB_TOP" resistance="182k" footprint="0603"
       connections={{ pin1: "net.V5_BOOST", pin2: "net.BOOST_FB" }}
@@ -78,11 +78,11 @@ export const PowerOutput = () => (
     {[0, 1, 2].map((index) => (
       <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" key={index} name={`C_BOOST_OUT${index + 1}`} capacitance="22uF" footprint="1206"
         connections={{ pin1: "net.V5_BOOST", pin2: "net.GND" }}
-        layer="top" pcbX={12 + index * 5} pcbY={-9} />
+        layer="top" pcbX={20 + index * 3} pcbY={1} pcbRotation={270} />
     ))}
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Power outputs" name="C_BOOST_OUT_HF" capacitance="1uF" footprint="0603"
       connections={{ pin1: "net.V5_BOOST", pin2: "net.GND" }}
-      layer="top" pcbX={27} pcbY={-9} />
+      layer="top" pcbX={29} pcbY={3.75} />
     {/* TPS22990 DML pin map TI ZHCSF87C p3; thermal pad belongs to VIN.
         Supplier pad 10 has a second shape named pin10_internal_1. Bind that
         hint to the same logical VOUT3 port, so every shape inherits V5_MAIN.

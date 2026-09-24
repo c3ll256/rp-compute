@@ -78,7 +78,9 @@
         "requiredWidthMm": 0.75,
         "calculationMethod": "IPC-2221 external trace estimate",
         "rationale": "3A Type-C advertisement only; 820 ohm TPS259531 ILM limits downstream to about 2.63A high corner before resistor tolerance. 0.75mm is conservative versus ~0.67mm IPC-2221 estimate for 2.7A/2oz/10C. Validate port-pin aggregation and actual copper."
-      }
+      },
+      "clearanceMm": 0.15,
+      "rationale": " Local power copper must reach 0.4mm-pitch BQ25622/TUSB320 lands: 0.25mm clearance erases the neck; use the existing 0.15mm manufacturing floor. Current, nominal width, minimum width and escape length are unchanged."
     },
     "USB_CC1": {
       "class": "signal"
@@ -113,12 +115,14 @@
         "requiredWidthMm": 0.75,
         "calculationMethod": "IPC-2221 external trace estimate",
         "rationale": "Post-TPS259531 input limited around 2.63A high corner before resistor tolerance; 0.75mm conservative versus ~0.67mm IPC-2221 for 2.7A/2oz/10C. Validate fault current and temperature."
-      }
+      },
+      "clearanceMm": 0.15,
+      "rationale": " Local power copper must reach 0.4mm-pitch BQ25622/TUSB320 lands: 0.25mm clearance erases the neck; use the existing 0.15mm manufacturing floor. Current, nominal width, minimum width and escape length are unchanged."
     },
     "BAT_RAW": {
       "class": "high_current",
       "nominalWidthMm": 2.0,
-      "rationale": "Size copper trunk above 6A/2oz/10C estimate; package escape remains a local limitation.",
+      "rationale": "Size copper trunk above 6A/2oz/10C estimate; package escape remains a local limitation. Local power copper must reach 0.4mm-pitch BQ25622/TUSB320 lands: 0.25mm clearance erases the neck; use the existing 0.15mm manufacturing floor. Current, nominal width, minimum width and escape length are unchanged.",
       "escape": {
         "widthMm": 0.2,
         "clearanceMm": 0.15,
@@ -135,12 +139,13 @@
         "requiredWidthMm": 1.8,
         "calculationMethod": "IPC-2221 external trace estimate",
         "rationale": "BQ25622 battery-path ceiling is 6A continuous; ~1.78mm external 2oz/10C estimate. This is a copper target, not a verified package or pack rating."
-      }
+      },
+      "clearanceMm": 0.15
     },
     "SYS_RAW": {
       "class": "high_current",
       "nominalWidthMm": 2.0,
-      "rationale": "Size copper trunk above 6A/2oz/10C estimate; package escape remains a local limitation.",
+      "rationale": "Size copper trunk above 6A/2oz/10C estimate; package escape remains a local limitation. Local power copper must reach 0.4mm-pitch BQ25622/TUSB320 lands: 0.25mm clearance erases the neck; use the existing 0.15mm manufacturing floor. Current, nominal width, minimum width and escape length are unchanged.",
       "escape": {
         "widthMm": 0.2,
         "clearanceMm": 0.15,
@@ -157,7 +162,8 @@
         "requiredWidthMm": 1.8,
         "calculationMethod": "IPC-2221 external trace estimate",
         "rationale": "SYS may carry almost the BQ25622 6A battery-path limit; ~1.78mm external 2oz/10C estimate. Actual package escape, vias, copper and thermal qualification remain required."
-      }
+      },
+      "clearanceMm": 0.15
     },
     "CHG_SW": {
       "class": "high_current",
@@ -177,12 +183,15 @@
         "requiredWidthMm": 0.85,
         "calculationMethod": "IPC-2221 external trace estimate",
         "rationale": "BQ25622 switch current limit is 3.5A class. Short, local SW-to-inductor copper still needs package-specific loop review and thermal validation."
-      }
+      },
+      "clearanceMm": 0.15,
+      "rationale": " Local power copper must reach 0.4mm-pitch BQ25622/TUSB320 lands: 0.25mm clearance erases the neck; use the existing 0.15mm manufacturing floor. Current, nominal width, minimum width and escape length are unchanged."
     },
     "CHG_PMID": {
       "class": "power",
       "minimumWidthMm": 0.224,
-      "rationale": "BQ25622 supplier land is0.2240026mm; routed KiCad copper is quantized to0.224mm. Declare that existing geometric minimum explicitly instead of a sub-micron false width failure. Nominal width is unchanged; this does not rate high-current trunks."
+      "rationale": "BQ25622 supplier land is0.2240026mm; routed KiCad copper is quantized to0.224mm. Declare that existing geometric minimum explicitly instead of a sub-micron false width failure. Nominal width is unchanged; this does not rate high-current trunks. Local power copper must reach 0.4mm-pitch BQ25622/TUSB320 lands: 0.25mm clearance erases the neck; use the existing 0.15mm manufacturing floor. Current, nominal width, minimum width and escape length are unchanged.",
+      "clearanceMm": 0.15
     },
     "CHG_BTST": {
       "class": "signal"
@@ -827,6 +836,1392 @@
         "U_AUX_LIMIT"
       ],
       "populate": true
+    }
+  ],
+  "copperAreas": [
+    {
+      "name": "R_USB_VDET_POWER_LAND",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -24.375,
+          -37.8
+        ],
+        [
+          -22.425,
+          -37.8
+        ],
+        [
+          -22.425,
+          -36.2
+        ],
+        [
+          -24.375,
+          -36.2
+        ]
+      ],
+      "rationale": "R_USB_VDET local USB_VBUS branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "R_CC_OUT1_POWER_LAND",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -17.375,
+          -37.8
+        ],
+        [
+          -15.424999999999999,
+          -37.8
+        ],
+        [
+          -15.424999999999999,
+          -36.2
+        ],
+        [
+          -17.375,
+          -36.2
+        ]
+      ],
+      "rationale": "R_CC_OUT1 local USB_VBUS branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "R_CC_OUT2_POWER_LAND",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -14.374999999999998,
+          -37.8
+        ],
+        [
+          -12.424999999999999,
+          -37.8
+        ],
+        [
+          -12.424999999999999,
+          -36.2
+        ],
+        [
+          -14.374999999999998,
+          -36.2
+        ]
+      ],
+      "rationale": "R_CC_OUT2 local USB_VBUS branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "C_CC_VDD_POWER_LAND",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -20.375,
+          -48.8
+        ],
+        [
+          -18.425,
+          -48.8
+        ],
+        [
+          -18.425,
+          -47.2
+        ],
+        [
+          -20.375,
+          -47.2
+        ]
+      ],
+      "rationale": "C_CC_VDD local USB_VBUS branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "C_CC_OR_POWER_LAND",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -9.375,
+          -48.8
+        ],
+        [
+          -7.425,
+          -48.8
+        ],
+        [
+          -7.425,
+          -47.2
+        ],
+        [
+          -9.375,
+          -47.2
+        ]
+      ],
+      "rationale": "C_CC_OR local USB_VBUS branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "R_USB_DISABLE_POWER_LAND",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -5.375,
+          -43.8
+        ],
+        [
+          -3.4250000000000003,
+          -43.8
+        ],
+        [
+          -3.4250000000000003,
+          -42.2
+        ],
+        [
+          -5.375,
+          -42.2
+        ]
+      ],
+      "rationale": "R_USB_DISABLE local USB_VBUS branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "C_USB_IN_POWER_LAND",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -3.375,
+          -48.8
+        ],
+        [
+          -1.4249999999999998,
+          -48.8
+        ],
+        [
+          -1.4249999999999998,
+          -47.2
+        ],
+        [
+          -3.375,
+          -47.2
+        ]
+      ],
+      "rationale": "C_USB_IN local USB_VBUS branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "C_CHG_VBUS_POWER_LAND",
+      "net": "CHG_VBUS",
+      "layer": "bottom",
+      "polygonMm": [
+        [
+          5.425,
+          -24.8
+        ],
+        [
+          7.375,
+          -24.8
+        ],
+        [
+          7.375,
+          -23.2
+        ],
+        [
+          5.425,
+          -23.2
+        ]
+      ],
+      "rationale": "C_CHG_VBUS local CHG_VBUS branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "R_CHG_CE_OFF_POWER_LAND",
+      "net": "SYS_RAW",
+      "layer": "bottom",
+      "polygonMm": [
+        [
+          3.4250000000000003,
+          -39.15
+        ],
+        [
+          6.175,
+          -39.15
+        ],
+        [
+          6.175,
+          -36.85
+        ],
+        [
+          3.4250000000000003,
+          -36.85
+        ]
+      ],
+      "rationale": "R_CHG_CE_OFF local SYS_RAW branch landing, expanding away from the opposite terminal to meet the unchanged 2.0mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "C_BOOST_BOOT_POWER_LAND",
+      "net": "BOOST_SW",
+      "layer": "top",
+      "polygonMm": [
+        [
+          10.424999999999999,
+          -1.75
+        ],
+        [
+          13.174999999999999,
+          -1.75
+        ],
+        [
+          13.174999999999999,
+          0.5499999999999999
+        ],
+        [
+          10.424999999999999,
+          0.5499999999999999
+        ]
+      ],
+      "rationale": "C_BOOST_BOOT local BOOST_SW branch landing, expanding away from the opposite terminal to meet the unchanged 2.0mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "R_BOOST_FSW_POWER_LAND",
+      "net": "BOOST_SW",
+      "layer": "top",
+      "polygonMm": [
+        [
+          9.424999999999999,
+          8.85
+        ],
+        [
+          12.174999999999999,
+          8.85
+        ],
+        [
+          12.174999999999999,
+          11.15
+        ],
+        [
+          9.424999999999999,
+          11.15
+        ]
+      ],
+      "rationale": "R_BOOST_FSW local BOOST_SW branch landing, expanding away from the opposite terminal to meet the unchanged 2.0mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "R_PI_OVLO_TOP_POWER_LAND",
+      "net": "V5_MAIN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -1.375,
+          39.2
+        ],
+        [
+          0.5750000000000001,
+          39.2
+        ],
+        [
+          0.5750000000000001,
+          40.8
+        ],
+        [
+          -1.375,
+          40.8
+        ]
+      ],
+      "rationale": "R_PI_OVLO_TOP local V5_MAIN branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "R_LCD_OVLO_TOP_POWER_LAND",
+      "net": "V5_MAIN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -1.375,
+          17.2
+        ],
+        [
+          0.5750000000000001,
+          17.2
+        ],
+        [
+          0.5750000000000001,
+          18.8
+        ],
+        [
+          -1.375,
+          18.8
+        ]
+      ],
+      "rationale": "R_LCD_OVLO_TOP local V5_MAIN branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "C_LCD_FUSE_IN_POWER_LAND",
+      "net": "V5_MAIN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -1.375,
+          22.2
+        ],
+        [
+          0.5750000000000001,
+          22.2
+        ],
+        [
+          0.5750000000000001,
+          23.8
+        ],
+        [
+          -1.375,
+          23.8
+        ]
+      ],
+      "rationale": "C_LCD_FUSE_IN local V5_MAIN branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "C_PI_FUSE_IN_POWER_LAND",
+      "net": "V5_MAIN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -1.375,
+          34.2
+        ],
+        [
+          0.5750000000000001,
+          34.2
+        ],
+        [
+          0.5750000000000001,
+          35.8
+        ],
+        [
+          -1.375,
+          35.8
+        ]
+      ],
+      "rationale": "C_PI_FUSE_IN local V5_MAIN branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "C_PI_FUSE_OUT_POWER_LAND",
+      "net": "V5_PI",
+      "layer": "top",
+      "polygonMm": [
+        [
+          9.9875,
+          43.2
+        ],
+        [
+          11.9375,
+          43.2
+        ],
+        [
+          11.9375,
+          44.8
+        ],
+        [
+          9.9875,
+          44.8
+        ]
+      ],
+      "rationale": "C_PI_FUSE_OUT local V5_PI branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "R_BAT_TOP_POWER_LAND",
+      "net": "BAT_RAW",
+      "layer": "bottom",
+      "polygonMm": [
+        [
+          -29.575,
+          10.85
+        ],
+        [
+          -26.825,
+          10.85
+        ],
+        [
+          -26.825,
+          13.15
+        ],
+        [
+          -29.575,
+          13.15
+        ]
+      ],
+      "rationale": "R_BAT_TOP local BAT_RAW branch landing, expanding away from the opposite terminal to meet the unchanged 2.0mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "R_SYS_TOP_POWER_LAND",
+      "net": "SYS_RAW",
+      "layer": "bottom",
+      "polygonMm": [
+        [
+          -29.575,
+          4.85
+        ],
+        [
+          -26.825,
+          4.85
+        ],
+        [
+          -26.825,
+          7.15
+        ],
+        [
+          -29.575,
+          7.15
+        ]
+      ],
+      "rationale": "R_SYS_TOP local SYS_RAW branch landing, expanding away from the opposite terminal to meet the unchanged 2.0mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "C_AUX_IN_POWER_LAND",
+      "net": "V5_MAIN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -31.375,
+          -18.8
+        ],
+        [
+          -29.425,
+          -18.8
+        ],
+        [
+          -29.425,
+          -17.2
+        ],
+        [
+          -31.375,
+          -17.2
+        ]
+      ],
+      "rationale": "C_AUX_IN local V5_MAIN branch landing, expanding away from the opposite terminal to meet the unchanged 1.2mm nominal trunk. The small terminal carries this branch load only; verify actual fill and clearance after routing."
+    },
+    {
+      "name": "BOOST_SW_JOIN",
+      "net": "BOOST_SW",
+      "layer": "top",
+      "polygonMm": [
+        [
+          8.2,
+          2.4
+        ],
+        [
+          11.1,
+          2.4
+        ],
+        [
+          12.05,
+          3.1
+        ],
+        [
+          12.65,
+          3.1
+        ],
+        [
+          12.65,
+          4.89
+        ],
+        [
+          12.05,
+          4.89
+        ],
+        [
+          11.1,
+          5.6
+        ],
+        [
+          8.2,
+          5.6
+        ]
+      ],
+      "rationale": "Join TPS61088 SW4..7 to the adjacent inductor pad on the same outer layer; keep switch copper local and verify the 6A loop in the filled board."
+    },
+    {
+      "name": "BOOST_INPUT_LOCAL",
+      "net": "SYS_RAW",
+      "layer": "top",
+      "polygonMm": [
+        [
+          2.5,
+          -5.2
+        ],
+        [
+          10.2,
+          -5.2
+        ],
+        [
+          10.2,
+          1.8
+        ],
+        [
+          12.65,
+          1.8
+        ],
+        [
+          12.65,
+          2.4
+        ],
+        [
+          10.4,
+          2.4
+        ],
+        [
+          7.8,
+          1.8
+        ],
+        [
+          5.9,
+          1.8
+        ],
+        [
+          5.9,
+          5.9
+        ],
+        [
+          2.5,
+          5.9
+        ]
+      ],
+      "rationale": "Input capacitor and HF bypass feed TPS61088 VIN and the inductor input; widen the VIN branch into a 2mm-class input area outside its fine land."
+    },
+    {
+      "name": "CHARGER_BAT_FANOUT",
+      "net": "BAT_RAW",
+      "layer": "bottom",
+      "polygonMm": [
+        [
+          11.714,
+          -26.8
+        ],
+        [
+          11.937,
+          -26.8
+        ],
+        [
+          11.937,
+          -27.65
+        ],
+        [
+          13.65,
+          -28.5
+        ],
+        [
+          13.65,
+          -31
+        ],
+        [
+          11.45,
+          -31
+        ],
+        [
+          11.45,
+          -28.5
+        ],
+        [
+          11.714,
+          -27.65
+        ]
+      ],
+      "rationale": "BQ25622 BAT pad 8 fans out below the package into the adjacent battery capacitor and 2mm-class landing. Preserve the <=1mm narrow escape requirement; inspect the filled neck."
+    },
+    {
+      "name": "CHARGER_SYS_FANOUT",
+      "net": "SYS_RAW",
+      "layer": "bottom",
+      "polygonMm": [
+        [
+          11.313,
+          -26.8
+        ],
+        [
+          11.537,
+          -26.8
+        ],
+        [
+          11.537,
+          -27.7
+        ],
+        [
+          10.4,
+          -29.5
+        ],
+        [
+          6.6,
+          -29.5
+        ],
+        [
+          6.6,
+          -14
+        ],
+        [
+          18,
+          -14
+        ],
+        [
+          18,
+          -12.7
+        ],
+        [
+          25.3,
+          -12.7
+        ],
+        [
+          25.3,
+          -15.7
+        ],
+        [
+          22,
+          -15.7
+        ],
+        [
+          22,
+          -18.8
+        ],
+        [
+          18,
+          -18.8
+        ],
+        [
+          18,
+          -16
+        ],
+        [
+          8.6,
+          -16
+        ],
+        [
+          8.6,
+          -27.5
+        ],
+        [
+          10.4,
+          -27.5
+        ],
+        [
+          11.313,
+          -27.7
+        ]
+      ],
+      "rationale": "Separate SYS from BAT immediately outside BQ25622; local 2mm-wide outer copper links SYS to the inductor output and the two nearby system capacitors, around the package rather than across BAT."
+    },
+    {
+      "name": "CHARGER_VBUS_FANOUT",
+      "net": "CHG_VBUS",
+      "layer": "bottom",
+      "polygonMm": [
+        [
+          12.513,
+          -24.95
+        ],
+        [
+          12.737,
+          -24.95
+        ],
+        [
+          12.737,
+          -24.15
+        ],
+        [
+          13.2,
+          -23.5
+        ],
+        [
+          13.2,
+          -22.6
+        ],
+        [
+          12,
+          -22.6
+        ],
+        [
+          12,
+          -23.5
+        ],
+        [
+          12.513,
+          -24.15
+        ]
+      ],
+      "rationale": "BQ25622 input pin 18 local outward fanout for the protected USB supply. Keep separate from PMID and SW; bulk CHG_VBUS remains 1.2mm."
+    },
+    {
+      "name": "CHARGER_PMID_LOCAL",
+      "net": "CHG_PMID",
+      "layer": "bottom",
+      "polygonMm": [
+        [
+          12.113,
+          -25.1
+        ],
+        [
+          12.337,
+          -25.1
+        ],
+        [
+          12.337,
+          -24.1
+        ],
+        [
+          13.1,
+          -23.5
+        ],
+        [
+          16.6,
+          -23.5
+        ],
+        [
+          16.6,
+          -22.5
+        ],
+        [
+          13.1,
+          -22.5
+        ],
+        [
+          12.113,
+          -23.7
+        ]
+      ],
+      "rationale": "Local PMID HF capacitor connection at BQ25622 pad 17, with bulk capacitor connected by routing; no false split net."
+    },
+    {
+      "name": "MAIN_SWITCH_OUTPUT",
+      "net": "V5_MAIN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          18.7,
+          31.735
+        ],
+        [
+          20.15,
+          31.735
+        ],
+        [
+          20.15,
+          34
+        ],
+        [
+          18.7,
+          34
+        ]
+      ],
+      "rationale": "TPS22990 VOUT1/2/3 aggregate into a 1.45mm-wide output landing, clearing grounded PG/GND pins and the VIN thermal pad."
+    },
+    {
+      "name": "PI_FUSE_INPUT",
+      "net": "V5_MAIN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          4.65,
+          35.75
+        ],
+        [
+          5.62,
+          35.75
+        ],
+        [
+          5.62,
+          33.8
+        ],
+        [
+          5.9,
+          33.8
+        ],
+        [
+          5.9,
+          36.45
+        ],
+        [
+          5.3,
+          37.1
+        ],
+        [
+          3.5,
+          37.1
+        ],
+        [
+          3.5,
+          35.75
+        ]
+      ],
+      "rationale": "TPS259470 IN and EN aggregate above the package; keep the opposite OUT and side OVLO controls separate. Main trunk remains 1.2mm."
+    },
+    {
+      "name": "LCD_FUSE_INPUT",
+      "net": "V5_MAIN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          4.65,
+          23.75
+        ],
+        [
+          5.62,
+          23.75
+        ],
+        [
+          5.62,
+          21.8
+        ],
+        [
+          5.9,
+          21.8
+        ],
+        [
+          5.9,
+          24.45
+        ],
+        [
+          5.3,
+          25.1
+        ],
+        [
+          3.5,
+          25.1
+        ],
+        [
+          3.5,
+          23.75
+        ]
+      ],
+      "rationale": "TPS259470 IN and EN aggregate above the package; keep the opposite OUT and side OVLO controls separate. Main trunk remains 1.2mm."
+    },
+    {
+      "name": "PI_FUSE_OUTPUT",
+      "net": "V5_PI",
+      "layer": "top",
+      "polygonMm": [
+        [
+          6.115,
+          33.8
+        ],
+        [
+          6.415,
+          33.8
+        ],
+        [
+          6.415,
+          36.2
+        ],
+        [
+          7.1,
+          36.9
+        ],
+        [
+          8.2,
+          36.9
+        ],
+        [
+          8.2,
+          38.1
+        ],
+        [
+          6.115,
+          38.1
+        ]
+      ],
+      "rationale": "TPS259470 Pi OUT pad fans out above the package to a >=1.2mm output landing, outside the side ILM control land."
+    },
+    {
+      "name": "AUX_LIMIT_INPUT",
+      "net": "V5_MAIN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -27,
+          -17.6
+        ],
+        [
+          -24.5,
+          -17.6
+        ],
+        [
+          -24.5,
+          -16.2
+        ],
+        [
+          -27,
+          -16.2
+        ]
+      ],
+      "rationale": "TPS2553 input branch local wide landing; auxiliary 100mA load stays on the protected main rail."
+    },
+    {
+      "name": "USB_VBUS_CONTACTS_1",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -34.255,
+          -44.699999999999996
+        ],
+        [
+          -33.1,
+          -44.699999999999996
+        ],
+        [
+          -32.5,
+          -45.15
+        ],
+        [
+          -31.5,
+          -45.15
+        ],
+        [
+          -31.5,
+          -43.65
+        ],
+        [
+          -32.5,
+          -43.65
+        ],
+        [
+          -33.1,
+          -44.1
+        ],
+        [
+          -34.255,
+          -44.1
+        ]
+      ],
+      "rationale": "Aggregate the paired Type-C VBUS contacts with a widened landing inside the board, while preserving shell and adjacent signal clearance."
+    },
+    {
+      "name": "USB_VBUS_CONTACTS_2",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -34.255,
+          -39.9
+        ],
+        [
+          -33.1,
+          -39.9
+        ],
+        [
+          -32.5,
+          -40.35
+        ],
+        [
+          -31.5,
+          -40.35
+        ],
+        [
+          -31.5,
+          -38.85
+        ],
+        [
+          -32.5,
+          -38.85
+        ],
+        [
+          -33.1,
+          -39.300000000000004
+        ],
+        [
+          -34.255,
+          -39.300000000000004
+        ]
+      ],
+      "rationale": "Aggregate the paired Type-C VBUS contacts with a widened landing inside the board, while preserving shell and adjacent signal clearance."
+    },
+    {
+      "name": "CC_VDD_LAND",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -18.75,
+          -42.5
+        ],
+        [
+          -18.45,
+          -42.5
+        ],
+        [
+          -18.45,
+          -41.8
+        ],
+        [
+          -17.9,
+          -41.2
+        ],
+        [
+          -17.9,
+          -40.5
+        ],
+        [
+          -20,
+          -40.5
+        ],
+        [
+          -20,
+          -41.2
+        ],
+        [
+          -18.75,
+          -41.8
+        ]
+      ],
+      "rationale": "TUSB320 VDD short outward branch landing; this low-current supply branch must not set the width of the 2.7A USB trunk."
+    },
+    {
+      "name": "CC_OR_VDD_LAND",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -10.6,
+          -44.9
+        ],
+        [
+          -8.75,
+          -44.9
+        ],
+        [
+          -8.75,
+          -43.6
+        ],
+        [
+          -10.6,
+          -43.6
+        ]
+      ],
+      "rationale": "Local VDD landing at current-advertisement logic; branch carries logic supply current only."
+    },
+    {
+      "name": "USB_EFUSE_INPUT",
+      "net": "USB_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -0.5,
+          -44.4
+        ],
+        [
+          1.31,
+          -44.4
+        ],
+        [
+          1.31,
+          -43.1
+        ],
+        [
+          -0.5,
+          -43.1
+        ]
+      ],
+      "rationale": "Aggregate both TPS259531 IN terminals onto solid local copper before the 1.2mm USB trunk."
+    },
+    {
+      "name": "USB_EFUSE_OUTPUT",
+      "net": "CHG_VBUS",
+      "layer": "top",
+      "polygonMm": [
+        [
+          2.689,
+          -43.875
+        ],
+        [
+          3.211,
+          -43.875
+        ],
+        [
+          3.7,
+          -44.4
+        ],
+        [
+          4.6,
+          -44.4
+        ],
+        [
+          4.6,
+          -43.1
+        ],
+        [
+          3.7,
+          -43.1
+        ],
+        [
+          3.211,
+          -43.625
+        ],
+        [
+          2.689,
+          -43.625
+        ]
+      ],
+      "rationale": "TPS259531 OUT local widened copper to the protected charger input trunk, clear of FLT above it."
+    },
+    {
+      "name": "AON_LDO_INPUT",
+      "net": "SYS_RAW",
+      "layer": "bottom",
+      "polygonMm": [
+        [
+          21.425,
+          -10.15
+        ],
+        [
+          21.425,
+          -7.85
+        ],
+        [
+          22.4,
+          -7.85
+        ],
+        [
+          22.4,
+          -7.0
+        ],
+        [
+          24.25,
+          -7.0
+        ],
+        [
+          24.25,
+          -11.0
+        ],
+        [
+          22.4,
+          -11.0
+        ],
+        [
+          22.4,
+          -10.15
+        ]
+      ],
+      "rationale": "Join TLV75533 IN and EN with local SYS copper; branch is low current and the SYS trunk keeps its 2mm target. Unified with the overlapping same-net capacitor landing; physical copper is their geometric union."
+    },
+    {
+      "name": "CHARGER_SW_LOCAL",
+      "net": "CHG_SW",
+      "layer": "bottom",
+      "polygonMm": [
+        [
+          10.0,
+          -22.1
+        ],
+        [
+          18.25,
+          -22.1
+        ],
+        [
+          18.25,
+          -21.5
+        ],
+        [
+          21.75,
+          -21.5
+        ],
+        [
+          21.75,
+          -23.5
+        ],
+        [
+          12.5,
+          -23.5
+        ],
+        [
+          11.937,
+          -24.1
+        ],
+        [
+          11.937,
+          -25.1
+        ],
+        [
+          11.713,
+          -25.1
+        ],
+        [
+          11.713,
+          -24.1
+        ],
+        [
+          9.6,
+          -23.5
+        ],
+        [
+          9.6,
+          -21.8
+        ],
+        [
+          8.625,
+          -21.8
+        ],
+        [
+          8.625,
+          -20.2
+        ],
+        [
+          10.575,
+          -20.2
+        ],
+        [
+          10.575,
+          -21.8
+        ],
+        [
+          10.0,
+          -21.8
+        ]
+      ],
+      "rationale": "BQ25622 SW pad 16 to inductor switch terminal and bootstrap capacitor; narrow package neck only, then at least 1.2mm local switch-node copper. Inspect fill at PMID and VBUS neighbours. Unified with the overlapping same-net capacitor landing; physical copper is their geometric union."
+    },
+    {
+      "name": "BOOST_5V_DISTRIBUTION",
+      "net": "V5_BOOST",
+      "layer": "top",
+      "polygonMm": [
+        [
+          23.5,
+          4.37
+        ],
+        [
+          23.5,
+          15.8
+        ],
+        [
+          20.575,
+          15.8
+        ],
+        [
+          20.575,
+          14.2
+        ],
+        [
+          18.625,
+          14.2
+        ],
+        [
+          18.625,
+          15.8
+        ],
+        [
+          19.2,
+          15.8
+        ],
+        [
+          19.2,
+          17.2
+        ],
+        [
+          23.5,
+          17.2
+        ],
+        [
+          23.5,
+          27.5
+        ],
+        [
+          19.7,
+          27.5
+        ],
+        [
+          19.7,
+          25.1
+        ],
+        [
+          18.3,
+          25.1
+        ],
+        [
+          18.3,
+          28.8
+        ],
+        [
+          19.1,
+          29.2
+        ],
+        [
+          19.1,
+          29.7
+        ],
+        [
+          19.8,
+          29.7
+        ],
+        [
+          19.8,
+          30.45
+        ],
+        [
+          18.7,
+          30.45
+        ],
+        [
+          18.7,
+          31.55
+        ],
+        [
+          21.3,
+          31.55
+        ],
+        [
+          21.3,
+          30.4
+        ],
+        [
+          20.7,
+          30.4
+        ],
+        [
+          20.7,
+          29.4
+        ],
+        [
+          20.1,
+          29.04
+        ],
+        [
+          20.1,
+          28.7
+        ],
+        [
+          25.5,
+          28.7
+        ],
+        [
+          25.5,
+          4.37
+        ],
+        [
+          28.8,
+          4.37
+        ],
+        [
+          28.8,
+          2.8
+        ],
+        [
+          27.1,
+          2.8
+        ],
+        [
+          27.1,
+          1.8
+        ],
+        [
+          17.0,
+          1.8
+        ],
+        [
+          16.2,
+          3.1
+        ],
+        [
+          15.35,
+          3.1
+        ],
+        [
+          15.35,
+          4.37
+        ]
+      ],
+      "rationale": "Continuous outer 2oz output copper joins TPS61088 OUT pins, the rotated capacitor bank, feedback upper resistor, TPS22990 decoupler and VIN exposed pad. Main distribution corridor is 2mm wide; inspect routed cuts and local pin necks. No trace or current requirements changed."
     }
   ]
 }

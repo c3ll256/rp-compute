@@ -24,31 +24,31 @@ export const Charger = () => (
     <inductor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Charger" name="L_CHG" inductance="1uH" manufacturerPartNumber="74437349010"
       footprint="vendor:L_Wurth_WE-LHMI-7030" supplierPartNumbers={{ jlcpcb: ["C1332247"] }}
       connections={{ pin1: "net.CHG_SW", pin2: "net.SYS_RAW" }}
-      layer="bottom" pcbX={20} pcbY={-26} />
+      layer="bottom" pcbX={20} pcbY={-20} pcbRotation={270} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Charger" name="C_CHG_VBUS" capacitance="1uF" footprint="0603"
       connections={{ pin1: "net.CHG_VBUS", pin2: "net.GND" }}
       layer="bottom" pcbX={5} pcbY={-24} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Charger" name="C_CHG_PMID_BULK" capacitance="10uF" footprint="0805"
       connections={{ pin1: "net.CHG_PMID", pin2: "net.GND" }}
-      layer="bottom" pcbX={5} pcbY={-30} />
+      layer="bottom" pcbX={16} pcbY={-29} pcbRotation={90} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Charger" name="C_CHG_PMID_HF" capacitance="100nF" footprint="0603"
       connections={{ pin1: "net.CHG_PMID", pin2: "net.GND" }}
-      layer="bottom" pcbX={8} pcbY={-32} />
+      layer="bottom" pcbX={15.5} pcbY={-24} pcbRotation={90} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Charger" name="C_CHG_BTST" capacitance="47nF" footprint="0603"
       connections={{ pin1: "net.CHG_BTST", pin2: "net.CHG_SW" }}
-      layer="bottom" pcbX={14} pcbY={-19} />
+      layer="bottom" pcbX={11} pcbY={-21} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Charger" name="C_CHG_REGN" capacitance="4.7uF" footprint="0805"
       connections={{ pin1: "net.CHG_REGN", pin2: "net.GND" }}
       layer="bottom" pcbX={6} pcbY={-18} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Charger" name="C_CHG_SYS1" capacitance="10uF" footprint="0805"
       connections={{ pin1: "net.SYS_RAW", pin2: "net.GND" }}
-      layer="bottom" pcbX={25} pcbY={-21} />
+      layer="bottom" pcbX={20} pcbY={-13.5} pcbRotation={270} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Charger" name="C_CHG_SYS2" capacitance="10uF" footprint="0805"
       connections={{ pin1: "net.SYS_RAW", pin2: "net.GND" }}
-      layer="bottom" pcbX={29} pcbY={-21} />
+      layer="bottom" pcbX={24} pcbY={-13.5} pcbRotation={270} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Charger" name="C_CHG_BAT" capacitance="10uF" footprint="0805"
       connections={{ pin1: "net.BAT_RAW", pin2: "net.GND" }}
-      layer="bottom" pcbX={23} pcbY={-32} />
+      layer="bottom" pcbX={12} pcbY={-31} pcbRotation={90} />
     {/* K_ILIM 2250..2750 AΩ: 1.1k/1% yields roughly 2.05..2.53 A.
         Its EN_EXTILIM register can reset; upstream eFuse remains independent. */}
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }} pcbSx={{ "& silkscreentext": { visibility: "hidden" } }} schSectionName="Charger" name="R_CHG_ILIM" resistance="1.1k" footprint="0603"
