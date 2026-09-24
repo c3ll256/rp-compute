@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "status": "draft",
-  "bom_ready": true,
-  "requirements_digest": "fb15c7b1e0a2d65439d20784fd3c9efc4502d520bcdef9fab979d8033d816c01",
+  "bom_ready": false,
+  "requirements_digest": "41a8bb015aa87c3c008f5b4cc9bff5d99bc1453554cb3b8aa3443a50981f71bb",
   "items": [
     {
       "id": "compute",
@@ -48,7 +48,8 @@
       "part_identity": "da9f9f65e4262ec8",
       "supply_model": "customer_supplied_reference_board",
       "included_in_product_kit": false,
-      "include_in_procurement_totals": false
+      "include_in_procurement_totals": false,
+      "requirements_review": "Retained exact identity for full variant; candidate for lite reuse, quantity and population to be set after lite supply/connector requirements close."
     },
     {
       "id": "display",
@@ -75,7 +76,7 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform.",
+      "requirements_review": "Retained exact identity for full variant; candidate for lite reuse, quantity and population to be set after lite supply/connector requirements close.",
       "selection_reason": "Exact LS027B7DH01 retained. CAD now has a rear-loading63.4x43.42mm negative pocket with0.3mm nominal per-side allowance and1.77mm active-area offset. Front rise1mm and slope13deg retained. No exact panel STEP found. Glass retention, rear support, polarizer load and actual fit are NOT completed; current pocket is not a secured mount.",
       "mechanical_integration": "Rear-loading locator retained; four M2 hard-stop rear frame, bezel rear flange, nonadhesive front/rear supports and guarded native FPC fold modeled. Physical pressure/material/length checks remain."
     },
@@ -108,7 +109,7 @@
       "selection_reason": "Retain BQ25622 external ILIM/TS_BIAS NVDC candidate. Recommended6A continuous BAT path (datasheetp7), not10A peak. New worst-case arithmetic5.6254A before unmodeled transients; narrow margin requires design review. Hardware CE inactive until actual pack charge limits and MCU configuration are valid; POR charge1040mA must not be trusted.",
       "part_identity": "2bb07cebda262015",
       "selection_status": "conditional_pi4b_reference_design_candidate",
-      "requirements_review": "Pi4B budget now 5.1V nominal/3.2A total design target, SYS>=3.5V and assumed efficiency>=85%; not a measured or guaranteed output. Complete pack and GPIO docking power path unresolved."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "boost",
@@ -138,7 +139,7 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "selection_reason": "Retain TPS61088 with existing2.2uH candidate under5.1V/3.2A budget. Calculate peak current/compensation and thermal derating in electrical implementation. At85% efficiency nominal full-load loss2.88W. 10A switch rating is not output rating.",
       "selection_status": "conditional_pi4b_reference_design_candidate",
-      "requirements_review": "Pi4B budget now 5.1V nominal/3.2A total design target, SYS>=3.5V and assumed efficiency>=85%; not a measured or guaranteed output. Complete pack and GPIO docking power path unresolved."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "display_fpc",
@@ -178,7 +179,7 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform."
+      "requirements_review": "Retained exact identity for full variant; candidate for lite reuse, quantity and population to be set after lite supply/connector requirements close."
     },
     {
       "id": "usb_c_cc",
@@ -207,7 +208,7 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "selection_status": "conditional_pi4b_reference_design_candidate",
-      "requirements_review": "Pi4B budget now 5.1V nominal/3.2A total design target, SYS>=3.5V and assumed efficiency>=85%; not a measured or guaranteed output. Complete pack and GPIO docking power path unresolved."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "cc_3a_gate",
@@ -239,7 +240,8 @@
       "required_user_evidence": [],
       "supply_risk": "JLC Extended library; no qualifying Basic result in exact part search. USB-C input remains unverified until prototype tests.",
       "selection_reason": "TI SN74AHC1G32DBVR datasheet SCLS317 package table and DBV top-view pin diagram: 5-pin SOT-23 OR gate; A=1, B=2, GND=3, Y=4, VCC=5. Used only to hold TPS259531 EN/OVLO disabled unless both TUSB320LAI GPIO outputs report the 3 A advertisement. The Type-C interface remains bench-unverified.",
-      "part_identity": "6c6f417c9753a425"
+      "part_identity": "6c6f417c9753a425",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "supervisor",
@@ -269,7 +271,7 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "56faddfea4ad9cfa",
       "selection_status": "circuit_compiled_routing_drc_blocked",
-      "requirements_review": "Identity retained for BYOP/BYOB power-and-display architecture; actual electrical implementation and tests remain downstream, not a tested system claim."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "main_disconnect",
@@ -300,7 +302,7 @@
       "selection_reason": "Retain TPS22990 output disconnect candidate; VIN thermal pad, VBIAS from unswitched boost; CT inrush to be sized. Not reverse-current blocking or short-circuit limiting.",
       "part_identity": "6e00b6c01b7700c8",
       "selection_status": "conditional_pi4b_reference_design_candidate",
-      "requirements_review": "Pi4B budget now 5.1V nominal/3.2A total design target, SYS>=3.5V and assumed efficiency>=85%; not a measured or guaranteed output. Complete pack and GPIO docking power path unresolved."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "ldo_3v3",
@@ -330,7 +332,7 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "f1fcb37b6ecdf118",
       "selection_status": "selected_functional_role_implementation_validation_pending",
-      "requirements_review": "Identity retained for BYOP/BYOB power-and-display architecture; actual electrical implementation and tests remain downstream, not a tested system claim."
+      "requirements_review": "Retained exact identity for full variant; candidate for lite reuse, quantity and population to be set after lite supply/connector requirements close."
     },
     {
       "id": "display_buffer",
@@ -361,7 +363,7 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "92c508680dfac711",
       "selection_status": "selected_functional_role_implementation_validation_pending",
-      "requirements_review": "Identity retained for BYOP/BYOB power-and-display architecture; actual electrical implementation and tests remain downstream, not a tested system claim."
+      "requirements_review": "Retained exact identity for full variant; candidate for lite reuse, quantity and population to be set after lite supply/connector requirements close."
     },
     {
       "id": "domain_buffer",
@@ -392,7 +394,7 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "db9a46eec6206b5b",
       "selection_status": "circuit_compiled_routing_drc_blocked",
-      "requirements_review": "Identity retained for BYOP/BYOB power-and-display architecture; actual electrical implementation and tests remain downstream, not a tested system claim."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "buttons",
@@ -421,7 +423,7 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "e29961a9392b8cec",
-      "requirements_review": "Physical part retained; host integration and layout remain unverified for the Pi 4B platform.",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list.",
       "selection_reason": "Retain one existing B3F-1000 for power/shutdown only as disclosed default; no fixed navigation keys despite the new replaceable front GPIO module region. No part identity or package change. Single 9mm cap is on the right side; B3F-1000 carrier, travel and actuation remain unverified.",
       "pcb_integration": "Factory-wired remote switch supported by the enclosure carrier, connected to J_KEY or J_LID solder-wire pads on the common baseboard. No additional PCB. Mechanical carrier and actuation to be verified in CAD."
     },
@@ -449,7 +451,7 @@
       "required_user_evidence": [],
       "part_identity": "bbdea7f6fc0d8f90",
       "selection_status": "selected_functional_role_implementation_validation_pending",
-      "requirements_review": "Identity retained for BYOP/BYOB power-and-display architecture; actual electrical implementation and tests remain downstream, not a tested system claim."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "boost_inductor",
@@ -486,7 +488,7 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "part_identity": "b57e13c88cbafcd0",
       "selection_status": "conditional_pi4b_reference_design_candidate",
-      "requirements_review": "Pi4B budget now 5.1V nominal/3.2A total design target, SYS>=3.5V and assumed efficiency>=85%; not a measured or guaranteed output. Complete pack and GPIO docking power path unresolved."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "battery_ntc",
@@ -517,7 +519,7 @@
       "part_identity": "db7843376ad062d6",
       "selection_reason": "Two independent 103AT-2 probes: BQ25622 TS_BIAS 5.23k/30.1k network and MCU 10k pullup ADC. Both are factory-wired to the protected pack exterior; wiring fault handling and thermal contact need prototype validation.",
       "selection_status": "selected_functional_role_implementation_validation_pending",
-      "requirements_review": "Identity retained for BYOP/BYOB power-and-display architecture; actual electrical implementation and tests remain downstream, not a tested system claim."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "path_current_guard",
@@ -548,7 +550,7 @@
       "part_identity": "1971729b2ab9bb01",
       "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: Retained TPS259531 moved to USB-C input, before BQ25622. No longer a 2A battery path limiter. Set input limit within CC allowance with tolerance; 5.7V clamp is not LCD output overvoltage protection.",
       "selection_status": "conditional_pi4b_reference_design_candidate",
-      "requirements_review": "Pi4B budget now 5.1V nominal/3.2A total design target, SYS>=3.5V and assumed efficiency>=85%; not a measured or guaranteed output. Complete pack and GPIO docking power path unresolved."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "battery_header",
@@ -579,7 +581,7 @@
       "selection_reason": "XT30U-M board-side factory-made pigtail, XT30U-F recessed battery contacts. User obtains compatible factory-terminated pack/harness; no user soldering or live-pack modification. Not a PCB header. Keep molded polarity and verify by measurement.",
       "part_identity": "b1d8faf847dd655b",
       "selection_status": "selected_interface_factory_terminated_harness",
-      "requirements_review": "User supplies battery; board defines mating interface independently of pack MPN. Target whole pack/harness >=8A, 18AWG, nominal100mm leads; actual pack acceptance before use."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "battery_cable_mate",
@@ -610,7 +612,7 @@
       "selection_reason": "XT30U-M board-side factory-made pigtail, XT30U-F recessed battery contacts. User obtains compatible factory-terminated pack/harness; no user soldering or live-pack modification. Not a PCB header. Keep molded polarity and verify by measurement.",
       "part_identity": "12543b4daf3d2a9d",
       "selection_status": "selected_interface_factory_terminated_harness",
-      "requirements_review": "User supplies battery; board defines mating interface independently of pack MPN. Target whole pack/harness >=8A, 18AWG, nominal100mm leads; actual pack acceptance before use."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "charger_inductor",
@@ -641,7 +643,7 @@
       "selection_reason": "Prior Zero-branch rationale, NOT a validated Pi 4B selection: 1uH ±20%, 10A rated, 19.5A saturation, 6.5mOhm DCR; selected for BQ25622 1uH application, separate from retained 2.2uH boost inductor. Recalculate ripple at selected 1.5MHz and derate thermally.",
       "part_identity": "4238efa37c3caebe",
       "selection_status": "conditional_pi4b_reference_design_candidate",
-      "requirements_review": "Pi4B budget now 5.1V nominal/3.2A total design target, SYS>=3.5V and assumed efficiency>=85%; not a measured or guaranteed output. Complete pack and GPIO docking power path unresolved."
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "cooling",
@@ -671,7 +673,8 @@
         "product/references/pi4-fan-pwm-dimensions.jpg",
         "product/references/pi4-fan-pwm-wiring.jpg"
       ],
-      "part_identity": "5bb62486efa04c4a"
+      "part_identity": "5bb62486efa04c4a",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "quantity": 1,
@@ -703,7 +706,8 @@
         "product/references/ssq-ssw-samtec-catalog.pdf p1",
         "product/references/ssq-120-02-g-d-page.txt"
       ],
-      "part_identity": "0d7270392f5f1ed8"
+      "part_identity": "0d7270392f5f1ed8",
+      "requirements_review": "Retained exact identity for full variant; candidate for lite reuse, quantity and population to be set after lite supply/connector requirements close."
     },
     {
       "quantity": 1,
@@ -737,7 +741,8 @@
       "evidence_refs": [
         "product/references/tps25947-ti-2026.pdf pp4-11,26-28,34-35,42,49,60-61,71-72"
       ],
-      "part_identity": "497d9ee956de800b"
+      "part_identity": "497d9ee956de800b",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "pi_port_interlock",
@@ -772,7 +777,8 @@
         "product/references/d2f-omron.pdf pp1,3,4"
       ],
       "part_identity": "47a3712460f0868a",
-      "pcb_integration": "Factory-wired remote switch supported by the enclosure carrier, connected to J_KEY or J_LID solder-wire pads on the common baseboard. No additional PCB. Mechanical carrier and actuation to be verified in CAD."
+      "pcb_integration": "Factory-wired remote switch supported by the enclosure carrier, connected to J_KEY or J_LID solder-wire pads on the common baseboard. No additional PCB. Mechanical carrier and actuation to be verified in CAD.",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "interlock_latch",
@@ -806,7 +812,8 @@
       "evidence_refs": [
         "product/references/interlock-latch-ti.pdf"
       ],
-      "part_identity": "31d53c4b212790a9"
+      "part_identity": "31d53c4b212790a9",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "interlock_por",
@@ -840,7 +847,8 @@
       "evidence_refs": [
         "product/references/interlock-por-ti.pdf"
       ],
-      "part_identity": "0291f3e73552ac7d"
+      "part_identity": "0291f3e73552ac7d",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "interlock_schmitt",
@@ -874,7 +882,8 @@
       "evidence_refs": [
         "product/references/interlock-schmitt-ti.pdf"
       ],
-      "part_identity": "9d61d2d7084e4610"
+      "part_identity": "9d61d2d7084e4610",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "quantity": 1,
@@ -908,7 +917,8 @@
       "evidence_refs": [
         "product/references/tps25947-ti-2026.pdf pp4-11,26-28,34-35,42,49,60-61,71-72"
       ],
-      "part_identity": "497d9ee956de800b"
+      "part_identity": "497d9ee956de800b",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "battery",
@@ -927,7 +937,8 @@
       "selection_reason": "User explicitly owns battery sourcing and requests development to continue. Electrical interface in product/battery-interface.md. No invented MPN, price, measured rating or dimensions. CAD-first delivery omits pack geometry and does not freeze a battery bay; actual pack dimensions remain required for final fit.",
       "required_user_evidence": [],
       "supply_risk": "Actual pack must pass polarity/charge/current/temperature acceptance before energized use; dimensions remain necessary for final enclosure fit.",
-      "part_identity": "df3f619804a92fdb"
+      "part_identity": "df3f619804a92fdb",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "lcd_retainer_screws",
@@ -948,7 +959,8 @@
       "required_user_evidence": [],
       "description": "Four underside screws; 2mm through stack and3mm selected engagement, kit-generated holes. PLA prototype calibration and torque remain untested.",
       "selection_reason": "Mechanical prototype specification for this CAD stage; not an order or manufacturing release.",
-      "part_identity": "27e05cae9b210712"
+      "part_identity": "27e05cae9b210712",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "lcd_rear_frame",
@@ -969,7 +981,8 @@
       "required_user_evidence": [],
       "description": "Prototype rear frame with hard stops and open FPC guard. PLA is the disclosed modeling default, not thermal qualification.",
       "selection_reason": "Mechanical prototype specification for this CAD stage; not an order or manufacturing release.",
-      "part_identity": "3016526b446831e7"
+      "part_identity": "3016526b446831e7",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "lcd_front_cushion",
@@ -990,7 +1003,8 @@
       "required_user_evidence": [],
       "description": "62.8x42.82 outline with active-area aperture; source geometry defines cut shape. Non-chloroprene, low-outgassing compliant material, physical compatibility and pressure untested.",
       "selection_reason": "Mechanical prototype specification for this CAD stage; not an order or manufacturing release.",
-      "part_identity": "6236ea9d9660b1ec"
+      "part_identity": "6236ea9d9660b1ec",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "lcd_rear_cushion",
@@ -1011,7 +1025,8 @@
       "required_user_evidence": [],
       "description": "62.8x42.82 outline,60x38 opening and16mm tail gap; low-outgassing non-chloroprene compliant material, physical compatibility and pressure untested.",
       "selection_reason": "Mechanical prototype specification for this CAD stage; not an order or manufacturing release.",
-      "part_identity": "e0f45c22a7597deb"
+      "part_identity": "e0f45c22a7597deb",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "front_module_header",
@@ -1036,7 +1051,8 @@
       },
       "description": "Original JST GHD 16-circuit, 1.25mm, locking SMT board header. Internal cold-swap GPIO module connector; pinout in front-module-interface.md.",
       "selection_reason": "Exact mate and crimp contacts documented in JST GHD datasheet; 1.25A contact rating is not the module power budget.",
-      "part_identity": "68b22d39e2876966"
+      "part_identity": "68b22d39e2876966",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "front_module_housing",
@@ -1060,7 +1076,8 @@
       },
       "description": "Original JST 16-position GHD mating cable housing, locking, keyed; line-end of removable GPIO module harness.",
       "selection_reason": "JST GHD series datasheet lists this exact 16-circuit mate for the selected board header.",
-      "part_identity": "db43090c11030fe7"
+      "part_identity": "db43090c11030fe7",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "front_module_contacts",
@@ -1083,7 +1100,8 @@
       },
       "description": "Original JST GHD crimp contact for 26–30AWG wire; 16 contacts per module cable housing. Harness length and strain relief still need integration.",
       "selection_reason": "Exact crimp terminal and supported wire range from JST GHD series datasheet.",
-      "part_identity": "7fe94ac3f44de139"
+      "part_identity": "7fe94ac3f44de139",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     },
     {
       "id": "front_module_blank",
@@ -1103,7 +1121,8 @@
       },
       "description": "Flush 70x37x1.4mm blank front module with locating tongue; future function modules copy the same mechanical datum.",
       "selection_reason": "Defined by committed enclosure geometry and the user-marked interchangeable area.",
-      "part_identity": "622d0f7d7c815f29"
+      "part_identity": "622d0f7d7c815f29",
+      "requirements_review": "Retained exact identity for full variant; candidate for lite reuse, quantity and population to be set after lite supply/connector requirements close."
     },
     {
       "id": "front_module_screws",
@@ -1123,7 +1142,8 @@
       },
       "description": "Four M2x4 socket-head screws for the user-replaceable front cassette; printed joint geometry generated by printed-screw-joint-v1. Screw length confirmed against 4mm underhead CAD height.",
       "selection_reason": "Top-access removable module fastening; repeated self-forming-thread service life remains untested.",
-      "part_identity": "642d0879861d9f2f"
+      "part_identity": "642d0879861d9f2f",
+      "requirements_review": "Retained exact identity for full variant; candidate for lite reuse, quantity and population to be set after lite supply/connector requirements close."
     },
     {
       "id": "gpio_aux_limiter",
@@ -1149,7 +1169,8 @@
       "selection_reason": "TI SLVS841F pp5,6,15,25: active-high 2.5-6.5V adjustable current-limit switch, 169k 1% RILIM gives approximately 136-187mA limits ahead of a dedicated 3.3V LDO; normal module allocation is100mA. Pi3.3V only controls enable. Exact DBV stock KiCad footprint.",
       "supply_risk": "Supplier search did not finish; no stock, price or JLC assembly claim. Manufacturer datasheet resolves exact electrical identity and package; procure exact TPS2553DBVR externally.",
       "part_identity": "55bfe64614da6ce2",
-      "selection_status": "circuit_compiled_routing_drc_blocked"
+      "selection_status": "circuit_compiled_routing_drc_blocked",
+      "requirements_review": "Retained for full variant only; not selected or included in the new lite variant purchase list."
     }
   ],
   "alternatives": [
@@ -1893,8 +1914,16 @@
         "lcd_efuse"
       ],
       "resolution": "Exact 1%/0.1% resistor and voltage/DC-bias qualified capacitor purchase identities remain PCB release gates. Generic electrically dimensioned passives in current draft are not qualified for manufacturing."
+    },
+    {
+      "id": "lite_interfaces",
+      "owner": "user",
+      "target_stage": "requirements",
+      "design_critical": true,
+      "component_refs": [],
+      "resolution": "Resolve lite_expansion_form and lite_supply_entry before replacing full-variant inventory with a selected lite BOM. Engineering will choose the exact 8-contact connector and reconcile component quantities."
     }
   ],
-  "scope": "One custom baseboard integrates Pi power, 1S battery charging, Sharp display and replaceable front GPIO-module interface. User-owned battery accepted as specified external interface; no selected pack MPN. Not manufacturing or whole-enclosure fit approval.",
+  "scope": "Full pi_baseboard variant reference inventory retained. New pi_baseboard_lite display-plus-8-contact-GPIO variant is in requirements clarification; this inventory is NOT the lite purchase list. Lite connector form and supply entry must close before selecting/populating lite parts.",
   "review_status": "Selected primary hardware is ready for PCB drafting. Exact support-passive purchase identity, module auxiliary rail, thermal proof and finished circuit remain PCB release gates; no manufacturing BOM is approved."
 }

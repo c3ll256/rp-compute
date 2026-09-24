@@ -294,7 +294,35 @@
     "single_baseboard_integration": {
       "value": "One custom baseboard integrates the Sharp display interface, user-replaceable front GPIO expansion, battery charging and Pi 4B power supply; no separate board for these functions.",
       "source": "user"
+    },
+    "lite_baseboard_scope": {
+      "value": [
+        "Sharp LS027B7DH01 display FPC interface",
+        "8-contact GPIO-style expansion connector"
+      ],
+      "source": "user"
+    },
+    "lite_expansion_contacts": {
+      "value": 8,
+      "source": "user"
+    },
+    "lite_expansion_pitch_mm": {
+      "value": 2.54,
+      "source": "default"
+    },
+    "variant_scope_policy": {
+      "value": "New pi_baseboard_lite variant contains display and expansion only. Existing power/battery/interlock requirements and pi_baseboard remain the full variant; lite supply entry and connector form are unresolved. Do not treat the full BOM as the lite purchase list.",
+      "source": "default"
     }
   },
-  "open_questions": []
+  "open_questions": [
+    {
+      "id": "lite_expansion_form",
+      "question": "8针2.54mm接口采用2×4公排针、1×8公排针，还是2×4母座？草案推荐2×4公排针。"
+    },
+    {
+      "id": "lite_supply_entry",
+      "question": "精简版是否改用Pi原生USB-C？原pi_usb_c_docked_use要求装机遮挡此口、由基板供电；选择更新精简版要求、保留供电电路，或仅裸板测试例外。"
+    }
+  ]
 }
