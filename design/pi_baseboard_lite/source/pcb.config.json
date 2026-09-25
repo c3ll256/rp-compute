@@ -441,6 +441,16 @@
   "pcbRuleExceptions": [],
   "componentOrientations": [
     {
+      "componentRef": "J_PI",
+      "vertical": true,
+      "rationale": "J_PI 是板背面的 GPIO 堆叠母座，Pi 排针沿垂直 PCB 的方向插入。"
+    },
+    {
+      "componentRef": "J_MOD",
+      "vertical": true,
+      "rationale": "J_MOD 是板正面的直立 2×4 公排针，扩展模块沿垂直 PCB 的方向插接。"
+    },
+    {
       "componentRef": "J_LCD",
       "nativeOpening": "down",
       "targetOpening": "down",
