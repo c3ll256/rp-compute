@@ -2,7 +2,7 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "visual_draft",
-  "summary": "保留13°浅斜屏舱与水平底座，集成真实Pi4B参考模型，将接口全部布置在后方/侧面；当前是接口布局外观STEP，不证明完整装机适配。",
+  "summary": "当前精简基板采用Pi原生USB-C供电、Sharp FPC和2x4 GPIO扩展；原外壳STEP未适配精简版端口与PCB，不代表整机已验证。完整版电源和电池范围保留。",
   "required_interfaces": [
     {
       "id": "compute_mount",
@@ -21,35 +21,35 @@
     {
       "id": "usb_access",
       "kind": "external_access",
-      "description": "Pi原生USB-A接口与基板充电USB-C插拔空间；基板不新增USB-A、Hub或USB延长线。开口不能挡住插头外壳和手指操作空间；外设预算仍500mA，不承诺多口同时满载。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。",
+      "description": "精简版：Pi自身USB-C须可用，GPIO仅向基板显示和模块支路取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：Pi原生USB-A接口与基板充电USB-C插拔空间；基板不新增USB-A、Hub或USB延长线。开口不能挡住插头外壳和手指操作空间；外设预算仍500mA，不承诺多口同时满载。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "battery_fit",
       "kind": "internal_fit",
-      "description": "用户自备3.7V 3300mAh工厂保护Li-ion整包；基板接口按battery-interface.md。电池尚无完整外形，不冻结电池仓，不把待定包画成已适配实体；最终内置安装需核实最大尺寸、出线与温度探头贴合。",
+      "description": "仅完整版：用户自备3.7V 3300mAh工厂保护Li-ion整包；基板接口按battery-interface.md。电池尚无完整外形，不冻结电池仓，不把待定包画成已适配实体；最终内置安装需核实最大尺寸、出线与温度探头贴合。",
       "source": "user_requested",
-      "required": true
+      "required": false
     },
     {
       "id": "control_access",
       "kind": "external_access",
-      "description": "只保留一枚默认电源/受控关机按键的安装及操作空间；无导航、确认、返回按键阵列。",
+      "description": "仅完整版：只保留一枚默认电源/受控关机按键的安装及操作空间；无导航、确认、返回按键阵列。",
       "source": "contract_interface",
-      "required": true
+      "required": false
     },
     {
       "id": "gpio_dock",
       "kind": "internal_fit",
-      "description": "40针GPIO电源/信号插接接口：接触电流、排针方向、完整插入及防偏排，基板受保护5V供电；仅断电插拔，不以GPIO同形宣称兼容其他Pi。 联锁盖打开或联锁断线时硬件禁止基板GPIO供电；释放端口前须断开并处理残留能量，关盖后不得自动重启。",
+      "description": "精简版：Pi自身USB-C须可用，GPIO仅向基板显示和模块支路取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：40针GPIO电源/信号插接接口：接触电流、排针方向、完整插入及防偏排，基板受保护5V供电；仅断电插拔，不以GPIO同形宣称兼容其他Pi。 联锁盖打开或联锁断线时硬件禁止基板GPIO供电；释放端口前须断开并处理残留能量，关盖后不得自动重启。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "pi_native_ports",
       "kind": "external_access",
-      "description": "Pi原生USB-A、Ethernet、micro-HDMI和3.5mm接口保留外部插拔空间，microSD保留维护通道，不增加CSI/DSI扩展。Pi自身USB-C在装机状态由防误插联锁盖覆盖，拆下Pi后恢复；基板USB-C是日常唯一充电/供电入口。开口坐标及插拔空间待真实几何验证。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。",
+      "description": "精简版：Pi自身USB-C须可用，GPIO仅向基板显示和模块支路取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：Pi原生USB-A、Ethernet、micro-HDMI和3.5mm接口保留外部插拔空间，microSD保留维护通道，不增加CSI/DSI扩展。Pi自身USB-C在装机状态由防误插联锁盖覆盖，拆下Pi后恢复；基板USB-C是日常唯一充电/供电入口。开口坐标及插拔空间待真实几何验证。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。",
       "source": "user_requested",
       "required": true
     },
@@ -63,7 +63,7 @@
     {
       "id": "single_baseboard_fit",
       "kind": "internal_fit",
-      "description": "一块定制基板同时承担Pi GPIO插接及供电、1S电池充电、Sharp屏幕FPC及前平台模块GPIO接口；应验证Pi水平插接平面、屏幕短FPC与连接器、前平台开口、端口、固定点和散热空间。当前斜置FPC参考连接器不是已验证的单块刚性板落点。",
+      "description": "精简版一块基板承担Pi40针插接、Sharp屏幕FPC与2.54mm 2x4公针扩展。需复核水平PCB/短FPC、GPIO堆叠、固定点、散热和Pi USB-C外壳开口；完整版电源电池集成单独保留。",
       "source": "user_requested",
       "required": true
     }
@@ -125,13 +125,12 @@
     }
   ],
   "assembly_story": {
-    "installation": "基板屏幕及必要散热附件预装；电池由用户另购兼容成品包，核对接口/极性后断电插接；用户准备Pi与系统卡，断开全部电源并隔离电池后对准GPIO母座插入Pi，用少量独立固定件固定并合壳。无需焊接、逐根GPIO跳线、额外USB-A或内部PiUSB-C线。准确装配顺序待插座与散热堆叠核实。 用户已选择只使用基板充电口；Pi自身USB-C联锁盖闭合后才允许GPIO供电。无需用户增加内部电源转接线。",
-    "maintenance": "正常Linux关机，断外部电源并隔离电池后才拔Pi；不能把GPIO座当唯一承力件，不能撬动屏幕或电池。 正常关机并隔离电池后再打开联锁盖。盖的紧急断电功能不替代正常Linux关机，带电强开可能损坏文件系统。",
+    "installation": "精简版：断电插接Pi与屏幕/模块，独立固定后由Pi自身USB-C供电；当前外壳开口、FPC及基板固定未验证。完整版原电源方案单独保留。",
+    "maintenance": "精简版先正常关机、清屏并关闭LCD电源，拔Pi USB-C后再更换模块；不能热插拔或外接模块电源。",
     "user_access": [
-      "Pi nativeboard-edgeports exceptcoveredPiUSB-C",
-      "baseboardchargingUSB-C onlyfordailyinput",
-      "singledefaultpower/shutdowncontrol",
-      "microSD/batteryservice;PiUSB-Crestoredafterundocking"
+      "Pi native USB-C and other native ports",
+      "replaceable cold-plug 8-pin GPIO module",
+      "microSD service"
     ]
   },
   "cad": {

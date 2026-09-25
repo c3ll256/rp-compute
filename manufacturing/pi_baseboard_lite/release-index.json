@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "releases": [
+    {
+      "releaseId": "21af7409b4ec6b10013b817a2c175b18f4bab57d3107b5bb00dd004fc70c0314",
+      "designId": "pi_baseboard_lite",
+      "buildId": "7ddf783767ff8fbb556c6b45b4e8870c54d246a8954821b87e9b44521b7564b9",
+      "candidateId": "3253dcffdb9a46a453f3bb458406f8e8f73c50a580e08836e38aef6e8b23f4c7",
+      "approvedAt": "2026-09-25T00:08:21.029Z"
+    }
+  ]
+}

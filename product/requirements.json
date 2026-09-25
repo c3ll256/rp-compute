@@ -223,7 +223,7 @@
       "source": "default"
     },
     "pi_usb_c_docked_use": {
-      "value": "Daily power/charging throughbaseboardUSB-C only. Pi ownUSB-C blocked byanti-misplug interlockedcover while docked; usableagainafterPi removed. Othernativeinterfacesremainaccessible.",
+      "value": "Lite variant: Pi native USB-C is the sole power input and must be accessible when docked. Full variant: original interlocked cover and baseboard USB-C input remain required.",
       "source": "user"
     },
     "battery_supply_model": {
@@ -311,18 +311,42 @@
       "source": "default"
     },
     "variant_scope_policy": {
-      "value": "New pi_baseboard_lite variant contains display and expansion only. Existing power/battery/interlock requirements and pi_baseboard remain the full variant; lite supply entry and connector form are unresolved. Do not treat the full BOM as the lite purchase list.",
+      "value": "Active lite variant has display and 8-contact expansion only; battery, charger, MCU, Pi supply and interlock requirements apply exclusively to retained full pi_baseboard variant.",
+      "source": "default"
+    },
+    "lite_expansion_form": {
+      "value": "2x4 vertical male pin header, 2.54mm pitch",
+      "source": "user"
+    },
+    "lite_supply_entry": {
+      "value": "Pi native USB-C powers Pi; GPIO 5V pins supply only display and module branches. Enclosure must allow Pi USB-C in lite variant.",
+      "source": "user"
+    },
+    "active_baseboard_variant": {
+      "value": "pi_baseboard_lite",
+      "source": "user"
+    },
+    "lite_module_power_budget_ma": {
+      "value": 100,
+      "source": "default"
+    },
+    "lite_module_pinout": {
+      "value": {
+        "1": "AUX_3V3",
+        "2": "GND",
+        "3": "GPIO2/SDA",
+        "4": "GPIO3/SCL",
+        "5": "GPIO10/MOSI",
+        "6": "GPIO9/MISO",
+        "7": "GPIO11/SCLK",
+        "8": "GPIO7/CE1"
+      },
+      "source": "default"
+    },
+    "lite_module_service": {
+      "value": "Cold plug only; modules powered solely by AUX_3V3, no external supply and no 5V logic. Pinout is custom, not Pi header pins 1-8.",
       "source": "default"
     }
   },
-  "open_questions": [
-    {
-      "id": "lite_expansion_form",
-      "question": "8针2.54mm接口采用2×4公排针、1×8公排针，还是2×4母座？草案推荐2×4公排针。"
-    },
-    {
-      "id": "lite_supply_entry",
-      "question": "精简版是否改用Pi原生USB-C？原pi_usb_c_docked_use要求装机遮挡此口、由基板供电；选择更新精简版要求、保留供电电路，或仅裸板测试例外。"
-    }
-  ]
+  "open_questions": []
 }

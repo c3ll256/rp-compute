@@ -1,0 +1,550 @@
+{
+  "schemaVersion": 1,
+  "title": "Pi display and 8-pin GPIO baseboard",
+  "manufacturing": {
+    "name": "ordinary-2layer-fr4-1oz",
+    "layers": 2,
+    "copperThicknessOz": {
+      "outer": 1
+    },
+    "finishedThicknessMm": 1.6,
+    "defaultTraceWidthMm": 0.3,
+    "absoluteMinimumTraceWidthMm": 0.2,
+    "absoluteMinimumCopperClearanceMm": 0.15,
+    "preferredRoutingClearanceMm": 0.25,
+    "copperToBoardEdgeMm": 1,
+    "via": {
+      "diameterMm": 0.6,
+      "drillMm": 0.3
+    },
+    "waveSolderVia": {
+      "diameterMm": 0.8,
+      "drillMm": 0.4
+    }
+  },
+  "netClasses": {
+    "signal": {
+      "nominalWidthMm": 0.3,
+      "minimumWidthMm": 0.25,
+      "clearanceMm": 0.25
+    },
+    "cpu_io": {
+      "nominalWidthMm": 0.25,
+      "minimumWidthMm": 0.25,
+      "clearanceMm": 0.25
+    },
+    "power": {
+      "nominalWidthMm": 0.5,
+      "minimumWidthMm": 0.25,
+      "clearanceMm": 0.25
+    },
+    "high_current": {
+      "nominalWidthMm": 0.5,
+      "minimumWidthMm": 0.4572,
+      "clearanceMm": 0.25
+    },
+    "ground": {
+      "nominalWidthMm": 0.5,
+      "minimumWidthMm": 0.25,
+      "clearanceMm": 0.15
+    },
+    "sensitive_analog": {
+      "nominalWidthMm": 0.3,
+      "minimumWidthMm": 0.25,
+      "clearanceMm": 0.25
+    },
+    "clock_high_speed": {
+      "nominalWidthMm": 0.3,
+      "minimumWidthMm": 0.25,
+      "clearanceMm": 0.25
+    },
+    "differential_pair": {
+      "nominalWidthMm": 0.25,
+      "minimumWidthMm": 0.2,
+      "clearanceMm": 0.25
+    }
+  },
+  "nets": {
+    "AUX_3V3": {
+      "class": "power",
+      "currentCapacity": {
+        "currentA": 0.2,
+        "copperThicknessOz": 1,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.2,
+        "calculationMethod": "IPC-2221 external; 1oz, 10C rise",
+        "rationale": "100mA normal module allocation plus <30mA conservative LCD/logic design budget. Both TPS2553 branches limited ~187mA max each; input uses500mA design envelope, branch200mA. IPC calculation yields 0.033mm; impose0.20mm minimum. No Pi operating current traverses this board."
+      }
+    },
+    "AUX_ILIM": {
+      "class": "sensitive_analog"
+    },
+    "FAULT_N": {
+      "class": "signal"
+    },
+    "GND": {
+      "class": "ground"
+    },
+    "GPIO10": {
+      "class": "cpu_io"
+    },
+    "GPIO11": {
+      "class": "cpu_io"
+    },
+    "GPIO12": {
+      "class": "cpu_io"
+    },
+    "GPIO2": {
+      "class": "cpu_io"
+    },
+    "GPIO24": {
+      "class": "cpu_io"
+    },
+    "GPIO25": {
+      "class": "cpu_io"
+    },
+    "GPIO3": {
+      "class": "cpu_io"
+    },
+    "GPIO7": {
+      "class": "cpu_io"
+    },
+    "GPIO8": {
+      "class": "cpu_io"
+    },
+    "GPIO9": {
+      "class": "cpu_io"
+    },
+    "LCD_COM": {
+      "class": "signal",
+      "clearanceMm": 0.15,
+      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "escape": {
+        "widthMm": 0.25,
+        "clearanceMm": 0.15,
+        "maxLengthMm": 2,
+        "componentRefs": [
+          "J_LCD"
+        ],
+        "rationale": "0.3mm-wide FPC lands require 0.25mm routing. Low-current LCD branch only; one-width router may use this width throughout."
+      }
+    },
+    "LCD_DISP": {
+      "class": "signal",
+      "clearanceMm": 0.15,
+      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "escape": {
+        "widthMm": 0.25,
+        "clearanceMm": 0.15,
+        "maxLengthMm": 2,
+        "componentRefs": [
+          "J_LCD"
+        ],
+        "rationale": "0.3mm-wide FPC lands require 0.25mm routing. Low-current LCD branch only; one-width router may use this width throughout."
+      }
+    },
+    "LCD_ILIM": {
+      "class": "sensitive_analog"
+    },
+    "LCD_SCLK": {
+      "class": "signal",
+      "clearanceMm": 0.15,
+      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "escape": {
+        "widthMm": 0.25,
+        "clearanceMm": 0.15,
+        "maxLengthMm": 2,
+        "componentRefs": [
+          "J_LCD"
+        ],
+        "rationale": "0.3mm-wide FPC lands require 0.25mm routing. Low-current LCD branch only; one-width router may use this width throughout."
+      }
+    },
+    "LCD_SCS": {
+      "class": "signal",
+      "clearanceMm": 0.15,
+      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "escape": {
+        "widthMm": 0.25,
+        "clearanceMm": 0.15,
+        "maxLengthMm": 2,
+        "componentRefs": [
+          "J_LCD"
+        ],
+        "rationale": "0.3mm-wide FPC lands require 0.25mm routing. Low-current LCD branch only; one-width router may use this width throughout."
+      }
+    },
+    "LCD_SI": {
+      "class": "signal",
+      "clearanceMm": 0.15,
+      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "escape": {
+        "widthMm": 0.25,
+        "clearanceMm": 0.15,
+        "maxLengthMm": 2,
+        "componentRefs": [
+          "J_LCD"
+        ],
+        "rationale": "0.3mm-wide FPC lands require 0.25mm routing. Low-current LCD branch only; one-width router may use this width throughout."
+      }
+    },
+    "V3V3_LCD": {
+      "class": "power",
+      "currentCapacity": {
+        "currentA": 0.2,
+        "copperThicknessOz": 1,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.2,
+        "calculationMethod": "IPC-2221 external; 1oz, 10C rise",
+        "rationale": "100mA normal module allocation plus <30mA conservative LCD/logic design budget. Both TPS2553 branches limited ~187mA max each; input uses500mA design envelope, branch200mA. IPC calculation yields 0.033mm; impose0.20mm minimum. No Pi operating current traverses this board."
+      },
+      "escape": {
+        "widthMm": 0.3,
+        "clearanceMm": 0.15,
+        "maxLengthMm": 2,
+        "componentRefs": [
+          "U_BUF1",
+          "U_BUF2"
+        ],
+        "rationale": "AHC125 0.40mm-wide supply/OE lands; declare 0.30mm width used across this low-current logic net, above0.20mm current requirement."
+      }
+    },
+    "V3V3_PI": {
+      "class": "power"
+    },
+    "V5_AUX": {
+      "class": "power",
+      "currentCapacity": {
+        "currentA": 0.2,
+        "copperThicknessOz": 1,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.2,
+        "calculationMethod": "IPC-2221 external; 1oz, 10C rise",
+        "rationale": "100mA normal module allocation plus <30mA conservative LCD/logic design budget. Both TPS2553 branches limited ~187mA max each; input uses500mA design envelope, branch200mA. IPC calculation yields 0.033mm; impose0.20mm minimum. No Pi operating current traverses this board."
+      }
+    },
+    "V5_LCD": {
+      "class": "power",
+      "clearanceMm": 0.15,
+      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "escape": {
+        "widthMm": 0.25,
+        "clearanceMm": 0.15,
+        "maxLengthMm": 2,
+        "componentRefs": [
+          "J_LCD"
+        ],
+        "rationale": "0.3mm-wide FPC lands require 0.25mm routing. Low-current LCD branch only; one-width router may use this width throughout."
+      },
+      "currentCapacity": {
+        "currentA": 0.2,
+        "copperThicknessOz": 1,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.2,
+        "calculationMethod": "IPC-2221 external; 1oz, 10C rise",
+        "rationale": "100mA normal module allocation plus <30mA conservative LCD/logic design budget. Both TPS2553 branches limited ~187mA max each; input uses500mA design envelope, branch200mA. IPC calculation yields 0.033mm; impose0.20mm minimum. No Pi operating current traverses this board."
+      }
+    },
+    "V5_PI_IN": {
+      "class": "power",
+      "currentCapacity": {
+        "currentA": 0.5,
+        "copperThicknessOz": 1,
+        "maxTemperatureRiseC": 10,
+        "requiredWidthMm": 0.2,
+        "calculationMethod": "IPC-2221 external; 1oz, 10C rise",
+        "rationale": "100mA normal module allocation plus <30mA conservative LCD/logic design budget. Both TPS2553 branches limited ~187mA max each; input uses500mA design envelope, branch200mA. IPC calculation yields 0.115mm; impose0.20mm minimum. No Pi operating current traverses this board."
+      }
+    }
+  },
+  "footprintExceptions": [],
+  "copperPours": {
+    "enabled": true,
+    "groundLayers": [
+      "top",
+      "bottom"
+    ],
+    "clearanceMm": 0.15,
+    "padMarginMm": 0.15,
+    "traceMarginMm": 0.25,
+    "boardEdgeMarginMm": 1,
+    "cutoutMarginMm": 0.5,
+    "removeIslands": true
+  },
+  "stitchingVias": [
+    {
+      "name": "GND_F_REGION_2",
+      "net": "GND",
+      "xMm": -23.3407,
+      "yMm": -26.8366,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check01b93c2a diagnosed F.Cu GND lobe of area 13.896mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_F_REGION_3",
+      "net": "GND",
+      "xMm": -20.0077,
+      "yMm": -26.409,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check01b93c2a diagnosed F.Cu GND lobe of area 9.664mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_B_REGION_2",
+      "net": "GND",
+      "xMm": -18.9154,
+      "yMm": 0.2283,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 222.691mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_B_REGION_3",
+      "net": "GND",
+      "xMm": -4.9186,
+      "yMm": -20.3704,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 162.873mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_B_REGION_4",
+      "net": "GND",
+      "xMm": -24.0,
+      "yMm": -13.95,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 154.343mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_B_REGION_5",
+      "net": "GND",
+      "xMm": -4.9186,
+      "yMm": -8.1163,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 91.108mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_B_REGION_6",
+      "net": "GND",
+      "xMm": 6.2116,
+      "yMm": 3.3109,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 19.259mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_B_REGION_7",
+      "net": "GND",
+      "xMm": 6.1528,
+      "yMm": -2.1262,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 8.527mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_B_REGION_8",
+      "net": "GND",
+      "xMm": 11.2455,
+      "yMm": -3.6556,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 7.538mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_B_REGION_10",
+      "net": "GND",
+      "xMm": -24.8087,
+      "yMm": -5.1707,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 5.605mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_REPAIR_GND_B_REGION_4",
+      "net": "GND",
+      "xMm": 8.9222,
+      "yMm": 5.4265,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Checkf8b7671c diagnosed B.Cu GND lobe of area 33.764mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_REPAIR_GND_B_REGION_7",
+      "net": "GND",
+      "xMm": 5.6862,
+      "yMm": -13.1876,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Checkf8b7671c diagnosed B.Cu GND lobe of area 13.095mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    }
+  ],
+  "copperAreas": [],
+  "keepouts": [
+    {
+      "name": "H1_CLEARANCE",
+      "purpose": "mounting_hole",
+      "shape": "circle",
+      "xMm": -30,
+      "yMm": 47,
+      "radiusMm": 2.5,
+      "layers": [
+        "top",
+        "bottom"
+      ],
+      "rationale": "M2 mounting screw and fixture washer clearance; prototype attachment only."
+    },
+    {
+      "name": "H2_CLEARANCE",
+      "purpose": "mounting_hole",
+      "shape": "circle",
+      "xMm": 30,
+      "yMm": 47,
+      "radiusMm": 2.5,
+      "layers": [
+        "top",
+        "bottom"
+      ],
+      "rationale": "M2 mounting screw and fixture washer clearance; prototype attachment only."
+    },
+    {
+      "name": "H3_CLEARANCE",
+      "purpose": "mounting_hole",
+      "shape": "circle",
+      "xMm": -30,
+      "yMm": -47,
+      "radiusMm": 2.5,
+      "layers": [
+        "top",
+        "bottom"
+      ],
+      "rationale": "M2 mounting screw and fixture washer clearance; prototype attachment only."
+    },
+    {
+      "name": "H4_CLEARANCE",
+      "purpose": "mounting_hole",
+      "shape": "circle",
+      "xMm": 30,
+      "yMm": -47,
+      "radiusMm": 2.5,
+      "layers": [
+        "top",
+        "bottom"
+      ],
+      "rationale": "M2 mounting screw and fixture washer clearance; prototype attachment only."
+    }
+  ],
+  "allowedOverlaps": [],
+  "allowedViaInPadComponents": [],
+  "pcbRuleExceptions": [],
+  "componentOrientations": [
+    {
+      "componentRef": "J_LCD",
+      "nativeOpening": "down",
+      "targetOpening": "down",
+      "expectedLayer": "bottom",
+      "rationale": "Supplier FH12 body/latch and signal-pad row verified in bottom preview: tail approaches -Y in board top view; cable contacts toward PCB. Internal cable, not a board-edge user connector. Complete shell cable path requires mechanical validation."
+    }
+  ],
+  "bomBindings": [
+    {
+      "bomItemId": "gpio_dock",
+      "designators": [
+        "J_PI"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "display_fpc",
+      "designators": [
+        "J_LCD"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "lite_header",
+      "designators": [
+        "J_MOD"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "display_buffer",
+      "designators": [
+        "U_BUF1",
+        "U_BUF2"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "lite_c100n",
+      "designators": [
+        "C_BUF1",
+        "C_BUF2",
+        "C_LCD_A"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "lite_c2u2",
+      "designators": [
+        "C_LCD_D",
+        "C_LCD_IN",
+        "C_LCD_LIN",
+        "C_LCD_LOUT",
+        "C_AUX_IN",
+        "C_AUX_LIN",
+        "C_AUX_LOUT"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "lite_r100k",
+      "designators": [
+        "R_OFF_CLK",
+        "R_OFF_DATA",
+        "R_OFF_CS",
+        "R_OFF_DISP",
+        "R_OFF_COM",
+        "R_LCD_EN",
+        "R_AUX_EN"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "gpio_aux_limiter",
+      "designators": [
+        "U_LCD_LIMIT",
+        "U_AUX_LIMIT"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "lite_r169k",
+      "designators": [
+        "R_LCD_ILIM",
+        "R_AUX_ILIM"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "ldo_3v3",
+      "designators": [
+        "U_LCD_LDO",
+        "U_AUX_LDO"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "lite_r10k",
+      "designators": [
+        "R_LCD_BLEED",
+        "R_AUX_BLEED",
+        "R_FAULT_PU"
+      ],
+      "populate": true
+    }
+  ]
+}

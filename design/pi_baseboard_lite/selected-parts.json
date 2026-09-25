@@ -1,0 +1,386 @@
+{
+  "scope": "Active lite PCB purchase rows; canonical quantities and bindings are in product/bom.json.",
+  "requirements_digest": "105283da86b2911c260e294f53d067435f6bc4f2920b554a843ba9063a4ea543",
+  "items": [
+    {
+      "id": "display_fpc",
+      "role": "display_fpc",
+      "name": "FH12-10S-0.5SH(55)",
+      "quantity": 1,
+      "supplier": "LCSC",
+      "manufacturer": "Hirose",
+      "part_number": "FH12-10S-0.5SH(55)",
+      "mpn": "FH12-10S-0.5SH(55)",
+      "stock": 8363,
+      "source": "default",
+      "procurement_status": "catalog_verified",
+      "lcsc_code": "C506791",
+      "jlc_smt_library": "extended",
+      "product_url": "https://item.szlcsc.com/519947.html",
+      "unit_price_cny": 3.12,
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230107/C04566C1CA874B3BDA4D60598C56C2D3.jpg",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "part_identity": "dd2e2353539b67c4",
+      "datasheet_path": "references/suppliers/c506791/c506791-datasheet.pdf",
+      "physical_interface": {
+        "kind": "fpc_connector",
+        "pin_count": 10,
+        "pitch_mm": 0.5,
+        "cable_contacts_face_when_mounted_on_top": "toward_pcb",
+        "pin1_position": "polarization triangle in Hirose component-side drawing; do not infer from screen-front view",
+        "evidence_refs": [
+          "references/suppliers/c506791/c506791-datasheet.pdf pp1,5",
+          "product/references/LS027B7DH01-sharp-2010.pdf p26"
+        ]
+      },
+      "selection_reason": "Retained 10-contact 0.5mm bottom-contact FPC for LS027B7DH01; candidate horizontal bottom placement still needs enclosure and short-tail fit check. Electrical prototype only.",
+      "observed_date": "2026-09-20",
+      "required_user_evidence": [],
+      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
+      "designators": [
+        "J_LCD"
+      ],
+      "selection_status": "pcb_check_ready_bench_validation_pending"
+    },
+    {
+      "id": "ldo_3v3",
+      "role": "display_logic_and_module_3v3_regulators",
+      "name": "TLV75533PDBVR",
+      "quantity": 2,
+      "supplier": "LCSC",
+      "manufacturer": "Texas Instruments",
+      "part_number": "TLV75533PDBVR",
+      "mpn": "TLV75533PDBVR",
+      "stock": 52278,
+      "source": "default",
+      "procurement_status": "catalog_verified",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "lcsc_code": "C404027",
+      "unit_price_cny": 0.982,
+      "product_url": "https://item.szlcsc.com/391018.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230109/50C843B5EA4C4488BBA5D79AF7F2F72A.jpg",
+      "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/tlv755p.pdf",
+      "package": "SOT-23-5",
+      "jlc_smt_library": "extended",
+      "observed_date": "2026-09-20",
+      "required_user_evidence": [],
+      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "part_identity": "f1fcb37b6ecdf118",
+      "selection_status": "pcb_check_ready_bench_validation_pending",
+      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
+      "designators": [
+        "U_LCD_LDO",
+        "U_AUX_LDO"
+      ]
+    },
+    {
+      "id": "display_buffer",
+      "role": "five_display_signal_buffers",
+      "name": "SN74AHC125PWR",
+      "quantity": 2,
+      "supplier": "LCSC",
+      "manufacturer": "Texas Instruments",
+      "part_number": "SN74AHC125PWR",
+      "mpn": "SN74AHC125PWR",
+      "stock": 1930,
+      "source": "default",
+      "procurement_status": "catalog_verified",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "lcsc_code": "C54529",
+      "unit_price_cny": 2.263,
+      "product_url": "https://item.szlcsc.com/55547.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221230/3C47C84BAAF1B86135DBFE6FB98B5466.jpg",
+      "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/sn74ahc125.pdf",
+      "package": "TSSOP-14",
+      "jlc_smt_library": "extended",
+      "selection_reason": "AHC125 at local 3.3V, VOL<=0.1V at50uA versus DH01 VIL<=0.15V. Five buffered inputs; Pi GPIO12 controls COM, GPIO25 DISP. No large capacitive load on DISP. Verify waveform edges on prototype.",
+      "observed_date": "2026-09-20",
+      "required_user_evidence": [],
+      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "part_identity": "92c508680dfac711",
+      "selection_status": "pcb_check_ready_bench_validation_pending",
+      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
+      "designators": [
+        "U_BUF1",
+        "U_BUF2"
+      ]
+    },
+    {
+      "quantity": 1,
+      "source": "default",
+      "observed_date": "2026-09-21",
+      "required_user_evidence": [],
+      "id": "gpio_dock",
+      "role": "pi_gpio_docking_socket",
+      "name": "SSQ-120-02-G-D",
+      "mpn": "SSQ-120-02-G-D",
+      "part_number": "SSQ-120-02-G-D",
+      "manufacturer": "SAMTEC",
+      "supplier": "LCSC / Samtec external procurement",
+      "lcsc_code": "C7370433",
+      "stock": null,
+      "procurement_status": "external_procurement_required",
+      "product_url": "https://www.samtec.com/products/ssq-120-02-g-d",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/231023/C17230646-eee8e7b4de5102e9d06880fcb7ab015e.pdf",
+      "package": "2x20 through-hole female socket,2.54mm pitch,straight",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "selection_status": "pcb_check_ready_bench_validation_pending",
+      "description": "Exact supplier/manufacturer match. SSQ square-tail socket,20positions each of2rows. Catalog:8.51mm housing,4.93mm -02tail; insertion3.68–6.35mm. SSQ/TSW current6.3A perpin with2pins powered; this is NOT a Pi-header pair qualification.",
+      "selection_reason": "Exact SSQ-120-02-G-D retained. Manufacturer RevBH series drawing and RevA PCB layout now cached: 2x20,2.54mm pitch,1.02mm hole callout. Physical Pi mating/temperature and final standoff stack require prototype/CAD validation, not another purchasing choice.",
+      "supply_risk": "Manufacturer reports zero distributor stock forG variant; price/availability advisory. ExactPi header geometry and mixed-vendor contact performance not qualified.8.51mm housing is not completedboard spacing. Standard insertion force across40contacts may require support. Manufacturer seriesprint download blocked; productionfootprint/dimension tolerances remain unverified.",
+      "evidence_refs": [
+        "product/references/ssq-ssw-samtec-catalog.pdf p1",
+        "product/references/ssq-120-02-g-d-page.txt"
+      ],
+      "part_identity": "0d7270392f5f1ed8",
+      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
+      "designators": [
+        "J_PI"
+      ]
+    },
+    {
+      "id": "gpio_aux_limiter",
+      "role": "display_and_module_branch_current_limit",
+      "name": "TPS2553DBVR",
+      "quantity": 2,
+      "supplier": "Texas Instruments / authorized distributor",
+      "manufacturer": "Texas Instruments",
+      "mpn": "TPS2553DBVR",
+      "part_number": "TPS2553DBVR",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "package": "SOT-23-6 DBV",
+      "product_url": "https://www.ti.com/product/TPS2553",
+      "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps2553.pdf",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "required_user_evidence": [],
+      "selection_reason": "TI SLVS841F pp5,6,15,25: active-high 2.5-6.5V adjustable current-limit switch, 169k 1% RILIM gives approximately 136-187mA limits ahead of a dedicated 3.3V LDO; normal module allocation is100mA. Pi3.3V only controls enable. Exact DBV stock KiCad footprint.",
+      "supply_risk": "Supplier search did not finish; no stock, price or JLC assembly claim. Manufacturer datasheet resolves exact electrical identity and package; procure exact TPS2553DBVR externally.",
+      "part_identity": "55bfe64614da6ce2",
+      "selection_status": "pcb_check_ready_bench_validation_pending",
+      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
+      "designators": [
+        "U_LCD_LIMIT",
+        "U_AUX_LIMIT"
+      ]
+    },
+    {
+      "id": "lite_header",
+      "role": "lite_header",
+      "name": "TSW-104-07-G-D",
+      "mpn": "TSW-104-07-G-D",
+      "part_number": "TSW-104-07-G-D",
+      "manufacturer": "Samtec",
+      "quantity": 1,
+      "supplier": "Samtec / authorized distributor",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "description": "2x4 vertical male header, 2.54mm pitch, 0.635mm square pins, 5.84mm mating posts and 2.54mm solder tails",
+      "package": "Through-hole 2x4, 2.54mm pitch and row spacing",
+      "product_url": "https://www.samtec.com/products/tsw-104-07-g-d",
+      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/tsw_th.pdf",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "selection_reason": "Manufacturer-defined TSW-104-07-G-D meets user-approved 2x4 male 2.54mm interface. Standard KiCad 2x04 footprint uses 1.0mm holes, fits 0.898mm diagonal pins with 0.102mm nominal diametral clearance. Samtec catalog confirms 10.16mm length, 5.02mm width, 2.54mm body height. Source is standard KiCad geometry; no JLC electromechanical footprint selected. Manual assembly and external exact-MPN procurement.",
+      "required_user_evidence": [],
+      "part_identity": "66c459c8d4b15e82",
+      "designators": [
+        "J_MOD"
+      ],
+      "supply_risk": "Exact Samtec part procurement; price/stock not committed. Standard library STEP is a clearance proxy, not supplier-exact pin lengths (6mm/3mm model vs 5.84mm/2.54mm real part). Enclosure fit remains unqualified.",
+      "selection_status": "pcb_check_ready_bench_validation_pending"
+    },
+    {
+      "id": "lite_c100n",
+      "role": "lite_c100n",
+      "name": "CC0603KRX7R9BB104",
+      "mpn": "CC0603KRX7R9BB104",
+      "part_number": "CC0603KRX7R9BB104",
+      "manufacturer": "YAGEO(国巨)",
+      "quantity": 3,
+      "supplier": "LCSC",
+      "lcsc_code": "C14663",
+      "stock": 51401002,
+      "source": "default",
+      "procurement_status": "catalog_verified",
+      "description": "100nF ±10% 50V",
+      "package": "0603",
+      "product_url": "https://item.szlcsc.com/15331.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20250715/565F44E7FCAE51D13767AECBC328360D.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20250214/096C4C206003071F5D32E5F0D8E7F8DF.pdf",
+      "jlc_smt_library": "basic",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
+      "required_user_evidence": [],
+      "part_identity": "793924b009c093b0",
+      "designators": [
+        "C_BUF1",
+        "C_BUF2",
+        "C_LCD_A"
+      ],
+      "selection_status": "pcb_check_ready_bench_validation_pending"
+    },
+    {
+      "id": "lite_r10k",
+      "role": "lite_r10k",
+      "name": "0603WAF1002T5E",
+      "mpn": "0603WAF1002T5E",
+      "part_number": "0603WAF1002T5E",
+      "manufacturer": "UNI-ROYAL(厚声)",
+      "quantity": 3,
+      "supplier": "LCSC",
+      "lcsc_code": "C25804",
+      "stock": 22998867,
+      "source": "default",
+      "procurement_status": "catalog_verified",
+      "description": "厚膜电阻 10kΩ ±1% 100mW",
+      "package": "0603",
+      "product_url": "https://item.szlcsc.com/26547.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20250618/A8DD5FF53E8BE3A05CC533FBBE26BF71.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200306/C422600_1E6D84923E4A46A82E41ADD87F860B5C.pdf",
+      "jlc_smt_library": "basic",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
+      "required_user_evidence": [],
+      "part_identity": "521357339b7b313a",
+      "designators": [
+        "R_LCD_BLEED",
+        "R_AUX_BLEED",
+        "R_FAULT_PU"
+      ],
+      "selection_status": "pcb_check_ready_bench_validation_pending"
+    },
+    {
+      "id": "lite_r100k",
+      "role": "lite_r100k",
+      "name": "0603WAF1003T5E",
+      "mpn": "0603WAF1003T5E",
+      "part_number": "0603WAF1003T5E",
+      "manufacturer": "UNI-ROYAL(厚声)",
+      "quantity": 7,
+      "supplier": "LCSC",
+      "lcsc_code": "C25803",
+      "stock": 22879304,
+      "source": "default",
+      "procurement_status": "catalog_verified",
+      "description": "厚膜电阻 100kΩ ±1% 100mW",
+      "package": "0603",
+      "product_url": "https://item.szlcsc.com/26546.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221229/9CADD82CDD9E855DF3936BDC26AC09E2.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200306/C422600_1E6D84923E4A46A82E41ADD87F860B5C.pdf",
+      "jlc_smt_library": "basic",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
+      "required_user_evidence": [],
+      "part_identity": "14b2d76ef981c976",
+      "designators": [
+        "R_OFF_CLK",
+        "R_OFF_DATA",
+        "R_OFF_CS",
+        "R_OFF_DISP",
+        "R_OFF_COM",
+        "R_LCD_EN",
+        "R_AUX_EN"
+      ],
+      "selection_status": "pcb_check_ready_bench_validation_pending"
+    },
+    {
+      "id": "lite_r169k",
+      "role": "lite_r169k",
+      "name": "0603WAF1693T5E",
+      "mpn": "0603WAF1693T5E",
+      "part_number": "0603WAF1693T5E",
+      "manufacturer": "UNI-ROYAL(厚声)",
+      "quantity": 2,
+      "supplier": "LCSC",
+      "lcsc_code": "C22817",
+      "stock": 47561,
+      "source": "default",
+      "procurement_status": "catalog_verified",
+      "description": "厚膜电阻 169kΩ ±1% 100mW",
+      "package": "0603",
+      "product_url": "https://item.szlcsc.com/23544.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221228/E2B3E62C4EB13D0501DF0B3C0442EE14.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200306/C422600_1E6D84923E4A46A82E41ADD87F860B5C.pdf",
+      "jlc_smt_library": "extended",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "selection_reason": "Exact value/package verified; manual prototype assembly. Extended resistor chosen only because no exact Basic match.",
+      "required_user_evidence": [],
+      "part_identity": "3f2bf7b7819c1031",
+      "designators": [
+        "R_LCD_ILIM",
+        "R_AUX_ILIM"
+      ],
+      "selection_status": "pcb_check_ready_bench_validation_pending"
+    },
+    {
+      "id": "lite_c2u2",
+      "role": "lite_c2u2",
+      "name": "CL21A225KBQNNNE",
+      "mpn": "CL21A225KBQNNNE",
+      "part_number": "CL21A225KBQNNNE",
+      "manufacturer": "SAMSUNG(三星)",
+      "quantity": 7,
+      "supplier": "LCSC",
+      "lcsc_code": "C377773",
+      "stock": 695665,
+      "source": "default",
+      "procurement_status": "catalog_verified",
+      "description": "2.2uF ±10% 50V",
+      "package": "0805",
+      "product_url": "https://item.szlcsc.com/350246.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20240318/586CF8A489086C6E8042B1D5672787EA.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20160218/1457707763339.pdf",
+      "jlc_smt_library": "basic",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual"
+      },
+      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
+      "required_user_evidence": [],
+      "part_identity": "fca643e731731cf2",
+      "designators": [
+        "C_LCD_D",
+        "C_LCD_IN",
+        "C_LCD_LIN",
+        "C_LCD_LOUT",
+        "C_AUX_IN",
+        "C_AUX_LIN",
+        "C_AUX_LOUT"
+      ],
+      "selection_status": "pcb_check_ready_bench_validation_pending"
+    }
+  ]
+}
