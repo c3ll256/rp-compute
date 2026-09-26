@@ -2,7 +2,7 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "visual_draft",
-  "summary": "当前精简基板采用Pi原生USB-C供电、Sharp FPC和2x4 GPIO扩展；原外壳STEP未适配精简版端口与PCB，不代表整机已验证。完整版电源和电池范围保留。",
+  "summary": "当前精简基板采用Pi原生USB-C供电、Sharp FPC和2x4母座GPIO扩展；原外壳STEP未适配精简版端口与PCB，不代表整机已验证。完整版电源和电池范围保留。",
   "required_interfaces": [
     {
       "id": "compute_mount",
@@ -63,7 +63,7 @@
     {
       "id": "single_baseboard_fit",
       "kind": "internal_fit",
-      "description": "精简版一块基板承担Pi40针插接、Sharp屏幕FPC与2.54mm 2x4公针扩展。需复核水平PCB/短FPC、GPIO堆叠、固定点、散热和Pi USB-C外壳开口；完整版电源电池集成单独保留。",
+      "description": "精简版一块基板承担Pi40针插接、Sharp屏幕FPC与2.54mm 2x4母座扩展。需复核水平PCB/短FPC、GPIO堆叠、固定点、散热和Pi USB-C外壳开口；完整版电源电池集成单独保留。",
       "source": "user_requested",
       "required": true
     }

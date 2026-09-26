@@ -315,7 +315,7 @@
       "source": "default"
     },
     "lite_expansion_form": {
-      "value": "2x4 vertical male pin header, 2.54mm pitch",
+      "value": "2x4 vertical female socket, 2.54mm pitch",
       "source": "user"
     },
     "lite_supply_entry": {
@@ -345,6 +345,10 @@
     },
     "lite_module_service": {
       "value": "Cold plug only; modules powered solely by AUX_3V3, no external supply and no 5V logic. Pinout is custom, not Pi header pins 1-8.",
+      "source": "default"
+    },
+    "lite_fpc_placement": {
+      "value": "Screen-facing top PCB side, close to the screen tail exit; initially retain (0,6.7)mm XY. Complete tail bending and stack fit still require mechanical validation.",
       "source": "default"
     }
   },

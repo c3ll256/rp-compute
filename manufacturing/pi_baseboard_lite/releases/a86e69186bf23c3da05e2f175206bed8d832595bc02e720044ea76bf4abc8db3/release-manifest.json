@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "releaseId": "21af7409b4ec6b10013b817a2c175b18f4bab57d3107b5bb00dd004fc70c0314",
+  "releaseId": "a86e69186bf23c3da05e2f175206bed8d832595bc02e720044ea76bf4abc8db3",
   "designId": "pi_baseboard_lite",
-  "buildId": "7ddf783767ff8fbb556c6b45b4e8870c54d246a8954821b87e9b44521b7564b9",
-  "candidateId": "3253dcffdb9a46a453f3bb458406f8e8f73c50a580e08836e38aef6e8b23f4c7",
-  "approvedAt": "2026-09-25T00:08:21.029Z",
+  "buildId": "d7afcfa14d7dff7805c8cdf6303d4c1d24a4410236efef01a6553db05f244327",
+  "candidateId": "3a16516c641da3dbb62526a05ee57fe12f357f9ceda396c0c57492e738bd82e4",
+  "approvedAt": "2026-09-26T07:49:49.128Z",
   "sections": [
     {
       "id": "fabrication",
@@ -40,6 +40,7 @@
       "status": "ready",
       "files": [
         "3dmodels/pi_baseboard_lite.3dshapes/PinHeader_2x04_P2.54mm_Vertical.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x04_P2.54mm_Vertical.step",
         "3dmodels/pi_baseboard_lite.3dshapes/SOT-23-6.step",
         "assembly.glb",
         "assembly.step"
@@ -54,88 +55,93 @@
       "sizeBytes": 245557
     },
     {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x04_P2.54mm_Vertical.step",
+      "sha256": "22ed9c34c1d3d16fe62e5dbbb4b1eadb9789ad786b2d048e70f817ab6910e4b7",
+      "sizeBytes": 171232
+    },
+    {
       "path": "3dmodels/pi_baseboard_lite.3dshapes/SOT-23-6.step",
       "sha256": "c9fe686b4d1b56927a41fa84a9bc1efb61d8a45a123a3db43bcaa05c2891d635",
       "sizeBytes": 99639
     },
     {
       "path": "assembly.glb",
-      "sha256": "d388fc9f88a4255887f0b00d2fea1ff1df33a8d434ebc00ecd900d040d68c23d",
-      "sizeBytes": 43362684
+      "sha256": "906aeeae0a4e9d123001eace03e4e1fac5445545f011eebf76dad1c928f22c65",
+      "sizeBytes": 45720788
     },
     {
       "path": "assembly.step",
-      "sha256": "14974b624c4d6c09f9f6304d5647378fb0191b5aaf87a29f1255f98a6b685bb2",
-      "sizeBytes": 18243590
+      "sha256": "3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8",
+      "sizeBytes": 19283289
     },
     {
       "path": "circuit.json",
-      "sha256": "36533f178f7531511f9c4fb1f7e320cfc157b247bd63e7b6bff91fc671426f92",
-      "sizeBytes": 1036230
+      "sha256": "d12959e0b80c6c7ee101b57e8a16190b41527ca7ada65d0cc58b11fe549c6119",
+      "sizeBytes": 1052078
     },
     {
       "path": "drill/board-NPTH.drl",
-      "sha256": "1c6b43c71b9499519e89b7f6e49540efb3f33e7423175c8b017829ef0058423e",
+      "sha256": "03311137470c3cc80a0787a301f7075da0f28cf7e676a38062ceb3613a25e0ee",
       "sizeBytes": 380
     },
     {
       "path": "drill/board-PTH.drl",
-      "sha256": "931a0b6289b15e9670065dd269afddfd32aca601c70a875895d2b5c54cdb995c",
-      "sizeBytes": 1629
+      "sha256": "0aa8a41ba2ef8f8b54a3be24e26ecf2e25b6827355e64921855947d8fc1c5d98",
+      "sizeBytes": 1918
     },
     {
       "path": "drill/pi_baseboard_lite-drill-report.txt",
-      "sha256": "83d47da97960d2e2e1466d34d3bef5dba1167f19684f6dc1427b6102070b417b",
+      "sha256": "817331f0d42a35c20a9e3685a11c8bad32d98b4c9f818e69e183bfab89d0064e",
       "sizeBytes": 716
     },
     {
       "path": "gerbers/board-B_Cu.gbl",
-      "sha256": "91afd7af5e7620559dd81a15067f51487a21bf201696b02c644937a1e958eef5",
-      "sizeBytes": 174869
+      "sha256": "113727d656ff09ddfef573e32473e678e10fad36b516e842aaf049b0cf0d20bd",
+      "sizeBytes": 159629
     },
     {
       "path": "gerbers/board-B_Mask.gbs",
-      "sha256": "96afff03121968c34daba65997fe110541ce4c2243badffea12a708c985d7df9",
-      "sizeBytes": 4875
+      "sha256": "277e46ef963034e01ee17f3d09f9107e54a7ec4ec87889ed2c8e4215da187e7d",
+      "sizeBytes": 3539
     },
     {
       "path": "gerbers/board-B_Paste.gbp",
-      "sha256": "a189db9813680f2ba4f8b67f6c75c844c6afc98717b54797b12230b8de2bf2d9",
-      "sizeBytes": 3345
+      "sha256": "c96220a3891fd65f9aa459624e3a21c1859b7ec0588d9cd3c1861ed5d623a464",
+      "sizeBytes": 2009
     },
     {
       "path": "gerbers/board-B_Silkscreen.gbo",
-      "sha256": "0cbbde4b7f3cb8f7c0268a0e1041fb0a17187aa44edf003218755dd63d31512a",
-      "sizeBytes": 9123
+      "sha256": "e33ffdc0430f8361dfceaa8da64c36ff048cc77fd434564a75dc30af617a80d9",
+      "sizeBytes": 5232
     },
     {
       "path": "gerbers/board-Edge_Cuts.gm1",
-      "sha256": "ab3789b601bd927fdc2a4abb5f6e6223f00431b72b55b1e54acbcff0d51f4cc0",
+      "sha256": "027738a745fbff0e2bd365ea82bb0c0ddd3069827ea5a80e1f93ba4b6dca3345",
       "sizeBytes": 680
     },
     {
       "path": "gerbers/board-F_Cu.gtl",
-      "sha256": "80cbed538bc227259c7b3815794e3670c12d0d41c860d808fb45011e15f0c253",
-      "sizeBytes": 132272
+      "sha256": "9f64c6e4c39b8b3f5a5abff4d69cf4435377a8321561e1fd1f70f3c60237b605",
+      "sizeBytes": 162419
     },
     {
       "path": "gerbers/board-F_Mask.gts",
-      "sha256": "ccf1e926b7d3e01aba40d4adcdb47ce998dfe17fa261eb94357bb7dd490f59d2",
-      "sizeBytes": 2918
+      "sha256": "6b721b69b7438cedd4bd48920e23532f29dcdc9324bf6acf29fe37e88c18ec0c",
+      "sizeBytes": 4280
     },
     {
       "path": "gerbers/board-F_Paste.gtp",
-      "sha256": "f30bdd9d6049e5125ca97c4ca4d12ca83e5fd1b04442002c2bcd2d1c5f7b7319",
-      "sizeBytes": 1373
+      "sha256": "7eb4f35229c0a87b8e31516427cf13f41ee11a9ad2aff601b5ddd3d9970ca511",
+      "sizeBytes": 2735
     },
     {
       "path": "gerbers/board-F_Silkscreen.gto",
-      "sha256": "28d6dfc033d11070a3143c983769713b8ebcbd163fdb25bc31b8ab9f667175fa",
-      "sizeBytes": 43658
+      "sha256": "da15f96b3fef0fd42eb6cc25ecf439d7f025d2c9dc2799d326d74a03a9e1e733",
+      "sizeBytes": 47449
     },
     {
       "path": "gerbers/board-job.gbrjob",
-      "sha256": "134baa2b1ce9d1571e25e125d0f48db72f388a5a396473be32949411872ce624",
+      "sha256": "2994cb46d53ff6f62a40b905b8b4df13fad5c6a9cef30f7ffe8a90f0ec11143e",
       "sizeBytes": 2658
     },
     {
@@ -150,33 +156,33 @@
     },
     {
       "path": "manifest.json",
-      "sha256": "5b23536175d8dfe75e6658ef42240a098f8703e944dc5f4c2c691b2288fd57fd",
-      "sizeBytes": 27096
+      "sha256": "eee898b77f8fa725e623f77b5ed46957896b764241bbbbdd4fa7819e10a214dd",
+      "sizeBytes": 23218
     },
     {
       "path": "previews/assembly-iso.png",
-      "sha256": "02c475ebb1bfcdf64834286c8b58173d86497c837d235aa9a50935d6004aca28",
-      "sizeBytes": 169659
+      "sha256": "c6d18842d57b43e94de6f0f77810fb235cd6cf89dc30519ac7a4b36315fc389b",
+      "sizeBytes": 186348
     },
     {
       "path": "previews/gerber-bottom.png",
-      "sha256": "548d8a318a9dcfd6b51f6aaf63200c6cd2567060fce579114355c4b588839041",
-      "sizeBytes": 219368
+      "sha256": "0c0c95f4f6b232f568f3b173837fdef1dc58afa6f2f9cca343c72df5986ebcc6",
+      "sizeBytes": 202969
     },
     {
       "path": "previews/gerber-bottom.svg",
-      "sha256": "5e8b4494068272139b5b6a050e231403c4ce864ef25aa69549f0682452f5ca31",
-      "sizeBytes": 183472
+      "sha256": "412a58cab22a0738dde41d5e823a380ed44d4aba42b77791b52d71eca574ed5f",
+      "sizeBytes": 161392
     },
     {
       "path": "previews/gerber-top.png",
-      "sha256": "4d6d15dbd45fc1412f4dbc710807adb6e9908a4123581e8332237993035ce728",
-      "sizeBytes": 250092
+      "sha256": "57f7e663464ba4c432a4cb69b840e12ac09c17d2cf85caf124fd3a766b1b447d",
+      "sizeBytes": 284413
     },
     {
       "path": "previews/gerber-top.svg",
-      "sha256": "8510d0fa356920dfeeb95a902f8fecb7a3ba3322e0f76453570e4b3ba0f7fe03",
-      "sizeBytes": 152561
+      "sha256": "1c4c4a3aa9c46f8ac9f9072a4d682fcdc289bb77e19d4c0378b0e7c7904a2968",
+      "sizeBytes": 190845
     }
   ]
 }

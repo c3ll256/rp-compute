@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": true,
-  "requirements_digest": "105283da86b2911c260e294f53d067435f6bc4f2920b554a843ba9063a4ea543",
+  "requirements_digest": "3eb6139aaf950a4018598b27162d6d06054a58fec1f0550d900f10259b7d40c5",
   "items": [
     {
       "id": "compute",
@@ -119,7 +119,7 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
+      "requirements_review": "FPC moves to screen-facing top PCB side; exact Hirose part and numeric pin map retained, cable path not yet mechanically validated.",
       "designators": [
         "J_LCD"
       ],
@@ -304,31 +304,31 @@
     },
     {
       "id": "lite_header",
-      "role": "lite_header",
-      "name": "TSW-104-07-G-D",
-      "mpn": "TSW-104-07-G-D",
-      "part_number": "TSW-104-07-G-D",
+      "role": "lite_expansion_female_socket",
+      "name": "SSQ-104-02-G-D",
+      "mpn": "SSQ-104-02-G-D",
+      "part_number": "SSQ-104-02-G-D",
       "manufacturer": "Samtec",
       "quantity": 1,
       "supplier": "Samtec / authorized distributor",
       "stock": null,
       "source": "default",
       "procurement_status": "external_procurement_required",
-      "description": "2x4 vertical male header, 2.54mm pitch, 0.635mm square pins, 5.84mm mating posts and 2.54mm solder tails",
+      "description": "2x4 vertical female socket, 2.54mm pitch; 8.51mm body and 4.93mm square solder tails",
       "package": "Through-hole 2x4, 2.54mm pitch and row spacing",
-      "product_url": "https://www.samtec.com/products/tsw-104-07-g-d",
-      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/tsw_th.pdf",
+      "product_url": "https://www.samtec.com/products/ssq-104-02-g-d",
+      "datasheet_url": "https://suddendocs.samtec.com/prints/ssq-1xx-xx-xxx-x-xx-xxx-xx-x-mkt.pdf",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
-      "selection_reason": "Manufacturer-defined TSW-104-07-G-D meets user-approved 2x4 male 2.54mm interface. Standard KiCad 2x04 footprint uses 1.0mm holes, fits 0.898mm diagonal pins with 0.102mm nominal diametral clearance. Samtec catalog confirms 10.16mm length, 5.02mm width, 2.54mm body height. Source is standard KiCad geometry; no JLC electromechanical footprint selected. Manual assembly and external exact-MPN procurement.",
+      "selection_reason": "User requests female 8-contact socket. Exact Samtec SSQ-104-02-G-D identity verified on official product page; existing SSQ Rev BH series drawing confirms 4 positions per row, double row, 2.54mm pitch, 8.51mm housing, 4.93mm tails and 0.64mm square terminals. Standard KiCad PinSocket_2x04_P2.54mm_Vertical has native socket numbering and 1.0mm holes; preserve numeric functions, recheck actual pad positions.",
       "required_user_evidence": [],
-      "part_identity": "66c459c8d4b15e82",
+      "part_identity": "166527174da573df",
       "designators": [
         "J_MOD"
       ],
-      "supply_risk": "Exact Samtec part procurement; price/stock not committed. Standard library STEP is a clearance proxy, not supplier-exact pin lengths (6mm/3mm model vs 5.84mm/2.54mm real part). Enclosure fit remains unqualified.",
+      "supply_risk": "Catalog search did not return; exact Samtec purchase is external, stock and price unverified. No qualified drop-in alternate. Standard KiCad STEP is a proxy; real 8.51mm body/4.93mm tails and module mating stack require CAD fit verification.",
       "selection_status": "pcb_check_ready_bench_validation_pending"
     },
     {
@@ -512,7 +512,7 @@
     },
     {
       "id": "exact_parts",
-      "description": "Reuse exact Sharp panel, Hirose FPC, Samtec socket and TI ICs. No interchangeable substitutes qualified. Header alternate A2541WV-2x4P shortlisted only, not approved."
+      "description": "Reuse exact Sharp panel, Hirose FPC, Samtec sockets and TI ICs. No interchangeable substitutes qualified; old male-header alternatives are not alternatives for the requested female socket."
     }
   ],
   "unresolved_items": [],

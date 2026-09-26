@@ -11,7 +11,7 @@ export function rotationForOpening(native: "up" | "right" | "down" | "left", tar
 }
 export const interfaces = {
  piDock: {x:-13.5,y:15.2,rotation:90,side:"bottom"},
- displayFpc: {x:0,y:6.7,rotation:rotationForOpening("down","down"),side:"bottom",contactFace:"toward PCB",opening:"-Y in board top view"},
- // KiCad header origin is pin 1; body center remains (0,-34).
- frontModule: {x:-3.81,y:-35.27,rotation:90,side:"top",mating:"+Z"}
+ displayFpc: {x:0,y:6.7,rotation:rotationForOpening("down","down"),side:"top",contactFace:"toward PCB",opening:"-Y in board top view"},
+ // Native female socket origin is pin 1; opposite row order to male header; center (0,-34).
+ frontModule: {x:-3.81,y:-32.73,rotation:90,side:"top",mating:"+Z"}
 };

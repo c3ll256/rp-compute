@@ -379,6 +379,60 @@
       "diameterMm": 0.6,
       "drillMm": 0.3,
       "rationale": "Checkf8b7671c diagnosed B.Cu GND lobe of area 13.095mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_TOP_FPC_BUFFER_RETURN",
+      "net": "GND",
+      "xMm": -1.4578,
+      "yMm": 2.197,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Check4f4828bb diagnosed B.Cu GND lobe of area 64.964mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "SOCKET_TOP_GND_F_REGION_4",
+      "net": "GND",
+      "xMm": 8.5616,
+      "yMm": 10.5512,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Checkf71af8db diagnosed F.Cu GND lobe of area 33.203mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "SOCKET_TOP_GND_F_REGION_5",
+      "net": "GND",
+      "xMm": 5.7438,
+      "yMm": 11.173,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Checkf71af8db diagnosed F.Cu GND lobe of area 9.858mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "SOCKET_TOP_GND_B_REGION_3",
+      "net": "GND",
+      "xMm": 10.9144,
+      "yMm": -11.9485,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Checkf71af8db diagnosed B.Cu GND lobe of area 27.893mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+    },
+    {
+      "name": "GND_BUF2_OE_REGION_5",
+      "net": "GND",
+      "xMm": -0.4272,
+      "yMm": 15.3982,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Checkf71b2f8c F.Cu region 5; centre lies in filled GND on both layers (>=0.05mm inset), actual non-GND tracks and via copper excluded by via radius+0.15mm clearance; all SMT/drill pad bounds excluded >=0.50mm. Full-pad containment in prior pour is unnecessary; final fill/DRC verifies continuity and clearance."
+    },
+    {
+      "name": "GND_BUF2_OE_REGION_6",
+      "net": "GND",
+      "xMm": -2.2625,
+      "yMm": 9.8865,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Checkf71b2f8c F.Cu region 6; centre lies in filled GND on both layers (>=0.05mm inset), actual non-GND tracks and via copper excluded by via radius+0.15mm clearance; all SMT/drill pad bounds excluded >=0.50mm. Full-pad containment in prior pour is unnecessary; final fill/DRC verifies continuity and clearance."
     }
   ],
   "copperAreas": [],
@@ -448,14 +502,14 @@
     {
       "componentRef": "J_MOD",
       "vertical": true,
-      "rationale": "J_MOD 是板正面的直立 2×4 公排针，扩展模块沿垂直 PCB 的方向插接。"
+      "rationale": "J_MOD 是板正面的直立 2×4 母座，扩展模块的公排针沿垂直 PCB 的方向插入。"
     },
     {
       "componentRef": "J_LCD",
       "nativeOpening": "down",
       "targetOpening": "down",
-      "expectedLayer": "bottom",
-      "rationale": "Supplier FH12 body/latch and signal-pad row verified in bottom preview: tail approaches -Y in board top view; cable contacts toward PCB. Internal cable, not a board-edge user connector. Complete shell cable path requires mechanical validation."
+      "expectedLayer": "top",
+      "rationale": "Screen-facing top-side FPC socket for latch access; cable approaches -Y near existing screen-tail reference, contacts toward PCB. Full cable bend and stack remain unqualified."
     }
   ],
   "bomBindings": [
