@@ -90,6 +90,13 @@
           "order": 1,
           "path": "design/handheld_computer/source/parts/imports/001-fpc_zif.py",
           "sha256": "5321d0e619d3d08ab5e4ec2dc60610fffb0091b49572cfdf44c456344fe5e69e"
+        },
+        {
+          "id": "pi_baseboard_lite",
+          "target": "imports",
+          "order": 2,
+          "path": "design/handheld_computer/source/parts/imports/002-pi_baseboard_lite.py",
+          "sha256": "5e695923b6cc4d985c658533dcf5094b7dd6524ade34c1de0509faa14388a530"
         }
       ],
       "dependencies": []
@@ -110,32 +117,6 @@
     }
   ],
   "objects": [
-    {
-      "id": "shell",
-      "target": "shell",
-      "label": "Rear and side port shell",
-      "kind": "generated",
-      "shapeHash": "1e7ffa58aaef7239a9bd2f4b9878c7c0c0f82371c7f5d9fbf9e68476cc3d7c58",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
     {
       "id": "front_module_blank",
       "target": "shell",
@@ -167,7 +148,7 @@
       "target": "shell",
       "label": "M2 front module screw",
       "kind": "generated",
-      "shapeHash": "f1ca09fbf7ffbe48d01d8123ead455158c6b16e1bb3db849f2e6ff5bd7d78c67",
+      "shapeHash": "616f4094e3c534a427b40a70f828c85f01270236da9854f72e5abc5bb17385df",
       "transform": {
         "positionMm": [
           0,
@@ -193,7 +174,7 @@
       "target": "shell",
       "label": "M2 front module screw",
       "kind": "generated",
-      "shapeHash": "f5863223de17ec297799cc9aa33588c0219b76aaaedec52bb17ad0467dfc150e",
+      "shapeHash": "041b3b3c3b60cb3782211e9be70f7003679bf784cbc1e48db63e03dd8cd4d4bc",
       "transform": {
         "positionMm": [
           0,
@@ -219,7 +200,7 @@
       "target": "shell",
       "label": "M2 front module screw",
       "kind": "generated",
-      "shapeHash": "f5f48b8a488ce755bbd921848291ffa13897fcc2c7dad3b115b836b2f5cc365b",
+      "shapeHash": "6d201e0f0e6f275cdbea6ab4afe60f05684c3c8ed8dcdaa68e0d2f2ae379d07f",
       "transform": {
         "positionMm": [
           0,
@@ -245,7 +226,33 @@
       "target": "shell",
       "label": "M2 front module screw",
       "kind": "generated",
-      "shapeHash": "7b0a97f48abbeaf5d4e831f54f4de3e8bfd8fb1a33a5232f6ca3d45f69f44d39",
+      "shapeHash": "3e692d1fbf6f274f3e7405c745121165bb41de8e06b6f80bdd61ee0f896df2b7",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "shell",
+      "target": "shell",
+      "label": "Rear and side port shell",
+      "kind": "generated",
+      "shapeHash": "1e7ffa58aaef7239a9bd2f4b9878c7c0c0f82371c7f5d9fbf9e68476cc3d7c58",
       "transform": {
         "positionMm": [
           0,
@@ -479,7 +486,7 @@
       "target": "power_cap",
       "label": "Orange power cap",
       "kind": "generated",
-      "shapeHash": "b3b94ebd813f00795b55a3127e0a2bae97e98555d2f09deefc8188a9bf8efaed",
+      "shapeHash": "e584e9f9ddc61e224723cd0fc60f7b0a7ac3a49f7866841b7a553e70ddb7259f",
       "transform": {
         "positionMm": [
           42.15,
@@ -490,32 +497,6 @@
           0,
           90,
           0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "fpc_zif",
-      "target": "imports",
-      "label": "fpc_zif",
-      "kind": "imported",
-      "shapeHash": "f4cc25c1f52a105b029ccd8594aadb61a07ed2bba0d3854439c55d4828535d19",
-      "transform": {
-        "positionMm": [
-          0,
-          6.7628506593,
-          27.254517899
-        ],
-        "rotationDeg": [
-          -167,
-          0,
-          -180
         ],
         "rotationOrder": "XYZ",
         "scale": [
@@ -541,6 +522,58 @@
         "rotationDeg": [
           90,
           90,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "fpc_zif",
+      "target": "imports",
+      "label": "fpc_zif",
+      "kind": "imported",
+      "shapeHash": "1287105d5aee535015677812a99c272d96c25d419b84825bfad5a544c6a8a36a",
+      "transform": {
+        "positionMm": [
+          0,
+          6.7628506593,
+          27.254517899
+        ],
+        "rotationDeg": [
+          -167,
+          0,
+          -180
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_baseboard_lite",
+      "target": "imports",
+      "label": "Lite PCB fit check",
+      "kind": "imported",
+      "shapeHash": "0e2f679f4fd55f619cf9be2352f412ee102e38ca22735a4568ac2abb4936dcf1",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
           0
         ],
         "rotationOrder": "XYZ",
@@ -633,10 +666,20 @@
         "sourceVersion": "c6113328a5695b976a010a203a90fe86191769bf",
         "declaredSha256": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9"
       }
+    },
+    {
+      "id": "pi_baseboard_lite",
+      "kind": "step",
+      "path": "design/handheld_computer/source/assets/3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8.step",
+      "sha256": "3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8",
+      "label": "Lite PCB fit check",
+      "provenance": {
+        "sourcePath": "manufacturing/pi_baseboard_lite/releases/a86e69186bf23c3da05e2f175206bed8d832595bc02e720044ea76bf4abc8db3/package/assembly.step"
+      }
     }
   ],
   "fits": [],
-  "updatedAt": "2026-09-23T07:45:07.214Z",
+  "updatedAt": "2026-09-26T10:13:20.458Z",
   "parameters": {
     "shell": {
       "case_width": 85,
@@ -774,7 +817,7 @@
       "bezel_flange_mount_clearance": 0.3
     },
     "power_cap": {
-      "button_diameter": 9,
+      "button_diameter": 10,
       "power_cap_thickness": 3,
       "power_cap_recess": 2,
       "power_cap_edge": 0.7

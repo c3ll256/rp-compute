@@ -1,31 +1,31 @@
 {
   "designId": "handheld_computer",
-  "revision": "3c6824ae1027afb244cd7b9aa58c75d01c6694e09f5bd533fb1ec39358891af9",
+  "revision": "b49c0e0d8b89ea780446f1519afb5778f70234261dc1e2f2a94ad350a1c84688",
   "schemaVersion": 2,
-  "exportId": "export-83563cabba33dd7c9df9af634b3a2d7a",
-  "generatedAt": "2026-09-23T07:45:07.214Z",
-  "designSha256": "e68b9f84aca8d2421698bd2bd32ae4dcccb1387b0282a76dbdfc273aa7b26b59",
+  "exportId": "export-8ac82bced06d072f8e0dd655c813f766",
+  "generatedAt": "2026-09-26T10:13:20.458Z",
+  "designSha256": "870bbb87bd71dcb9130d1696a05844fc65adebf4dbc1b514dcb42abfabc61493",
   "role": "computer_enclosure",
-  "stateHash": "f6aadd962144070e2d4ceff8f5ff40cb2a967080f475612cc4604d253e05a3eb",
+  "stateHash": "a44f629a4aad4d534b671f66f8dc5a7d795ef4a9849627082a44cbabf2a88fbe",
   "stateManifest": {
     "schemaVersion": 3,
     "designId": "handheld_computer",
     "role": "computer_enclosure",
     "design": {
-      "revision": "3c6824ae1027afb244cd7b9aa58c75d01c6694e09f5bd533fb1ec39358891af9",
-      "designSha256": "10ee837a394550a883345d3307a6e8567ba27d242fc8bd9541903d17c1bcc56f",
-      "manifestSha256": "6dc27e61ccc05cd684887b73488e8ddb657b58898aead13effd3b4f48943c72d",
-      "stepSha256": "dd0213fb2e2072a3d814a3f508240766ec5a3522ccb6dd5148afb13a21dc2603",
+      "revision": "b49c0e0d8b89ea780446f1519afb5778f70234261dc1e2f2a94ad350a1c84688",
+      "designSha256": "47dcb7c6a13204509fcfcc557b253a08e3412b74f50ce7c013ecc89cfd9e561f",
+      "manifestSha256": "eb6a273d47e75c4e9b9ad32a51cecd81b181b10fc9ce0a2e28b36138a4f85b5f",
+      "stepSha256": "6b8c14a9f5ce81a14071ebf130bec67d98637d7a45f48e2c8c38232ea9fdd9b8",
       "pcbReleases": []
     },
     "brief": {
       "path": "design/handheld_computer/README.md",
-      "sha256": "c72fc29b2848486432afeab41ac7940a0f5ffa88e192e78a71e1f42143c53d7c"
+      "sha256": "c0398c5fcac3ee57aef855784a72d3bfee577116dea340515367c7e489453280"
     },
     "requirement": {
       "artifactContractPath": "product/contract.json",
-      "artifactContractSha256": "688ac4dd2fcf8f86a02193c0fc11b8ef947d553b93d0a1fce62f1c1707311685",
-      "designRequirementSha256": "a93ae5ddd4f9c51a5f4b89620f8688ad789485fd7349f256dc3dbd5dbacf6226",
+      "artifactContractSha256": "e8e6ff117602106c7d2faf1a7233a1cb7a7be4eace1042ea2f782f5180ae2197",
+      "designRequirementSha256": "0f1cbde494efe731c501bd46409018dffabf717f651a81bae96b0b8318ec41c4",
       "inputs": [
         {
           "role": "external-reference",
@@ -98,21 +98,22 @@
         "step"
       ]
     },
-    "stateHash": "f6aadd962144070e2d4ceff8f5ff40cb2a967080f475612cc4604d253e05a3eb"
+    "stateHash": "a44f629a4aad4d534b671f66f8dc5a7d795ef4a9849627082a44cbabf2a88fbe"
   },
   "buildArtifacts": {
-    "manifestSha256": "6dc27e61ccc05cd684887b73488e8ddb657b58898aead13effd3b4f48943c72d",
-    "stepSha256": "dd0213fb2e2072a3d814a3f508240766ec5a3522ccb6dd5148afb13a21dc2603"
+    "manifestSha256": "eb6a273d47e75c4e9b9ad32a51cecd81b181b10fc9ce0a2e28b36138a4f85b5f",
+    "stepSha256": "6b8c14a9f5ce81a14071ebf130bec67d98637d7a45f48e2c8c38232ea9fdd9b8"
   },
   "exportAlgorithm": {
     "version": 1,
-    "bootstrapSha256": "6c6e6b2f1e584f401c842d42a64deaec8a158cc9384c4ad4630662d91b6e790b"
+    "bootstrapSha256": "f4939328ef685300fcdaa250c860428f6b9e009d10931b20d36728e55e0029e4"
   },
   "sourceHashes": {
     "base/base": "3b20a251258265277722e66da6352bdc9d0861b2f14c9e38401d937017e28ff5",
     "bezel/bezel": "cb752d27f215b046a382b7ede17afc0a9594195d361e57bc0cc735d18d451823",
     "fascia/fascia": "72ed37e83b58ceb8ad1d71a99b849fa68a5987bb1d12a4b375c820611432277d",
     "imports/fpc_zif": "5321d0e619d3d08ab5e4ec2dc60610fffb0091b49572cfdf44c456344fe5e69e",
+    "imports/pi_baseboard_lite": "5e695923b6cc4d985c658533dcf5094b7dd6524ade34c1de0509faa14388a530",
     "imports/pi4b": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40",
     "power_cap/power_cap": "68c889bf45a9a2a9027624e03079a5073cd393df3cbfe12e4f0c594d3e812561",
     "screen_cushions/screen_cushions": "99d4412dc2fdf2ffd47b86592ce3e38e8b1721dca7f9abdb04f3b28bfa861ac2",
@@ -120,21 +121,23 @@
   },
   "assetHashes": {
     "fpc_zif": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9",
+    "pi_baseboard_lite": "3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8",
     "pi4b": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe"
   },
   "shapeHashes": {
     "base": "89c7422a914f61470c6ac8d6c2f770747ef951f8b10b4c2e4c4edaeab112cfe2",
     "bezel": "8774de76e9005319f79bdaac97948d01a5322135ab4d30ecd8ee75b0bd251129",
     "fascia": "c84eb09d76c6cb40c1a7d169c6d40efd585d2058b0529f06264073d3f0d64616",
-    "fpc_zif": "f4cc25c1f52a105b029ccd8594aadb61a07ed2bba0d3854439c55d4828535d19",
+    "fpc_zif": "1287105d5aee535015677812a99c272d96c25d419b84825bfad5a544c6a8a36a",
     "front_cushion": "3e1683f4becbf3cd5306da3885fe73f734d2aa45350c9ef77c0aa57710576bec",
     "front_module_blank": "95241bd1cd138cc66d9764cb60a62a8e408b011dde084f7c3be8560301685633",
-    "front_module_screw_1": "f1ca09fbf7ffbe48d01d8123ead455158c6b16e1bb3db849f2e6ff5bd7d78c67",
-    "front_module_screw_2": "f5863223de17ec297799cc9aa33588c0219b76aaaedec52bb17ad0467dfc150e",
-    "front_module_screw_3": "f5f48b8a488ce755bbd921848291ffa13897fcc2c7dad3b115b836b2f5cc365b",
-    "front_module_screw_4": "7b0a97f48abbeaf5d4e831f54f4de3e8bfd8fb1a33a5232f6ca3d45f69f44d39",
+    "front_module_screw_1": "616f4094e3c534a427b40a70f828c85f01270236da9854f72e5abc5bb17385df",
+    "front_module_screw_2": "041b3b3c3b60cb3782211e9be70f7003679bf784cbc1e48db63e03dd8cd4d4bc",
+    "front_module_screw_3": "6d201e0f0e6f275cdbea6ab4afe60f05684c3c8ed8dcdaa68e0d2f2ae379d07f",
+    "front_module_screw_4": "3e692d1fbf6f274f3e7405c745121165bb41de8e06b6f80bdd61ee0f896df2b7",
+    "pi_baseboard_lite": "0e2f679f4fd55f619cf9be2352f412ee102e38ca22735a4568ac2abb4936dcf1",
     "pi4b": "4bd5d2afb9631f2310f417c1aad088568c7fcf2ab7307b583b18018f58bfd4c9",
-    "power_cap": "b3b94ebd813f00795b55a3127e0a2bae97e98555d2f09deefc8188a9bf8efaed",
+    "power_cap": "e584e9f9ddc61e224723cd0fc60f7b0a7ac3a49f7866841b7a553e70ddb7259f",
     "rear_cushion": "503045f26a376484855ba2afd345160ce6eca3d1ac4f4da88f4a2b26ec3e4e30",
     "retainer": "fea02387aed5566c0979ae86e6064fb2e25e9eb46c9ca483974116cf42abb870",
     "retainer_screw_1": "cf3a96a9477766c67220b0e58811e6f7329a26ebb6bb32d982dd2e18a5ebc536",
@@ -144,46 +147,50 @@
     "shell": "1e7ffa58aaef7239a9bd2f4b9878c7c0c0f82371c7f5d9fbf9e68476cc3d7c58"
   },
   "runtime": {
-    "manifestHash": "461cffa5c4a26674882c8735588c84b77d13d7a6da6bee86a7d15dce184a1067",
+    "manifestHash": "adfb7931c732365c45807afb02ee11720f55eab29ced54877473383476410233",
     "pythonVersion": "3.12.13",
     "build123dVersion": "0.10.0",
     "ocpVersion": "7.8.1.1.post1",
-    "cadpyHash": "c4acce026090f200e34480ce99ac2ca288b6071fb522bcd6d8fd05a0ddc9c83f"
+    "cadpyHash": "e8b3788bab31d790595e4c3306dda85dfe057c87a4fc64f7ef3eab254239b7ba"
   },
   "artifacts": [
     {
-      "path": "manufacturing/handheld_computer/releases/export-83563cabba33dd7c9df9af634b3a2d7a/model.step",
+      "path": "manufacturing/handheld_computer/releases/export-8ac82bced06d072f8e0dd655c813f766/model.step",
       "role": "model/step",
-      "sha256": "dd0213fb2e2072a3d814a3f508240766ec5a3522ccb6dd5148afb13a21dc2603",
-      "sizeBytes": 60452134
+      "sha256": "6b8c14a9f5ce81a14071ebf130bec67d98637d7a45f48e2c8c38232ea9fdd9b8",
+      "sizeBytes": 107285677
     }
   ],
   "interference": {
-    "summary": "0 interfering pairs, 1 undetermined",
+    "summary": "1 interfering pair, 1 undeclared, 1 undetermined",
     "counts": {
-      "objects": 19,
-      "pairs": 171,
-      "exact": 35,
-      "cached": 7,
-      "interference": 0,
-      "undeclared": 0,
+      "objects": 20,
+      "pairs": 190,
+      "exact": 6,
+      "cached": 38,
+      "interference": 1,
+      "undeclared": 1,
       "over_budget": 0,
       "undetermined": 1
     },
-    "overlaps": []
+    "overlaps": [
+      {
+        "a": "power_cap",
+        "b": "shell",
+        "verdict": "undeclared",
+        "maxDepthMm": 0.2744,
+        "volumeMm3": 15.473387
+      }
+    ]
   },
   "authority": {
     "version": 1,
     "algorithm": "hmac-sha256",
     "keyId": "bcf92b0ef0c9bdb29ac662e9143b6212",
     "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
-    "receiptPath": "manufacturing/handheld_computer/releases/export-83563cabba33dd7c9df9af634b3a2d7a/receipt.json",
-    "payloadSha256": "b67ab3647c9285920609588bc01c4526565fbac8809ea54c376b089eb4765b3d",
-    "mac": "cae97dee1d743b9dbf4aa3c8cd79675f29a591ef9a494d3a78f29c921a6fcada"
+    "receiptPath": "manufacturing/handheld_computer/releases/export-8ac82bced06d072f8e0dd655c813f766/receipt.json",
+    "payloadSha256": "edbf23684c01a3eafe38a78b4f0ed986ed8aa90caab4315315b59fadcbddfb62",
+    "mac": "dfed1b568cec039e5acf98298696c4e699a011f7a5937ffa8d7fcf2b0761ad11"
   },
-  "status": "exported_unreviewed",
-  "reviewSkip": {
-    "reason": "review_unavailable",
-    "divergingFields": []
-  }
+  "status": "handoff"
 }

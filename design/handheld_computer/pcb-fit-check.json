@@ -1,0 +1,767 @@
+{
+  "pcb_release": "a86e69186bf23c3da05e2f175206bed8d832595bc02e720044ea76bf4abc8db3",
+  "pcb_step_sha256": "3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8",
+  "placement": {
+    "position_mm": [
+      -100,
+      86.8,
+      20
+    ],
+    "rotation_deg": [
+      0,
+      0,
+      0
+    ],
+    "xy_basis": "Pi official drawing GPIO centroid is32.5mm from board front and3.5mm from left edge; current Pi frontY=-30.5, leftX=-17 gives world(-13.5,2.0). PCB J_PI centroid(-13.5,15.2) hence board deltaY=-13.2. STEP is offset(+100,-100) from source board frame.",
+    "z_basis": "Provisional PCB substrate lower datum20mm; original Pi STEP pins endZ17 but official Pi drawing says GPIO height8.5 above board, hence15.5 world. Retained SSQ housing8.51, engagement range3.68..6.35. This discrepancy is not an exact stack qualification."
+  },
+  "method": "Supplementary OCC exact body intersections and distances, using immutable released STEP and Workbench object STEP geometry. Board copper/pad/via visual subobjects excluded from structural collision probes; substrate and all mounted component bodies included. Nominal panel is a drawing-derived clearance envelope, not a manufactured screen model.",
+  "body_bounds": {
+    "assembly_1_1_0": {
+      "min": [
+        -26.0,
+        -47.849987,
+        21.595
+      ],
+      "max": [
+        -24.0,
+        -46.549987,
+        22.895
+      ]
+    },
+    "assembly_1_2_1": {
+      "min": [
+        4.2,
+        1.4,
+        21.595
+      ],
+      "max": [
+        5.8,
+        2.2,
+        22.395
+      ]
+    },
+    "assembly_1_3_2": {
+      "min": [
+        11.993685,
+        12.3,
+        21.595
+      ],
+      "max": [
+        18.00629,
+        17.3,
+        22.695083
+      ]
+    },
+    "assembly_1_4_3": {
+      "min": [
+        -4.550013,
+        -10.852023,
+        21.595
+      ],
+      "max": [
+        4.549987,
+        -4.452023,
+        23.605
+      ]
+    },
+    "assembly_1_2_4": {
+      "min": [
+        21.2,
+        14.4,
+        21.595
+      ],
+      "max": [
+        22.8,
+        15.2,
+        22.395
+      ]
+    },
+    "assembly_1_3_5": {
+      "min": [
+        -2.5,
+        -1.20629,
+        21.595
+      ],
+      "max": [
+        2.5,
+        4.806315,
+        22.695083
+      ]
+    },
+    "assembly_1_7_6": {
+      "min": [
+        -15.81,
+        -42.605,
+        21.595
+      ],
+      "max": [
+        -14.19,
+        -41.795,
+        22.045
+      ]
+    },
+    "assembly_1_1_7": {
+      "min": [
+        -16.0,
+        -47.849987,
+        21.595
+      ],
+      "max": [
+        -14.0,
+        -46.549987,
+        22.895
+      ]
+    },
+    "assembly_1_9_8": {
+      "min": [
+        -21.506302,
+        -48.650013,
+        21.595
+      ],
+      "max": [
+        -18.493698,
+        -45.750013,
+        22.845083
+      ]
+    },
+    "assembly_1_7_9": {
+      "min": [
+        -15.81,
+        -37.605,
+        21.595
+      ],
+      "max": [
+        -14.19,
+        -36.795,
+        22.045
+      ]
+    },
+    "SOT-23-6_10": {
+      "min": [
+        -21.4,
+        -38.65,
+        21.595
+      ],
+      "max": [
+        -18.6,
+        -35.75,
+        23.145
+      ]
+    },
+    "assembly_1_1_11": {
+      "min": [
+        -26.0,
+        -37.849987,
+        21.595
+      ],
+      "max": [
+        -24.0,
+        -36.549987,
+        22.895
+      ]
+    },
+    "assembly_1_7_12": {
+      "min": [
+        -20.81,
+        -41.605,
+        21.595
+      ],
+      "max": [
+        -19.19,
+        -40.795,
+        22.045
+      ]
+    },
+    "PinSocket_2x04_P2_54mm_Vertical_13": {
+      "min": [
+        -5.08,
+        -49.74,
+        18.495
+      ],
+      "max": [
+        5.08,
+        -44.66,
+        30.095
+      ]
+    },
+    "assembly_1_7_14": {
+      "min": [
+        -0.81,
+        -28.605,
+        19.465
+      ],
+      "max": [
+        0.81,
+        -27.795,
+        19.915
+      ]
+    },
+    "assembly_1_7_15": {
+      "min": [
+        -8.81,
+        -28.605,
+        19.465
+      ],
+      "max": [
+        -7.19,
+        -27.795,
+        19.915
+      ]
+    },
+    "assembly_1_7_16": {
+      "min": [
+        -4.81,
+        -28.605,
+        19.465
+      ],
+      "max": [
+        -3.19,
+        -27.795,
+        19.915
+      ]
+    },
+    "assembly_1_1_17": {
+      "min": [
+        11.0,
+        -11.849987,
+        18.615
+      ],
+      "max": [
+        13.0,
+        -10.549987,
+        19.915
+      ]
+    },
+    "assembly_1_7_18": {
+      "min": [
+        3.19,
+        -28.605,
+        19.465
+      ],
+      "max": [
+        4.81,
+        -27.795,
+        19.915
+      ]
+    },
+    "assembly_1_7_19": {
+      "min": [
+        -24.81,
+        -20.605,
+        19.465
+      ],
+      "max": [
+        -23.19,
+        -19.795,
+        19.915
+      ]
+    },
+    "assembly_1_7_20": {
+      "min": [
+        -24.81,
+        -8.605,
+        19.465
+      ],
+      "max": [
+        -23.19,
+        -7.795,
+        19.915
+      ]
+    },
+    "assembly_1_7_21": {
+      "min": [
+        -19.81,
+        -21.605,
+        19.465
+      ],
+      "max": [
+        -18.19,
+        -20.795,
+        19.915
+      ]
+    },
+    "assembly_1_2_22": {
+      "min": [
+        7.2,
+        -11.6,
+        19.115
+      ],
+      "max": [
+        8.8,
+        -10.8,
+        19.915
+      ]
+    },
+    "assembly_1_24_23": {
+      "min": [
+        -15.981487,
+        -23.654,
+        11.364395
+      ],
+      "max": [
+        -11.018487,
+        27.654,
+        22.514995
+      ]
+    },
+    "assembly_1_1_24": {
+      "min": [
+        -30.0,
+        -26.849987,
+        18.615
+      ],
+      "max": [
+        -28.0,
+        -25.549987,
+        19.915
+      ]
+    },
+    "assembly_1_7_25": {
+      "min": [
+        7.19,
+        -28.605,
+        19.465
+      ],
+      "max": [
+        8.81,
+        -27.795,
+        19.915
+      ]
+    },
+    "assembly_1_9_26": {
+      "min": [
+        -25.506302,
+        -27.650013,
+        18.664917
+      ],
+      "max": [
+        -22.493698,
+        -24.750013,
+        19.915
+      ]
+    },
+    "assembly_1_1_27": {
+      "min": [
+        -30.0,
+        -16.849987,
+        18.615
+      ],
+      "max": [
+        -28.0,
+        -15.549987,
+        19.915
+      ]
+    },
+    "SOT-23-6_28": {
+      "min": [
+        -25.4,
+        -17.65,
+        18.365
+      ],
+      "max": [
+        -22.6,
+        -14.75,
+        19.915
+      ]
+    },
+    "assembly_1_7_29": {
+      "min": [
+        -19.81,
+        -16.605,
+        19.465
+      ],
+      "max": [
+        -18.19,
+        -15.795,
+        19.915
+      ]
+    },
+    "assembly_1_1_30": {
+      "min": [
+        -20.0,
+        -26.849987,
+        18.615
+      ],
+      "max": [
+        -18.0,
+        -25.549987,
+        19.915
+      ]
+    },
+    "board_PCB_34": {
+      "min": [
+        -35.0,
+        -65.2,
+        20.0
+      ],
+      "max": [
+        35.0,
+        38.8,
+        21.51
+      ]
+    }
+  },
+  "target_bounds": {
+    "front_cushion": {
+      "min": [
+        -31.4,
+        -0.794755,
+        28.732426
+      ],
+      "max": [
+        31.4,
+        40.972761,
+        38.559704
+      ]
+    },
+    "rear_cushion": {
+      "min": [
+        -31.4,
+        -0.380845,
+        26.160089
+      ],
+      "max": [
+        31.4,
+        41.566632,
+        36.766863
+      ]
+    },
+    "shell": {
+      "min": [
+        -42.5,
+        -57.5,
+        2.7
+      ],
+      "max": [
+        42.5,
+        57.5,
+        27.0
+      ]
+    },
+    "front_module_blank": {
+      "min": [
+        -35.0,
+        -52.5,
+        25.0
+      ],
+      "max": [
+        35.0,
+        -15.5,
+        27.0
+      ]
+    },
+    "pi4b": {
+      "min": [
+        -17.0,
+        -35.0,
+        3.45
+      ],
+      "max": [
+        41.5,
+        57.86,
+        23.34
+      ]
+    },
+    "fascia": {
+      "min": [
+        -38.5,
+        -10.145826,
+        21.516836
+      ],
+      "max": [
+        38.5,
+        53.188229,
+        42.467515
+      ]
+    },
+    "retainer_screw_3": {
+      "min": [
+        18.01,
+        -5.675597,
+        17.876455
+      ],
+      "max": [
+        21.99,
+        -1.3776,
+        25.291047
+      ]
+    },
+    "retainer": {
+      "min": [
+        -33.0,
+        -7.109613,
+        19.568096
+      ],
+      "max": [
+        33.0,
+        50.788229,
+        35.859978
+      ]
+    },
+    "retainer_screw_1": {
+      "min": [
+        -21.99,
+        -5.675597,
+        17.876455
+      ],
+      "max": [
+        -18.01,
+        -1.3776,
+        25.291047
+      ]
+    },
+    "bezel": {
+      "min": [
+        -35.0,
+        -2.426277,
+        25.534042
+      ],
+      "max": [
+        35.0,
+        46.180597,
+        40.919647
+      ]
+    },
+    "base": {
+      "min": [
+        -42.5,
+        -57.5,
+        -0.0
+      ],
+      "max": [
+        42.5,
+        57.5,
+        2.4
+      ]
+    },
+    "nominal_panel_envelope": {
+      "min": [
+        -31.4,
+        -0.749765,
+        27.134459
+      ],
+      "max": [
+        31.4,
+        41.341681,
+        38.36483
+      ]
+    }
+  },
+  "collisions": {
+    "front_cushion": [],
+    "rear_cushion": [],
+    "shell": [
+      {
+        "component": "PinSocket_2x04_P2_54mm_Vertical_13",
+        "volume_mm3": 26.4784
+      },
+      {
+        "component": "board_PCB_34",
+        "volume_mm3": 329.81066
+      }
+    ],
+    "front_module_blank": [
+      {
+        "component": "PinSocket_2x04_P2_54mm_Vertical_13",
+        "volume_mm3": 80.06976
+      }
+    ],
+    "fascia": [],
+    "retainer_screw_3": [
+      {
+        "component": "board_PCB_34",
+        "volume_mm3": 5.794039
+      }
+    ],
+    "retainer": [
+      {
+        "component": "board_PCB_34",
+        "volume_mm3": 76.545196
+      }
+    ],
+    "retainer_screw_1": [
+      {
+        "component": "board_PCB_34",
+        "volume_mm3": 5.794039
+      }
+    ],
+    "bezel": [],
+    "base": [],
+    "nominal_panel_envelope": [],
+    "pi4b": [
+      {
+        "component": "assembly_1_24_23",
+        "volume_mm3": 0.04079
+      },
+      {
+        "component": "board_PCB_34",
+        "volume_mm3": 27.197287
+      }
+    ]
+  },
+  "panel_distance_status": "Separating-axis lower bound recorded separately; no exact nearest-point claim",
+  "nominal_panel_clearance": {
+    "method": "Euclidean distance between disjoint AABBs of every real STEP structural body and the rotated Sharp nominal body envelope. A lower bound, not exact nearest-surface clearance.",
+    "minimum_lower_bound_mm": 4.439376,
+    "all_body_aabbs_disjoint": true,
+    "per_body_lower_bounds": {
+      "assembly_1_1_0": 45.996014,
+      "assembly_1_2_1": 4.739459,
+      "assembly_1_3_2": 4.439376,
+      "assembly_1_4_3": 5.115056,
+      "assembly_1_2_4": 4.739459,
+      "assembly_1_3_5": 4.439376,
+      "assembly_1_7_6": 41.359569,
+      "assembly_1_1_7": 45.996014,
+      "assembly_1_9_8": 45.204215,
+      "assembly_1_7_9": 36.402769,
+      "SOT-23-6_10": 35.226868,
+      "assembly_1_1_11": 36.050366,
+      "assembly_1_7_12": 40.367356,
+      "PinSocket_2x04_P2_54mm_Vertical_13": 43.910235,
+      "assembly_1_7_14": 27.992237,
+      "assembly_1_7_15": 27.992237,
+      "assembly_1_7_16": 27.992237,
+      "assembly_1_1_17": 12.172302,
+      "assembly_1_7_18": 27.992237,
+      "assembly_1_7_19": 20.36766,
+      "assembly_1_7_20": 10.087414,
+      "assembly_1_7_21": 21.305681,
+      "assembly_1_2_22": 12.374482,
+      "assembly_1_24_23": 4.619464,
+      "assembly_1_1_24": 25.829665,
+      "assembly_1_7_25": 27.992237,
+      "assembly_1_9_26": 25.062572,
+      "assembly_1_1_27": 16.467154,
+      "SOT-23-6_28": 15.752053,
+      "assembly_1_7_29": 16.687711,
+      "assembly_1_1_30": 25.829665,
+      "board_PCB_34": 5.624459
+    }
+  },
+  "status": "failed_mechanical_fit",
+  "cad_revision": "b49c0e0d8b89ea780446f1519afb5778f70234261dc1e2f2a94ad350a1c84688",
+  "cad_export_id": "export-8ac82bced06d072f8e0dd655c813f766",
+  "scope": "Real released PCB at proposed Pi-aligned docking transform compared with unchanged Workbench parts. Geometry probes completed; installed-position Workbench build did not commit.",
+  "cad_committed_pcb_transform": {
+    "position_mm": [
+      0,
+      0,
+      0
+    ],
+    "rotation_deg": [
+      0,
+      0,
+      0
+    ],
+    "reason": "Native STEP exploded reference retained after two CAD placement timeouts (180s limit)."
+  },
+  "findings": [
+    {
+      "id": "board_front_outside_shell",
+      "status": "fail",
+      "front_y_mm": -65.2,
+      "shell_front_y_mm": -57.5,
+      "overhang_mm": 7.7
+    },
+    {
+      "id": "dock_xy",
+      "status": "layout_rework_required",
+      "pi_gpio_centroid_world_mm": [
+        -13.5,
+        2
+      ],
+      "pcb_gpio_centroid_source_mm": [
+        -13.5,
+        15.2
+      ],
+      "required_board_translation_y_mm": -13.2
+    },
+    {
+      "id": "panel_body",
+      "status": "pass_nominal_envelope_only",
+      "minimum_clearance_lower_bound_mm": 4.439376,
+      "limitation": "Nominal glass/polarizer envelope only; no stress, tolerance, FPC, or physical insertion qualification."
+    },
+    {
+      "id": "board_vs_retention",
+      "status": "fail",
+      "retainer_intersection_mm3": 76.545196,
+      "front_retainer_screws_each_intersection_mm3": 5.794039
+    },
+    {
+      "id": "board_vs_pi",
+      "status": "fail",
+      "substrate_intersection_mm3": 27.197287,
+      "note": "J_PI model additionally shares0.04079mm3 with Pi; treated separately as unresolved mating-model overlap, not a board-clearance pass/fail criterion."
+    },
+    {
+      "id": "module_socket",
+      "status": "fail",
+      "center_world_mm": [
+        0,
+        -47.2
+      ],
+      "top_z_model_mm": 30.095,
+      "blank_top_z_mm": 27,
+      "blank_overlap_mm3": 80.06976,
+      "shell_overlap_mm3": 26.4784
+    },
+    {
+      "id": "fpc",
+      "status": "not_connected",
+      "new_footprint_datum_world_mm": [
+        0,
+        -6.5,
+        21.595
+      ],
+      "old_reference_origin_world_mm": [
+        0,
+        6.7628506593,
+        27.254517899
+      ],
+      "note": "Origins are not identical physical datum definitions; do not treat their vector difference as a measured connector mating gap. Old inverted13degree connector orientation and folded tail are not aligned to the new top-side horizontal connector."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "product/references/rp-008343-ds.pdf",
+      "source_url": "https://pip-assets.raspberrypi.com/categories/545-raspberry-pi-4-model-b/documents/RP-008343-DS-1-raspberry-pi-4-mechanical-drawing.pdf",
+      "pages": [
+        1
+      ]
+    },
+    {
+      "path": "product/references/LS027B7DH01-sharp-2010.pdf",
+      "pages": [
+        5,
+        26
+      ]
+    },
+    {
+      "path": "design/handheld_computer/fpc-route.json"
+    },
+    {
+      "path": "design/pi_baseboard_lite/source/layout.ts"
+    }
+  ],
+  "limitations": [
+    "Workbench fit-placement did not commit after two timeouts; current Mechanical preview is an exploded comparison, not the evaluated installed state.",
+    "No independent reviewer result; runtime rejected the review option.",
+    "CAD asset has exact PCB STEP SHA256 but runtime did not populate pcbRelease metadata; immutable release identity is recorded explicitly here and in README.",
+    "Official Pi GPIO top is8.5mm above board, third-party Pi STEP is10mm; stack insertion requires physical verification.",
+    "Released substrate is1.51mm versus source finished thickness1.6mm.",
+    "J_MOD generic STEP tail is3.1mm versus selected Samtec4.93mm; use exact hardware for final fit.",
+    "Native FPC13.7mm free-tail value is a layout estimate; no physical mating/contact/strain test."
+  ],
+  "existing_export_observation": {
+    "pair": [
+      "power_cap",
+      "shell"
+    ],
+    "max_depth_mm": 0.2744,
+    "volume_mm3": 15.473387,
+    "action": "Unchanged existing geometry; outside PCB/screen check. Not declared as an intended fit."
+  }
+}
