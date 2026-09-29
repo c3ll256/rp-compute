@@ -273,166 +273,76 @@
   },
   "stitchingVias": [
     {
-      "name": "GND_F_REGION_2",
-      "net": "GND",
-      "xMm": -23.3407,
-      "yMm": -26.8366,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Check01b93c2a diagnosed F.Cu GND lobe of area 13.896mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
       "name": "GND_F_REGION_3",
       "net": "GND",
-      "xMm": -20.0077,
-      "yMm": -26.409,
+      "xMm": -15.5737,
+      "yMm": -25.5997,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Check01b93c2a diagnosed F.Cu GND lobe of area 9.664mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+      "rationale": "83.5mm layout check: F.Cu fragment 3, area 13.3030mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
+    },
+    {
+      "name": "GND_F_REGION_4",
+      "net": "GND",
+      "xMm": -13.5732,
+      "yMm": -16.5698,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "83.5mm layout check: F.Cu fragment 4, area 6.3077mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
+    },
+    {
+      "name": "GND_F_REGION_6",
+      "net": "GND",
+      "xMm": -7.7979,
+      "yMm": -15.3639,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "83.5mm layout check: F.Cu fragment 6, area 5.2073mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
     },
     {
       "name": "GND_B_REGION_2",
       "net": "GND",
-      "xMm": -18.9154,
-      "yMm": 0.2283,
+      "xMm": -5.7909,
+      "yMm": -32.3719,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 222.691mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+      "rationale": "83.5mm layout check: B.Cu fragment 2, area 107.4636mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
     },
     {
       "name": "GND_B_REGION_3",
       "net": "GND",
-      "xMm": -4.9186,
-      "yMm": -20.3704,
+      "xMm": -10.5928,
+      "yMm": -26.0,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 162.873mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+      "rationale": "83.5mm layout check: B.Cu fragment 3, area 61.0953mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
     },
     {
       "name": "GND_B_REGION_4",
       "net": "GND",
-      "xMm": -24.0,
-      "yMm": -13.95,
+      "xMm": -2.0249,
+      "yMm": -16.5045,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 154.343mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+      "rationale": "83.5mm layout check: B.Cu fragment 4, area 39.8733mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
     },
     {
       "name": "GND_B_REGION_5",
       "net": "GND",
-      "xMm": -4.9186,
-      "yMm": -8.1163,
+      "xMm": -3.0542,
+      "yMm": -18.5496,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 91.108mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
-      "name": "GND_B_REGION_6",
-      "net": "GND",
-      "xMm": 6.2116,
-      "yMm": 3.3109,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 19.259mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
+      "rationale": "83.5mm layout check: B.Cu fragment 5, area 33.5238mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
     },
     {
       "name": "GND_B_REGION_7",
       "net": "GND",
-      "xMm": 6.1528,
-      "yMm": -2.1262,
+      "xMm": 7.1446,
+      "yMm": -19.9328,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 8.527mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
-      "name": "GND_B_REGION_8",
-      "net": "GND",
-      "xMm": 11.2455,
-      "yMm": -3.6556,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 7.538mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
-      "name": "GND_B_REGION_10",
-      "net": "GND",
-      "xMm": -24.8087,
-      "yMm": -5.1707,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Check01b93c2a diagnosed B.Cu GND lobe of area 5.605mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
-      "name": "GND_REPAIR_GND_B_REGION_4",
-      "net": "GND",
-      "xMm": 8.9222,
-      "yMm": 5.4265,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Checkf8b7671c diagnosed B.Cu GND lobe of area 33.764mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
-      "name": "GND_REPAIR_GND_B_REGION_7",
-      "net": "GND",
-      "xMm": 5.6862,
-      "yMm": -13.1876,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Checkf8b7671c diagnosed B.Cu GND lobe of area 13.095mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
-      "name": "GND_TOP_FPC_BUFFER_RETURN",
-      "net": "GND",
-      "xMm": -1.4578,
-      "yMm": 2.197,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Check4f4828bb diagnosed B.Cu GND lobe of area 64.964mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
-      "name": "SOCKET_TOP_GND_F_REGION_4",
-      "net": "GND",
-      "xMm": 8.5616,
-      "yMm": 10.5512,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Checkf71af8db diagnosed F.Cu GND lobe of area 33.203mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
-      "name": "SOCKET_TOP_GND_F_REGION_5",
-      "net": "GND",
-      "xMm": 5.7438,
-      "yMm": 11.173,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Checkf71af8db diagnosed F.Cu GND lobe of area 9.858mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
-      "name": "SOCKET_TOP_GND_B_REGION_3",
-      "net": "GND",
-      "xMm": 10.9144,
-      "yMm": -11.9485,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Checkf71af8db diagnosed B.Cu GND lobe of area 27.893mm2. Read-back polygon intersection with opposite GND is clear by0.35mm; all paste-pad/drill bounds excluded by0.5mm. Bridge this filled lobe with a tented through via, not via-in-pad."
-    },
-    {
-      "name": "GND_BUF2_OE_REGION_5",
-      "net": "GND",
-      "xMm": -0.4272,
-      "yMm": 15.3982,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Checkf71b2f8c F.Cu region 5; centre lies in filled GND on both layers (>=0.05mm inset), actual non-GND tracks and via copper excluded by via radius+0.15mm clearance; all SMT/drill pad bounds excluded >=0.50mm. Full-pad containment in prior pour is unnecessary; final fill/DRC verifies continuity and clearance."
-    },
-    {
-      "name": "GND_BUF2_OE_REGION_6",
-      "net": "GND",
-      "xMm": -2.2625,
-      "yMm": 9.8865,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Checkf71b2f8c F.Cu region 6; centre lies in filled GND on both layers (>=0.05mm inset), actual non-GND tracks and via copper excluded by via radius+0.15mm clearance; all SMT/drill pad bounds excluded >=0.50mm. Full-pad containment in prior pour is unnecessary; final fill/DRC verifies continuity and clearance."
+      "rationale": "83.5mm layout check: B.Cu fragment 7, area 9.9927mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
     }
   ],
   "copperAreas": [],
@@ -441,53 +351,27 @@
       "name": "H1_CLEARANCE",
       "purpose": "mounting_hole",
       "shape": "circle",
-      "xMm": -30,
-      "yMm": 47,
+      "xMm": -16,
+      "yMm": -13,
       "radiusMm": 2.5,
       "layers": [
         "top",
         "bottom"
       ],
-      "rationale": "M2 mounting screw and fixture washer clearance; prototype attachment only."
+      "rationale": "M2 prototype fixture clearance. No matching shell boss claimed."
     },
     {
       "name": "H2_CLEARANCE",
       "purpose": "mounting_hole",
       "shape": "circle",
-      "xMm": 30,
-      "yMm": 47,
+      "xMm": 16,
+      "yMm": -13,
       "radiusMm": 2.5,
       "layers": [
         "top",
         "bottom"
       ],
-      "rationale": "M2 mounting screw and fixture washer clearance; prototype attachment only."
-    },
-    {
-      "name": "H3_CLEARANCE",
-      "purpose": "mounting_hole",
-      "shape": "circle",
-      "xMm": -30,
-      "yMm": -47,
-      "radiusMm": 2.5,
-      "layers": [
-        "top",
-        "bottom"
-      ],
-      "rationale": "M2 mounting screw and fixture washer clearance; prototype attachment only."
-    },
-    {
-      "name": "H4_CLEARANCE",
-      "purpose": "mounting_hole",
-      "shape": "circle",
-      "xMm": 30,
-      "yMm": -47,
-      "radiusMm": 2.5,
-      "layers": [
-        "top",
-        "bottom"
-      ],
-      "rationale": "M2 mounting screw and fixture washer clearance; prototype attachment only."
+      "rationale": "M2 prototype fixture clearance. No matching shell boss claimed."
     }
   ],
   "allowedOverlaps": [],
@@ -507,9 +391,9 @@
     {
       "componentRef": "J_LCD",
       "nativeOpening": "down",
-      "targetOpening": "down",
+      "targetOpening": "up",
       "expectedLayer": "top",
-      "rationale": "Screen-facing top-side FPC socket for latch access; cable approaches -Y near existing screen-tail reference, contacts toward PCB. Full cable bend and stack remain unqualified."
+      "rationale": "Preserve current source placement: top-side latch with cable approaching from +Y. Native panel tail reach, pin1 and tilted-screen stack remain mechanically unverified."
     }
   ],
   "bomBindings": [

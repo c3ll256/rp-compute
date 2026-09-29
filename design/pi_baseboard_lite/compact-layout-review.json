@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "request": {
+    "value": "FPC和扩展板明显太大，需要缩小",
+    "source": "user"
+  },
+  "layout": {
+    "value": {
+      "shape": "L",
+      "envelope_mm": [
+        40,
+        83.5
+      ],
+      "area_mm2": 1894.5,
+      "gpio_spine_width_mm": 15,
+      "electronics_region_mm": [
+        40,
+        25.5
+      ],
+      "baseline_source_envelope_mm": [
+        70,
+        89
+      ],
+      "area_reduction_percent": 69.59
+    },
+    "source": "default"
+  },
+  "electrical_identity_and_connections": "31 populated components; identities, pin maps and connection declarations unchanged from prior source. Layout only.",
+  "validation": {
+    "placement": "passed; top and bottom views inspected",
+    "routing": "signal routes complete; GND connectivity blocked",
+    "raw_unconnected_count": 8,
+    "blocking_connectivity_findings": 5,
+    "release": "not_published",
+    "cad": "unchanged; still imports old rectangular PCB, not this compact layout"
+  },
+  "remaining": [
+    "Repair GND connections near J_PI and display limiter; rerun check before release.",
+    "Reconcile FPC position and tilt against retained screen native tail.",
+    "Reconcile module connector worldY=-50.97 with shell openingY=-47..-21.",
+    "Revalidate two fixture holes and Z stack against real supported assembly."
+  ]
+}
