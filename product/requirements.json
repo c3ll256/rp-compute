@@ -348,8 +348,17 @@
       "source": "default"
     },
     "lite_fpc_placement": {
-      "value": "Screen-facing top PCB side, close to the screen tail exit; initially retain (0,6.7)mm XY. Complete tail bending and stack fit still require mechanical validation.",
+      "value": "Top-side vertical connector on a small tongue near the native screen tail; exact insertion stop and tail length remain physical-fit verification items.",
       "source": "default"
+    },
+    "lite_compact_connectors": {
+      "value": {
+        "display": "FH12-10S-0.5SV(55)",
+        "pi_dock": "SLW-120-01-G-D",
+        "expansion": "SLW-104-01-G-D",
+        "intent": "Keep one compact PCB and existing shell/screen mounting; evaluate vertical FPC and low-profile sockets"
+      },
+      "source": "user"
     }
   },
   "open_questions": []

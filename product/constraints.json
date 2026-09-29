@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "status": "ready",
-  "bom_ready": true,
-  "requirements_digest": "fb15c7b1e0a2d65439d20784fd3c9efc4502d520bcdef9fab979d8033d816c01",
+  "status": "interface_revision_blocked",
+  "bom_ready": false,
+  "requirements_digest": "81a25acbb6d9d7dc646db0a411b68945e118051d9f2a9c012c20cc8eba5fa560",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -514,12 +514,40 @@
     "source": "user",
     "reference_image": "product/references/uploads/20260923T073703116Z-1-mark.png",
     "coordinate_frame": "handheld_computer CAD world, mm",
-    "seat_center_mm": [0, -34, 27],
-    "blank_size_mm": [70, 37, 1.4],
+    "seat_center_mm": [
+      0,
+      -34,
+      27
+    ],
+    "blank_size_mm": [
+      70,
+      37,
+      1.4
+    ],
     "seat_clearance_mm": 0.3,
-    "through_aperture_mm": [54, 26],
+    "through_aperture_mm": [
+      54,
+      26
+    ],
     "underside_tongue_depth_mm": 0.6,
-    "m2_mount_xy_mm": [[-31, -49], [31, -49], [-31, -19], [31, -19]],
+    "m2_mount_xy_mm": [
+      [
+        -31,
+        -49
+      ],
+      [
+        31,
+        -49
+      ],
+      [
+        -31,
+        -19
+      ],
+      [
+        31,
+        -19
+      ]
+    ],
     "electrical_connector": {
       "board_mpn": "BM16B-GHDS-TF(LF)(SN)",
       "board_lcsc": "C594409",
@@ -535,7 +563,12 @@
   "baseboard_integration": {
     "source": "user",
     "design_id": "pi_baseboard",
-    "functions": ["Pi 4B GPIO docking and regulated power", "1S battery charging and power path", "Sharp LS027B7DH01 FPC interface", "replaceable front GPIO module interface"],
+    "functions": [
+      "Pi 4B GPIO docking and regulated power",
+      "1S battery charging and power path",
+      "Sharp LS027B7DH01 FPC interface",
+      "replaceable front GPIO module interface"
+    ],
     "board_count": 1,
     "note": "User confirmed all functions share one custom baseboard. Provisional 70x104mm planar placement holds Pi dock, FPC and front JST only; no power/display circuit or qualified stack. Retained CAD FPC connector plane is about 13deg from horizontal Pi docking plane, so a single rigid board requires a reworked horizontal FPC target and verified native-tail length while preserving the screen locator and 1mm front rise. Exact outline, Z datum, keepouts and hardware fit remain open."
   },
@@ -1252,5 +1285,17 @@
     "screen_front_body_height_mm": 0.7,
     "screen_base_seam_mm": 0.3,
     "actual_enclosure_height_mm": 42.467515253
+  },
+  "active_lite_interface_revision": {
+    "source": "user",
+    "status": "approved_not_built",
+    "connectors": {
+      "J_LCD": "FH12-10S-0.5SV(55)",
+      "J_PI": "SLW-120-01-G-D",
+      "J_MOD": "SLW-104-01-G-D"
+    },
+    "proposal": "design/pi_baseboard_lite/interface-layout-proposal.json",
+    "supersedes": "For the active lite board, previous horizontal-FPC and SSQ connector constraints describe historical CAD only. Do not use them for the approved new board. CAD has not been changed.",
+    "blocker": "The PCB prerequisite validator only accepts toward_pcb or away_from_pcb for an FPC contact face. FH12-10S-0.5SV(55) is vertical, with a perpendicular contact plane. Neither value is correct. Keep BOM not ready until this interface can be represented and verified. The approved connector is not unavailable or rejected; this is a tooling limitation."
   }
 }

@@ -4,7 +4,7 @@
     "value": "保留紧凑板，按外壳与屏幕排线重排接口，再验证布线",
     "source": "user"
   },
-  "status": "mechanical_interface_choice_required",
+  "status": "approved_connectors_blocked_by_application_contract",
   "cad_revision": "8c22b1553168a4c43b55403c369fcc267c7079e4fb857d3d5829f72bb88d8d6b",
   "board_to_world_xy_mm": [
     0,
@@ -75,7 +75,7 @@
     "vertical_candidate": "FH12-10S-0.5SV(55) / C88359",
     "vertical_candidate_closed_height_mm": 3.6,
     "vertical_candidate_open_height_mm": 5.5,
-    "candidate_status": "not substituted; vertical tail route, contact face/pin1, board stack and actual tail length not yet qualified"
+    "candidate_status": "User approved; not built. Pin1, slot datum and native-tail assembly remain unverified."
   },
   "pi_stack": {
     "existing_socket": "SSQ-120-02-G-D",
@@ -100,11 +100,18 @@
     "references/suppliers/c88359/c88359-datasheet.pdf p8",
     "design/pi_baseboard_lite/source/layout.ts"
   ],
-  "next": "Choose whether connector identities may change before replacing selected LCSC/MPN rows; current connector plan cannot mate the retained native-tail target on a flat PCB.",
+  "next": "Application needs a truthful vertical FPC interface representation. Then apply saved compact layout proposal and verify footprint orientation, placement, routing and DRC.",
   "approval_question": {
-    "status": "pending",
+    "status": "approved_by_user",
     "recommended": "Permit evaluation of FH12-10S-0.5SV(55), SLW-120-01-G-D and SLW-104-01-G-D while retaining one compact board and existing screen/shell.",
     "alternative": "Keep selected connectors and allow screen mount/fold redesign.",
-    "qualification": "Neither choice is a claim of mechanical fit; candidate route and insertion stack must be validated after the interface choice."
+    "qualification": "Neither choice is a claim of mechanical fit; candidate route and insertion stack must be validated after the interface choice.",
+    "answer": "确认"
+  },
+  "validation": {
+    "pcb_preview": "blocked_before_compile",
+    "diagnostic": "hardware.bom.schema: cable_contacts_face_when_mounted_on_top only accepts toward_pcb|away_from_pcb",
+    "fact": "Approved vertical connector contact plane is perpendicular to PCB. Neither enum is physically correct.",
+    "policy": "No false horizontal contact value; ready=false. Active PCB source retained unchanged, proposal saved separately."
   }
 }

@@ -1,22 +1,29 @@
 {
   "schema_version": 1,
   "status": "draft",
-  "bom_ready": true,
-  "requirements_digest": "3eb6139aaf950a4018598b27162d6d06054a58fec1f0550d900f10259b7d40c5",
+  "bom_ready": false,
+  "requirements_digest": "81a25acbb6d9d7dc646db0a411b68945e118051d9f2a9c012c20cc8eba5fa560",
   "alternatives": [],
   "supply_risks": [
     {
       "id": "prototype_fit",
-      "description": "Horizontal FPC interface and GPIO stack are not enclosure-fit qualified. No physical hotplug/ESD/power transient testing yet."
+      "description": "Vertical FPC native-tail reach and reduced Pi stack require physical dimensional checks; electrical layout validation does not qualify enclosure fit."
     },
     {
       "id": "exact_parts",
       "description": "Reuse exact Sharp panel, Hirose FPC, Samtec sockets and TI ICs. No interchangeable substitutes qualified; old male-header alternatives are not alternatives for the requested female socket."
     }
   ],
-  "unresolved_items": [],
+  "unresolved_items": [
+    {
+      "id": "vertical_fpc_contract",
+      "role": "display_fpc",
+      "owner": "application",
+      "description": "The PCB prerequisite validator only accepts toward_pcb or away_from_pcb for an FPC contact face. FH12-10S-0.5SV(55) is vertical, with a perpendicular contact plane. Neither value is correct. Keep BOM not ready until this interface can be represented and verified. The approved connector is not unavailable or rejected; this is a tooling limitation."
+    }
+  ],
   "scope": "Active pi_baseboard_lite: display FPC, display support and current-limited 3.3V 8-pin module interface. Pi powered via native USB-C. Full variant inventory retained separately under design/pi_baseboard/full-variant-bom.json.",
-  "review_status": "Active lite variant circuit and routing check passed; release review recorded separately by pcb.run. No hardware bench test or enclosure fit validation performed.",
+  "review_status": "User approved connector substitutions. PCB pipeline blocked because its FPC contact-face contract cannot represent a vertical mating interface. No new build or routing validation.",
   "selected_components": [
     {
       "id": "compute",
@@ -98,46 +105,50 @@
     {
       "id": "display_fpc",
       "role": "display_fpc",
-      "name": "FH12-10S-0.5SH(55)",
       "quantity": 1,
-      "supplier": "LCSC",
-      "manufacturer": "Hirose",
-      "part_number": "FH12-10S-0.5SH(55)",
-      "mpn": "FH12-10S-0.5SH(55)",
-      "stock": 8363,
-      "source": "default",
-      "procurement_status": "catalog_verified",
-      "lcsc_code": "C506791",
-      "jlc_smt_library": "extended",
-      "product_url": "https://item.szlcsc.com/519947.html",
-      "unit_price_cny": 3.12,
-      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230107/C04566C1CA874B3BDA4D60598C56C2D3.jpg",
+      "designators": [
+        "J_LCD"
+      ],
+      "source": "user",
+      "stock": null,
+      "observed_date": "2026-09-29",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
-      "part_identity": "dd2e2353539b67c4",
-      "datasheet_path": "references/suppliers/c506791/c506791-datasheet.pdf",
-      "physical_interface": {
+      "required_user_evidence": [],
+      "name": "FH12-10S-0.5SV(55)",
+      "mpn": "FH12-10S-0.5SV(55)",
+      "part_number": "FH12-10S-0.5SV(55)",
+      "manufacturer": "HRS(广濑)",
+      "supplier": "LCSC",
+      "lcsc_code": "C88359",
+      "jlc_smt_library": "extended",
+      "procurement_status": "catalog_verified",
+      "product_url": "https://item.szlcsc.com/89538.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221231/83DC3298FD6204A11D79639DA117A955.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20180509/C202119_1566A7E4160A0A8BF22A31026CCA5707.pdf",
+      "datasheet_path": "references/suppliers/c88359/c88359-datasheet.pdf",
+      "package": "SMD 10-contact 0.5mm vertical FPC",
+      "footprint": "jlcpcb:C88359",
+      "description": "Vertical single-contact-side FPC, 0.3mm cable, closed height3.6mm, open height5.5mm.",
+      "selection_reason": "User explicitly approved vertical replacement. Exact supplier lookup; Extended chosen for this specified mechanical interface. Prototype manual soldering.",
+      "supply_risk": "Catalog reports out of stock. Actual tail length, vertical slot stop, contact side and pin1 must be checked against panel assembly; old horizontal route is not applicable.",
+      "part_identity": "af1b99ff76931afe",
+      "vertical_interface": {
         "kind": "fpc_connector",
         "pin_count": 10,
         "pitch_mm": 0.5,
-        "cable_contacts_face_when_mounted_on_top": "toward_pcb",
-        "pin1_position": "polarization triangle in Hirose component-side drawing; do not infer from screen-front view",
+        "cable_thickness_mm": 0.3,
+        "mating_axis_when_mounted_on_top": "+Z",
+        "contact_plane_relative_to_pcb": "perpendicular",
+        "closed_height_mm": 3.6,
+        "open_height_mm": 5.5,
         "evidence_refs": [
-          "references/suppliers/c506791/c506791-datasheet.pdf pp1,5",
-          "product/references/LS027B7DH01-sharp-2010.pdf p26"
+          "references/suppliers/c88359/c88359-datasheet.pdf p8"
         ]
       },
-      "selection_reason": "Retained 10-contact 0.5mm bottom-contact FPC for LS027B7DH01; candidate horizontal bottom placement still needs enclosure and short-tail fit check. Electrical prototype only.",
-      "observed_date": "2026-09-20",
-      "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
-      "requirements_review": "FPC moves to screen-facing top PCB side; exact Hirose part and numeric pin map retained, cable path not yet mechanically validated.",
-      "designators": [
-        "J_LCD"
-      ],
-      "selection_status": "pcb_check_ready_bench_validation_pending"
+      "selection_status": "approved_identity_blocked_by_interface_contract"
     },
     {
       "id": "ldo_3v3",
@@ -209,40 +220,34 @@
       ]
     },
     {
-      "quantity": 1,
-      "source": "default",
-      "observed_date": "2026-09-21",
-      "required_user_evidence": [],
       "id": "gpio_dock",
-      "role": "pi_gpio_docking_socket",
-      "name": "SSQ-120-02-G-D",
-      "mpn": "SSQ-120-02-G-D",
-      "part_number": "SSQ-120-02-G-D",
-      "manufacturer": "SAMTEC",
-      "supplier": "LCSC / Samtec external procurement",
-      "lcsc_code": "C7370433",
+      "role": "gpio_dock",
+      "quantity": 1,
+      "designators": [
+        "J_PI"
+      ],
+      "source": "user",
       "stock": null,
-      "procurement_status": "external_procurement_required",
-      "product_url": "https://www.samtec.com/products/ssq-120-02-g-d",
-      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/231023/C17230646-eee8e7b4de5102e9d06880fcb7ab015e.pdf",
-      "package": "2x20 through-hole female socket,2.54mm pitch,straight",
+      "observed_date": "2026-09-29",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
-      "selection_status": "pcb_check_ready_bench_validation_pending",
-      "description": "Exact supplier/manufacturer match. SSQ square-tail socket,20positions each of2rows. Catalog:8.51mm housing,4.93mm -02tail; insertion3.68–6.35mm. SSQ/TSW current6.3A perpin with2pins powered; this is NOT a Pi-header pair qualification.",
-      "selection_reason": "Exact SSQ-120-02-G-D retained. Manufacturer RevBH series drawing and RevA PCB layout now cached: 2x20,2.54mm pitch,1.02mm hole callout. Physical Pi mating/temperature and final standoff stack require prototype/CAD validation, not another purchasing choice.",
-      "supply_risk": "Manufacturer reports zero distributor stock forG variant; price/availability advisory. ExactPi header geometry and mixed-vendor contact performance not qualified.8.51mm housing is not completedboard spacing. Standard insertion force across40contacts may require support. Manufacturer seriesprint download blocked; productionfootprint/dimension tolerances remain unverified.",
-      "evidence_refs": [
-        "product/references/ssq-ssw-samtec-catalog.pdf p1",
-        "product/references/ssq-120-02-g-d-page.txt"
-      ],
-      "part_identity": "0d7270392f5f1ed8",
-      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
-      "designators": [
-        "J_PI"
-      ]
+      "required_user_evidence": [],
+      "name": "SLW-120-01-G-D",
+      "mpn": "SLW-120-01-G-D",
+      "part_number": "SLW-120-01-G-D",
+      "manufacturer": "Samtec",
+      "supplier": "Samtec / authorized distributor",
+      "procurement_status": "external_procurement_required",
+      "product_url": "https://www.samtec.com/products/slw-120-01-g-d",
+      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/slw.pdf",
+      "package": "Through-hole 2x20, 2.54mm pitch and row spacing",
+      "footprint": "kicad:Connector_PinSocket_2.54mm/PinSocket_2x20_P2.54mm_Vertical",
+      "description": "2x20 vertical female socket, housing4.57mm, solder tails2.92mm, insertion2.16–2.92mm.",
+      "selection_reason": "User explicitly approved low-profile replacement. Samtec SLW catalog establishes 2.54mm pitch/row spacing and mechanical stack; use stock through-hole socket footprint after numeric pad review.",
+      "supply_risk": "External procurement; no stock/price claim. Standard library STEP is not an exact SLW height model; do not qualify enclosure fit using it. Pi official drawing and existing third-party STEP disagree on male pin height.",
+      "part_identity": "f9608fb5aa8c855c"
     },
     {
       "id": "front_module_blank",
@@ -318,32 +323,33 @@
     },
     {
       "id": "lite_header",
-      "role": "lite_expansion_female_socket",
-      "name": "SSQ-104-02-G-D",
-      "mpn": "SSQ-104-02-G-D",
-      "part_number": "SSQ-104-02-G-D",
-      "manufacturer": "Samtec",
+      "role": "lite_header",
       "quantity": 1,
-      "supplier": "Samtec / authorized distributor",
+      "designators": [
+        "J_MOD"
+      ],
+      "source": "user",
       "stock": null,
-      "source": "default",
-      "procurement_status": "external_procurement_required",
-      "description": "2x4 vertical female socket, 2.54mm pitch; 8.51mm body and 4.93mm square solder tails",
-      "package": "Through-hole 2x4, 2.54mm pitch and row spacing",
-      "product_url": "https://www.samtec.com/products/ssq-104-02-g-d",
-      "datasheet_url": "https://suddendocs.samtec.com/prints/ssq-1xx-xx-xxx-x-xx-xxx-xx-x-mkt.pdf",
+      "observed_date": "2026-09-29",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
-      "selection_reason": "User requests female 8-contact socket. Exact Samtec SSQ-104-02-G-D identity verified on official product page; existing SSQ Rev BH series drawing confirms 4 positions per row, double row, 2.54mm pitch, 8.51mm housing, 4.93mm tails and 0.64mm square terminals. Standard KiCad PinSocket_2x04_P2.54mm_Vertical has native socket numbering and 1.0mm holes; preserve numeric functions, recheck actual pad positions.",
       "required_user_evidence": [],
-      "part_identity": "166527174da573df",
-      "designators": [
-        "J_MOD"
-      ],
-      "supply_risk": "Catalog search did not return; exact Samtec purchase is external, stock and price unverified. No qualified drop-in alternate. Standard KiCad STEP is a proxy; real 8.51mm body/4.93mm tails and module mating stack require CAD fit verification.",
-      "selection_status": "pcb_check_ready_bench_validation_pending"
+      "name": "SLW-104-01-G-D",
+      "mpn": "SLW-104-01-G-D",
+      "part_number": "SLW-104-01-G-D",
+      "manufacturer": "Samtec",
+      "supplier": "Samtec / authorized distributor",
+      "procurement_status": "external_procurement_required",
+      "product_url": "https://www.samtec.com/products/slw-104-01-g-d",
+      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/slw.pdf",
+      "package": "Through-hole 2x4, 2.54mm pitch and row spacing",
+      "footprint": "kicad:Connector_PinSocket_2.54mm/PinSocket_2x04_P2.54mm_Vertical",
+      "description": "2x4 vertical female socket, housing4.57mm, solder tails2.92mm, insertion2.16–2.92mm.",
+      "selection_reason": "User explicitly approved low-profile replacement. Samtec SLW catalog establishes 2.54mm pitch/row spacing and mechanical stack; use stock through-hole socket footprint after numeric pad review.",
+      "supply_risk": "External procurement; no stock/price claim. Standard library STEP is not an exact SLW height model; do not qualify enclosure fit using it. Pi official drawing and existing third-party STEP disagree on male pin height.",
+      "part_identity": "dcac0212a6dbc22e"
     },
     {
       "id": "lite_c100n",
