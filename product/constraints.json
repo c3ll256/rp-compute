@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "interface_revision_blocked",
   "bom_ready": false,
-  "requirements_digest": "81a25acbb6d9d7dc646db0a411b68945e118051d9f2a9c012c20cc8eba5fa560",
+  "requirements_digest": "e8c75e7436e72c6d4e651255b24e0efcf5f621b39821881964e4bfeb2a1c6bf8",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -1296,6 +1296,23 @@
     },
     "proposal": "design/pi_baseboard_lite/interface-layout-proposal.json",
     "supersedes": "For the active lite board, previous horizontal-FPC and SSQ connector constraints describe historical CAD only. Do not use them for the approved new board. CAD has not been changed.",
-    "blocker": "The PCB prerequisite validator only accepts toward_pcb or away_from_pcb for an FPC contact face. FH12-10S-0.5SV(55) is vertical, with a perpendicular contact plane. Neither value is correct. Keep BOM not ready until this interface can be represented and verified. The approved connector is not unavailable or rejected; this is a tooling limitation."
+    "blocker": "The PCB prerequisite validator only accepts toward_pcb or away_from_pcb for an FPC contact face. FH12-10S-0.5SV(55) is vertical, with a perpendicular contact plane. Neither value is correct. Keep BOM not ready until this interface can be represented and verified. The approved connector is not unavailable or rejected; this is a tooling limitation.",
+    "native_tail_length_mm": {
+      "value": 13.7,
+      "source": "default",
+      "uncertainty_mm": 0.5,
+      "review_range_mm": [
+        13.2,
+        14.2
+      ],
+      "status": "provisional_estimate_not_measured",
+      "datum": "Along the native tail from glass exit edge to the physical tip, including the stiffener and the portion inserted into the connector.",
+      "basis": "Retain the earlier 13.7mm drawing-proportion estimate; ±0.5mm is an agent-selected review allowance, not a manufacturer tolerance or guaranteed bound.",
+      "qualification": "User delegated estimation; no further measurement question is needed to continue provisional design. Do not claim fit validation or stretch the cable. Check shortest reach and longest-tail accommodation separately."
+    },
+    "tail_non_contact_clearance_per_side_mm": {
+      "value": 0.5,
+      "source": "default"
+    }
   }
 }

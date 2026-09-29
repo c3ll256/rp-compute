@@ -359,6 +359,32 @@
         "intent": "Keep one compact PCB and existing shell/screen mounting; evaluate vertical FPC and low-profile sockets"
       },
       "source": "user"
+    },
+    "native_tail_estimation_authorization": {
+      "value": "Proceed using an agent-estimated screen-tail length and allow reasonable assembly clearance rather than waiting for a physical measurement.",
+      "source": "user"
+    },
+    "native_tail_length_layout_mm": {
+      "value": {
+        "nominal": 13.7,
+        "estimated_uncertainty": 0.5,
+        "review_min": 13.2,
+        "review_max": 14.2,
+        "datum": "Glass exit edge to tail tip measured along tail; includes stiffener and inserted length."
+      },
+      "source": "default"
+    },
+    "native_tail_clearance_default_mm": {
+      "value": {
+        "non_contact_clearance_per_side": 0.5,
+        "minimum_inner_bend_radius": 0.45,
+        "allowed_bend_interval_from_glass": [
+          0.8,
+          6.0
+        ],
+        "note": "0.5mm is additional free-space clearance, not cable-length extension. Manufacturer bend limits retained. Slot stop and pin1 still require evidence."
+      },
+      "source": "default"
     }
   },
   "open_questions": []

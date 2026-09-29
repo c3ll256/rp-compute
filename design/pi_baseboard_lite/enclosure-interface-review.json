@@ -69,7 +69,15 @@
     "free_tail_length_mm": {
       "value": 13.7,
       "source": "default",
-      "qualification": "Layout estimate from drawing proportions only; not a toleranced Sharp overall-length dimension. Measure actual glass-edge-to-tip before fixing board-side connector location."
+      "uncertainty_mm": 0.5,
+      "review_range_mm": [
+        13.2,
+        14.2
+      ],
+      "status": "provisional_estimate_not_measured",
+      "datum": "Along the native tail from glass exit edge to the physical tip, including the stiffener and the portion inserted into the connector.",
+      "basis": "Retain the earlier 13.7mm drawing-proportion estimate; ±0.5mm is an agent-selected review allowance, not a manufacturer tolerance or guaranteed bound.",
+      "qualification": "User delegated estimation; no further measurement question is needed to continue provisional design. Do not claim fit validation or stretch the cable. Check shortest reach and longest-tail accommodation separately."
     },
     "conflict": "The retained CAD route ends at an inverted connector tilted with the panel; no rigid translation of a connector mounted on the horizontal Pi-docked board can reproduce that mating plane. Copying XY would not resolve assembly.",
     "vertical_candidate": "FH12-10S-0.5SV(55) / C88359",

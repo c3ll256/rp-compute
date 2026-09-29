@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "draft",
   "bom_ready": false,
-  "requirements_digest": "81a25acbb6d9d7dc646db0a411b68945e118051d9f2a9c012c20cc8eba5fa560",
+  "requirements_digest": "e8c75e7436e72c6d4e651255b24e0efcf5f621b39821881964e4bfeb2a1c6bf8",
   "alternatives": [],
   "supply_risks": [
     {
@@ -23,7 +23,7 @@
     }
   ],
   "scope": "Active pi_baseboard_lite: display FPC, display support and current-limited 3.3V 8-pin module interface. Pi powered via native USB-C. Full variant inventory retained separately under design/pi_baseboard/full-variant-bom.json.",
-  "review_status": "User approved connector substitutions. PCB pipeline blocked because its FPC contact-face contract cannot represent a vertical mating interface. No new build or routing validation.",
+  "review_status": "Connector substitutions approved. Tail-length estimate authorized at13.7±0.5mm; no physical measurement prerequisite for provisional review. Vertical-FPC representation still blocks PCB compilation. No new routing or mechanical-fit qualification.",
   "selected_components": [
     {
       "id": "compute",
@@ -100,7 +100,20 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "selection_reason": "Exact LS027B7DH01 retained. CAD now has a rear-loading63.4x43.42mm negative pocket with0.3mm nominal per-side allowance and1.77mm active-area offset. Front rise1mm and slope13deg retained. No exact panel STEP found. Glass retention, rear support, polarizer load and actual fit are NOT completed; current pocket is not a secured mount.",
-      "mechanical_integration": "Rear-loading locator retained; four M2 hard-stop rear frame, bezel rear flange, nonadhesive front/rear supports and guarded native FPC fold modeled. Physical pressure/material/length checks remain."
+      "mechanical_integration": "Rear-loading locator retained; four M2 hard-stop rear frame, bezel rear flange, nonadhesive front/rear supports and guarded native FPC fold modeled. Physical pressure/material/length checks remain.",
+      "assembly_dimension_assumption": {
+        "value": 13.7,
+        "source": "default",
+        "uncertainty_mm": 0.5,
+        "review_range_mm": [
+          13.2,
+          14.2
+        ],
+        "status": "provisional_estimate_not_measured",
+        "datum": "Along the native tail from glass exit edge to the physical tip, including the stiffener and the portion inserted into the connector.",
+        "basis": "Retain the earlier 13.7mm drawing-proportion estimate; ±0.5mm is an agent-selected review allowance, not a manufacturer tolerance or guaranteed bound.",
+        "qualification": "User delegated estimation; no further measurement question is needed to continue provisional design. Do not claim fit validation or stretch the cable. Check shortest reach and longest-tail accommodation separately."
+      }
     },
     {
       "id": "display_fpc",
@@ -133,7 +146,7 @@
       "footprint": "jlcpcb:C88359",
       "description": "Vertical single-contact-side FPC, 0.3mm cable, closed height3.6mm, open height5.5mm.",
       "selection_reason": "User explicitly approved vertical replacement. Exact supplier lookup; Extended chosen for this specified mechanical interface. Prototype manual soldering.",
-      "supply_risk": "Catalog reports out of stock. Actual tail length, vertical slot stop, contact side and pin1 must be checked against panel assembly; old horizontal route is not applicable.",
+      "supply_risk": "Catalog reports out of stock. Native tail length provisionally13.7±0.5mm by user-authorized estimate, not a measured or guaranteed tolerance. Vertical slot stop, contact side and pin1 remain unverified; old horizontal route is not applicable.",
       "part_identity": "af1b99ff76931afe",
       "vertical_interface": {
         "kind": "fpc_connector",
@@ -148,7 +161,20 @@
           "references/suppliers/c88359/c88359-datasheet.pdf p8"
         ]
       },
-      "selection_status": "approved_identity_blocked_by_interface_contract"
+      "selection_status": "approved_identity_blocked_by_interface_contract",
+      "assembly_dimension_assumption": {
+        "value": 13.7,
+        "source": "default",
+        "uncertainty_mm": 0.5,
+        "review_range_mm": [
+          13.2,
+          14.2
+        ],
+        "status": "provisional_estimate_not_measured",
+        "datum": "Along the native tail from glass exit edge to the physical tip, including the stiffener and the portion inserted into the connector.",
+        "basis": "Retain the earlier 13.7mm drawing-proportion estimate; ±0.5mm is an agent-selected review allowance, not a manufacturer tolerance or guaranteed bound.",
+        "qualification": "User delegated estimation; no further measurement question is needed to continue provisional design. Do not claim fit validation or stretch the cable. Check shortest reach and longest-tail accommodation separately."
+      }
     },
     {
       "id": "ldo_3v3",

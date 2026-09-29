@@ -1,18 +1,126 @@
 {
-  "status": "mechanical_route_target_pending_physical_tail_measurement",
+  "status": "mechanical_route_target_with_user_authorized_provisional_tail_estimate",
   "source": "default",
   "scope": "Native LS027B7DH01 tail only; no extension cable and no PCB",
-  "frame": {"origin_world_mm":[0,21.521201483,35.310909266],"rotation_xyz_deg":[13,0,0],"datum":"active area center; positive Z toward viewer"},
+  "frame": {
+    "origin_world_mm": [
+      0,
+      21.521201483,
+      35.310909266
+    ],
+    "rotation_xyz_deg": [
+      13,
+      0,
+      0
+    ],
+    "datum": "active area center; positive Z toward viewer"
+  },
   "glass_edge_y_mm": -23.18,
   "tail_exit_center_z_mm": -2.23,
   "tail_exit_evidence": "Sharp p26 stack: front target -1.4 minus front polarizer0.23 and glass0.6; assembly interpretation",
-  "free_tail_length_mm": {"value":13.7,"source":"default","qualification":"Layout estimate from drawing proportions only; not a toleranced Sharp overall-length dimension. Measure actual glass-edge-to-tip before fixing board-side connector location."},
-  "flex_envelope_thickness_mm": {"value":0.3,"source":"research","qualification":"Manufacturer stiffened-tail nominal thickness used conservatively for entire route; not measured bare flex thickness"},
-  "bend": {"direction":"behind panel, never toward front polarizer","angle_deg":180,"straight_before_bend_mm":1.0,"inner_radius_mm":1.35,"centerline_radius_mm":1.5,"center_yz_mm":[-24.18,-3.73],"arc_length_mm":4.7123889804,"unfolded_bend_interval_mm":[1.0,5.7123889804],"allowed_interval_mm":[0.8,6.0],"manufacturer_minimum_inner_radius_mm":0.45,"maximum_bend_cycles":3},
-  "return": {"direction":"+Y","length_mm":7.9876110196,"z_mm":-5.23,"tip_y_mm":-16.1923889804,"stiffener_length_mm":4.0,"nominal_connector_insertion_mm":3.4},
-  "negative_path_clearance": {"width_mm":11.0,"surface_margin_mm":0.25,"implementation":"annular half-cylinder and straight segments cut from housing and retainer; not a fake FPC body"},
-  "connector": {"identity":"FH12-10S-0.5SH(55)","cad_object":"fpc_zif","cad_identity_scope":"same-family KiCad dimensional reference; (55) suffix not certified by STEP","position_world_mm":[0,6.7628506593,27.254517899],"rotation_xyz_deg":[-167,0,-180],"local_board_datum_z_mm":-4.53,"local_origin_y_mm":-16.1923889804,"slot_center_z_mm":-5.23,"slot_entry_y_mm":-19.5923889804,"contact_direction":"native back-side contacts become +Z after fold; inverted bottom-contact connector faces them, board datum above connector","pin1_note":"180deg rotation about local Y reverses X; final PCB must map Sharp back-view pin1 against connector pin1, never copy a straight-tail footprint blindly","closed_height_mm":2.0,"open_latch_height_mm":4.8,"full_asset_depth_including_terminals_mm":6.4,"board_geometry":"none; mechanical target only"},
-  "service": {"open_latch_keepout_local_mm":{"x":[-5.55,5.55],"y":[-21.5923889804,-13.5923889804],"z":[-10.03,-4.53]},"assembly":"Connect with pod removed and inverted, after isolating power and removing Pi if access requires it; engage the stiffener fully and close latch before pod installation. Hold the panel/frame, never hang it by its tail.","strain_relief":"Non-contact U guard around fold; glass has its own retainer and connector must be anchored on future board. Guard does not clamp copper or glass bond."},
-  "evidence":["product/references/LS027B7DH01-sharp-2010.pdf pp5,26","references/suppliers/c506791/c506791-datasheet.pdf pp1,5"],
-  "remaining_checks":["Actual free tail length and tolerances, connector entry/stop datum and pin1 on physical parts","Compliant support material, thickness stack and image uniformity under fastening","Bind connector target to an actual supported board in a later PCB-authorized query"]
+  "free_tail_length_mm": {
+    "value": 13.7,
+    "source": "default",
+    "uncertainty_mm": 0.5,
+    "review_range_mm": [
+      13.2,
+      14.2
+    ],
+    "status": "provisional_estimate_not_measured",
+    "datum": "Along the native tail from glass exit edge to the physical tip, including the stiffener and the portion inserted into the connector.",
+    "basis": "Retain the earlier 13.7mm drawing-proportion estimate; ±0.5mm is an agent-selected review allowance, not a manufacturer tolerance or guaranteed bound.",
+    "qualification": "User delegated estimation; no further measurement question is needed to continue provisional design. Do not claim fit validation or stretch the cable. Check shortest reach and longest-tail accommodation separately."
+  },
+  "flex_envelope_thickness_mm": {
+    "value": 0.3,
+    "source": "research",
+    "qualification": "Manufacturer stiffened-tail nominal thickness used conservatively for entire route; not measured bare flex thickness"
+  },
+  "bend": {
+    "direction": "behind panel, never toward front polarizer",
+    "angle_deg": 180,
+    "straight_before_bend_mm": 1.0,
+    "inner_radius_mm": 1.35,
+    "centerline_radius_mm": 1.5,
+    "center_yz_mm": [
+      -24.18,
+      -3.73
+    ],
+    "arc_length_mm": 4.7123889804,
+    "unfolded_bend_interval_mm": [
+      1.0,
+      5.7123889804
+    ],
+    "allowed_interval_mm": [
+      0.8,
+      6.0
+    ],
+    "manufacturer_minimum_inner_radius_mm": 0.45,
+    "maximum_bend_cycles": 3
+  },
+  "return": {
+    "direction": "+Y",
+    "length_mm": 7.9876110196,
+    "z_mm": -5.23,
+    "tip_y_mm": -16.1923889804,
+    "stiffener_length_mm": 4.0,
+    "nominal_connector_insertion_mm": 3.4
+  },
+  "negative_path_clearance": {
+    "width_mm": 11.0,
+    "surface_margin_mm": 0.25,
+    "implementation": "annular half-cylinder and straight segments cut from housing and retainer; not a fake FPC body"
+  },
+  "connector": {
+    "identity": "FH12-10S-0.5SH(55)",
+    "cad_object": "fpc_zif",
+    "cad_identity_scope": "same-family KiCad dimensional reference; (55) suffix not certified by STEP",
+    "position_world_mm": [
+      0,
+      6.7628506593,
+      27.254517899
+    ],
+    "rotation_xyz_deg": [
+      -167,
+      0,
+      -180
+    ],
+    "local_board_datum_z_mm": -4.53,
+    "local_origin_y_mm": -16.1923889804,
+    "slot_center_z_mm": -5.23,
+    "slot_entry_y_mm": -19.5923889804,
+    "contact_direction": "native back-side contacts become +Z after fold; inverted bottom-contact connector faces them, board datum above connector",
+    "pin1_note": "180deg rotation about local Y reverses X; final PCB must map Sharp back-view pin1 against connector pin1, never copy a straight-tail footprint blindly",
+    "closed_height_mm": 2.0,
+    "open_latch_height_mm": 4.8,
+    "full_asset_depth_including_terminals_mm": 6.4,
+    "board_geometry": "none; mechanical target only"
+  },
+  "service": {
+    "open_latch_keepout_local_mm": {
+      "x": [
+        -5.55,
+        5.55
+      ],
+      "y": [
+        -21.5923889804,
+        -13.5923889804
+      ],
+      "z": [
+        -10.03,
+        -4.53
+      ]
+    },
+    "assembly": "Connect with pod removed and inverted, after isolating power and removing Pi if access requires it; engage the stiffener fully and close latch before pod installation. Hold the panel/frame, never hang it by its tail.",
+    "strain_relief": "Non-contact U guard around fold; glass has its own retainer and connector must be anchored on future board. Guard does not clamp copper or glass bond."
+  },
+  "evidence": [
+    "product/references/LS027B7DH01-sharp-2010.pdf pp5,26",
+    "references/suppliers/c506791/c506791-datasheet.pdf pp1,5"
+  ],
+  "remaining_checks": [
+    "Final physical tail dimensions, connector entry/stop datum and pin1 remain qualification checks; user authorized13.7±0.5mm estimation for provisional design without waiting for measurement.",
+    "Compliant support material, thickness stack and image uniformity under fastening",
+    "Bind connector target to an actual supported board in a later PCB-authorized query"
+  ]
 }

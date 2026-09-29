@@ -139,14 +139,26 @@
     "native_tail_length_mm": {
       "value": 13.7,
       "source": "default",
-      "status": "estimate_only"
+      "uncertainty_mm": 0.5,
+      "review_range_mm": [
+        13.2,
+        14.2
+      ],
+      "status": "provisional_estimate_not_measured",
+      "datum": "Along the native tail from glass exit edge to the physical tip, including the stiffener and the portion inserted into the connector.",
+      "basis": "Retain the earlier 13.7mm drawing-proportion estimate; ±0.5mm is an agent-selected review allowance, not a manufacturer tolerance or guaranteed bound.",
+      "qualification": "User delegated estimation; no further measurement question is needed to continue provisional design. Do not claim fit validation or stretch the cable. Check shortest reach and longest-tail accommodation separately."
     },
     "pi_official_pin_tip_world_z_mm": 15.5,
     "derived_board_bottom_z_range_mm": [
       17.15,
       17.91
     ],
-    "qualification": "Insertion arithmetic only, no tolerance/mating qualification. Third-party Pi model has different pin height. Board and connector clearances require actual geometry and dimensional validation."
+    "qualification": "Insertion arithmetic only, no tolerance/mating qualification. Third-party Pi model has different pin height. Board and connector clearances require actual geometry and dimensional validation.",
+    "tail_non_contact_clearance_per_side_mm": {
+      "value": 0.5,
+      "source": "default"
+    }
   },
   "blocker": "Application FPC contract lacks perpendicular/vertical contact-face representation; no substitute enum or false horizontal contact declaration used.",
   "area_mm2": 2001.0
