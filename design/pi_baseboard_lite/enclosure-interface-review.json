@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "request": {
+    "value": "保留紧凑板，按外壳与屏幕排线重排接口，再验证布线",
+    "source": "user"
+  },
+  "status": "mechanical_interface_choice_required",
+  "cad_revision": "8c22b1553168a4c43b55403c369fcc267c7079e4fb857d3d5829f72bb88d8d6b",
+  "board_to_world_xy_mm": [
+    0,
+    -19
+  ],
+  "pi_dock_world_centroid_mm": [
+    -13.5,
+    2
+  ],
+  "module": {
+    "existing_world_centroid_mm": [
+      0,
+      -50.97
+    ],
+    "aperture_world_x_mm": [
+      -27,
+      27
+    ],
+    "aperture_world_y_mm": [
+      -47,
+      -21
+    ],
+    "proposed_world_centroid_mm": [
+      0,
+      -34
+    ],
+    "proposed_board_pad_centroid_mm": [
+      0,
+      -15
+    ],
+    "proposed_board_footprint_origin_mm": [
+      -3.81,
+      -13.73
+    ],
+    "existing_body_height_mm": 8.51,
+    "low_profile_candidate": "SLW-104-01-G-D",
+    "candidate_body_height_mm": 4.57,
+    "candidate_insertion_depth_mm": [
+      2.16,
+      2.92
+    ]
+  },
+  "display": {
+    "existing_board_connector_world_xy_mm": [
+      0,
+      -36.7
+    ],
+    "retained_native_tail_connector_world_position_mm": [
+      0,
+      6.7628506593,
+      27.254517899
+    ],
+    "retained_native_tail_connector_rotation_xyz_deg": [
+      -167,
+      0,
+      -180
+    ],
+    "native_tail_exit_world_yz_mm": [
+      -0.5630557675349354,
+      27.92369858183814
+    ],
+    "free_tail_length_mm": {
+      "value": 13.7,
+      "source": "default",
+      "qualification": "Layout estimate from drawing proportions only; not a toleranced Sharp overall-length dimension. Measure actual glass-edge-to-tip before fixing board-side connector location."
+    },
+    "conflict": "The retained CAD route ends at an inverted connector tilted with the panel; no rigid translation of a connector mounted on the horizontal Pi-docked board can reproduce that mating plane. Copying XY would not resolve assembly.",
+    "vertical_candidate": "FH12-10S-0.5SV(55) / C88359",
+    "vertical_candidate_closed_height_mm": 3.6,
+    "vertical_candidate_open_height_mm": 5.5,
+    "candidate_status": "not substituted; vertical tail route, contact face/pin1, board stack and actual tail length not yet qualified"
+  },
+  "pi_stack": {
+    "existing_socket": "SSQ-120-02-G-D",
+    "existing_body_height_mm": 8.51,
+    "low_profile_candidate": "SLW-120-01-G-D",
+    "candidate_body_height_mm": 4.57,
+    "candidate_insertion_depth_mm": [
+      2.16,
+      2.92
+    ],
+    "note": "Lower body height does not equal allowable stack reduction; male-pin engagement must remain inside specified range. Official Pi drawing and third-party STEP pin height disagree, so do not claim a qualified stack."
+  },
+  "scope_preserved": [
+    "single functional PCB",
+    "Pi direct GPIO docking",
+    "2x4 2.54mm vertical female module interface",
+    "existing screen mount and one-mm front rise"
+  ],
+  "evidence": [
+    "design/handheld_computer/fpc-route.json",
+    "https://suddendocs.samtec.com/catalog_english/slw.pdf",
+    "references/suppliers/c88359/c88359-datasheet.pdf p8",
+    "design/pi_baseboard_lite/source/layout.ts"
+  ],
+  "next": "Choose whether connector identities may change before replacing selected LCSC/MPN rows; current connector plan cannot mate the retained native-tail target on a flat PCB.",
+  "approval_question": {
+    "status": "pending",
+    "recommended": "Permit evaluation of FH12-10S-0.5SV(55), SLW-120-01-G-D and SLW-104-01-G-D while retaining one compact board and existing screen/shell.",
+    "alternative": "Keep selected connectors and allow screen mount/fold redesign.",
+    "qualification": "Neither choice is a claim of mechanical fit; candidate route and insertion stack must be validated after the interface choice."
+  }
+}
