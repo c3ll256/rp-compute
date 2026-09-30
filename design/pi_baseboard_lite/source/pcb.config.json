@@ -2,12 +2,13 @@
   "schemaVersion": 1,
   "title": "Pi display and 8-pin GPIO baseboard",
   "manufacturing": {
-    "name": "ordinary-2layer-fr4-1oz",
-    "layers": 2,
+    "name": "compact-4layer-fr4-1oz",
+    "layers": 4,
     "copperThicknessOz": {
-      "outer": 1
+      "outer": 1,
+      "inner": 1
     },
-    "finishedThicknessMm": 1.6,
+    "finishedThicknessMm": 0.8,
     "defaultTraceWidthMm": 0.3,
     "absoluteMinimumTraceWidthMm": 0.2,
     "absoluteMinimumCopperClearanceMm": 0.15,
@@ -72,8 +73,8 @@
         "copperThicknessOz": 1,
         "maxTemperatureRiseC": 10,
         "requiredWidthMm": 0.2,
-        "calculationMethod": "IPC-2221 external; 1oz, 10C rise",
-        "rationale": "100mA normal module allocation plus <30mA conservative LCD/logic design budget. Both TPS2553 branches limited ~187mA max each; input uses500mA design envelope, branch200mA. IPC calculation yields 0.033mm; impose0.20mm minimum. No Pi operating current traverses this board."
+        "calculationMethod": "IPC-2221 internal coefficient0.024, 1oz, 10C rise; conservative minimum for any routing layer",
+        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board."
       }
     },
     "AUX_ILIM": {
@@ -195,8 +196,8 @@
         "copperThicknessOz": 1,
         "maxTemperatureRiseC": 10,
         "requiredWidthMm": 0.2,
-        "calculationMethod": "IPC-2221 external; 1oz, 10C rise",
-        "rationale": "100mA normal module allocation plus <30mA conservative LCD/logic design budget. Both TPS2553 branches limited ~187mA max each; input uses500mA design envelope, branch200mA. IPC calculation yields 0.033mm; impose0.20mm minimum. No Pi operating current traverses this board."
+        "calculationMethod": "IPC-2221 internal coefficient0.024, 1oz, 10C rise; conservative minimum for any routing layer",
+        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board."
       },
       "escape": {
         "widthMm": 0.3,
@@ -219,8 +220,8 @@
         "copperThicknessOz": 1,
         "maxTemperatureRiseC": 10,
         "requiredWidthMm": 0.2,
-        "calculationMethod": "IPC-2221 external; 1oz, 10C rise",
-        "rationale": "100mA normal module allocation plus <30mA conservative LCD/logic design budget. Both TPS2553 branches limited ~187mA max each; input uses500mA design envelope, branch200mA. IPC calculation yields 0.033mm; impose0.20mm minimum. No Pi operating current traverses this board."
+        "calculationMethod": "IPC-2221 internal coefficient0.024, 1oz, 10C rise; conservative minimum for any routing layer",
+        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board."
       }
     },
     "V5_LCD": {
@@ -241,8 +242,8 @@
         "copperThicknessOz": 1,
         "maxTemperatureRiseC": 10,
         "requiredWidthMm": 0.2,
-        "calculationMethod": "IPC-2221 external; 1oz, 10C rise",
-        "rationale": "100mA normal module allocation plus <30mA conservative LCD/logic design budget. Both TPS2553 branches limited ~187mA max each; input uses500mA design envelope, branch200mA. IPC calculation yields 0.033mm; impose0.20mm minimum. No Pi operating current traverses this board."
+        "calculationMethod": "IPC-2221 internal coefficient0.024, 1oz, 10C rise; conservative minimum for any routing layer",
+        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board."
       }
     },
     "V5_PI_IN": {
@@ -251,10 +252,12 @@
         "currentA": 0.5,
         "copperThicknessOz": 1,
         "maxTemperatureRiseC": 10,
-        "requiredWidthMm": 0.2,
-        "calculationMethod": "IPC-2221 external; 1oz, 10C rise",
-        "rationale": "100mA normal module allocation plus <30mA conservative LCD/logic design budget. Both TPS2553 branches limited ~187mA max each; input uses500mA design envelope, branch200mA. IPC calculation yields 0.115mm; impose0.20mm minimum. No Pi operating current traverses this board."
-      }
+        "requiredWidthMm": 0.31,
+        "calculationMethod": "IPC-2221 internal coefficient0.024, 1oz, 10C rise; conservative minimum for any routing layer",
+        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board."
+      },
+      "minimumWidthMm": 0.31,
+      "rationale": "500mA input on 1oz internal copper needs0.30038mm by IPC-2221 coefficient0.024 at10C rise; impose0.31mm floor while retaining0.50mm nominal."
     }
   },
   "footprintExceptions": [],
@@ -262,6 +265,7 @@
     "enabled": true,
     "groundLayers": [
       "top",
+      "inner1",
       "bottom"
     ],
     "clearanceMm": 0.15,
@@ -273,76 +277,40 @@
   },
   "stitchingVias": [
     {
-      "name": "GND_F_REGION_3",
+      "name": "FPC_GND_BRIDGE",
       "net": "GND",
-      "xMm": -15.5737,
-      "yMm": -25.5997,
+      "xMm": -1.066,
+      "yMm": 27.442,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "83.5mm layout check: F.Cu fragment 3, area 13.3030mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
+      "rationale": "Exact filled top FPC GND lobe bbox(-3.39,21.46)..(0.95,29.26) overlaps bottom main GND here; 0.31mm polygon erosion, 0.46mm pad/foreign-track exclusion."
     },
     {
-      "name": "GND_F_REGION_4",
+      "name": "BUF2_GND_BRIDGE",
       "net": "GND",
-      "xMm": -13.5732,
-      "yMm": -16.5698,
+      "xMm": 0.712,
+      "yMm": 30.78,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "83.5mm layout check: F.Cu fragment 4, area 6.3077mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
+      "rationale": "Exact bottom BUF2 9.00mm2 GND lobe overlaps top main GND here; 0.31mm polygon erosion, 0.46mm pad/foreign-track exclusion."
     },
     {
-      "name": "GND_F_REGION_6",
+      "name": "PI25_GND_BRIDGE",
       "net": "GND",
-      "xMm": -7.7979,
-      "yMm": -15.3639,
+      "xMm": -8.605,
+      "yMm": 22.749,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "83.5mm layout check: F.Cu fragment 6, area 5.2073mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
+      "rationale": "Filled bottom GND lobe bbox(-14.226,19.964)..(-0.785,24.534) intersects top main ground; source-frame coordinate proven using .31mm polygon erosion and .46mm obstacle exclusion. Restores return near J_PI pad25."
     },
     {
-      "name": "GND_B_REGION_2",
+      "name": "CLK_PULLDOWN_GND_BRIDGE",
       "net": "GND",
-      "xMm": -5.7909,
-      "yMm": -32.3719,
+      "xMm": -3.424,
+      "yMm": 20.5,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "83.5mm layout check: B.Cu fragment 2, area 107.4636mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
-    },
-    {
-      "name": "GND_B_REGION_3",
-      "net": "GND",
-      "xMm": -10.5928,
-      "yMm": -26.0,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "83.5mm layout check: B.Cu fragment 3, area 61.0953mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
-    },
-    {
-      "name": "GND_B_REGION_4",
-      "net": "GND",
-      "xMm": -2.0249,
-      "yMm": -16.5045,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "83.5mm layout check: B.Cu fragment 4, area 39.8733mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
-    },
-    {
-      "name": "GND_B_REGION_5",
-      "net": "GND",
-      "xMm": -3.0542,
-      "yMm": -18.5496,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "83.5mm layout check: B.Cu fragment 5, area 33.5238mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
-    },
-    {
-      "name": "GND_B_REGION_7",
-      "net": "GND",
-      "xMm": 7.1446,
-      "yMm": -19.9328,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "83.5mm layout check: B.Cu fragment 7, area 9.9927mm2. Via inside intersection with opposite GND, eroded0.36mm; all pads excluded0.5mm, foreign tracks excluded radius+0.55mm. Actual filled KiCad coordinates, not diagnostic bbox."
+      "rationale": "Last disconnected bottom16.117mm2 GND lobe bbox(-9.110,19.031)..(-0.800,21.416), found by exact filled-polygon connectivity graph. Overlaps contiguous In1.Cu GND; candidate has0.31mm polygon erosion and0.46mm pad/foreign-track exclusion across all layers."
     }
   ],
   "copperAreas": [],
@@ -356,6 +324,8 @@
       "radiusMm": 2.5,
       "layers": [
         "top",
+        "inner1",
+        "inner2",
         "bottom"
       ],
       "rationale": "M2 prototype fixture clearance. No matching shell boss claimed."
@@ -369,6 +339,8 @@
       "radiusMm": 2.5,
       "layers": [
         "top",
+        "inner1",
+        "inner2",
         "bottom"
       ],
       "rationale": "M2 prototype fixture clearance. No matching shell boss claimed."
@@ -381,19 +353,19 @@
     {
       "componentRef": "J_PI",
       "vertical": true,
-      "rationale": "J_PI 是板背面的 GPIO 堆叠母座，Pi 排针沿垂直 PCB 的方向插入。"
+      "rationale": "J_PI \u662f\u677f\u80cc\u9762\u7684 GPIO \u5806\u53e0\u6bcd\u5ea7\uff0cPi \u6392\u9488\u6cbf\u5782\u76f4 PCB \u7684\u65b9\u5411\u63d2\u5165\u3002"
     },
     {
       "componentRef": "J_MOD",
       "vertical": true,
-      "rationale": "J_MOD 是板正面的直立 2×4 母座，扩展模块的公排针沿垂直 PCB 的方向插入。"
+      "rationale": "J_MOD \u662f\u677f\u6b63\u9762\u7684\u76f4\u7acb 2\u00d74 \u6bcd\u5ea7\uff0c\u6269\u5c55\u6a21\u5757\u7684\u516c\u6392\u9488\u6cbf\u5782\u76f4 PCB \u7684\u65b9\u5411\u63d2\u5165\u3002"
     },
     {
       "componentRef": "J_LCD",
       "nativeOpening": "down",
       "targetOpening": "up",
       "expectedLayer": "top",
-      "rationale": "Preserve current source placement: top-side latch with cable approaching from +Y. Native panel tail reach, pin1 and tilted-screen stack remain mechanically unverified."
+      "rationale": "Horizontal side-entry FPC top side, opening toward+Y; retained screen tail folds behind panel. Check actual mating height in CAD."
     }
   ],
   "bomBindings": [

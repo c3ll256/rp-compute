@@ -1,26 +1,26 @@
 {
   "designId": "handheld_computer",
-  "revision": "b49c0e0d8b89ea780446f1519afb5778f70234261dc1e2f2a94ad350a1c84688",
+  "revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744",
   "schemaVersion": 2,
-  "exportId": "export-8ac82bced06d072f8e0dd655c813f766",
-  "generatedAt": "2026-09-26T10:13:20.458Z",
-  "designSha256": "870bbb87bd71dcb9130d1696a05844fc65adebf4dbc1b514dcb42abfabc61493",
+  "exportId": "export-6d353899a917c50a5dfda7ad33da7ead",
+  "generatedAt": "2026-09-30T05:39:24.784Z",
+  "designSha256": "f2081a2e40bdc38a846c5848b544c0436a3e6c948d8e7fd31def868c28af80a3",
   "role": "computer_enclosure",
-  "stateHash": "a44f629a4aad4d534b671f66f8dc5a7d795ef4a9849627082a44cbabf2a88fbe",
+  "stateHash": "166f8ade0823d625c991fdbf5975d0765f805661f24aa238404c7a5d449fb041",
   "stateManifest": {
     "schemaVersion": 3,
     "designId": "handheld_computer",
     "role": "computer_enclosure",
     "design": {
-      "revision": "b49c0e0d8b89ea780446f1519afb5778f70234261dc1e2f2a94ad350a1c84688",
-      "designSha256": "47dcb7c6a13204509fcfcc557b253a08e3412b74f50ce7c013ecc89cfd9e561f",
-      "manifestSha256": "eb6a273d47e75c4e9b9ad32a51cecd81b181b10fc9ce0a2e28b36138a4f85b5f",
-      "stepSha256": "6b8c14a9f5ce81a14071ebf130bec67d98637d7a45f48e2c8c38232ea9fdd9b8",
+      "revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744",
+      "designSha256": "5d258f1de18a14c7cbd2205cf11fff59f237784a29547ac0dd8a4c2a530fad4c",
+      "manifestSha256": "39057db370c1c0c2f580942a61dc8fa931d85a02bf20321213ba7deef7a21943",
+      "stepSha256": "1ca86d15616508ca7f39f672c8d25a103c2586ada57c27eeca401a3dd51f88a8",
       "pcbReleases": []
     },
     "brief": {
       "path": "design/handheld_computer/README.md",
-      "sha256": "c0398c5fcac3ee57aef855784a72d3bfee577116dea340515367c7e489453280"
+      "sha256": "1859687663e998cf908381a187b306791e21defb17169317c5151b0a792b9cc2"
     },
     "requirement": {
       "artifactContractPath": "product/contract.json",
@@ -98,44 +98,41 @@
         "step"
       ]
     },
-    "stateHash": "a44f629a4aad4d534b671f66f8dc5a7d795ef4a9849627082a44cbabf2a88fbe"
+    "stateHash": "166f8ade0823d625c991fdbf5975d0765f805661f24aa238404c7a5d449fb041"
   },
   "buildArtifacts": {
-    "manifestSha256": "eb6a273d47e75c4e9b9ad32a51cecd81b181b10fc9ce0a2e28b36138a4f85b5f",
-    "stepSha256": "6b8c14a9f5ce81a14071ebf130bec67d98637d7a45f48e2c8c38232ea9fdd9b8"
+    "manifestSha256": "39057db370c1c0c2f580942a61dc8fa931d85a02bf20321213ba7deef7a21943",
+    "stepSha256": "1ca86d15616508ca7f39f672c8d25a103c2586ada57c27eeca401a3dd51f88a8"
   },
   "exportAlgorithm": {
     "version": 1,
-    "bootstrapSha256": "f4939328ef685300fcdaa250c860428f6b9e009d10931b20d36728e55e0029e4"
+    "bootstrapSha256": "ee3801d485ce9c36c94064620fc14c1fad29a20395abe3cd26ac51a72ac105d1"
   },
   "sourceHashes": {
     "base/base": "3b20a251258265277722e66da6352bdc9d0861b2f14c9e38401d937017e28ff5",
     "bezel/bezel": "cb752d27f215b046a382b7ede17afc0a9594195d361e57bc0cc735d18d451823",
     "fascia/fascia": "72ed37e83b58ceb8ad1d71a99b849fa68a5987bb1d12a4b375c820611432277d",
-    "imports/fpc_zif": "5321d0e619d3d08ab5e4ec2dc60610fffb0091b49572cfdf44c456344fe5e69e",
-    "imports/pi_baseboard_lite": "5e695923b6cc4d985c658533dcf5094b7dd6524ade34c1de0509faa14388a530",
+    "imports/pi_baseboard_lite": "be835fef5771979162ef0f731a3f1df6fa730cb5af2fa8f3f6c0e33614028c9c",
     "imports/pi4b": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40",
     "power_cap/power_cap": "68c889bf45a9a2a9027624e03079a5073cd393df3cbfe12e4f0c594d3e812561",
     "screen_cushions/screen_cushions": "99d4412dc2fdf2ffd47b86592ce3e38e8b1721dca7f9abdb04f3b28bfa861ac2",
     "shell/shell": "2608f745111e7e75abc553c42a57670bf8d309156a45577374ffbe9bb58222e7"
   },
   "assetHashes": {
-    "fpc_zif": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9",
-    "pi_baseboard_lite": "3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8",
+    "pi_baseboard_lite": "72635669da4be260878db47e3bb1eed03b253bbe890fcab37ef6e895f3cb8fa1",
     "pi4b": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe"
   },
   "shapeHashes": {
     "base": "89c7422a914f61470c6ac8d6c2f770747ef951f8b10b4c2e4c4edaeab112cfe2",
     "bezel": "8774de76e9005319f79bdaac97948d01a5322135ab4d30ecd8ee75b0bd251129",
     "fascia": "c84eb09d76c6cb40c1a7d169c6d40efd585d2058b0529f06264073d3f0d64616",
-    "fpc_zif": "1287105d5aee535015677812a99c272d96c25d419b84825bfad5a544c6a8a36a",
     "front_cushion": "3e1683f4becbf3cd5306da3885fe73f734d2aa45350c9ef77c0aa57710576bec",
     "front_module_blank": "95241bd1cd138cc66d9764cb60a62a8e408b011dde084f7c3be8560301685633",
     "front_module_screw_1": "616f4094e3c534a427b40a70f828c85f01270236da9854f72e5abc5bb17385df",
     "front_module_screw_2": "041b3b3c3b60cb3782211e9be70f7003679bf784cbc1e48db63e03dd8cd4d4bc",
     "front_module_screw_3": "6d201e0f0e6f275cdbea6ab4afe60f05684c3c8ed8dcdaa68e0d2f2ae379d07f",
     "front_module_screw_4": "3e692d1fbf6f274f3e7405c745121165bb41de8e06b6f80bdd61ee0f896df2b7",
-    "pi_baseboard_lite": "0e2f679f4fd55f619cf9be2352f412ee102e38ca22735a4568ac2abb4936dcf1",
+    "pi_baseboard_lite": "cb3e494af72547cc6b5f7f7d7e61f6561faed7ccf39d2cf3695b2d546c2211fc",
     "pi4b": "4bd5d2afb9631f2310f417c1aad088568c7fcf2ab7307b583b18018f58bfd4c9",
     "power_cap": "e584e9f9ddc61e224723cd0fc60f7b0a7ac3a49f7866841b7a553e70ddb7259f",
     "rear_cushion": "503045f26a376484855ba2afd345160ce6eca3d1ac4f4da88f4a2b26ec3e4e30",
@@ -147,33 +144,47 @@
     "shell": "1e7ffa58aaef7239a9bd2f4b9878c7c0c0f82371c7f5d9fbf9e68476cc3d7c58"
   },
   "runtime": {
-    "manifestHash": "adfb7931c732365c45807afb02ee11720f55eab29ced54877473383476410233",
+    "manifestHash": "6ca714c08bd9c2eceb1961020a3c0ef75a530448347a9d8f7a66fc3589d93943",
     "pythonVersion": "3.12.13",
     "build123dVersion": "0.10.0",
     "ocpVersion": "7.8.1.1.post1",
-    "cadpyHash": "e8b3788bab31d790595e4c3306dda85dfe057c87a4fc64f7ef3eab254239b7ba"
+    "cadpyHash": "6b2d263b0eb225cd55b8fc84ab7d4c0f8546d2b08f04e7f81a0cbf2674a243fc"
   },
   "artifacts": [
     {
-      "path": "manufacturing/handheld_computer/releases/export-8ac82bced06d072f8e0dd655c813f766/model.step",
+      "path": "manufacturing/handheld_computer/releases/export-6d353899a917c50a5dfda7ad33da7ead/model.step",
       "role": "model/step",
-      "sha256": "6b8c14a9f5ce81a14071ebf130bec67d98637d7a45f48e2c8c38232ea9fdd9b8",
-      "sizeBytes": 107285677
+      "sha256": "1ca86d15616508ca7f39f672c8d25a103c2586ada57c27eeca401a3dd51f88a8",
+      "sizeBytes": 109721023
     }
   ],
   "interference": {
-    "summary": "1 interfering pair, 1 undeclared, 1 undetermined",
+    "summary": "3 interfering pairs, 3 undeclared, 2 undetermined",
     "counts": {
-      "objects": 20,
-      "pairs": 190,
-      "exact": 6,
-      "cached": 38,
-      "interference": 1,
-      "undeclared": 1,
+      "objects": 19,
+      "pairs": 171,
+      "exact": 38,
+      "cached": 9,
+      "interference": 3,
+      "undeclared": 3,
       "over_budget": 0,
-      "undetermined": 1
+      "undetermined": 2
     },
     "overlaps": [
+      {
+        "a": "front_module_blank",
+        "b": "pi_baseboard_lite",
+        "verdict": "undeclared",
+        "maxDepthMm": 1.3718,
+        "volumeMm3": 86.430527
+      },
+      {
+        "a": "pi4b",
+        "b": "pi_baseboard_lite",
+        "verdict": "undeclared",
+        "maxDepthMm": 0.3547,
+        "volumeMm3": 37.049604
+      },
       {
         "a": "power_cap",
         "b": "shell",
@@ -188,9 +199,9 @@
     "algorithm": "hmac-sha256",
     "keyId": "bcf92b0ef0c9bdb29ac662e9143b6212",
     "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
-    "receiptPath": "manufacturing/handheld_computer/releases/export-8ac82bced06d072f8e0dd655c813f766/receipt.json",
-    "payloadSha256": "edbf23684c01a3eafe38a78b4f0ed986ed8aa90caab4315315b59fadcbddfb62",
-    "mac": "dfed1b568cec039e5acf98298696c4e699a011f7a5937ffa8d7fcf2b0761ad11"
+    "receiptPath": "manufacturing/handheld_computer/releases/export-6d353899a917c50a5dfda7ad33da7ead/receipt.json",
+    "payloadSha256": "4823b300dbab8189cb281cbb0fccc552322384b7f5c249888d49c5cc4a17c05c",
+    "mac": "58dd8cac0abeb73a39381c3d39a095f94d3d5ad85569fbf656907062570eb343"
   },
   "status": "handoff"
 }

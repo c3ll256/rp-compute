@@ -85,18 +85,11 @@
           "sha256": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40"
         },
         {
-          "id": "fpc_zif",
-          "target": "imports",
-          "order": 1,
-          "path": "design/handheld_computer/source/parts/imports/001-fpc_zif.py",
-          "sha256": "5321d0e619d3d08ab5e4ec2dc60610fffb0091b49572cfdf44c456344fe5e69e"
-        },
-        {
           "id": "pi_baseboard_lite",
           "target": "imports",
-          "order": 2,
-          "path": "design/handheld_computer/source/parts/imports/002-pi_baseboard_lite.py",
-          "sha256": "5e695923b6cc4d985c658533dcf5094b7dd6524ade34c1de0509faa14388a530"
+          "order": 1,
+          "path": "design/handheld_computer/source/parts/imports/001-pi_baseboard_lite.py",
+          "sha256": "be835fef5771979162ef0f731a3f1df6fa730cb5af2fa8f3f6c0e33614028c9c"
         }
       ],
       "dependencies": []
@@ -534,42 +527,16 @@
       "datums": []
     },
     {
-      "id": "fpc_zif",
-      "target": "imports",
-      "label": "fpc_zif",
-      "kind": "imported",
-      "shapeHash": "1287105d5aee535015677812a99c272d96c25d419b84825bfad5a544c6a8a36a",
-      "transform": {
-        "positionMm": [
-          0,
-          6.7628506593,
-          27.254517899
-        ],
-        "rotationDeg": [
-          -167,
-          0,
-          -180
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
       "id": "pi_baseboard_lite",
       "target": "imports",
-      "label": "Lite PCB fit check",
+      "label": "pi_baseboard_lite",
       "kind": "imported",
-      "shapeHash": "0e2f679f4fd55f619cf9be2352f412ee102e38ca22735a4568ac2abb4936dcf1",
+      "shapeHash": "cb3e494af72547cc6b5f7f7d7e61f6561faed7ccf39d2cf3695b2d546c2211fc",
       "transform": {
         "positionMm": [
-          0,
-          0,
-          0
+          -100,
+          81,
+          17.5
         ],
         "rotationDeg": [
           0,
@@ -654,32 +621,18 @@
       }
     },
     {
-      "id": "fpc_zif",
-      "kind": "step",
-      "path": "design/handheld_computer/source/assets/e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9.step",
-      "sha256": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9",
-      "label": "fpc_zif",
-      "provenance": {
-        "sourcePath": ".work/cache/step-parts/hirose_fh12_10s_0_5sh_1x10_1mp_p0_50mm_horizontal.step",
-        "provider": "step.parts / KiCad family reference",
-        "sourceUrl": "https://www.step.parts/parts/hirose_fh12_10s_0_5sh_1x10_1mp_p0_50mm_horizontal",
-        "sourceVersion": "c6113328a5695b976a010a203a90fe86191769bf",
-        "declaredSha256": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9"
-      }
-    },
-    {
       "id": "pi_baseboard_lite",
       "kind": "step",
-      "path": "design/handheld_computer/source/assets/3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8.step",
-      "sha256": "3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8",
-      "label": "Lite PCB fit check",
+      "path": "design/handheld_computer/source/assets/72635669da4be260878db47e3bb1eed03b253bbe890fcab37ef6e895f3cb8fa1.step",
+      "sha256": "72635669da4be260878db47e3bb1eed03b253bbe890fcab37ef6e895f3cb8fa1",
+      "label": "pi_baseboard_lite",
       "provenance": {
-        "sourcePath": "manufacturing/pi_baseboard_lite/releases/a86e69186bf23c3da05e2f175206bed8d832595bc02e720044ea76bf4abc8db3/package/assembly.step"
+        "sourcePath": "manufacturing/pi_baseboard_lite/releases/a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45/package/assembly.step"
       }
     }
   ],
   "fits": [],
-  "updatedAt": "2026-09-26T10:13:20.458Z",
+  "updatedAt": "2026-09-30T05:39:24.784Z",
   "parameters": {
     "shell": {
       "case_width": 85,

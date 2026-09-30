@@ -2,8 +2,8 @@
   "schemaVersion": 3,
   "backend": "tscircuit-kicad",
   "designId": "pi_baseboard_lite",
-  "candidateId": "f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010",
-  "exportId": "f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010",
+  "candidateId": "c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d",
+  "exportId": "c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d",
   "status": "ready",
   "readyForFabrication": true,
   "sections": [
@@ -23,6 +23,8 @@
         "manufacturing/gerbers/board-F_Mask.gts",
         "manufacturing/gerbers/board-F_Paste.gtp",
         "manufacturing/gerbers/board-F_Silkscreen.gto",
+        "manufacturing/gerbers/board-In1_Cu.g1",
+        "manufacturing/gerbers/board-In2_Cu.g2",
         "manufacturing/gerbers/board-job.gbrjob"
       ],
       "blockingCodes": []
@@ -42,6 +44,7 @@
       "files": [
         "manufacturing/3dmodels/pi_baseboard_lite.3dshapes/PinHeader_2x04_P2.54mm_Vertical.step",
         "manufacturing/3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x04_P2.54mm_Vertical.step",
+        "manufacturing/3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x20_P2.54mm_Vertical.step",
         "manufacturing/3dmodels/pi_baseboard_lite.3dshapes/SOT-23-6.step",
         "manufacturing/assembly.glb",
         "manufacturing/assembly.step"
@@ -49,7 +52,7 @@
       "blockingCodes": []
     }
   ],
-  "generatedAt": "2026-09-26T07:49:48.637Z",
+  "generatedAt": "2026-09-30T05:35:27.412Z",
   "files": [
     {
       "type": "step",
@@ -65,6 +68,12 @@
     },
     {
       "type": "step",
+      "path": "manufacturing/3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x20_P2.54mm_Vertical.step",
+      "sha256": "964ca9c969824b42d3f7412f7b3692eaecd9c9e99f66ed085d9548475f676d5a",
+      "sizeBytes": 842942
+    },
+    {
+      "type": "step",
       "path": "manufacturing/3dmodels/pi_baseboard_lite.3dshapes/SOT-23-6.step",
       "sha256": "c9fe686b4d1b56927a41fa84a9bc1efb61d8a45a123a3db43bcaa05c2891d635",
       "sizeBytes": 99639
@@ -72,98 +81,110 @@
     {
       "type": "glb",
       "path": "manufacturing/assembly.glb",
-      "sha256": "906aeeae0a4e9d123001eace03e4e1fac5445545f011eebf76dad1c928f22c65",
-      "sizeBytes": 45720788
+      "sha256": "d017c86816e96fb7f2cb58added5189923dde3d6dda6ec31a91185252e1d45ca",
+      "sizeBytes": 52016472
     },
     {
       "type": "step",
       "path": "manufacturing/assembly.step",
-      "sha256": "3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8",
-      "sizeBytes": 19283289
+      "sha256": "72635669da4be260878db47e3bb1eed03b253bbe890fcab37ef6e895f3cb8fa1",
+      "sizeBytes": 20789798
     },
     {
       "type": "manifest",
       "path": "manufacturing/circuit.json",
-      "sha256": "d12959e0b80c6c7ee101b57e8a16190b41527ca7ada65d0cc58b11fe549c6119",
-      "sizeBytes": 1052078
+      "sha256": "df3e8b50e0f7b1949a731702832695d3b32d8c2eb728102686c11afa40d7df16",
+      "sizeBytes": 1100525
     },
     {
       "type": "drill",
       "path": "manufacturing/drill/board-NPTH.drl",
-      "sha256": "03311137470c3cc80a0787a301f7075da0f28cf7e676a38062ceb3613a25e0ee",
-      "sizeBytes": 380
+      "sha256": "da5d4e7708eca1455c6e654e19b465dbb6b2e63bf0cfeed052527e2bdefb36ce",
+      "sizeBytes": 355
     },
     {
       "type": "drill",
       "path": "manufacturing/drill/board-PTH.drl",
-      "sha256": "0aa8a41ba2ef8f8b54a3be24e26ecf2e25b6827355e64921855947d8fc1c5d98",
-      "sizeBytes": 1918
+      "sha256": "7abbad94a17e9ea3531d073ff1ecb2c6119d262804b477d00e15964d2c7b01e9",
+      "sizeBytes": 1656
     },
     {
       "type": "drill",
       "path": "manufacturing/drill/pi_baseboard_lite-drill-report.txt",
-      "sha256": "817331f0d42a35c20a9e3685a11c8bad32d98b4c9f818e69e183bfab89d0064e",
-      "sizeBytes": 716
+      "sha256": "5bb0bd4a124e6d11c217ee71ef0a2b2d521a30fb08648f053a694c434e376489",
+      "sizeBytes": 759
     },
     {
       "type": "gerber",
       "path": "manufacturing/gerbers/board-B_Cu.gbl",
-      "sha256": "113727d656ff09ddfef573e32473e678e10fad36b516e842aaf049b0cf0d20bd",
-      "sizeBytes": 159629
+      "sha256": "6c359b209be17877c293ddeb1de915bafa292cb47929ed85e6579c3aa134d45b",
+      "sizeBytes": 165390
     },
     {
       "type": "gerber",
       "path": "manufacturing/gerbers/board-B_Mask.gbs",
-      "sha256": "277e46ef963034e01ee17f3d09f9107e54a7ec4ec87889ed2c8e4215da187e7d",
-      "sizeBytes": 3539
+      "sha256": "d60f96be3450f6f5ee72870c97f28110e524ca4a2c75a7eebbad0ccf229f5cb5",
+      "sizeBytes": 4456
     },
     {
       "type": "gerber",
       "path": "manufacturing/gerbers/board-B_Paste.gbp",
-      "sha256": "c96220a3891fd65f9aa459624e3a21c1859b7ec0588d9cd3c1861ed5d623a464",
-      "sizeBytes": 2009
+      "sha256": "222930d43e5237da0ef7756486856a914b5060e7ccd8aa9fc736a940e5cc9246",
+      "sizeBytes": 3064
     },
     {
       "type": "gerber",
       "path": "manufacturing/gerbers/board-B_Silkscreen.gbo",
-      "sha256": "e33ffdc0430f8361dfceaa8da64c36ff048cc77fd434564a75dc30af617a80d9",
-      "sizeBytes": 5232
+      "sha256": "add227abeb4e10be9cfc3197bb43b7bc6e9bf307000746db7c1073394d73d499",
+      "sizeBytes": 10200
     },
     {
       "type": "gerber",
       "path": "manufacturing/gerbers/board-Edge_Cuts.gm1",
-      "sha256": "027738a745fbff0e2bd365ea82bb0c0ddd3069827ea5a80e1f93ba4b6dca3345",
-      "sizeBytes": 680
+      "sha256": "67edc06dfb70806253b2f292e7a29fed8182f507ca85b37d64cf2e96ac6c8a2e",
+      "sizeBytes": 1410
     },
     {
       "type": "gerber",
       "path": "manufacturing/gerbers/board-F_Cu.gtl",
-      "sha256": "9f64c6e4c39b8b3f5a5abff4d69cf4435377a8321561e1fd1f70f3c60237b605",
-      "sizeBytes": 162419
+      "sha256": "1bbda3ad45e614fc54274b433c829e5b49f9f1b05a03b1c30df372fe46e43e9f",
+      "sizeBytes": 130765
     },
     {
       "type": "gerber",
       "path": "manufacturing/gerbers/board-F_Mask.gts",
-      "sha256": "6b721b69b7438cedd4bd48920e23532f29dcdc9324bf6acf29fe37e88c18ec0c",
-      "sizeBytes": 4280
+      "sha256": "9741259eedb566351a7233da9d29bf6bac8f8da9df9c0edba5dd3cdeb0c7af60",
+      "sizeBytes": 3070
     },
     {
       "type": "gerber",
       "path": "manufacturing/gerbers/board-F_Paste.gtp",
-      "sha256": "7eb4f35229c0a87b8e31516427cf13f41ee11a9ad2aff601b5ddd3d9970ca511",
-      "sizeBytes": 2735
+      "sha256": "5a8e2c70a548706e8428a0bbcbc786f483441153d439debd96a149e7dc3d1501",
+      "sizeBytes": 1663
     },
     {
       "type": "gerber",
       "path": "manufacturing/gerbers/board-F_Silkscreen.gto",
-      "sha256": "da15f96b3fef0fd42eb6cc25ecf439d7f025d2c9dc2799d326d74a03a9e1e733",
-      "sizeBytes": 47449
+      "sha256": "d726a44d21ab4280c5b8ef114cd62ec0cd55960dfa4e5240c7d1959fd9cff2f4",
+      "sizeBytes": 2955
+    },
+    {
+      "type": "gerber",
+      "path": "manufacturing/gerbers/board-In1_Cu.g1",
+      "sha256": "66c1cbaf7a1bc721901b82078f2713b3656526e02ee11489806919ac7640ee93",
+      "sizeBytes": 106184
+    },
+    {
+      "type": "gerber",
+      "path": "manufacturing/gerbers/board-In2_Cu.g2",
+      "sha256": "c97160d71d7c76e622c070234a74179a3760e2f744e2d85f783f152c2ed0e3c2",
+      "sizeBytes": 6256
     },
     {
       "type": "gerber",
       "path": "manufacturing/gerbers/board-job.gbrjob",
-      "sha256": "2994cb46d53ff6f62a40b905b8b4df13fad5c6a9cef30f7ffe8a90f0ec11143e",
-      "sizeBytes": 2658
+      "sha256": "02e938a4656c617d8289344350f5e238b0753fcda4247f4ab88558e3ef40627c",
+      "sizeBytes": 3644
     },
     {
       "type": "bom",
@@ -202,21 +223,8 @@
       "jsonPointer": "/items/5",
       "nextAction": "List only the design-critical evidence still missing for this PCB part (datasheet or spec PDF, package/footprint drawing, pinout). Supplier link, stock, and price are procurement reminders, not entries here.",
       "details": {
-        "line": 198,
+        "line": 213,
         "expected": "required_user_evidence names the missing datasheet, footprint, or pinout facts"
-      }
-    },
-    {
-      "stage": "fabrication-export",
-      "severity": "warning",
-      "tier": "advisory",
-      "code": "hardware.bom.image_url_missing",
-      "message": "BOM item \"gpio_dock\" has an LCSC/JLC supplier code but no image_url.",
-      "file": "product/bom.json",
-      "jsonPointer": "/items/5",
-      "nextAction": "Preserve image_url from electronics.search or supplier detail lookup when returned; do not drop it when writing component-selection.json or deriving product/bom.json.",
-      "details": {
-        "line": 198
       }
     },
     {
@@ -229,7 +237,7 @@
       "jsonPointer": "/items/8",
       "nextAction": "List only the design-critical evidence still missing for this PCB part (datasheet or spec PDF, package/footprint drawing, pinout). Supplier link, stock, and price are procurement reminders, not entries here.",
       "details": {
-        "line": 276,
+        "line": 285,
         "expected": "required_user_evidence names the missing datasheet, footprint, or pinout facts"
       }
     },
@@ -243,7 +251,7 @@
       "jsonPointer": "/items/9",
       "nextAction": "List only the design-critical evidence still missing for this PCB part (datasheet or spec PDF, package/footprint drawing, pinout). Supplier link, stock, and price are procurement reminders, not entries here.",
       "details": {
-        "line": 306,
+        "line": 315,
         "expected": "required_user_evidence names the missing datasheet, footprint, or pinout facts"
       }
     },
@@ -270,21 +278,8 @@
       "jsonPointer": "/selected_components/5",
       "nextAction": "List only the design-critical evidence still missing for this PCB part (datasheet or spec PDF, package/footprint drawing, pinout). Supplier link, stock, and price are procurement reminders, not entries here.",
       "details": {
-        "line": 212,
+        "line": 227,
         "expected": "required_user_evidence names the missing datasheet, footprint, or pinout facts"
-      }
-    },
-    {
-      "stage": "fabrication-export",
-      "severity": "warning",
-      "tier": "advisory",
-      "code": "hardware.bom.image_url_missing",
-      "message": "BOM item \"gpio_dock\" has an LCSC/JLC supplier code but no image_url.",
-      "file": "product/component-selection.json",
-      "jsonPointer": "/selected_components/5",
-      "nextAction": "Preserve image_url from electronics.search or supplier detail lookup when returned; do not drop it when writing component-selection.json or deriving product/bom.json.",
-      "details": {
-        "line": 212
       }
     },
     {
@@ -297,7 +292,7 @@
       "jsonPointer": "/selected_components/8",
       "nextAction": "List only the design-critical evidence still missing for this PCB part (datasheet or spec PDF, package/footprint drawing, pinout). Supplier link, stock, and price are procurement reminders, not entries here.",
       "details": {
-        "line": 290,
+        "line": 299,
         "expected": "required_user_evidence names the missing datasheet, footprint, or pinout facts"
       }
     },
@@ -311,7 +306,7 @@
       "jsonPointer": "/selected_components/9",
       "nextAction": "List only the design-critical evidence still missing for this PCB part (datasheet or spec PDF, package/footprint drawing, pinout). Supplier link, stock, and price are procurement reminders, not entries here.",
       "details": {
-        "line": 320,
+        "line": 329,
         "expected": "required_user_evidence names the missing datasheet, footprint, or pinout facts"
       }
     },
@@ -320,7 +315,7 @@
       "severity": "info",
       "tier": "advisory",
       "code": "command_output",
-      "message": "Plotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/gerbers/board-F_Cu.gtl'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/gerbers/board-B_Cu.gbl'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/gerbers/board-F_Paste.gtp'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/gerbers/board-B_Paste.gbp'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/gerbers/board-F_Silkscreen.gto'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/gerbers/board-B_Silkscreen.gbo'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/gerbers/board-F_Mask.gts'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/gerbers/board-B_Mask.gbs'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/gerbers/board-Edge_Cuts.gm1'.",
+      "message": "Plotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-F_Cu.gtl'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-In1_Cu.g1'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-In2_Cu.g2'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-B_Cu.gbl'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-F_Paste.gtp'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-B_Paste.gbp'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-F_Silkscreen.gto'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-B_Silkscreen.gbo'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-F_Mask.gts'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-B_Mask.gbs'.\nPlotted to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/gerbers/board-Edge_Cuts.gm1'.",
       "file": "manufacturing/gerbers",
       "details": {
         "exitCode": 0
@@ -331,7 +326,7 @@
       "severity": "info",
       "tier": "advisory",
       "code": "command_output",
-      "message": "Created file '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/drill/board-PTH.drl'\nCreated file '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/drill/board-NPTH.drl'\nDone.",
+      "message": "Created file '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/drill/board-PTH.drl'\nCreated file '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/drill/board-NPTH.drl'\nDone.",
       "file": "manufacturing/drill",
       "details": {
         "exitCode": 0
@@ -342,7 +337,7 @@
       "severity": "info",
       "tier": "advisory",
       "code": "command_output",
-      "message": "Fontconfig error: Cannot load default config file: No such file: (null)\nWarning: schematic has annotation errors, please use the schematic editor to fix them\nWrote bill of materials to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/bom.csv'.",
+      "message": "Fontconfig error: Cannot load default config file: No such file: (null)\nWarning: schematic has annotation errors, please use the schematic editor to fix them\nWrote bill of materials to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/bom.csv'.",
       "file": "manufacturing/bom.csv",
       "details": {
         "exitCode": 0
@@ -353,7 +348,7 @@
       "severity": "info",
       "tier": "advisory",
       "code": "command_output",
-      "message": "Wrote position data to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/placement.csv'.",
+      "message": "Wrote position data to '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/placement.csv'.",
       "file": "manufacturing/placement.csv",
       "details": {
         "exitCode": 0
@@ -364,7 +359,7 @@
       "severity": "info",
       "tier": "advisory",
       "code": "command_output",
-      "message": "STEP file '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/f10b857adf034b35e34784cc41723011be797711736d14f0649baf70863d8010-a81dc2c2-963e-4d8a-af95-0fd31437d585/assembly.step' created.\n\nExport time 4.051 s",
+      "message": "STEP file '/Users/c3ll256/Documents/Replicator/rp-compute/manufacturing/pi_baseboard_lite/exports/.staging/c7bbc9fd4478803dec0d9031e2d48a7cb3b308bafba1c16ce2f3665a39a53c2d-efbf01b3-c59e-4fb3-85e8-8e3794511ad9/assembly.step' created.\n\nExport time 3.893 s",
       "file": "manufacturing/assembly.step",
       "details": {
         "exitCode": 0
@@ -375,7 +370,7 @@
       "severity": "info",
       "tier": "advisory",
       "code": "assembly_step_required_models_verified",
-      "message": "Verified 28 required mounted assembly model occurrence(s) in the final KiCad STEP: C_AUX_IN, C_AUX_LIN, C_AUX_LOUT, C_BUF1, C_BUF2, C_LCD_A, C_LCD_D, C_LCD_IN, C_LCD_LIN, C_LCD_LOUT, J_LCD, J_PI, R_AUX_BLEED, R_AUX_EN, R_AUX_ILIM, R_FAULT_PU, R_LCD_BLEED, R_LCD_EN, R_LCD_ILIM, R_OFF_CLK, R_OFF_COM, R_OFF_CS, R_OFF_DATA, R_OFF_DISP, U_AUX_LDO, U_BUF1, U_BUF2, U_LCD_LDO.",
+      "message": "Verified 27 required mounted assembly model occurrence(s) in the final KiCad STEP: C_AUX_IN, C_AUX_LIN, C_AUX_LOUT, C_BUF1, C_BUF2, C_LCD_A, C_LCD_D, C_LCD_IN, C_LCD_LIN, C_LCD_LOUT, J_LCD, R_AUX_BLEED, R_AUX_EN, R_AUX_ILIM, R_FAULT_PU, R_LCD_BLEED, R_LCD_EN, R_LCD_ILIM, R_OFF_CLK, R_OFF_COM, R_OFF_CS, R_OFF_DATA, R_OFF_DISP, U_AUX_LDO, U_BUF1, U_BUF2, U_LCD_LDO.",
       "file": "manufacturing/assembly.step",
       "details": {
         "checked_model_refs": [
@@ -390,7 +385,6 @@
           "C_LCD_LIN",
           "C_LCD_LOUT",
           "J_LCD",
-          "J_PI",
           "R_AUX_BLEED",
           "R_AUX_EN",
           "R_AUX_ILIM",
@@ -418,7 +412,7 @@
       "message": "Prepared deterministic board appearance for the main PCB.",
       "file": "manufacturing/assembly-appearance.json",
       "details": {
-        "spec_sha256": "9fcc7fb472d32831251e53cf42003345f4a5b05af423bf4648bb712791a6da2b",
+        "spec_sha256": "dc7bae32c3f197005f3d6e352cae275eb25804ed884fabe79f266480fb518609",
         "overlay_ids": [
           "main-pcb:pi_baseboard_lite"
         ]
@@ -434,9 +428,9 @@
       "details": {
         "source": "assembly-step",
         "source_path": "manufacturing/assembly.step",
-        "source_step_sha256": "3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8",
-        "preview_sha256": "906aeeae0a4e9d123001eace03e4e1fac5445545f011eebf76dad1c928f22c65",
-        "appearance_spec_sha256": "9fcc7fb472d32831251e53cf42003345f4a5b05af423bf4648bb712791a6da2b",
+        "source_step_sha256": "72635669da4be260878db47e3bb1eed03b253bbe890fcab37ef6e895f3cb8fa1",
+        "preview_sha256": "d017c86816e96fb7f2cb58added5189923dde3d6dda6ec31a91185252e1d45ca",
+        "appearance_spec_sha256": "dc7bae32c3f197005f3d6e352cae275eb25804ed884fabe79f266480fb518609",
         "surface_texture_overlay_ids": [
           "main-pcb:pi_baseboard_lite"
         ],
@@ -450,13 +444,13 @@
       "severity": "info",
       "tier": "advisory",
       "code": "assembly_cover_rendered",
-      "message": "Rendered the assembly cover picture from the final KiCad assembly.step (200970 triangles across 115 colour runs).",
+      "message": "Rendered the assembly cover picture from the final KiCad assembly.step (231560 triangles across 114 colour runs).",
       "file": "manufacturing/previews/assembly-iso.png",
       "details": {
         "source_path": "manufacturing/assembly.step",
-        "mesh_count": 115,
-        "triangle_count": 200970,
-        "runtime_ms": 11151
+        "mesh_count": 114,
+        "triangle_count": 231560,
+        "runtime_ms": 9472
       }
     }
   ],
@@ -496,17 +490,19 @@
       "role": "assembly"
     }
   ],
-  "finishedThicknessMm": 1.6,
+  "finishedThicknessMm": 0.8,
   "validatedBoardSpec": {
-    "layers": 2,
+    "layers": 4,
     "material": "FR4",
     "materialNote": "FR4 is the only substrate this system fabricates designs for; source/pcb.config.json has no material field to override it.",
     "copperThicknessOz": {
-      "outer": 1
+      "outer": 1,
+      "inner": 1
     },
-    "capabilityProfileName": "jlcpcb-2layer-1oz",
+    "capabilityProfileName": "jlcpcb-4layer-1oz-inner1oz",
     "capabilityLimits": {
-      "minTrackWidthMm": 0.1,
+      "minTrackWidthMm": 0.09,
+      "minInnerTrackWidthMm": 0.09,
       "minViaDrillMm": 0.15,
       "minViaDiameterMm": 0.25,
       "minAnnularRingMm": 0.05,
@@ -515,6 +511,6 @@
       "minSilkTextHeightMm": 1,
       "minSilkPadClearanceMm": 0.15
     },
-    "reorderWarning": "This design was DFM-validated as a 2-layer board at 1 oz outer copper (capability profile \"jlcpcb-2layer-1oz\", minimum trace width 0.1 mm). Ordering the board at a different layer count or copper weight invalidates this DFM check, because the real fabrication minimums (trace width, via drill/diameter, annular ring, plated-hole drill) change with both. To change either, edit manufacturing.layers or manufacturing.copperThicknessOz in source/pcb.config.json and re-run pcb.run(profile=\"check\")."
+    "reorderWarning": "This design was DFM-validated as a 4-layer board at 1 oz outer copper and 1 oz inner copper (capability profile \"jlcpcb-4layer-1oz-inner1oz\", minimum trace width 0.09 mm). Ordering the board at a different layer count or copper weight invalidates this DFM check, because the real fabrication minimums (trace width, via drill/diameter, annular ring, plated-hole drill) change with both. To change either, edit manufacturing.layers or manufacturing.copperThicknessOz in source/pcb.config.json and re-run pcb.run(profile=\"check\")."
   }
 }

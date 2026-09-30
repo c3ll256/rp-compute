@@ -348,15 +348,15 @@
       "source": "default"
     },
     "lite_fpc_placement": {
-      "value": "Top-side vertical connector on a small tongue near the native screen tail; exact insertion stop and tail length remain physical-fit verification items.",
-      "source": "default"
+      "value": "Horizontal side-entry FPC on the compact board; native tail may bend behind the display. Actual board assembly to be checked in CAD.",
+      "source": "user"
     },
     "lite_compact_connectors": {
       "value": {
-        "display": "FH12-10S-0.5SV(55)",
+        "display": "FH12-10S-0.5SH(55)",
         "pi_dock": "SLW-120-01-G-D",
         "expansion": "SLW-104-01-G-D",
-        "intent": "Keep one compact PCB and existing shell/screen mounting; evaluate vertical FPC and low-profile sockets"
+        "intent": "Keep a compact board, low-profile sockets and horizontal side-entry FPC; bend native tail behind panel."
       },
       "source": "user"
     },

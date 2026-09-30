@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "status": "draft",
-  "bom_ready": false,
-  "requirements_digest": "e8c75e7436e72c6d4e651255b24e0efcf5f621b39821881964e4bfeb2a1c6bf8",
+  "status": "ready",
+  "bom_ready": true,
+  "requirements_digest": "0116d7014f3b7192ef33ad8f11057caaf8f6dab72bad2ee7a8b5a37215b8d57c",
   "alternatives": [],
   "supply_risks": [
     {
@@ -14,16 +14,9 @@
       "description": "Reuse exact Sharp panel, Hirose FPC, Samtec sockets and TI ICs. No interchangeable substitutes qualified; old male-header alternatives are not alternatives for the requested female socket."
     }
   ],
-  "unresolved_items": [
-    {
-      "id": "vertical_fpc_contract",
-      "role": "display_fpc",
-      "owner": "application",
-      "description": "The PCB prerequisite validator only accepts toward_pcb or away_from_pcb for an FPC contact face. FH12-10S-0.5SV(55) is vertical, with a perpendicular contact plane. Neither value is correct. Keep BOM not ready until this interface can be represented and verified. The approved connector is not unavailable or rejected; this is a tooling limitation."
-    }
-  ],
+  "unresolved_items": [],
   "scope": "Active pi_baseboard_lite: display FPC, display support and current-limited 3.3V 8-pin module interface. Pi powered via native USB-C. Full variant inventory retained separately under design/pi_baseboard/full-variant-bom.json.",
-  "review_status": "Connector substitutions approved. Tail-length estimate authorized at13.7±0.5mm; no physical measurement prerequisite for provisional review. Vertical-FPC representation still blocks PCB compilation. No new routing or mechanical-fit qualification.",
+  "review_status": "Horizontal FPC and low-profile sockets selected for compact prototype; mechanical fit pending actual CAD assembly review.",
   "selected_components": [
     {
       "id": "compute",
@@ -118,63 +111,48 @@
     {
       "id": "display_fpc",
       "role": "display_fpc",
+      "name": "FH12-10S-0.5SH(55)",
       "quantity": 1,
-      "designators": [
-        "J_LCD"
-      ],
+      "supplier": "LCSC",
+      "manufacturer": "Hirose",
+      "part_number": "FH12-10S-0.5SH(55)",
+      "mpn": "FH12-10S-0.5SH(55)",
+      "stock": 8198,
       "source": "user",
-      "stock": null,
-      "observed_date": "2026-09-29",
+      "procurement_status": "catalog_verified",
+      "lcsc_code": "C506791",
+      "jlc_smt_library": "extended",
+      "product_url": "https://item.szlcsc.com/519947.html",
+      "unit_price_cny": 3.12,
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230107/C04566C1CA874B3BDA4D60598C56C2D3.jpg",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
-      "required_user_evidence": [],
-      "name": "FH12-10S-0.5SV(55)",
-      "mpn": "FH12-10S-0.5SV(55)",
-      "part_number": "FH12-10S-0.5SV(55)",
-      "manufacturer": "HRS(广濑)",
-      "supplier": "LCSC",
-      "lcsc_code": "C88359",
-      "jlc_smt_library": "extended",
-      "procurement_status": "catalog_verified",
-      "product_url": "https://item.szlcsc.com/89538.html",
-      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20221231/83DC3298FD6204A11D79639DA117A955.jpg",
-      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20180509/C202119_1566A7E4160A0A8BF22A31026CCA5707.pdf",
-      "datasheet_path": "references/suppliers/c88359/c88359-datasheet.pdf",
-      "package": "SMD 10-contact 0.5mm vertical FPC",
-      "footprint": "jlcpcb:C88359",
-      "description": "Vertical single-contact-side FPC, 0.3mm cable, closed height3.6mm, open height5.5mm.",
-      "selection_reason": "User explicitly approved vertical replacement. Exact supplier lookup; Extended chosen for this specified mechanical interface. Prototype manual soldering.",
-      "supply_risk": "Catalog reports out of stock. Native tail length provisionally13.7±0.5mm by user-authorized estimate, not a measured or guaranteed tolerance. Vertical slot stop, contact side and pin1 remain unverified; old horizontal route is not applicable.",
-      "part_identity": "af1b99ff76931afe",
-      "vertical_interface": {
+      "part_identity": "dd2e2353539b67c4",
+      "datasheet_path": "references/suppliers/c506791/c506791-datasheet.pdf",
+      "physical_interface": {
         "kind": "fpc_connector",
         "pin_count": 10,
         "pitch_mm": 0.5,
-        "cable_thickness_mm": 0.3,
-        "mating_axis_when_mounted_on_top": "+Z",
-        "contact_plane_relative_to_pcb": "perpendicular",
-        "closed_height_mm": 3.6,
-        "open_height_mm": 5.5,
+        "cable_contacts_face_when_mounted_on_top": "toward_pcb",
+        "pin1_position": "polarization triangle in Hirose component-side drawing; do not infer from screen-front view",
         "evidence_refs": [
-          "references/suppliers/c88359/c88359-datasheet.pdf p8"
+          "references/suppliers/c506791/c506791-datasheet.pdf pp1,5",
+          "product/references/LS027B7DH01-sharp-2010.pdf p26"
         ]
       },
-      "selection_status": "approved_identity_blocked_by_interface_contract",
-      "assembly_dimension_assumption": {
-        "value": 13.7,
-        "source": "default",
-        "uncertainty_mm": 0.5,
-        "review_range_mm": [
-          13.2,
-          14.2
-        ],
-        "status": "provisional_estimate_not_measured",
-        "datum": "Along the native tail from glass exit edge to the physical tip, including the stiffener and the portion inserted into the connector.",
-        "basis": "Retain the earlier 13.7mm drawing-proportion estimate; ±0.5mm is an agent-selected review allowance, not a manufacturer tolerance or guaranteed bound.",
-        "qualification": "User delegated estimation; no further measurement question is needed to continue provisional design. Do not claim fit validation or stretch the cable. Check shortest reach and longest-tail accommodation separately."
-      }
+      "selection_reason": "User selected horizontal side entry and native-tail folding. Exact Hirose 10contact0.5mm bottom-contact interface retained; manual prototype assembly.",
+      "observed_date": "2026-09-30",
+      "required_user_evidence": [],
+      "supply_risk": "Native-tail folding and reduced Pi stack require CAD fit review; total tail estimate13.7±0.5mm is not a manufactured tolerance.",
+      "requirements_review": "FPC moves to screen-facing top PCB side; exact Hirose part and numeric pin map retained, cable path not yet mechanically validated.",
+      "designators": [
+        "J_LCD"
+      ],
+      "selection_status": "selected_for_compact_board_cad_review",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200402/C506791_7CB403EBF87F84682F415173294C9BF9.pdf",
+      "footprint": "jlcpcb:C506791"
     },
     {
       "id": "ldo_3v3",

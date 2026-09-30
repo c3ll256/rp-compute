@@ -1,43 +1,135 @@
 {
   "schema_version": 1,
-  "request": {
-    "value": "FPC和扩展板明显太大，需要缩小",
-    "source": "user"
+  "status": "pcb_released_cad_reviewed_fpc_height_conflict",
+  "source": "default",
+  "approved_connectors": {
+    "J_LCD": "FH12-10S-0.5SH(55)",
+    "J_PI": "SLW-120-01-G-D",
+    "J_MOD": "SLW-104-01-G-D"
   },
-  "layout": {
-    "value": {
-      "shape": "L",
-      "envelope_mm": [
-        40,
-        83.5
-      ],
-      "area_mm2": 1894.5,
-      "gpio_spine_width_mm": 15,
-      "electronics_region_mm": [
-        40,
-        25.5
-      ],
-      "baseline_source_envelope_mm": [
-        70,
-        89
-      ],
-      "area_reduction_percent": 69.59
-    },
-    "source": "default"
+  "board_envelope_mm": [
+    40,
+    83.5
+  ],
+  "outline_mm": [
+    [
+      -20.0,
+      -35.5
+    ],
+    [
+      20.0,
+      -35.5
+    ],
+    [
+      20.0,
+      -10.0
+    ],
+    [
+      -2.0,
+      -10.0
+    ],
+    [
+      -3.0,
+      -7.0
+    ],
+    [
+      -3.0,
+      14.0
+    ],
+    [
+      10.0,
+      14.0
+    ],
+    [
+      10.0,
+      38.0
+    ],
+    [
+      -5.0,
+      38.0
+    ],
+    [
+      -5.0,
+      48.0
+    ],
+    [
+      -20.0,
+      48.0
+    ],
+    [
+      -20.0,
+      18.8
+    ],
+    [
+      -19.4,
+      18.2
+    ],
+    [
+      -17.8,
+      18.2
+    ],
+    [
+      -17.3,
+      17.7
+    ],
+    [
+      -17.3,
+      13.2
+    ],
+    [
+      -17.8,
+      12.7
+    ],
+    [
+      -19.4,
+      12.7
+    ],
+    [
+      -20.0,
+      12.1
+    ]
+  ],
+  "area_mm2": 2284.54,
+  "finished_thickness_mm": 0.8,
+  "copper_layers": 4,
+  "copper_oz": {
+    "outer": 1,
+    "inner": 1
   },
-  "electrical_identity_and_connections": "31 populated components; identities, pin maps and connection declarations unchanged from prior source. Layout only.",
+  "board_to_world_xy_mm": [
+    0,
+    -19
+  ],
+  "world_xy_mm": {
+    "J_PI_centroid": [
+      -13.5,
+      2
+    ],
+    "J_LCD_origin": [
+      0,
+      6.7628506593
+    ],
+    "J_MOD_centroid": [
+      0,
+      -34
+    ]
+  },
+  "pcb_release": "a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45",
   "validation": {
-    "placement": "passed; top and bottom views inspected",
-    "routing": "signal routes complete; GND connectivity blocked",
-    "raw_unconnected_count": 8,
-    "blocking_connectivity_findings": 5,
-    "release": "not_published",
-    "cad": "unchanged; still imports old rectangular PCB, not this compact layout"
+    "placement": "passed",
+    "routing": "passed",
+    "ground_connectivity": "passed",
+    "drc_errors": 0,
+    "unconnected_items": 0,
+    "dfm": "passed"
   },
-  "remaining": [
-    "Repair GND connections near J_PI and display limiter; rerun check before release.",
-    "Reconcile FPC position and tilt against retained screen native tail.",
-    "Reconcile module connector worldY=-50.97 with shell openingY=-47..-21.",
-    "Revalidate two fixture holes and Z stack against real supported assembly."
-  ]
+  "mechanical_qualification": "CAD uses this exact PCB release. Substrate clears checked enclosure bodies and screw1. Native tail cannot reach this horizontal socket height while keeping curvature within the manufacturer-recommended region; SLW library STEP bodies are proxies and do not qualify mating.",
+  "board_edge_relief": {
+    "reason": "Existing screen retaining screw1 at(-20,-3.5266) world intersects prior PCB edge",
+    "source": "research",
+    "minimum_nominal_screw_clearance_mm": 0.5,
+    "measured_clearance_mm": 0.737409,
+    "passed": true
+  },
+  "cad_revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744"
 }

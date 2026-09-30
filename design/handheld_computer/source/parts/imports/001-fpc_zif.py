@@ -1,1 +1,0 @@
-publish("fpc_zif", asset("design/handheld_computer/source/assets/e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9.step"), "fpc_zif")

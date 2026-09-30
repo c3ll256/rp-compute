@@ -1,60 +1,47 @@
 {
   "schema_version": 1,
-  "status": "conditional_analytical_review_not_fit_approval",
-  "scope": "Single circular bend from13deg downward tail departure to vertical downward insertion; no self-intersection or solid collision check, no CAD change.",
-  "length_estimate_mm": {
-    "nominal": 13.7,
-    "uncertainty": 0.5,
-    "source": "default",
-    "user_authorized_estimation": true
-  },
-  "assembly_clearance_mm": {
-    "non_contact_per_side": 0.5,
-    "source": "default",
-    "not_added_to_tail_length": true
-  },
-  "inputs": {
-    "tail_exit_world_yz_mm": [
-      -0.5630557675349354,
-      27.92369858183814
-    ],
-    "inner_radius_mm": 0.45,
-    "conservative_flex_thickness_mm": 0.3,
-    "bend_start_min_mm": 0.8,
-    "bend_end_max_mm": 6,
-    "bend_angle_deg": 77,
-    "centerline_radius_mm": 0.6,
-    "latest_bend_start_mm": 5.19365788557862
-  },
-  "method": {
-    "tip_y": "exit_y - s*cos(13deg) - R*(1-sin(13deg))",
-    "tip_z": "exit_z - s*sin(13deg) - R*cos(13deg) - (L-s-R*77deg_in_radians)",
-    "qualification": "Latest legal bend start and minimum assumed centerline radius give the highest endpoint within this single-bend model. Equality at bend-zone limit leaves no manufacturing tolerance. FPC stiffness/thickness and exit datum are provisional."
-  },
-  "endpoint_bounds": [
+  "status": "horizontal_fpc_vertical_reach_conflict",
+  "source": "default",
+  "length_estimate_mm": 13.7,
+  "estimate_uncertainty_mm": 0.5,
+  "non_contact_clearance_per_side_mm": 0.5,
+  "current_board_bottom_world_z_mm": 17.5,
+  "current_board_finished_top_world_z_mm": 18.3,
+  "native_exit_world_z_mm": 27.92369858183814,
+  "screen_angle_deg": 13,
+  "connector_closed_height_upper_bound_mm": 2.2,
+  "optimistic_highest_possible_slot_world_z_mm": 20.5,
+  "minimum_required_vertical_drop_mm": 7.4236985818381385,
+  "optimistic_maximum_vertical_drop_mm": 5.379960843475092,
+  "shortfall_lower_bound_mm": 2.0437377383630464,
+  "proof": "After the recommended-region curvature ends by unfolded6mm, the tail must be horizontal to enter a horizontal socket. Before0.8mm its initial13deg tangent drops only0.8*sin13. Even an unphysical perfectly vertical5.2mm bend region adds at most5.2mm drop. Using the entire connector upper surface as the slot gives an intentionally generous ceiling, not a real mating plane. The current minimum7.424mm drop exceeds5.380mm ceiling. Minimum radius, insertion and contact direction can only add constraints. Length allowance does not extend the manufacturer bend zone.",
+  "evidence": [
+    "Sharp LS027B7DH01 drawing p26",
+    "Hirose C506791 drawing pp1,5",
+    "retained screen transform and PCB17.5mm placement"
+  ],
+  "user_directions_preserved": [
+    "Horizontal side entry",
+    "Native tail estimate permitted",
+    "Compact board",
+    "Existing screen and enclosure",
+    "Low-profile SLW sockets"
+  ],
+  "choices": [
     {
-      "estimated_tail_length_mm": 13.2,
-      "highest_tip_world_z_mm": 18.9708,
-      "corresponding_vertical_tail_world_y_mm": -6.0886,
-      "straight_after_bend_mm": 7.2
+      "option": "small_horizontal_fpc_daughterboard",
+      "changes": "Allows a raised small horizontal FPC connector board; changes the one rigid PCB requirement."
     },
     {
-      "estimated_tail_length_mm": 13.7,
-      "highest_tip_world_z_mm": 18.4708,
-      "corresponding_vertical_tail_world_y_mm": -6.0886,
-      "straight_after_bend_mm": 7.7
-    },
-    {
-      "estimated_tail_length_mm": 14.2,
-      "highest_tip_world_z_mm": 17.9708,
-      "corresponding_vertical_tail_world_y_mm": -6.0886,
-      "straight_after_bend_mm": 8.2
+      "option": "rework_single_board_stack",
+      "changes": "Retains one rigid PCB but needs different GPIO stack/connector arrangement and likely front module deck accommodation."
     }
   ],
-  "proposed_board_top_world_z_range_mm": [
-    17.95,
-    18.71
+  "recommended_bend_interval_mm": [
+    0.8,
+    6
   ],
-  "finding": "Estimated longest tail14.2mm leaves highest tipZ17.9708mm, only0.0208mm above lowest proposed PCB top17.95mm in this model. Therefore the widened estimate does NOT establish robust vertical mating. Connector insertion-stop elevation is still unknown; do not invent it or count slot insertion twice.",
-  "next_geometry_work": "Use actual slot entry/stop and full routing geometry before freezing FPC origin or board stack. Length measurement is no longer a prerequisite for provisional design; no claim that the entire13.2–14.2mm range fits."
+  "interpretation": "Conservative design check keeping all curvature inside the manufacturer-recommended bend region. This does not prove that bending outside that region is physically impossible or independently qualify such a route.",
+  "cad_revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744",
+  "pcb_release": "a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45"
 }

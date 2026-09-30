@@ -49,7 +49,7 @@
       "connector_height_mm": 2,
       "open_latch_height_mm": 4.8,
       "connector_dim_evidence": "Hirose drawing pp1,5; dimensions include tolerances per drawing",
-      "assembly_configuration": "180deg fold toward display back,1.35mm nominal inner radius and bend over unfolded1.0..5.7124mm. Invert retained bottom-contact connector around local Y so its board faces the now upward exposed contacts. See fpc-route.json; total native length13.7mm is a default layout estimate pending measurement. No PCB generated or connector board fixation claimed.",
+      "assembly_configuration": "Active PCB uses horizontal top-side FH12-10S-0.5SH(55), opening+Y. A native-tail bend is user authorized; the retained inverted13deg connector and180deg route are historical clearance targets, not the current mating route. Length13.7±0.5mm is a default estimate; contact orientation, reach and stack height require the actual CAD review.",
       "insertion_note": "Fully insert 0.30mm stiffened tail, close latch, inspect continuity. Do not add a generic FFC as if it were the panel tail.",
       "mechanical_route_ref": "design/handheld_computer/fpc-route.json"
     },
@@ -1288,15 +1288,14 @@
   },
   "active_lite_interface_revision": {
     "source": "user",
-    "status": "approved_not_built",
+    "status": "pcb_released_cad_reviewed_fpc_height_conflict",
     "connectors": {
-      "J_LCD": "FH12-10S-0.5SV(55)",
+      "J_LCD": "FH12-10S-0.5SH(55)",
       "J_PI": "SLW-120-01-G-D",
       "J_MOD": "SLW-104-01-G-D"
     },
     "proposal": "design/pi_baseboard_lite/interface-layout-proposal.json",
-    "supersedes": "For the active lite board, previous horizontal-FPC and SSQ connector constraints describe historical CAD only. Do not use them for the approved new board. CAD has not been changed.",
-    "blocker": "The PCB prerequisite validator only accepts toward_pcb or away_from_pcb for an FPC contact face. FH12-10S-0.5SV(55) is vertical, with a perpendicular contact plane. Neither value is correct. Keep BOM not ready until this interface can be represented and verified. The approved connector is not unavailable or rejected; this is a tooling limitation.",
+    "supersedes": "Current user direction is horizontal side entry with a bent native tail. The previous vertical FPC proposal and tooling blocker are obsolete.",
     "native_tail_length_mm": {
       "value": 13.7,
       "source": "default",
@@ -1313,6 +1312,59 @@
     "tail_non_contact_clearance_per_side_mm": {
       "value": 0.5,
       "source": "default"
+    },
+    "pcb_release": "a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45",
+    "pcb": {
+      "envelope_mm": [
+        40,
+        83.5
+      ],
+      "area_mm2": 2284.54,
+      "finished_thickness_mm": 0.8,
+      "copper_layers": 4,
+      "copper_oz": {
+        "outer": 1,
+        "inner": 1
+      },
+      "source": "default",
+      "reason": "Narrow GPIO spine and dense connector fanout repeatedly left unrouted power nets and disconnected ground regions on 2 layers; 4layer revision passed all connectivity and DFM gates."
+    },
+    "board_to_world_xy_mm": [
+      0,
+      -19
+    ],
+    "interfaces_world_xy_mm": {
+      "J_PI_centroid": [
+        -13.5,
+        2
+      ],
+      "J_LCD_origin": [
+        0,
+        6.7628506593
+      ],
+      "J_MOD_centroid": [
+        0,
+        -34
+      ]
+    },
+    "cad_models": "Stock KiCad SLW socket proxies do not represent exact4.57mm housing height. Exact enclosure-height qualification remains limited.",
+    "screen_screw_relief": "Left PCB edge has a chamfered notch at sourceY12.1..18.8, Xup to-17.3, to preserve screen screw1 with nominal0.5mm clearance.",
+    "cad_revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744",
+    "screen_screw_measured_clearance_mm": 0.737409,
+    "fpc_fit_review": {
+      "status": "horizontal_fpc_vertical_reach_conflict",
+      "interpretation": "Conservative design check keeping all curvature inside the manufacturer-recommended bend region. This does not prove that bending outside that region is physically impossible or independently qualify such a route.",
+      "minimum_height_shortfall_mm": 2.0437377383630464,
+      "next_choices": [
+        {
+          "option": "small_horizontal_fpc_daughterboard",
+          "changes": "Allows a raised small horizontal FPC connector board; changes the one rigid PCB requirement."
+        },
+        {
+          "option": "rework_single_board_stack",
+          "changes": "Retains one rigid PCB but needs different GPIO stack/connector arrangement and likely front module deck accommodation."
+        }
+      ]
     }
   }
 }

@@ -1,1 +1,0 @@
-publish("pi_baseboard_lite", asset("design/handheld_computer/source/assets/3b2aa6ea5a8299a7c540040ff2dcab3c1f86d838a6baf72e4eaa37314cc746d8.step"), "Lite PCB fit check")

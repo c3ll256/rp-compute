@@ -1,165 +1,135 @@
 {
   "schema_version": 1,
-  "status": "not_compiled_not_routed",
+  "status": "pcb_released_cad_reviewed_fpc_height_conflict",
+  "source": "default",
   "approved_connectors": {
-    "J_LCD": "FH12-10S-0.5SV(55)",
+    "J_LCD": "FH12-10S-0.5SH(55)",
     "J_PI": "SLW-120-01-G-D",
     "J_MOD": "SLW-104-01-G-D"
   },
-  "source": "default",
   "board_envelope_mm": [
     40,
     83.5
   ],
   "outline_mm": [
     [
-      -20,
+      -20.0,
       -35.5
     ],
     [
-      20,
+      20.0,
       -35.5
     ],
     [
-      20,
-      -10
+      20.0,
+      -10.0
     ],
     [
-      -2,
-      -10
+      -2.0,
+      -10.0
     ],
     [
-      -5,
-      -7
+      -3.0,
+      -7.0
     ],
     [
-      -5,
-      7
+      -3.0,
+      14.0
     ],
     [
-      -2,
-      9
+      10.0,
+      14.0
     ],
     [
-      6,
-      9
+      10.0,
+      38.0
     ],
     [
-      6,
-      18
+      -5.0,
+      38.0
     ],
     [
-      -2,
-      18
+      -5.0,
+      48.0
     ],
     [
-      -5,
-      21
+      -20.0,
+      48.0
     ],
     [
-      -5,
-      48
+      -20.0,
+      18.8
     ],
     [
-      -20,
-      48
+      -19.4,
+      18.2
+    ],
+    [
+      -17.8,
+      18.2
+    ],
+    [
+      -17.3,
+      17.7
+    ],
+    [
+      -17.3,
+      13.2
+    ],
+    [
+      -17.8,
+      12.7
+    ],
+    [
+      -19.4,
+      12.7
+    ],
+    [
+      -20.0,
+      12.1
     ]
   ],
+  "area_mm2": 2284.54,
   "finished_thickness_mm": 0.8,
+  "copper_layers": 4,
+  "copper_oz": {
+    "outer": 1,
+    "inner": 1
+  },
   "board_to_world_xy_mm": [
     0,
     -19
   ],
-  "placements": {
-    "J_PI": {
-      "origin_mm": [
-        -12.23,
-        -3.13
-      ],
-      "rotation_deg": 180,
-      "side": "bottom",
-      "pad_centroid_mm": [
-        -13.5,
-        21
-      ],
-      "footprint": "kicad:Connector_PinSocket_2.54mm/PinSocket_2x20_P2.54mm_Vertical",
-      "status": "intended to preserve prior physical pin1/2/39/40 positions; compiler readback required"
-    },
-    "J_MOD": {
-      "origin_mm": [
-        -3.81,
-        -13.73
-      ],
-      "rotation_deg": 90,
-      "side": "top",
-      "pad_centroid_mm": [
-        0,
-        -15
-      ],
-      "world_pad_centroid_mm": [
-        0,
-        -34
-      ]
-    },
-    "J_LCD": {
-      "origin_mm": [
-        0,
-        12.8
-      ],
-      "rotation_deg": 0,
-      "side": "top",
-      "world_origin_xy_mm": [
-        0,
-        -6.2
-      ],
-      "status": "trial datum only; vertical slot offset/contact side/pin1 and tail stop not verified"
-    },
-    "C_LCD_A": {
-      "origin_mm": [
-        0,
-        12.8
-      ],
-      "side": "bottom"
-    },
-    "C_LCD_D": {
-      "origin_mm": [
-        4,
-        12.8
-      ],
-      "side": "bottom"
-    }
-  },
-  "assembly_limits": {
-    "samtec_housing_mm": 4.57,
-    "samtec_tail_mm": 2.92,
-    "samtec_insertion_mm": [
-      2.16,
-      2.92
+  "world_xy_mm": {
+    "J_PI_centroid": [
+      -13.5,
+      2
     ],
-    "native_tail_length_mm": {
-      "value": 13.7,
-      "source": "default",
-      "uncertainty_mm": 0.5,
-      "review_range_mm": [
-        13.2,
-        14.2
-      ],
-      "status": "provisional_estimate_not_measured",
-      "datum": "Along the native tail from glass exit edge to the physical tip, including the stiffener and the portion inserted into the connector.",
-      "basis": "Retain the earlier 13.7mm drawing-proportion estimate; ±0.5mm is an agent-selected review allowance, not a manufacturer tolerance or guaranteed bound.",
-      "qualification": "User delegated estimation; no further measurement question is needed to continue provisional design. Do not claim fit validation or stretch the cable. Check shortest reach and longest-tail accommodation separately."
-    },
-    "pi_official_pin_tip_world_z_mm": 15.5,
-    "derived_board_bottom_z_range_mm": [
-      17.15,
-      17.91
+    "J_LCD_origin": [
+      0,
+      6.7628506593
     ],
-    "qualification": "Insertion arithmetic only, no tolerance/mating qualification. Third-party Pi model has different pin height. Board and connector clearances require actual geometry and dimensional validation.",
-    "tail_non_contact_clearance_per_side_mm": {
-      "value": 0.5,
-      "source": "default"
-    }
+    "J_MOD_centroid": [
+      0,
+      -34
+    ]
   },
-  "blocker": "Application FPC contract lacks perpendicular/vertical contact-face representation; no substitute enum or false horizontal contact declaration used.",
-  "area_mm2": 2001.0
+  "pcb_release": "a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45",
+  "validation": {
+    "placement": "passed",
+    "routing": "passed",
+    "ground_connectivity": "passed",
+    "drc_errors": 0,
+    "unconnected_items": 0,
+    "dfm": "passed"
+  },
+  "mechanical_qualification": "CAD uses this exact PCB release. Substrate clears checked enclosure bodies and screw1. Native tail cannot reach this horizontal socket height while keeping curvature within the manufacturer-recommended region; SLW library STEP bodies are proxies and do not qualify mating.",
+  "board_edge_relief": {
+    "reason": "Existing screen retaining screw1 at(-20,-3.5266) world intersects prior PCB edge",
+    "source": "research",
+    "minimum_nominal_screw_clearance_mm": 0.5,
+    "measured_clearance_mm": 0.737409,
+    "passed": true
+  },
+  "cad_revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744"
 }

@@ -1,7 +1,7 @@
 {
-  "status": "mechanical_route_target_with_user_authorized_provisional_tail_estimate",
+  "status": "historical_inverted_connector_clearance_path_not_active_mating_route",
   "source": "default",
-  "scope": "Native LS027B7DH01 tail only; no extension cable and no PCB",
+  "scope": "Retained negative clearance cuts from the prior screen design. Standalone fpc_zif CAD reference removed; current connector is part of the released compact PCB.",
   "frame": {
     "origin_world_mm": [
       0,
@@ -73,7 +73,7 @@
   },
   "connector": {
     "identity": "FH12-10S-0.5SH(55)",
-    "cad_object": "fpc_zif",
+    "cad_object": "removed historical fpc_zif target",
     "cad_identity_scope": "same-family KiCad dimensional reference; (55) suffix not certified by STEP",
     "position_world_mm": [
       0,
@@ -119,8 +119,8 @@
     "references/suppliers/c506791/c506791-datasheet.pdf pp1,5"
   ],
   "remaining_checks": [
-    "Final physical tail dimensions, connector entry/stop datum and pin1 remain qualification checks; user authorized13.7±0.5mm estimation for provisional design without waiting for measurement.",
-    "Compliant support material, thickness stack and image uniformity under fastening",
-    "Bind connector target to an actual supported board in a later PCB-authorized query"
+    "Current flat top-side FPC has a proven vertical-reach conflict under the retained screen and manufacturer bend-zone constraints. A horizontal interface architecture/stack revision is required.",
+    "Native tail length13.7±0.5mm remains an authorized estimate, not an outstanding user-measurement blocker.",
+    "SLW exact STEP and contact/pin1/stop verification remain unresolved."
   ]
 }
