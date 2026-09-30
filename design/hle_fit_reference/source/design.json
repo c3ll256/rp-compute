@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "units": "mm",
+  "coordinateFrame": "replicator-world-z-up",
+  "targets": [
+    {
+      "id": "hle_drawing_reference",
+      "label": "hle_drawing_reference",
+      "cells": [
+        {
+          "id": "hle_drawing_reference",
+          "target": "hle_drawing_reference",
+          "order": 0,
+          "path": "design/hle_fit_reference/source/parts/hle_drawing_reference/000-hle_drawing_reference.py",
+          "sha256": "bd9dce8c2c9c4a446eae9abf9e0ff228aaea67d442be49d5ef634e7f7e7db2fc"
+        }
+      ],
+      "dependencies": []
+    }
+  ],
+  "objects": [
+    {
+      "id": "hle_nominal_reference",
+      "target": "hle_drawing_reference",
+      "label": "HLE drawing reference; contact details omitted",
+      "kind": "generated",
+      "shapeHash": "4a442f383556748d9bc729651bfb14702c552b7cdb29eaf72277cbc1465d31cb",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    }
+  ],
+  "assets": [],
+  "fits": [],
+  "updatedAt": "2026-09-30T09:27:00.715Z",
+  "parameters": {
+    "hle_drawing_reference": {
+      "hle_reference_margin": 0
+    }
+  }
+}

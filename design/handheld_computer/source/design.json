@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "2608f745111e7e75abc553c42a57670bf8d309156a45577374ffbe9bb58222e7"
+          "sha256": "11bed8d863f56cb02295ad6f03fc2e61200154f5101e937ea9b738af70566e8b"
         }
       ],
       "dependencies": []
@@ -40,7 +40,7 @@
           "target": "fascia",
           "order": 0,
           "path": "design/handheld_computer/source/parts/fascia/000-fascia.py",
-          "sha256": "72ed37e83b58ceb8ad1d71a99b849fa68a5987bb1d12a4b375c820611432277d"
+          "sha256": "44febf2f494a571587ec99079356ab7310ba96c991192ad15b9a8cfeeceb2158"
         }
       ],
       "dependencies": []
@@ -89,7 +89,7 @@
           "target": "imports",
           "order": 1,
           "path": "design/handheld_computer/source/parts/imports/001-pi_baseboard_lite.py",
-          "sha256": "be835fef5771979162ef0f731a3f1df6fa730cb5af2fa8f3f6c0e33614028c9c"
+          "sha256": "f42dd6b22c263f61ff35a6cf3cdcafe83fc1398a24848d96fe796971d2db4401"
         }
       ],
       "dependencies": []
@@ -115,7 +115,7 @@
       "target": "shell",
       "label": "User replaceable front module blank",
       "kind": "generated",
-      "shapeHash": "95241bd1cd138cc66d9764cb60a62a8e408b011dde084f7c3be8560301685633",
+      "shapeHash": "a723c56e7b8543d8d0a36bdc08ab22234adf7f697232551817fbdb8be92c1e66",
       "transform": {
         "positionMm": [
           0,
@@ -241,11 +241,66 @@
       "datums": []
     },
     {
+      "id": "pcb_mount_screw_1",
+      "target": "shell",
+      "label": "PCB mount screw",
+      "material": "stainless_steel",
+      "kind": "generated",
+      "shapeHash": "cf6cfba2c05c84ab5fdfb8993e154c9264fc34f4273c23a35f64725056b6fce0",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pcb_mount_screw_2",
+      "target": "shell",
+      "label": "PCB mount screw",
+      "material": "stainless_steel",
+      "kind": "generated",
+      "shapeHash": "30aa707cff5f14a5d186033c7cf99080df09c02b667622ad7fa58cebf464af78",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
       "id": "shell",
       "target": "shell",
-      "label": "Rear and side port shell",
+      "label": "Upper shell PCB mounts",
+      "material": "pla",
       "kind": "generated",
-      "shapeHash": "1e7ffa58aaef7239a9bd2f4b9878c7c0c0f82371c7f5d9fbf9e68476cc3d7c58",
+      "shapeHash": "cae597f106853c34f871263e7c12146b80eda45bb0ab62133c96c8bec60fc497",
       "transform": {
         "positionMm": [
           0,
@@ -297,7 +352,7 @@
       "target": "fascia",
       "label": "Screen housing mounts",
       "kind": "generated",
-      "shapeHash": "c84eb09d76c6cb40c1a7d169c6d40efd585d2058b0529f06264073d3f0d64616",
+      "shapeHash": "23a275d0b899d981c116f31cf0212762e9871f8276dda2c18a4c488eb28cdb93",
       "transform": {
         "positionMm": [
           0,
@@ -323,7 +378,7 @@
       "target": "fascia",
       "label": "Rear retaining frame",
       "kind": "generated",
-      "shapeHash": "fea02387aed5566c0979ae86e6064fb2e25e9eb46c9ca483974116cf42abb870",
+      "shapeHash": "8e14921d8b12772e90124283a3dbfdf78cea0e0eafff993bcad7c09e313408fa",
       "transform": {
         "positionMm": [
           0,
@@ -349,7 +404,7 @@
       "target": "fascia",
       "label": "M2 retaining screw",
       "kind": "generated",
-      "shapeHash": "cf3a96a9477766c67220b0e58811e6f7329a26ebb6bb32d982dd2e18a5ebc536",
+      "shapeHash": "fa9f9823a79fd2d245e4ec215971c1d3e53280191a6528a0884a660703fa59ef",
       "transform": {
         "positionMm": [
           0,
@@ -375,7 +430,7 @@
       "target": "fascia",
       "label": "M2 retaining screw",
       "kind": "generated",
-      "shapeHash": "0b96ac36b8691a622f7c302e75512e04aaab6bbb67774e33a0a9fa08601d46c6",
+      "shapeHash": "b0408891156ceb34fd2b385a9a9d6a90f1cc17892814889a9fa0c6db1a211d3c",
       "transform": {
         "positionMm": [
           0,
@@ -401,7 +456,7 @@
       "target": "fascia",
       "label": "M2 retaining screw",
       "kind": "generated",
-      "shapeHash": "3ec7236af5e718359f39c75bd65a0cab823e0e76cbce1a192e1b865547979531",
+      "shapeHash": "365cb50071597e4c179061e45436919a3b30f0f229cea4314dc57cc52f90f823",
       "transform": {
         "positionMm": [
           0,
@@ -427,7 +482,7 @@
       "target": "fascia",
       "label": "M2 retaining screw",
       "kind": "generated",
-      "shapeHash": "ab84de37b2dd7ba8c7836704b0d7e052b3d8bf8d03d4c902972291272f7b69bf",
+      "shapeHash": "ea4e0d5a63cbb132447eda101d7b1bfdc0e915659298cc625d763b28a371e1a3",
       "transform": {
         "positionMm": [
           0,
@@ -531,12 +586,12 @@
       "target": "imports",
       "label": "pi_baseboard_lite",
       "kind": "imported",
-      "shapeHash": "cb3e494af72547cc6b5f7f7d7e61f6561faed7ccf39d2cf3695b2d546c2211fc",
+      "shapeHash": "6a24b8c45aab8c19a997d8f1d96308916055bd5dd1784428bd3203c4e58c7393",
       "transform": {
         "positionMm": [
           -100,
           81,
-          17.5
+          21.8
         ],
         "rotationDeg": [
           0,
@@ -623,16 +678,16 @@
     {
       "id": "pi_baseboard_lite",
       "kind": "step",
-      "path": "design/handheld_computer/source/assets/72635669da4be260878db47e3bb1eed03b253bbe890fcab37ef6e895f3cb8fa1.step",
-      "sha256": "72635669da4be260878db47e3bb1eed03b253bbe890fcab37ef6e895f3cb8fa1",
+      "path": "design/handheld_computer/source/assets/154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3.step",
+      "sha256": "154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3",
       "label": "pi_baseboard_lite",
       "provenance": {
-        "sourcePath": "manufacturing/pi_baseboard_lite/releases/a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45/package/assembly.step"
+        "sourcePath": "manufacturing/pi_baseboard_lite/releases/e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa/package/assembly.step"
       }
     }
   ],
   "fits": [],
-  "updatedAt": "2026-09-30T05:39:24.784Z",
+  "updatedAt": "2026-09-30T09:46:41.399Z",
   "parameters": {
     "shell": {
       "case_width": 85,
@@ -698,7 +753,22 @@
       "front_module_tongue_depth": 0.6,
       "front_module_screw_x": 31,
       "front_module_screw_y_offset": 15,
-      "front_module_screw_engagement": 2
+      "front_module_screw_engagement": 2,
+      "pcb_mount_bottom_z": 21.8,
+      "pcb_mount_x": 16,
+      "pcb_mount_y": -32,
+      "pcb_mount_beam_width": 6,
+      "pcb_mount_beam_thickness": 2,
+      "pcb_mount_engagement": 1,
+      "pcb_mount_cover_clearance": 0.5,
+      "pcb_rear_guide_y": 24,
+      "pcb_rear_guide_width": 8,
+      "pcb_rear_guide_thickness": 1.5,
+      "pcb_rear_guide_clearance": 0.3,
+      "front_module_gpio_width": 11.2,
+      "front_module_gpio_depth": 6.2,
+      "front_module_pcb_tip_relief_diameter": 3,
+      "front_module_gpio_pin_pocket_roof": 1.2
     },
     "base": {
       "base_width": 85,
@@ -747,7 +817,10 @@
       "fpc_bend_start": 1,
       "fpc_inner_radius": 1.35,
       "fpc_free_length": 13.7,
-      "fpc_path_clearance": 0.25
+      "fpc_path_clearance": 0.25,
+      "fascia_pcb_bottom_z": 21.8,
+      "fascia_pcb_clearance": 0.5,
+      "fascia_pcb_top_air": 1.5
     },
     "bezel": {
       "bezel_width": 66,

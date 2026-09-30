@@ -1,0 +1,79 @@
+{
+  "designId": "hle_fit_reference",
+  "revision": "98a8467500b4c0e86cc35ee83266f78e8a83d923b33f2e2ed62e764995f01e97",
+  "schemaVersion": 2,
+  "exportId": "export-e9738117ca9e6bd1918dab7713915dc9",
+  "generatedAt": "2026-09-30T09:27:00.715Z",
+  "designSha256": "db739792be3984d2575eed898f8efb83818c4120408018e1fa222a066ab2a507",
+  "role": "hle_fit_reference",
+  "stateHash": "6502de72e8843dbec1075c164c8fdb619c23bb7dab71753512b5104281cabc83",
+  "stateManifest": {
+    "schemaVersion": 3,
+    "designId": "hle_fit_reference",
+    "role": "hle_fit_reference",
+    "design": {
+      "revision": "98a8467500b4c0e86cc35ee83266f78e8a83d923b33f2e2ed62e764995f01e97",
+      "designSha256": "ec53bd12ba164eefcec5cfba38fb8421fcaae38801db9db3614f77bf8bdd9292",
+      "manifestSha256": "01c08bb47a3e2c38d63b1a4f4856486eb0679b97b04c40a1e73fc5a092e4bc24",
+      "stepSha256": "33dce5b72ab2367bfa9f56eeb865dfe7837cbf12eb2d9434a77a5909335b00b0",
+      "pcbReleases": []
+    },
+    "brief": {
+      "path": "design/hle_fit_reference/README.md",
+      "sha256": "65fb352a073136ecd8e3c2e847b8fe8029aeec126280a2faf9f6ef264be66254"
+    },
+    "requirement": {
+      "artifactContractPath": "product/contract.json",
+      "artifactContractSha256": null,
+      "designRequirementSha256": null,
+      "inputs": []
+    },
+    "delivery": {
+      "target": "visual_review",
+      "formats": [
+        "step"
+      ]
+    },
+    "stateHash": "6502de72e8843dbec1075c164c8fdb619c23bb7dab71753512b5104281cabc83"
+  },
+  "buildArtifacts": {
+    "manifestSha256": "01c08bb47a3e2c38d63b1a4f4856486eb0679b97b04c40a1e73fc5a092e4bc24",
+    "stepSha256": "33dce5b72ab2367bfa9f56eeb865dfe7837cbf12eb2d9434a77a5909335b00b0"
+  },
+  "exportAlgorithm": {
+    "version": 1,
+    "bootstrapSha256": "ee3801d485ce9c36c94064620fc14c1fad29a20395abe3cd26ac51a72ac105d1"
+  },
+  "sourceHashes": {
+    "hle_drawing_reference/hle_drawing_reference": "bd9dce8c2c9c4a446eae9abf9e0ff228aaea67d442be49d5ef634e7f7e7db2fc"
+  },
+  "assetHashes": {},
+  "shapeHashes": {
+    "hle_nominal_reference": "4a442f383556748d9bc729651bfb14702c552b7cdb29eaf72277cbc1465d31cb"
+  },
+  "runtime": {
+    "manifestHash": "ad4e6ab8908369894bf3efc22499a091e1bd46ac06f79e6d58fdf5326bf84537",
+    "pythonVersion": "3.12.13",
+    "build123dVersion": "0.10.0",
+    "ocpVersion": "7.8.1.1.post1",
+    "cadpyHash": "eab6dc65ad496ee6860f3f3d9d8c9d9a5569c9c052c59081052894a8130ce5cf"
+  },
+  "artifacts": [
+    {
+      "path": "manufacturing/hle_fit_reference/releases/export-e9738117ca9e6bd1918dab7713915dc9/model.step",
+      "role": "model/step",
+      "sha256": "33dce5b72ab2367bfa9f56eeb865dfe7837cbf12eb2d9434a77a5909335b00b0",
+      "sizeBytes": 243710
+    }
+  ],
+  "authority": {
+    "version": 1,
+    "algorithm": "hmac-sha256",
+    "keyId": "bcf92b0ef0c9bdb29ac662e9143b6212",
+    "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
+    "receiptPath": "manufacturing/hle_fit_reference/releases/export-e9738117ca9e6bd1918dab7713915dc9/receipt.json",
+    "payloadSha256": "0fc989649fb99bf5d1560f8863fb97df92f1048b481c64c08bda41bb0742576a",
+    "mac": "9e3426e89aff25326338ea21e2dfbf8a5329d815f30565c57b8c213229bd5725"
+  },
+  "status": "handoff"
+}

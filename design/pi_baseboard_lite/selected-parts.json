@@ -1,6 +1,6 @@
 {
   "scope": "Active lite PCB purchase rows; canonical quantities and bindings are in product/bom.json.",
-  "requirements_digest": "3eb6139aaf950a4018598b27162d6d06054a58fec1f0550d900f10259b7d40c5",
+  "requirements_digest": "b0262300aab48763325adee219ae4fdbfaa3b5c5401ea0aea10dae58ab3c707b",
   "items": [
     {
       "id": "display_fpc",
@@ -11,8 +11,8 @@
       "manufacturer": "Hirose",
       "part_number": "FH12-10S-0.5SH(55)",
       "mpn": "FH12-10S-0.5SH(55)",
-      "stock": 8363,
-      "source": "default",
+      "stock": 8198,
+      "source": "user",
       "procurement_status": "catalog_verified",
       "lcsc_code": "C506791",
       "jlc_smt_library": "extended",
@@ -36,15 +36,17 @@
           "product/references/LS027B7DH01-sharp-2010.pdf p26"
         ]
       },
-      "selection_reason": "Retained 10-contact 0.5mm bottom-contact FPC for LS027B7DH01; candidate horizontal bottom placement still needs enclosure and short-tail fit check. Electrical prototype only.",
-      "observed_date": "2026-09-20",
+      "selection_reason": "Horizontal bottom-contact Hirose retained; user requests opening down/front (-Y), rotate native footprint0deg, numeric electrical pin map unchanged.",
+      "observed_date": "2026-09-30",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "supply_risk": "Native tail13.7±0.5mm is estimated. Opening is down/front; complete tail contact-face/stop and installation bend remain under review.",
       "requirements_review": "FPC moves to screen-facing top PCB side; exact Hirose part and numeric pin map retained, cable path not yet mechanically validated.",
       "designators": [
         "J_LCD"
       ],
-      "selection_status": "pcb_check_ready_bench_validation_pending"
+      "selection_status": "selected_for_compact_board_cad_review",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200402/C506791_7CB403EBF87F84682F415173294C9BF9.pdf",
+      "footprint": "jlcpcb:C506791"
     },
     {
       "id": "ldo_3v3",
@@ -116,40 +118,39 @@
       ]
     },
     {
-      "quantity": 1,
-      "source": "default",
-      "observed_date": "2026-09-21",
-      "required_user_evidence": [],
       "id": "gpio_dock",
-      "role": "pi_gpio_docking_socket",
-      "name": "SSQ-120-02-G-D",
-      "mpn": "SSQ-120-02-G-D",
-      "part_number": "SSQ-120-02-G-D",
-      "manufacturer": "SAMTEC",
-      "supplier": "LCSC / Samtec external procurement",
-      "lcsc_code": "C7370433",
-      "stock": null,
-      "procurement_status": "external_procurement_required",
-      "product_url": "https://www.samtec.com/products/ssq-120-02-g-d",
-      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/231023/C17230646-eee8e7b4de5102e9d06880fcb7ab015e.pdf",
-      "package": "2x20 through-hole female socket,2.54mm pitch,straight",
+      "role": "gpio_dock",
+      "quantity": 1,
+      "designators": [
+        "J_PI"
+      ],
+      "source": "default",
+      "stock": 6,
+      "observed_date": "2026-09-30",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
-      "selection_status": "pcb_check_ready_bench_validation_pending",
-      "description": "Exact supplier/manufacturer match. SSQ square-tail socket,20positions each of2rows. Catalog:8.51mm housing,4.93mm -02tail; insertion3.68–6.35mm. SSQ/TSW current6.3A perpin with2pins powered; this is NOT a Pi-header pair qualification.",
-      "selection_reason": "Exact SSQ-120-02-G-D retained. Manufacturer RevBH series drawing and RevA PCB layout now cached: 2x20,2.54mm pitch,1.02mm hole callout. Physical Pi mating/temperature and final standoff stack require prototype/CAD validation, not another purchasing choice.",
-      "supply_risk": "Manufacturer reports zero distributor stock forG variant; price/availability advisory. ExactPi header geometry and mixed-vendor contact performance not qualified.8.51mm housing is not completedboard spacing. Standard insertion force across40contacts may require support. Manufacturer seriesprint download blocked; productionfootprint/dimension tolerances remain unverified.",
-      "evidence_refs": [
-        "product/references/ssq-ssw-samtec-catalog.pdf p1",
-        "product/references/ssq-120-02-g-d-page.txt"
-      ],
-      "part_identity": "0d7270392f5f1ed8",
-      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
-      "designators": [
-        "J_PI"
-      ]
+      "required_user_evidence": [],
+      "name": "ESQ-120-12-G-D",
+      "mpn": "ESQ-120-12-G-D",
+      "part_number": "ESQ-120-12-G-D",
+      "manufacturer": "SAMTEC",
+      "supplier": "LCSC / Samtec authorized distributor",
+      "procurement_status": "catalog_verified",
+      "product_url": "https://item.szlcsc.com/3883792.html",
+      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/esq_th.pdf",
+      "package": "2x20 through-hole, 2.54mm pitch/row spacing",
+      "footprint": "jlcpcb:C3319198",
+      "description": "ESQ-120-12-G-D: installed housing height 11.05mm; 2.29mm square solder tails, insertion3.68..6.35mm.",
+      "selection_reason": "User requested a higher Pi female socket; selected11.05mm ESQ at21.8mm substrate datum yields4.75mm nominal official-header engagement.",
+      "supply_risk": "Exact supplier identity verified; supplier/3D model height and pad orientation checked after compile. Manual assembly prototype.",
+      "part_identity": "bdd6cd0fb7d72c2f",
+      "lcsc_code": "C3319198",
+      "datasheet_path": "references/suppliers/c3319198/c3319198-datasheet.pdf",
+      "jlc_smt_library": "extended",
+      "selection_status": "selected_for_interface_revision",
+      "unit_price_cny": 48.76
     },
     {
       "id": "gpio_aux_limiter",
@@ -183,32 +184,40 @@
     },
     {
       "id": "lite_header",
-      "role": "lite_expansion_female_socket",
-      "name": "SSQ-104-02-G-D",
-      "mpn": "SSQ-104-02-G-D",
-      "part_number": "SSQ-104-02-G-D",
-      "manufacturer": "Samtec",
+      "role": "lite_header",
       "quantity": 1,
-      "supplier": "Samtec / authorized distributor",
-      "stock": null,
+      "designators": [
+        "J_MOD"
+      ],
       "source": "default",
-      "procurement_status": "external_procurement_required",
-      "description": "2x4 vertical female socket, 2.54mm pitch; 8.51mm body and 4.93mm square solder tails",
-      "package": "Through-hole 2x4, 2.54mm pitch and row spacing",
-      "product_url": "https://www.samtec.com/products/ssq-104-02-g-d",
-      "datasheet_url": "https://suddendocs.samtec.com/prints/ssq-1xx-xx-xxx-x-xx-xxx-xx-x-mkt.pdf",
+      "stock": null,
+      "observed_date": "2026-09-30",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
-      "selection_reason": "User requests female 8-contact socket. Exact Samtec SSQ-104-02-G-D identity verified on official product page; existing SSQ Rev BH series drawing confirms 4 positions per row, double row, 2.54mm pitch, 8.51mm housing, 4.93mm tails and 0.64mm square terminals. Standard KiCad PinSocket_2x04_P2.54mm_Vertical has native socket numbering and 1.0mm holes; preserve numeric functions, recheck actual pad positions.",
       "required_user_evidence": [],
-      "part_identity": "166527174da573df",
-      "designators": [
-        "J_MOD"
-      ],
-      "supply_risk": "Catalog search did not return; exact Samtec purchase is external, stock and price unverified. No qualified drop-in alternate. Standard KiCad STEP is a proxy; real 8.51mm body/4.93mm tails and module mating stack require CAD fit verification.",
-      "selection_status": "pcb_check_ready_bench_validation_pending"
+      "name": "HLE-104-02-G-DV",
+      "mpn": "HLE-104-02-G-DV",
+      "part_number": "HLE-104-02-G-DV",
+      "manufacturer": "SAMTEC",
+      "supplier": "Samtec / authorized distributor",
+      "procurement_status": "external_procurement_required",
+      "product_url": "https://www.samtec.com/products/hle-104-02-g-dv",
+      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/hle.pdf",
+      "package": "2x4 SMT, 2.54mm mating pitch/row spacing",
+      "footprint": "vendor:Samtec_HLE-104-02-xxx-DV_2x04_P2.54mm_Horizontal",
+      "description": "HLE-104-02-G-DV: installed housing height 3.66mm; SMT top entry; insertion1.78..3.43mm; native land centres5.05mm apart.",
+      "selection_reason": "User requested a lower8pin interface. HLE3.66mm is0.91mm lower than SLW4.57mm; same2.54mm mating pitch, new verified SMT land pattern.",
+      "supply_risk": "LCSC currently has no stock evidence; external procurement may be needed. Module retention must be mechanical; verify insertion depth1.78..3.43mm.",
+      "part_identity": "0b77c3e9c7ad5571",
+      "datasheet_path": "references/suppliers/c6630649/c6630649-datasheet.pdf",
+      "selection_status": "selected_for_interface_revision",
+      "unit_price_cny": 20.66,
+      "catalog_evidence": {
+        "lcsc": "C6630649",
+        "status": "exact identity but supplier footprint unavailable; use matching stock KiCad HLE-DV footprint"
+      }
     },
     {
       "id": "lite_c100n",

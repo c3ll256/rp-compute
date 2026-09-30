@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "0116d7014f3b7192ef33ad8f11057caaf8f6dab72bad2ee7a8b5a37215b8d57c",
+  "requirements_digest": "b0262300aab48763325adee219ae4fdbfaa3b5c5401ea0aea10dae58ab3c707b",
   "items": [
     {
       "id": "compute",
@@ -128,10 +128,10 @@
           "product/references/LS027B7DH01-sharp-2010.pdf p26"
         ]
       },
-      "selection_reason": "User selected horizontal side entry and native-tail folding. Exact Hirose 10contact0.5mm bottom-contact interface retained; manual prototype assembly.",
+      "selection_reason": "Horizontal bottom-contact Hirose retained; user requests opening down/front (-Y), rotate native footprint0deg, numeric electrical pin map unchanged.",
       "observed_date": "2026-09-30",
       "required_user_evidence": [],
-      "supply_risk": "Native-tail folding and reduced Pi stack require CAD fit review; total tail estimate13.7±0.5mm is not a manufactured tolerance.",
+      "supply_risk": "Native tail13.7±0.5mm is estimated. Opening is down/front; complete tail contact-face/stop and installation bend remain under review.",
       "requirements_review": "FPC moves to screen-facing top PCB side; exact Hirose part and numeric pin map retained, cable path not yet mechanically validated.",
       "designators": [
         "J_LCD"
@@ -216,28 +216,33 @@
       "designators": [
         "J_PI"
       ],
-      "source": "user",
-      "stock": null,
-      "observed_date": "2026-09-29",
+      "source": "default",
+      "stock": 6,
+      "observed_date": "2026-09-30",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
       "required_user_evidence": [],
-      "name": "SLW-120-01-G-D",
-      "mpn": "SLW-120-01-G-D",
-      "part_number": "SLW-120-01-G-D",
-      "manufacturer": "Samtec",
-      "supplier": "Samtec / authorized distributor",
-      "procurement_status": "external_procurement_required",
-      "product_url": "https://www.samtec.com/products/slw-120-01-g-d",
-      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/slw.pdf",
-      "package": "Through-hole 2x20, 2.54mm pitch and row spacing",
-      "footprint": "kicad:Connector_PinSocket_2.54mm/PinSocket_2x20_P2.54mm_Vertical",
-      "description": "2x20 vertical female socket, housing4.57mm, solder tails2.92mm, insertion2.16–2.92mm.",
-      "selection_reason": "User explicitly approved low-profile replacement. Samtec SLW catalog establishes 2.54mm pitch/row spacing and mechanical stack; use stock through-hole socket footprint after numeric pad review.",
-      "supply_risk": "External procurement; no stock/price claim. Standard library STEP is not an exact SLW height model; do not qualify enclosure fit using it. Pi official drawing and existing third-party STEP disagree on male pin height.",
-      "part_identity": "f9608fb5aa8c855c"
+      "name": "ESQ-120-12-G-D",
+      "mpn": "ESQ-120-12-G-D",
+      "part_number": "ESQ-120-12-G-D",
+      "manufacturer": "SAMTEC",
+      "supplier": "LCSC / Samtec authorized distributor",
+      "procurement_status": "catalog_verified",
+      "product_url": "https://item.szlcsc.com/3883792.html",
+      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/esq_th.pdf",
+      "package": "2x20 through-hole, 2.54mm pitch/row spacing",
+      "footprint": "jlcpcb:C3319198",
+      "description": "ESQ-120-12-G-D: installed housing height 11.05mm; 2.29mm square solder tails, insertion3.68..6.35mm.",
+      "selection_reason": "User requested a higher Pi female socket; selected11.05mm ESQ at21.8mm substrate datum yields4.75mm nominal official-header engagement.",
+      "supply_risk": "Exact supplier identity verified; supplier/3D model height and pad orientation checked after compile. Manual assembly prototype.",
+      "part_identity": "bdd6cd0fb7d72c2f",
+      "lcsc_code": "C3319198",
+      "datasheet_path": "references/suppliers/c3319198/c3319198-datasheet.pdf",
+      "jlc_smt_library": "extended",
+      "selection_status": "selected_for_interface_revision",
+      "unit_price_cny": 48.76
     },
     {
       "id": "front_module_blank",
@@ -255,7 +260,7 @@
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "description": "Flush 70x37x1.4mm blank front module with locating tongue; future function modules copy the same mechanical datum.",
+      "description": "Removable front module blank with upper-shell beam relief, tip clearances and recessed lower8pin socket access.",
       "selection_reason": "Defined by committed enclosure geometry and the user-marked interchangeable area.",
       "part_identity": "622d0f7d7c815f29",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics."
@@ -318,28 +323,35 @@
       "designators": [
         "J_MOD"
       ],
-      "source": "user",
+      "source": "default",
       "stock": null,
-      "observed_date": "2026-09-29",
+      "observed_date": "2026-09-30",
       "assembly": {
         "population": "mounted",
         "method": "manual"
       },
       "required_user_evidence": [],
-      "name": "SLW-104-01-G-D",
-      "mpn": "SLW-104-01-G-D",
-      "part_number": "SLW-104-01-G-D",
-      "manufacturer": "Samtec",
+      "name": "HLE-104-02-G-DV",
+      "mpn": "HLE-104-02-G-DV",
+      "part_number": "HLE-104-02-G-DV",
+      "manufacturer": "SAMTEC",
       "supplier": "Samtec / authorized distributor",
       "procurement_status": "external_procurement_required",
-      "product_url": "https://www.samtec.com/products/slw-104-01-g-d",
-      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/slw.pdf",
-      "package": "Through-hole 2x4, 2.54mm pitch and row spacing",
-      "footprint": "kicad:Connector_PinSocket_2.54mm/PinSocket_2x04_P2.54mm_Vertical",
-      "description": "2x4 vertical female socket, housing4.57mm, solder tails2.92mm, insertion2.16–2.92mm.",
-      "selection_reason": "User explicitly approved low-profile replacement. Samtec SLW catalog establishes 2.54mm pitch/row spacing and mechanical stack; use stock through-hole socket footprint after numeric pad review.",
-      "supply_risk": "External procurement; no stock/price claim. Standard library STEP is not an exact SLW height model; do not qualify enclosure fit using it. Pi official drawing and existing third-party STEP disagree on male pin height.",
-      "part_identity": "dcac0212a6dbc22e"
+      "product_url": "https://www.samtec.com/products/hle-104-02-g-dv",
+      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/hle.pdf",
+      "package": "2x4 SMT, 2.54mm mating pitch/row spacing",
+      "footprint": "vendor:Samtec_HLE-104-02-xxx-DV_2x04_P2.54mm_Horizontal",
+      "description": "HLE-104-02-G-DV: installed housing height 3.66mm; SMT top entry; insertion1.78..3.43mm; native land centres5.05mm apart.",
+      "selection_reason": "User requested a lower8pin interface. HLE3.66mm is0.91mm lower than SLW4.57mm; same2.54mm mating pitch, new verified SMT land pattern.",
+      "supply_risk": "LCSC currently has no stock evidence; external procurement may be needed. Module retention must be mechanical; verify insertion depth1.78..3.43mm.",
+      "part_identity": "0b77c3e9c7ad5571",
+      "datasheet_path": "references/suppliers/c6630649/c6630649-datasheet.pdf",
+      "selection_status": "selected_for_interface_revision",
+      "unit_price_cny": 20.66,
+      "catalog_evidence": {
+        "lcsc": "C6630649",
+        "status": "exact identity but supplier footprint unavailable; use matching stock KiCad HLE-DV footprint"
+      }
     },
     {
       "id": "lite_c100n",
@@ -512,6 +524,59 @@
         "C_AUX_LOUT"
       ],
       "selection_status": "pcb_check_ready_bench_validation_pending"
+    },
+    {
+      "id": "upper_shell_pcb_fixture",
+      "role": "printed_upper_shell",
+      "name": "Upper enclosure with integrated PCB beams and rear guide",
+      "quantity": 1,
+      "manufacturer": "Project custom",
+      "mpn": "handheld_computer-upper-shell-pcb-mount",
+      "part_number": "handheld_computer-upper-shell-pcb-mount",
+      "supplier": "Prototype fabrication",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "description": "Printed upper shell, existing85x115x27mm exterior. Two transverse PCB screw beams plus rear edge shelf/guide integrated in the shell. CAD default PLA; print fit, strength and service life untested.",
+      "selection_reason": "User requires raised compact PCB fixed to upper enclosure independently of detachable bottom and front cassette.",
+      "cad_relevance": {
+        "description": "Two existing2.2mm PCB holes at world(+/-16,-32) and rear left board edge."
+      },
+      "part_identity": "7907fe52a3d40080"
+    },
+    {
+      "id": "pcb_upper_mount_screws",
+      "role": "pcb_mechanical_fasteners",
+      "name": "ISO4762 M2-0.4 x4mm socket-head cap screw",
+      "quantity": 2,
+      "manufacturer": "ISO 4762 standard",
+      "mpn": "ISO 4762 M2-0.4 x4 mm",
+      "part_number": "ISO 4762 M2-0.4 x4 mm",
+      "supplier": "User-selected standard hardware",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "description": "Two underside-access M2x4 screws through released2.2mm PCB holes,1mm selected self-forming engagement in upper-shell beams. Kit-selected4mm screw protrudes beyond2mm receiving beam;3mm cover clearance holes prevent loading the removable module blank.",
+      "selection_reason": "Upper shell carries PCB; no fastening into the bottom cover or removable front cassette.",
+      "cad_model": {
+        "format": "step",
+        "source_url": "https://github.com/gumyr/bd_warehouse",
+        "model_id": "bd-warehouse:bd_warehouse.fastener.SocketHeadCapScrew"
+      },
+      "cad_relevance": {
+        "description": "At worldX+/-16,Y-32, board bottomZ22.5."
+      },
+      "part_identity": "642d0879861d9f2f"
     }
   ],
   "alternatives": [],
@@ -527,5 +592,5 @@
   ],
   "unresolved_items": [],
   "scope": "Active pi_baseboard_lite: display FPC, display support and current-limited 3.3V 8-pin module interface. Pi powered via native USB-C. Full variant inventory retained separately under design/pi_baseboard/full-variant-bom.json.",
-  "review_status": "Horizontal FPC and low-profile sockets selected for compact prototype; mechanical fit pending actual CAD assembly review."
+  "review_status": "interface_geometry_revision_under_validation"
 }

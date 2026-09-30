@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "releases": [
     {
-      "releaseId": "a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45",
+      "releaseId": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa",
       "designId": "pi_baseboard_lite",
-      "buildId": "467880f8bd542495d5a913c9ec667aa2390df76883c52231dcd351f133155db3",
-      "candidateId": "3d9a5bc340d6f67409b0114056803f6eb967d21fb00b5976a2e2cc1fbb962f51",
-      "approvedAt": "2026-09-30T05:35:27.976Z"
+      "buildId": "b4386b3b5f8ed0df65e74ebd84b29e7f4bacc582fced066854f3b3bcf87e5cdf",
+      "candidateId": "56d3494a278b528af0f392216cce8f396dc9c9479375b2fbcfc165f49b3f2252",
+      "approvedAt": "2026-09-30T09:29:56.429Z"
     }
   ]
 }

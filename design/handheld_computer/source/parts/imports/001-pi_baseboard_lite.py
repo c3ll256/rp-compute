@@ -1,1 +1,1 @@
-publish("pi_baseboard_lite", asset("design/handheld_computer/source/assets/72635669da4be260878db47e3bb1eed03b253bbe890fcab37ef6e895f3cb8fa1.step"), "pi_baseboard_lite")
+publish("pi_baseboard_lite", asset("design/handheld_computer/source/assets/154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3.step"), "pi_baseboard_lite")

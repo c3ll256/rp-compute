@@ -1,0 +1,195 @@
+{
+  "designId": "handheld_computer",
+  "revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
+  "schemaVersion": 2,
+  "exportId": "export-1fd7a204d7267eb5d21ecf8cab59979c",
+  "generatedAt": "2026-09-30T09:46:41.399Z",
+  "designSha256": "9d404084b62fad56c8b64221a5fc3fa6352d554a29f504460b20ac891d6153ae",
+  "role": "computer_enclosure",
+  "stateHash": "bac55489dbf04d0160c1260a4c27b999afdbfb30126816cac80462c4286e6c17",
+  "stateManifest": {
+    "schemaVersion": 3,
+    "designId": "handheld_computer",
+    "role": "computer_enclosure",
+    "design": {
+      "revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
+      "designSha256": "dedc2ae8a2d7109c76d3f06b486bf5db26b7f930b272c877e4a6ff6f40f964e8",
+      "manifestSha256": "e4090b1219108b257576fa46c8c6ac8b3d4e4c39841b968f3a87aee91e7fc0e2",
+      "stepSha256": "bb93a99b4a99c825f81aba0df0696676347fc27b038b7f33b8daa0bbcba6b5d3",
+      "pcbReleases": []
+    },
+    "brief": {
+      "path": "design/handheld_computer/README.md",
+      "sha256": "4601e07cdc7e6cca5ffe88422330e94164aa3c726848a31bcf9007f1cb325750"
+    },
+    "requirement": {
+      "artifactContractPath": "product/contract.json",
+      "artifactContractSha256": "e8e6ff117602106c7d2faf1a7233a1cb7a7be4eace1042ea2f782f5180ae2197",
+      "designRequirementSha256": "0f1cbde494efe731c501bd46409018dffabf717f651a81bae96b0b8318ec41c4",
+      "inputs": [
+        {
+          "role": "external-reference",
+          "id": "correction_reference_1",
+          "path": "product/references/uploads/20260921T125420119Z-1-cleanshot-2026-09-21-at-21-53-40-2x.png",
+          "sha256": "5b816571a1d03f9ccf44cc8807905be7877af222f3ded8e8d3c042eb08038ac7",
+          "sizeBytes": 438116
+        },
+        {
+          "role": "external-reference",
+          "id": "correction_reference_2",
+          "path": "product/references/uploads/20260921T125420119Z-2-cleanshot-2026-09-21-at-21-54-09-2x.png",
+          "sha256": "1e97a706bb92a25a388cdd51ef75435ada9f0441946ecc0988e96fef16e84420",
+          "sizeBytes": 594496
+        },
+        {
+          "role": "external-reference",
+          "id": "front_gpio_module_markup",
+          "path": "product/references/uploads/20260923T073703116Z-1-mark.png",
+          "sha256": "0826315b422b0c75b3868c80468b9f9b2f83c91ecdd548cd9d39f2efc329b23c",
+          "sizeBytes": 686944
+        },
+        {
+          "role": "external-reference",
+          "id": "pi4b_product_brief",
+          "path": "product/references/pi4b-product-brief.pdf",
+          "sha256": "00411dddb1ac92cf40bb8daa4e1389d991a9faa7620bcc1293dfaf478f92b1c3",
+          "sizeBytes": 1028776
+        },
+        {
+          "role": "external-reference",
+          "id": "reference_photo_angled",
+          "path": "product/references/uploads/20260920T083508002Z-1-cleanshot-2026-09-20-at-17-32-32-2x.png",
+          "sha256": "56e0b78d601e99279211bbf50b95178de03664ff0698e26a46e0403f26f11c04",
+          "sizeBytes": 789421
+        },
+        {
+          "role": "external-reference",
+          "id": "reference_photo_front",
+          "path": "product/references/uploads/20260920T083508002Z-2-cleanshot-2026-09-20-at-17-34-41-2x.png",
+          "sha256": "5d703f4fab13516c1b40f6fd674a65fa50d0822f253e2f110fea983e4064d8ad",
+          "sizeBytes": 1516484
+        },
+        {
+          "role": "external-reference",
+          "id": "screen_front_1mm_markup",
+          "path": "product/references/uploads/20260922T122038436Z-1-mark.png",
+          "sha256": "913ed45a89ad1d9bbecb51a323fd7039d54d9e6d03b44cda57034c4c9f2d62d1",
+          "sizeBytes": 611733
+        },
+        {
+          "role": "external-reference",
+          "id": "shallow_angle_markup",
+          "path": "product/references/uploads/20260922T052150882Z-1-mark.png",
+          "sha256": "285f59de9d212fbf3e3797e7e0f970c223027ba70cd09f9d6543ce65df0e6bae",
+          "sizeBytes": 94975
+        },
+        {
+          "role": "external-reference",
+          "id": "sharp_datasheet",
+          "path": "product/references/LS027B7DH01-sharp-2010.pdf",
+          "sha256": "997ecbcb7f020fbe077632dc90f6bf82d9e0e49ccf2211484093dec348965d98",
+          "sizeBytes": 790088
+        }
+      ]
+    },
+    "delivery": {
+      "target": "visual_review",
+      "formats": [
+        "step"
+      ]
+    },
+    "stateHash": "bac55489dbf04d0160c1260a4c27b999afdbfb30126816cac80462c4286e6c17"
+  },
+  "buildArtifacts": {
+    "manifestSha256": "e4090b1219108b257576fa46c8c6ac8b3d4e4c39841b968f3a87aee91e7fc0e2",
+    "stepSha256": "bb93a99b4a99c825f81aba0df0696676347fc27b038b7f33b8daa0bbcba6b5d3"
+  },
+  "exportAlgorithm": {
+    "version": 1,
+    "bootstrapSha256": "ee3801d485ce9c36c94064620fc14c1fad29a20395abe3cd26ac51a72ac105d1"
+  },
+  "sourceHashes": {
+    "base/base": "3b20a251258265277722e66da6352bdc9d0861b2f14c9e38401d937017e28ff5",
+    "bezel/bezel": "cb752d27f215b046a382b7ede17afc0a9594195d361e57bc0cc735d18d451823",
+    "fascia/fascia": "44febf2f494a571587ec99079356ab7310ba96c991192ad15b9a8cfeeceb2158",
+    "imports/pi_baseboard_lite": "f42dd6b22c263f61ff35a6cf3cdcafe83fc1398a24848d96fe796971d2db4401",
+    "imports/pi4b": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40",
+    "power_cap/power_cap": "68c889bf45a9a2a9027624e03079a5073cd393df3cbfe12e4f0c594d3e812561",
+    "screen_cushions/screen_cushions": "99d4412dc2fdf2ffd47b86592ce3e38e8b1721dca7f9abdb04f3b28bfa861ac2",
+    "shell/shell": "11bed8d863f56cb02295ad6f03fc2e61200154f5101e937ea9b738af70566e8b"
+  },
+  "assetHashes": {
+    "pi_baseboard_lite": "154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3",
+    "pi4b": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe"
+  },
+  "shapeHashes": {
+    "base": "89c7422a914f61470c6ac8d6c2f770747ef951f8b10b4c2e4c4edaeab112cfe2",
+    "bezel": "8774de76e9005319f79bdaac97948d01a5322135ab4d30ecd8ee75b0bd251129",
+    "fascia": "23a275d0b899d981c116f31cf0212762e9871f8276dda2c18a4c488eb28cdb93",
+    "front_cushion": "3e1683f4becbf3cd5306da3885fe73f734d2aa45350c9ef77c0aa57710576bec",
+    "front_module_blank": "a723c56e7b8543d8d0a36bdc08ab22234adf7f697232551817fbdb8be92c1e66",
+    "front_module_screw_1": "616f4094e3c534a427b40a70f828c85f01270236da9854f72e5abc5bb17385df",
+    "front_module_screw_2": "041b3b3c3b60cb3782211e9be70f7003679bf784cbc1e48db63e03dd8cd4d4bc",
+    "front_module_screw_3": "6d201e0f0e6f275cdbea6ab4afe60f05684c3c8ed8dcdaa68e0d2f2ae379d07f",
+    "front_module_screw_4": "3e692d1fbf6f274f3e7405c745121165bb41de8e06b6f80bdd61ee0f896df2b7",
+    "pcb_mount_screw_1": "cf6cfba2c05c84ab5fdfb8993e154c9264fc34f4273c23a35f64725056b6fce0",
+    "pcb_mount_screw_2": "30aa707cff5f14a5d186033c7cf99080df09c02b667622ad7fa58cebf464af78",
+    "pi_baseboard_lite": "6a24b8c45aab8c19a997d8f1d96308916055bd5dd1784428bd3203c4e58c7393",
+    "pi4b": "4bd5d2afb9631f2310f417c1aad088568c7fcf2ab7307b583b18018f58bfd4c9",
+    "power_cap": "e584e9f9ddc61e224723cd0fc60f7b0a7ac3a49f7866841b7a553e70ddb7259f",
+    "rear_cushion": "503045f26a376484855ba2afd345160ce6eca3d1ac4f4da88f4a2b26ec3e4e30",
+    "retainer": "8e14921d8b12772e90124283a3dbfdf78cea0e0eafff993bcad7c09e313408fa",
+    "retainer_screw_1": "fa9f9823a79fd2d245e4ec215971c1d3e53280191a6528a0884a660703fa59ef",
+    "retainer_screw_2": "b0408891156ceb34fd2b385a9a9d6a90f1cc17892814889a9fa0c6db1a211d3c",
+    "retainer_screw_3": "365cb50071597e4c179061e45436919a3b30f0f229cea4314dc57cc52f90f823",
+    "retainer_screw_4": "ea4e0d5a63cbb132447eda101d7b1bfdc0e915659298cc625d763b28a371e1a3",
+    "shell": "cae597f106853c34f871263e7c12146b80eda45bb0ab62133c96c8bec60fc497"
+  },
+  "runtime": {
+    "manifestHash": "ad4e6ab8908369894bf3efc22499a091e1bd46ac06f79e6d58fdf5326bf84537",
+    "pythonVersion": "3.12.13",
+    "build123dVersion": "0.10.0",
+    "ocpVersion": "7.8.1.1.post1",
+    "cadpyHash": "eab6dc65ad496ee6860f3f3d9d8c9d9a5569c9c052c59081052894a8130ce5cf"
+  },
+  "artifacts": [
+    {
+      "path": "manufacturing/handheld_computer/releases/export-1fd7a204d7267eb5d21ecf8cab59979c/model.step",
+      "role": "model/step",
+      "sha256": "bb93a99b4a99c825f81aba0df0696676347fc27b038b7f33b8daa0bbcba6b5d3",
+      "sizeBytes": 107523601
+    }
+  ],
+  "interference": {
+    "summary": "1 interfering pair, 1 undeclared, 4 undetermined",
+    "counts": {
+      "objects": 21,
+      "pairs": 210,
+      "exact": 0,
+      "cached": 57,
+      "interference": 1,
+      "undeclared": 1,
+      "over_budget": 0,
+      "undetermined": 4
+    },
+    "overlaps": [
+      {
+        "a": "power_cap",
+        "b": "shell",
+        "verdict": "undeclared",
+        "maxDepthMm": 0.2744,
+        "volumeMm3": 15.473387
+      }
+    ]
+  },
+  "authority": {
+    "version": 1,
+    "algorithm": "hmac-sha256",
+    "keyId": "bcf92b0ef0c9bdb29ac662e9143b6212",
+    "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
+    "receiptPath": "manufacturing/handheld_computer/releases/export-1fd7a204d7267eb5d21ecf8cab59979c/receipt.json",
+    "payloadSha256": "77b61ca64d6dcaa4368d007c9fe326f916ee91a9ba020fc29a2f77c0d2f88801",
+    "mac": "bbba0edbc59189f5cc1d089e3b8faaa8894749cd5f9e6faee0884795df6292ab"
+  },
+  "status": "handoff"
+}

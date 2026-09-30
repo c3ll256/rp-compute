@@ -1,3 +1,4 @@
+# cell: fascia
 import math
 fascia_width=param('fascia_width',77.0)
 fascia_depth=param('fascia_depth',65.0)
@@ -114,6 +115,30 @@ for keepout in [route_arc,route_start,route_return]:
  host=host-keepout
  ring=ring-keepout
 print('FPC_LAYOUT',dict(bend_start=fpc_bend_start,bend_end=fpc_bend_start+math.pi*r,inner_radius=fpc_inner_radius,tail_end_y=tail_end_y,tail_z=FPC_Z-2*r))
+
+# Local PCB clearance at the front rail; glass and screw datums are unchanged.
+fascia_pcb_bottom_z=param('fascia_pcb_bottom_z',21.8)
+fascia_pcb_clearance=param('fascia_pcb_clearance',0.5)
+fascia_pcb_top_air=param('fascia_pcb_top_air',1.5)
+PCB_T=0.8 # Frozen PCB release finished thickness.
+SCREEN_WORLD=Location((0,21.521201483,35.310909266),(13,0,0))
+# Negative probes only, derived from the released front spine and its screw notch.
+# Three straight pockets avoid widening the retained screw-axis material.
+zmid=fascia_pcb_bottom_z+PCB_T/2+(fascia_pcb_top_air-fascia_pcb_clearance)/2
+height=PCB_T+fascia_pcb_clearance+fascia_pcb_top_air
+c=fascia_pcb_clearance
+voids=[
+ Pos(-10.15,-1.9,zmid)*Box(14.3+2*c,12.0+2*c,height),
+ Pos(-11.5,-7.4,zmid)*Box(17.0+2*c,2.2+2*c,height),
+ Pos(-11.5,1.5,zmid)*Box(17.0+2*c,5.0+2*c,height),
+ Pos(4.5,2.0,zmid)*Box(11.0+2*c,5.0+2*c,height),
+ Pos(0.5,0.4,fascia_pcb_bottom_z+PCB_T+1.1/2)*Box(5.0+2*fascia_pcb_top_air,6.013+2*fascia_pcb_top_air,1.1+2*fascia_pcb_top_air)
+]
+for void_world in voids:
+ void_local=void_world.moved(SCREEN_WORLD.inverse())
+ host=host-void_local
+ ring=ring-void_local
+
 # Every joint sees final host and retainer; do not add empty Compound bosses.
 for sx in [-1,1]:
  for yy in [retainer_screw_y_front,retainer_screw_y_rear]:

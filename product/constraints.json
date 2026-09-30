@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "interface_revision_blocked",
   "bom_ready": false,
-  "requirements_digest": "e8c75e7436e72c6d4e651255b24e0efcf5f621b39821881964e4bfeb2a1c6bf8",
+  "requirements_digest": "b0262300aab48763325adee219ae4fdbfaa3b5c5401ea0aea10dae58ab3c707b",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -1288,11 +1288,11 @@
   },
   "active_lite_interface_revision": {
     "source": "user",
-    "status": "pcb_released_cad_reviewed_fpc_height_conflict",
+    "status": "current_PCB_structural_fit_passed_FPC_contact_conflict_open",
     "connectors": {
       "J_LCD": "FH12-10S-0.5SH(55)",
-      "J_PI": "SLW-120-01-G-D",
-      "J_MOD": "SLW-104-01-G-D"
+      "J_PI": "ESQ-120-12-G-D",
+      "J_MOD": "HLE-104-02-G-DV"
     },
     "proposal": "design/pi_baseboard_lite/interface-layout-proposal.json",
     "supersedes": "Current user direction is horizontal side entry with a bent native tail. The previous vertical FPC proposal and tooling blocker are obsolete.",
@@ -1313,7 +1313,7 @@
       "value": 0.5,
       "source": "default"
     },
-    "pcb_release": "a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45",
+    "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa",
     "pcb": {
       "envelope_mm": [
         40,
@@ -1340,31 +1340,115 @@
       ],
       "J_LCD_origin": [
         0,
-        6.7628506593
+        9.8
       ],
       "J_MOD_centroid": [
         0,
         -34
       ]
     },
-    "cad_models": "Stock KiCad SLW socket proxies do not represent exact4.57mm housing height. Exact enclosure-height qualification remains limited.",
+    "cad_models": "Released real PCB with supplier FPC/passive/IC models; ESQ/HLE explicitly modeled nominal manufacturer-drawing references, not exact vendor contact geometry.",
     "screen_screw_relief": "Left PCB edge has a chamfered notch at sourceY12.1..18.8, Xup to-17.3, to preserve screen screw1 with nominal0.5mm clearance.",
-    "cad_revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744",
-    "screen_screw_measured_clearance_mm": 0.737409,
+    "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
+    "screen_screw_measured_clearance_mm": 1.292813,
     "fpc_fit_review": {
-      "status": "horizontal_fpc_vertical_reach_conflict",
-      "interpretation": "Conservative design check keeping all curvature inside the manufacturer-recommended bend region. This does not prove that bending outside that region is physically impossible or independently qualify such a route.",
-      "minimum_height_shortfall_mm": 2.0437377383630464,
-      "next_choices": [
-        {
-          "option": "small_horizontal_fpc_daughterboard",
-          "changes": "Allows a raised small horizontal FPC connector board; changes the one rigid PCB requirement."
-        },
-        {
-          "option": "rework_single_board_stack",
-          "changes": "Retains one rigid PCB but needs different GPIO stack/connector arrangement and likely front module deck accommodation."
-        }
-      ]
-    }
+      "schema_version": 2,
+      "status": "contact_face_conflict_requires_user_choice",
+      "source": "default",
+      "length_estimate_mm": 13.7,
+      "estimate_uncertainty_mm": 0.5,
+      "non_contact_clearance_per_side_mm": 0.5,
+      "current_board_bottom_world_z_mm": 21.8,
+      "current_board_finished_top_world_z_mm": 22.6,
+      "native_exit_world_yz_mm": [
+        -0.5630557675,
+        27.9236985818
+      ],
+      "connector_opening": "horizontal -Y / down/front",
+      "connector_closed_height_upper_bound_mm": 2.2,
+      "optimistic_highest_possible_slot_world_z_mm": 24.8,
+      "minimum_required_vertical_drop_using_upper_bound_mm": 3.1236985818,
+      "optimistic_maximum_vertical_drop_mm": 5.3799608435,
+      "interpretation": "Earlier7.424mm height deficit has been removed. This optimistic bound is not a mating path; actual lower-contact slot plane, insertion length and return bend can require greater length/drop.",
+      "recommended_bend_interval_mm": [
+        0.8,
+        6.0
+      ],
+      "minimum_inner_radius_mm": 0.45,
+      "stiffener_length_mm": 4.0,
+      "evidence": [
+        "Sharp LS027B7DH01 PDF p26",
+        "Hirose C506791 drawing pp1,5"
+      ],
+      "contact_conflict": "Manufacturer-recommended back fold flips exposed contact face upward. The retained horizontal top-side FH12 is bottom contact; current selected path is not qualified.",
+      "candidate": "FH12A-10S-0.5SH(55), horizontal top contact; user choice pending",
+      "not_claimed": [
+        "Full native-tail reach with estimated length",
+        "Correct contact face/pin1/stop",
+        "Latch access with panel installed",
+        "Thermal performance"
+      ],
+      "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
+      "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa"
+    },
+    "pcb_bottom_world_z_mm": 21.8,
+    "pcb_rise_mm": 4.3,
+    "pcb_attachment": {
+      "source": "user",
+      "host": "upper shell",
+      "front_screw_xy_world_mm": [
+        [
+          -16,
+          -32
+        ],
+        [
+          16,
+          -32
+        ]
+      ],
+      "rear_guide_xy_world_mm": [
+        -20,
+        24
+      ],
+      "support_not_on": [
+        "bottom cover",
+        "removable module blank"
+      ],
+      "kit": "printed-screw-joint-v1",
+      "beam_width_mm": 6,
+      "beam_thickness_mm": 2,
+      "engagement_mm": 1,
+      "board_finished_thickness_mm": 0.8,
+      "guide_clearance_mm": 0.3,
+      "remaining_blank_roof_mm": 1.2,
+      "qualification": "CAD review; physical PLA thread calibration, load and service life not tested",
+      "bottom_world_z_mm": 21.8
+    },
+    "gpio_stack_conflict": {
+      "status": "resolved_by_user_taller_socket",
+      "selected": "ESQ-120-12-G-D",
+      "body_height_mm": 11.05,
+      "mouth_world_z_mm": 10.75,
+      "official_pin_tip_z_mm": 15.5,
+      "engagement_mm": 4.75,
+      "allowed_insertion_mm": [
+        3.68,
+        6.35
+      ],
+      "third_party_model_pin_tip_z_mm": 17,
+      "model_engagement_mm": 6.25,
+      "STEP_reference_model_engagement_mm": 6.335
+    },
+    "expansion_socket": {
+      "selected": "HLE-104-02-G-DV",
+      "body_height_mm": 3.66,
+      "top_world_z_mm": 26.254999,
+      "deck_top_z_mm": 27,
+      "recess_mm": 0.7450009999999985,
+      "installation": "top-entry via module aperture; retain mechanically independent cassette"
+    },
+    "fpc_opening": "-Y, front/down in board top view; horizontal top-side bottom-contact connector",
+    "thermal_clearance_target_mm": 1.5,
+    "minimum_ordinary_top_air_mm": 1.555001
   }
 }

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "awaiting_user_contact_requirement_choice",
+  "retained_user_requirement": "Horizontal top-side FPC, opening down/front, retain bottom-contact FH12",
+  "observed_conflict": "Sharp drawing recommends folding toward panel back; the native contact face flips to top after the return bend, while retained FH12 contacts are bottom. No independently qualified twist/double-fold route is modeled.",
+  "recommended": {
+    "part": "FH12A-10S-0.5SH(55)",
+    "contact": "top",
+    "horizontal": true,
+    "opening": "down/front -Y",
+    "supplier_candidate": "C5139870",
+    "primary_evidence": "https://www.hirose.com/en/product/p/CL0586-0550-9-55",
+    "supplier_note": "Supplier labels C5139870 bottom-contact, contradicting Hirose exact MPN top-contact specification. Validate supplier model/actual delivered part before committing it.",
+    "datasheet": "references/suppliers/c5139870/c5139870-datasheet.pdf",
+    "layout_candidate_source_xy_mm": [
+      0,
+      27.0
+    ],
+    "buffer_candidate_source_xy_mm": [
+      0.5,
+      18.7
+    ],
+    "source": "research"
+  },
+  "alternatives": [
+    "Change the recorded contact requirement to top-contact while retaining horizontal down-facing entrance",
+    "Retain bottom-contact and rework the panel/tail installation with a supported contact-face solution"
+  ],
+  "scope_completed_independently": [
+    "Higher ESQ GPIO socket",
+    "Lower HLE expansion socket",
+    "Upper-shell PCB screw mounts and rear guide",
+    "Current down-facing FPC electrical routing",
+    "Ordinary-component thermal-space relief"
+  ],
+  "not_applied": "No FH12A substitution or candidate relocation is applied before the user resolves the recorded requirement."
+}

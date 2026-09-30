@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "units": "mm",
+  "coordinateFrame": "replicator-world-z-up",
+  "targets": [
+    {
+      "id": "esq_drawing_reference",
+      "label": "esq_drawing_reference",
+      "cells": [
+        {
+          "id": "esq_drawing_reference",
+          "target": "esq_drawing_reference",
+          "order": 0,
+          "path": "design/connector_fit_references/source/parts/esq_drawing_reference/000-esq_drawing_reference.py",
+          "sha256": "fdef024300bfaa4b192038e2b1c3b719dda97664f55d8393a7226315a48c8ef0"
+        }
+      ],
+      "dependencies": []
+    }
+  ],
+  "objects": [
+    {
+      "id": "esq_nominal_reference",
+      "target": "esq_drawing_reference",
+      "label": "ESQ drawing reference; contact details omitted",
+      "kind": "generated",
+      "shapeHash": "b9a301eb8fda657090fb1f88c47c229bf47558ef83def9c45412f12f9b0cd6d3",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    }
+  ],
+  "assets": [],
+  "fits": [],
+  "updatedAt": "2026-09-30T09:26:56.971Z",
+  "parameters": {
+    "esq_drawing_reference": {
+      "esq_reference_margin": 0
+    }
+  }
+}

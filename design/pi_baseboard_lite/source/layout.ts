@@ -27,8 +27,8 @@ export const board = {
 // so this value is a datum, not a preference.
 export const PI_GPIO_CENTROID_FROM_PI_BOARD_FRONT_MM = 32.5;
 
-// M2 fixture holes. Reference only: the shell has no matching bosses yet, so
-// these are prototype attachment points and do not constrain the enclosure.
+// M2 fixture holes. Reference only: upper-shell mounts now share these datums, with
+// two fixed upper-shell beam joints; holes are2.2mm NPTH.
 export const mountingHoles = [
   { name: "H1", x: -16, y: -13 },
   { name: "H2", x: 16, y: -13 }
@@ -43,27 +43,25 @@ export function rotationForOpening(
 }
 
 export const interfaces = {
-  // Pi dock. J_PI is on the board underside; the Pi's header rises into it.
-  // Standard KiCad socket pin1 origin; intended pad centroid remains(-13.5,21).
-  // Stack height and insertion depth still require mechanical validation.
-  piDock: { x: -12.23, y: -3.13, rotation: 180, side: "bottom" },
+  // ESQ underside,11.05mm housing. Native supplier numbering is paired
+  // across the opposite row from Pi top-view numbering: main.tsx swaps each pair.
+  // This preserves every original Pi world pin datum; no GPIO net swap.
+  piDock: { x: -13.5, y: 21, rotation: 270, side: "bottom" },
 
-  // Screen FPC. A top-side horizontal ZIF socket, flush with the screen's
-  // prior proposed tail approach. Native tail reach is NOT yet verified. Rotated 180deg so the latch
-  // reads from the front module side while the pod is off the shell.
+  // Horizontal top-side FPC, entry down/front (-Y) per user. Shifted rearward
+  // to separate latch/courtyard from buffer; native tail mating remains to qualify.
   displayFpc: {
     x: 0,
-    y: 25.7628506593,
-    rotation: rotationForOpening("down", "up"),
+    y: 28.8,
+    rotation: rotationForOpening("down", "down"),
     side: "top",
     contactFace: "toward PCB",
-    opening: "+Y in board top view"
+    opening: "-Y / down in board top view"
   },
 
-  // Replaceable front module: top-side 2x4 female socket, mating toward +Z.
-  // The shell aperture is a separate mechanical datum, not verified fit.
-  // The module's own strain relief must be mechanical, not the header.
-  frontModule: { x: -3.81, y: -13.73, rotation: 90, side: "top", mating: "+Z" },
+  // Top-side3.66mm HLE SMT2x4. Physical mating pitch2.54mm, land-row
+  // separation5.05mm. Pin1 is front-view upper/left, same module net order.
+  frontModule: { x: 0, y: -15, rotation: 0, side: "top", mating: "+Z" },
 
   // Keepout the socket body needs through the deck aperture.
   frontModuleAperture: { width: 54.0, depth: 26.0, centreY: -34.0 }

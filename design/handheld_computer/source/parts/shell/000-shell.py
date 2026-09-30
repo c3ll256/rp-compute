@@ -1,3 +1,4 @@
+# cell: shell
 case_width=param('case_width',85.0)
 case_depth=param('case_depth',115.0)
 case_corner=param('case_corner',9.0)
@@ -103,11 +104,74 @@ for xx in [-front_module_screw_x,front_module_screw_x]:
    body=body+joint.bosses
   body=body-joint.engage_cuts
   front_module_screws.append(joint.hardware)
+
+# Raised PCB fixed to the upper shell, not the removable module blank.
+pcb_mount_bottom_z=param('pcb_mount_bottom_z',21.8)
+pcb_mount_x=param('pcb_mount_x',16.0)
+pcb_mount_y=param('pcb_mount_y',-32.0)
+pcb_mount_beam_width=param('pcb_mount_beam_width',6.0)
+pcb_mount_beam_thickness=param('pcb_mount_beam_thickness',2.0)
+pcb_mount_engagement=param('pcb_mount_engagement',1.0)
+pcb_mount_cover_clearance=param('pcb_mount_cover_clearance',0.5)
+pcb_rear_guide_y=param('pcb_rear_guide_y',24.0)
+pcb_rear_guide_width=param('pcb_rear_guide_width',8.0)
+pcb_rear_guide_thickness=param('pcb_rear_guide_thickness',1.5)
+pcb_rear_guide_clearance=param('pcb_rear_guide_clearance',0.3)
+front_module_gpio_width=param('front_module_gpio_width',11.2)
+front_module_gpio_depth=param('front_module_gpio_depth',6.2)
+front_module_pcb_tip_relief_diameter=param('front_module_pcb_tip_relief_diameter',3.0)
+front_module_gpio_pin_pocket_roof=param('front_module_gpio_pin_pocket_roof',1.2)
+PCB_FINISHED_T=0.8 # Frozen pi_baseboard_lite release; actual drilled holes2.2mm.
+PCB_LEFT_EDGE=-20.0 # Released board outline, no scaled PCB.
+mount_top=pcb_mount_bottom_z+PCB_FINISHED_T
+inner_side=case_width/2-shell_wall
+pcb_mount_screws=[]
+pcb_joint_ids=[]
+for sx in [-1,1]:
+ xx=sx*pcb_mount_x
+ # A transverse beam bridges the upper shell side wall to the existing PCB hole.
+ # This is structural support geometry; screw geometry comes only from the kit.
+ inner_tip=pcb_mount_x-pcb_mount_beam_width/2
+ outer_root=inner_side+shell_wall/2
+ beam=Pos(sx*(inner_tip+outer_root)/2,pcb_mount_y,mount_top+pcb_mount_beam_thickness/2)*Box(outer_root-inner_tip,pcb_mount_beam_width,pcb_mount_beam_thickness)
+ body=body+beam
+ # Datum-only through-sheet probe: not a replacement for the actual imported PCB.
+ # PCB holes remain the released2.2mm NPTHs. Kit screw shank fits those holes.
+ through_probe=Pos(xx,pcb_mount_y,pcb_mount_bottom_z+PCB_FINISHED_T/2)*Box(pcb_mount_beam_width,pcb_mount_beam_width,PCB_FINISHED_T)
+ joint=make_screw_joint_v1(size='M2',at=Location((xx,pcb_mount_y,pcb_mount_bottom_z),(180,0,0)),through=[(through_probe,PCB_FINISHED_T)],engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='through',label='upper-shell-pcb')
+ assert len(joint.bosses.solids())==0
+ body=body-joint.engage_cuts
+ pcb_mount_screws.append(joint.hardware)
+ # Standard kit selects M2x4; clearance hole keeps its tip off the removable cover.
+ front_module=front_module-(Pos(xx,pcb_mount_y,case_top_center)*Cylinder(front_module_pcb_tip_relief_diameter/2,4*front_module_seat_depth))
+ pcb_joint_ids.append('kit:printed-screw-joint-v1:'+str(sx))
+ print('PCB_MOUNT',xx,pcb_mount_y,dict(length=joint.screw_length_mm,engagement=joint.engage_depth_mm,protrusion=joint.screw_protrusion_mm))
+ # Underside cassette pocket preserves at least1.2mm roof; beams belong to shell.
+ pocket_top=mount_top+pcb_mount_beam_thickness+pcb_mount_cover_clearance
+ front_module=front_module-(Pos(sx*(inner_tip+outer_root)/2,pcb_mount_y,(pcb_mount_bottom_z+pocket_top)/2)*Box(outer_root-inner_tip+2*pcb_mount_cover_clearance,pcb_mount_beam_width+2*pcb_mount_cover_clearance,pocket_top-pcb_mount_bottom_z))
+# Small underside pocket clears the dock's front pin ends while retaining1.2mm roof.
+# XY is fixed by released J_PI pad row/source model; this is negative clearance only.
+pocket_top=case_top_center-front_module_gpio_pin_pocket_roof
+front_module=front_module-(Pos(-13.5,-19.4,(pcb_mount_bottom_z+pocket_top)/2)*Box(6.2,10.0,pocket_top-pcb_mount_bottom_z))
+# Rear edge support/guide rooted in upper-shell left wall.0.3mm slot clearance.
+guide_inner=PCB_LEFT_EDGE+0.8
+guide_outer=-inner_side-shell_wall/2
+rear_shelf=Pos((guide_inner+guide_outer)/2,pcb_rear_guide_y,pcb_mount_bottom_z-pcb_rear_guide_thickness/2)*Box(guide_inner-guide_outer,pcb_rear_guide_width,pcb_rear_guide_thickness)
+body=body+rear_shelf
+guide_back=PCB_LEFT_EDGE-pcb_rear_guide_clearance
+body=body+(Pos((guide_back+guide_outer)/2,pcb_rear_guide_y,pcb_mount_bottom_z+(PCB_FINISHED_T+pcb_rear_guide_clearance)/2)*Box(guide_back-guide_outer,pcb_rear_guide_width,PCB_FINISHED_T+pcb_rear_guide_clearance))
+# Access the raised8-contact female interface without loading it through the blank.
+front_module=front_module-(Pos(0,front_module_y,case_top_center)*Box(front_module_gpio_width,front_module_gpio_depth,4*front_module_seat_depth))
+assert len(pcb_joint_ids)==2
+assert case_top_center-(mount_top+pcb_mount_beam_thickness+pcb_mount_cover_clearance)>=1.2-1e-6
+
 assert len(front_module.solids())==1
 assert len(body.solids())==1
 body.color=Color(0.88,0.86,0.79)
 front_module.color=Color(0.23,0.25,0.27)
-publish('shell',body,'Rear and side port shell')
+publish('shell',body,'Upper shell PCB mounts',material='pla')
 publish('front_module_blank',front_module,'User replaceable front module blank')
 for i,screw in enumerate(front_module_screws):
  publish('front_module_screw_'+str(i+1),screw,'M2 front module screw')
+for i,screw in enumerate(pcb_mount_screws):
+ publish('pcb_mount_screw_'+str(i+1),screw,'PCB mount screw',material='stainless_steel')

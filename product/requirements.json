@@ -348,15 +348,15 @@
       "source": "default"
     },
     "lite_fpc_placement": {
-      "value": "Horizontal side-entry FPC on the compact board; native tail may bend behind the display. Actual board assembly to be checked in CAD.",
+      "value": "Horizontal side-entry FPC on top of compact PCB; opening toward down/front (-Y in top view), native tail bends behind panel. Preserve bottom contacts and verify installation access.",
       "source": "user"
     },
     "lite_compact_connectors": {
       "value": {
         "display": "FH12-10S-0.5SH(55)",
-        "pi_dock": "SLW-120-01-G-D",
-        "expansion": "SLW-104-01-G-D",
-        "intent": "Keep a compact board, low-profile sockets and horizontal side-entry FPC; bend native tail behind panel."
+        "pi_dock": "ESQ-120-12-G-D",
+        "expansion": "HLE-104-02-G-DV",
+        "intent": "Taller Pi socket, lower 8pin expansion socket, horizontal FPC opening toward lower/front side."
       },
       "source": "user"
     },
@@ -383,6 +383,30 @@
           6.0
         ],
         "note": "0.5mm is additional free-space clearance, not cable-length extension. Manufacturer bend limits retained. Slot stop and pin1 still require evidence."
+      },
+      "source": "default"
+    },
+    "lite_baseboard_attachment": {
+      "value": "Raise the compact PCB toward the screen and fasten it to the upper enclosure; its support must not rely on the bottom cover or removable front module blank.",
+      "source": "user"
+    },
+    "lite_baseboard_raised_datum_mm": {
+      "value": {
+        "bottom_world_z": 21.8,
+        "rise_from_previous": 4.3,
+        "reduction_from_22_5_trial": 0.7,
+        "note": "Agent default lowered to provide air space while retaining higher-socket engagement."
+      },
+      "source": "default"
+    },
+    "lite_upper_shell_thermal_space": {
+      "value": "Avoid upper-shell contact by PCB and connectors; leave air space above electronics while PCB remains fixed to upper shell.",
+      "source": "user"
+    },
+    "lite_thermal_clearance_default_mm": {
+      "value": {
+        "non_interface_component_minimum": 1.5,
+        "note": "Geometric air-space target only; temperatures and airflow not tested."
       },
       "source": "default"
     }

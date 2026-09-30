@@ -1,18 +1,14 @@
 {
-  "schema_version": 1,
-  "request": {
-    "value": "保留紧凑板与水平FPC，用新板核对外壳、屏幕排线和扩展接口并完成布线验证",
-    "source": "user"
-  },
-  "status": "pcb_released_cad_reviewed_fpc_height_conflict",
-  "cad_revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744",
-  "pcb_release": "a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45",
-  "pcb_step_sha256": "72635669da4be260878db47e3bb1eed03b253bbe890fcab37ef6e895f3cb8fa1",
+  "schema_version": 2,
+  "status": "PCB_geometry_and_routing_passed_FPC_assembly_conflict_open",
+  "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
+  "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa",
+  "pcb_step_sha256": "154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3",
   "placement": {
     "position_mm": [
       -100,
       81,
-      17.5
+      21.8
     ],
     "rotation_deg": [
       0,
@@ -20,57 +16,610 @@
       0
     ],
     "xy_basis": "J_PI source pad centroid(-13.5,21) aligns with Pi world(-13.5,2). KiCad STEP offset(+100,-100) yields translation(-100,81).",
-    "z_basis": "17.5mm provisional lower substrate datum within official Pi pin-tip15.5 plus SLW4.57 housing minus2.16..2.92 insertion =>17.15..17.91. Generic socket STEP is not exact SLW; third-party Pi pins reach17mm."
+    "z_basis": "User requested raised upper-shell mounting;21.8mm is agent default4.3mm lift. User authorized higher GPIO and lower8pin sockets. ESQ11.05mm nominal housing gives4.75..6.25mm engagement from official/third-party Pi tip datums; STEP also offsets bottom bodies by0.085mm."
   },
   "board_envelope_mm": [
     40,
     83.5
   ],
   "board_area_mm2": 2284.54,
+  "finished_thickness_mm": 0.8,
   "connectors": {
-    "J_LCD": "FH12-10S-0.5SH(55) / C506791, horizontal side entry",
-    "J_PI": "SLW-120-01-G-D, bottom",
-    "J_MOD": "SLW-104-01-G-D, top"
-  },
-  "interfaces_world_xy_mm": {
-    "J_PI_centroid": [
-      -13.5,
-      2
-    ],
-    "J_LCD_origin": [
-      0,
-      6.7628506593
-    ],
-    "J_MOD_centroid": [
-      0,
-      -34
-    ]
+    "J_PI": "ESQ-120-12-G-D bottom11.05mm",
+    "J_MOD": "HLE-104-02-G-DV top3.66mm",
+    "J_LCD": "FH12-10S-0.5SH(55), top horizontal opening-Y, bottom contacts retained pending choice"
   },
   "validation": {
-    "routing": "passed",
-    "drc_errors": 0,
-    "unconnected_items": 0,
-    "ground_connectivity": "passed",
-    "dfm": "passed",
-    "manual_assembly": true,
-    "substrate_to_screw1_clearance_mm": 0.737409,
-    "minimum_screw_clearance_mm": 0.5,
-    "screw_clearance_passed": true,
-    "shell_front_nominal_clearance_mm": 0.6,
-    "fpc_mating": "not_qualified_height_and_contact_orientation"
+    "DRC_errors": 0,
+    "DRC_unconnected": 0,
+    "all_GPIO_physical_pins_passed": 40,
+    "ordinary_top_minimum_air_mm": 1.555001,
+    "screen_screw_to_substrate_mm": 1.292813,
+    "structural_PCB_intersections_mm3": 0,
+    "method": "OCC per-solid volume intersections of real released substrate/component bodies against world-transformed CAD objects; copper/pad/via visual bodies excluded. Nominal glass is an explicit drawing-based negative probe."
   },
   "body_collision_review": {
+    "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
+    "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa",
+    "pcb_step_sha256": "154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3",
+    "placement": {
+      "position_mm": [
+        -100,
+        81,
+        21.8
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "xy_basis": "J_PI source pad centroid(-13.5,21) aligns with Pi world(-13.5,2). KiCad STEP offset(+100,-100) yields translation(-100,81).",
+      "z_basis": "User requested raised upper-shell mounting;21.8mm is agent default4.3mm lift. User authorized higher GPIO and lower8pin sockets. ESQ11.05mm nominal housing gives4.75..6.25mm engagement from official/third-party Pi tip datums; STEP also offsets bottom bodies by0.085mm."
+    },
     "method": "OCC per-solid volume intersections of real released substrate/component bodies against world-transformed CAD objects; copper/pad/via visual bodies excluded. Nominal glass is an explicit drawing-based negative probe.",
-    "results": {
+    "body_bounds": {
+      "0:assembly_1_1": {
+        "min": [
+          5.19,
+          17.095,
+          22.594999
+        ],
+        "max": [
+          6.81,
+          17.905,
+          23.044999
+        ]
+      },
+      "1:assembly_1_1": {
+        "min": [
+          5.19,
+          14.095,
+          22.594999
+        ],
+        "max": [
+          6.81,
+          14.905,
+          23.044999
+        ]
+      },
+      "2:assembly_1_3": {
+        "min": [
+          -2.0,
+          -2.60629,
+          22.594999
+        ],
+        "max": [
+          3.0,
+          3.406315,
+          23.695082
+        ]
+      },
+      "3:hle-104-02-g-dv-drawing-reference": {
+        "min": [
+          -5.08,
+          -37.3,
+          22.594999
+        ],
+        "max": [
+          5.08,
+          -30.7,
+          26.254999
+        ]
+      },
+      "4:assembly_1_1": {
+        "min": [
+          -0.81,
+          -49.405,
+          22.594999
+        ],
+        "max": [
+          0.81,
+          -48.595,
+          23.044999
+        ]
+      },
+      "5:assembly_1_1": {
+        "min": [
+          0.19,
+          15.595,
+          22.594999
+        ],
+        "max": [
+          1.81,
+          16.405,
+          23.044999
+        ]
+      },
+      "6:assembly_1_7": {
+        "min": [
+          -4.550013,
+          5.447977,
+          22.594999
+        ],
+        "max": [
+          4.549987,
+          11.847977,
+          24.604999
+        ]
+      },
+      "7:assembly_1_8": {
+        "min": [
+          4.4,
+          1.3,
+          22.594999
+        ],
+        "max": [
+          5.2,
+          2.9,
+          23.394999
+        ]
+      },
+      "8:SOT-23-6": {
+        "min": [
+          10.55,
+          -42.4,
+          20.165
+        ],
+        "max": [
+          13.45,
+          -39.6,
+          21.715
+        ]
+      },
+      "9:assembly_1_10": {
+        "min": [
+          6.0,
+          -50.649987,
+          20.415
+        ],
+        "max": [
+          8.0,
+          -49.349987,
+          21.715
+        ]
+      },
+      "10:assembly_1_11": {
+        "min": [
+          10.493698,
+          -51.450013,
+          20.464917
+        ],
+        "max": [
+          13.506302,
+          -48.550013,
+          21.715
+        ]
+      },
+      "11:assembly_1_10": {
+        "min": [
+          -9.0,
+          -50.649987,
+          20.415
+        ],
+        "max": [
+          -7.0,
+          -49.349987,
+          21.715
+        ]
+      },
+      "12:assembly_1_10": {
+        "min": [
+          -17.7,
+          -45.149987,
+          20.415
+        ],
+        "max": [
+          -15.7,
+          -43.849987,
+          21.715
+        ]
+      },
+      "13:assembly_1_1": {
+        "min": [
+          -12.81,
+          -46.405,
+          21.265
+        ],
+        "max": [
+          -11.19,
+          -45.595,
+          21.715
+        ]
+      },
+      "14:assembly_1_1": {
+        "min": [
+          16.19,
+          -46.405,
+          21.265
+        ],
+        "max": [
+          17.81,
+          -45.595,
+          21.715
+        ]
+      },
+      "15:assembly_1_1": {
+        "min": [
+          11.19,
+          -45.405,
+          21.265
+        ],
+        "max": [
+          12.81,
+          -44.595,
+          21.715
+        ]
+      },
+      "16:assembly_1_8": {
+        "min": [
+          -1.8,
+          16.6,
+          20.915
+        ],
+        "max": [
+          -0.2,
+          17.4,
+          21.715
+        ]
+      },
+      "17:SOT-23-6": {
+        "min": [
+          -14.45,
+          -42.4,
+          20.165
+        ],
+        "max": [
+          -11.55,
+          -39.6,
+          21.715
+        ]
+      },
+      "18:assembly_1_8": {
+        "min": [
+          6.6,
+          3.2,
+          20.915
+        ],
+        "max": [
+          7.4,
+          4.8,
+          21.715
+        ]
+      },
+      "19:assembly_1_10": {
+        "min": [
+          -18.650013,
+          -51.0,
+          20.415
+        ],
+        "max": [
+          -17.350013,
+          -49.0,
+          21.715
+        ]
+      },
+      "20:assembly_1_10": {
+        "min": [
+          16.0,
+          -50.649987,
+          20.415
+        ],
+        "max": [
+          18.0,
+          -49.349987,
+          21.715
+        ]
+      },
+      "21:assembly_1_1": {
+        "min": [
+          -8.81,
+          -41.405,
+          21.265
+        ],
+        "max": [
+          -7.19,
+          -40.595,
+          21.715
+        ]
+      },
+      "22:assembly_1_1": {
+        "min": [
+          16.19,
+          -41.405,
+          21.265
+        ],
+        "max": [
+          17.81,
+          -40.595,
+          21.715
+        ]
+      },
+      "23:assembly_1_3": {
+        "min": [
+          -2.00629,
+          10.5,
+          20.614917
+        ],
+        "max": [
+          4.006315,
+          15.5,
+          21.715
+        ]
+      },
+      "24:assembly_1_10": {
+        "min": [
+          6.349987,
+          8.0,
+          20.415
+        ],
+        "max": [
+          7.649987,
+          10.0,
+          21.715
+        ]
+      },
+      "25:esq-120-12-g-d-drawing-reference": {
+        "min": [
+          -16.04,
+          -23.655,
+          10.665
+        ],
+        "max": [
+          -10.96,
+          27.655,
+          24.005
+        ]
+      },
+      "26:assembly_1_10": {
+        "min": [
+          6.349987,
+          -39.5,
+          20.415
+        ],
+        "max": [
+          7.649987,
+          -37.5,
+          21.715
+        ]
+      },
+      "27:assembly_1_11": {
+        "min": [
+          -14.506302,
+          -51.450013,
+          20.464917
+        ],
+        "max": [
+          -11.493698,
+          -48.550013,
+          21.715
+        ]
+      },
+      "28:assembly_1_1": {
+        "min": [
+          6.19,
+          -2.405,
+          21.265
+        ],
+        "max": [
+          7.81,
+          -1.595,
+          21.715
+        ]
+      },
+      "29:assembly_1_1": {
+        "min": [
+          -1.81,
+          1.095,
+          21.265
+        ],
+        "max": [
+          -0.19,
+          1.905,
+          21.715
+        ]
+      },
+      "30:assembly_1_1": {
+        "min": [
+          -8.81,
+          -46.405,
+          21.265
+        ],
+        "max": [
+          -7.19,
+          -45.595,
+          21.715
+        ]
+      },
+      "34:board_PCB": {
+        "min": [
+          -20.0,
+          -54.5,
+          21.8
+        ],
+        "max": [
+          20.0,
+          29.0,
+          22.509999
+        ]
+      }
+    },
+    "target_bounds": {
+      "front_cushion": {
+        "min": [
+          -31.4,
+          -0.794755,
+          28.732426
+        ],
+        "max": [
+          31.4,
+          40.972761,
+          38.559704
+        ]
+      },
+      "rear_cushion": {
+        "min": [
+          -31.4,
+          -0.380845,
+          26.160089
+        ],
+        "max": [
+          31.4,
+          41.566632,
+          36.766863
+        ]
+      },
+      "pcb_mount_screw_2": {
+        "min": [
+          14.01,
+          -33.99,
+          19.8
+        ],
+        "max": [
+          17.99,
+          -30.01,
+          25.8
+        ]
+      },
+      "shell": {
+        "min": [
+          -42.5,
+          -57.5,
+          2.7
+        ],
+        "max": [
+          42.5,
+          57.5,
+          27.0
+        ]
+      },
+      "front_module_blank": {
+        "min": [
+          -35.0,
+          -52.5,
+          25.0
+        ],
+        "max": [
+          35.0,
+          -15.5,
+          27.0
+        ]
+      },
+      "pcb_mount_screw_1": {
+        "min": [
+          -17.99,
+          -33.99,
+          19.8
+        ],
+        "max": [
+          -14.01,
+          -30.01,
+          25.8
+        ]
+      },
+      "pi4b": {
+        "min": [
+          -17.0,
+          -35.0,
+          3.45
+        ],
+        "max": [
+          41.5,
+          57.86,
+          23.34
+        ]
+      },
+      "fascia": {
+        "min": [
+          -38.5,
+          -10.145826,
+          21.516836
+        ],
+        "max": [
+          38.5,
+          53.188229,
+          42.467515
+        ]
+      },
+      "retainer_screw_3": {
+        "min": [
+          18.01,
+          -5.675597,
+          17.876455
+        ],
+        "max": [
+          21.99,
+          -1.3776,
+          25.291047
+        ]
+      },
+      "retainer": {
+        "min": [
+          -33.0,
+          -7.109613,
+          19.568096
+        ],
+        "max": [
+          33.0,
+          50.788229,
+          35.859978
+        ]
+      },
+      "retainer_screw_1": {
+        "min": [
+          -21.99,
+          -5.675597,
+          17.876455
+        ],
+        "max": [
+          -18.01,
+          -1.3776,
+          25.291047
+        ]
+      },
+      "bezel": {
+        "min": [
+          -35.0,
+          -2.426277,
+          25.534042
+        ],
+        "max": [
+          35.0,
+          46.180597,
+          40.919647
+        ]
+      },
+      "base": {
+        "min": [
+          -42.5,
+          -57.5,
+          -0.0
+        ],
+        "max": [
+          42.5,
+          57.5,
+          2.4
+        ]
+      },
+      "nominal_panel_envelope": {
+        "min": [
+          -31.4,
+          -0.749765,
+          27.134459
+        ],
+        "max": [
+          31.4,
+          41.341681,
+          38.36483
+        ]
+      }
+    },
+    "collisions": {
       "front_cushion": [],
       "rear_cushion": [],
+      "pcb_mount_screw_2": [],
       "shell": [],
-      "front_module_blank": [
-        {
-          "component": "2:PinSocket_2x04_P2_54mm_Vertical",
-          "volume_mm3": 86.430527
-        }
-      ],
+      "front_module_blank": [],
+      "pcb_mount_screw_1": [],
       "fascia": [],
       "retainer_screw_3": [],
       "retainer": [],
@@ -78,135 +627,219 @@
       "bezel": [],
       "base": [],
       "nominal_panel_envelope": [],
-      "pi4b": [
-        {
-          "component": "23:PinSocket_2x20_P2_54mm_Vertical",
-          "volume_mm3": 37.049604
-        }
-      ]
+      "pi4b": []
     },
     "limits": [
-      "Stock KiCad sockets have8.5mm bodies, selected SLW housing4.57mm; socket collisions are proxy observations, not actual SLW qualification.",
-      "PCB STEP substrate0.71mm versus finished thickness0.8mm; use finished stack for manufacturing.",
-      "Native FPC path/contact/stop not represented by a vendor panel STEP."
+      "ESQ and HLE are explicitly modeled manufacturer-drawing reference envelopes, not vendor STEP or internal contact qualification.",
+      "PCB STEP substrate0.71mm versus finished0.8mm; model pads/components add face offsets.",
+      "Native tail13.7+/-0.5mm is an authorized estimate. FPC contact, insertion stop and physical latch access remain prototype checks.",
+      "No physical print, connector mating or thermal test performed."
     ],
-    "whole_assembly_workbench_note": "Two generic socket overlaps; some complex pairs were undetermined within its time budget. Supplementary per-body results cover the listed structural bodies only."
+    "screw1_to_substrate_clearance_mm": 1.292813,
+    "screw1_clearance_expectation": {
+      "source": "default",
+      "minimum_mm": 0.5,
+      "passed": true
+    },
+    "pcb_to_shell_distance_mm": 0.0,
+    "fixed_mount_screw_lengths_mm": {
+      "pcb_mount_screw_1": 4.0,
+      "pcb_mount_screw_2": 4.0
+    },
+    "fpc_body_to_nominal_glass_clearance_mm": 3.875268,
+    "ordinary_top_air_clearances": {
+      "0:assembly_1_1": {
+        "clearance_mm": 7.918107,
+        "to": "nominal_panel_envelope",
+        "by_target_mm": {
+          "shell": 22.652324,
+          "fascia": 19.603652,
+          "retainer": 14.61186,
+          "front_module_blank": 32.69937,
+          "nominal_panel_envelope": 7.918107
+        }
+      },
+      "1:assembly_1_1": {
+        "clearance_mm": 7.243253,
+        "to": "nominal_panel_envelope",
+        "by_target_mm": {
+          "shell": 19.661073,
+          "fascia": 16.68805,
+          "retainer": 11.650317,
+          "front_module_blank": 29.709911,
+          "nominal_panel_envelope": 7.243253
+        }
+      },
+      "2:assembly_1_3": {
+        "clearance_mm": 1.555099,
+        "to": "retainer",
+        "by_target_mm": {
+          "shell": 3.414523,
+          "fascia": 4.610613,
+          "retainer": 1.555099,
+          "front_module_blank": 13.197287,
+          "nominal_panel_envelope": 3.440377
+        }
+      },
+      "4:assembly_1_1": {
+        "clearance_mm": 1.555001,
+        "to": "shell",
+        "by_target_mm": {
+          "shell": 1.555001,
+          "fascia": 38.683899,
+          "retainer": 43.543843,
+          "front_module_blank": 2.555001,
+          "nominal_panel_envelope": 48.182085
+        }
+      },
+      "5:assembly_1_1": {
+        "clearance_mm": 7.58068,
+        "to": "nominal_panel_envelope",
+        "by_target_mm": {
+          "shell": 19.736467,
+          "fascia": 18.613877,
+          "retainer": 14.466104,
+          "front_module_blank": 31.204388,
+          "nominal_panel_envelope": 7.58068
+        }
+      },
+      "7:assembly_1_8": {
+        "clearance_mm": 2.987643,
+        "to": "retainer",
+        "by_target_mm": {
+          "shell": 6.909143,
+          "fascia": 5.452015,
+          "retainer": 2.987643,
+          "front_module_blank": 16.946527,
+          "nominal_panel_envelope": 4.025712
+        }
+      }
+    },
+    "minimum_ordinary_top_air_mm": 1.555001,
+    "thermal_clearance_expectation": {
+      "source": "default",
+      "minimum_mm": 1.5,
+      "passed": true
+    },
+    "hle_top_world_z_mm": 26.254999,
+    "hle_top_below_deck_mm": 0.7450009999999985,
+    "required_structural_intersection_check_passed": true,
+    "pi_to_upper_shell_shared_volume_mm3": 0.0,
+    "pi_to_upper_shell_clearance_check_passed": true
   },
   "native_tail": {
-    "schema_version": 1,
-    "status": "horizontal_fpc_vertical_reach_conflict",
+    "schema_version": 2,
+    "status": "contact_face_conflict_requires_user_choice",
     "source": "default",
     "length_estimate_mm": 13.7,
     "estimate_uncertainty_mm": 0.5,
     "non_contact_clearance_per_side_mm": 0.5,
-    "current_board_bottom_world_z_mm": 17.5,
-    "current_board_finished_top_world_z_mm": 18.3,
-    "native_exit_world_z_mm": 27.92369858183814,
-    "screen_angle_deg": 13,
+    "current_board_bottom_world_z_mm": 21.8,
+    "current_board_finished_top_world_z_mm": 22.6,
+    "native_exit_world_yz_mm": [
+      -0.5630557675,
+      27.9236985818
+    ],
+    "connector_opening": "horizontal -Y / down/front",
     "connector_closed_height_upper_bound_mm": 2.2,
-    "optimistic_highest_possible_slot_world_z_mm": 20.5,
-    "minimum_required_vertical_drop_mm": 7.4236985818381385,
-    "optimistic_maximum_vertical_drop_mm": 5.379960843475092,
-    "shortfall_lower_bound_mm": 2.0437377383630464,
-    "proof": "After the recommended-region curvature ends by unfolded6mm, the tail must be horizontal to enter a horizontal socket. Before0.8mm its initial13deg tangent drops only0.8*sin13. Even an unphysical perfectly vertical5.2mm bend region adds at most5.2mm drop. Using the entire connector upper surface as the slot gives an intentionally generous ceiling, not a real mating plane. The current minimum7.424mm drop exceeds5.380mm ceiling. Minimum radius, insertion and contact direction can only add constraints. Length allowance does not extend the manufacturer bend zone.",
-    "evidence": [
-      "Sharp LS027B7DH01 drawing p26",
-      "Hirose C506791 drawing pp1,5",
-      "retained screen transform and PCB17.5mm placement"
-    ],
-    "user_directions_preserved": [
-      "Horizontal side entry",
-      "Native tail estimate permitted",
-      "Compact board",
-      "Existing screen and enclosure",
-      "Low-profile SLW sockets"
-    ],
-    "choices": [
-      {
-        "option": "small_horizontal_fpc_daughterboard",
-        "changes": "Allows a raised small horizontal FPC connector board; changes the one rigid PCB requirement."
-      },
-      {
-        "option": "rework_single_board_stack",
-        "changes": "Retains one rigid PCB but needs different GPIO stack/connector arrangement and likely front module deck accommodation."
-      }
-    ],
+    "optimistic_highest_possible_slot_world_z_mm": 24.8,
+    "minimum_required_vertical_drop_using_upper_bound_mm": 3.1236985818,
+    "optimistic_maximum_vertical_drop_mm": 5.3799608435,
+    "interpretation": "Earlier7.424mm height deficit has been removed. This optimistic bound is not a mating path; actual lower-contact slot plane, insertion length and return bend can require greater length/drop.",
     "recommended_bend_interval_mm": [
       0.8,
-      6
+      6.0
     ],
-    "interpretation": "Conservative design check keeping all curvature inside the manufacturer-recommended bend region. This does not prove that bending outside that region is physically impossible or independently qualify such a route.",
-    "cad_revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744",
-    "pcb_release": "a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45"
-  },
-  "preserved": {
-    "shell_mm": [
-      85,
-      115,
-      27
+    "minimum_inner_radius_mm": 0.45,
+    "stiffener_length_mm": 4.0,
+    "evidence": [
+      "Sharp LS027B7DH01 PDF p26",
+      "Hirose C506791 drawing pp1,5"
     ],
-    "screen_and_retainer_geometry": "unchanged",
-    "screen_front_rise_mm": 1,
-    "single_rigid_pcb": "unchanged"
+    "contact_conflict": "Manufacturer-recommended back fold flips exposed contact face upward. The retained horizontal top-side FH12 is bottom contact; current selected path is not qualified.",
+    "candidate": "FH12A-10S-0.5SH(55), horizontal top contact; user choice pending",
+    "not_claimed": [
+      "Full native-tail reach with estimated length",
+      "Correct contact face/pin1/stop",
+      "Latch access with panel installed",
+      "Thermal performance"
+    ],
+    "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
+    "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa"
   },
-  "missing_evidence": [
-    "Exact selected SLW socket STEP: catalog and step.parts searches returned no exact model",
-    "Actual native-tail pin1/contact mapping and latch/insertion fit",
-    "Physical assembly and mounting-post validation"
-  ],
-  "next_choices": [
-    {
-      "option": "small_horizontal_fpc_daughterboard",
-      "changes": "Allows a raised small horizontal FPC connector board; changes the one rigid PCB requirement."
-    },
-    {
-      "option": "rework_single_board_stack",
-      "changes": "Retains one rigid PCB but needs different GPIO stack/connector arrangement and likely front module deck accommodation."
-    }
-  ],
-  "cad_handoff": {
-    "export_id": "export-6d353899a917c50a5dfda7ad33da7ead",
-    "revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744",
-    "state_hash": "166f8ade0823d625c991fdbf5975d0765f805661f24aa238404c7a5d449fb041",
-    "preview": "refreshed_from_exported_step",
-    "interference": {
-      "summary": "3 interfering pairs, 3 undeclared, 2 undetermined",
-      "counts": {
-        "objects": 19,
-        "pairs": 171,
-        "exact": 38,
-        "cached": 9,
-        "interference": 3,
-        "undeclared": 3,
-        "over_budget": 0,
-        "undetermined": 2
-      },
-      "overlaps": [
-        {
-          "a": "front_module_blank",
-          "b": "pi_baseboard_lite",
-          "verdict": "undeclared",
-          "maxDepthMm": 1.3718,
-          "volumeMm3": 86.430527
-        },
-        {
-          "a": "pi4b",
-          "b": "pi_baseboard_lite",
-          "verdict": "undeclared",
-          "maxDepthMm": 0.3547,
-          "volumeMm3": 37.049604
-        },
-        {
-          "a": "power_cap",
-          "b": "shell",
-          "verdict": "undeclared",
-          "maxDepthMm": 0.2744,
-          "volumeMm3": 15.473387
-        }
+  "attachment": {
+    "source": "user",
+    "host": "upper shell",
+    "front_screw_xy_world_mm": [
+      [
+        -16,
+        -32
+      ],
+      [
+        16,
+        -32
       ]
-    },
-    "imported_pcb_sha256_matches_release": true,
-    "release_link_record_note": "The export pins the imported PCB asset hash; its pcbReleases list is empty. Exact PCB release/path/hash are recorded in this review and source asset provenance.",
-    "existing_non_pcb_overlap_note": "power_cap/shell overlap0.2744mm,15.473387mm3 is unchanged by PCB import; not qualified or declared as an intentional fit."
+    ],
+    "rear_guide_xy_world_mm": [
+      -20,
+      24
+    ],
+    "support_not_on": [
+      "bottom cover",
+      "removable module blank"
+    ],
+    "kit": "printed-screw-joint-v1",
+    "beam_width_mm": 6,
+    "beam_thickness_mm": 2,
+    "engagement_mm": 1,
+    "board_finished_thickness_mm": 0.8,
+    "guide_clearance_mm": 0.3,
+    "remaining_blank_roof_mm": 1.9,
+    "qualification": "CAD review; physical PLA thread calibration, load and service life not tested",
+    "beam_to_blank_gap_mm": 0.5,
+    "minimum_blank_roof_over_beam_pockets_mm": 1.9
+  },
+  "preserved": [
+    "Existing screen/glass locator and13degree angle",
+    "1mm front rise",
+    "Pi original placement and physical GPIO pin positions",
+    "Compact single PCB",
+    "Upper-shell PCB mounting independent of lower cover/blank"
+  ],
+  "missing_evidence": [
+    "Resolved FPC contact face choice and updated mating path",
+    "Physical estimated-tail length/stop and insertion",
+    "Connector retention and soldered samples",
+    "Airflow and temperatures",
+    "PLA mounting strength and thread service life"
+  ],
+  "model_limits": [
+    "ESQ and HLE are explicitly modeled manufacturer-drawing reference envelopes, not vendor STEP or internal contact qualification.",
+    "PCB STEP substrate0.71mm versus finished0.8mm; model pads/components add face offsets.",
+    "Native tail13.7+/-0.5mm is an authorized estimate. FPC contact, insertion stop and physical latch access remain prototype checks.",
+    "No physical print, connector mating or thermal test performed."
+  ],
+  "pre_existing_outside_PCB_scope": {
+    "pair": [
+      "power_cap",
+      "shell"
+    ],
+    "shared_volume_mm3": 15.473387,
+    "depth_mm": 0.2744,
+    "status": "unchanged_legacy_button_interference_not_repaired_in_this_connector_query"
+  },
+  "FPC_choice": {
+    "recommended": "Change to horizontal top-contact FH12A while retaining down-facing entry",
+    "alternative": "Retain bottom-contact and revise installation",
+    "exception": "Keep current geometry as an explicitly unqualified assembly draft"
+  },
+  "cad_handoff": {
+    "status": "handoff",
+    "export_id": "export-1fd7a204d7267eb5d21ecf8cab59979c",
+    "revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
+    "step_sha256": "bb93a99b4a99c825f81aba0df0696676347fc27b038b7f33b8daa0bbcba6b5d3",
+    "pcb_asset_sha256": "154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3",
+    "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa",
+    "traceability_note": "Export receipt binds exact imported asset hash/source hash; its automatic pcbReleases list is empty. Source asset provenance and this review bind that hash to the current released assembly.step."
   }
 }
