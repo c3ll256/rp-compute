@@ -1,0 +1,719 @@
+{
+  "schema_version": 1,
+  "design_id": "pi_baseboard_lite",
+  "request": "Move ordinary components inward where practical and validate routing.",
+  "target": {
+    "minimum_land_envelope_to_edge_mm": 2,
+    "source": "default",
+    "qualification": "Placement target, not a fabrication capability or body/courtyard dimension."
+  },
+  "release_id": "b3f079c62daf5a7dc06fe7679e40e7e6b5ab5415a8d2c86e3edfeb11d32bde45",
+  "build_id": "7edf839528017756604b6bdf562d6391c3a941223e13f0d10669ec8128f908df",
+  "source_sha256": {
+    "design/pi_baseboard_lite/source/main.tsx": "2586c4682db3df38699fe3a33e75b70031391813734fd8899280470620dcc135",
+    "design/pi_baseboard_lite/source/pcb.config.json": "cfd9bc64909c0abe896548dad21c0851b409befcfb14dcd6f0bb31f8b13816c3"
+  },
+  "moved_components": [
+    {
+      "ref": "U_BUF1",
+      "before": {
+        "position_mm": [
+          0.5,
+          17.7
+        ],
+        "rotation_deg": 90,
+        "side": "top",
+        "land_envelope_to_edge_mm": 1.55,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          0.5,
+          18.05
+        ],
+        "rotation_deg": 90,
+        "side": "top",
+        "land_envelope_to_edge_mm": 1.9,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "U_BUF2",
+      "before": {
+        "position_mm": [
+          1.0,
+          32
+        ],
+        "rotation_deg": 90,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 3.85,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          1.0,
+          30.8
+        ],
+        "rotation_deg": 90,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 5.05,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "C_BUF2",
+      "before": {
+        "position_mm": [
+          -1.0,
+          36
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 1.55,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          -1.0,
+          34.8
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 2.75,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "R_OFF_DATA",
+      "before": {
+        "position_mm": [
+          7.0,
+          17
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 1.8434,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          7.0,
+          18
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 1.8434,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "R_OFF_DISP",
+      "before": {
+        "position_mm": [
+          6.0,
+          33.5
+        ],
+        "rotation_deg": 0,
+        "side": "top",
+        "land_envelope_to_edge_mm": 2.8434,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          6.0,
+          32
+        ],
+        "rotation_deg": 0,
+        "side": "top",
+        "land_envelope_to_edge_mm": 2.8434,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "R_OFF_COM",
+      "before": {
+        "position_mm": [
+          6.0,
+          36.5
+        ],
+        "rotation_deg": 0,
+        "side": "top",
+        "land_envelope_to_edge_mm": 1.068,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          6.0,
+          34.8
+        ],
+        "rotation_deg": 0,
+        "side": "top",
+        "land_envelope_to_edge_mm": 2.768,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "R_LCD_EN",
+      "before": {
+        "position_mm": [
+          -12.0,
+          -27
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 6.8434,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          -11.4,
+          -27
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 7.4434,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "C_LCD_IN",
+      "before": {
+        "position_mm": [
+          -16.7,
+          -25.5
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 1.595,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          -15.5,
+          -25.5
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 2.795,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "C_LCD_LIN",
+      "before": {
+        "position_mm": [
+          -18,
+          -31
+        ],
+        "rotation_deg": 90,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 1.325,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          -16.5,
+          -31
+        ],
+        "rotation_deg": 90,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 2.795,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "R_AUX_ILIM",
+      "before": {
+        "position_mm": [
+          17.0,
+          -22
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 1.8434,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          16.2,
+          -22
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 2.6434,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "U_AUX_LDO",
+      "before": {
+        "position_mm": [
+          12,
+          -31.0
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 3.25,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          10.7,
+          -31.0
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 3.25,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "C_AUX_LIN",
+      "before": {
+        "position_mm": [
+          7,
+          -31
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 3.825,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          5.8,
+          -31
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 3.825,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "C_AUX_LOUT",
+      "before": {
+        "position_mm": [
+          17,
+          -31
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 1.295,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          15.4,
+          -31
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 2.895,
+        "envelope_inside": true
+      }
+    },
+    {
+      "ref": "R_AUX_BLEED",
+      "before": {
+        "position_mm": [
+          17.0,
+          -27
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 1.8434,
+        "envelope_inside": true
+      },
+      "after": {
+        "position_mm": [
+          16.2,
+          -27
+        ],
+        "rotation_deg": 0,
+        "side": "bottom",
+        "land_envelope_to_edge_mm": 2.6434,
+        "envelope_inside": true
+      }
+    }
+  ],
+  "all_component_edge_checks": {
+    "J_PI": {
+      "position_mm": [
+        -13.5,
+        21.0
+      ],
+      "rotation_deg": 270,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 1.68,
+      "envelope_inside": true
+    },
+    "J_LCD": {
+      "position_mm": [
+        0,
+        26.0
+      ],
+      "rotation_deg": 0,
+      "side": "top",
+      "land_envelope_to_edge_mm": 4.95,
+      "envelope_inside": true
+    },
+    "J_MOD": {
+      "position_mm": [
+        0,
+        -15
+      ],
+      "rotation_deg": 0,
+      "side": "top",
+      "land_envelope_to_edge_mm": 1.33,
+      "envelope_inside": true
+    },
+    "J_FAN": {
+      "position_mm": [
+        0,
+        -25
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 7.725,
+      "envelope_inside": true
+    },
+    "U_BUF1": {
+      "position_mm": [
+        0.5,
+        18.05
+      ],
+      "rotation_deg": 90,
+      "side": "top",
+      "land_envelope_to_edge_mm": 1.9,
+      "envelope_inside": true
+    },
+    "U_BUF2": {
+      "position_mm": [
+        1.0,
+        30.8
+      ],
+      "rotation_deg": 90,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 5.05,
+      "envelope_inside": true
+    },
+    "C_BUF1": {
+      "position_mm": [
+        6.2,
+        17.8
+      ],
+      "rotation_deg": 90,
+      "side": "top",
+      "land_envelope_to_edge_mm": 2.7,
+      "envelope_inside": true
+    },
+    "C_BUF2": {
+      "position_mm": [
+        -1.0,
+        34.8
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 2.75,
+      "envelope_inside": true
+    },
+    "C_LCD_A": {
+      "position_mm": [
+        7,
+        23.0
+      ],
+      "rotation_deg": 90,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 2.55,
+      "envelope_inside": true
+    },
+    "C_LCD_D": {
+      "position_mm": [
+        7,
+        28
+      ],
+      "rotation_deg": 90,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 2.325,
+      "envelope_inside": true
+    },
+    "R_OFF_CLK": {
+      "position_mm": [
+        0.5,
+        25
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 8.3434,
+      "envelope_inside": true
+    },
+    "R_OFF_DATA": {
+      "position_mm": [
+        7.0,
+        18
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 1.8434,
+      "envelope_inside": true
+    },
+    "R_OFF_CS": {
+      "position_mm": [
+        1.0,
+        35
+      ],
+      "rotation_deg": 0,
+      "side": "top",
+      "land_envelope_to_edge_mm": 2.568,
+      "envelope_inside": true
+    },
+    "R_OFF_DISP": {
+      "position_mm": [
+        6.0,
+        32
+      ],
+      "rotation_deg": 0,
+      "side": "top",
+      "land_envelope_to_edge_mm": 2.8434,
+      "envelope_inside": true
+    },
+    "R_OFF_COM": {
+      "position_mm": [
+        6.0,
+        34.8
+      ],
+      "rotation_deg": 0,
+      "side": "top",
+      "land_envelope_to_edge_mm": 2.768,
+      "envelope_inside": true
+    },
+    "U_LCD_LIMIT": {
+      "position_mm": [
+        -13,
+        -22
+      ],
+      "rotation_deg": 90,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 5.75,
+      "envelope_inside": true
+    },
+    "R_LCD_ILIM": {
+      "position_mm": [
+        -8.0,
+        -22
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 10.8434,
+      "envelope_inside": true
+    },
+    "R_LCD_EN": {
+      "position_mm": [
+        -11.4,
+        -27
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 7.4434,
+      "envelope_inside": true
+    },
+    "C_LCD_IN": {
+      "position_mm": [
+        -15.5,
+        -25.5
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 2.795,
+      "envelope_inside": true
+    },
+    "U_LCD_LDO": {
+      "position_mm": [
+        -13,
+        -31.0
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 3.25,
+      "envelope_inside": true
+    },
+    "C_LCD_LIN": {
+      "position_mm": [
+        -16.5,
+        -31
+      ],
+      "rotation_deg": 90,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 2.795,
+      "envelope_inside": true
+    },
+    "C_LCD_LOUT": {
+      "position_mm": [
+        -8,
+        -31
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 3.825,
+      "envelope_inside": true
+    },
+    "R_LCD_BLEED": {
+      "position_mm": [
+        -8.0,
+        -27
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 8.068,
+      "envelope_inside": true
+    },
+    "U_AUX_LIMIT": {
+      "position_mm": [
+        12,
+        -22
+      ],
+      "rotation_deg": 90,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 6.75,
+      "envelope_inside": true
+    },
+    "R_AUX_ILIM": {
+      "position_mm": [
+        16.2,
+        -22
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 2.6434,
+      "envelope_inside": true
+    },
+    "R_AUX_EN": {
+      "position_mm": [
+        12.0,
+        -26
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 6.8434,
+      "envelope_inside": true
+    },
+    "C_AUX_IN": {
+      "position_mm": [
+        7,
+        -19.5
+      ],
+      "rotation_deg": 90,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 7.795,
+      "envelope_inside": true
+    },
+    "U_AUX_LDO": {
+      "position_mm": [
+        10.7,
+        -31.0
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 3.25,
+      "envelope_inside": true
+    },
+    "C_AUX_LIN": {
+      "position_mm": [
+        5.8,
+        -31
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 3.825,
+      "envelope_inside": true
+    },
+    "C_AUX_LOUT": {
+      "position_mm": [
+        15.4,
+        -31
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 2.895,
+      "envelope_inside": true
+    },
+    "R_AUX_BLEED": {
+      "position_mm": [
+        16.2,
+        -27
+      ],
+      "rotation_deg": 0,
+      "side": "bottom",
+      "land_envelope_to_edge_mm": 2.6434,
+      "envelope_inside": true
+    },
+    "R_FAULT_PU": {
+      "position_mm": [
+        -0.0,
+        -30
+      ],
+      "rotation_deg": 0,
+      "side": "top",
+      "land_envelope_to_edge_mm": 5.068,
+      "envelope_inside": true
+    }
+  },
+  "target_exceptions": [
+    {
+      "ref": "U_BUF1",
+      "clearance_mm": 1.9,
+      "reason": "Further inward +Y movement overlaps fixed J_LCD insertion/assembly courtyard."
+    },
+    {
+      "ref": "R_OFF_DATA",
+      "clearance_mm": 1.8434,
+      "reason": "Further inward translation and alternate rotation failed GPIO10 route completion; retain successful published placement."
+    }
+  ],
+  "mechanical_interfaces_preserved": [
+    "board outline",
+    "finished thickness",
+    "all mounting holes",
+    "J_PI",
+    "J_LCD",
+    "J_MOD",
+    "J_FAN"
+  ],
+  "ground_repair": {
+    "stitching_vias": 2,
+    "geometry_mm": [
+      0.6,
+      0.3
+    ],
+    "evidence": "Actual disconnected B.Cu filled polygons and largest In1.Cu GND polygon with whole-stack obstacle clearance; rationale recorded on each source via."
+  },
+  "validation": {
+    "placement": "passed",
+    "routing_and_drc": "passed on immutable Build named here",
+    "visual_review": "top, bottom, schematic, inner1, inner2, exported top/bottom Gerbers and assembly preview inspected",
+    "release_sections": {
+      "fabrication": "ready",
+      "assembly": "ready",
+      "mechanical": "ready"
+    },
+    "plated_via_drills_mm": [
+      0.3
+    ],
+    "warning_qualification": "Pipeline DRC digest has0 errors0 warnings0 unconnected. Raw report has nonblocking supplier library footprint mismatch notices."
+  },
+  "exploratory_routing_note": "Later inward/rotation/reroute trials failed; final editable source restored to the exact successful Build. pcb.run(release) verified matching source and reused that frozen successful Release. Failed rerouting intermediates are not the delivered copper.",
+  "cad_impact": {
+    "status": "compatible",
+    "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+    "pcb_release": "b3f079c62daf5a7dc06fe7679e40e7e6b5ab5415a8d2c86e3edfeb11d32bde45",
+    "pcb_step_sha256": "9fba8943fbe338348ba0adda298c472acc7841587f3ea2e6a69346f1776dd24a",
+    "model_reimported": false,
+    "all_body_collision_pairs": 0,
+    "minimum_top_air_clearance_mm": 1.538682,
+    "minimum_top_air_clearance_target_mm": 1.5,
+    "fpc_latch_clearance_passed": true,
+    "outline_mount_interfaces_preserved": true,
+    "qualification": "Actual new release STEP body check against exact existing CAD build. Enclosure geometry does not require modification. Existing CAD assembly still carries prior board STEP; this report establishes geometric compatibility."
+  }
+}

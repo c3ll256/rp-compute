@@ -1,0 +1,42 @@
+{
+  "connections": [
+    {
+      "connection": "Pi + passive sink to upper shell",
+      "implementation": "free: metal tapped receiver, printed through-clearance countersunk shelves",
+      "quantity": 4,
+      "hardware": "ISO7046 M2.5x6",
+      "metal_engagement_mm": 2.4,
+      "PCB_holes": "unchanged2.7mm cylindrical",
+      "seat": "printed shelf belowPCB",
+      "reason": "Shared board/sink mounting; no printed receiving thread and no independent heatsink bracket."
+    },
+    {
+      "connection": "fan collar to upper shell",
+      "implementation": "kit:printed-screw-joint-v1 compensated plastic receiver plus ISO7046 free head/seat fallback after M2 ISO10642 rejection",
+      "quantity": 2,
+      "hardware": "ISO7046 M2x4",
+      "engagement_mm": 2
+    },
+    {
+      "connection": "fan frame to cradle",
+      "implementation": "free: padded collar clamp; tiny1.5mm fan holes unused"
+    },
+    {
+      "connection": "heatsink lands to CPU/RAM",
+      "implementation": "free: kit TIM contact, nominal gap reference only",
+      "TIM_thickness_model_mm": 0.25,
+      "physical_contact_status": "unmeasured; inspect kit underside and use only required thin TIM without bowing PCB"
+    },
+    {
+      "connection": "HAT J_FAN to fan",
+      "implementation": "free: factory2pin JSTSH crimp pigtail to insulated36AWG fan lead splice",
+      "power_path": "Pi GPIO-header5V/GND -> HAT copper -> J_FAN1/2 -> fan red/black",
+      "user_soldering": false
+    },
+    {
+      "connection": "cradle/shelves to upper shell",
+      "implementation": "free: integral printed body"
+    }
+  ],
+  "unhandled": []
+}

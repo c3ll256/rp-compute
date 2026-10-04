@@ -1,0 +1,8 @@
+{
+  "formatVersion": 4,
+  "name": "rp-compute",
+  "title": "树莓派 4B 掌上终端套件",
+  "summary": "面向用户自备 Pi 4B 的掌上终端硬件设计，包含屏幕与可换 GPIO 模块接口基板、外壳及散热结构，用于 Linux 终端、SSH 和随身工具。",
+  "license": "MIT",
+  "artifacts": "rebuild"
+}

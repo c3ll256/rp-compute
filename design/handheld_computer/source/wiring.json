@@ -1,0 +1,73 @@
+{
+  "parts": [
+    {
+      "ref": "PI",
+      "platform": "raspberrypi/raspberry-pi-4-model-b",
+      "quantity": 1
+    },
+    {
+      "ref": "BASE",
+      "name": "pi_baseboard_lite ESQ-120-12-G-D dock",
+      "quantity": 1
+    },
+    {
+      "ref": "FAN",
+      "name": "Nidec Components F16FB-05LLC",
+      "quantity": 1
+    }
+  ],
+  "connections": [
+    {
+      "from": {
+        "part": "PI",
+        "pin": "2"
+      },
+      "to": {
+        "part": "FAN",
+        "pin": "RED +5V"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+        "https://www.nidec-components.com/e/catalog/dc-fan/f16fb.pdf"
+      ],
+      "notes": "Pi physical2/4 via BASEJ_PI pads1/3, routedV5_PI_IN to BASEJ_FAN pin1; factorySHR02plug"
+    },
+    {
+      "from": {
+        "part": "PI",
+        "pin": "6"
+      },
+      "to": {
+        "part": "FAN",
+        "pin": "BLACK GND"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+        "https://www.nidec-components.com/e/catalog/dc-fan/f16fb.pdf"
+      ],
+      "notes": "Pi GND via BASEJ_PI pad5 and plane to BASEJ_FAN pin2; factorySHR02plug"
+    }
+  ],
+  "power": [
+    {
+      "name": "5V fan",
+      "voltage": 5,
+      "current_ma": 40,
+      "source": {
+        "part": "PI",
+        "pin": "2"
+      },
+      "description": "5V40mA rated,100mA allowance; always-on through dedicated HAT J_FAN2pin connector, no logic GPIO and no user soldering.",
+      "consumers": [
+        "FAN"
+      ]
+    }
+  ],
+  "schema_version": 1
+}

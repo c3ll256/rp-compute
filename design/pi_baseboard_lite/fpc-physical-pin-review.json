@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "status": "passed_drawing_transform_and_routed_logical_pad_mapping",
+  "source": "research",
+  "basis": [
+    "Sharp LS027B7DH01 drawing PDF26 (back-side-up terminal1 left, terminal10 right)",
+    "Sharp PDF11 terminal functions",
+    "Hirose FH12A manufacturer catalog PDF11/printed16 (top-view pin1 triangle left)",
+    "C5139870 actual supplier pads: socket1 sourceX-2.25, socket10 sourceX+2.25"
+  ],
+  "assembly_transform": "Back-side-up view reflects X against installed display/front coordinates.180-degree back fold about screen X preserves X, so screen terminal1 is right when the exposed folded contacts face upward. Socket faces-Y with top contacts; its top-view terminal1 is left.",
+  "socket_terminal_formula": "11-panel_terminal",
+  "rows": [
+    {
+      "panel_terminal": 1,
+      "signal": "SCLK",
+      "socket_terminal": 10,
+      "expected_source_x_mm": 2.25,
+      "actual_source_xy_mm": [
+        2.249804999999924,
+        27.84996454999998
+      ],
+      "actual_signal": "SCLK",
+      "actual_nets": [
+        "LCD_SCLK"
+      ],
+      "expected_net": "LCD_SCLK",
+      "passed": true
+    },
+    {
+      "panel_terminal": 2,
+      "signal": "SI",
+      "socket_terminal": 9,
+      "expected_source_x_mm": 1.75,
+      "actual_source_xy_mm": [
+        1.7499330000000555,
+        27.84996454999998
+      ],
+      "actual_signal": "SI",
+      "actual_nets": [
+        "LCD_SI"
+      ],
+      "expected_net": "LCD_SI",
+      "passed": true
+    },
+    {
+      "panel_terminal": 3,
+      "signal": "SCS",
+      "socket_terminal": 8,
+      "expected_source_x_mm": 1.25,
+      "actual_source_xy_mm": [
+        1.2498069999999188,
+        27.84996454999998
+      ],
+      "actual_signal": "SCS",
+      "actual_nets": [
+        "LCD_SCS"
+      ],
+      "expected_net": "LCD_SCS",
+      "passed": true
+    },
+    {
+      "panel_terminal": 4,
+      "signal": "EXTCOMIN",
+      "socket_terminal": 7,
+      "expected_source_x_mm": 0.75,
+      "actual_source_xy_mm": [
+        0.7499350000000504,
+        27.84996454999998
+      ],
+      "actual_signal": "EXTCOMIN",
+      "actual_nets": [
+        "LCD_COM"
+      ],
+      "expected_net": "LCD_COM",
+      "passed": true
+    },
+    {
+      "panel_terminal": 5,
+      "signal": "DISP",
+      "socket_terminal": 6,
+      "expected_source_x_mm": 0.25,
+      "actual_source_xy_mm": [
+        0.24980900000002748,
+        27.84996454999998
+      ],
+      "actual_signal": "DISP",
+      "actual_nets": [
+        "LCD_DISP"
+      ],
+      "expected_net": "LCD_DISP",
+      "passed": true
+    },
+    {
+      "panel_terminal": 6,
+      "signal": "VDDA",
+      "socket_terminal": 5,
+      "expected_source_x_mm": -0.25,
+      "actual_source_xy_mm": [
+        -0.2500629999999546,
+        27.84996454999998
+      ],
+      "actual_signal": "VDDA",
+      "actual_nets": [
+        "V5_LCD"
+      ],
+      "expected_net": "V5_LCD",
+      "passed": true
+    },
+    {
+      "panel_terminal": 7,
+      "signal": "VDD",
+      "socket_terminal": 4,
+      "expected_source_x_mm": -0.75,
+      "actual_source_xy_mm": [
+        -0.7501889999998639,
+        27.84996454999998
+      ],
+      "actual_signal": "VDD",
+      "actual_nets": [
+        "V5_LCD"
+      ],
+      "expected_net": "V5_LCD",
+      "passed": true
+    },
+    {
+      "panel_terminal": 8,
+      "signal": "EXTMODE",
+      "socket_terminal": 3,
+      "expected_source_x_mm": -1.25,
+      "actual_source_xy_mm": [
+        -1.2500610000000734,
+        27.84996454999998
+      ],
+      "actual_signal": "EXTMODE",
+      "actual_nets": [
+        "V5_LCD"
+      ],
+      "expected_net": "V5_LCD",
+      "passed": true
+    },
+    {
+      "panel_terminal": 9,
+      "signal": "VSS",
+      "socket_terminal": 2,
+      "expected_source_x_mm": -1.75,
+      "actual_source_xy_mm": [
+        -1.7501870000000963,
+        27.84996454999998
+      ],
+      "actual_signal": "VSS",
+      "actual_nets": [
+        "GND"
+      ],
+      "expected_net": "GND",
+      "passed": true
+    },
+    {
+      "panel_terminal": 10,
+      "signal": "VSSA",
+      "socket_terminal": 1,
+      "expected_source_x_mm": -2.25,
+      "actual_source_xy_mm": [
+        -2.2500589999999647,
+        27.84996454999998
+      ],
+      "actual_signal": "VSSA",
+      "actual_nets": [
+        "GND"
+      ],
+      "expected_net": "GND",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Drawing/source verification; physical seating and contact-plane dimensions remain prototype checks."
+  ],
+  "pins_checked": 10,
+  "pcb_release": "90c5e7e3d87051e673eb4af85e3debf84ebc81adcc72dfc6dc141548fa7afe7d",
+  "build_id": "e114ce8f70210c497affd56d29454dc185cb340f3d4890f13ea5652da3c84292",
+  "drc_summary": {
+    "errors": 0,
+    "logical_unconnected": 0,
+    "blocking_warnings": 0,
+    "domain_digest_warning_count": 0,
+    "raw_managed_library_mismatch_advisories": 33,
+    "basis": "Replicator check/release gated digest. Native DRC lists33 tscircuit library-copy mismatch advisories; do not report raw warning count as zero."
+  },
+  "final_frozen_package_recheck": {
+    "passed": true,
+    "pins_checked": 10,
+    "package_file_hashes_verified": 33,
+    "basis": "Immutable released circuit.json; editable current-cache pcb.query is unavailable, so frozen release rather than transient cache was checked."
+  }
+}

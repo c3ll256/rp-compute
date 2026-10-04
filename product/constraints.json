@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "status": "interface_revision_blocked",
-  "bom_ready": false,
-  "requirements_digest": "b0262300aab48763325adee219ae4fdbfaa3b5c5401ea0aea10dae58ab3c707b",
+  "status": "active_lite_PCB_released_existing_CAD_board_import_stale",
+  "bom_ready": true,
+  "requirements_digest": "f1398504b9c62a24af5001c26fca789c3321e659a895a5e1a139e08c42fe2c87",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -39,19 +39,18 @@
       "min_inner_radius_mm": 0.45,
       "max_bend_cycles": 3,
       "evidence": "product/references/LS027B7DH01-sharp-2010.pdf page 26",
-      "connector": "FH12-10S-0.5SH(55)",
-      "contact_face": "toward_pcb",
+      "connector": "0.5-10P CTSJ-H2.0 119",
+      "contact_face": "away_from_pcb",
       "tail_width_mm": 5.5,
       "tail_thickness_tolerance_mm": 0.03,
-      "connector_body_width_mm": 8.1,
-      "connector_total_width_mm": 9.1,
-      "connector_depth_mm": 5.6,
-      "connector_height_mm": 2,
-      "open_latch_height_mm": 4.8,
-      "connector_dim_evidence": "Hirose drawing pp1,5; dimensions include tolerances per drawing",
-      "assembly_configuration": "Active PCB uses horizontal top-side FH12-10S-0.5SH(55), opening+Y. A native-tail bend is user authorized; the retained inverted13deg connector and180deg route are historical clearance targets, not the current mating route. Length13.7±0.5mm is a default estimate; contact orientation, reach and stack height require the actual CAD review.",
+      "connector_total_width_mm": 10.6,
+      "connector_depth_mm": 5.3,
+      "connector_height_mm": 2.01,
+      "connector_dim_evidence": "C5373447 supplier PDF1 nominal closed depth5.2, height2.0; downloaded closed STEP bbox10.6x5.3x2.01. Open depth6.7 is reference, not certified motion.",
+      "assembly_configuration": "Active PCB uses SHOU HAN C5373447 horizontal top-contact sliding latch, top side, entry-Y; retained copper-up folded tail and physical pin mapping verified. Physical seating remains prototype check.",
       "insertion_note": "Fully insert 0.30mm stiffened tail, close latch, inspect continuity. Do not add a generic FFC as if it were the panel tail.",
-      "mechanical_route_ref": "design/handheld_computer/fpc-route.json"
+      "mechanical_route_ref": "design/handheld_computer/fpc-route.json",
+      "open_latch_reference_depth_mm": 6.7
     },
     "source": "research",
     "electrical": {
@@ -120,13 +119,12 @@
       ],
       "deck_opening_center_y_mm": 21.5,
       "retention": "Four kit-generated M2x5 joints with hard stops, rear frame, captured bezel flange and nonadhesive0.2/1.0mm front/rear supports. No glass in screw compression stack; pad pressure and print strength not verified.",
-      "route": "Complete native-tail mechanical target and inverted FH12 reference, full6.4mm asset depth and4.8mm latch-open reservation; physical tail length and eventual supported board remain to be bound.",
+      "route": "Historical negative fold clearance retained. Active socket is the released PCB FH12A top-contact reference envelope, with conservative3.6mm latch-open reservation. No precise internal mating-plane geometry is available.",
       "risks": [
-        "No exact panel STEP; glass fit is checked against manufacturer drawing envelope only.",
-        "Native total tail length13.7mm is a provisional layout target; actual free length and insertion depth must be measured before board placement.",
-        "Soft support materials/stack, polarizer pressure, driver light shielding and print strength require physical test.",
-        "Connector is a mechanical reference target; there is no supporting PCB or electrical verification.",
-        "1mm front rise and original locator dimensions retained; other enclosure/battery/Pi/interlock integration remains outside this edit."
+        "No exact panel STEP; glass fit uses a manufacturer-drawing envelope.",
+        "Tail13.7±0.5mm is a delegated estimate; it is not bounded by the Sharp drawing or measured.",
+        "Top contact face is resolved; exact insertion-plane height/angle, stiffener seating and physical latch operation remain prototype checks.",
+        "Soft support material, polarizer pressure, print strength and thermal behavior require prototype checks."
       ]
     }
   },
@@ -944,19 +942,103 @@
     }
   },
   "cooling": {
-    "source": "default",
-    "mpn": "PI4-FAN-PWM",
-    "variant": "without optionalFAN Adapter",
-    "status": "selected_model_not_enclosure_thermal_verified",
+    "source": "user",
+    "status": "nominal_geometry_passed_physical_cooler_fit_and_thermal_test_pending",
+    "heatsink": "Geekworm P165-B",
+    "heatsink_outline_mm": [
+      55,
+      65,
+      11
+    ],
+    "fan": "F16FB-05LLC",
+    "fan_outline_mm": [
+      16,
+      16,
+      4.5
+    ],
+    "fan_tolerance_mm": 0.5,
     "supply_v": 5,
-    "power_w_budget_assumed": 0.5,
-    "budget_note": "100mA allowance is not rated fan current; included inside3A Pi branch. Verify startup/running draw.",
-    "control": "Baseboard routesPiGPIO12physical32 tofanPWM; red5V,blackGND frombaseboardfanbreakout. OccupiedPiheader cannot take loosefanplug simultaneously. Do not source fan current fromGPIO logic.",
-    "kit": "Heatsink,3510fan,thermal pads,2xM2.5x6screws per manufacturer; no separate loose pads/screws double-counted.",
-    "dimensions_reference": "product/references/pi4-fan-pwm-dimensions.jpg; preserve manufacturer drawing rather than invent a STEP or numerical envelope",
-    "mounting": "Use supplied thermal pads and underside screws per manufacturer. Later enclosure retention must not collide with occupied Pi holes. Check docking socket standoff stack and fan lead access.",
-    "thermal_policy": "Default fan on by60C CPU, target below75C under characterized load; these are design targets, not guarantees. Avoid no-start low PWM; use start boost/full speed and characterize. Do not trust ambiguous manufacturer demo thresholds as validated firmware.",
-    "airflow": "Unobstructed inlet/exhaust, default at least5mm air gap above fan where possible; battery out of exhaust and mechanically separated from heatsink. Enclosure dimensions remain provisional."
+    "rated_current_ma": 40,
+    "power_budget_w": 0.5,
+    "control": "Always-on; power contacts only, GPIO12 LCD COM preserved",
+    "takeoff": "HAT J_PI Pi physical2/4 5V and physical6 GND -> routed J_FAN pin1 5V / pin2 GND -> factory2pin fan harness",
+    "inlet_gap_target_mm": 3,
+    "thermal_status": "unmeasured",
+    "geometry_limits": "P165-B outline/pitch verified; undersurface, fins and port reliefs photo-derived, not exact vendor STEP. TIM gap and four tapped depths need actual kit check.",
+    "fan_position_mm": [
+      -29,
+      -38,
+      11.55
+    ],
+    "fan_rotation_deg": [
+      180,
+      0,
+      270
+    ],
+    "mounting": "Shared four screws through shelf/Pi into heatsink, no separate upper-shell heatsink bracket",
+    "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+    "pcb_release": "dbacb2cc60cdef69951f80af131442ea24b1ed03394f9e446a1f890bf9a1d209",
+    "pcb_step_sha256": "fc63232fc7ddf1972848edb829711607d9a1d65cc299b42f3427e71f542c520a",
+    "heatsink_to_shell_measured_mm": 1.6,
+    "heatsink_GPIO_end_gap_mm": 0.345,
+    "fan_inlet_free_column_mm": {
+      "diameter": 12,
+      "bottom_z": 16,
+      "height": 3
+    },
+    "factory_lead_route": {
+      "points_mm": [
+        [
+          -20.6,
+          -31.6,
+          12.95
+        ],
+        [
+          -10.4,
+          -31.6,
+          12.95
+        ],
+        [
+          -10.4,
+          -31.6,
+          20.3
+        ],
+        [
+          -10.4,
+          -54.1,
+          20.3
+        ],
+        [
+          0,
+          -54.1,
+          20.3
+        ],
+        [
+          0,
+          -51.625,
+          20.3
+        ]
+      ],
+      "bundle_OD_allowance_mm": 1.4,
+      "bend_radius_mm": 2.0,
+      "lead_length_including_ends_mm": 52.521,
+      "minimum_factory_lead_length_mm": 70,
+      "length_passed": true,
+      "intersections": [],
+      "limits": "Actual bent vendor AWG36 leads plus factory32AWG SH pigtail are fitted to this reserve; do not directly crimp AWG36 into SH. Connector plug modeled as reserve; no exact formed-wire CAD claimed."
+    },
+    "intake_area_mm2": 57.6,
+    "exhaust_area_mm2": 43.2,
+    "physical_part_dimensions_verified": false,
+    "airflow": {
+      "mode": "extract internal air",
+      "inlet": "rear-left wall",
+      "exhaust": "left wall near fan",
+      "forward_exhaust": false,
+      "direction_source": "user",
+      "side_location_source": "default",
+      "status": "Nominal inlet, side discharge, front closure and harness geometry passed; installed flow/temperature unmeasured"
+    }
   },
   "interconnect": {
     "gpio_docking": {
@@ -1277,7 +1359,7 @@
     "horizontal_base_height_mm": 27,
     "screen_angle_from_horizontal_deg": 13,
     "reference": "product/contract.json correction_reference_1 and correction_reference_2; shallow_angle_markup",
-    "integration_note": "Real Pi4B reference imported and native connector openings positioned rear/right. Charging proposal left; no front ports. Retention, GPIO daughterboard stack, battery/LCD/cooling and plug fit remain pending. Front rise1mm total, including0.3mm seam; nominal front edge before roundover. Screen/bezel down5.3mm, LCD/FPC must be checked in reduced volume.",
+    "integration_note": "Real Pi4B reference imported and native connector openings positioned rear/right. Active lite left charging opening removed; Pi native USB-C right supply opening retained; no front ports. Retention, GPIO daughterboard stack, battery/LCD/cooling and plug fit remain pending. Front rise1mm total, including0.3mm seam; nominal front edge before roundover. Screen/bezel down5.3mm, LCD/FPC must be checked in reduced volume.",
     "screen_front_rise_above_deck_mm": {
       "value": 1,
       "source": "user"
@@ -1288,9 +1370,9 @@
   },
   "active_lite_interface_revision": {
     "source": "user",
-    "status": "current_PCB_structural_fit_passed_FPC_contact_conflict_open",
+    "status": "PCB_routing_and_DFM_passed_existing_CAD_air_target_pending",
     "connectors": {
-      "J_LCD": "FH12-10S-0.5SH(55)",
+      "J_LCD": "0.5-10P CTSJ-H2.0 119",
       "J_PI": "ESQ-120-12-G-D",
       "J_MOD": "HLE-104-02-G-DV"
     },
@@ -1313,13 +1395,12 @@
       "value": 0.5,
       "source": "default"
     },
-    "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa",
     "pcb": {
       "envelope_mm": [
         40,
         83.5
       ],
-      "area_mm2": 2284.54,
+      "area_mm2": 3025.83,
       "finished_thickness_mm": 0.8,
       "copper_layers": 4,
       "copper_oz": {
@@ -1327,7 +1408,14 @@
         "inner": 1
       },
       "source": "default",
-      "reason": "Narrow GPIO spine and dense connector fanout repeatedly left unrouted power nets and disconnected ground regions on 2 layers; 4layer revision passed all connectivity and DFM gates."
+      "reason": "Narrow GPIO spine and dense connector fanout repeatedly left unrouted power nets and disconnected ground regions on 2 layers; 4layer revision passed all connectivity and DFM gates.",
+      "outline_intent": "Fill former central/display recess; retain envelope and fixed datums; local right-side relief clears exact fascia/retainer/screw3 at sourceX17.3..20,Y11.66..22.31.",
+      "component_sides": {
+        "top": "all except J_PI",
+        "bottom": [
+          "J_PI"
+        ]
+      }
     },
     "board_to_world_xy_mm": [
       0,
@@ -1340,23 +1428,24 @@
       ],
       "J_LCD_origin": [
         0,
-        9.8
+        5.65
       ],
       "J_MOD_centroid": [
         0,
         -34
       ]
     },
-    "cad_models": "Released real PCB with supplier FPC/passive/IC models; ESQ/HLE explicitly modeled nominal manufacturer-drawing references, not exact vendor contact geometry.",
+    "cad_models": "J_LCD uses downloaded official-library detailed STEP; J_PI and J_MOD retain declared manufacturer-drawing reference bodies.",
     "screen_screw_relief": "Left PCB edge has a chamfered notch at sourceY12.1..18.8, Xup to-17.3, to preserve screen screw1 with nominal0.5mm clearance.",
-    "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
+    "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
     "screen_screw_measured_clearance_mm": 1.292813,
     "fpc_fit_review": {
-      "schema_version": 2,
-      "status": "contact_face_conflict_requires_user_choice",
+      "schema_version": 3,
+      "status": "new_connector_nominal_tail_dimensions_match_physical_seating_pending",
       "source": "default",
       "length_estimate_mm": 13.7,
       "estimate_uncertainty_mm": 0.5,
+      "estimate_qualification": "User authorized estimation.13.2..14.2mm is a design review allowance, not measured free length or a bound certified by the Sharp drawing. Do not stretch the tail or claim full installed reach.",
       "non_contact_clearance_per_side_mm": 0.5,
       "current_board_bottom_world_z_mm": 21.8,
       "current_board_finished_top_world_z_mm": 22.6,
@@ -1364,32 +1453,49 @@
         -0.5630557675,
         27.9236985818
       ],
-      "connector_opening": "horizontal -Y / down/front",
-      "connector_closed_height_upper_bound_mm": 2.2,
-      "optimistic_highest_possible_slot_world_z_mm": 24.8,
-      "minimum_required_vertical_drop_using_upper_bound_mm": 3.1236985818,
-      "optimistic_maximum_vertical_drop_mm": 5.3799608435,
-      "interpretation": "Earlier7.424mm height deficit has been removed. This optimistic bound is not a mating path; actual lower-contact slot plane, insertion length and return bend can require greater length/drop.",
+      "connector": "0.5-10P CTSJ-H2.0 119",
+      "connector_source_xy_mm": [
+        0,
+        24.65
+      ],
+      "connector_world_origin_xy_mm": [
+        0,
+        5.65
+      ],
+      "connector_opening": "horizontal-Y / front/down",
+      "contact_face": "upward/away from PCB",
+      "contact_identity_status": "SHOU_HAN_datasheet_and_supplier_verified",
+      "physical_pin_map": "Verified on compiled exact C5373447 footprint: socket terminal=11-panel terminal; all10 nets agree with retained screen-terminal functions.",
+      "reference_closed_envelope_mm": [
+        10.6,
+        5.3,
+        2.01
+      ],
+      "datum_alignment": "Native library model Y=-1.2800076mm; compiler footprint copper-centre recenter +0.35mm requires final model offset Y=-0.9300076mm, Z+1mm. Exact mouth/stop require prototype.",
+      "catalog_mated_section": "SHOU HAN p1: cable .3±.03mm, exposed copper>=3mm, stiffener>=4mm; open side reference6.7mm for4-34P.",
       "recommended_bend_interval_mm": [
         0.8,
-        6.0
+        6
       ],
       "minimum_inner_radius_mm": 0.45,
-      "stiffener_length_mm": 4.0,
+      "stiffener_length_mm": 4,
+      "assembly": "Top-side SMT first; Pi through-hole socket last. Open sliding latch, insert folded native tail copper-up and close before final screen fastening.",
       "evidence": [
-        "Sharp LS027B7DH01 PDF p26",
-        "Hirose C506791 drawing pp1,5"
+        "Sharp LS027B7DH01 PDF26",
+        "SHOU HAN C5373447 PDF1",
+        "C5373447 supplier footprint/model",
+        "fpc-connector-comparison.json"
       ],
-      "contact_conflict": "Manufacturer-recommended back fold flips exposed contact face upward. The retained horizontal top-side FH12 is bottom contact; current selected path is not qualified.",
-      "candidate": "FH12A-10S-0.5SH(55), horizontal top contact; user choice pending",
       "not_claimed": [
-        "Full native-tail reach with estimated length",
-        "Correct contact face/pin1/stop",
-        "Latch access with panel installed",
-        "Thermal performance"
+        "Complete13.2..14.2mm native-tail route seated against an exact internal stop",
+        "Certified mouth plane/angle or physical latch motion",
+        "Physical GPIO engagement tolerances",
+        "Measured thermal performance"
       ],
-      "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
-      "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa"
+      "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+      "compiled_evidence": "design/pi_baseboard_lite/front-side-layout-review.json",
+      "prior_geometry_review_release": "ceada78d56239a5a67ad64659dc0cfd2148fbb590c4dc810c60042197d11e74f",
+      "current_pcb_release_authority": "manufacturing/pi_baseboard_lite/release-index.json"
     },
     "pcb_bottom_world_z_mm": 21.8,
     "pcb_rise_mm": 4.3,
@@ -1420,7 +1526,7 @@
       "engagement_mm": 1,
       "board_finished_thickness_mm": 0.8,
       "guide_clearance_mm": 0.3,
-      "remaining_blank_roof_mm": 1.2,
+      "remaining_blank_roof_mm": 1.9,
       "qualification": "CAD review; physical PLA thread calibration, load and service life not tested",
       "bottom_world_z_mm": 21.8
     },
@@ -1447,8 +1553,46 @@
       "recess_mm": 0.7450009999999985,
       "installation": "top-entry via module aperture; retain mechanically independent cassette"
     },
-    "fpc_opening": "-Y, front/down in board top view; horizontal top-side bottom-contact connector",
+    "fpc_opening": "-Y, front/down in board top view; horizontal top-side top-contact connector",
     "thermal_clearance_target_mm": 1.5,
-    "minimum_ordinary_top_air_mm": 1.555001
+    "unused_left_charging_opening": {
+      "value": "removed;2.4mm left wall retained at cradle roots, with separate left exhaust vents above/between roots",
+      "source": "user"
+    },
+    "cad_board_binding": "Existing enclosure retains earlier PCB import; new release has not been imported. This revision only assesses physical impact.",
+    "new_population_impact": {
+      "source": "research",
+      "minimum_ordinary_top_air_mm": 0.455001,
+      "minimum_air_target_mm": 1.5,
+      "minimum_air_target_passed": false,
+      "reason": "New top-mounted power circuits under front deck approach shell roof. No user requirement changed; existing CAD needs local relief or future placement adjustment before complete enclosure qualification.",
+      "fan_source_xy_mm": [
+        0,
+        34
+      ],
+      "right_edge_local_relief_source_xy_mm": [
+        [
+          20,
+          10.5
+        ],
+        [
+          16.3,
+          11.1
+        ],
+        [
+          16.3,
+          23.8
+        ],
+        [
+          20,
+          24.4
+        ]
+      ],
+      "evidence": "design/pi_baseboard_lite/front-side-enclosure-review.json",
+      "new_enclosure_board_imported": false
+    },
+    "prior_geometry_review_release": "ceada78d56239a5a67ad64659dc0cfd2148fbb590c4dc810c60042197d11e74f",
+    "current_pcb_release_authority": "manufacturing/pi_baseboard_lite/release-index.json",
+    "current_pcb_geometry_review": "design/pi_baseboard_lite/front-side-enclosure-review.json"
   }
 }

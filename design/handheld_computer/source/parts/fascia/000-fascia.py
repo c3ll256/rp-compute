@@ -1,4 +1,6 @@
 # cell: fascia
+# cell: fascia
+# cell: fascia
 import math
 fascia_width=param('fascia_width',77.0)
 fascia_depth=param('fascia_depth',65.0)
@@ -35,7 +37,27 @@ body-=window
 # Underside relief, not an external port. No connector/PCB placeholder.
 body-=F*Pos(0,fascia_fpc_y,-fascia_fpc_roof-fascia_fpc_depth/2)*Box(fascia_fpc_width,fascia_fpc_length,fascia_fpc_depth)
 # Rear retaining assembly; local frame is the unchanged screen plane.
-from screwjoint import make_screw_joint_v1
+from screwjoint import make_screw_joint_v1, ScrewJointNotApplicableV1
+from bd_warehouse.fastener import CounterSunkScrew, ClearanceHole
+# M2 countersunk kit rejects ISO10642 (starts at M3). Explicit free head/seat
+# fallback uses verified ISO7046 M2; compensated printed receiver stays kit-owned.
+def m2_flush_joint(frame, sheet, thickness, engagement, host, label):
+ try:
+  joint=make_screw_joint_v1(size='M2',at=frame,through=[(sheet,thickness)],engage_depth=engagement,into=host,head='countersunk',material='PLA',label=label)
+  return joint, joint.through_cuts[0], joint.hardware
+ except ScrewJointNotApplicableV1 as exc:
+  print('FREE_HEAD_FALLBACK',str(exc))
+  joint=make_screw_joint_v1(size='M2',at=frame,through=[(sheet,thickness)],engage_depth=engagement,into=host,head='socket_cap',material='PLA',label=label)
+  standard=CounterSunkScrew('M2-0.4',length=joint.screw_length_mm,fastener_type='iso7046')
+  assert thickness>=standard.head_height
+  seat=frame*ClearanceHole(standard,depth=thickness,counter_sunk=True,mode=Mode.PRIVATE)
+  k,dk=standard.head_height,standard.head_diameter
+  head=standard & Pos(0,0,-k/2)*Box(2*dk,2*dk,k)
+  shaft=joint.hardware.moved(frame.inverse()) & Pos(0,0,-(k+joint.screw_length_mm)/2)*Box(dk,dk,joint.screw_length_mm-k)
+  hardware=frame*(head+shaft)
+  return joint,seat,hardware
+
+
 retainer_width=param('retainer_width',66.0)
 retainer_depth=param('retainer_depth',44.0)
 retainer_y=param('retainer_y',-1.77)
@@ -90,7 +112,7 @@ if isinstance(ring,ShapeList): ring=Compound(children=list(ring))
 # Full negative FPC path: one 180-degree fold behind the panel.
 # 0.30mm is the manufacturer's stiffened-tail thickness, used conservatively
 # over the flex span. Overall free length is a disclosed 13.7mm layout target,
-# not a toleranced manufacturer length; actual tail measurement remains required.
+# not a toleranced manufacturer length; user authorized continued provisional\n# design from this estimate. This old negative channel does not certify mating.
 fpc_bend_start=param('fpc_bend_start',1.0)
 fpc_inner_radius=param('fpc_inner_radius',1.35)
 fpc_free_length=param('fpc_free_length',13.7)
@@ -132,8 +154,17 @@ voids=[
  Pos(-11.5,-7.4,zmid)*Box(17.0+2*c,2.2+2*c,height),
  Pos(-11.5,1.5,zmid)*Box(17.0+2*c,5.0+2*c,height),
  Pos(4.5,2.0,zmid)*Box(11.0+2*c,5.0+2*c,height),
- Pos(0.5,0.4,fascia_pcb_bottom_z+PCB_T+1.1/2)*Box(5.0+2*fascia_pcb_top_air,6.013+2*fascia_pcb_top_air,1.1+2*fascia_pcb_top_air)
+ Pos(0.5,-1.3,fascia_pcb_bottom_z+PCB_T+1.1/2)*Box(6.013+2*fascia_pcb_top_air,5.0+2*fascia_pcb_top_air,1.1+2*fascia_pcb_top_air)
 ]
+# Released C_BUF1 body bboxX5.8..6.6,Y-2.0..-0.4,Z22.595..23.395.
+# Exact supplier package size0.8x1.6x0.8; local pocket follows its new position.
+fascia_pcb_small_component_air=param('fascia_pcb_small_component_air',1.6)
+voids.append(Pos(6.2,-1.2,fascia_pcb_bottom_z+PCB_T+0.8/2)*Box(0.8+2*fascia_pcb_small_component_air,1.6+2*fascia_pcb_small_component_air,0.8+2*fascia_pcb_small_component_air))
+# FH12A top-contact closed envelope is9.5x6.2x2.0; opened height3.6.
+# Manufacturer catalog p16/PDF11. Filled open-height prism is conservative
+# assembly keepout only, not latch geometry or a claimed cable insertion plane.
+fascia_fpc_latch_air=param('fascia_fpc_latch_air',0.5)
+voids.append(Pos(0,5.275,fascia_pcb_bottom_z+PCB_T+3.6/2)*Box(9.5+2*fascia_fpc_latch_air,6.2+2*fascia_fpc_latch_air,3.6+2*fascia_fpc_latch_air))
 for void_world in voids:
  void_local=void_world.moved(SCREEN_WORLD.inverse())
  host=host-void_local
@@ -143,12 +174,12 @@ for void_world in voids:
 for sx in [-1,1]:
  for yy in [retainer_screw_y_front,retainer_screw_y_rear]:
   xx=sx*retainer_screw_x
-  joint=make_screw_joint_v1(size="M2",at=Location((xx,yy,retainer_seat_z-retainer_thickness),(180,0,0)),through=[(ring,retainer_thickness)],engage_depth=retainer_engagement,into=host,head="socket_cap",material="PLA",boss="none",label="lcd-retainer")
-  ring=ring-joint.through_cuts[0]
+  joint,seat,hardware=m2_flush_joint(Location((xx,yy,retainer_seat_z-retainer_thickness),(180,0,0)),ring,retainer_thickness,retainer_engagement,host,'lcd-retainer')
+  ring=ring-seat
   if len(joint.bosses.solids())>0:
    host=host+joint.bosses
   host=host-joint.engage_cuts
-  screws.append(joint.hardware)
+  screws.append(hardware)
   print("RETAINER_JOINT",xx,yy,joint.screw_length_mm,joint.boss_length_mm,joint.hole_profile)
 assert len(ring.solids())==1, ('ring solids',len(ring.solids()),[(round(s.volume,3),str(s.bounding_box())) for s in ring.solids()])
 assert len(host.solids())==1

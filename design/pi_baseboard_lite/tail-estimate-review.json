@@ -1,9 +1,10 @@
 {
-  "schema_version": 2,
-  "status": "contact_face_conflict_requires_user_choice",
+  "schema_version": 3,
+  "status": "contact_orientation_and_pin_map_resolved_tail_seating_provisional",
   "source": "default",
   "length_estimate_mm": 13.7,
   "estimate_uncertainty_mm": 0.5,
+  "estimate_qualification": "User authorized estimation.13.2..14.2mm is a design review allowance, not measured free length or a bound certified by the Sharp drawing. Do not stretch the tail or claim full installed reach.",
   "non_contact_clearance_per_side_mm": 0.5,
   "current_board_bottom_world_z_mm": 21.8,
   "current_board_finished_top_world_z_mm": 22.6,
@@ -11,30 +12,46 @@
     -0.5630557675,
     27.9236985818
   ],
-  "connector_opening": "horizontal -Y / down/front",
-  "connector_closed_height_upper_bound_mm": 2.2,
-  "optimistic_highest_possible_slot_world_z_mm": 24.8,
-  "minimum_required_vertical_drop_using_upper_bound_mm": 3.1236985818,
-  "optimistic_maximum_vertical_drop_mm": 5.3799608435,
-  "interpretation": "Earlier7.424mm height deficit has been removed. This optimistic bound is not a mating path; actual lower-contact slot plane, insertion length and return bend can require greater length/drop.",
+  "connector": "FH12A-10S-0.5SH(55)",
+  "connector_source_xy_mm": [
+    0,
+    26
+  ],
+  "connector_world_origin_xy_mm": [
+    0,
+    7
+  ],
+  "connector_opening": "horizontal-Y / front/down",
+  "contact_face": "upward/away from PCB",
+  "contact_identity_status": "manufacturer_verified",
+  "physical_pin_map": "socket terminal=11-panel terminal; all10 compiled pad positions, signal labels and nets verified",
+  "reference_closed_envelope_mm": [
+    9.5,
+    6.2,
+    2
+  ],
+  "reference_opened_height_mm": 3.6,
+  "datum_alignment": "Filled outer reference frontY=-4.825, width9.5,depth6.2; inferred alignment to C5139870 supplier silk/pads. No slot-height or angle is invented.",
+  "catalog_mated_section": "Hirose printed16/PDF11 labels1.9mm tip insertion and5mm from housing front to tip stop; tail protrudes upward at an unspecified angle. These nominal figures are not an exact3D mating plane.",
   "recommended_bend_interval_mm": [
     0.8,
-    6.0
+    6
   ],
   "minimum_inner_radius_mm": 0.45,
-  "stiffener_length_mm": 4.0,
+  "stiffener_length_mm": 4,
+  "assembly": "Release screen pod for access, shape one back fold without twisting, copper upward, insert and close latch before final pod fastening. Panel has independent support.",
   "evidence": [
-    "Sharp LS027B7DH01 PDF p26",
-    "Hirose C506791 drawing pp1,5"
+    "Sharp LS027B7DH01 PDF11 and26",
+    "Hirose manufacturer catalog PDF11/printed16",
+    "C5139870 supplier footprint",
+    "fpc-physical-pin-review.json"
   ],
-  "contact_conflict": "Manufacturer-recommended back fold flips exposed contact face upward. The retained horizontal top-side FH12 is bottom contact; current selected path is not qualified.",
-  "candidate": "FH12A-10S-0.5SH(55), horizontal top contact; user choice pending",
   "not_claimed": [
-    "Full native-tail reach with estimated length",
-    "Correct contact face/pin1/stop",
-    "Latch access with panel installed",
-    "Thermal performance"
+    "Complete13.2..14.2mm native-tail route seated against an exact internal stop",
+    "Certified mouth plane/angle or physical latch motion",
+    "Physical GPIO engagement tolerances",
+    "Measured thermal performance"
   ],
-  "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
-  "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa"
+  "pcb_release": "90c5e7e3d87051e673eb4af85e3debf84ebc81adcc72dfc6dc141548fa7afe7d",
+  "cad_revision": "bd3a4861e4a55080ebf6217f622f8789631da4b61aa90558279edebd83e0273d"
 }

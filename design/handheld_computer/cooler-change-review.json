@@ -1,0 +1,21 @@
+{
+  "status": "implemented_nominal_reference_checks_passed",
+  "compute": "Raspberry Pi4ModelB",
+  "heatsink": "GeekwormP165-B standalone SKU100237",
+  "user_evidence": "20261001T062704979Z-1 screenshot65x55x11",
+  "primary_evidence": "https://geekworm.com/products/p165-b",
+  "replaced_candidate": "Pi5-Active-Cooler-B incompatible with retained Pi4",
+  "fan_power": "Dedicated HATJ_FAN from GPIO-header5V/GND",
+  "mount": "Four sharedM2.5x6 screws into metal sink through upper-shell shelves/Pi unchangedholes",
+  "geometry_status": "passed_with_declared_photo_reference_limits",
+  "physical_checks": [
+    "Actual P165-B underside lands/TIM contact without PCB bowing",
+    "Stock GPIO relief depth must clear ESQ body length51.31mm; modeled52mm gives0.345mm end gaps only",
+    "Check four M2.5 metal tapped depths exceed2.4mm engagement",
+    "Actual fan thickness/pad compression and free blade rotation",
+    "JST plug polarity/retention and no pulled solder joints",
+    "Closed-shell full-load temperature test"
+  ],
+  "cad_revision": "2c7c2ccf1ef5fbca92db9749a5a5c9e1582444ba7004401cecb487c23b987f20",
+  "pcb_release": "dbacb2cc60cdef69951f80af131442ea24b1ed03394f9e446a1f890bf9a1d209"
+}

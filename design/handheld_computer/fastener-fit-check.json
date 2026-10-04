@@ -1,0 +1,200 @@
+{
+  "revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+  "nominal_corner_axes_mm": [
+    [
+      -13.5,
+      -27
+    ],
+    [
+      -13.5,
+      31
+    ],
+    [
+      35.5,
+      -27
+    ],
+    [
+      35.5,
+      31
+    ]
+  ],
+  "checks": {
+    "pi_mount_screw_1": {
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "pi4b": 0.0,
+        "pi_baseboard_lite": 0,
+        "base": 0
+      },
+      "base_clearance_mm": 1.1,
+      "bounds": {
+        "min": [
+          -15.690901074232999,
+          -29.190901074233,
+          3.4999999
+        ],
+        "max": [
+          -11.309099025766999,
+          -24.809098925767,
+          9.5
+        ]
+      }
+    },
+    "pi_mount_screw_2": {
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "pi4b": 0.0,
+        "pi_baseboard_lite": 0,
+        "base": 0
+      },
+      "base_clearance_mm": 1.1,
+      "bounds": {
+        "min": [
+          -15.690901074232999,
+          28.809098925767,
+          3.4999999
+        ],
+        "max": [
+          -11.309099025766999,
+          33.190901074233004,
+          9.5
+        ]
+      }
+    },
+    "pi_mount_screw_3": {
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "pi4b": 0.0,
+        "pi_baseboard_lite": 0,
+        "base": 0
+      },
+      "base_clearance_mm": 1.1,
+      "bounds": {
+        "min": [
+          33.309098925766996,
+          -29.190901074233,
+          3.4999999
+        ],
+        "max": [
+          37.690901074233004,
+          -24.809098925767,
+          9.5
+        ]
+      }
+    },
+    "pi_mount_screw_4": {
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "pi4b": 0.0,
+        "pi_baseboard_lite": 0,
+        "base": 0
+      },
+      "base_clearance_mm": 1.1,
+      "bounds": {
+        "min": [
+          33.309098925766996,
+          28.809098925767,
+          3.4999999
+        ],
+        "max": [
+          37.690900974232996,
+          33.190901074233004,
+          9.5
+        ]
+      }
+    },
+    "front_module_screw_1": {
+      "head_top_z": 27.0,
+      "flush_to_deck_mm": 0.0,
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "front_module_blank": 0.0
+      }
+    },
+    "front_module_screw_2": {
+      "head_top_z": 27.0,
+      "flush_to_deck_mm": 0.0,
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "front_module_blank": 0.0
+      }
+    },
+    "front_module_screw_3": {
+      "head_top_z": 27.0,
+      "flush_to_deck_mm": 0.0,
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "front_module_blank": 0.0
+      }
+    },
+    "front_module_screw_4": {
+      "head_top_z": 27.0,
+      "flush_to_deck_mm": 0.0,
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "front_module_blank": 0.0
+      }
+    },
+    "retainer_screw_1": {
+      "shared_volume_mm3": {
+        "fascia": 0.0,
+        "retainer": 0.0,
+        "bezel": 0,
+        "pi_baseboard_lite": 0.0
+      }
+    },
+    "retainer_screw_2": {
+      "shared_volume_mm3": {
+        "fascia": 0.0,
+        "retainer": 0.0,
+        "bezel": 0,
+        "pi_baseboard_lite": 0
+      }
+    },
+    "retainer_screw_3": {
+      "shared_volume_mm3": {
+        "fascia": 0.0,
+        "retainer": 0.0,
+        "bezel": 0,
+        "pi_baseboard_lite": 0.0
+      }
+    },
+    "retainer_screw_4": {
+      "shared_volume_mm3": {
+        "fascia": 0.0,
+        "retainer": 0.0,
+        "bezel": 0,
+        "pi_baseboard_lite": 0
+      }
+    },
+    "fan_collar_screw_1": {
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "fan_collar": 0.0,
+        "cooling_fan": 0,
+        "pi_baseboard_lite": 0,
+        "pi4b": 0
+      },
+      "head_top_z": 17.4,
+      "flush_to_collar_mm": 0.0
+    },
+    "fan_collar_screw_2": {
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "fan_collar": 0.0,
+        "cooling_fan": 0,
+        "pi_baseboard_lite": 0,
+        "pi4b": 0
+      },
+      "head_top_z": 17.4,
+      "flush_to_collar_mm": 0.0
+    }
+  },
+  "physical_limits": [
+    "No printed fit, screw pullout, tightening torque or cooler compatibility qualified.",
+    "Pi four screw heads seat in printed shelves; PCB laminate holes are not countersunk. Metal heatsink threads receive2.4mm engagement."
+  ],
+  "new_screw_collision_check_passed": true,
+  "external_flush_check_passed": true,
+  "bottom_head_gap_check_passed": true
+}

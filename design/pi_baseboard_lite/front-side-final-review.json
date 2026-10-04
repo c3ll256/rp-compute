@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "PCB_released_existing_enclosure_air_target_pending",
+  "release_id": "8816a764c91d71af56bd3042eeca5a34a6f0ec2096f8967712fe44e23a199537",
+  "build_id": "74243f2e9887ca94aa3ad385af2fe3a64e6d4654abe573d9fa06137dc41f7fcc",
+  "pcb_step_sha256": "7be47336983ab285b75e6c7d2a93d2c29418654a82397f66cf8ef8e56ad6b53d",
+  "top_component_count": 31,
+  "bottom_components": [
+    "J_PI"
+  ],
+  "fpc_supplier_code": "C5373447",
+  "fpc_model_source": "JLCEDA/EasyEDA official library; detailed STEP, not manufacturer-certified mating geometry",
+  "area_mm2": 3025.83,
+  "outline_envelope_mm": [
+    40,
+    83.5
+  ],
+  "area_increase_percent": 32.448,
+  "DRC": {
+    "errors": 0,
+    "unconnected": 0,
+    "advisory_library_warnings": 34
+  },
+  "DFM": "passed_4layer_FR4_0.8mm_inner_outer_1oz",
+  "visual_review": [
+    "current release assembly iso",
+    "current release Gerber top",
+    "routed top and bottom",
+    "compiled side/pin-map/bypass-cap/edge and FPC-service envelope checks",
+    "released component body projections versus FPC-service corridor",
+    "released bodies versus exact existing CAD revision"
+  ],
+  "existing_CAD": {
+    "revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+    "new_board_imported": false,
+    "solid_body_intersections": 0,
+    "minimum_ordinary_top_air_mm": 0.455001,
+    "retained_target_mm": 1.5,
+    "target_passed": false,
+    "next_action": "Import this PCB release and add clearance above top-side power circuits while preserving shell strength; recheck exact final assembly."
+  },
+  "assembly_boundary": "Front-side populated layout; Pi bottom THT separately. Manual prototype assembly remains selected, generated JLC SMT CSVs contain headers only. No supplier-facing order approved. Native FPC tail clamp, full cable routing and electrical/thermal tests remain prototype checks.",
+  "C_LCD_IN_to_Pi_copper_land_mm": {
+    "previous": 0.904997,
+    "current": 2.504997,
+    "method": "Capacitor compiled land envelope to Pi through-hole copper lands; not body/courtyard spacing."
+  },
+  "fpc_insertion_service_corridor": {
+    "width_mm": 8,
+    "length_mm": 13.6699924,
+    "source": "default",
+    "bounds_source_mm": {
+      "minX": -4.0,
+      "maxX": 4.0,
+      "minY": 7.5,
+      "maxY": 21.1699924
+    },
+    "minimum_top_land_envelope_gap_mm": 0.550001,
+    "minimum_top_body_projection_gap_mm": 0.6,
+    "passed": true,
+    "limits": "Service corridor default; not certified cable bend geometry or actual finger-access qualification."
+  }
+}

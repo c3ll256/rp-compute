@@ -1,0 +1,1 @@
+publish("cooling_fan", asset("design/handheld_computer/source/assets/e2f8b7cbed1d020a8861be66a5f32019d9404dfb20410347d0f201a42a6ba793.step"), "F16FB side blower")

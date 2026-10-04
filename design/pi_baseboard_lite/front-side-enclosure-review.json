@@ -1,0 +1,1232 @@
+{
+  "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+  "pcb_release": "8816a764c91d71af56bd3042eeca5a34a6f0ec2096f8967712fe44e23a199537",
+  "pcb_step_sha256": "7be47336983ab285b75e6c7d2a93d2c29418654a82397f66cf8ef8e56ad6b53d",
+  "placement": {
+    "position_mm": [
+      -100,
+      81,
+      21.8
+    ],
+    "rotation_deg": [
+      0,
+      0,
+      0
+    ],
+    "xy_basis": "J_PI source pad centroid(-13.5,21) aligns with Pi world(-13.5,2). KiCad STEP offset(+100,-100) yields translation(-100,81).",
+    "z_basis": "User requested raised upper-shell mounting;21.8mm is agent default4.3mm lift. User authorized higher GPIO and lower8pin sockets. ESQ11.05mm nominal housing gives4.75..6.25mm engagement from official/third-party Pi tip datums; STEP also offsets bottom bodies by0.085mm."
+  },
+  "method": "OCC per-solid volume intersections of real released substrate/component bodies against world-transformed CAD objects; copper/pad/via visual bodies excluded. Nominal glass is an explicit drawing-based negative probe.",
+  "body_bounds": {
+    "0:assembly_1_1": {
+      "min": [
+        -8.650013,
+        -51.0,
+        22.594999
+      ],
+      "max": [
+        -7.350013,
+        -49.0,
+        23.894999
+      ]
+    },
+    "1:assembly_1_2": {
+      "min": [
+        11.19,
+        -23.405,
+        22.594999
+      ],
+      "max": [
+        12.81,
+        -22.595,
+        23.044999
+      ]
+    },
+    "2:assembly_1_1": {
+      "min": [
+        3.0,
+        8.850013,
+        22.594999
+      ],
+      "max": [
+        5.0,
+        10.150013,
+        23.894999
+      ]
+    },
+    "3:assembly_1_2": {
+      "min": [
+        -2.81,
+        -18.405,
+        22.594999
+      ],
+      "max": [
+        -1.19,
+        -17.595,
+        23.044999
+      ]
+    },
+    "4:assembly_1_1": {
+      "min": [
+        -8.850013,
+        -23.8,
+        22.594999
+      ],
+      "max": [
+        -7.550013,
+        -21.8,
+        23.894999
+      ]
+    },
+    "5:assembly_1_6": {
+      "min": [
+        9.993685,
+        9.5,
+        22.594999
+      ],
+      "max": [
+        16.00629,
+        14.5,
+        23.695082
+      ]
+    },
+    "6:assembly_1_2": {
+      "min": [
+        -8.81,
+        -46.405,
+        22.594999
+      ],
+      "max": [
+        -7.19,
+        -45.595,
+        23.044999
+      ]
+    },
+    "7:assembly_1_2": {
+      "min": [
+        -6.81,
+        14.095,
+        22.594999
+      ],
+      "max": [
+        -5.19,
+        14.905,
+        23.044999
+      ]
+    },
+    "8:assembly_1_1": {
+      "min": [
+        -17.150013,
+        -51.0,
+        22.594999
+      ],
+      "max": [
+        -15.850013,
+        -49.0,
+        23.894999
+      ]
+    },
+    "9:assembly_1_10": {
+      "min": [
+        4.6,
+        -10.75,
+        22.594999
+      ],
+      "max": [
+        5.4,
+        -9.15,
+        23.394999
+      ]
+    },
+    "10:assembly_1_1": {
+      "min": [
+        4.8,
+        -50.649987,
+        22.594999
+      ],
+      "max": [
+        6.8,
+        -49.349987,
+        23.894999
+      ]
+    },
+    "11:assembly_1_1": {
+      "min": [
+        14.4,
+        -50.649987,
+        22.594999
+      ],
+      "max": [
+        16.4,
+        -49.349987,
+        23.894999
+      ]
+    },
+    "12:hle-104-02-g-dv-drawing-reference": {
+      "min": [
+        -5.08,
+        -37.3,
+        22.594999
+      ],
+      "max": [
+        5.08,
+        -30.7,
+        26.254999
+      ]
+    },
+    "13:assembly_1_14": {
+      "min": [
+        -14.006302,
+        -51.449987,
+        22.594999
+      ],
+      "max": [
+        -10.993698,
+        -48.549987,
+        23.845082
+      ]
+    },
+    "14:assembly_1_10": {
+      "min": [
+        7.1,
+        9.25,
+        22.594999
+      ],
+      "max": [
+        7.9,
+        10.85,
+        23.394999
+      ]
+    },
+    "15:SOT-23-6": {
+      "min": [
+        -8.45,
+        -19.4,
+        22.594999
+      ],
+      "max": [
+        -5.55,
+        -16.6,
+        24.144999
+      ]
+    },
+    "16:assembly_1_2": {
+      "min": [
+        15.39,
+        -19.405,
+        22.594999
+      ],
+      "max": [
+        17.01,
+        -18.595,
+        23.044999
+      ]
+    },
+    "17:SOT-23-6": {
+      "min": [
+        10.55,
+        -20.4,
+        22.594999
+      ],
+      "max": [
+        13.45,
+        -17.6,
+        24.144999
+      ]
+    },
+    "18:assembly_1_2": {
+      "min": [
+        4.19,
+        -13.405,
+        22.594999
+      ],
+      "max": [
+        5.81,
+        -12.595,
+        23.044999
+      ]
+    },
+    "19:assembly_1_2": {
+      "min": [
+        -6.21,
+        -23.405,
+        22.594999
+      ],
+      "max": [
+        -4.59,
+        -22.595,
+        23.044999
+      ]
+    },
+    "20:assembly_1_10": {
+      "min": [
+        -2.8,
+        10.1,
+        22.594999
+      ],
+      "max": [
+        -1.2,
+        10.9,
+        23.394999
+      ]
+    },
+    "21:assembly_1_1": {
+      "min": [
+        6.349987,
+        -17.5,
+        22.594999
+      ],
+      "max": [
+        7.649987,
+        -15.5,
+        23.894999
+      ]
+    },
+    "22:C5373447-easyeda": {
+      "min": [
+        -5.3,
+        2.169992,
+        22.594999
+      ],
+      "max": [
+        5.3,
+        7.469992,
+        24.604999
+      ]
+    },
+    "23:assembly_1_2": {
+      "min": [
+        -0.81,
+        -49.405,
+        22.594999
+      ],
+      "max": [
+        0.81,
+        -48.595,
+        23.044999
+      ]
+    },
+    "24:assembly_1_14": {
+      "min": [
+        9.193698,
+        -51.450013,
+        22.594999
+      ],
+      "max": [
+        12.206302,
+        -48.550013,
+        23.845082
+      ]
+    },
+    "25:assembly_1_2": {
+      "min": [
+        13.19,
+        16.095,
+        22.594999
+      ],
+      "max": [
+        14.81,
+        16.905,
+        23.044999
+      ]
+    },
+    "26:assembly_1_6": {
+      "min": [
+        7.493685,
+        -10.5,
+        22.594999
+      ],
+      "max": [
+        13.50629,
+        -5.5,
+        23.695082
+      ]
+    },
+    "27:assembly_1_2": {
+      "min": [
+        6.19,
+        16.095,
+        22.594999
+      ],
+      "max": [
+        7.81,
+        16.905,
+        23.044999
+      ]
+    },
+    "28:assembly_1_2": {
+      "min": [
+        15.39,
+        -46.405,
+        22.594999
+      ],
+      "max": [
+        17.01,
+        -45.595,
+        23.044999
+      ]
+    },
+    "29:assembly_1_2": {
+      "min": [
+        -5.81,
+        -13.405,
+        22.594999
+      ],
+      "max": [
+        -4.19,
+        -12.595,
+        23.044999
+      ]
+    },
+    "30:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1_00mm_Horizontal": {
+      "min": [
+        -2.0,
+        12.525,
+        22.594999
+      ],
+      "max": [
+        2.0,
+        17.475,
+        25.554999
+      ]
+    },
+    "31:esq-120-12-g-d-drawing-reference": {
+      "min": [
+        -16.04,
+        -23.655,
+        10.665
+      ],
+      "max": [
+        -10.96,
+        27.655,
+        24.005
+      ]
+    },
+    "35:board_PCB": {
+      "min": [
+        -20.0,
+        -54.5,
+        21.8
+      ],
+      "max": [
+        20.0,
+        29.0,
+        22.509999
+      ]
+    }
+  },
+  "target_bounds": {
+    "ram_thermal_tape": {
+      "min": [
+        1.83255,
+        9.5815,
+        7.8
+      ],
+      "max": [
+        11.33255,
+        19.0815,
+        8.05
+      ]
+    },
+    "cpu_thermal_tape": {
+      "min": [
+        -0.3775,
+        -8.0181,
+        9.3
+      ],
+      "max": [
+        13.1225,
+        5.4819,
+        9.55
+      ]
+    },
+    "passive_heatsink": {
+      "min": [
+        -16.5,
+        -30.5,
+        7.1
+      ],
+      "max": [
+        38.5,
+        34.5,
+        18.1
+      ]
+    },
+    "front_cushion": {
+      "min": [
+        -31.4,
+        -0.794755,
+        28.732426
+      ],
+      "max": [
+        31.4,
+        40.972761,
+        38.559704
+      ]
+    },
+    "rear_cushion": {
+      "min": [
+        -31.4,
+        -0.380845,
+        26.160089
+      ],
+      "max": [
+        31.4,
+        41.566632,
+        36.766863
+      ]
+    },
+    "power_cap": {
+      "min": [
+        40.15,
+        -42.0,
+        7.0
+      ],
+      "max": [
+        43.15,
+        -32.0,
+        17.0
+      ]
+    },
+    "pi_mount_screw_4": {
+      "min": [
+        33.309099,
+        28.809099,
+        3.5
+      ],
+      "max": [
+        37.690901,
+        33.190901,
+        9.5
+      ]
+    },
+    "fan_collar_screw_1": {
+      "min": [
+        -30.772721,
+        -51.972721,
+        13.4
+      ],
+      "max": [
+        -27.227279,
+        -48.427279,
+        17.4
+      ]
+    },
+    "pcb_mount_screw_2": {
+      "min": [
+        14.01,
+        -33.99,
+        19.8
+      ],
+      "max": [
+        17.99,
+        -30.01,
+        25.8
+      ]
+    },
+    "shell": {
+      "min": [
+        -42.5,
+        -57.5,
+        2.7
+      ],
+      "max": [
+        42.5,
+        57.5,
+        27.0
+      ]
+    },
+    "front_module_blank": {
+      "min": [
+        -35.0,
+        -52.5,
+        25.0
+      ],
+      "max": [
+        35.0,
+        -15.5,
+        27.0
+      ]
+    },
+    "pi_mount_screw_2": {
+      "min": [
+        -15.690901,
+        28.809099,
+        3.5
+      ],
+      "max": [
+        -11.309099,
+        33.190901,
+        9.5
+      ]
+    },
+    "pi_mount_screw_3": {
+      "min": [
+        33.309099,
+        -29.190901,
+        3.5
+      ],
+      "max": [
+        37.690901,
+        -24.809099,
+        9.5
+      ]
+    },
+    "front_module_screw_1": {
+      "min": [
+        -32.772721,
+        -50.772721,
+        23.0
+      ],
+      "max": [
+        -29.227279,
+        -47.227279,
+        27.0
+      ]
+    },
+    "fan_corner_pads": {
+      "min": [
+        -36.5,
+        -45.5,
+        15.5
+      ],
+      "max": [
+        -21.5,
+        -30.5,
+        16.0
+      ]
+    },
+    "front_module_screw_2": {
+      "min": [
+        -32.772721,
+        -20.772721,
+        23.0
+      ],
+      "max": [
+        -29.227279,
+        -17.227279,
+        27.0
+      ]
+    },
+    "pi_mount_screw_1": {
+      "min": [
+        -15.690901,
+        -29.190901,
+        3.5
+      ],
+      "max": [
+        -11.309099,
+        -24.809099,
+        9.5
+      ]
+    },
+    "front_module_screw_3": {
+      "min": [
+        29.227279,
+        -50.772721,
+        23.0
+      ],
+      "max": [
+        32.772721,
+        -47.227279,
+        27.0
+      ]
+    },
+    "fan_collar": {
+      "min": [
+        -38.5,
+        -52.5,
+        16.0
+      ],
+      "max": [
+        -19.5,
+        -23.5,
+        17.4
+      ]
+    },
+    "front_module_screw_4": {
+      "min": [
+        29.227279,
+        -20.772721,
+        23.0
+      ],
+      "max": [
+        32.772721,
+        -17.227279,
+        27.0
+      ]
+    },
+    "pcb_mount_screw_1": {
+      "min": [
+        -17.99,
+        -33.99,
+        19.8
+      ],
+      "max": [
+        -14.01,
+        -30.01,
+        25.8
+      ]
+    },
+    "fan_collar_screw_2": {
+      "min": [
+        -30.772721,
+        -27.572721,
+        13.4
+      ],
+      "max": [
+        -27.227279,
+        -24.027279,
+        17.4
+      ]
+    },
+    "cooling_fan": {
+      "min": [
+        -37.0,
+        -46.0,
+        11.0
+      ],
+      "max": [
+        4.315646,
+        -30.0,
+        15.5
+      ]
+    },
+    "pi4b": {
+      "min": [
+        -17.0,
+        -35.0,
+        3.45
+      ],
+      "max": [
+        41.5,
+        57.86,
+        23.34
+      ]
+    },
+    "retainer_screw_2": {
+      "min": [
+        -21.772721,
+        46.50403,
+        31.896994
+      ],
+      "max": [
+        -18.227279,
+        50.101545,
+        37.325929
+      ]
+    },
+    "fascia": {
+      "min": [
+        -38.5,
+        -10.145826,
+        21.516836
+      ],
+      "max": [
+        38.5,
+        53.188229,
+        42.467515
+      ]
+    },
+    "retainer_screw_3": {
+      "min": [
+        18.227279,
+        -5.624769,
+        19.862113
+      ],
+      "max": [
+        21.772721,
+        -2.027254,
+        25.291047
+      ]
+    },
+    "retainer_screw_4": {
+      "min": [
+        18.227279,
+        46.50403,
+        31.896994
+      ],
+      "max": [
+        21.772721,
+        50.101545,
+        37.325929
+      ]
+    },
+    "retainer": {
+      "min": [
+        -33.0,
+        -7.109613,
+        19.568096
+      ],
+      "max": [
+        33.0,
+        50.788229,
+        35.859978
+      ]
+    },
+    "retainer_screw_1": {
+      "min": [
+        -21.772721,
+        -5.624769,
+        19.862113
+      ],
+      "max": [
+        -18.227279,
+        -2.027254,
+        25.291047
+      ]
+    },
+    "bezel": {
+      "min": [
+        -35.0,
+        -2.426277,
+        25.534042
+      ],
+      "max": [
+        35.0,
+        46.180597,
+        40.919647
+      ]
+    },
+    "base": {
+      "min": [
+        -42.5,
+        -57.5,
+        -0.0
+      ],
+      "max": [
+        42.5,
+        57.5,
+        2.4
+      ]
+    },
+    "nominal_panel_envelope": {
+      "min": [
+        -31.4,
+        -0.749765,
+        27.134459
+      ],
+      "max": [
+        31.4,
+        41.341681,
+        38.36483
+      ]
+    }
+  },
+  "collisions": {
+    "ram_thermal_tape": [],
+    "cpu_thermal_tape": [],
+    "passive_heatsink": [],
+    "front_cushion": [],
+    "rear_cushion": [],
+    "power_cap": [],
+    "pi_mount_screw_4": [],
+    "fan_collar_screw_1": [],
+    "pcb_mount_screw_2": [],
+    "shell": [],
+    "front_module_blank": [],
+    "pi_mount_screw_2": [],
+    "pi_mount_screw_3": [],
+    "front_module_screw_1": [],
+    "fan_corner_pads": [],
+    "front_module_screw_2": [],
+    "pi_mount_screw_1": [],
+    "front_module_screw_3": [],
+    "fan_collar": [],
+    "front_module_screw_4": [],
+    "pcb_mount_screw_1": [],
+    "fan_collar_screw_2": [],
+    "cooling_fan": [],
+    "retainer_screw_2": [],
+    "fascia": [],
+    "retainer_screw_3": [],
+    "retainer_screw_4": [],
+    "retainer": [],
+    "retainer_screw_1": [],
+    "bezel": [],
+    "base": [],
+    "nominal_panel_envelope": [],
+    "pi4b": []
+  },
+  "limits": [
+    "ESQ and HLE are manufacturer-drawing reference envelopes; C5373447 is a detailed official-library model, not certified mating qualification.",
+    "PCB STEP substrate0.71mm versus finished0.8mm; model pads/components add face offsets.",
+    "Native tail13.7+/-0.5mm is an authorized estimate. Top contacts and -Y entrance are manufacturer/source verified. Exact insertion-plane height, tail reach and physical latch operation remain prototype checks.",
+    "No physical print, connector mating or thermal test performed."
+  ],
+  "screw1_to_substrate_clearance_mm": 1.292813,
+  "screw1_clearance_expectation": {
+    "source": "default",
+    "minimum_mm": 0.5,
+    "passed": true
+  },
+  "pcb_to_shell_distance_mm": 0.0,
+  "fixed_mount_screw_lengths_mm": {
+    "pcb_mount_screw_1": 4.0,
+    "pcb_mount_screw_2": 4.0
+  },
+  "fpc_body_to_nominal_glass_clearance_mm": 3.072547,
+  "fpc_closed_reference_bounds": {
+    "min": [
+      -5.3,
+      2.169992,
+      22.594999
+    ],
+    "max": [
+      5.3,
+      7.469992,
+      24.604999
+    ]
+  },
+  "fpc_opened_conservative_bounds": {
+    "min": [
+      -5.3,
+      0.669992,
+      22.594999
+    ],
+    "max": [
+      5.3,
+      7.469992,
+      24.604999
+    ]
+  },
+  "fpc_open_latch_clearances_mm": {
+    "shell": 6.169992,
+    "fascia": 4.176714,
+    "retainer": 2.7,
+    "nominal_panel_envelope": 2.701017
+  },
+  "fpc_open_latch_clearance_expectation": {
+    "source": "default",
+    "minimum_mm": 0.5,
+    "passed": true
+  },
+  "fan_body_clearances_mm": {
+    "shell": 17.520606,
+    "fascia": 15.031433,
+    "retainer": 11.561529,
+    "front_module_blank": 28.025036,
+    "nominal_panel_envelope": 4.442162
+  },
+  "ordinary_top_air_clearances": {
+    "0:assembly_1_1": {
+      "clearance_mm": 0.705001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 0.705001,
+        "fascia": 39.007289,
+        "retainer": 42.853339,
+        "front_module_blank": 1.705001,
+        "nominal_panel_envelope": 48.496881
+      }
+    },
+    "1:assembly_1_2": {
+      "clearance_mm": 1.955001,
+      "to": "front_module_blank",
+      "by_target_mm": {
+        "shell": 2.227567,
+        "fascia": 13.156252,
+        "retainer": 16.1592,
+        "front_module_blank": 1.955001,
+        "nominal_panel_envelope": 22.564736
+      }
+    },
+    "2:assembly_1_1": {
+      "clearance_mm": 5.24289,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 14.369792,
+        "fascia": 11.595282,
+        "retainer": 6.97051,
+        "front_module_blank": 24.413047,
+        "nominal_panel_envelope": 5.24289
+      }
+    },
+    "3:assembly_1_2": {
+      "clearance_mm": 1.555001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.555001,
+        "fascia": 8.578766,
+        "retainer": 12.710501,
+        "front_module_blank": 2.555001,
+        "nominal_panel_envelope": 17.693242
+      }
+    },
+    "4:assembly_1_1": {
+      "clearance_mm": 1.086893,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.086893,
+        "fascia": 12.153472,
+        "retainer": 16.745173,
+        "front_module_blank": 1.105001,
+        "nominal_panel_envelope": 21.608869
+      }
+    },
+    "5:assembly_1_6": {
+      "clearance_mm": 5.612557,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 15.05674,
+        "fascia": 10.973902,
+        "retainer": 6.659744,
+        "front_module_blank": 25.10612,
+        "nominal_panel_envelope": 5.612557
+      }
+    },
+    "6:assembly_1_2": {
+      "clearance_mm": 1.668548,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.668548,
+        "fascia": 35.703627,
+        "retainer": 39.480854,
+        "front_module_blank": 1.955001,
+        "nominal_panel_envelope": 45.204446
+      }
+    },
+    "7:assembly_1_2": {
+      "clearance_mm": 7.243253,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 13.420251,
+        "fascia": 16.68805,
+        "retainer": 11.650317,
+        "front_module_blank": 29.709911,
+        "nominal_panel_envelope": 7.243253
+      }
+    },
+    "8:assembly_1_1": {
+      "clearance_mm": 0.705001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 0.705001,
+        "fascia": 39.007289,
+        "retainer": 41.962459,
+        "front_module_blank": 1.705001,
+        "nominal_panel_envelope": 48.496881
+      }
+    },
+    "9:assembly_1_10": {
+      "clearance_mm": 1.205001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.205001,
+        "fascia": 3.905001,
+        "retainer": 4.319584,
+        "front_module_blank": 5.243414,
+        "nominal_panel_envelope": 9.539434
+      }
+    },
+    "10:assembly_1_1": {
+      "clearance_mm": 0.705001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 0.705001,
+        "fascia": 39.355916,
+        "retainer": 43.551044,
+        "front_module_blank": 1.705001,
+        "nominal_panel_envelope": 48.845103
+      }
+    },
+    "11:assembly_1_1": {
+      "clearance_mm": 0.705001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 0.705001,
+        "fascia": 39.355916,
+        "retainer": 42.266084,
+        "front_module_blank": 1.705001,
+        "nominal_panel_envelope": 48.845103
+      }
+    },
+    "13:assembly_1_14": {
+      "clearance_mm": 0.754918,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 0.754918,
+        "fascia": 38.602278,
+        "retainer": 41.730383,
+        "front_module_blank": 1.754918,
+        "nominal_panel_envelope": 48.097392
+      }
+    },
+    "14:assembly_1_10": {
+      "clearance_mm": 5.814073,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 14.800713,
+        "fascia": 11.9426,
+        "retainer": 6.750659,
+        "front_module_blank": 24.849731,
+        "nominal_panel_envelope": 5.814073
+      }
+    },
+    "15:SOT-23-6": {
+      "clearance_mm": 0.455001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 0.455001,
+        "fascia": 7.833931,
+        "retainer": 11.72676,
+        "front_module_blank": 1.455001,
+        "nominal_panel_envelope": 16.802629
+      }
+    },
+    "16:assembly_1_2": {
+      "clearance_mm": 1.555001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.555001,
+        "fascia": 9.460105,
+        "retainer": 11.539525,
+        "front_module_blank": 2.555001,
+        "nominal_panel_envelope": 18.667255
+      }
+    },
+    "17:SOT-23-6": {
+      "clearance_mm": 0.455001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 0.455001,
+        "fascia": 8.722728,
+        "retainer": 11.314621,
+        "front_module_blank": 1.455001,
+        "nominal_panel_envelope": 17.769824
+      }
+    },
+    "18:assembly_1_2": {
+      "clearance_mm": 1.555001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.555001,
+        "fascia": 4.90953,
+        "retainer": 7.751035,
+        "front_module_blank": 3.310446,
+        "nominal_panel_envelope": 12.880577
+      }
+    },
+    "19:assembly_1_2": {
+      "clearance_mm": 1.955001,
+      "to": "front_module_blank",
+      "by_target_mm": {
+        "shell": 2.227567,
+        "fascia": 13.156252,
+        "retainer": 17.610103,
+        "front_module_blank": 1.955001,
+        "nominal_panel_envelope": 22.564736
+      }
+    },
+    "20:assembly_1_10": {
+      "clearance_mm": 6.005281,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 15.647962,
+        "fascia": 13.294193,
+        "retainer": 9.203097,
+        "front_module_blank": 25.696435,
+        "nominal_panel_envelope": 6.005281
+      }
+    },
+    "21:assembly_1_1": {
+      "clearance_mm": 0.705001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 0.705001,
+        "fascia": 6.364213,
+        "retainer": 10.469829,
+        "front_module_blank": 1.705001,
+        "nominal_panel_envelope": 15.470338
+      }
+    },
+    "23:assembly_1_2": {
+      "clearance_mm": 1.555001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.555001,
+        "fascia": 38.683899,
+        "retainer": 43.661011,
+        "front_module_blank": 2.555001,
+        "nominal_panel_envelope": 48.182085
+      }
+    },
+    "24:assembly_1_14": {
+      "clearance_mm": 0.754918,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 0.754918,
+        "fascia": 38.602303,
+        "retainer": 41.884355,
+        "front_module_blank": 1.754918,
+        "nominal_panel_envelope": 48.097418
+      }
+    },
+    "25:assembly_1_2": {
+      "clearance_mm": 7.693156,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 20.748352,
+        "fascia": 17.545973,
+        "retainer": 13.057085,
+        "front_module_blank": 31.702663,
+        "nominal_panel_envelope": 7.693156
+      }
+    },
+    "26:assembly_1_6": {
+      "clearance_mm": 0.781848,
+      "to": "retainer",
+      "by_target_mm": {
+        "shell": 0.904918,
+        "fascia": 3.604918,
+        "retainer": 0.781848,
+        "front_module_blank": 5.491308,
+        "nominal_panel_envelope": 6.296692
+      }
+    },
+    "27:assembly_1_2": {
+      "clearance_mm": 7.693156,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 21.654971,
+        "fascia": 18.627838,
+        "retainer": 13.572064,
+        "front_module_blank": 31.702663,
+        "nominal_panel_envelope": 7.693156
+      }
+    },
+    "28:assembly_1_2": {
+      "clearance_mm": 1.668548,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.668548,
+        "fascia": 35.703627,
+        "retainer": 38.501578,
+        "front_module_blank": 1.955001,
+        "nominal_panel_envelope": 45.204446
+      }
+    },
+    "29:assembly_1_2": {
+      "clearance_mm": 1.555001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.555001,
+        "fascia": 4.90953,
+        "retainer": 7.751035,
+        "front_module_blank": 3.310446,
+        "nominal_panel_envelope": 12.880577
+      }
+    }
+  },
+  "minimum_ordinary_top_air_mm": 0.455001,
+  "thermal_clearance_expectation": {
+    "source": "default",
+    "minimum_mm": 1.5,
+    "passed": false
+  },
+  "hle_top_world_z_mm": 26.254999,
+  "hle_top_below_deck_mm": 0.7450009999999985,
+  "required_structural_intersection_check_passed": true,
+  "pi_to_upper_shell_shared_volume_mm3": 0.0,
+  "pi_to_upper_shell_clearance_check_passed": true
+}

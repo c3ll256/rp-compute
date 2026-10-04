@@ -1,7 +1,7 @@
 {
   "status": "historical_inverted_connector_clearance_path_not_active_mating_route",
   "source": "default",
-  "scope": "Retained negative clearance cuts from the prior screen design. Standalone fpc_zif CAD reference removed; current connector is part of the released compact PCB.",
+  "scope": "Historical negative clearance channels retained in screen parts; not the active installed mating route. Active PCB uses manufacturer-verified top-contact FH12A with-Y entrance.",
   "frame": {
     "origin_world_mm": [
       0,
@@ -119,8 +119,22 @@
     "references/suppliers/c506791/c506791-datasheet.pdf pp1,5"
   ],
   "remaining_checks": [
-    "Current flat top-side FPC has a proven vertical-reach conflict under the retained screen and manufacturer bend-zone constraints. A horizontal interface architecture/stack revision is required.",
-    "Native tail length13.7±0.5mm remains an authorized estimate, not an outstanding user-measurement blocker.",
-    "SLW exact STEP and contact/pin1/stop verification remain unresolved."
-  ]
+    "Exact native-tail reach, insertion-plane angle/height and stiffener seating remain physical prototype checks;13.7±0.5mm is an authorized estimate.",
+    "Top-contact identity,10-pin mapping, full PCB routing and filled-ground connectivity have passed the current review.",
+    "This historical negative180-degree path does not certify a tip seated at the current socket stop."
+  ],
+  "active_connector": {
+    "mpn": "FH12A-10S-0.5SH(55)",
+    "world_origin_xy_mm": [
+      0,
+      7
+    ],
+    "contacts": "upward/away from PCB",
+    "opening": "horizontal-Y",
+    "socket_terminal_to_panel_terminal": "socket=11-panel",
+    "pin_map_review": "design/pi_baseboard_lite/fpc-physical-pin-review.json",
+    "tail_fit_review": "design/pi_baseboard_lite/tail-estimate-review.json"
+  },
+  "cad_revision": "2c7c2ccf1ef5fbca92db9749a5a5c9e1582444ba7004401cecb487c23b987f20",
+  "pcb_release": "dbacb2cc60cdef69951f80af131442ea24b1ed03394f9e446a1f890bf9a1d209"
 }

@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "status": "passed_compiled_side_pin_map_and_land_envelope_checks",
+  "frame": "Compiled PCB source XY, millimetres; native supplier top footprints, side transforms applied",
+  "area_mm2": 3025.83,
+  "previous_area_mm2": 2284.54,
+  "area_increase_percent": 32.448,
+  "outline_envelope_mm": [
+    40,
+    83.5
+  ],
+  "top_component_count": 31,
+  "bottom_components": [
+    "J_PI"
+  ],
+  "fpc_supplier_code": "C5373447",
+  "fpc_pin_map": {
+    "10": {
+      "signal": "SCLK",
+      "net": "LCD_SCLK",
+      "xy_mm": [
+        2.2500589999997374,
+        25.949959299999954
+      ]
+    },
+    "9": {
+      "signal": "SI",
+      "net": "LCD_SI",
+      "xy_mm": [
+        1.7499330000000555,
+        25.949959299999954
+      ]
+    },
+    "8": {
+      "signal": "SCS",
+      "net": "LCD_SCS",
+      "xy_mm": [
+        1.2500609999999597,
+        25.949959299999954
+      ]
+    },
+    "7": {
+      "signal": "EXTCOMIN",
+      "net": "LCD_COM",
+      "xy_mm": [
+        0.7499349999999367,
+        25.949959299999954
+      ]
+    },
+    "6": {
+      "signal": "DISP",
+      "net": "LCD_DISP",
+      "xy_mm": [
+        0.25006299999984094,
+        25.949959299999954
+      ]
+    },
+    "5": {
+      "signal": "VDDA",
+      "net": "V5_LCD",
+      "xy_mm": [
+        -0.2500629999999546,
+        25.949959299999954
+      ]
+    },
+    "4": {
+      "signal": "VDD",
+      "net": "V5_LCD",
+      "xy_mm": [
+        -0.7499349999999367,
+        25.949959299999954
+      ]
+    },
+    "3": {
+      "signal": "EXTMODE",
+      "net": "V5_LCD",
+      "xy_mm": [
+        -1.2500610000000734,
+        25.949959299999954
+      ]
+    },
+    "2": {
+      "signal": "VSS",
+      "net": "GND",
+      "xy_mm": [
+        -1.7499330000000555,
+        25.949959299999954
+      ]
+    },
+    "1": {
+      "signal": "VSSA",
+      "net": "GND",
+      "xy_mm": [
+        -2.2500589999999647,
+        25.949959299999954
+      ]
+    }
+  },
+  "screen_terminal_formula": "socket terminal = 11 - panel terminal",
+  "buffer_land_envelope_to_fpc_mm": {
+    "U_BUF1": 9.404854,
+    "U_BUF2": 4.382863
+  },
+  "decoupling": {
+    "U_BUF1": {
+      "VCC_xy_mm": [
+        7.699903999999989,
+        9.050042000000005
+      ],
+      "capacitor": "C_BUF1",
+      "capacitor_center_distance_mm": 2.699904
+    },
+    "U_BUF2": {
+      "VCC_xy_mm": [
+        10.19990399999999,
+        29.050042000000005
+      ],
+      "capacitor": "C_BUF2",
+      "capacitor_center_distance_mm": 2.699904
+    }
+  },
+  "ordinary_land_envelope_edge_clearance_mm": {
+    "U_BUF1": 2.149906,
+    "U_BUF2": 3.349906,
+    "C_BUF1": 10.891509,
+    "C_BUF2": 7.849977,
+    "C_LCD_A": 8.050001,
+    "C_LCD_D": 8.824995,
+    "R_OFF_CLK": 13.03768,
+    "R_OFF_DATA": 11.165963,
+    "R_OFF_CS": 4.067997,
+    "R_OFF_DISP": 2.067997,
+    "R_OFF_COM": 2.067997,
+    "U_LCD_LIMIT": 11.75,
+    "R_LCD_ILIM": 16.843398,
+    "R_LCD_EN": 13.443398,
+    "C_LCD_IN": 11.124995,
+    "U_LCD_LDO": 3.250041,
+    "C_LCD_LIN": 2.795,
+    "C_LCD_LOUT": 2.795,
+    "R_LCD_BLEED": 8.067997,
+    "U_AUX_LIMIT": 6.75,
+    "R_AUX_ILIM": 2.643398,
+    "R_AUX_EN": 6.843398,
+    "C_AUX_IN": 11.042262,
+    "U_AUX_LDO": 3.250041,
+    "C_AUX_LIN": 3.824995,
+    "C_AUX_LOUT": 2.895,
+    "R_AUX_BLEED": 2.643398,
+    "R_FAULT_PU": 5.067997
+  },
+  "minimum_ordinary_land_envelope_edge_clearance_mm": 2.067997,
+  "fpc_insertion_service_corridor": {
+    "source": "default",
+    "bounds_mm": {
+      "minX": -4.0,
+      "maxX": 4.0,
+      "minY": 7.5,
+      "maxY": 21.1699924
+    },
+    "width_mm": 8.0,
+    "top_land_envelope_gaps_mm": {
+      "J_MOD": 18.83,
+      "J_FAN": 10.055008,
+      "U_BUF1": 2.849906,
+      "U_BUF2": 9.359736,
+      "C_BUF1": 0.550001,
+      "C_BUF2": 7.434426,
+      "C_LCD_A": 7.880008,
+      "C_LCD_D": 6.655003,
+      "R_OFF_CLK": 1.067997,
+      "R_OFF_DATA": 1.067997,
+      "R_OFF_CS": 11.927859,
+      "R_OFF_DISP": 14.019723,
+      "R_OFF_COM": 16.473015,
+      "U_LCD_LIMIT": 5.015227,
+      "R_LCD_ILIM": 6.067997,
+      "R_LCD_EN": 11.070673,
+      "C_LCD_IN": 10.222016,
+      "U_LCD_LDO": 37.838958,
+      "C_LCD_LIN": 36.944926,
+      "C_LCD_LOUT": 38.648448,
+      "R_LCD_BLEED": 34.186449,
+      "U_AUX_LIMIT": 8.834733,
+      "R_AUX_ILIM": 13.111568,
+      "R_AUX_EN": 13.012788,
+      "C_AUX_IN": 4.032694,
+      "U_AUX_LDO": 37.564439,
+      "C_AUX_LIN": 37.825114,
+      "C_AUX_LOUT": 39.047705,
+      "R_AUX_BLEED": 35.813197,
+      "R_FAULT_PU": 37.067997
+    },
+    "minimum_gap_mm": 0.550001,
+    "limits": "Component exclusion only; actual cable seating, folding and finger access require prototype checks."
+  },
+  "C_LCD_IN_land_envelope_to_nearest_Pi_copper_land_mm": 2.504997,
+  "model_sha256": "504b9584227db6e9942faceadb3f6e21c08d76d2b1e142ccfa9dea79109cca87",
+  "model_origin_evidence": {
+    "supplier_head_relative_Y_mm": -1.2800076,
+    "loader_pad_center_recenter_Y_mm": 0.35,
+    "net_model_Y_offset_mm": -0.9300076,
+    "raw_min_Z_mm": -1,
+    "model_Z_offset_mm": 1
+  },
+  "limits": [
+    "Land-envelope distances are not body or courtyard distances.",
+    "Native tail length, actual seating/retention and slider operation require prototype checks.",
+    "Assembly collision and thermal air clearance are reviewed separately against the exported STEP."
+  ]
+}

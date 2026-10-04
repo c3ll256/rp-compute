@@ -1,0 +1,24 @@
+{
+  "method": "Actual KiCad F.Cu diagnosed GND lobe and largest In1.Cu GND polygon eroded .31mm; excludes all pads, foreign tracks and existing vias across stack",
+  "inspected_kicad_sha256": "6cb7233b65574051d0a64d4045f9c99782a344d150bc2fb584df94d7d7af32b5",
+  "diagnostic_lobe_native_bbox_mm": [
+    101.8831,
+    79.560524,
+    103.7525,
+    87.349528
+  ],
+  "lobe_area_mm2": 13.108016103315506,
+  "native_xy_mm": [
+    102.8178,
+    82.17780346564402
+  ],
+  "source_xy_mm": [
+    2.8178000000000054,
+    17.82219653435598
+  ],
+  "top_boundary_clearance_mm": 0.9346999999999923,
+  "inner_plane_boundary_clearance_mm": 5.760876753466127,
+  "obstacle_residual_margin_mm": 0.6251999999999924,
+  "diameter_mm": 0.6,
+  "drill_mm": 0.3
+}

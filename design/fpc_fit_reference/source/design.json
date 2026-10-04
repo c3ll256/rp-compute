@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "units": "mm",
+  "coordinateFrame": "replicator-world-z-up",
+  "targets": [
+    {
+      "id": "fh12a",
+      "label": "fh12a",
+      "cells": [
+        {
+          "id": "fh12a",
+          "target": "fh12a",
+          "order": 0,
+          "path": "design/fpc_fit_reference/source/parts/fh12a/000-fh12a.py",
+          "sha256": "31ab79367772c0072d91318aae4e15d2fa7e054a483e567ee5bd24f538765425"
+        }
+      ],
+      "dependencies": []
+    }
+  ],
+  "objects": [
+    {
+      "id": "fh12a_reference",
+      "target": "fh12a",
+      "label": "FH12A closed envelope",
+      "material": "nylon",
+      "kind": "generated",
+      "shapeHash": "b82376322bd22f6a71a7f47f2fb2919f836d3e2b220a18d5bf183e0dd2a21f10",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    }
+  ],
+  "assets": [],
+  "fits": [],
+  "updatedAt": "2026-09-30T12:02:56.053Z",
+  "parameters": {
+    "fh12a": {
+      "fh12a_envelope_margin": 0
+    }
+  }
+}

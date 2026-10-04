@@ -1,7 +1,7 @@
 {
-  "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
-  "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa",
-  "pcb_step_sha256": "154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3",
+  "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+  "pcb_release": "dbacb2cc60cdef69951f80af131442ea24b1ed03394f9e446a1f890bf9a1d209",
+  "pcb_step_sha256": "fc63232fc7ddf1972848edb829711607d9a1d65cc299b42f3427e71f542c520a",
   "placement": {
     "position_mm": [
       -100,
@@ -20,41 +20,17 @@
   "body_bounds": {
     "0:assembly_1_1": {
       "min": [
-        5.19,
-        17.095,
+        0.19,
+        15.595,
         22.594999
       ],
       "max": [
-        6.81,
-        17.905,
+        1.81,
+        16.405,
         23.044999
       ]
     },
-    "1:assembly_1_1": {
-      "min": [
-        5.19,
-        14.095,
-        22.594999
-      ],
-      "max": [
-        6.81,
-        14.905,
-        23.044999
-      ]
-    },
-    "2:assembly_1_3": {
-      "min": [
-        -2.0,
-        -2.60629,
-        22.594999
-      ],
-      "max": [
-        3.0,
-        3.406315,
-        23.695082
-      ]
-    },
-    "3:hle-104-02-g-dv-drawing-reference": {
+    "1:hle-104-02-g-dv-drawing-reference": {
       "min": [
         -5.08,
         -37.3,
@@ -64,6 +40,30 @@
         5.08,
         -30.7,
         26.254999
+      ]
+    },
+    "2:assembly_1_3": {
+      "min": [
+        5.8,
+        -2.0,
+        22.594999
+      ],
+      "max": [
+        6.6,
+        -0.4,
+        23.394999
+      ]
+    },
+    "3:fh12a-10s-0_5sh-drawing-reference": {
+      "min": [
+        -4.75,
+        2.175,
+        22.594999
+      ],
+      "max": [
+        4.75,
+        8.375,
+        24.594999
       ]
     },
     "4:assembly_1_1": {
@@ -80,89 +80,65 @@
     },
     "5:assembly_1_1": {
       "min": [
-        0.19,
-        15.595,
+        5.19,
+        17.095,
         22.594999
       ],
       "max": [
-        1.81,
-        16.405,
+        6.81,
+        17.905,
         23.044999
       ]
     },
-    "6:assembly_1_7": {
+    "6:assembly_1_1": {
       "min": [
-        -4.550013,
-        5.447977,
+        5.19,
+        14.095,
         22.594999
       ],
       "max": [
-        4.549987,
-        11.847977,
-        24.604999
+        6.81,
+        14.905,
+        23.044999
       ]
     },
     "7:assembly_1_8": {
       "min": [
-        4.4,
-        1.3,
+        -2.506315,
+        -3.8,
         22.594999
       ],
       "max": [
-        5.2,
-        2.9,
-        23.394999
+        3.50629,
+        1.2,
+        23.695082
       ]
     },
-    "8:SOT-23-6": {
+    "8:assembly_1_1": {
       "min": [
-        10.55,
-        -42.4,
-        20.165
+        -8.81,
+        -41.405,
+        21.265
       ],
       "max": [
-        13.45,
-        -39.6,
+        -7.19,
+        -40.595,
         21.715
       ]
     },
-    "9:assembly_1_10": {
+    "9:assembly_1_3": {
       "min": [
-        6.0,
-        -50.649987,
-        20.415
+        -1.8,
+        16.6,
+        20.915
       ],
       "max": [
-        8.0,
-        -49.349987,
+        -0.2,
+        17.4,
         21.715
       ]
     },
     "10:assembly_1_11": {
-      "min": [
-        10.493698,
-        -51.450013,
-        20.464917
-      ],
-      "max": [
-        13.506302,
-        -48.550013,
-        21.715
-      ]
-    },
-    "11:assembly_1_10": {
-      "min": [
-        -9.0,
-        -50.649987,
-        20.415
-      ],
-      "max": [
-        -7.0,
-        -49.349987,
-        21.715
-      ]
-    },
-    "12:assembly_1_10": {
       "min": [
         -17.7,
         -45.149987,
@@ -174,27 +150,51 @@
         21.715
       ]
     },
-    "13:assembly_1_1": {
+    "11:assembly_1_11": {
       "min": [
-        -12.81,
-        -46.405,
-        21.265
+        -9.0,
+        -50.649987,
+        20.415
       ],
       "max": [
-        -11.19,
-        -45.595,
+        -7.0,
+        -49.349987,
         21.715
       ]
     },
-    "14:assembly_1_1": {
+    "12:SOT-23-6": {
       "min": [
-        16.19,
-        -46.405,
+        -14.45,
+        -42.4,
+        20.165
+      ],
+      "max": [
+        -11.55,
+        -39.6,
+        21.715
+      ]
+    },
+    "13:assembly_1_1": {
+      "min": [
+        -0.31,
+        5.595,
         21.265
       ],
       "max": [
-        17.81,
-        -45.595,
+        1.31,
+        6.405,
+        21.715
+      ]
+    },
+    "14:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1_00mm_Horizontal": {
+      "min": [
+        -2.0,
+        -46.475,
+        18.755
+      ],
+      "max": [
+        2.0,
+        -41.525,
         21.715
       ]
     },
@@ -210,43 +210,31 @@
         21.715
       ]
     },
-    "16:assembly_1_8": {
+    "16:assembly_1_1": {
       "min": [
-        -1.8,
-        16.6,
-        20.915
+        16.19,
+        -46.405,
+        21.265
       ],
       "max": [
-        -0.2,
-        17.4,
+        17.81,
+        -45.595,
         21.715
       ]
     },
-    "17:SOT-23-6": {
+    "17:assembly_1_18": {
       "min": [
-        -14.45,
-        -42.4,
-        20.165
+        -14.506302,
+        -51.450013,
+        20.464917
       ],
       "max": [
-        -11.55,
-        -39.6,
+        -11.493698,
+        -48.550013,
         21.715
       ]
     },
-    "18:assembly_1_8": {
-      "min": [
-        6.6,
-        3.2,
-        20.915
-      ],
-      "max": [
-        7.4,
-        4.8,
-        21.715
-      ]
-    },
-    "19:assembly_1_10": {
+    "18:assembly_1_11": {
       "min": [
         -18.650013,
         -51.0,
@@ -258,7 +246,55 @@
         21.715
       ]
     },
-    "20:assembly_1_10": {
+    "19:assembly_1_1": {
+      "min": [
+        -8.81,
+        -46.405,
+        21.265
+      ],
+      "max": [
+        -7.19,
+        -45.595,
+        21.715
+      ]
+    },
+    "20:assembly_1_18": {
+      "min": [
+        10.493698,
+        -51.450013,
+        20.464917
+      ],
+      "max": [
+        13.506302,
+        -48.550013,
+        21.715
+      ]
+    },
+    "21:assembly_1_1": {
+      "min": [
+        -12.81,
+        -46.405,
+        21.265
+      ],
+      "max": [
+        -11.19,
+        -45.595,
+        21.715
+      ]
+    },
+    "22:assembly_1_11": {
+      "min": [
+        6.349987,
+        -39.5,
+        20.415
+      ],
+      "max": [
+        7.649987,
+        -37.5,
+        21.715
+      ]
+    },
+    "23:assembly_1_11": {
       "min": [
         16.0,
         -50.649987,
@@ -270,51 +306,15 @@
         21.715
       ]
     },
-    "21:assembly_1_1": {
+    "24:assembly_1_3": {
       "min": [
-        -8.81,
-        -41.405,
-        21.265
+        6.6,
+        3.2,
+        20.915
       ],
       "max": [
-        -7.19,
-        -40.595,
-        21.715
-      ]
-    },
-    "22:assembly_1_1": {
-      "min": [
-        16.19,
-        -41.405,
-        21.265
-      ],
-      "max": [
-        17.81,
-        -40.595,
-        21.715
-      ]
-    },
-    "23:assembly_1_3": {
-      "min": [
-        -2.00629,
-        10.5,
-        20.614917
-      ],
-      "max": [
-        4.006315,
-        15.5,
-        21.715
-      ]
-    },
-    "24:assembly_1_10": {
-      "min": [
-        6.349987,
-        8.0,
-        20.415
-      ],
-      "max": [
-        7.649987,
-        10.0,
+        7.4,
+        4.8,
         21.715
       ]
     },
@@ -330,31 +330,43 @@
         24.005
       ]
     },
-    "26:assembly_1_10": {
+    "26:assembly_1_1": {
       "min": [
-        6.349987,
-        -39.5,
-        20.415
+        16.19,
+        -41.405,
+        21.265
       ],
       "max": [
-        7.649987,
-        -37.5,
+        17.81,
+        -40.595,
         21.715
       ]
     },
     "27:assembly_1_11": {
       "min": [
-        -14.506302,
-        -51.450013,
-        20.464917
+        6.349987,
+        8.0,
+        20.415
       ],
       "max": [
-        -11.493698,
-        -48.550013,
+        7.649987,
+        10.0,
         21.715
       ]
     },
-    "28:assembly_1_1": {
+    "28:assembly_1_8": {
+      "min": [
+        -2.00629,
+        10.5,
+        20.614917
+      ],
+      "max": [
+        4.006315,
+        15.5,
+        21.715
+      ]
+    },
+    "29:assembly_1_1": {
       "min": [
         6.19,
         -2.405,
@@ -366,31 +378,31 @@
         21.715
       ]
     },
-    "29:assembly_1_1": {
+    "30:SOT-23-6": {
       "min": [
-        -1.81,
-        1.095,
-        21.265
+        10.55,
+        -42.4,
+        20.165
       ],
       "max": [
-        -0.19,
-        1.905,
+        13.45,
+        -39.6,
         21.715
       ]
     },
-    "30:assembly_1_1": {
+    "31:assembly_1_11": {
       "min": [
-        -8.81,
-        -46.405,
-        21.265
+        6.0,
+        -50.649987,
+        20.415
       ],
       "max": [
-        -7.19,
-        -45.595,
+        8.0,
+        -49.349987,
         21.715
       ]
     },
-    "34:board_PCB": {
+    "35:board_PCB": {
       "min": [
         -20.0,
         -54.5,
@@ -502,13 +514,13 @@
     },
     "retainer_screw_3": {
       "min": [
-        18.01,
-        -5.675597,
-        17.876455
+        18.227279,
+        -5.624769,
+        19.862113
       ],
       "max": [
-        21.99,
-        -1.3776,
+        21.772721,
+        -2.027254,
         25.291047
       ]
     },
@@ -526,13 +538,13 @@
     },
     "retainer_screw_1": {
       "min": [
-        -21.99,
-        -5.675597,
-        17.876455
+        -21.772721,
+        -5.624769,
+        19.862113
       ],
       "max": [
-        -18.01,
-        -1.3776,
+        -18.227279,
+        -2.027254,
         25.291047
       ]
     },
@@ -590,9 +602,9 @@
     "pi4b": []
   },
   "limits": [
-    "ESQ and HLE are explicitly modeled manufacturer-drawing reference envelopes, not vendor STEP or internal contact qualification.",
+    "ESQ, HLE and FH12A are explicitly modeled manufacturer-drawing reference envelopes, not vendor STEP or internal contact qualification.",
     "PCB STEP substrate0.71mm versus finished0.8mm; model pads/components add face offsets.",
-    "Native tail13.7+/-0.5mm is an authorized estimate. FPC contact, insertion stop and physical latch access remain prototype checks.",
+    "Native tail13.7+/-0.5mm is an authorized estimate. Top contacts and -Y entrance are manufacturer/source verified. Exact insertion-plane height, tail reach and physical latch operation remain prototype checks.",
     "No physical print, connector mating or thermal test performed."
   ],
   "screw1_to_substrate_clearance_mm": 1.292813,
@@ -606,53 +618,44 @@
     "pcb_mount_screw_1": 4.0,
     "pcb_mount_screw_2": 4.0
   },
-  "fpc_body_to_nominal_glass_clearance_mm": 3.875268,
+  "fpc_body_to_nominal_glass_clearance_mm": 3.049314,
+  "fpc_closed_reference_bounds": {
+    "min": [
+      -4.75,
+      2.175,
+      22.594999
+    ],
+    "max": [
+      4.75,
+      8.375,
+      24.594999
+    ]
+  },
+  "fpc_opened_conservative_bounds": {
+    "min": [
+      -4.75,
+      2.175,
+      22.594999
+    ],
+    "max": [
+      4.75,
+      8.375,
+      26.194999
+    ]
+  },
+  "fpc_open_latch_clearances_mm": {
+    "shell": 7.675,
+    "fascia": 4.895773,
+    "retainer": 3.25,
+    "nominal_panel_envelope": 1.490322
+  },
+  "fpc_open_latch_clearance_expectation": {
+    "source": "default",
+    "minimum_mm": 0.5,
+    "passed": true
+  },
   "ordinary_top_air_clearances": {
     "0:assembly_1_1": {
-      "clearance_mm": 7.918107,
-      "to": "nominal_panel_envelope",
-      "by_target_mm": {
-        "shell": 22.652324,
-        "fascia": 19.603652,
-        "retainer": 14.61186,
-        "front_module_blank": 32.69937,
-        "nominal_panel_envelope": 7.918107
-      }
-    },
-    "1:assembly_1_1": {
-      "clearance_mm": 7.243253,
-      "to": "nominal_panel_envelope",
-      "by_target_mm": {
-        "shell": 19.661073,
-        "fascia": 16.68805,
-        "retainer": 11.650317,
-        "front_module_blank": 29.709911,
-        "nominal_panel_envelope": 7.243253
-      }
-    },
-    "2:assembly_1_3": {
-      "clearance_mm": 1.555099,
-      "to": "retainer",
-      "by_target_mm": {
-        "shell": 3.414523,
-        "fascia": 4.610613,
-        "retainer": 1.555099,
-        "front_module_blank": 13.197287,
-        "nominal_panel_envelope": 3.440377
-      }
-    },
-    "4:assembly_1_1": {
-      "clearance_mm": 1.555001,
-      "to": "shell",
-      "by_target_mm": {
-        "shell": 1.555001,
-        "fascia": 38.683899,
-        "retainer": 43.543843,
-        "front_module_blank": 2.555001,
-        "nominal_panel_envelope": 48.182085
-      }
-    },
-    "5:assembly_1_1": {
       "clearance_mm": 7.58068,
       "to": "nominal_panel_envelope",
       "by_target_mm": {
@@ -663,19 +666,63 @@
         "nominal_panel_envelope": 7.58068
       }
     },
-    "7:assembly_1_8": {
-      "clearance_mm": 2.987643,
+    "2:assembly_1_3": {
+      "clearance_mm": 1.6,
       "to": "retainer",
       "by_target_mm": {
-        "shell": 6.909143,
-        "fascia": 5.452015,
-        "retainer": 2.987643,
-        "front_module_blank": 16.946527,
-        "nominal_panel_envelope": 4.025712
+        "shell": 3.707067,
+        "fascia": 3.92773,
+        "retainer": 1.6,
+        "front_module_blank": 13.681862,
+        "nominal_panel_envelope": 3.739664
+      }
+    },
+    "4:assembly_1_1": {
+      "clearance_mm": 1.555001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.555001,
+        "fascia": 38.683899,
+        "retainer": 43.661011,
+        "front_module_blank": 2.555001,
+        "nominal_panel_envelope": 48.182085
+      }
+    },
+    "5:assembly_1_1": {
+      "clearance_mm": 7.918107,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 22.652324,
+        "fascia": 19.603652,
+        "retainer": 14.61186,
+        "front_module_blank": 32.69937,
+        "nominal_panel_envelope": 7.918107
+      }
+    },
+    "6:assembly_1_1": {
+      "clearance_mm": 7.243253,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 19.661073,
+        "fascia": 16.68805,
+        "retainer": 11.650317,
+        "front_module_blank": 29.709911,
+        "nominal_panel_envelope": 7.243253
+      }
+    },
+    "7:assembly_1_8": {
+      "clearance_mm": 1.505918,
+      "to": "retainer",
+      "by_target_mm": {
+        "shell": 2.061841,
+        "fascia": 4.160708,
+        "retainer": 1.505918,
+        "front_module_blank": 11.925068,
+        "nominal_panel_envelope": 3.440377
       }
     }
   },
-  "minimum_ordinary_top_air_mm": 1.555001,
+  "minimum_ordinary_top_air_mm": 1.505918,
   "thermal_clearance_expectation": {
     "source": "default",
     "minimum_mm": 1.5,

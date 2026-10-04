@@ -1,0 +1,27 @@
+{
+  "inspected_kicad_sha256": "325de77330426da509eb12f6354d15b5ac21ac4fcee77af6245b67a68d7ea916",
+  "site": {
+    "net": "GND",
+    "diameterMm": 0.6,
+    "drillMm": 0.3,
+    "source_xy_mm": [
+      -10.490051,
+      24.295851
+    ],
+    "native_xy_mm": [
+      89.50994875,
+      75.70414875
+    ],
+    "lobe_area_mm2": 11.016355886741424,
+    "inner_lobe_native_bbox_mm": [
+      85.773551,
+      71.6555,
+      100.258615,
+      87.927258
+    ],
+    "inner_boundary_clearance_mm": 0.5912713767196942,
+    "top_boundary_clearance_mm": 0.5912713767197036,
+    "obstacle_residual_margin_mm": 0.2817709447374418,
+    "method": "Diagnosed In1 GND island carrying J_PI26 starved thermal, actual polygon intersected with F.Cu largest GND plane after .31mm erosion and all-stack copper exclusions."
+  }
+}

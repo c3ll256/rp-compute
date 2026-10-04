@@ -119,7 +119,7 @@
     "LCD_COM": {
       "class": "signal",
       "clearanceMm": 0.15,
-      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "rationale": "SHOU HAN C5373447 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
       "escape": {
         "widthMm": 0.25,
         "clearanceMm": 0.15,
@@ -133,7 +133,7 @@
     "LCD_DISP": {
       "class": "signal",
       "clearanceMm": 0.15,
-      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "rationale": "SHOU HAN C5373447 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
       "escape": {
         "widthMm": 0.25,
         "clearanceMm": 0.15,
@@ -150,7 +150,7 @@
     "LCD_SCLK": {
       "class": "signal",
       "clearanceMm": 0.15,
-      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "rationale": "SHOU HAN C5373447 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
       "escape": {
         "widthMm": 0.25,
         "clearanceMm": 0.15,
@@ -164,7 +164,7 @@
     "LCD_SCS": {
       "class": "signal",
       "clearanceMm": 0.15,
-      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "rationale": "SHOU HAN C5373447 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
       "escape": {
         "widthMm": 0.25,
         "clearanceMm": 0.15,
@@ -178,7 +178,7 @@
     "LCD_SI": {
       "class": "signal",
       "clearanceMm": 0.15,
-      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "rationale": "SHOU HAN C5373447 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
       "escape": {
         "widthMm": 0.25,
         "clearanceMm": 0.15,
@@ -227,7 +227,7 @@
     "V5_LCD": {
       "class": "power",
       "clearanceMm": 0.15,
-      "rationale": "Hirose 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
+      "rationale": "SHOU HAN C5373447 0.5mm-pitch lands have approximately 0.2mm gaps; preserve 0.15mm fabrication clearance at this interface.",
       "escape": {
         "widthMm": 0.25,
         "clearanceMm": 0.15,
@@ -254,7 +254,7 @@
         "maxTemperatureRiseC": 10,
         "requiredWidthMm": 0.31,
         "calculationMethod": "IPC-2221 internal coefficient0.024, 1oz, 10C rise; conservative minimum for any routing layer",
-        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board."
+        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board. Includes2x200mA display/aux branch budgets plus100mA fan allowance (40mA rated)."
       },
       "minimumWidthMm": 0.31,
       "rationale": "500mA input on 1oz internal copper needs0.30038mm by IPC-2221 coefficient0.024 at10C rise; impose0.31mm floor while retaining0.50mm nominal."
@@ -277,15 +277,6 @@
   },
   "stitchingVias": [
     {
-      "name": "FPC_GND_BRIDGE",
-      "net": "GND",
-      "xMm": -1.066,
-      "yMm": 27.442,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Exact filled top FPC GND lobe bbox(-3.39,21.46)..(0.95,29.26) overlaps bottom main GND here; 0.31mm polygon erosion, 0.46mm pad/foreign-track exclusion."
-    },
-    {
       "name": "PI25_GND_BRIDGE",
       "net": "GND",
       "xMm": -8.605,
@@ -295,112 +286,31 @@
       "rationale": "Filled bottom GND lobe bbox(-14.226,19.964)..(-0.785,24.534) intersects top main ground; source-frame coordinate proven using .31mm polygon erosion and .46mm obstacle exclusion. Restores return near J_PI pad25."
     },
     {
-      "name": "CLK_PULLDOWN_GND_BRIDGE",
+      "name": "FRONT_BUFFER_GND_BRIDGE",
       "net": "GND",
-      "xMm": -3.424,
-      "yMm": 20.5,
+      "xMm": 2.8178,
+      "yMm": 17.822197,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Last disconnected bottom16.117mm2 GND lobe bbox(-9.110,19.031)..(-0.800,21.416), found by exact filled-polygon connectivity graph. Overlaps contiguous In1.Cu GND; candidate has0.31mm polygon erosion and0.46mm pad/foreign-track exclusion across all layers."
+      "rationale": "Diagnosed F.Cu GND lobe area13.108016mm2 bbox native(101.8831,79.560524)..(103.7525,87.349528). Exact point is in lobe and largest In1.Cu ground, eroded both .31mm; excluded all pads, every foreign track, existing vias across stack. Topedge margin.9347mm, In1 edge5.760877mm, obstacle residual.6252mm. See front-side-ground-via-proof.json."
     },
     {
-      "name": "GROUND_F_1",
+      "name": "LCD_LDO_GND_BRIDGE",
       "net": "GND",
-      "xMm": -0.1734,
-      "yMm": 18.4046,
+      "xMm": -12.669743,
+      "yMm": -30.997673,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Exact diagnosed F.Cu disconnected polygon1, area14.6217mm2 bbox(-4.502100999999996, 15.000500000000002, 1.7018020000000007, 24.448504); via site lies in0.02mm inside diagnosed lobe and contiguous In1.Cu ground; excludes0.46mm foreign pad/track obstacles and0.31mm every-pad envelope."
+      "rationale": "Exact diagnosed GND lobe bridge; actual polygons on source and destination ground planes eroded.31mm; every pad and all-stack foreign copper/vias excluded. Proof:additional-front-ground-via-proof.json"
     },
     {
-      "name": "GROUND_F_2",
+      "name": "PI26_INNER_GND_BRIDGE",
       "net": "GND",
-      "xMm": 3.8279,
-      "yMm": 21.4997,
+      "xMm": -10.490051,
+      "yMm": 24.295851,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Exact diagnosed F.Cu disconnected polygon2, area92.9705mm2 bbox(1.0584970000000027, 15.000500000000002, 8.999499999999998, 36.9995); via site lies in0.02mm inside diagnosed lobe and contiguous In1.Cu ground; excludes0.46mm foreign pad/track obstacles and0.31mm every-pad envelope."
-    },
-    {
-      "name": "GROUND_F_3",
-      "net": "GND",
-      "xMm": -3.0345,
-      "yMm": 17.9236,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Exact diagnosed F.Cu disconnected polygon3, area5.3107mm2 bbox(-4.502100999999996, 15.648700000000005, -1.1504719999999935, 20.037334); via site lies in0.02mm inside diagnosed lobe and contiguous In1.Cu ground; excludes0.46mm foreign pad/track obstacles and0.31mm every-pad envelope."
-    },
-    {
-      "name": "GROUND_F_4",
-      "net": "GND",
-      "xMm": 1.7647,
-      "yMm": 17.9346,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Exact diagnosed F.Cu disconnected polygon4, area1.4816mm2 bbox(1.4254999999999995, 15.7487, 2.651200000000003, 18.436695999999998); via site lies in0.02mm inside diagnosed lobe and contiguous In1.Cu ground; excludes0.46mm foreign pad/track obstacles and0.31mm every-pad envelope."
-    },
-    {
-      "name": "GROUND_F_6",
-      "net": "GND",
-      "xMm": 1.6289,
-      "yMm": 26.4817,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Exact diagnosed F.Cu disconnected polygon6, area14.3962mm2 bbox(-0.3315249999999992, 21.248900000000006, 2.4573000000000036, 32.92639200000001); via site lies in0.02mm inside diagnosed lobe and contiguous In1.Cu ground; excludes0.46mm foreign pad/track obstacles and0.31mm every-pad envelope."
-    },
-    {
-      "name": "GROUND_F_7",
-      "net": "GND",
-      "xMm": -1.0836,
-      "yMm": 28.4052,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Exact diagnosed F.Cu disconnected polygon7, area8.4382mm2 bbox(-1.6512000000000029, 23.913522999999998, 0.19950000000000045, 29.884063999999995); via site lies in0.02mm inside diagnosed lobe and contiguous In1.Cu ground; excludes0.46mm foreign pad/track obstacles and0.31mm every-pad envelope."
-    },
-    {
-      "name": "GROUND_B_0",
-      "net": "GND",
-      "xMm": 5.1508,
-      "yMm": -28.452,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Exact diagnosed B.Cu disconnected polygon0, area273.6643mm2 bbox(-18.999499999999998, -34.49950000000001, 18.999499999999998, -21.466800000000006); via site lies in0.02mm inside diagnosed lobe and contiguous In1.Cu ground; excludes0.46mm foreign pad/track obstacles and0.31mm every-pad envelope."
-    },
-    {
-      "name": "GROUND_B_2",
-      "net": "GND",
-      "xMm": -12.9395,
-      "yMm": -25.6162,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Exact diagnosed B.Cu disconnected polygon2, area20.9815mm2 bbox(-13.674499999999995, -29.1978, -7.438022000000004, -22.755317000000005); via site lies in0.02mm inside diagnosed lobe and contiguous In1.Cu ground; excludes0.46mm foreign pad/track obstacles and0.31mm every-pad envelope."
-    },
-    {
-      "name": "GROUND_B_3",
-      "net": "GND",
-      "xMm": -9.8177,
-      "yMm": -22.9887,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Exact diagnosed B.Cu disconnected polygon3, area7.9360mm2 bbox(-11.659807999999998, -24.764899999999997, -7.800374000000005, -21.466800000000006); via site lies in0.02mm inside diagnosed lobe and contiguous In1.Cu ground; excludes0.46mm foreign pad/track obstacles and0.31mm every-pad envelope."
-    },
-    {
-      "name": "GROUND_B_4",
-      "net": "GND",
-      "xMm": -2.6561,
-      "yMm": -19.6852,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Exact diagnosed B.Cu disconnected polygon4, area51.4577mm2 bbox(-11.774500000000003, -21.772800000000004, 10.649500000000003, -17.672017999999994); via site lies in0.02mm inside diagnosed lobe and contiguous In1.Cu ground; excludes0.46mm foreign pad/track obstacles and0.31mm every-pad envelope."
-    },
-    {
-      "name": "BUF1_OE4_GND_ESCAPE",
-      "net": "GND",
-      "xMm": -0.8,
-      "yMm": 23.4,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Diagnosed F.Cu GND lobe bbox(-1.1495,20.7005)..(-.38706,23.63008); centre lies inside lobe,0.3499mm beyond GND pad and0.570mm from adjacent foreign pads. GPIO25 track and V3V3_LCD via currently pinch this site; reroute those2nets around this deliberate ground escape. Connect through In1.Cu GND; no via-in-pad exception."
+      "rationale": "Exact diagnosed GND lobe bridge; actual polygons on source and destination ground planes eroded.31mm; every pad and all-stack foreign copper/vias excluded. Proof:pi-inner-ground-via-proof.json"
     }
   ],
   "copperAreas": [],
@@ -443,19 +353,26 @@
     {
       "componentRef": "J_PI",
       "vertical": true,
-      "rationale": "J_PI \u662f\u677f\u80cc\u9762\u7684 GPIO \u5806\u53e0\u6bcd\u5ea7\uff0cPi \u6392\u9488\u6cbf\u5782\u76f4 PCB \u7684\u65b9\u5411\u63d2\u5165\u3002"
+      "rationale": "J_PI 是板背面的 GPIO 堆叠母座，Pi 排针沿垂直 PCB 的方向插入。"
     },
     {
       "componentRef": "J_MOD",
       "vertical": true,
-      "rationale": "J_MOD \u662f\u677f\u6b63\u9762\u7684\u76f4\u7acb 2\u00d74 \u6bcd\u5ea7\uff0c\u6269\u5c55\u6a21\u5757\u7684\u516c\u6392\u9488\u6cbf\u5782\u76f4 PCB \u7684\u65b9\u5411\u63d2\u5165\u3002"
+      "rationale": "J_MOD 是板正面的直立 2×4 母座，扩展模块的公排针沿垂直 PCB 的方向插入。"
     },
     {
       "componentRef": "J_LCD",
       "nativeOpening": "down",
       "targetOpening": "down",
       "expectedLayer": "top",
-      "rationale": "User requested horizontal FPC entry down/front (-Y), top PCB side; preserve native bottom contacts."
+      "rationale": "Delegated modeled replacement SHOU HAN C5373447: top contacts, native/target entrance -Y on top, pin1 left; native screen copper upward after back fold."
+    },
+    {
+      "componentRef": "J_FAN",
+      "nativeOpening": "down",
+      "targetOpening": "down",
+      "expectedLayer": "top",
+      "rationale": "All populated parts except Pi socket are on top per user. Internal fan JST SH entrance -Y, placed in widened central electronics area for cable access."
     }
   ],
   "bomBindings": [
@@ -553,6 +470,13 @@
         "R_LCD_BLEED",
         "R_AUX_BLEED",
         "R_FAULT_PU"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "fan_connector",
+      "designators": [
+        "J_FAN"
       ],
       "populate": true
     }

@@ -1,0 +1,321 @@
+{
+  "revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+  "pcb_release": "dbacb2cc60cdef69951f80af131442ea24b1ed03394f9e446a1f890bf9a1d209",
+  "pcb_step_sha256": "fc63232fc7ddf1972848edb829711607d9a1d65cc299b42f3427e71f542c520a",
+  "checked": {
+    "passive_heatsink": {
+      "volume_mm3": {
+        "shell": 0.0,
+        "base": 0.0,
+        "pi4b": 0.0,
+        "fascia": 0.0,
+        "retainer": 0.0,
+        "front_module_blank": 0.0,
+        "pcb_mount_screw_1": 0.0,
+        "pcb_mount_screw_2": 0.0
+      },
+      "pcb_hits": [],
+      "pcb_body_gap_mm": 0.345
+    },
+    "cooling_fan": {
+      "volume_mm3": {
+        "shell": 0.0,
+        "base": 0.0,
+        "pi4b": 0,
+        "fascia": 0.0,
+        "retainer": 0.0,
+        "front_module_blank": 0.0,
+        "pcb_mount_screw_1": 0.0,
+        "pcb_mount_screw_2": 0.0
+      },
+      "pcb_hits": [],
+      "pcb_body_gap_mm": 5.939468
+    },
+    "fan_collar": {
+      "volume_mm3": {
+        "shell": 0.0,
+        "base": 0.0,
+        "pi4b": 0.0,
+        "fascia": 0.0,
+        "retainer": 0.0,
+        "front_module_blank": 0.0,
+        "pcb_mount_screw_1": 0.0,
+        "pcb_mount_screw_2": 0.0
+      },
+      "pcb_hits": [],
+      "pcb_body_gap_mm": 3.144402
+    },
+    "fan_corner_pads": {
+      "volume_mm3": {
+        "shell": 0.0,
+        "base": 0.0,
+        "pi4b": 0.0,
+        "fascia": 0.0,
+        "retainer": 0.0,
+        "front_module_blank": 0.0,
+        "pcb_mount_screw_1": 0.0,
+        "pcb_mount_screw_2": 0.0
+      },
+      "pcb_hits": [],
+      "pcb_body_gap_mm": 5.845653
+    }
+  },
+  "bounds": {
+    "passive_heatsink": {
+      "min": [
+        -16.5,
+        -30.5,
+        7.1
+      ],
+      "max": [
+        38.5,
+        34.5,
+        18.1
+      ]
+    },
+    "cooling_fan": {
+      "min": [
+        -37.0,
+        -46.0,
+        11.0
+      ],
+      "max": [
+        4.315646,
+        -30.0,
+        15.5
+      ]
+    },
+    "fan_collar": {
+      "min": [
+        -38.5,
+        -52.5,
+        16.0
+      ],
+      "max": [
+        -19.5,
+        -23.5,
+        17.4
+      ]
+    },
+    "fan_corner_pads": {
+      "min": [
+        -36.5,
+        -45.5,
+        15.5
+      ],
+      "max": [
+        -21.5,
+        -30.5,
+        16.0
+      ]
+    }
+  },
+  "limits": [
+    "P165-B is a declared65x55x11mm manufacturer-photo reference, not vendor STEP; underside, reliefs, contact heights and fin layout remain physical inspection items.",
+    "TIM0.25mm modeled for review, not supplier thickness/compression evidence.",
+    "No temperature or installed flow rate measured."
+  ],
+  "inlet_column_mm": {
+    "diameter": 12,
+    "bottom_z": 16,
+    "height": 3
+  },
+  "inlet_hits": {
+    "shell": 0.0,
+    "front_module_blank": 0.0,
+    "fan_collar": 0.0,
+    "pi_baseboard_lite": 0.0,
+    "passive_heatsink": 0.0
+  },
+  "inlet_pcb_hits": [],
+  "J_FAN_world_bbox_mm": {
+    "min": [
+      -2.0,
+      -46.475,
+      18.755
+    ],
+    "max": [
+      2.0,
+      -41.525,
+      21.715
+    ]
+  },
+  "J_FAN_front_plug_probe_mm": {
+    "min": [
+      -1.7,
+      -51.625,
+      18.9
+    ],
+    "max": [
+      1.7,
+      -46.625,
+      21.7
+    ]
+  },
+  "J_FAN_front_access_hits": {
+    "shell": 0.0,
+    "front_module_blank": 0.0,
+    "fan_collar": 0.0,
+    "cooling_fan": 0.0,
+    "passive_heatsink": 0.0
+  },
+  "J_FAN_to_fan_gap_mm": 11.061777,
+  "J_FAN_front_plug_limits": "Manufacturer mating plug dimensional reference plus0.2mm fitting allowance; horizontal assembly with bottom cover removed. Probe excludes intentional insertion into socket.",
+  "heatsink_to_HAT_minimum_mm": 0.345,
+  "heatsink_to_upper_shell_mm": 1.6,
+  "metal_threads": {
+    "pi_mount_screw_1": {
+      "shared_volume_mm3": 0.0,
+      "intended_axial_engagement_mm": 2.4
+    },
+    "pi_mount_screw_2": {
+      "shared_volume_mm3": 0.0,
+      "intended_axial_engagement_mm": 2.4
+    },
+    "pi_mount_screw_3": {
+      "shared_volume_mm3": 0.0,
+      "intended_axial_engagement_mm": 2.4
+    },
+    "pi_mount_screw_4": {
+      "shared_volume_mm3": 0.0,
+      "intended_axial_engagement_mm": 2.4
+    }
+  },
+  "vent_slots": [
+    {
+      "bank": "intake",
+      "area_mm2": 14.4,
+      "shell_obstruction_mm3": 0.0,
+      "internal_hits": []
+    },
+    {
+      "bank": "exhaust",
+      "area_mm2": 10.8,
+      "shell_obstruction_mm3": 0.0,
+      "internal_hits": []
+    },
+    {
+      "bank": "intake",
+      "area_mm2": 14.4,
+      "shell_obstruction_mm3": 0.0,
+      "internal_hits": []
+    },
+    {
+      "bank": "exhaust",
+      "area_mm2": 10.8,
+      "shell_obstruction_mm3": 0.0,
+      "internal_hits": []
+    },
+    {
+      "bank": "intake",
+      "area_mm2": 14.4,
+      "shell_obstruction_mm3": 0.0,
+      "internal_hits": []
+    },
+    {
+      "bank": "exhaust",
+      "area_mm2": 10.8,
+      "shell_obstruction_mm3": 0.0,
+      "internal_hits": []
+    },
+    {
+      "bank": "intake",
+      "area_mm2": 14.4,
+      "shell_obstruction_mm3": 0.0,
+      "internal_hits": []
+    },
+    {
+      "bank": "exhaust",
+      "area_mm2": 10.8,
+      "shell_obstruction_mm3": 0.0,
+      "internal_hits": []
+    }
+  ],
+  "factory_lead_route": {
+    "points_mm": [
+      [
+        -20.6,
+        -31.6,
+        12.95
+      ],
+      [
+        -10.4,
+        -31.6,
+        12.95
+      ],
+      [
+        -10.4,
+        -31.6,
+        20.3
+      ],
+      [
+        -10.4,
+        -54.1,
+        20.3
+      ],
+      [
+        0,
+        -54.1,
+        20.3
+      ],
+      [
+        0,
+        -51.625,
+        20.3
+      ]
+    ],
+    "bundle_OD_allowance_mm": 1.4,
+    "bend_radius_mm": 2.0,
+    "lead_length_including_ends_mm": 52.521,
+    "minimum_factory_lead_length_mm": 70,
+    "length_passed": true,
+    "intersections": [],
+    "limits": "Actual bent vendor AWG36 leads plus factory32AWG SH pigtail are fitted to this reserve; do not directly crimp AWG36 into SH. Connector plug modeled as reserve; no exact formed-wire CAD claimed."
+  },
+  "power_cap_to_shell_volume_mm3": 0.0,
+  "side_discharge_probe_mm": {
+    "x": [
+      -40.1,
+      -37.4
+    ],
+    "y": [
+      -45.8,
+      -30.2
+    ],
+    "z": [
+      11.01,
+      15.49
+    ]
+  },
+  "side_discharge_hits": {
+    "shell": 0.0,
+    "fan_collar": 0.0,
+    "fan_corner_pads": 0.0,
+    "pi4b": 0.0,
+    "pi_baseboard_lite": 0.0,
+    "passive_heatsink": 0.0
+  },
+  "front_exhaust_closed": [
+    {
+      "probe_volume_mm3": 25.26144,
+      "filled_volume_mm3": 25.26144,
+      "passed": true
+    },
+    {
+      "probe_volume_mm3": 25.26144,
+      "filled_volume_mm3": 25.26144,
+      "passed": true
+    },
+    {
+      "probe_volume_mm3": 25.26144,
+      "filled_volume_mm3": 25.26144,
+      "passed": true
+    },
+    {
+      "probe_volume_mm3": 25.26144,
+      "filled_volume_mm3": 25.26144,
+      "passed": true
+    }
+  ],
+  "geometry_checks_passed": true
+}

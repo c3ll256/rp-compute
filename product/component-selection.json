@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "b0262300aab48763325adee219ae4fdbfaa3b5c5401ea0aea10dae58ab3c707b",
+  "requirements_digest": "f1398504b9c62a24af5001c26fca789c3321e659a895a5e1a139e08c42fe2c87",
   "alternatives": [],
   "supply_risks": [
     {
@@ -11,12 +11,12 @@
     },
     {
       "id": "exact_parts",
-      "description": "Reuse exact Sharp panel, Hirose FPC, Samtec sockets and TI ICs. No interchangeable substitutes qualified; old male-header alternatives are not alternatives for the requested female socket."
+      "description": "Use selected exact Sharp panel, SHOU HAN C5373447 FPC, Samtec sockets and TI ICs; unselected FPC comparison alternatives are not qualified drop-in substitutes."
     }
   ],
   "unresolved_items": [],
-  "scope": "Active pi_baseboard_lite: display FPC, display support and current-limited 3.3V 8-pin module interface. Pi powered via native USB-C. Full variant inventory retained separately under design/pi_baseboard/full-variant-bom.json.",
-  "review_status": "higher_GPIO_lower_8pin_downward_FPC_under_validation",
+  "scope": "Active compact Pi4 HAT, top-contact screen FPC, low expansion socket, bottom fan power socket and external mechanical cooling assembly.",
+  "review_status": "selected_parts_and_nominal_CAD_passed_physical_cooler_fit_and_thermal_test_pending",
   "selected_components": [
     {
       "id": "compute",
@@ -111,48 +111,52 @@
     {
       "id": "display_fpc",
       "role": "display_fpc",
-      "name": "FH12-10S-0.5SH(55)",
+      "name": "0.5-10P CTSJ-H2.0 119",
       "quantity": 1,
-      "supplier": "LCSC",
-      "manufacturer": "Hirose",
-      "part_number": "FH12-10S-0.5SH(55)",
-      "mpn": "FH12-10S-0.5SH(55)",
-      "stock": 8198,
-      "source": "user",
-      "procurement_status": "catalog_verified",
-      "lcsc_code": "C506791",
+      "supplier": "LCSC / 嘉立创",
+      "manufacturer": "SHOU HAN(首韩)",
+      "part_number": "0.5-10P CTSJ-H2.0 119",
+      "mpn": "0.5-10P CTSJ-H2.0 119",
+      "source": "default",
+      "lcsc_code": "C5373447",
       "jlc_smt_library": "extended",
-      "product_url": "https://item.szlcsc.com/519947.html",
-      "unit_price_cny": 3.12,
-      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230107/C04566C1CA874B3BDA4D60598C56C2D3.jpg",
+      "procurement_status": "catalog_verified",
+      "stock": 1835,
+      "unit_price_cny": 0.547,
+      "product_url": "https://item.szlcsc.com/6227364.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230314/2CC6B96CFDF7B9A004D6A4B5EFB475EE.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20230321/8BA0DE4D38BE66CF3C031935900E1E28.pdf",
+      "datasheet_path": "references/suppliers/c5373447/c5373447-datasheet.pdf",
+      "package": "SMD,P=0.5mm,卧贴",
+      "footprint": "jlcpcb:C5373447",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
-      "part_identity": "dd2e2353539b67c4",
-      "datasheet_path": "references/suppliers/c506791/c506791-datasheet.pdf",
+      "designators": [
+        "J_LCD"
+      ],
       "physical_interface": {
         "kind": "fpc_connector",
         "pin_count": 10,
         "pitch_mm": 0.5,
-        "cable_contacts_face_when_mounted_on_top": "toward_pcb",
-        "pin1_position": "polarization triangle in Hirose component-side drawing; do not infer from screen-front view",
+        "cable_thickness_mm": 0.3,
+        "closed_height_mm": 2.0,
+        "cable_contacts_face_when_mounted_on_top": "away_from_pcb",
+        "pin1_position": "Supplier native top view, opening -Y: left end of signal row.",
         "evidence_refs": [
-          "references/suppliers/c506791/c506791-datasheet.pdf pp1,5",
-          "product/references/LS027B7DH01-sharp-2010.pdf p26"
+          "references/suppliers/c5373447/c5373447-datasheet.pdf p1",
+          "product/references/fpc-candidates/C5373447-easyeda.json",
+          "design/pi_baseboard_lite/fpc-connector-comparison.json"
         ]
       },
-      "selection_reason": "Horizontal bottom-contact Hirose retained; user requests opening down/front (-Y), rotate native footprint0deg, numeric electrical pin map unchanged.",
-      "observed_date": "2026-09-30",
+      "selection_reason": "User delegated replacement. Exact top-contact 10P/0.5mm/0.3mm candidate with real bound STEP; recommended conductor>=3mm and stiffener>=4mm closest to native Sharp tail3.5/4mm. Focused JLC search returned no matching Basic candidate; Extended selected. New footprint and slide latch accepted through delegated selection.",
+      "selection_status": "selected_for_front_SMT_layout",
+      "observed_date": "2026-10-02",
       "required_user_evidence": [],
-      "supply_risk": "Native tail13.7±0.5mm is estimated. Opening is down/front; complete tail contact-face/stop and installation bend remain under review.",
-      "requirements_review": "FPC moves to screen-facing top PCB side; exact Hirose part and numeric pin map retained, cable path not yet mechanically validated.",
-      "designators": [
-        "J_LCD"
-      ],
-      "selection_status": "selected_for_compact_board_cad_review",
-      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200402/C506791_7CB403EBF87F84682F415173294C9BF9.pdf",
-      "footprint": "jlcpcb:C506791"
+      "supply_risk": "Screen stiffener nominal4mm is exactly the recommendation minimum. Native-tail seating/retention requires prototype; library STEP is detailed geometry, not certified mating tolerances. Manual front-side reflow intent; no automatic JLC order verification claimed.",
+      "part_identity": "d36ea902ecb37a1b"
     },
     {
       "id": "ldo_3v3",
@@ -168,7 +172,8 @@
       "procurement_status": "catalog_verified",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "lcsc_code": "C404027",
       "unit_price_cny": 0.982,
@@ -202,7 +207,8 @@
       "procurement_status": "catalog_verified",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "lcsc_code": "C54529",
       "unit_price_cny": 2.263,
@@ -235,7 +241,8 @@
       "observed_date": "2026-09-30",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "bottom"
       },
       "required_user_evidence": [],
       "name": "ESQ-120-12-G-D",
@@ -282,12 +289,12 @@
     {
       "id": "front_module_screws",
       "role": "standard_fastener",
-      "name": "ISO 4762 M2-0.4 x4 mm socket-head cap screw",
+      "name": "ISO7046 M2 countersunk cross-recess screws,4mm",
       "quantity": 4,
       "supplier": "User-selected standard hardware",
-      "manufacturer": "ISO 4762 standard",
-      "part_number": "ISO 4762 M2-0.4 x4 mm",
-      "mpn": "ISO 4762 M2-0.4 x4 mm",
+      "manufacturer": "ISO 7046 standard",
+      "part_number": "ISO7046-M2x4",
+      "mpn": "ISO7046-M2x4",
       "stock": null,
       "source": "default",
       "procurement_status": "external_procurement_required",
@@ -295,9 +302,9 @@
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "description": "Four M2x4 socket-head screws for the user-replaceable front cassette; printed joint geometry generated by printed-screw-joint-v1. Screw length confirmed against 4mm underhead CAD height.",
-      "selection_reason": "Top-access removable module fastening; repeated self-forming-thread service life remains untested.",
-      "part_identity": "642d0879861d9f2f",
+      "description": "Four ISO7046 M2x4 countersunk screws, total length4mm including head; heads flush with deckZ27 and seat only in printed cover. Printed receivers from printed-screw-joint-v1.",
+      "selection_reason": "Four exposed deck heads seated flush in printed1.4mm cover, with kit-owned printed receivers.",
+      "part_identity": "81eb50a1dedcc22e",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics."
     },
     {
@@ -317,7 +324,8 @@
       "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps2553.pdf",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "required_user_evidence": [],
       "selection_reason": "TI SLVS841F pp5,6,15,25: active-high 2.5-6.5V adjustable current-limit switch, 169k 1% RILIM gives approximately 136-187mA limits ahead of a dedicated 3.3V LDO; normal module allocation is100mA. Pi3.3V only controls enable. Exact DBV stock KiCad footprint.",
@@ -342,7 +350,8 @@
       "observed_date": "2026-09-30",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "required_user_evidence": [],
       "name": "HLE-104-02-G-DV",
@@ -388,7 +397,8 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
       "required_user_evidence": [],
@@ -421,7 +431,8 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
       "required_user_evidence": [],
@@ -454,7 +465,8 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
       "required_user_evidence": [],
@@ -491,7 +503,8 @@
       "jlc_smt_library": "extended",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "selection_reason": "Exact value/package verified; manual prototype assembly. Extended resistor chosen only because no exact Basic match.",
       "required_user_evidence": [],
@@ -523,7 +536,8 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
       "required_user_evidence": [],
@@ -557,7 +571,7 @@
       },
       "required_user_evidence": [],
       "description": "Printed upper shell, existing85x115x27mm exterior. Two transverse PCB screw beams plus rear edge shelf/guide integrated in the shell. CAD default PLA; print fit, strength and service life untested.",
-      "selection_reason": "User requires raised compact PCB fixed to upper enclosure independently of detachable bottom and front cassette.",
+      "selection_reason": "Upper-shell PCB beams and rear guide support the raised HAT. Obsolete left charging aperture removed; cradle roots join continuous wall below/alongside left exhaust vents. Pi native USB-C remains exposed.",
       "cad_relevance": {
         "description": "Two existing2.2mm PCB holes at world(+/-16,-32) and rear left board edge."
       },
@@ -588,9 +602,264 @@
         "model_id": "bd-warehouse:bd_warehouse.fastener.SocketHeadCapScrew"
       },
       "cad_relevance": {
-        "description": "At worldX+/-16,Y-32, board bottomZ22.5."
+        "description": "WorldX+/-16,Y-32, board bottomZ21.8; existing internal socket-head screws retained because PCB holes are unmodified clearance holes."
       },
       "part_identity": "642d0879861d9f2f"
+    },
+    {
+      "id": "compact_cooling_fan",
+      "role": "processor_and_memory_airflow",
+      "name": "Nidec Components F16FB-05LLC",
+      "quantity": 1,
+      "supplier": "Nidec Components authorized distributor",
+      "manufacturer": "Nidec Components",
+      "part_number": "F16FB-05LLC",
+      "mpn": "F16FB-05LLC",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "datasheet_url": "https://www.nidec-components.com/e/catalog/dc-fan/f16fb.pdf",
+      "selection_status": "selected_manufacturer_drawing_and_STEP",
+      "description": "5V40mA0.2W two-wire side blower,16x16x4.5mm +/-0.5mm outline. Free-air0.012m3/min, shutoff5.5Pa; installed flow unmeasured. Red+5V/blackGND,80+/-10mm AWG36 leads, factory converted to JST SH2pin harness. HATJ_FAN supplies from physicalPi2/4+5V andPi6GND; no user soldering.",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "supply_risk": "Stock/price unverified; very low static pressure, thermal prototype test required.",
+      "part_identity": "98d2abbf6af4e9a5",
+      "cad_relevance": {
+        "asset": "product/references/F16FB.STEP",
+        "sha256": "e2f8b7cbed1d020a8861be66a5f32019d9404dfb20410347d0f201a42a6ba793",
+        "frame_mm": [
+          16,
+          16
+        ],
+        "thickness_mm": 4.5,
+        "tolerance_mm": 0.5,
+        "holes_mm": 1.5,
+        "pitch_mm": 13,
+        "mounting": "Frame cradle and padded M2 collar; tiny1.5mm holes remain unused."
+      },
+      "product_url": "https://www.nidec-components.com/sg/product/detail/00000718/",
+      "selection_reason": "Retain selected Nidec16x16x4.5mm blower near left wall at(-29,-38)mm, inlet upward and exhaust leftward; no forward hot outlet. HATJ_FAN5V40mA always-on and factory2pin lead retained."
+    },
+    {
+      "id": "compact_fan_collar",
+      "role": "compact_cooling_assembly",
+      "name": "Compact fan collar",
+      "mpn": "RP-F16-COLLAR",
+      "part_number": "RP-F16-COLLAR",
+      "manufacturer": "Project Replicator",
+      "quantity": 1,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "selection_status": "selected",
+      "description": "PETG printed29x19x1.4mm collar; two M2 countersunk kit joints, three padded corners,13.6mm intake window; no tall duct.",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "part_identity": "ba989e8798c5aaa6",
+      "selection_reason": "Retaining collar rotated with left-facing blower, supported by integral left-wall cradle; no long duct or tall shroud over heatsink/HAT."
+    },
+    {
+      "id": "compact_fan_pads",
+      "role": "compact_cooling_assembly",
+      "name": "Silicone sheet corner pads",
+      "mpn": "RP-F16-PAD-0.5",
+      "part_number": "RP-F16-PAD-0.5",
+      "manufacturer": "Project Replicator",
+      "quantity": 3,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "selection_status": "selected",
+      "description": "Die-cut2x2x0.5mm silicone corner pads; compress to take up fan thickness variation.",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "part_identity": "7b218094917c8597"
+    },
+    {
+      "id": "compact_fan_screws",
+      "role": "compact_cooling_assembly",
+      "name": "ISO7046 M2 countersunk fan collar screws,4mm",
+      "mpn": "ISO7046-M2x4",
+      "part_number": "ISO7046-M2x4",
+      "manufacturer": "ISO 7046 standard",
+      "quantity": 2,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "selection_status": "selected",
+      "description": "Two ISO7046 M2x4 countersunk screws through1.4mm collar into kit-owned printed receivers,2mm intended engagement. Fan1.5mm holes remain unused.",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "part_identity": "81eb50a1dedcc22e"
+    },
+    {
+      "id": "compact_factory_strain_relief",
+      "role": "factory_cooling_harness_consumable",
+      "name": "DOWSIL 3145 RTV MIL-A-46146 Adhesive/Sealant — Clear",
+      "manufacturer": "Dow",
+      "mpn": "DOWSIL 3145 Clear",
+      "part_number": "DOWSIL 3145 Clear",
+      "quantity": 1,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "selection_status": "selected_manufacturer_evidence",
+      "product_url": "https://www.dow.com/en-us/pdp.dowsil-3145-rtv-mil-a-46146-adhesive-sealant.01059548z.html",
+      "description": "Factory stock allowance0.2mL perassembly for insulated-lead strain relief outside checkedairpath; dose and fullcure determined by factoryprocess. No userapplication and no55min full-cure claim.",
+      "included_in_product_kit": false,
+      "include_in_procurement_totals": false,
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "part_identity": "45c6ba9275547661"
+    },
+    {
+      "id": "compact_passive_heatsink",
+      "role": "pi4_passive_heatsink",
+      "name": "Geekworm Raspberry Pi 4 11mm Embedded Heatsink (P165-B), standalone SKU100237",
+      "quantity": 1,
+      "manufacturer": "Geekworm",
+      "mpn": "P165-B",
+      "part_number": "P165-B",
+      "source": "user",
+      "supplier": "Manufacturer / authorized distributor",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected",
+      "product_url": "https://geekworm.com/products/p165-b",
+      "datasheet_url": "https://geekworm.com/products/p165-b.js",
+      "cad_relevance": {
+        "outline_mm": [
+          65,
+          55,
+          11
+        ],
+        "mount_pitch_mm": [
+          49,
+          58
+        ],
+        "thread": "M2.5",
+        "mounting": "Shared four board corners; do not use bundled spacers in this shell"
+      },
+      "selection_reason": "User image matches manufacturer dimensions; retain Pi4B and add separate internal fan.",
+      "supply_risk": "Purchase exact 11mm P165-B standalone; no8mm P165-A or Pi5 replacement. Underside relief heights and included TIM thickness need prototype inspection; CAD is explicit photo-derived reference.",
+      "part_identity": "a69b252d0141b942"
+    },
+    {
+      "id": "fan_connector",
+      "role": "internal_fan_power_connector",
+      "name": "JST SH 1mm side-entry 2pin SMT fan socket",
+      "quantity": 1,
+      "manufacturer": "JST",
+      "mpn": "SM02B-SRSS-TB",
+      "part_number": "SM02B-SRSS-TB",
+      "source": "default",
+      "supplier": "Manufacturer / authorized distributor",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual",
+        "side": "top"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected",
+      "designators": [
+        "J_FAN"
+      ],
+      "footprint": "kicad:Connector_JST/JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal",
+      "product_url": "https://www.jst-mfg.com/product/index.php?lang=2&series=231",
+      "datasheet_url": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+      "datasheet_path": "product/references/jst-sh.pdf",
+      "pin_map": {
+        "1": "+5V V5_PI_IN",
+        "2": "GND"
+      },
+      "selection_reason": "Low side-entry socket below HAT, away from screen FPC and expansion module. Exact supplier match unavailable; original JST is sourced externally and factory mounted.",
+      "supply_risk": "Supplier search timed out; exact MPN detail returned no exact row. No LCSC or JLC-library claim. Use verified KiCad stock footprint/model.",
+      "part_identity": "75e6679ed1582a9c",
+      "cad_relevance": {
+        "pitch_mm": 1,
+        "pin_count": 2,
+        "height_mm": 2.9,
+        "layer": "bottom",
+        "entry": "front -Y"
+      }
+    },
+    {
+      "id": "fan_factory_harness",
+      "role": "internal_fan_harness",
+      "name": "Factory JST SH 2pin fan harness, pin1 red +5V / pin2 black GND",
+      "quantity": 1,
+      "manufacturer": "JST / factory harness",
+      "mpn": "SHR-02V-S + SSH-003T-P0.2-H",
+      "part_number": "SHR-02V-S + SSH-003T-P0.2-H",
+      "source": "default",
+      "supplier": "Manufacturer / authorized distributor",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected",
+      "datasheet_url": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+      "selection_reason": "Factory crimped mating plug with32AWG pigtail, joined/insulated to fan36AWG leads by harness supplier; no user soldering. Maximum installed length70mm, bend radius2mm,2-wire always-on. Original fan leads are too fine for direct SH terminal crimp.",
+      "supply_risk": "Factory must confirm contact/wire qualification and perform continuity/polarity test; do not rely on generic plug color ordering.",
+      "part_identity": "ff93f2a4f9e05664"
+    },
+    {
+      "id": "pi_upper_mount_screws",
+      "role": "pi_four_corner_shared_mount",
+      "name": "ISO7046 M2.5 countersunk cross-recess screws,6mm",
+      "quantity": 4,
+      "manufacturer": "ISO standard",
+      "mpn": "ISO7046-M2.5x6",
+      "part_number": "ISO7046-M2.5x6",
+      "source": "default",
+      "supplier": "Manufacturer / authorized distributor",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected",
+      "selection_reason": "Heads seat in1.8mm printed shelves below the Pi, pass original2.7mm holes and engage2.4mm in metal heatsink corners; physical tapped depth must exceed engagement.",
+      "part_identity": "a6c8476e34de4e99"
+    },
+    {
+      "id": "lcd_retainer_screws",
+      "role": "lcd_rear_retainer_fasteners",
+      "name": "ISO7046 M2 countersunk cross-recess screws,6mm",
+      "quantity": 4,
+      "manufacturer": "ISO standard",
+      "mpn": "ISO7046-M2x6",
+      "part_number": "ISO7046-M2x6",
+      "source": "default",
+      "supplier": "Manufacturer / authorized distributor",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected",
+      "part_identity": "8f214a9722dbc2a7"
     }
   ]
 }

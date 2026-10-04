@@ -1,0 +1,17 @@
+{
+  "native_xy_mm": [
+    108.85,
+    120.5
+  ],
+  "source_xy_mm": [
+    8.85,
+    -20.5
+  ],
+  "B_Cu_inside": true,
+  "In1_Cu_largest_inside": true,
+  "lobe_edge_clearance_mm": 1.2728000000000037,
+  "remaining_allpad_clearance_after_exclusion_mm": 0.8649949999999955,
+  "remaining_foreign_track_clearance_after_exclusion_mm": 0.8326000000000022,
+  "candidate_count": 2549,
+  "method": "Exact filled polygon ray containment and distance; via radius0.3+0.25copper clearance; allpads exclude0.31, foreignpad bbox excludes0.55; polygonedge excludes0.31."
+}

@@ -1,0 +1,47 @@
+{
+  "status": "exported_nominal_geometry_review_complete_physical_fit_pending",
+  "export_id": "export-e74d32ed54c0d497f957a7a3db8866da",
+  "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+  "state_hash": "c64bdc4d1f1bf83af3de54381ca2f372b88530653a995e6cdf53e3698df62b10",
+  "step_sha256": "6efc01958d3ba85b033967021e6dd6e435175882154f65ddb5f96ac4576570da",
+  "pcb_release": "dbacb2cc60cdef69951f80af131442ea24b1ed03394f9e446a1f890bf9a1d209",
+  "pcb_step_sha256": "fc63232fc7ddf1972848edb829711607d9a1d65cc299b42f3427e71f542c520a",
+  "pcb_source_path": "manufacturing/pi_baseboard_lite/releases/dbacb2cc60cdef69951f80af131442ea24b1ed03394f9e446a1f890bf9a1d209/package/assembly.step",
+  "pcb_asset_hash_matches_frozen_release_and_fit_check": true,
+  "automatic_interference": {
+    "summary": "0 interfering pairs, 5 undetermined",
+    "counts": {
+      "objects": 33,
+      "pairs": 528,
+      "exact": 15,
+      "cached": 75,
+      "interference": 0,
+      "undeclared": 0,
+      "over_budget": 0,
+      "undetermined": 5
+    },
+    "overlaps": []
+  },
+  "targeted_checks": [
+    "cooling-fit-check.json",
+    "pcb-fit-check.json",
+    "fastener-fit-check.json"
+  ],
+  "receipt_provenance_note": "Workbench receipt pcbReleases array is empty despite exact release-path import. Exact PCB binding is independently verified by managed import sourcePath, source asset SHA256, export receipt assetHashes and frozen release STEP. No managed provenance or receipt was edited.",
+  "physical_limits": [
+    "P165-B is a declared65x55x11mm manufacturer-photo reference, not vendor STEP; underside, reliefs, contact heights and fin layout remain physical inspection items.",
+    "TIM0.25mm modeled for review, not supplier thickness/compression evidence.",
+    "No temperature or installed flow rate measured.",
+    "Actual high GPIO socket/stock heatsink relief fit, TIM contact, four tapped depths and closed-shell temperatures require prototype check."
+  ],
+  "baseline_geometry_review_revision": "2c7c2ccf1ef5fbca92db9749a5a5c9e1582444ba7004401cecb487c23b987f20",
+  "validation_basis": "Cooling bodies, inlet, side discharge, vent mouths, forward wall closure, rounded wire route, PCB/screen/upper-shell interfaces and flush screws checked on this exact exported revision. Circuit, PCB release and Pi/sink mounting remain unchanged. Automatic unresolved imported-pair checks are supplemented by per-physical-solid checks.",
+  "airflow": {
+    "mode": "extract",
+    "intake": "rear-left",
+    "outlet": "left side",
+    "forward_exhaust": false,
+    "front_wall_closure_passed": true,
+    "installed_flow_and_temperature": "unmeasured"
+  }
+}

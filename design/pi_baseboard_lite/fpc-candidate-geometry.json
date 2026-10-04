@@ -1,0 +1,459 @@
+{
+  "schema_version": 1,
+  "scope": "Read-only candidate model and footprint comparison",
+  "frame": "PCB source XY after target -Y opening rotation; millimetres",
+  "baseline": {
+    "code": "C5139870",
+    "pads": [
+      {
+        "pin": "12",
+        "x_mm": -4.149979,
+        "y_mm": -1.624965,
+        "width_mm": 1.799996,
+        "height_mm": 2.199996
+      },
+      {
+        "pin": "10",
+        "x_mm": 2.249805,
+        "y_mm": 1.624965,
+        "width_mm": 0.299999,
+        "height_mm": 1.299997
+      },
+      {
+        "pin": "9",
+        "x_mm": 1.749933,
+        "y_mm": 1.624965,
+        "width_mm": 0.299999,
+        "height_mm": 1.299997
+      },
+      {
+        "pin": "8",
+        "x_mm": 1.249807,
+        "y_mm": 1.624965,
+        "width_mm": 0.299999,
+        "height_mm": 1.299997
+      },
+      {
+        "pin": "7",
+        "x_mm": 0.749935,
+        "y_mm": 1.624965,
+        "width_mm": 0.299999,
+        "height_mm": 1.299997
+      },
+      {
+        "pin": "6",
+        "x_mm": 0.249809,
+        "y_mm": 1.624965,
+        "width_mm": 0.299999,
+        "height_mm": 1.299997
+      },
+      {
+        "pin": "5",
+        "x_mm": -0.250063,
+        "y_mm": 1.624965,
+        "width_mm": 0.299999,
+        "height_mm": 1.299997
+      },
+      {
+        "pin": "4",
+        "x_mm": -0.750189,
+        "y_mm": 1.624965,
+        "width_mm": 0.299999,
+        "height_mm": 1.299997
+      },
+      {
+        "pin": "3",
+        "x_mm": -1.250061,
+        "y_mm": 1.624965,
+        "width_mm": 0.299999,
+        "height_mm": 1.299997
+      },
+      {
+        "pin": "2",
+        "x_mm": -1.750187,
+        "y_mm": 1.624965,
+        "width_mm": 0.299999,
+        "height_mm": 1.299997
+      },
+      {
+        "pin": "1",
+        "x_mm": -2.250059,
+        "y_mm": 1.624965,
+        "width_mm": 0.299999,
+        "height_mm": 1.299997
+      },
+      {
+        "pin": "11",
+        "x_mm": 4.149979,
+        "y_mm": -1.624965,
+        "width_mm": 1.799996,
+        "height_mm": 2.199996
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "code": "C588226",
+      "mpn": "527451097",
+      "model_uuid": "1d87c6c9b4324450860372288e4b8027",
+      "model_title": "CONN-SMD_527451097",
+      "source": "JLCEDA/EasyEDA Official Library",
+      "api_url": "https://easyeda.com/api/products/C588226/components",
+      "model_url": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/1d87c6c9b4324450860372288e4b8027",
+      "step_sha256": "c7c5f47a095bd2fd2f3d05ca30ba915403a16e747a75d90e44c9e3ce772de45f",
+      "library_response_sha256": "b18c6330601368d3381d4f8b785a58ce7325631308f586f5a919e3acf00e291c",
+      "raw_step_bbox_mm": {
+        "min": [
+          -4.550000000000001,
+          -0.8,
+          0.0
+        ],
+        "max": [
+          6.550000000000002,
+          4.2,
+          1.9050000000000005
+        ],
+        "size": [
+          11.100000000000001,
+          5.0,
+          1.9050000000000005
+        ]
+      },
+      "valid": true,
+      "solid_count": 1,
+      "face_count": 558,
+      "pcb_rotation_for_target_opening_deg": 0,
+      "pads": [
+        {
+          "pin": "12",
+          "x_mm": -4.700143,
+          "y_mm": -0.962533,
+          "width_mm": 2.399995,
+          "height_mm": 3.050007
+        },
+        {
+          "pin": "10",
+          "x_mm": 2.250059,
+          "y_mm": 0.962533,
+          "width_mm": 0.299999,
+          "height_mm": 0.799998
+        },
+        {
+          "pin": "9",
+          "x_mm": 1.749933,
+          "y_mm": 0.962533,
+          "width_mm": 0.299999,
+          "height_mm": 0.799998
+        },
+        {
+          "pin": "8",
+          "x_mm": 1.250061,
+          "y_mm": 0.962533,
+          "width_mm": 0.299999,
+          "height_mm": 0.799998
+        },
+        {
+          "pin": "7",
+          "x_mm": 0.749935,
+          "y_mm": 0.962533,
+          "width_mm": 0.299999,
+          "height_mm": 0.799998
+        },
+        {
+          "pin": "6",
+          "x_mm": 0.250063,
+          "y_mm": 0.962533,
+          "width_mm": 0.299999,
+          "height_mm": 0.799998
+        },
+        {
+          "pin": "5",
+          "x_mm": -0.250063,
+          "y_mm": 0.962533,
+          "width_mm": 0.299999,
+          "height_mm": 0.799998
+        },
+        {
+          "pin": "4",
+          "x_mm": -0.749935,
+          "y_mm": 0.962533,
+          "width_mm": 0.299999,
+          "height_mm": 0.799998
+        },
+        {
+          "pin": "3",
+          "x_mm": -1.250061,
+          "y_mm": 0.962533,
+          "width_mm": 0.299999,
+          "height_mm": 0.799998
+        },
+        {
+          "pin": "2",
+          "x_mm": -1.749933,
+          "y_mm": 0.962533,
+          "width_mm": 0.299999,
+          "height_mm": 0.799998
+        },
+        {
+          "pin": "1",
+          "x_mm": -2.250059,
+          "y_mm": 0.962533,
+          "width_mm": 0.299999,
+          "height_mm": 0.799998
+        },
+        {
+          "pin": "11",
+          "x_mm": 4.700143,
+          "y_mm": -0.962533,
+          "width_mm": 2.399995,
+          "height_mm": 3.050007
+        }
+      ],
+      "signal_pitch_pass": true,
+      "target_pin1_left_pass": true,
+      "drop_in_footprint": false
+    },
+    {
+      "code": "C5373447",
+      "mpn": "0.5-10P CTSJ-H2.0 119",
+      "model_uuid": "c715515b56e04ed184074c34b1747904",
+      "model_title": "FPC-SMD_10P-P0.50_0.5-10P-CTSJ-H2.0-119",
+      "source": "JLCEDA/EasyEDA Official Library",
+      "api_url": "https://easyeda.com/api/products/C5373447/components",
+      "model_url": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/c715515b56e04ed184074c34b1747904",
+      "step_sha256": "504b9584227db6e9942faceadb3f6e21c08d76d2b1e142ccfa9dea79109cca87",
+      "library_response_sha256": "87cc81eee9c378b0142cdc088f948169cbcfdf5e280d1e9db436673b7c3c9997",
+      "raw_step_bbox_mm": {
+        "min": [
+          -5.299999999999999,
+          -2.550000000000002,
+          -1.0
+        ],
+        "max": [
+          5.300000000000001,
+          2.75,
+          1.0100000999999998
+        ],
+        "size": [
+          10.6,
+          5.3000000000000025,
+          2.0100001
+        ]
+      },
+      "valid": true,
+      "solid_count": 5,
+      "face_count": 516,
+      "pcb_rotation_for_target_opening_deg": 0,
+      "pads": [
+        {
+          "pin": "12",
+          "x_mm": -4.200017,
+          "y_mm": -0.94996,
+          "width_mm": 2.499995,
+          "height_mm": 3.199994
+        },
+        {
+          "pin": "10",
+          "x_mm": 2.250059,
+          "y_mm": 0.94996,
+          "width_mm": 0.299999,
+          "height_mm": 1.799996
+        },
+        {
+          "pin": "9",
+          "x_mm": 1.749933,
+          "y_mm": 0.94996,
+          "width_mm": 0.299999,
+          "height_mm": 1.799996
+        },
+        {
+          "pin": "8",
+          "x_mm": 1.250061,
+          "y_mm": 0.94996,
+          "width_mm": 0.299999,
+          "height_mm": 1.799996
+        },
+        {
+          "pin": "7",
+          "x_mm": 0.749935,
+          "y_mm": 0.94996,
+          "width_mm": 0.299999,
+          "height_mm": 1.799996
+        },
+        {
+          "pin": "6",
+          "x_mm": 0.250063,
+          "y_mm": 0.94996,
+          "width_mm": 0.299999,
+          "height_mm": 1.799996
+        },
+        {
+          "pin": "5",
+          "x_mm": -0.250063,
+          "y_mm": 0.94996,
+          "width_mm": 0.299999,
+          "height_mm": 1.799996
+        },
+        {
+          "pin": "4",
+          "x_mm": -0.749935,
+          "y_mm": 0.94996,
+          "width_mm": 0.299999,
+          "height_mm": 1.799996
+        },
+        {
+          "pin": "3",
+          "x_mm": -1.250061,
+          "y_mm": 0.94996,
+          "width_mm": 0.299999,
+          "height_mm": 1.799996
+        },
+        {
+          "pin": "2",
+          "x_mm": -1.749933,
+          "y_mm": 0.94996,
+          "width_mm": 0.299999,
+          "height_mm": 1.799996
+        },
+        {
+          "pin": "1",
+          "x_mm": -2.250059,
+          "y_mm": 0.94996,
+          "width_mm": 0.299999,
+          "height_mm": 1.799996
+        },
+        {
+          "pin": "11",
+          "x_mm": 4.200017,
+          "y_mm": -0.94996,
+          "width_mm": 2.499995,
+          "height_mm": 3.199994
+        }
+      ],
+      "signal_pitch_pass": true,
+      "target_pin1_left_pass": true,
+      "drop_in_footprint": false
+    },
+    {
+      "code": "C262583",
+      "mpn": "AFC07-S10ECA-00",
+      "model_uuid": "fcf7b710a8c44ebb937fd3569eeb7a2a",
+      "model_title": "FPC-SMD_P0.50-10P_LCS-SJ-H2.0",
+      "source": "JLCEDA/EasyEDA Official Library",
+      "api_url": "https://easyeda.com/api/products/C262583/components",
+      "model_url": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/fcf7b710a8c44ebb937fd3569eeb7a2a",
+      "step_sha256": "39a04fe4d6049646e8da1969228838442ab7db0bff45fff510dd7611cc9ad1f4",
+      "library_response_sha256": "aa9057e3294984e38bd65fa408f3138c8d74fa553466cacc3b9b588aba0eb948",
+      "raw_step_bbox_mm": {
+        "min": [
+          -5.300000100000001,
+          -2.6000001000000004,
+          -1.0000000000000313e-07
+        ],
+        "max": [
+          5.3000001,
+          2.599999999999999,
+          2.0001001
+        ],
+        "size": [
+          10.6000002,
+          5.2000001,
+          2.0001002
+        ]
+      },
+      "valid": true,
+      "solid_count": 4,
+      "face_count": 783,
+      "pcb_rotation_for_target_opening_deg": 180,
+      "pads": [
+        {
+          "pin": "1",
+          "x_mm": -2.250059,
+          "y_mm": 1.085088,
+          "width_mm": 0.299999,
+          "height_mm": 1.199998
+        },
+        {
+          "pin": "2",
+          "x_mm": -1.750187,
+          "y_mm": 1.085088,
+          "width_mm": 0.299999,
+          "height_mm": 1.199998
+        },
+        {
+          "pin": "3",
+          "x_mm": -1.250061,
+          "y_mm": 1.085088,
+          "width_mm": 0.299999,
+          "height_mm": 1.199998
+        },
+        {
+          "pin": "4",
+          "x_mm": -0.750189,
+          "y_mm": 1.085088,
+          "width_mm": 0.299999,
+          "height_mm": 1.199998
+        },
+        {
+          "pin": "5",
+          "x_mm": -0.250063,
+          "y_mm": 1.085088,
+          "width_mm": 0.299999,
+          "height_mm": 1.199998
+        },
+        {
+          "pin": "6",
+          "x_mm": 0.249809,
+          "y_mm": 1.085088,
+          "width_mm": 0.299999,
+          "height_mm": 1.199998
+        },
+        {
+          "pin": "7",
+          "x_mm": 0.749935,
+          "y_mm": 1.085088,
+          "width_mm": 0.299999,
+          "height_mm": 1.199998
+        },
+        {
+          "pin": "8",
+          "x_mm": 1.249807,
+          "y_mm": 1.085088,
+          "width_mm": 0.299999,
+          "height_mm": 1.199998
+        },
+        {
+          "pin": "9",
+          "x_mm": 1.749933,
+          "y_mm": 1.085088,
+          "width_mm": 0.299999,
+          "height_mm": 1.199998
+        },
+        {
+          "pin": "10",
+          "x_mm": 2.249805,
+          "y_mm": 1.085088,
+          "width_mm": 0.299999,
+          "height_mm": 1.199998
+        },
+        {
+          "pin": "12",
+          "x_mm": -3.850005,
+          "y_mm": -1.085088,
+          "width_mm": 2.199996,
+          "height_mm": 3.299993
+        },
+        {
+          "pin": "11",
+          "x_mm": 3.850005,
+          "y_mm": -1.085088,
+          "width_mm": 2.199996,
+          "height_mm": 3.299993
+        }
+      ],
+      "signal_pitch_pass": true,
+      "target_pin1_left_pass": true,
+      "drop_in_footprint": false
+    }
+  ]
+}

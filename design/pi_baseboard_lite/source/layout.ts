@@ -5,14 +5,18 @@
 // All values here are BOARD frame; world placement is the dock transform in
 // design/handheld_computer (see the README there).
 //
-// Compact L outline: 15mm GPIO spine and 40x25.5mm front electronics island.
+// Wider continuous electronics area: all populated parts on top except J_PI.
+// Original overall envelope and mounting datums are preserved; filled former recess
+// buys area for one-sided SMT and relaxed buffer placement.
 // Defaults for this layout iteration, not a qualified shell mounting pattern.
 export const board = {
   width: "40mm", height: "83.5mm", centerY: 6.25,
   outline: [
-    {x:-20,y:-35.5}, {x:20,y:-35.5}, {x:20,y:-10},
-    {x:-2,y:-10}, {x:-3,y:-7}, {x:-3,y:14}, {x:10,y:14},
-    {x:10,y:38}, {x:-5,y:38}, {x:-5,y:48}, {x:-20,y:48},
+    {x:-20,y:-35.5}, {x:20,y:-35.5},
+    // Exact old-enclosure retainer/fascia intersection at sourceX17.3..20,
+    // sourceY11.66..22.31; retain >=0.5mm physical relief.
+    {x:20,y:10.5}, {x:16.3,y:11.1}, {x:16.3,y:23.8}, {x:20,y:24.4},
+    {x:20,y:38}, {x:-5,y:38}, {x:-5,y:48}, {x:-20,y:48},
     // Retained screen M2 screw1 world bbox x=-21.99..-18.01,y=-5.676..-1.378.
     // Source Y=worldY+19; notch keeps >=0.5mm nominal screw clearance.
     {x:-20,y:18.8}, {x:-19.4,y:18.2}, {x:-17.8,y:18.2},
@@ -34,6 +38,16 @@ export const mountingHoles = [
   { name: "H2", x: 16, y: -13 }
 ];
 
+// Placement-only service corridor in front of J_LCD. Copper and flush vias may
+// cross it. Agent default: 8mm width versus a 5.5 +/-0.05mm panel tail;
+// covers 13.67mm ahead of the closed body front at Y=21.1699924 and the
+// supplier slider's additional 1.5mm forward stroke. Not a certified bend path.
+// verify-front-side-layout.py checks every top component land envelope.
+export const fpcInsertionClearance = {
+  minX: -4, maxX: 4, minY: 7.5, maxY: 21.1699924,
+  source: "default", purpose: "top component exclusion for insertion and service"
+};
+
 export function rotationForOpening(
   native: "up" | "right" | "down" | "left",
   target: "up" | "right" | "down" | "left"
@@ -49,13 +63,13 @@ export const interfaces = {
   piDock: { x: -13.5, y: 21, rotation: 270, side: "bottom" },
 
   // Horizontal top-side FPC, entry down/front (-Y) per user. Shifted rearward
-  // to separate latch/courtyard from buffer; native tail mating remains to qualify.
+  // with upward contacts matching the return-folded native tail. Position is a fit default.
   displayFpc: {
     x: 0,
-    y: 28.8,
+    y: 24.65,
     rotation: rotationForOpening("down", "down"),
     side: "top",
-    contactFace: "toward PCB",
+    contactFace: "away from PCB / exposed copper upward",
     opening: "-Y / down in board top view"
   },
 

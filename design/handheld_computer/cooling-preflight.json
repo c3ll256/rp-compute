@@ -1,0 +1,55 @@
+{
+  "status": "nominal_geometry_passed_physical_prototype_pending",
+  "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+  "pcb_release": "dbacb2cc60cdef69951f80af131442ea24b1ed03394f9e446a1f890bf9a1d209",
+  "pcb_step_sha256": "fc63232fc7ddf1972848edb829711607d9a1d65cc299b42f3427e71f542c520a",
+  "fan": "Nidec F16FB-05LLC",
+  "fan_supply": "HAT J_FAN pin1+5V / pin2GND from Pi physical2/4 and6",
+  "fan_rated_current_ma": 40,
+  "fan_budget_ma": 100,
+  "shared_HAT_budget_ma": 500,
+  "heatsink": "Geekworm P165-B nominal55x65x11mm",
+  "heatsink_geometry": "manufacturer-photo reference; reliefs and underside are unmeasured assumptions, not machining changes to a purchased part",
+  "geometry_passed": true,
+  "external_envelope_retained_mm": [
+    85,
+    115
+  ],
+  "inlet_gap_mm": 3,
+  "inlet_effective_clear_diameter_mm": 12,
+  "heatsink_to_shell_mm": 1.6,
+  "heatsink_GPIO_end_gap_mm": 0.345,
+  "installed_wire_length_including_ends_mm": 52.521,
+  "wire_bend_radius_mm": 2,
+  "PCB_DRC_errors": 0,
+  "PCB_DRC_unconnected": 0,
+  "PCB_DRC_library_mismatch_warnings": 34,
+  "temperature_test_performed": false,
+  "power_cap_shell_intersection_resolved": true,
+  "next_physical_checks": [
+    "Actual P165-B underside lands/TIM contact without PCB bowing",
+    "Stock GPIO relief depth must clear ESQ body length51.31mm; modeled52mm gives0.345mm end gaps only",
+    "Check four M2.5 metal tapped depths exceed2.4mm engagement",
+    "Actual fan thickness/pad compression and free blade rotation",
+    "JST plug polarity/retention and no pulled solder joints",
+    "Closed-shell full-load temperature test"
+  ],
+  "automatic_assembly_analysis_limit": "Large imported PCB/Pi pairs exceed Workbench automatic exact budget; targeted per-physical-solid checks recorded separately, excluding copper/pad/via visualization solids.",
+  "airflow": {
+    "mode": "extract",
+    "inlet": "rear-left",
+    "exhaust": "left side near blower",
+    "front_exhaust_closed": true,
+    "side_outlet_reserve_clear": true,
+    "fan_position_mm": [
+      -29,
+      -38,
+      11.55
+    ],
+    "fan_rotation_deg": [
+      180,
+      0,
+      270
+    ]
+  }
+}

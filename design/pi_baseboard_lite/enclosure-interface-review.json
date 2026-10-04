@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "status": "PCB_geometry_and_routing_passed_FPC_assembly_conflict_open",
-  "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
-  "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa",
-  "pcb_step_sha256": "154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3",
+  "status": "PCB_released_CAD_structural_and_nominal_air_checks_passed_tail_seating_provisional",
+  "cad_revision": "bd3a4861e4a55080ebf6217f622f8789631da4b61aa90558279edebd83e0273d",
+  "pcb_release": "90c5e7e3d87051e673eb4af85e3debf84ebc81adcc72dfc6dc141548fa7afe7d",
+  "pcb_step_sha256": "d26b27a28b2c06ec16336d413a92da0bc5e95f6af88dec4677c65cf84bc93566",
   "placement": {
     "position_mm": [
       -100,
@@ -27,21 +27,24 @@
   "connectors": {
     "J_PI": "ESQ-120-12-G-D bottom11.05mm",
     "J_MOD": "HLE-104-02-G-DV top3.66mm",
-    "J_LCD": "FH12-10S-0.5SH(55), top horizontal opening-Y, bottom contacts retained pending choice"
+    "J_LCD": "FH12A-10S-0.5SH(55), horizontal top contacts, entry-Y, worldorigin(0,7)"
   },
   "validation": {
     "DRC_errors": 0,
     "DRC_unconnected": 0,
     "all_GPIO_physical_pins_passed": 40,
-    "ordinary_top_minimum_air_mm": 1.555001,
+    "ordinary_top_minimum_air_mm": 1.505918,
     "screen_screw_to_substrate_mm": 1.292813,
     "structural_PCB_intersections_mm3": 0,
-    "method": "OCC per-solid volume intersections of real released substrate/component bodies against world-transformed CAD objects; copper/pad/via visual bodies excluded. Nominal glass is an explicit drawing-based negative probe."
+    "method": "OCC per-solid volume intersections of real released substrate/component bodies against world-transformed CAD objects; copper/pad/via visual bodies excluded. Nominal glass is an explicit drawing-based negative probe.",
+    "fpc_open_latch_minimum_air_mm": 1.490322,
+    "physical_FPC_pin_locations_passed": 10,
+    "raw_library_mismatch_advisories": 33
   },
   "body_collision_review": {
-    "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
-    "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa",
-    "pcb_step_sha256": "154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3",
+    "cad_revision": "bd3a4861e4a55080ebf6217f622f8789631da4b61aa90558279edebd83e0273d",
+    "pcb_release": "90c5e7e3d87051e673eb4af85e3debf84ebc81adcc72dfc6dc141548fa7afe7d",
+    "pcb_step_sha256": "d26b27a28b2c06ec16336d413a92da0bc5e95f6af88dec4677c65cf84bc93566",
     "placement": {
       "position_mm": [
         -100,
@@ -84,14 +87,14 @@
       },
       "2:assembly_1_3": {
         "min": [
+          5.8,
           -2.0,
-          -2.60629,
           22.594999
         ],
         "max": [
-          3.0,
-          3.406315,
-          23.695082
+          6.6,
+          -0.4,
+          23.394999
         ]
       },
       "3:hle-104-02-g-dv-drawing-reference": {
@@ -118,7 +121,19 @@
           23.044999
         ]
       },
-      "5:assembly_1_1": {
+      "5:assembly_1_6": {
+        "min": [
+          -2.506315,
+          -3.8,
+          22.594999
+        ],
+        "max": [
+          3.50629,
+          1.2,
+          23.695082
+        ]
+      },
+      "6:assembly_1_1": {
         "min": [
           0.19,
           15.595,
@@ -130,28 +145,16 @@
           23.044999
         ]
       },
-      "6:assembly_1_7": {
+      "7:fh12a-10s-0_5sh-drawing-reference": {
         "min": [
-          -4.550013,
-          5.447977,
+          -4.75,
+          2.175,
           22.594999
         ],
         "max": [
-          4.549987,
-          11.847977,
-          24.604999
-        ]
-      },
-      "7:assembly_1_8": {
-        "min": [
-          4.4,
-          1.3,
-          22.594999
-        ],
-        "max": [
-          5.2,
-          2.9,
-          23.394999
+          4.75,
+          8.375,
+          24.594999
         ]
       },
       "8:SOT-23-6": {
@@ -250,7 +253,7 @@
           21.715
         ]
       },
-      "16:assembly_1_8": {
+      "16:assembly_1_3": {
         "min": [
           -1.8,
           16.6,
@@ -274,7 +277,7 @@
           21.715
         ]
       },
-      "18:assembly_1_8": {
+      "18:assembly_1_3": {
         "min": [
           6.6,
           3.2,
@@ -334,7 +337,7 @@
           21.715
         ]
       },
-      "23:assembly_1_3": {
+      "23:assembly_1_6": {
         "min": [
           -2.00629,
           10.5,
@@ -408,13 +411,13 @@
       },
       "29:assembly_1_1": {
         "min": [
-          -1.81,
-          1.095,
+          -0.31,
+          5.595,
           21.265
         ],
         "max": [
-          -0.19,
-          1.905,
+          1.31,
+          6.405,
           21.715
         ]
       },
@@ -630,9 +633,9 @@
       "pi4b": []
     },
     "limits": [
-      "ESQ and HLE are explicitly modeled manufacturer-drawing reference envelopes, not vendor STEP or internal contact qualification.",
+      "ESQ, HLE and FH12A are explicitly modeled manufacturer-drawing reference envelopes, not vendor STEP or internal contact qualification.",
       "PCB STEP substrate0.71mm versus finished0.8mm; model pads/components add face offsets.",
-      "Native tail13.7+/-0.5mm is an authorized estimate. FPC contact, insertion stop and physical latch access remain prototype checks.",
+      "Native tail13.7+/-0.5mm is an authorized estimate. Top contacts and -Y entrance are manufacturer/source verified. Exact insertion-plane height, tail reach and physical latch operation remain prototype checks.",
       "No physical print, connector mating or thermal test performed."
     ],
     "screw1_to_substrate_clearance_mm": 1.292813,
@@ -646,7 +649,42 @@
       "pcb_mount_screw_1": 4.0,
       "pcb_mount_screw_2": 4.0
     },
-    "fpc_body_to_nominal_glass_clearance_mm": 3.875268,
+    "fpc_body_to_nominal_glass_clearance_mm": 3.049314,
+    "fpc_closed_reference_bounds": {
+      "min": [
+        -4.75,
+        2.175,
+        22.594999
+      ],
+      "max": [
+        4.75,
+        8.375,
+        24.594999
+      ]
+    },
+    "fpc_opened_conservative_bounds": {
+      "min": [
+        -4.75,
+        2.175,
+        22.594999
+      ],
+      "max": [
+        4.75,
+        8.375,
+        26.194999
+      ]
+    },
+    "fpc_open_latch_clearances_mm": {
+      "shell": 7.675,
+      "fascia": 4.895773,
+      "retainer": 3.25,
+      "nominal_panel_envelope": 1.490322
+    },
+    "fpc_open_latch_clearance_expectation": {
+      "source": "default",
+      "minimum_mm": 0.5,
+      "passed": true
+    },
     "ordinary_top_air_clearances": {
       "0:assembly_1_1": {
         "clearance_mm": 7.918107,
@@ -671,14 +709,14 @@
         }
       },
       "2:assembly_1_3": {
-        "clearance_mm": 1.555099,
+        "clearance_mm": 1.6,
         "to": "retainer",
         "by_target_mm": {
-          "shell": 3.414523,
-          "fascia": 4.610613,
-          "retainer": 1.555099,
-          "front_module_blank": 13.197287,
-          "nominal_panel_envelope": 3.440377
+          "shell": 3.707067,
+          "fascia": 3.92773,
+          "retainer": 1.6,
+          "front_module_blank": 13.681862,
+          "nominal_panel_envelope": 3.739664
         }
       },
       "4:assembly_1_1": {
@@ -687,12 +725,23 @@
         "by_target_mm": {
           "shell": 1.555001,
           "fascia": 38.683899,
-          "retainer": 43.543843,
+          "retainer": 43.661011,
           "front_module_blank": 2.555001,
           "nominal_panel_envelope": 48.182085
         }
       },
-      "5:assembly_1_1": {
+      "5:assembly_1_6": {
+        "clearance_mm": 1.505918,
+        "to": "retainer",
+        "by_target_mm": {
+          "shell": 2.061841,
+          "fascia": 4.160708,
+          "retainer": 1.505918,
+          "front_module_blank": 11.925068,
+          "nominal_panel_envelope": 3.440377
+        }
+      },
+      "6:assembly_1_1": {
         "clearance_mm": 7.58068,
         "to": "nominal_panel_envelope",
         "by_target_mm": {
@@ -702,20 +751,9 @@
           "front_module_blank": 31.204388,
           "nominal_panel_envelope": 7.58068
         }
-      },
-      "7:assembly_1_8": {
-        "clearance_mm": 2.987643,
-        "to": "retainer",
-        "by_target_mm": {
-          "shell": 6.909143,
-          "fascia": 5.452015,
-          "retainer": 2.987643,
-          "front_module_blank": 16.946527,
-          "nominal_panel_envelope": 4.025712
-        }
       }
     },
-    "minimum_ordinary_top_air_mm": 1.555001,
+    "minimum_ordinary_top_air_mm": 1.505918,
     "thermal_clearance_expectation": {
       "source": "default",
       "minimum_mm": 1.5,
@@ -728,11 +766,12 @@
     "pi_to_upper_shell_clearance_check_passed": true
   },
   "native_tail": {
-    "schema_version": 2,
-    "status": "contact_face_conflict_requires_user_choice",
+    "schema_version": 3,
+    "status": "contact_orientation_and_pin_map_resolved_tail_seating_provisional",
     "source": "default",
     "length_estimate_mm": 13.7,
     "estimate_uncertainty_mm": 0.5,
+    "estimate_qualification": "User authorized estimation.13.2..14.2mm is a design review allowance, not measured free length or a bound certified by the Sharp drawing. Do not stretch the tail or claim full installed reach.",
     "non_contact_clearance_per_side_mm": 0.5,
     "current_board_bottom_world_z_mm": 21.8,
     "current_board_finished_top_world_z_mm": 22.6,
@@ -740,32 +779,48 @@
       -0.5630557675,
       27.9236985818
     ],
-    "connector_opening": "horizontal -Y / down/front",
-    "connector_closed_height_upper_bound_mm": 2.2,
-    "optimistic_highest_possible_slot_world_z_mm": 24.8,
-    "minimum_required_vertical_drop_using_upper_bound_mm": 3.1236985818,
-    "optimistic_maximum_vertical_drop_mm": 5.3799608435,
-    "interpretation": "Earlier7.424mm height deficit has been removed. This optimistic bound is not a mating path; actual lower-contact slot plane, insertion length and return bend can require greater length/drop.",
+    "connector": "FH12A-10S-0.5SH(55)",
+    "connector_source_xy_mm": [
+      0,
+      26
+    ],
+    "connector_world_origin_xy_mm": [
+      0,
+      7
+    ],
+    "connector_opening": "horizontal-Y / front/down",
+    "contact_face": "upward/away from PCB",
+    "contact_identity_status": "manufacturer_verified",
+    "physical_pin_map": "socket terminal=11-panel terminal; all10 compiled pad positions, signal labels and nets verified",
+    "reference_closed_envelope_mm": [
+      9.5,
+      6.2,
+      2
+    ],
+    "reference_opened_height_mm": 3.6,
+    "datum_alignment": "Filled outer reference frontY=-4.825, width9.5,depth6.2; inferred alignment to C5139870 supplier silk/pads. No slot-height or angle is invented.",
+    "catalog_mated_section": "Hirose printed16/PDF11 labels1.9mm tip insertion and5mm from housing front to tip stop; tail protrudes upward at an unspecified angle. These nominal figures are not an exact3D mating plane.",
     "recommended_bend_interval_mm": [
       0.8,
-      6.0
+      6
     ],
     "minimum_inner_radius_mm": 0.45,
-    "stiffener_length_mm": 4.0,
+    "stiffener_length_mm": 4,
+    "assembly": "Release screen pod for access, shape one back fold without twisting, copper upward, insert and close latch before final pod fastening. Panel has independent support.",
     "evidence": [
-      "Sharp LS027B7DH01 PDF p26",
-      "Hirose C506791 drawing pp1,5"
+      "Sharp LS027B7DH01 PDF11 and26",
+      "Hirose manufacturer catalog PDF11/printed16",
+      "C5139870 supplier footprint",
+      "fpc-physical-pin-review.json"
     ],
-    "contact_conflict": "Manufacturer-recommended back fold flips exposed contact face upward. The retained horizontal top-side FH12 is bottom contact; current selected path is not qualified.",
-    "candidate": "FH12A-10S-0.5SH(55), horizontal top contact; user choice pending",
     "not_claimed": [
-      "Full native-tail reach with estimated length",
-      "Correct contact face/pin1/stop",
-      "Latch access with panel installed",
-      "Thermal performance"
+      "Complete13.2..14.2mm native-tail route seated against an exact internal stop",
+      "Certified mouth plane/angle or physical latch motion",
+      "Physical GPIO engagement tolerances",
+      "Measured thermal performance"
     ],
-    "cad_revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
-    "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa"
+    "pcb_release": "90c5e7e3d87051e673eb4af85e3debf84ebc81adcc72dfc6dc141548fa7afe7d",
+    "cad_revision": "bd3a4861e4a55080ebf6217f622f8789631da4b61aa90558279edebd83e0273d"
   },
   "attachment": {
     "source": "user",
@@ -807,16 +862,15 @@
     "Upper-shell PCB mounting independent of lower cover/blank"
   ],
   "missing_evidence": [
-    "Resolved FPC contact face choice and updated mating path",
-    "Physical estimated-tail length/stop and insertion",
+    "Physical estimated-tail reach, exact insertion stop and latch motion",
     "Connector retention and soldered samples",
     "Airflow and temperatures",
     "PLA mounting strength and thread service life"
   ],
   "model_limits": [
-    "ESQ and HLE are explicitly modeled manufacturer-drawing reference envelopes, not vendor STEP or internal contact qualification.",
+    "ESQ, HLE and FH12A are explicitly modeled manufacturer-drawing reference envelopes, not vendor STEP or internal contact qualification.",
     "PCB STEP substrate0.71mm versus finished0.8mm; model pads/components add face offsets.",
-    "Native tail13.7+/-0.5mm is an authorized estimate. FPC contact, insertion stop and physical latch access remain prototype checks.",
+    "Native tail13.7+/-0.5mm is an authorized estimate. Top contacts and -Y entrance are manufacturer/source verified. Exact insertion-plane height, tail reach and physical latch operation remain prototype checks.",
     "No physical print, connector mating or thermal test performed."
   ],
   "pre_existing_outside_PCB_scope": {
@@ -829,17 +883,40 @@
     "status": "unchanged_legacy_button_interference_not_repaired_in_this_connector_query"
   },
   "FPC_choice": {
-    "recommended": "Change to horizontal top-contact FH12A while retaining down-facing entry",
-    "alternative": "Retain bottom-contact and revise installation",
-    "exception": "Keep current geometry as an explicitly unqualified assembly draft"
+    "status": "resolved_by_user",
+    "decision": "Horizontal top contacts; folded copper upward; socket terminal=11-panel terminal",
+    "component": "FH12A-10S-0.5SH(55)"
   },
   "cad_handoff": {
     "status": "handoff",
-    "export_id": "export-1fd7a204d7267eb5d21ecf8cab59979c",
-    "revision": "8f1fb09d26b0c67e1a78ba1640a3174bb3637ab515166b6d2b4d1f7c251ca901",
-    "step_sha256": "bb93a99b4a99c825f81aba0df0696676347fc27b038b7f33b8daa0bbcba6b5d3",
-    "pcb_asset_sha256": "154f66f41101488afd6b8aa20b527c294befcae4e79a504b02ed9442074bb3b3",
-    "pcb_release": "e78739c43849def0c023a90a7fb0cc0085085dc75e25b5e5d1f3f54d51e985fa",
-    "traceability_note": "Export receipt binds exact imported asset hash/source hash; its automatic pcbReleases list is empty. Source asset provenance and this review bind that hash to the current released assembly.step."
+    "export_id": "export-8d67daecda62db1e31bfc1248b949d58",
+    "revision": "bd3a4861e4a55080ebf6217f622f8789631da4b61aa90558279edebd83e0273d",
+    "state_hash": "30cf9802b7bc06b432f35f5e06cd384d4259ace80f4511dc87ee10f658730549",
+    "step_sha256": "8d0c462aa455e2a8dea8a4754c817f75438faf5a4bacec543582483f0936853a",
+    "pcb_asset_sha256": "d26b27a28b2c06ec16336d413a92da0bc5e95f6af88dec4677c65cf84bc93566",
+    "pcb_release": "90c5e7e3d87051e673eb4af85e3debf84ebc81adcc72dfc6dc141548fa7afe7d",
+    "interference_summary": {
+      "summary": "1 interfering pair, 1 undeclared, 4 undetermined",
+      "counts": {
+        "objects": 21,
+        "pairs": 210,
+        "exact": 0,
+        "cached": 56,
+        "interference": 1,
+        "undeclared": 1,
+        "over_budget": 0,
+        "undetermined": 4
+      },
+      "overlaps": [
+        {
+          "a": "power_cap",
+          "b": "shell",
+          "verdict": "undeclared",
+          "maxDepthMm": 0.2744,
+          "volumeMm3": 15.473387
+        }
+      ]
+    },
+    "traceability_note": "Receipt binds exact imported STEP asset SHA/source. Automatic pcbReleases metadata is empty; source import provenance and this review verify its release path and immutable SHA. Four large-shape pairs were undetermined by exporter; exact-revision per-body OCC check attached here supplements them. Existing power_cap/shell overlap remains outside connector work."
   }
 }

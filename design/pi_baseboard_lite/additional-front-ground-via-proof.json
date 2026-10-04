@@ -1,0 +1,29 @@
+{
+  "inspected_kicad_sha256": "325de77330426da509eb12f6354d15b5ac21ac4fcee77af6245b67a68d7ea916",
+  "sites": [
+    {
+      "net": "GND",
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "native_xy_mm": [
+        87.33025687401815,
+        130.99767301990482
+      ],
+      "source_xy_mm": [
+        -12.669743,
+        -30.997673
+      ],
+      "lobe_area_mm2": 1.6605926171494896,
+      "lobe_native_bbox_mm": [
+        85.6487,
+        129.684499,
+        87.744077,
+        131.728001
+      ],
+      "top_boundary_clearance_mm": 0.31327272806263823,
+      "inner_boundary_clearance_mm": 2.2136850708456377,
+      "obstacle_residual_margin_mm": 0.00814212598184838,
+      "method": "Actual F.Cu unbridged non-largest GND polygon and largest In1.Cu GND plane eroded .31mm; excluded all pads, foreign tracks across stack, and existing vias conservatively."
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "visual_draft",
-  "summary": "当前精简基板采用Pi原生USB-C供电、Sharp FPC和2x4母座GPIO扩展；原外壳STEP未适配精简版端口与PCB，不代表整机已验证。完整版电源和电池范围保留。",
+  "summary": "保留紧凑Pi4B、上壳固定HAT和向下入口上接触FPC；采用65×55×11mm被动散热片、独立16mm风扇及HAT两针5V风扇供电。名义CAD、PCB布线检查完成；散热片底部和高GPIO母座兼容、导热贴及温升需实物样机验证。",
   "required_interfaces": [
     {
       "id": "compute_mount",
@@ -66,6 +66,13 @@
       "description": "精简版一块基板承担Pi40针插接、Sharp屏幕FPC与2.54mm 2x4母座扩展。需复核水平PCB/短FPC、GPIO堆叠、固定点、散热和Pi USB-C外壳开口；完整版电源电池集成单独保留。",
       "source": "user_requested",
       "required": true
+    },
+    {
+      "id": "processor_memory_cooling",
+      "kind": "internal_fit",
+      "description": "用户选择Pi4被动散热片，独立风扇固定在外壳左侧内壁附近，后部左侧进气并向左排热，前侧不开排气孔；HAT从GPIO-header5V/GND取电到J_FAN，工厂两针插线。主板四角与散热片共用螺丝，无独立金属散热片上壳支架；保留紧凑外形并检查名义进出风空间。未标注底部细节和温升需实体测试。",
+      "source": "user_requested",
+      "required": true
     }
   ],
   "external_references": [
@@ -122,10 +129,34 @@
       "source": "user_requested",
       "description": "用户红框指定整块屏幕前方平台为未来可替换GPIO功能模块区域；无比例尺。",
       "path": "product/references/uploads/20260923T073703116Z-1-mark.png"
+    },
+    {
+      "id": "nidec_f16fb_fan",
+      "source": "existing_workspace",
+      "description": "Nidec F16FB-05LLC manufacturer drawing, ratings and airflow; real manufacturerSTEP imported.",
+      "path": "product/references/nidec-f16fb.pdf"
+    },
+    {
+      "id": "pi4_passive_sink_user",
+      "source": "user_requested",
+      "description": "65×55×11mm Pi4被动散热片；与Geekworm P165-B规格匹配，底部未标尺寸不能宣称精确制造模型。",
+      "path": "product/references/uploads/20261001T062704979Z-1-cleanshot-2026-10-01-at-15-25-51-2x.png"
+    },
+    {
+      "id": "p165_manufacturer_reliefs",
+      "source": "existing_workspace",
+      "description": "Geekworm P165-B packing/top photo; GPIO/DSI/CSI/PoE relief silhouette only, no underside tolerance qualification.",
+      "path": "product/references/p165-detail-2.jpg"
+    },
+    {
+      "id": "fan_SH_datasheet",
+      "source": "existing_workspace",
+      "description": "JST original SH2pin mating plug/contact data.",
+      "path": "product/references/jst-sh.pdf"
     }
   ],
   "assembly_story": {
-    "installation": "精简版：断电插接Pi与屏幕/模块，独立固定后由Pi自身USB-C供电；当前外壳开口、FPC及基板固定未验证。完整版原电源方案单独保留。",
+    "installation": "Pi自身USB-C供电；散热片与Pi在四角通过沉头螺丝固定上壳下托耳，HAT仍由上壳支承。风扇两针线插入HAT底面J_FAN，预装工厂接头，无用户焊接；断电装配。导热贴厚度、高GPIO插到底及实际温升需实体确认。",
     "maintenance": "精简版先正常关机、清屏并关闭LCD电源，拔Pi USB-C后再更换模块；不能热插拔或外接模块电源。",
     "user_access": [
       "Pi native USB-C and other native ports",
@@ -139,7 +170,7 @@
       {
         "role": "computer_enclosure",
         "design_id": "handheld_computer",
-        "description": "外观及Pi接口布局STEP：后方USB/RJ45，右侧micro-HDMI/AV，左侧充电；未验证紧固、工作联锁、真实插头或电池仓。 屏舱前沿高出平台名义1mm。",
+        "description": "外观及Pi接口布局STEP：后方USB/RJ45，右侧micro-HDMI/AV，精简版右侧Pi原生USB-C供电、左侧连续封闭；未验证紧固、工作联锁、真实插头或电池仓。 屏舱前沿高出平台名义1mm。",
         "delivery_target": "visual_review",
         "required_formats": [
           "step"
@@ -153,7 +184,8 @@
           "gpio_dock",
           "pi_native_ports",
           "front_gpio_module",
-          "single_baseboard_fit"
+          "single_baseboard_fit",
+          "processor_memory_cooling"
         ],
         "reference_ids": [
           "reference_photo_angled",
@@ -164,7 +196,11 @@
           "correction_reference_2",
           "shallow_angle_markup",
           "screen_front_1mm_markup",
-          "front_gpio_module_markup"
+          "front_gpio_module_markup",
+          "nidec_f16fb_fan",
+          "pi4_passive_sink_user",
+          "p165_manufacturer_reliefs",
+          "fan_SH_datasheet"
         ]
       }
     ]

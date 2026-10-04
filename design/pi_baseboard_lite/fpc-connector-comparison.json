@@ -1,0 +1,422 @@
+{
+  "schema_version": 1,
+  "observed_date": "2026-10-02",
+  "status": "C5373447_selected_under_user_delegation_and_replaced",
+  "scope": "Candidate comparison plus selected active C5373447 replacement; source/layout/routing and real model updated.",
+  "screen_tail": {
+    "source": "research",
+    "part": "Sharp LS027B7DH01",
+    "evidence_path": "product/references/LS027B7DH01-sharp-2010.pdf",
+    "pdf_page": 26,
+    "printed_page": 23,
+    "pin_count": 10,
+    "pitch_mm": 0.5,
+    "pitch_tolerance_mm": 0.02,
+    "width_mm": 5.5,
+    "width_tolerance_mm": 0.05,
+    "thickness_mm": 0.3,
+    "thickness_tolerance_mm": 0.03,
+    "exposed_copper_length_mm": 3.5,
+    "stiffener_length_mm": 4.0,
+    "physical_mating_verified": false
+  },
+  "installed_interface": {
+    "basis": "Existing user-approved native-tail back fold",
+    "exposed_copper": "upward_away_from_PCB",
+    "required_contact_type": "top",
+    "target_opening_source_axis": "-Y",
+    "target_top_view_pin1": "left",
+    "socket_terminal_formula": "11-panel_terminal",
+    "existing_pin_map_evidence": "design/pi_baseboard_lite/fpc-physical-pin-review.json"
+  },
+  "recommendation": {
+    "source": "research",
+    "preferred_candidate": "C5373447",
+    "decision": "selected_by_agent_user_delegated_exact_choice",
+    "reason": "Closest recommended tail-end geometry among the verified modeled candidates. All are slide-latch rather than existing flip-latch and none is a drop-in footprint.",
+    "fully_compatible_claimed": false
+  },
+  "candidates": [
+    {
+      "source": "research",
+      "selected": true,
+      "supplier_code": "C5373447",
+      "manufacturer": "SHOU HAN(首韩)",
+      "mpn": "0.5-10P CTSJ-H2.0 119",
+      "product_url": "https://item.szlcsc.com/6227364.html",
+      "jlc_smt_library": "extended",
+      "unit_price": {
+        "quantity": 1,
+        "unitPrice": 0.547,
+        "currency": "CNY"
+      },
+      "stock_quantity": 1835,
+      "supplier_observed_at": "2026-10-02T04:11:01.753Z",
+      "interface": {
+        "contact_type": "top",
+        "pin_count": 10,
+        "pitch_mm": 0.5,
+        "nominal_tail_thickness_mm": 0.3,
+        "nominal_board_height_mm": 2.0,
+        "latch_type": "slide"
+      },
+      "tail_recommendation": {
+        "exposed_copper_length_mm": {
+          "min": 3.0
+        },
+        "stiffener_length_mm": {
+          "min": 4.0
+        },
+        "status": "nominal_dimensions_meet_recommendation_minima",
+        "reason": "Screen 3.5 mm conductor and 4.0 mm stiffener meet nominal lower limits. Stiffener is exactly at minimum; physical seating/clamping remains unverified.",
+        "operation_envelope_depth_reference_mm": 6.7,
+        "operation_envelope_note": "Drawing section A-A, 4-34 pin range, reference dimension only; validate sliding sweep in actual assembly."
+      },
+      "datasheet": {
+        "url": "https://atta.szlcsc.com//upload/public/pdf/source/20230321/8BA0DE4D38BE66CF3C031935900E1E28.pdf",
+        "path": "references/suppliers/c5373447/c5373447-datasheet.pdf",
+        "sha256": "3b2cf784944d055772b60a95a76f46dfb300b1137368d85e916d49d74e17ba58",
+        "reviewed_pages": [
+          1
+        ]
+      },
+      "model": {
+        "model_uuid": "c715515b56e04ed184074c34b1747904",
+        "model_title": "FPC-SMD_10P-P0.50_0.5-10P-CTSJ-H2.0-119",
+        "source": "JLCEDA/EasyEDA Official Library",
+        "api_url": "https://easyeda.com/api/products/C5373447/components",
+        "model_url": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/c715515b56e04ed184074c34b1747904",
+        "step_sha256": "504b9584227db6e9942faceadb3f6e21c08d76d2b1e142ccfa9dea79109cca87",
+        "raw_step_bbox_mm": {
+          "min": [
+            -5.299999999999999,
+            -2.550000000000002,
+            -1.0
+          ],
+          "max": [
+            5.300000000000001,
+            2.75,
+            1.0100000999999998
+          ],
+          "size": [
+            10.6,
+            5.3000000000000025,
+            2.0100001
+          ]
+        },
+        "valid": true,
+        "solid_count": 5,
+        "face_count": 516
+      },
+      "footprint": {
+        "native_rotation_deg_for_target_opening": 0,
+        "target_pin1": "left",
+        "pin1_center_mm": [
+          -2.250059,
+          0.94996
+        ],
+        "pin10_center_mm": [
+          2.250059,
+          0.94996
+        ],
+        "signal_pad_mm": [
+          0.299999,
+          1.799996
+        ],
+        "mechanical_pads": [
+          {
+            "pin": "11",
+            "x_mm": 4.200017,
+            "y_mm": -0.94996,
+            "width_mm": 2.499995,
+            "height_mm": 3.199994
+          },
+          {
+            "pin": "12",
+            "x_mm": -4.200017,
+            "y_mm": -0.94996,
+            "width_mm": 2.499995,
+            "height_mm": 3.199994
+          }
+        ],
+        "drop_in": false,
+        "frame": "PCB source XY after target -Y opening rotation; millimetres"
+      },
+      "cautions": [
+        "3D model verifies detailed library geometry, not manufacturer tolerances or full mating.",
+        "New footprint, placement by mouth datum, rerouting and assembly checks required.",
+        "Raw STEP Z=-1.0..1.01 mm; establish seating transform before attachment. Nominal screen stiffener is exactly at recommended minimum."
+      ]
+    },
+    {
+      "source": "research",
+      "selected": false,
+      "supplier_code": "C588226",
+      "manufacturer": "MOLEX",
+      "mpn": "527451097",
+      "product_url": "https://item.szlcsc.com/615997.html",
+      "jlc_smt_library": "extended",
+      "unit_price": {
+        "quantity": 1,
+        "unitPrice": 4.29,
+        "currency": "CNY"
+      },
+      "stock_quantity": 1635,
+      "supplier_observed_at": "2026-10-02T04:11:16.160Z",
+      "interface": {
+        "contact_type": "top",
+        "pin_count": 10,
+        "pitch_mm": 0.5,
+        "nominal_tail_thickness_mm": 0.3,
+        "nominal_board_height_mm": 2.0,
+        "latch_type": "slide"
+      },
+      "tail_recommendation": {
+        "exposed_copper_length_mm": {
+          "nominal": 4.0,
+          "tolerance": 0.5
+        },
+        "stiffener_length_mm": {
+          "nominal": 6.0,
+          "tolerance": 0.5
+        },
+        "status": "not_qualified_for_existing_tail",
+        "reason": "Screen conductor at 3.5 mm is at lower recommended limit. Screen 4 mm stiffener is outside recommended 5.5-6.5 mm range.",
+        "latch_travel_mm": 1.4
+      },
+      "datasheet": {
+        "url": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/527/52745/527451097_sd.pdf?inline\\",
+        "path": "references/suppliers/c588226/c588226-datasheet.pdf",
+        "sha256": "b39c7b144bf9e92d16155bcf838e30fea2cf6b2b9e627c9c62daf215d59182be",
+        "reviewed_pages": [
+          1,
+          2
+        ]
+      },
+      "model": {
+        "model_uuid": "1d87c6c9b4324450860372288e4b8027",
+        "model_title": "CONN-SMD_527451097",
+        "source": "JLCEDA/EasyEDA Official Library",
+        "api_url": "https://easyeda.com/api/products/C588226/components",
+        "model_url": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/1d87c6c9b4324450860372288e4b8027",
+        "step_sha256": "c7c5f47a095bd2fd2f3d05ca30ba915403a16e747a75d90e44c9e3ce772de45f",
+        "raw_step_bbox_mm": {
+          "min": [
+            -4.550000000000001,
+            -0.8,
+            0.0
+          ],
+          "max": [
+            6.550000000000002,
+            4.2,
+            1.9050000000000005
+          ],
+          "size": [
+            11.100000000000001,
+            5.0,
+            1.9050000000000005
+          ]
+        },
+        "valid": true,
+        "solid_count": 1,
+        "face_count": 558
+      },
+      "footprint": {
+        "native_rotation_deg_for_target_opening": 0,
+        "target_pin1": "left",
+        "pin1_center_mm": [
+          -2.250059,
+          0.962533
+        ],
+        "pin10_center_mm": [
+          2.250059,
+          0.962533
+        ],
+        "signal_pad_mm": [
+          0.299999,
+          0.799998
+        ],
+        "mechanical_pads": [
+          {
+            "pin": "11",
+            "x_mm": 4.700143,
+            "y_mm": -0.962533,
+            "width_mm": 2.399995,
+            "height_mm": 3.050007
+          },
+          {
+            "pin": "12",
+            "x_mm": -4.700143,
+            "y_mm": -0.962533,
+            "width_mm": 2.399995,
+            "height_mm": 3.050007
+          }
+        ],
+        "drop_in": false,
+        "frame": "PCB source XY after target -Y opening rotation; millimetres"
+      },
+      "cautions": [
+        "3D model verifies detailed library geometry, not manufacturer tolerances or full mating.",
+        "New footprint, placement by mouth datum, rerouting and assembly checks required."
+      ]
+    },
+    {
+      "source": "research",
+      "selected": false,
+      "supplier_code": "C262583",
+      "manufacturer": "JS(钜硕电子)",
+      "mpn": "AFC07-S10ECA-00",
+      "product_url": "https://item.szlcsc.com/253892.html",
+      "jlc_smt_library": "extended",
+      "unit_price": {
+        "quantity": 1,
+        "unitPrice": 0.669,
+        "currency": "CNY"
+      },
+      "stock_quantity": 29174,
+      "supplier_observed_at": "2026-10-02T04:11:09.377Z",
+      "interface": {
+        "contact_type": "top",
+        "pin_count": 10,
+        "pitch_mm": 0.5,
+        "nominal_tail_thickness_mm": 0.3,
+        "nominal_board_height_mm": 2.0,
+        "latch_type": "slide"
+      },
+      "tail_recommendation": {
+        "exposed_copper_length_mm": {
+          "min": 3.0
+        },
+        "stiffener_length_mm": {
+          "nominal": 6.0
+        },
+        "status": "not_qualified_for_existing_tail",
+        "reason": "Screen 4 mm stiffener differs from recommended 6 mm. Model is a shared generic library model; exact actuator variant needs verification.",
+        "operation_envelope_note": "Drawing E=5.2 mm / F=6.15 mm side dimensions require interpretation before actuator-clearance validation."
+      },
+      "datasheet": {
+        "url": "https://atta.szlcsc.com//upload/public/pdf/source/20190726/C11082_A2E7B12387019CE4314BB5199EE0FDF4.pdf",
+        "path": "references/suppliers/c262583/c262583-datasheet.pdf",
+        "sha256": "a7a65a0c612e851f5fab4d8baca795c50d9d4097a89ce8587ebf902b867c8c5e",
+        "reviewed_pages": [
+          1
+        ]
+      },
+      "model": {
+        "model_uuid": "fcf7b710a8c44ebb937fd3569eeb7a2a",
+        "model_title": "FPC-SMD_P0.50-10P_LCS-SJ-H2.0",
+        "source": "JLCEDA/EasyEDA Official Library",
+        "api_url": "https://easyeda.com/api/products/C262583/components",
+        "model_url": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/fcf7b710a8c44ebb937fd3569eeb7a2a",
+        "step_sha256": "39a04fe4d6049646e8da1969228838442ab7db0bff45fff510dd7611cc9ad1f4",
+        "raw_step_bbox_mm": {
+          "min": [
+            -5.300000100000001,
+            -2.6000001000000004,
+            -1.0000000000000313e-07
+          ],
+          "max": [
+            5.3000001,
+            2.599999999999999,
+            2.0001001
+          ],
+          "size": [
+            10.6000002,
+            5.2000001,
+            2.0001002
+          ]
+        },
+        "valid": true,
+        "solid_count": 4,
+        "face_count": 783
+      },
+      "footprint": {
+        "native_rotation_deg_for_target_opening": 180,
+        "target_pin1": "left",
+        "pin1_center_mm": [
+          -2.250059,
+          1.085088
+        ],
+        "pin10_center_mm": [
+          2.249805,
+          1.085088
+        ],
+        "signal_pad_mm": [
+          0.299999,
+          1.199998
+        ],
+        "mechanical_pads": [
+          {
+            "pin": "11",
+            "x_mm": 3.850005,
+            "y_mm": -1.085088,
+            "width_mm": 2.199996,
+            "height_mm": 3.299993
+          },
+          {
+            "pin": "12",
+            "x_mm": -3.850005,
+            "y_mm": -1.085088,
+            "width_mm": 2.199996,
+            "height_mm": 3.299993
+          }
+        ],
+        "drop_in": false,
+        "frame": "PCB source XY after target -Y opening rotation; millimetres"
+      },
+      "cautions": [
+        "3D model verifies detailed library geometry, not manufacturer tolerances or full mating.",
+        "New footprint, placement by mouth datum, rerouting and assembly checks required."
+      ]
+    }
+  ],
+  "validation": {
+    "exact_supplier_identity": "passed",
+    "datasheet_visual_comparison": "completed",
+    "step_download_import_and_shape_validity": "passed",
+    "ten_pins_half_mm_pitch_and_target_pin1_direction": "passed",
+    "physical_mating": "not_checked",
+    "PCB_DRC_for_candidates": "not_run",
+    "assembled_clearance_for_candidates": "not_run",
+    "active_BOM_PCB_CAD_modified": false
+  },
+  "visual_evidence": "design/pi_baseboard_lite/fpc-candidate-models.png",
+  "geometry_evidence": "design/pi_baseboard_lite/fpc-candidate-geometry.json",
+  "model_attribution": {
+    "source": "JLCEDA/EasyEDA Official Library",
+    "urls": [
+      "https://lceda.cn/",
+      "https://easyeda.com/"
+    ],
+    "manufacturer_certified_model": false
+  },
+  "comparison_baseline": {
+    "source": "user",
+    "supplier_code": "C5139870",
+    "mpn": "FH12A-10S-0.5SH(55)",
+    "selection_unchanged": false,
+    "manufacturer_contact_type": "top",
+    "latch_type": "flip",
+    "reference_envelope_mm": [
+      9.5,
+      6.2,
+      2.0
+    ],
+    "reference_envelope_is_detailed_model": false,
+    "easyeda_model_bound": false,
+    "manufacturer_url": "https://www.hirose.com/en/product/p/CL0586-0550-9-55"
+  },
+  "active_component": {
+    "source": "default",
+    "supplier_code": "C5373447",
+    "mpn": "0.5-10P CTSJ-H2.0 119",
+    "manufacturer_contact_type": "top",
+    "latch_type": "slide",
+    "reference_envelope_mm": [
+      10.6,
+      5.3,
+      2.01
+    ],
+    "easyeda_model_bound": true
+  }
+}

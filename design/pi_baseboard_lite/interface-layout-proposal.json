@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "status": "pcb_released_cad_reviewed_fpc_height_conflict",
+  "status": "PCB_released_CAD_structural_and_nominal_air_checks_passed_tail_seating_provisional",
   "source": "default",
   "approved_connectors": {
-    "J_LCD": "FH12-10S-0.5SH(55)",
-    "J_PI": "SLW-120-01-G-D",
-    "J_MOD": "SLW-104-01-G-D"
+    "J_LCD": "FH12A-10S-0.5SH(55)",
+    "J_PI": "ESQ-120-12-G-D",
+    "J_MOD": "HLE-104-02-G-DV"
   },
   "board_envelope_mm": [
     40,
@@ -107,29 +107,36 @@
     ],
     "J_LCD_origin": [
       0,
-      6.7628506593
+      7
     ],
     "J_MOD_centroid": [
       0,
       -34
     ]
   },
-  "pcb_release": "a183ffa45c8d8cf64f65fdf30fee1c9048fcdda8b56f28e06d5ca1ee549fda45",
+  "pcb_release": "90c5e7e3d87051e673eb4af85e3debf84ebc81adcc72dfc6dc141548fa7afe7d",
   "validation": {
     "placement": "passed",
     "routing": "passed",
     "ground_connectivity": "passed",
     "drc_errors": 0,
     "unconnected_items": 0,
-    "dfm": "passed"
+    "dfm": "passed",
+    "physical_via_count": 37,
+    "ground_stitch_count": 10,
+    "raw_library_mismatch_advisories": 33,
+    "ordinary_top_minimum_air_mm": 1.505918,
+    "fpc_open_latch_minimum_air_mm": 1.490322,
+    "structural_body_collisions": 0
   },
-  "mechanical_qualification": "CAD uses this exact PCB release. Substrate clears checked enclosure bodies and screw1. Native tail cannot reach this horizontal socket height while keeping curvature within the manufacturer-recommended region; SLW library STEP bodies are proxies and do not qualify mating.",
+  "mechanical_qualification": "Current raised board at21.8mm uses higherGPIO and lower8pin sockets. Top-contact identity and10terminal reversed pin mapping verified. Native tail13.7±0.5mm is an authorized estimate; exact insertion angle, stop and physical seating remain prototype checks. Nominal drawing-reference bodies do not certify internal mating.",
   "board_edge_relief": {
     "reason": "Existing screen retaining screw1 at(-20,-3.5266) world intersects prior PCB edge",
     "source": "research",
     "minimum_nominal_screw_clearance_mm": 0.5,
-    "measured_clearance_mm": 0.737409,
+    "measured_clearance_mm": 1.292813,
     "passed": true
   },
-  "cad_revision": "9a3dede54ad704a9ee8bb8a1d49fa1f3453efcacc46d7d06d5e1468546e00744"
+  "cad_revision": "bd3a4861e4a55080ebf6217f622f8789631da4b61aa90558279edebd83e0273d",
+  "pcb_build": "e114ce8f70210c497affd56d29454dc185cb340f3d4890f13ea5652da3c84292"
 }

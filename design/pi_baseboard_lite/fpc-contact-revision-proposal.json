@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "status": "awaiting_user_contact_requirement_choice",
-  "retained_user_requirement": "Horizontal top-side FPC, opening down/front, retain bottom-contact FH12",
-  "observed_conflict": "Sharp drawing recommends folding toward panel back; the native contact face flips to top after the return bend, while retained FH12 contacts are bottom. No independently qualified twist/double-fold route is modeled.",
+  "status": "top_contact_selected_10_pin_mapping_and_routing_passed",
+  "retained_user_requirement": "Horizontal top-side socket, entrance down/front; exposed copper upward and top contacts.",
+  "observed_conflict": "Former bottom-contact mismatch resolved by user authorization. Folded panel terminal order is reversed against the top-view socket: socket terminal = 11-panel terminal.",
   "recommended": {
     "part": "FH12A-10S-0.5SH(55)",
     "contact": "top",
@@ -10,22 +10,20 @@
     "opening": "down/front -Y",
     "supplier_candidate": "C5139870",
     "primary_evidence": "https://www.hirose.com/en/product/p/CL0586-0550-9-55",
-    "supplier_note": "Supplier labels C5139870 bottom-contact, contradicting Hirose exact MPN top-contact specification. Validate supplier model/actual delivered part before committing it.",
+    "supplier_note": "C5139870 description incorrectly says bottom; exact Hirose MPN/catalog proves top contact. No supplier STEP, so an explicitly declared conservative outer envelope is used.",
     "datasheet": "references/suppliers/c5139870/c5139870-datasheet.pdf",
     "layout_candidate_source_xy_mm": [
       0,
-      27.0
+      26
     ],
     "buffer_candidate_source_xy_mm": [
       0.5,
-      18.7
+      17.7
     ],
-    "source": "research"
+    "source": "research",
+    "buffer_rotation_deg": 90
   },
-  "alternatives": [
-    "Change the recorded contact requirement to top-contact while retaining horizontal down-facing entrance",
-    "Retain bottom-contact and rework the panel/tail installation with a supported contact-face solution"
-  ],
+  "alternatives": [],
   "scope_completed_independently": [
     "Higher ESQ GPIO socket",
     "Lower HLE expansion socket",
@@ -33,5 +31,6 @@
     "Current down-facing FPC electrical routing",
     "Ordinary-component thermal-space relief"
   ],
-  "not_applied": "No FH12A substitution or candidate relocation is applied before the user resolves the recorded requirement."
+  "user_choice": "Folded exposed copper faces upward; change socket accordingly.",
+  "pcb_release": "90c5e7e3d87051e673eb4af85e3debf84ebc81adcc72dfc6dc141548fa7afe7d"
 }

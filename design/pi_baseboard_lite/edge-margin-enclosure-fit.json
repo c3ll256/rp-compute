@@ -1,0 +1,736 @@
+{
+  "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+  "pcb_release": "b3f079c62daf5a7dc06fe7679e40e7e6b5ab5415a8d2c86e3edfeb11d32bde45",
+  "pcb_step_sha256": "9fba8943fbe338348ba0adda298c472acc7841587f3ea2e6a69346f1776dd24a",
+  "placement": {
+    "position_mm": [
+      -100,
+      81,
+      21.8
+    ],
+    "rotation_deg": [
+      0,
+      0,
+      0
+    ],
+    "xy_basis": "J_PI source pad centroid(-13.5,21) aligns with Pi world(-13.5,2). KiCad STEP offset(+100,-100) yields translation(-100,81).",
+    "z_basis": "User requested raised upper-shell mounting;21.8mm is agent default4.3mm lift. User authorized higher GPIO and lower8pin sockets. ESQ11.05mm nominal housing gives4.75..6.25mm engagement from official/third-party Pi tip datums; STEP also offsets bottom bodies by0.085mm."
+  },
+  "method": "OCC per-solid volume intersections of real released substrate/component bodies against world-transformed CAD objects; copper/pad/via visual bodies excluded. Nominal glass is an explicit drawing-based negative probe.",
+  "body_bounds": {
+    "0:assembly_1_1": {
+      "min": [
+        5.19,
+        15.395,
+        22.594999
+      ],
+      "max": [
+        6.81,
+        16.205,
+        23.044999
+      ]
+    },
+    "1:assembly_1_1": {
+      "min": [
+        0.19,
+        15.595,
+        22.594999
+      ],
+      "max": [
+        1.81,
+        16.405,
+        23.044999
+      ]
+    },
+    "2:assembly_1_3": {
+      "min": [
+        -2.506315,
+        -3.45,
+        22.594999
+      ],
+      "max": [
+        3.50629,
+        1.55,
+        23.695082
+      ]
+    },
+    "3:hle-104-02-g-dv-drawing-reference": {
+      "min": [
+        -5.08,
+        -37.3,
+        22.594999
+      ],
+      "max": [
+        5.08,
+        -30.7,
+        26.254999
+      ]
+    },
+    "4:assembly_1_5": {
+      "min": [
+        5.8,
+        -2.0,
+        22.594999
+      ],
+      "max": [
+        6.6,
+        -0.4,
+        23.394999
+      ]
+    },
+    "5:fh12a-10s-0_5sh-drawing-reference": {
+      "min": [
+        -4.75,
+        2.175,
+        22.594999
+      ],
+      "max": [
+        4.75,
+        8.375,
+        24.594999
+      ]
+    },
+    "6:assembly_1_1": {
+      "min": [
+        -0.81,
+        -49.405,
+        22.594999
+      ],
+      "max": [
+        0.81,
+        -48.595,
+        23.044999
+      ]
+    },
+    "7:assembly_1_1": {
+      "min": [
+        5.19,
+        12.595,
+        22.594999
+      ],
+      "max": [
+        6.81,
+        13.405,
+        23.044999
+      ]
+    },
+    "8:assembly_1_1": {
+      "min": [
+        -8.81,
+        -41.405,
+        21.265
+      ],
+      "max": [
+        -7.19,
+        -40.595,
+        21.715
+      ]
+    },
+    "9:assembly_1_1": {
+      "min": [
+        15.39,
+        -41.405,
+        21.265
+      ],
+      "max": [
+        17.01,
+        -40.595,
+        21.715
+      ]
+    },
+    "10:assembly_1_11": {
+      "min": [
+        -9.0,
+        -50.649987,
+        20.415
+      ],
+      "max": [
+        -7.0,
+        -49.349987,
+        21.715
+      ]
+    },
+    "11:SOT-23-6": {
+      "min": [
+        -14.45,
+        -42.4,
+        20.165
+      ],
+      "max": [
+        -11.55,
+        -39.6,
+        21.715
+      ]
+    },
+    "12:assembly_1_1": {
+      "min": [
+        -0.31,
+        5.595,
+        21.265
+      ],
+      "max": [
+        1.31,
+        6.405,
+        21.715
+      ]
+    },
+    "13:assembly_1_11": {
+      "min": [
+        4.8,
+        -50.649987,
+        20.415
+      ],
+      "max": [
+        6.8,
+        -49.349987,
+        21.715
+      ]
+    },
+    "14:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1_00mm_Horizontal": {
+      "min": [
+        -2.0,
+        -46.475,
+        18.755
+      ],
+      "max": [
+        2.0,
+        -41.525,
+        21.715
+      ]
+    },
+    "15:assembly_1_11": {
+      "min": [
+        14.4,
+        -50.649987,
+        20.415
+      ],
+      "max": [
+        16.4,
+        -49.349987,
+        21.715
+      ]
+    },
+    "16:assembly_1_1": {
+      "min": [
+        11.19,
+        -45.405,
+        21.265
+      ],
+      "max": [
+        12.81,
+        -44.595,
+        21.715
+      ]
+    },
+    "17:assembly_1_18": {
+      "min": [
+        -14.506302,
+        -51.450013,
+        20.464917
+      ],
+      "max": [
+        -11.493698,
+        -48.550013,
+        21.715
+      ]
+    },
+    "18:assembly_1_3": {
+      "min": [
+        -2.00629,
+        9.3,
+        20.614917
+      ],
+      "max": [
+        4.006315,
+        14.3,
+        21.715
+      ]
+    },
+    "19:assembly_1_1": {
+      "min": [
+        -12.21,
+        -46.405,
+        21.265
+      ],
+      "max": [
+        -10.59,
+        -45.595,
+        21.715
+      ]
+    },
+    "20:assembly_1_1": {
+      "min": [
+        -8.81,
+        -46.405,
+        21.265
+      ],
+      "max": [
+        -7.19,
+        -45.595,
+        21.715
+      ]
+    },
+    "21:assembly_1_1": {
+      "min": [
+        15.39,
+        -46.405,
+        21.265
+      ],
+      "max": [
+        17.01,
+        -45.595,
+        21.715
+      ]
+    },
+    "22:assembly_1_11": {
+      "min": [
+        6.349987,
+        -39.5,
+        20.415
+      ],
+      "max": [
+        7.649987,
+        -37.5,
+        21.715
+      ]
+    },
+    "23:assembly_1_11": {
+      "min": [
+        -16.5,
+        -45.149987,
+        20.415
+      ],
+      "max": [
+        -14.5,
+        -43.849987,
+        21.715
+      ]
+    },
+    "24:assembly_1_5": {
+      "min": [
+        6.6,
+        3.2,
+        20.915
+      ],
+      "max": [
+        7.4,
+        4.8,
+        21.715
+      ]
+    },
+    "25:esq-120-12-g-d-drawing-reference": {
+      "min": [
+        -16.04,
+        -23.655,
+        10.665
+      ],
+      "max": [
+        -10.96,
+        27.655,
+        24.005
+      ]
+    },
+    "26:assembly_1_11": {
+      "min": [
+        -17.150013,
+        -51.0,
+        20.415
+      ],
+      "max": [
+        -15.850013,
+        -49.0,
+        21.715
+      ]
+    },
+    "27:assembly_1_5": {
+      "min": [
+        -1.8,
+        15.4,
+        20.915
+      ],
+      "max": [
+        -0.2,
+        16.2,
+        21.715
+      ]
+    },
+    "28:assembly_1_18": {
+      "min": [
+        9.193698,
+        -51.450013,
+        20.464917
+      ],
+      "max": [
+        12.206302,
+        -48.550013,
+        21.715
+      ]
+    },
+    "29:assembly_1_11": {
+      "min": [
+        6.349987,
+        8.0,
+        20.415
+      ],
+      "max": [
+        7.649987,
+        10.0,
+        21.715
+      ]
+    },
+    "30:assembly_1_1": {
+      "min": [
+        6.19,
+        -1.405,
+        21.265
+      ],
+      "max": [
+        7.81,
+        -0.595,
+        21.715
+      ]
+    },
+    "31:SOT-23-6": {
+      "min": [
+        10.55,
+        -42.4,
+        20.165
+      ],
+      "max": [
+        13.45,
+        -39.6,
+        21.715
+      ]
+    },
+    "35:board_PCB": {
+      "min": [
+        -20.0,
+        -54.5,
+        21.8
+      ],
+      "max": [
+        20.0,
+        29.0,
+        22.509999
+      ]
+    }
+  },
+  "target_bounds": {
+    "front_cushion": {
+      "min": [
+        -31.4,
+        -0.794755,
+        28.732426
+      ],
+      "max": [
+        31.4,
+        40.972761,
+        38.559704
+      ]
+    },
+    "rear_cushion": {
+      "min": [
+        -31.4,
+        -0.380845,
+        26.160089
+      ],
+      "max": [
+        31.4,
+        41.566632,
+        36.766863
+      ]
+    },
+    "pcb_mount_screw_2": {
+      "min": [
+        14.01,
+        -33.99,
+        19.8
+      ],
+      "max": [
+        17.99,
+        -30.01,
+        25.8
+      ]
+    },
+    "shell": {
+      "min": [
+        -42.5,
+        -57.5,
+        2.7
+      ],
+      "max": [
+        42.5,
+        57.5,
+        27.0
+      ]
+    },
+    "front_module_blank": {
+      "min": [
+        -35.0,
+        -52.5,
+        25.0
+      ],
+      "max": [
+        35.0,
+        -15.5,
+        27.0
+      ]
+    },
+    "pcb_mount_screw_1": {
+      "min": [
+        -17.99,
+        -33.99,
+        19.8
+      ],
+      "max": [
+        -14.01,
+        -30.01,
+        25.8
+      ]
+    },
+    "pi4b": {
+      "min": [
+        -17.0,
+        -35.0,
+        3.45
+      ],
+      "max": [
+        41.5,
+        57.86,
+        23.34
+      ]
+    },
+    "fascia": {
+      "min": [
+        -38.5,
+        -10.145826,
+        21.516836
+      ],
+      "max": [
+        38.5,
+        53.188229,
+        42.467515
+      ]
+    },
+    "retainer_screw_3": {
+      "min": [
+        18.227279,
+        -5.624769,
+        19.862113
+      ],
+      "max": [
+        21.772721,
+        -2.027254,
+        25.291047
+      ]
+    },
+    "retainer": {
+      "min": [
+        -33.0,
+        -7.109613,
+        19.568096
+      ],
+      "max": [
+        33.0,
+        50.788229,
+        35.859978
+      ]
+    },
+    "retainer_screw_1": {
+      "min": [
+        -21.772721,
+        -5.624769,
+        19.862113
+      ],
+      "max": [
+        -18.227279,
+        -2.027254,
+        25.291047
+      ]
+    },
+    "bezel": {
+      "min": [
+        -35.0,
+        -2.426277,
+        25.534042
+      ],
+      "max": [
+        35.0,
+        46.180597,
+        40.919647
+      ]
+    },
+    "base": {
+      "min": [
+        -42.5,
+        -57.5,
+        -0.0
+      ],
+      "max": [
+        42.5,
+        57.5,
+        2.4
+      ]
+    },
+    "nominal_panel_envelope": {
+      "min": [
+        -31.4,
+        -0.749765,
+        27.134459
+      ],
+      "max": [
+        31.4,
+        41.341681,
+        38.36483
+      ]
+    }
+  },
+  "collisions": {
+    "front_cushion": [],
+    "rear_cushion": [],
+    "pcb_mount_screw_2": [],
+    "shell": [],
+    "front_module_blank": [],
+    "pcb_mount_screw_1": [],
+    "fascia": [],
+    "retainer_screw_3": [],
+    "retainer": [],
+    "retainer_screw_1": [],
+    "bezel": [],
+    "base": [],
+    "nominal_panel_envelope": [],
+    "pi4b": []
+  },
+  "limits": [
+    "ESQ, HLE and FH12A are explicitly modeled manufacturer-drawing reference envelopes, not vendor STEP or internal contact qualification.",
+    "PCB STEP substrate0.71mm versus finished0.8mm; model pads/components add face offsets.",
+    "Native tail13.7+/-0.5mm is an authorized estimate. Top contacts and -Y entrance are manufacturer/source verified. Exact insertion-plane height, tail reach and physical latch operation remain prototype checks.",
+    "No physical print, connector mating or thermal test performed."
+  ],
+  "screw1_to_substrate_clearance_mm": 1.292813,
+  "screw1_clearance_expectation": {
+    "source": "default",
+    "minimum_mm": 0.5,
+    "passed": true
+  },
+  "pcb_to_shell_distance_mm": 0.0,
+  "fixed_mount_screw_lengths_mm": {
+    "pcb_mount_screw_1": 4.0,
+    "pcb_mount_screw_2": 4.0
+  },
+  "fpc_body_to_nominal_glass_clearance_mm": 3.049314,
+  "fpc_closed_reference_bounds": {
+    "min": [
+      -4.75,
+      2.175,
+      22.594999
+    ],
+    "max": [
+      4.75,
+      8.375,
+      24.594999
+    ]
+  },
+  "fpc_opened_conservative_bounds": {
+    "min": [
+      -4.75,
+      2.175,
+      22.594999
+    ],
+    "max": [
+      4.75,
+      8.375,
+      26.194999
+    ]
+  },
+  "fpc_open_latch_clearances_mm": {
+    "shell": 7.675,
+    "fascia": 4.895773,
+    "retainer": 3.25,
+    "nominal_panel_envelope": 1.490322
+  },
+  "fpc_open_latch_clearance_expectation": {
+    "source": "default",
+    "minimum_mm": 0.5,
+    "passed": true
+  },
+  "ordinary_top_air_clearances": {
+    "0:assembly_1_1": {
+      "clearance_mm": 7.53569,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 20.956975,
+        "fascia": 17.948063,
+        "retainer": 12.931476,
+        "front_module_blank": 31.005094,
+        "nominal_panel_envelope": 7.53569
+      }
+    },
+    "1:assembly_1_1": {
+      "clearance_mm": 7.58068,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 19.736467,
+        "fascia": 18.613877,
+        "retainer": 14.466104,
+        "front_module_blank": 31.204388,
+        "nominal_panel_envelope": 7.58068
+      }
+    },
+    "2:assembly_1_3": {
+      "clearance_mm": 1.538682,
+      "to": "retainer",
+      "by_target_mm": {
+        "shell": 2.379948,
+        "fascia": 4.239441,
+        "retainer": 1.538682,
+        "front_module_blank": 12.268649,
+        "nominal_panel_envelope": 3.440377
+      }
+    },
+    "4:assembly_1_5": {
+      "clearance_mm": 1.6,
+      "to": "retainer",
+      "by_target_mm": {
+        "shell": 3.707067,
+        "fascia": 3.92773,
+        "retainer": 1.6,
+        "front_module_blank": 13.681862,
+        "nominal_panel_envelope": 3.739664
+      }
+    },
+    "6:assembly_1_1": {
+      "clearance_mm": 1.555001,
+      "to": "shell",
+      "by_target_mm": {
+        "shell": 1.555001,
+        "fascia": 38.683899,
+        "retainer": 43.661011,
+        "front_module_blank": 2.555001,
+        "nominal_panel_envelope": 48.182085
+      }
+    },
+    "7:assembly_1_1": {
+      "clearance_mm": 6.905827,
+      "to": "nominal_panel_envelope",
+      "by_target_mm": {
+        "shell": 18.166529,
+        "fascia": 15.242537,
+        "retainer": 10.177996,
+        "front_module_blank": 28.216021,
+        "nominal_panel_envelope": 6.905827
+      }
+    }
+  },
+  "minimum_ordinary_top_air_mm": 1.538682,
+  "thermal_clearance_expectation": {
+    "source": "default",
+    "minimum_mm": 1.5,
+    "passed": true
+  },
+  "hle_top_world_z_mm": 26.254999,
+  "hle_top_below_deck_mm": 0.7450009999999985,
+  "required_structural_intersection_check_passed": true,
+  "pi_to_upper_shell_shared_volume_mm3": 0.0,
+  "pi_to_upper_shell_clearance_check_passed": true
+}

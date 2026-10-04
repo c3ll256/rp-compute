@@ -1,52 +1,56 @@
 {
   "scope": "Active lite PCB purchase rows; canonical quantities and bindings are in product/bom.json.",
-  "requirements_digest": "b0262300aab48763325adee219ae4fdbfaa3b5c5401ea0aea10dae58ab3c707b",
+  "requirements_digest": "f1398504b9c62a24af5001c26fca789c3321e659a895a5e1a139e08c42fe2c87",
   "items": [
     {
       "id": "display_fpc",
       "role": "display_fpc",
-      "name": "FH12-10S-0.5SH(55)",
+      "name": "0.5-10P CTSJ-H2.0 119",
       "quantity": 1,
-      "supplier": "LCSC",
-      "manufacturer": "Hirose",
-      "part_number": "FH12-10S-0.5SH(55)",
-      "mpn": "FH12-10S-0.5SH(55)",
-      "stock": 8198,
-      "source": "user",
-      "procurement_status": "catalog_verified",
-      "lcsc_code": "C506791",
+      "supplier": "LCSC / 嘉立创",
+      "manufacturer": "SHOU HAN(首韩)",
+      "part_number": "0.5-10P CTSJ-H2.0 119",
+      "mpn": "0.5-10P CTSJ-H2.0 119",
+      "source": "default",
+      "lcsc_code": "C5373447",
       "jlc_smt_library": "extended",
-      "product_url": "https://item.szlcsc.com/519947.html",
-      "unit_price_cny": 3.12,
-      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230107/C04566C1CA874B3BDA4D60598C56C2D3.jpg",
+      "procurement_status": "catalog_verified",
+      "stock": 1835,
+      "unit_price_cny": 0.547,
+      "product_url": "https://item.szlcsc.com/6227364.html",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20230314/2CC6B96CFDF7B9A004D6A4B5EFB475EE.jpg",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20230321/8BA0DE4D38BE66CF3C031935900E1E28.pdf",
+      "datasheet_path": "references/suppliers/c5373447/c5373447-datasheet.pdf",
+      "package": "SMD,P=0.5mm,卧贴",
+      "footprint": "jlcpcb:C5373447",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
-      "part_identity": "dd2e2353539b67c4",
-      "datasheet_path": "references/suppliers/c506791/c506791-datasheet.pdf",
+      "designators": [
+        "J_LCD"
+      ],
       "physical_interface": {
         "kind": "fpc_connector",
         "pin_count": 10,
         "pitch_mm": 0.5,
-        "cable_contacts_face_when_mounted_on_top": "toward_pcb",
-        "pin1_position": "polarization triangle in Hirose component-side drawing; do not infer from screen-front view",
+        "cable_thickness_mm": 0.3,
+        "closed_height_mm": 2.0,
+        "cable_contacts_face_when_mounted_on_top": "away_from_pcb",
+        "pin1_position": "Supplier native top view, opening -Y: left end of signal row.",
         "evidence_refs": [
-          "references/suppliers/c506791/c506791-datasheet.pdf pp1,5",
-          "product/references/LS027B7DH01-sharp-2010.pdf p26"
+          "references/suppliers/c5373447/c5373447-datasheet.pdf p1",
+          "product/references/fpc-candidates/C5373447-easyeda.json",
+          "design/pi_baseboard_lite/fpc-connector-comparison.json"
         ]
       },
-      "selection_reason": "Horizontal bottom-contact Hirose retained; user requests opening down/front (-Y), rotate native footprint0deg, numeric electrical pin map unchanged.",
-      "observed_date": "2026-09-30",
+      "selection_reason": "User delegated replacement. Exact top-contact 10P/0.5mm/0.3mm candidate with real bound STEP; recommended conductor>=3mm and stiffener>=4mm closest to native Sharp tail3.5/4mm. Focused JLC search returned no matching Basic candidate; Extended selected. New footprint and slide latch accepted through delegated selection.",
+      "selection_status": "selected_for_front_SMT_layout",
+      "observed_date": "2026-10-02",
       "required_user_evidence": [],
-      "supply_risk": "Native tail13.7±0.5mm is estimated. Opening is down/front; complete tail contact-face/stop and installation bend remain under review.",
-      "requirements_review": "FPC moves to screen-facing top PCB side; exact Hirose part and numeric pin map retained, cable path not yet mechanically validated.",
-      "designators": [
-        "J_LCD"
-      ],
-      "selection_status": "selected_for_compact_board_cad_review",
-      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/20200402/C506791_7CB403EBF87F84682F415173294C9BF9.pdf",
-      "footprint": "jlcpcb:C506791"
+      "supply_risk": "Screen stiffener nominal4mm is exactly the recommendation minimum. Native-tail seating/retention requires prototype; library STEP is detailed geometry, not certified mating tolerances. Manual front-side reflow intent; no automatic JLC order verification claimed.",
+      "part_identity": "d36ea902ecb37a1b"
     },
     {
       "id": "ldo_3v3",
@@ -62,7 +66,8 @@
       "procurement_status": "catalog_verified",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "lcsc_code": "C404027",
       "unit_price_cny": 0.982,
@@ -96,7 +101,8 @@
       "procurement_status": "catalog_verified",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "lcsc_code": "C54529",
       "unit_price_cny": 2.263,
@@ -129,7 +135,8 @@
       "observed_date": "2026-09-30",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "bottom"
       },
       "required_user_evidence": [],
       "name": "ESQ-120-12-G-D",
@@ -169,7 +176,8 @@
       "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps2553.pdf",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "required_user_evidence": [],
       "selection_reason": "TI SLVS841F pp5,6,15,25: active-high 2.5-6.5V adjustable current-limit switch, 169k 1% RILIM gives approximately 136-187mA limits ahead of a dedicated 3.3V LDO; normal module allocation is100mA. Pi3.3V only controls enable. Exact DBV stock KiCad footprint.",
@@ -194,7 +202,8 @@
       "observed_date": "2026-09-30",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "required_user_evidence": [],
       "name": "HLE-104-02-G-DV",
@@ -240,7 +249,8 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
       "required_user_evidence": [],
@@ -273,7 +283,8 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
       "required_user_evidence": [],
@@ -306,7 +317,8 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
       "required_user_evidence": [],
@@ -343,7 +355,8 @@
       "jlc_smt_library": "extended",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "selection_reason": "Exact value/package verified; manual prototype assembly. Extended resistor chosen only because no exact Basic match.",
       "required_user_evidence": [],
@@ -375,7 +388,8 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual"
+        "method": "manual",
+        "side": "top"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
       "required_user_evidence": [],
@@ -390,6 +404,46 @@
         "C_AUX_LOUT"
       ],
       "selection_status": "pcb_check_ready_bench_validation_pending"
+    },
+    {
+      "id": "fan_connector",
+      "role": "internal_fan_power_connector",
+      "name": "JST SH 1mm side-entry 2pin SMT fan socket",
+      "quantity": 1,
+      "manufacturer": "JST",
+      "mpn": "SM02B-SRSS-TB",
+      "part_number": "SM02B-SRSS-TB",
+      "source": "default",
+      "supplier": "Manufacturer / authorized distributor",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "mounted",
+        "method": "manual",
+        "side": "top"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected",
+      "designators": [
+        "J_FAN"
+      ],
+      "footprint": "kicad:Connector_JST/JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal",
+      "product_url": "https://www.jst-mfg.com/product/index.php?lang=2&series=231",
+      "datasheet_url": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+      "datasheet_path": "product/references/jst-sh.pdf",
+      "pin_map": {
+        "1": "+5V V5_PI_IN",
+        "2": "GND"
+      },
+      "selection_reason": "Low side-entry socket below HAT, away from screen FPC and expansion module. Exact supplier match unavailable; original JST is sourced externally and factory mounted.",
+      "supply_risk": "Supplier search timed out; exact MPN detail returned no exact row. No LCSC or JLC-library claim. Use verified KiCad stock footprint/model.",
+      "part_identity": "75e6679ed1582a9c",
+      "cad_relevance": {
+        "pitch_mm": 1,
+        "pin_count": 2,
+        "height_mm": 2.9,
+        "layer": "bottom",
+        "entry": "front -Y"
+      }
     }
   ]
 }

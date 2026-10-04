@@ -264,13 +264,12 @@
           "RJ45"
         ],
         "right": [
+          "Pi native USB-C supply input",
           "2 micro-HDMI",
           "3.5mm native AV"
         ],
-        "left": [
-          "baseboard charging USB-C"
-        ],
-        "pi_own_usb_c": "covered, not an external opening",
+        "left": [],
+        "pi_own_usb_c": "accessible supply input in active lite variant; full variant interlock remains separate",
         "microSD": "internal service after removal of bottom and isolation of all power"
       },
       "source": "default"
@@ -348,15 +347,15 @@
       "source": "default"
     },
     "lite_fpc_placement": {
-      "value": "Horizontal side-entry FPC on top of compact PCB; opening toward down/front (-Y in top view), native tail bends behind panel. Preserve bottom contacts and verify installation access.",
+      "value": "Horizontal side-entry FPC on top of compact PCB; opening toward down/front (-Y in top view). Native tail folds behind panel with exposed copper upward; use top contacts and verify installation access.",
       "source": "user"
     },
     "lite_compact_connectors": {
       "value": {
-        "display": "FH12-10S-0.5SH(55)",
+        "display": "Compatible modeled top-contact FPC; exact replacement delegated to agent",
         "pi_dock": "ESQ-120-12-G-D",
         "expansion": "HLE-104-02-G-DV",
-        "intent": "Taller Pi socket, lower 8pin expansion socket, horizontal FPC opening toward lower/front side."
+        "intent": "Higher Pi socket, lower 8pin expansion socket, horizontal top-contact FPC opening toward lower/front side."
       },
       "source": "user"
     },
@@ -407,6 +406,85 @@
       "value": {
         "non_interface_component_minimum": 1.5,
         "note": "Geometric air-space target only; temperatures and airflow not tested."
+      },
+      "source": "default"
+    },
+    "processor_memory_cooling": {
+      "value": "Add a small fan and heatsinks for the Pi4B processor and memory area in the current compact enclosure.",
+      "source": "user"
+    },
+    "compact_cooling_defaults": {
+      "value": {
+        "heatsink": "Geekworm P165-B standalone,65x55x11mm, four M2.5 threaded mounting corners",
+        "fan": "Nidec F16FB-05LLC,16x16x4.5mm,5V40mA; retain existing selected fan",
+        "fan_control": "always on when Pi5V is present; no logic GPIO used",
+        "fan_budget_ma": 100,
+        "connector": "JST SM02B-SRSS-TB side-entry 1mm 2pin, bottom HAT side; pin1 +5V, pin2 GND",
+        "mounting": "Four countersunk M2.5x6 screws through upper-shell lower corner shelves and the unchanged Pi mounting holes into metal heatsink threads. No independent heatsink bracket.",
+        "inlet_air_gap_mm": 3,
+        "geometry_evidence": "Heatsink overall size and mounting pattern manufacturer-backed; reliefs and undersurface are explicit photo-derived references, not vendor STEP.",
+        "thermal_validation": "Prototype load-temperature and airflow tests still required.",
+        "airflow": "Rear-left intake, internal heatsink cavity, upward blower intake, left-side exhaust; fan near left wall, front exhaust closed."
+      },
+      "source": "default"
+    },
+    "compact_cooling_enclosure_priority": {
+      "value": "Prioritize keeping the current compact enclosure while completing fan/heatsink selection, power, airflow and CAD fit verification together.",
+      "source": "user"
+    },
+    "compute_board_corner_mounting": {
+      "value": "Mainboard must screw to upper shell at all four corner mounting holes; cooler mounting is independent.",
+      "source": "user"
+    },
+    "flush_fasteners": {
+      "value": "Use countersunk screws for most screws, especially externally exposed screw heads.",
+      "source": "user"
+    },
+    "cooler_mounting": {
+      "value": "Use the user-selected Pi4B passive heatsink directly on the compute board, without a separate upper-shell heatsink bracket; add an internal fan supplied through the HAT from GPIO power contacts.",
+      "source": "user"
+    },
+    "pcb_fastener_seat_policy": {
+      "value": "Pi four original holes stay cylindrical and unmodified; M2.5 countersunk heads seat in printed supporting shelves below the PCB, with screws threading into metal heatsink corners. HAT internal M2 screws remain flat socket-head. Exterior M2 heads use verified ISO7046 heads/seats; plastic threaded joints retain kit receivers.",
+      "source": "default"
+    },
+    "fan_power_takeoff": {
+      "value": "HAT routes GPIO-header 5V and GND to an internal fan connector.",
+      "source": "user"
+    },
+    "lite_left_charging_opening": {
+      "value": "Remove the unused left-side baseboard charging opening; active lite enclosure has a continuous left wall at the fan support. Pi native USB-C remains the supply entrance.",
+      "source": "user"
+    },
+    "cooling_exhaust_direction": {
+      "value": "Hot exhaust must not blow toward the front of the terminal.",
+      "source": "user"
+    },
+    "lite_selected_fpc_mpn": {
+      "value": "0.5-10P CTSJ-H2.0 119 / C5373447",
+      "source": "default"
+    },
+    "lite_component_side_policy": {
+      "value": {
+        "top": "All populated components except J_PI, including buffers, passives, power branches, FPC, module and fan connectors",
+        "bottom": [
+          "J_PI"
+        ],
+        "purpose": "Single front SMT placement/reflow side; Pi female socket fitted separately"
+      },
+      "source": "user"
+    },
+    "lite_pcb_area_policy": {
+      "value": "PCB area may increase to avoid unnecessary crowding; prefer comfortable component spacing and front-only population.",
+      "source": "user"
+    },
+    "lite_pcb_outline_default": {
+      "value": {
+        "envelope_mm": [
+          40,
+          83.5
+        ],
+        "approach": "Fill former electronics recess while preserving Pi, module, screw and rear guide datums; screen screw notch retained"
       },
       "source": "default"
     }

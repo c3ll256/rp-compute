@@ -1,4 +1,3 @@
-# cell: shell
 case_width=param('case_width',85.0)
 case_depth=param('case_depth',115.0)
 case_corner=param('case_corner',9.0)
@@ -10,10 +9,6 @@ button_y=param('button_y',-37.0)
 button_diameter=param('button_diameter',9.0)
 shell_button_z=param('shell_button_z',12.0)
 panel_gap=param('panel_gap',0.25)
-charge_width=param('charge_width',10.5)
-charge_height=param('charge_height',4.4)
-charge_z=param('charge_z',12.0)
-shell_charge_y=param('shell_charge_y',-37.0)
 front_module_width=param('front_module_width',70.0)
 front_module_depth=param('front_module_depth',37.0)
 front_module_y=param('front_module_y',-34.0)
@@ -64,15 +59,15 @@ body-=Pos(0,shell_passage_y,case_top_center-shell_wall)*extrude(RectangleRounded
 body-=Pos(0,front_module_y,case_top_center-front_module_seat_depth)*extrude(RectangleRounded(front_module_width+front_module_seat_clearance,front_module_depth+front_module_seat_clearance,2.0),amount=front_module_seat_depth+0.5)
 body-=Pos(0,front_module_y,case_top_center-shell_wall-0.5)*extrude(RectangleRounded(front_module_aperture_width,front_module_aperture_depth,1.5),amount=shell_wall+1.0)
 body-=Pos(case_width/2,button_y,shell_button_z)*Rot(0,90,0)*Cylinder(button_diameter/2+panel_gap,4*shell_wall)
-# Charge input on LEFT SIDE, front is now continuous material.
-body-=Pos(-case_width/2,shell_charge_y,charge_z)*extrude(Plane.YZ*RectangleRounded(charge_width,charge_height,charge_height/2-0.01),amount=4*shell_wall,both=True)
+# Active lite version: user removed the unused left charging opening.
+# The fan root meets a continuous full-thickness side wall.
 for x,z,w,h in [(shell_rj45_x,shell_rj45_z,shell_rj45_width,shell_rj45_height),(shell_usb_mid_x,shell_usb_mid_z,shell_usb_mid_width,shell_usb_mid_height),(shell_usb_right_x,shell_usb_right_z,shell_usb_right_width,shell_usb_right_height)]:
  body-=Pos(x,case_depth/2,z)*extrude(Plane.XZ*RectangleRounded(w,h,shell_port_radius),amount=4*shell_wall,both=True)
 for y in [shell_hdmi1_y,shell_hdmi2_y]:
  body-=Pos(case_width/2,y,shell_hdmi_z)*extrude(Plane.YZ*RectangleRounded(shell_hdmi_width,shell_hdmi_height,shell_port_radius),amount=4*shell_wall,both=True)
 body-=Pos(case_width/2,shell_jack_y,shell_jack_z)*Rot(0,90,0)*Cylinder(shell_jack_diameter/2,8*shell_wall)
-# Internal blind clearance leaves an unbroken outer wall over Pi's own USB-C.
-# This blocks access geometrically; it is NOT the future working electrical interlock.
+# Pi-nativeUSB-C: outer_wall=0 opens the lite supply port. Positive values
+# retain the legacy full-variant blind wall; this is never an electrical interlock.
 blind=Pos(case_width/2-shell_pi_usb_c_outer_wall,shell_pi_usb_c_y,shell_pi_usb_c_z)*extrude(Plane.YZ*RectangleRounded(shell_pi_usb_c_width,shell_pi_usb_c_height,shell_port_radius),amount=-4*shell_wall)
 body-=blind
 # Concealed wells under the screen pod clear the rear-frame mounting ears.
@@ -91,19 +86,38 @@ for xx in [-shell_lcd_mount_x,shell_lcd_mount_x]:
 PI_REAR_CORNER_RELIEF_CENTER=(37.5,53.3,6.2)
 PI_REAR_CORNER_RELIEF_SIZE=(4.0,4.0,2.8)
 body-=Pos(*PI_REAR_CORNER_RELIEF_CENTER)*Box(*PI_REAR_CORNER_RELIEF_SIZE)
-from screwjoint import make_screw_joint_v1
+from screwjoint import make_screw_joint_v1, ScrewJointNotApplicableV1
+from bd_warehouse.fastener import CounterSunkScrew, ClearanceHole
+# M2 countersunk kit rejects ISO10642 (starts at M3). Explicit free head/seat
+# fallback uses verified ISO7046 M2; compensated printed receiver stays kit-owned.
+def m2_flush_joint(frame, sheet, thickness, engagement, host, label):
+ try:
+  joint=make_screw_joint_v1(size='M2',at=frame,through=[(sheet,thickness)],engage_depth=engagement,into=host,head='countersunk',material='PLA',label=label)
+  return joint, joint.through_cuts[0], joint.hardware
+ except ScrewJointNotApplicableV1 as exc:
+  print('FREE_HEAD_FALLBACK',str(exc))
+  joint=make_screw_joint_v1(size='M2',at=frame,through=[(sheet,thickness)],engage_depth=engagement,into=host,head='socket_cap',material='PLA',label=label)
+  standard=CounterSunkScrew('M2-0.4',length=joint.screw_length_mm,fastener_type='iso7046')
+  assert thickness>=standard.head_height
+  seat=frame*ClearanceHole(standard,depth=thickness,counter_sunk=True,mode=Mode.PRIVATE)
+  k,dk=standard.head_height,standard.head_diameter
+  head=standard & Pos(0,0,-k/2)*Box(2*dk,2*dk,k)
+  shaft=joint.hardware.moved(frame.inverse()) & Pos(0,0,-(k+joint.screw_length_mm)/2)*Box(dk,dk,joint.screw_length_mm-k)
+  hardware=frame*(head+shaft)
+  return joint,seat,hardware
+
 # A blank insert defines the shared mechanical envelope for later user-made modules.
 front_module=Pos(0,front_module_y,case_top_center-front_module_seat_depth/2)*extrude(RectangleRounded(front_module_width,front_module_depth,1.8),amount=front_module_seat_depth/2,both=True)
 front_module+=Pos(0,front_module_y,case_top_center-front_module_seat_depth-front_module_tongue_depth)*extrude(RectangleRounded(front_module_aperture_width-2*front_module_seat_clearance,front_module_aperture_depth-2*front_module_seat_clearance,1.2),amount=front_module_tongue_depth)
 front_module_screws=[]
 for xx in [-front_module_screw_x,front_module_screw_x]:
  for yy in [front_module_y-front_module_screw_y_offset,front_module_y+front_module_screw_y_offset]:
-  joint=make_screw_joint_v1(size='M2',at=Location((xx,yy,case_top_center)),through=[(front_module,front_module_seat_depth)],engage_depth=front_module_screw_engagement,into=body,head='socket_cap',material='PLA',label='front-module')
-  front_module=front_module-joint.through_cuts[0]
+  joint,seat,hardware=m2_flush_joint(Location((xx,yy,case_top_center)),front_module,front_module_seat_depth,front_module_screw_engagement,body,'front-module')
+  front_module=front_module-seat
   if len(joint.bosses.solids())>0:
    body=body+joint.bosses
   body=body-joint.engage_cuts
-  front_module_screws.append(joint.hardware)
+  front_module_screws.append(hardware)
 
 # Raised PCB fixed to the upper shell, not the removable module blank.
 pcb_mount_bottom_z=param('pcb_mount_bottom_z',21.8)
@@ -165,6 +179,96 @@ front_module=front_module-(Pos(0,front_module_y,case_top_center)*Box(front_modul
 assert len(pcb_joint_ids)==2
 assert case_top_center-(mount_top+pcb_mount_beam_thickness+pcb_mount_cover_clearance)>=1.2-1e-6
 
+
+
+# Pi4 official hole pitch49x58; metalP165-B has M2.5 threads at these axes.
+# Countersunk seats are below unchanged PCB holes. Printed parts have clearance
+# holes only here; the receiving thread belongs to the purchased metal heatsink.
+pi_mount_board_top=param('pi_mount_board_top',7.1)
+pi_mount_shelf_thickness=param('pi_mount_shelf_thickness',1.8)
+pi_mount_ear_width=param('pi_mount_ear_width',6.4)
+PI_PCB_T=1.8
+PI_HOLE_X=(-13.5,35.5)
+PI_HOLE_Y=(-27.,31.)
+PI_SCREW_LENGTH=6.0 # ISO7046 M2.5x6, fixed purchased standard.
+pi_mount_screws=[]
+for xx in PI_HOLE_X:
+ for yy in PI_HOLE_Y:
+  z=pi_mount_board_top-PI_PCB_T-pi_mount_shelf_thickness
+  outer=(-case_width/2+shell_wall/2) if xx<0 else (case_width/2-shell_wall/2)
+  tip=xx+(pi_mount_ear_width/2 if xx<0 else -pi_mount_ear_width/2)
+  body+=Pos((outer+tip)/2,yy,z+pi_mount_shelf_thickness/2)*Box(abs(tip-outer),pi_mount_ear_width,pi_mount_shelf_thickness)
+  screw=CounterSunkScrew('M2.5-0.45',length=PI_SCREW_LENGTH,fastener_type='iso7046')
+  assert pi_mount_shelf_thickness>=screw.head_height
+  frame=Location((xx,yy,z),(180,0,0))
+  body-=frame*ClearanceHole(screw,depth=pi_mount_shelf_thickness,counter_sunk=True,mode=Mode.PRIVATE)
+  pi_mount_screws.append(frame*screw)
+  print('PI_SHARED_METAL_JOINT',dict(axis=(xx,yy),head_flush_z=z,metal_engagement=PI_SCREW_LENGTH-pi_mount_shelf_thickness-PI_PCB_T))
+# Side-facing blower near the left wall. No long duct over the heatsink.
+shell_fan_center_x=param('shell_fan_center_x',-29.0)
+shell_fan_center_y=param('shell_fan_center_y',-37.0)
+shell_fan_floor_z=param('shell_fan_floor_z',9.8)
+shell_fan_floor_width=param('shell_fan_floor_width',29.0)
+shell_fan_floor_depth=param('shell_fan_floor_depth',17.2)
+shell_fan_floor_thickness=param('shell_fan_floor_thickness',1.2)
+shell_fan_cavity_width=param('shell_fan_cavity_width',17.2)
+shell_fan_rail_thickness=param('shell_fan_rail_thickness',1.2)
+shell_fan_rail_height=param('shell_fan_rail_height',5.0)
+shell_fan_root_width=param('shell_fan_root_width',6.0)
+shell_fan_root_thickness=param('shell_fan_root_thickness',1.8)
+shell_cooling_slot_width=param('shell_cooling_slot_width',2.4)
+shell_cooling_slot_bridge=param('shell_cooling_slot_bridge',2.0)
+shell_cooling_slot_count=param('shell_cooling_slot_count',4)
+shell_cooling_inlet_y=param('shell_cooling_inlet_y',36.0)
+shell_cooling_inlet_z=param('shell_cooling_inlet_z',19.0)
+shell_cooling_inlet_height=param('shell_cooling_inlet_height',6.0)
+shell_cooling_exhaust_z=param('shell_cooling_exhaust_z',13.25)
+shell_cooling_exhaust_height=param('shell_cooling_exhaust_height',4.5)
+fan_collar_width=param('fan_collar_width',29.0)
+fan_collar_depth=param('fan_collar_depth',19.0)
+fan_collar_thickness=param('fan_collar_thickness',1.4)
+fan_collar_inlet_width=param('fan_collar_inlet_width',13.6)
+fan_collar_bottom_z=param('fan_collar_bottom_z',16.0)
+fan_collar_screw_offset=param('fan_collar_screw_offset',12.2)
+fan_collar_engagement=param('fan_collar_engagement',2.0)
+fan_corner_pads_width=param('fan_corner_pads_width',2.0)
+fan_corner_pads_depth=param('fan_corner_pads_depth',2.0)
+fan_corner_pads_thickness=param('fan_corner_pads_thickness',0.5)
+FAN_CORNER_OFFSET=6.5 # Nidec nominal mounting corner, standard not editable.
+fx,fy=shell_fan_center_x,shell_fan_center_y
+floor_top=shell_fan_floor_z+shell_fan_floor_thickness
+FAN_FRAME=Pos(fx,fy,0)*Rot(0,0,90)
+root_start=-case_width/2+shell_wall/2
+floor_end=fx+shell_fan_floor_depth/2
+# Continuous floor below the outlet; two edge ribs keep the discharge clear.
+cradle=Pos((root_start+floor_end)/2,fy,shell_fan_floor_z+shell_fan_floor_thickness/2)*Box(floor_end-root_start,shell_fan_floor_width,shell_fan_floor_thickness)
+root_end=fx-shell_fan_floor_depth/2+0.5
+for sy in [-1,1]:
+ root_y=fy+sy*(shell_fan_floor_width-shell_fan_root_width)/2
+ cradle+=Pos((root_start+root_end)/2,root_y,shell_fan_floor_z+shell_fan_root_thickness/2)*Box(root_end-root_start,shell_fan_root_width,shell_fan_root_thickness)
+for sx in [-1,1]:
+ cradle+=FAN_FRAME*Pos(sx*(shell_fan_cavity_width+shell_fan_rail_thickness)/2,0,floor_top+shell_fan_rail_height/2)*Box(shell_fan_rail_thickness,shell_fan_floor_depth,shell_fan_rail_height)
+body+=cradle
+collar=FAN_FRAME*Pos(0,0,fan_collar_bottom_z+fan_collar_thickness/2)*Box(fan_collar_width,fan_collar_depth,fan_collar_thickness)
+collar-=FAN_FRAME*Pos(0,0,fan_collar_bottom_z+fan_collar_thickness/2)*Box(fan_collar_inlet_width,fan_collar_inlet_width,3*fan_collar_thickness)
+cooling_screws=[]
+for sx in [-1,1]:
+ joint,seat,hardware=m2_flush_joint(Location((fx,fy+sx*fan_collar_screw_offset,fan_collar_bottom_z+fan_collar_thickness)),collar,fan_collar_thickness,fan_collar_engagement,body,'fan-collar')
+ collar-=seat
+ if len(joint.bosses.solids()):body+=joint.bosses
+ body-=joint.engage_cuts
+ cooling_screws.append(hardware)
+pad_shape=Compound([FAN_FRAME*Pos(sx*FAN_CORNER_OFFSET,sy*FAN_CORNER_OFFSET,fan_collar_bottom_z-fan_corner_pads_thickness/2)*Box(fan_corner_pads_width,fan_corner_pads_depth,fan_corner_pads_thickness) for sx,sy in [(-1,-1),(1,-1),(1,1)]])
+# Rear-left intake and left-side outlet. Front edge remains solid.
+for i in range(int(shell_cooling_slot_count)):
+ offset=(i-(int(shell_cooling_slot_count)-1)/2)*(shell_cooling_slot_width+shell_cooling_slot_bridge)
+ body-=Pos(-case_width/2,shell_cooling_inlet_y+offset,shell_cooling_inlet_z)*Box(4*shell_wall,shell_cooling_slot_width,shell_cooling_inlet_height)
+ body-=Pos(-case_width/2,fy+offset,shell_cooling_exhaust_z)*Box(4*shell_wall,shell_cooling_slot_width,shell_cooling_exhaust_height)
+collar.color=Color(0.23,0.25,0.27)
+pad_shape.color=Color(0.1,0.1,0.1)
+publish('fan_collar',collar,'Side blower collar',material='pla')
+publish('fan_corner_pads',pad_shape,'Fan corner pads',material='silicone')
+for i,screw in enumerate(cooling_screws):publish('fan_collar_screw_'+str(i+1),screw,'Flush fan collar screw',material='stainless_steel')
 assert len(front_module.solids())==1
 assert len(body.solids())==1
 body.color=Color(0.88,0.86,0.79)
@@ -175,3 +279,6 @@ for i,screw in enumerate(front_module_screws):
  publish('front_module_screw_'+str(i+1),screw,'M2 front module screw')
 for i,screw in enumerate(pcb_mount_screws):
  publish('pcb_mount_screw_'+str(i+1),screw,'PCB mount screw',material='stainless_steel')
+
+for i,screw in enumerate(pi_mount_screws):
+ publish('pi_mount_screw_'+str(i+1),screw,'Pi corner screw',material='stainless_steel')

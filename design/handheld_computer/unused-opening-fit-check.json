@@ -1,0 +1,63 @@
+{
+  "cad_revision": "8dadb818fb2fb21205a2ac3871626e6b0f73a3fd5b294d38fab4543f229183b6",
+  "previous_review_revision": "2c7c2ccf1ef5fbca92db9749a5a5c9e1582444ba7004401cecb487c23b987f20",
+  "removed_opening": {
+    "side": "left",
+    "center_yz_mm": [
+      -37,
+      12
+    ],
+    "former_outline_mm": [
+      10.5,
+      4.4
+    ],
+    "restored_wall_thickness_mm": 2.4
+  },
+  "former_opening_wall_probe_volume_mm3": 100.99918206211689,
+  "filled_volume_mm3": 100.99918206211689,
+  "wall_restoration_passed": true,
+  "new_wall_to_existing_parts_mm3": {
+    "ram_thermal_tape": 0,
+    "cpu_thermal_tape": 0,
+    "passive_heatsink": 0,
+    "front_cushion": 0,
+    "rear_cushion": 0,
+    "power_cap": 0,
+    "pi_mount_screw_4": 0,
+    "fan_collar_screw_1": 0,
+    "pcb_mount_screw_2": 0,
+    "front_module_blank": 0,
+    "pi_mount_screw_2": 0,
+    "pi_mount_screw_3": 0,
+    "front_module_screw_1": 0,
+    "fan_corner_pads": 0,
+    "front_module_screw_2": 0,
+    "pi_mount_screw_1": 0,
+    "front_module_screw_3": 0,
+    "fan_collar": 0,
+    "front_module_screw_4": 0,
+    "pcb_mount_screw_1": 0,
+    "fan_collar_screw_2": 0,
+    "cooling_fan": 0,
+    "pi_baseboard_lite": 0,
+    "pi4b": 0,
+    "retainer_screw_2": 0,
+    "fascia": 0,
+    "retainer_screw_3": 0,
+    "retainer_screw_4": 0,
+    "retainer": 0,
+    "retainer_screw_1": 0,
+    "bezel": 0,
+    "base": 0
+  },
+  "fan_area_to_shell_mm3": {
+    "cooling_fan": 0.0,
+    "fan_collar": 0.0,
+    "fan_collar_screw_1": 0.0,
+    "fan_collar_screw_2": 0.0,
+    "fan_corner_pads": 0.0
+  },
+  "source_change": "Removed obsolete cut from owning shell cell; restored original sidewall, no separate patch body. Fan placement and PCB source unchanged.",
+  "limits": "Nominal CAD geometric checks; no physical prototype or thermal qualification.",
+  "passed": true
+}
