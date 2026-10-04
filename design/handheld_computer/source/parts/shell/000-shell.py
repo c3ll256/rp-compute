@@ -5,10 +5,6 @@ case_top_center=param('case_top_center',27.0)
 shell_wall=param('shell_wall',2.4)
 shell_lower_z=param('shell_lower_z',2.7)
 shell_edge_radius=param('shell_edge_radius',1.0)
-button_y=param('button_y',-37.0)
-button_diameter=param('button_diameter',9.0)
-shell_button_z=param('shell_button_z',12.0)
-panel_gap=param('panel_gap',0.25)
 front_module_width=param('front_module_width',70.0)
 front_module_depth=param('front_module_depth',37.0)
 front_module_y=param('front_module_y',-34.0)
@@ -58,7 +54,6 @@ body-=Pos(0,shell_passage_y,case_top_center-shell_wall)*extrude(RectangleRounded
 # Reusable front-deck cassette: shallow locating seat over a true service aperture.
 body-=Pos(0,front_module_y,case_top_center-front_module_seat_depth)*extrude(RectangleRounded(front_module_width+front_module_seat_clearance,front_module_depth+front_module_seat_clearance,2.0),amount=front_module_seat_depth+0.5)
 body-=Pos(0,front_module_y,case_top_center-shell_wall-0.5)*extrude(RectangleRounded(front_module_aperture_width,front_module_aperture_depth,1.5),amount=shell_wall+1.0)
-body-=Pos(case_width/2,button_y,shell_button_z)*Rot(0,90,0)*Cylinder(button_diameter/2+panel_gap,4*shell_wall)
 # Active lite version: user removed the unused left charging opening.
 # The fan root meets a continuous full-thickness side wall.
 for x,z,w,h in [(shell_rj45_x,shell_rj45_z,shell_rj45_width,shell_rj45_height),(shell_usb_mid_x,shell_usb_mid_z,shell_usb_mid_width,shell_usb_mid_height),(shell_usb_right_x,shell_usb_right_z,shell_usb_right_width,shell_usb_right_height)]:
@@ -125,6 +120,7 @@ PCB_FRONT_BODY_BOUNDS=[
     (10.550000,-20.400000,22.594999, 13.450000,-17.600000,24.144999), # 17:SOT-23-6
     (6.349987,-17.500000,22.594999, 7.649987,-15.500000,23.894999), # 21:assembly_1_1
     (9.193698,-51.450013,22.594999, 12.206302,-48.550013,23.845082), # 24:assembly_1_14
+    (7.493685,-10.500000,22.594999, 13.506290,-5.500000,23.695082), # 26:assembly_1_6 moved U_BUF1
 ]
 for x0,y0,z0,x1,y1,z1 in PCB_FRONT_BODY_BOUNDS:
     roof=case_top_center-(z1+shell_pcb_top_air)
@@ -294,6 +290,38 @@ pad_shape.color=Color(0.1,0.1,0.1)
 publish('fan_collar',collar,'Side blower collar',material='pla')
 publish('fan_corner_pads',pad_shape,'Fan corner pads',material='silicone')
 for i,screw in enumerate(cooling_screws):publish('fan_collar_screw_'+str(i+1),screw,'Flush fan collar screw',material='stainless_steel')
+
+# Shared bottom-cover attachment datums; asymmetric to avoid Pi rear USB bodies.
+base_mount_front_x=param('base_mount_front_x',32.0)
+base_mount_front_y=param('base_mount_front_y',-48.0)
+base_mount_left_rear_x=param('base_mount_left_rear_x',-32.0)
+base_mount_left_rear_y=param('base_mount_left_rear_y',47.0)
+base_mount_right_mid_x=param('base_mount_right_mid_x',32.0)
+base_mount_right_mid_y=param('base_mount_right_mid_y',-35.0)
+base_mount_axes=[(-base_mount_front_x,base_mount_front_y),(base_mount_front_x,base_mount_front_y),(base_mount_left_rear_x,base_mount_left_rear_y),(base_mount_right_mid_x,base_mount_right_mid_y)]
+
+# Side-rooted bottom pads touch the cover at Z=base_thickness; retain outer seam.
+base_thickness=param('base_thickness',2.4)
+shell_base_pad_width=param('shell_base_pad_width',8.0)
+shell_base_pad_top=param('shell_base_pad_top',9.0)
+base_screw_engagement=param('base_screw_engagement',3.6)
+base_screw_probe=extrude(RectangleRounded(case_width,case_depth,case_corner),amount=base_thickness)
+base_mount_screws=[]
+base_joint_ids=[]
+for i,(xx,yy) in enumerate(base_mount_axes):
+ sx=1 if xx>0 else -1
+ tip=abs(xx)-shell_base_pad_width/2
+ root=case_width/2-shell_wall/2
+ pad=Pos(sx*(tip+root)/2,yy,(base_thickness+shell_base_pad_top)/2)*Box(root-tip,shell_base_pad_width,shell_base_pad_top-base_thickness)
+ body=body+pad
+ joint,seat,hardware=m2_flush_joint(Location((xx,yy,0),(180,0,0)),base_screw_probe,base_thickness,base_screw_engagement,body,'bottom-cover-'+str(i+1))
+ if len(joint.bosses.solids()):body=body+joint.bosses
+ body=body-joint.engage_cuts
+ base_mount_screws.append(hardware)
+ base_joint_ids.append('kit:printed-screw-joint-v1:bottom-'+str(i+1)+';free:ISO7046-M2-head')
+ print('BOTTOM_JOINT',i+1,dict(axis=(xx,yy),length=joint.screw_length_mm,engagement=joint.engage_depth_mm,boss=joint.boss_length_mm))
+assert len(base_joint_ids)==4
+
 assert len(front_module.solids())==1
 assert len(body.solids())==1
 body.color=Color(0.88,0.86,0.79)
@@ -307,3 +335,5 @@ for i,screw in enumerate(pcb_mount_screws):
 
 for i,screw in enumerate(pi_mount_screws):
  publish('pi_mount_screw_'+str(i+1),screw,'Pi corner screw',material='stainless_steel')
+
+for i,screw in enumerate(base_mount_screws):publish('base_mount_screw_'+str(i+1),screw,'Bottom cover screw',material='stainless_steel')

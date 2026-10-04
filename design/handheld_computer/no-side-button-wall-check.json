@@ -1,0 +1,17 @@
+{
+  "revision": "a3ad0bddefeec6ea79ecd0e5d1ac9aeb94276e7795fead3fa2530d885ad8b33a",
+  "region_center_mm": [
+    41.3,
+    -37,
+    12
+  ],
+  "region_size_mm": [
+    2.4,
+    10,
+    10
+  ],
+  "expected_solid_volume_mm3": 240,
+  "observed_solid_volume_mm3": 239.99999999999994,
+  "continuous_wall_passed": true,
+  "wall_thickness_mm": 2.4
+}

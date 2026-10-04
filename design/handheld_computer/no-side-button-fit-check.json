@@ -1,0 +1,148 @@
+{
+  "revision": "a3ad0bddefeec6ea79ecd0e5d1ac9aeb94276e7795fead3fa2530d885ad8b33a",
+  "method": "Exact OCC per-solid intersections of committed world-frame STEP objects; PCB visual copper excluded.",
+  "checks": {
+    "shell": {
+      "shared_volume_mm3": {
+        "pi4b": 0.0,
+        "cooling_fan": 0.0,
+        "pcb_physical": 0.0
+      },
+      "solid_count": 1,
+      "bounds": {
+        "min": [
+          -42.5000001,
+          -57.5000001,
+          2.3999999
+        ],
+        "max": [
+          42.5000001,
+          57.5000001,
+          27.0
+        ]
+      }
+    },
+    "base": {
+      "shared_volume_mm3": {
+        "pi4b": 0,
+        "cooling_fan": 0,
+        "pcb_physical": 0
+      },
+      "solid_count": 1,
+      "bounds": {
+        "min": [
+          -42.5,
+          -57.5,
+          -1.110223024625e-16
+        ],
+        "max": [
+          42.5000001,
+          57.5,
+          3.2
+        ]
+      }
+    },
+    "base_mount_screw_1": {
+      "shared_volume_mm3": {
+        "pi4b": 0,
+        "cooling_fan": 0,
+        "pcb_physical": 0,
+        "shell": 0.0,
+        "base": 0.0,
+        "front_module_blank": 0
+      },
+      "bounds": {
+        "min": [
+          -33.772720879386,
+          -49.772720879386,
+          -1.0000000033838604e-07
+        ],
+        "max": [
+          -30.227279120614,
+          -46.227279120614,
+          6.0
+        ]
+      },
+      "flush_bottom_error_mm": -0.0
+    },
+    "base_mount_screw_2": {
+      "shared_volume_mm3": {
+        "pi4b": 0,
+        "cooling_fan": 0,
+        "pcb_physical": 0,
+        "shell": 0.0,
+        "base": 0.0,
+        "front_module_blank": 0
+      },
+      "bounds": {
+        "min": [
+          30.227279120614,
+          -49.772720879386,
+          -1.0000000033838604e-07
+        ],
+        "max": [
+          33.772720879386,
+          -46.227279120614,
+          6.0
+        ]
+      },
+      "flush_bottom_error_mm": -0.0
+    },
+    "base_mount_screw_3": {
+      "shared_volume_mm3": {
+        "pi4b": 0,
+        "cooling_fan": 0,
+        "pcb_physical": 0,
+        "shell": 0.0,
+        "base": 0.0,
+        "front_module_blank": 0
+      },
+      "bounds": {
+        "min": [
+          -33.772720879386,
+          45.227279120614,
+          -1.0000000033838604e-07
+        ],
+        "max": [
+          -30.227279120614,
+          48.772720879386,
+          6.0
+        ]
+      },
+      "flush_bottom_error_mm": -0.0
+    },
+    "base_mount_screw_4": {
+      "shared_volume_mm3": {
+        "pi4b": 0,
+        "cooling_fan": 0,
+        "pcb_physical": 0,
+        "shell": 0.0,
+        "base": 0.0,
+        "front_module_blank": 0
+      },
+      "bounds": {
+        "min": [
+          30.227279120614,
+          -36.772720879386,
+          -1.0000000033838604e-07
+        ],
+        "max": [
+          33.772720879386,
+          -33.227279120614,
+          6.0
+        ]
+      },
+      "flush_bottom_error_mm": -0.0
+    }
+  },
+  "limits": [
+    "No physical print, screw pullout or plug shoulder/insertion-path test.",
+    "The shallow locating rim registers the cover; screws provide retention.",
+    "Existing screen-tail and thermal qualification limits remain."
+  ],
+  "shell_base_shared_volume_mm3": 0.0,
+  "base_pi_screw_clearance_mm": 0.9892353672493627,
+  "collision_check_passed": true,
+  "flush_bottom_check_passed": true,
+  "connected_printed_parts_passed": true
+}

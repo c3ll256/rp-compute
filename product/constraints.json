@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "active_lite_PCB_released_existing_CAD_board_import_stale",
   "bom_ready": true,
-  "requirements_digest": "f1398504b9c62a24af5001c26fca789c3321e659a895a5e1a139e08c42fe2c87",
+  "requirements_digest": "886c11bfd37ef9aa495fe69f93bb34ff89f1d758ddf8f74e8bde8f57d7024bea",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -746,29 +746,18 @@
     }
   ],
   "controls": {
-    "source": "default",
-    "mpn": "B3F-1000",
-    "quantity": 1,
-    "functions": [
-      "power/shutdown"
-    ],
-    "body_mm": [
-      6,
-      6,
-      4.3
-    ],
-    "footprint_on_face_mm": {
-      "w": 10,
-      "h": 10
-    },
-    "button_centers": "One power control only; no navigation bank. Position deferred toPCB/CAD, not inferred from images."
+    "source": "user",
+    "quantity": 0,
+    "functions": [],
+    "button_centers": [],
+    "note": "Active lite variant: side button, cap and hole removed; no switch or GPIO connection. Historical full-power variant source is separate."
   },
   "supervisor": {
     "source": "default",
     "mpn": "ATTINY1616-SN",
     "selection_status": "selected_candidate_interface_allocated",
     "note": "ATtiny1616 AON retained. Pi BCM17 shutdown request/BCM27 acknowledgement and UART14/15 reserved, fanGPIO12 separately. Wait for Linux safe shutdown, not fixed delay alone. ADC loaded-voltage thresholds await exact pack discharge/sag; no validated state-of-charge estimate.",
-    "user_controls": "One default power/shutdown button only; navigation button scan not required. Existing power, battery, shutdown anddisplayCOM duties retained."
+    "user_controls": "Historical full-power variant only; current lite variant has no supervisor or side power button."
   },
   "pcb_handoff_tasks": [
     "Implement defined BYOP/BYOB power/display schematic; no repeat battery supplier hunt. Add every support passive, transient clamp and exact footprint to manufacturing BOM.",
@@ -1594,5 +1583,88 @@
     "prior_geometry_review_release": "ceada78d56239a5a67ad64659dc0cfd2148fbb590c4dc810c60042197d11e74f",
     "current_pcb_release_authority": "manufacturing/pi_baseboard_lite/release-index.json",
     "current_pcb_geometry_review": "design/pi_baseboard_lite/front-side-enclosure-review.json"
+  },
+  "bottom_cover_and_side_port_fix": {
+    "source": "default",
+    "user_request": {
+      "value": "底面无法固定；侧面接口开孔太大，修正固定结构并收紧开孔。",
+      "source": "user"
+    },
+    "bottom_cover": {
+      "thickness_mm": 2.4,
+      "attachment_axes_world_xy_mm": [
+        [
+          -32,
+          -48
+        ],
+        [
+          32,
+          -48
+        ],
+        [
+          -32,
+          47
+        ],
+        [
+          32,
+          -35
+        ]
+      ],
+      "pad_top_z_mm": 9,
+      "pad_width_mm": 8,
+      "screws": "4 x ISO7046 M2-0.4 x6mm, flush from bottom",
+      "receiver": "printed-screw-joint-v1 compensated PLA receiver;3.6mm nominal engagement",
+      "rim": {
+        "height_mm": 0.8,
+        "thickness_mm": 1.2,
+        "radial_clearance_mm": 0.3
+      },
+      "reason": "Rear-right USB assembly occupies conventional corner-boss space; retained asymmetrical pads avoid purchased board bodies."
+    },
+    "active_side_openings": {
+      "usb_c": {
+        "center_yz_mm": [
+          -19.3,
+          8.18
+        ],
+        "size_mm": [
+          10.2,
+          5.2
+        ]
+      },
+      "micro_hdmi_1": {
+        "center_yz_mm": [
+          -4.5,
+          8.6
+        ],
+        "size_mm": [
+          7.4,
+          4.2
+        ]
+      },
+      "micro_hdmi_2": {
+        "center_yz_mm": [
+          9,
+          8.6
+        ],
+        "size_mm": [
+          7.4,
+          4.2
+        ]
+      },
+      "av": {
+        "center_yz_mm": [
+          23.5,
+          9.6
+        ],
+        "diameter_mm": 7.6
+      }
+    },
+    "evidence": [
+      "Placed Pi4B STEP immutable asset1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe",
+      "https://pip.raspberrypi.com/documents/RP-008343-DS",
+      "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew catalog detail,iso7046 M2-0.4 supported"
+    ],
+    "qualification": "Nominal CAD geometry; cable plug shoulders, insertion depth, FDM shrinkage and fastening strength require prototype. Rear port openings retained; side button opening removed at user request."
   }
 }

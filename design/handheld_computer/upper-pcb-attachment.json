@@ -4,8 +4,8 @@
     "value": "抬高紧凑板并固定到上外壳",
     "source": "user"
   },
-  "cad_revision": "2c7c2ccf1ef5fbca92db9749a5a5c9e1582444ba7004401cecb487c23b987f20",
-  "pcb_release": "dbacb2cc60cdef69951f80af131442ea24b1ed03394f9e446a1f890bf9a1d209",
+  "cad_revision": "ec22671b23ade2b894c2bd11afd797e6d93edd25c97aab1550952768fc5b8ca5",
+  "pcb_release": "8816a764c91d71af56bd3042eeca5a34a6f0ec2096f8967712fe44e23a199537",
   "board_placement": {
     "position_mm": [
       -100,
@@ -112,9 +112,9 @@
     "glass_locator": "unchanged",
     "screen_front_rise_mm": 1,
     "new_internal_clearance_mm": 0.5,
-    "cut_scope": "Local pockets for released FH12A open-latch envelope, U_BUF1 and C_BUF1; original screw axes preserved",
+    "cut_scope": "C5373447 drawer-open envelope, U_BUF1 relief and local active-tail service channel; screw axes retained",
     "print_strength": "not physically tested",
-    "minimum_ordinary_component_air_mm": 1.505918
+    "minimum_ordinary_component_air_mm": 1.555001
   },
   "gpio_stack": {
     "selected": "ESQ-120-12-G-D",
@@ -138,62 +138,165 @@
     "note": "The retained third-party Pi STEP has taller pins. Its6.335mm reference engagement is only0.015mm below maximum; do not qualify manufacturing tolerances against that reference. The official Pi datum is the intended compatibility basis."
   },
   "fpc_review": {
-    "schema_version": 3,
-    "status": "contact_orientation_and_pin_map_resolved_tail_seating_provisional",
-    "source": "default",
-    "length_estimate_mm": 13.7,
-    "estimate_uncertainty_mm": 0.5,
-    "estimate_qualification": "User authorized estimation.13.2..14.2mm is a design review allowance, not measured free length or a bound certified by the Sharp drawing. Do not stretch the tail or claim full installed reach.",
-    "non_contact_clearance_per_side_mm": 0.5,
-    "current_board_bottom_world_z_mm": 21.8,
-    "current_board_finished_top_world_z_mm": 22.6,
-    "native_exit_world_yz_mm": [
-      -0.5630557675,
-      27.9236985818
-    ],
-    "connector": "FH12A-10S-0.5SH(55)",
-    "connector_source_xy_mm": [
-      0,
-      26
-    ],
-    "connector_world_origin_xy_mm": [
-      0,
-      7
-    ],
-    "connector_opening": "horizontal-Y / front/down",
-    "contact_face": "upward/away from PCB",
-    "contact_identity_status": "manufacturer_verified",
-    "physical_pin_map": "socket terminal=11-panel terminal; all10 compiled pad positions, signal labels and nets verified",
-    "reference_closed_envelope_mm": [
-      9.5,
-      6.2,
-      2
-    ],
-    "reference_opened_height_mm": 3.6,
-    "datum_alignment": "Filled outer reference frontY=-4.825, width9.5,depth6.2; inferred alignment to C5139870 supplier silk/pads. No slot-height or angle is invented.",
-    "catalog_mated_section": "Hirose printed16/PDF11 labels1.9mm tip insertion and5mm from housing front to tip stop; tail protrudes upward at an unspecified angle. These nominal figures are not an exact3D mating plane.",
-    "recommended_bend_interval_mm": [
-      0.8,
-      6
-    ],
-    "minimum_inner_radius_mm": 0.45,
-    "stiffener_length_mm": 4,
-    "assembly": "Release screen pod for access, shape one back fold without twisting, copper upward, insert and close latch before final pod fastening. Panel has independent support.",
+    "schema_version": 4,
+    "status": "C5373447_clearance_checked_native_tail_seating_unqualified",
+    "cad_revision": "ec22671b23ade2b894c2bd11afd797e6d93edd25c97aab1550952768fc5b8ca5",
+    "pcb_release": "8816a764c91d71af56bd3042eeca5a34a6f0ec2096f8967712fe44e23a199537",
+    "pcb_step_sha256": "7be47336983ab285b75e6c7d2a93d2c29418654a82397f66cf8ef8e56ad6b53d",
+    "active_connector": {
+      "supplier_code": "C5373447",
+      "mpn": "0.5-10P CTSJ-H2.0 119",
+      "manufacturer": "SHOU HAN",
+      "contacts": "upward, copper-up folded native tail",
+      "opening": "horizontal -Y",
+      "mechanism": "sliding drawer, not flip latch",
+      "socket_terminal_to_panel_terminal": "socket=11-panel",
+      "closed_world_bounds": {
+        "min": [
+          -5.3,
+          2.169992,
+          22.594999
+        ],
+        "max": [
+          5.3,
+          7.469992,
+          24.604999
+        ]
+      },
+      "conservative_opened_world_bounds": {
+        "min": [
+          -5.3,
+          0.669992,
+          22.594999
+        ],
+        "max": [
+          5.3,
+          7.469992,
+          24.604999
+        ]
+      },
+      "open_stroke_mm": {
+        "value": 1.5,
+        "source": "research",
+        "qualification": "Supplier reference open depth6.7 minus closed5.2; conservative entire-body extension toward -Y, not kinematic simulation"
+      },
+      "opened_body_clearances_mm": {
+        "shell": 6.169992,
+        "fascia": 4.176714,
+        "retainer": 2.7,
+        "nominal_panel_envelope": 2.701017
+      },
+      "clearance_check_passed": true,
+      "model_qualification": "Detailed JLCEDA/EasyEDA library STEP; internal stop/contact plane is not certified mating geometry"
+    },
+    "native_tail": {
+      "exit_world_yz_mm": [
+        -0.5630557675,
+        27.9236985818
+      ],
+      "exit_tangent_deg_from_positive_Y": 193,
+      "width_mm": 5.5,
+      "stiffened_thickness_mm": 0.3,
+      "thickness_tolerance_mm": 0.03,
+      "stiffener_minimum_straight_length_mm": 4,
+      "free_length_estimate": {
+        "value": 13.7,
+        "source": "default",
+        "uncertainty_mm": 0.5,
+        "review_range_mm": [
+          13.2,
+          14.2
+        ],
+        "status": "provisional_estimate_not_measured",
+        "datum": "Along the native tail from glass exit edge to the physical tip, including the stiffener and the portion inserted into the connector.",
+        "basis": "Retain the earlier 13.7mm drawing-proportion estimate; ±0.5mm is an agent-selected review allowance, not a manufacturer tolerance or guaranteed bound.",
+        "qualification": "User delegated estimation; no further measurement question is needed to continue provisional design. Do not claim fit validation or stretch the cable. Check shortest reach and longest-tail accommodation separately."
+      },
+      "permitted_bend_interval_from_glass_exit_mm": [
+        0.8,
+        6
+      ],
+      "minimum_inside_radius_mm": 0.45,
+      "maximum_bend_cycles": 3,
+      "copper_face_after_back_fold": "+Z",
+      "insertion_depth_and_full_length_fit": "not qualified"
+    },
+    "negative_channel": {
+      "center_world_mm": [
+        0,
+        0,
+        25.75
+      ],
+      "size_mm": [
+        7.5,
+        7,
+        7.5
+      ],
+      "scope": "Local negative clearance in fascia and retainer only; no invented purchased FPC solid. Historical wider fold cuts also remain."
+    },
+    "service": {
+      "assembly": "Power off. Release pod and access connector from rear; support glass independently. Pull drawer evenly on both ends, insert straight stiffener copper-up without force, close drawer before fastening pod. Remove Pi if needed for access.",
+      "operation_qualification": "Envelope clears nominal structure; assembled finger access, pull force and complete physical latch travel are not qualified."
+    },
     "evidence": [
-      "Sharp LS027B7DH01 PDF11 and26",
-      "Hirose manufacturer catalog PDF11/printed16",
-      "C5139870 supplier footprint",
-      "fpc-physical-pin-review.json"
+      "Sharp LS027B7DH01 PDF26",
+      "C5373447 supplier datasheet PDF1",
+      "released assembly.step and exact CAD per-solid intersections"
     ],
-    "not_claimed": [
-      "Complete13.2..14.2mm native-tail route seated against an exact internal stop",
-      "Certified mouth plane/angle or physical latch motion",
-      "Physical GPIO engagement tolerances",
-      "Measured thermal performance"
-    ],
-    "pcb_release": "90c5e7e3d87051e673eb4af85e3debf84ebc81adcc72dfc6dc141548fa7afe7d",
-    "cad_revision": "bd3a4861e4a55080ebf6217f622f8789631da4b61aa90558279edebd83e0273d"
+    "candidate_route_study": {
+      "status": "illustrative_two_arc_family_rejected_for_full_estimate_range",
+      "qualification": "Not a proof that every possible native-tail route fails. Model-derived insertion and slot plane are assumptions; no route is claimed fitted. Do not stretch the tail or relax Sharp bend limits.",
+      "assumed_slot_center_world_z_mm": 23.894999,
+      "assumed_mouth_world_y_mm": 2.1699924,
+      "assumed_insertion_mm": 1.85,
+      "slot_basis": "Library cavity at X=0, approximate rawZ0.3 and raw stopY-0.7; simplified CAD model, not certified physical values",
+      "first_straight_mm": 0.8,
+      "centerline_radius_mm": 0.615,
+      "inside_radius_at_worst_thickness_mm": 0.45,
+      "candidates": [
+        {
+          "tail_length_mm": 13.2,
+          "intermediate_tangent_deg": 232.153111,
+          "final_bend_station_mm": 5.928817,
+          "bend_window_passed": true,
+          "straight_tip_length_mm": 7.271183,
+          "endpoint_world_yz_mm": [
+            4.019992,
+            23.894999
+          ]
+        },
+        {
+          "tail_length_mm": 13.7,
+          "intermediate_tangent_deg": 228.2453,
+          "final_bend_station_mm": 6.12403,
+          "bend_window_passed": false,
+          "straight_tip_length_mm": 7.57597,
+          "endpoint_world_yz_mm": [
+            4.019992,
+            23.894999
+          ]
+        },
+        {
+          "tail_length_mm": 14.2,
+          "intermediate_tangent_deg": 224.853868,
+          "final_bend_station_mm": 6.327827,
+          "bend_window_passed": false,
+          "straight_tip_length_mm": 7.872173,
+          "endpoint_world_yz_mm": [
+            4.019992,
+            23.894999
+          ]
+        }
+      ]
+    }
   },
-  "status": "upper_shell_mount_and_air_checks_passed_tail_seating_provisional",
-  "pcb_step_sha256": "fc63232fc7ddf1972848edb829711607d9a1d65cc299b42f3427e71f542c520a"
+  "status": "current_PCB_import_and_structural_air_checks_passed_native_tail_seating_unqualified",
+  "pcb_step_sha256": "7be47336983ab285b75e6c7d2a93d2c29418654a82397f66cf8ef8e56ad6b53d",
+  "local_component_pockets": {
+    "count": 12,
+    "target_air_mm": 1.6,
+    "minimum_remaining_roof_mm": 1.255001,
+    "qualification": "Local thin regions below general1.5mm wall guidance; roof minimum1.2mm is a prototype default, strength not qualified. Main walls2.4mm."
+  },
+  "checks_ref": "new-pcb-fit-check.json"
 }

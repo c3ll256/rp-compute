@@ -35,7 +35,7 @@
     {
       "id": "control_access",
       "kind": "external_access",
-      "description": "仅完整版：只保留一枚默认电源/受控关机按键的安装及操作空间；无导航、确认、返回按键阵列。",
+      "description": "仅历史电源完整版的按键方案；当前精简版无侧面电源按钮或按钮孔，系统关机通过软件完成。",
       "source": "contract_interface",
       "required": false
     },
@@ -170,7 +170,7 @@
       {
         "role": "computer_enclosure",
         "design_id": "handheld_computer",
-        "description": "外观及Pi接口布局STEP：后方USB/RJ45，右侧micro-HDMI/AV，精简版右侧Pi原生USB-C供电、左侧连续封闭；未验证紧固、工作联锁、真实插头或电池仓。 屏舱前沿高出平台名义1mm。",
+        "description": "外观及Pi接口布局STEP：后方USB/RJ45，右侧micro-HDMI/AV，精简版右侧Pi原生USB-C供电、左侧连续封闭；未验证紧固、工作联锁、真实插头或电池仓。 屏舱前沿高出平台名义1mm。 用户取消侧面按钮；右侧原按钮位置为连续全厚侧壁。",
         "delivery_target": "visual_review",
         "required_formats": [
           "step"
@@ -180,7 +180,6 @@
           "sharp_display_fit",
           "usb_access",
           "battery_fit",
-          "control_access",
           "gpio_dock",
           "pi_native_ports",
           "front_gpio_module",

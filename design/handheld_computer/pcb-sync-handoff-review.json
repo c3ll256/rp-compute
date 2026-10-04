@@ -1,0 +1,42 @@
+{
+  "status": "visual_handoff_current_PCB_and_clearances_checked_native_tail_seating_unqualified",
+  "cad_revision": "ec22671b23ade2b894c2bd11afd797e6d93edd25c97aab1550952768fc5b8ca5",
+  "export_id": "export-4dd1898d606d206c2dfeb0236724f268",
+  "export_step_sha256": "e66f8a7221dbb552dbdd31e9a60825425812fb68ffdb1970d6d38d8912fa7335",
+  "pcb_release": "8816a764c91d71af56bd3042eeca5a34a6f0ec2096f8967712fe44e23a199537",
+  "pcb_build": "74243f2e9887ca94aa3ad385af2fe3a64e6d4654abe573d9fa06137dc41f7fcc",
+  "pcb_step_sha256": "7be47336983ab285b75e6c7d2a93d2c29418654a82397f66cf8ef8e56ad6b53d",
+  "current_asset_hash_verified_against_release_and_receipt": true,
+  "native_runtime_PCB_binding": {
+    "pcbRelease_metadata_present": false,
+    "qualification": "Workbench runtime did not populate structured pcbReleases metadata despite importing exact release assembly.step. Manual identity proof is released STEP hash = immutable CAD asset bytes hash = receipt asset hash; no managed output was patched."
+  },
+  "final_export_interference": {
+    "summary": "0 interfering pairs, 27 undetermined",
+    "counts": {
+      "objects": 33,
+      "pairs": 528,
+      "exact": 11,
+      "cached": 54,
+      "interference": 0,
+      "undeclared": 0,
+      "over_budget": 0,
+      "undetermined": 27
+    },
+    "overlaps": []
+  },
+  "supplementary_body_checks": "new-pcb-fit-check.json",
+  "supplementary_fastener_checks": "fastener-fit-check.json",
+  "fpc_review": "fpc-route.json",
+  "ordinary_component_air_mm": 1.555001,
+  "opened_latch_envelope_clearance_mm": 2.7,
+  "physical_FPC_seating_qualified": false,
+  "local_minimum_roof_mm": 1.255001,
+  "remaining_prototype_checks": [
+    "Native tail total length, socket insertion plane/stop and complete stiffener seating",
+    "Actual drawer operation and access with pod removed",
+    "Thin roof strength and PLA screw calibration",
+    "Current top-side rear J_FAN harness needs a new route; old bottom-side route is historical",
+    "Temperature test; visual CAD is not thermal qualification"
+  ]
+}

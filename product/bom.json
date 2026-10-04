@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "f1398504b9c62a24af5001c26fca789c3321e659a895a5e1a139e08c42fe2c87",
+  "requirements_digest": "886c11bfd37ef9aa495fe69f93bb34ff89f1d758ddf8f74e8bde8f57d7024bea",
   "items": [
     {
       "id": "compute",
@@ -557,7 +557,7 @@
       },
       "required_user_evidence": [],
       "description": "Printed upper shell, existing85x115x27mm exterior. Two transverse PCB screw beams plus rear edge shelf/guide integrated in the shell. CAD default PLA; print fit, strength and service life untested.",
-      "selection_reason": "Upper-shell PCB beams and rear guide support the raised HAT. Obsolete left charging aperture removed; cradle roots join continuous wall below/alongside left exhaust vents. Pi native USB-C remains exposed.",
+      "selection_reason": "Upper-shell PCB beams and rear guide support the raised HAT. Obsolete left charging aperture removed; cradle roots join continuous wall below/alongside left exhaust vents. Pi native USB-C remains exposed. Current lite right wall is continuous at the former side button; no button cap or switch is supplied.",
       "cad_relevance": {
         "description": "Two existing2.2mm PCB holes at world(+/-16,-32) and rear left board edge."
       },
@@ -846,6 +846,58 @@
       "required_user_evidence": [],
       "selection_status": "selected",
       "part_identity": "8f214a9722dbc2a7"
+    },
+    {
+      "id": "bottom_cover_screws",
+      "role": "enclosure_bottom_fasteners",
+      "name": "ISO7046 M2 countersunk cross-recess screws, 6mm",
+      "quantity": 4,
+      "supplier": "External mechanical hardware supplier",
+      "manufacturer": "ISO7046 standard",
+      "part_number": "ISO7046-M2-0.4x6",
+      "mpn": "ISO7046-M2-0.4x6",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_reason": "Four bottom-up flush screws retain the removable bottom to upper-shell wall-rooted pads. Printed receivers use printed-screw-joint-v1,3.6mm engagement; M2 ISO10642 head rejected by kit, explicit ISO7046 head/seat fallback keeps kit receiver and compensated shank. Locations avoid Pi underside/rear USB bodies. Physical thread and pullout tests pending.",
+      "cad_model": {
+        "provider": "bd-warehouse",
+        "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
+        "parameters": {
+          "size": "M2-0.4",
+          "length": 6,
+          "fastener_type": "iso7046"
+        },
+        "selection": "exact"
+      },
+      "cad_relevance": {
+        "axes_world_xy_mm": [
+          [
+            -32,
+            -48
+          ],
+          [
+            32,
+            -48
+          ],
+          [
+            -32,
+            47
+          ],
+          [
+            32,
+            -35
+          ]
+        ],
+        "receiving_host": "upper shell",
+        "head_flush_world_z_mm": 0
+      },
+      "part_identity": "fee164564ca889f6"
     }
   ],
   "alternatives": [],

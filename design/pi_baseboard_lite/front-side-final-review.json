@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "PCB_released_existing_enclosure_air_target_pending",
+  "status": "PCB_released_CAD_synced_air_target_passed_native_tail_seating_provisional",
   "release_id": "8816a764c91d71af56bd3042eeca5a34a6f0ec2096f8967712fe44e23a199537",
   "build_id": "74243f2e9887ca94aa3ad385af2fe3a64e6d4654abe573d9fa06137dc41f7fcc",
   "pcb_step_sha256": "7be47336983ab285b75e6c7d2a93d2c29418654a82397f66cf8ef8e56ad6b53d",
@@ -31,13 +31,18 @@
     "released bodies versus exact existing CAD revision"
   ],
   "existing_CAD": {
-    "revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
-    "new_board_imported": false,
+    "revision": "ec22671b23ade2b894c2bd11afd797e6d93edd25c97aab1550952768fc5b8ca5",
+    "new_board_imported": true,
     "solid_body_intersections": 0,
-    "minimum_ordinary_top_air_mm": 0.455001,
+    "minimum_ordinary_top_air_mm": 1.555001,
     "retained_target_mm": 1.5,
-    "target_passed": false,
-    "next_action": "Import this PCB release and add clearance above top-side power circuits while preserving shell strength; recheck exact final assembly."
+    "target_passed": true,
+    "export_id": "export-4dd1898d606d206c2dfeb0236724f268",
+    "imported_step_hash_verified": true,
+    "FPC_drawer_opened_minimum_clearance_mm": 2.7,
+    "full_native_tail_seating_qualified": false,
+    "review": "design/handheld_computer/pcb-sync-handoff-review.json",
+    "next_action": "Prototype native-tail seating and local thin-roof strength. CAD visual handoff is current; do not treat latch-envelope clearance as proof of full insertion."
   },
   "assembly_boundary": "Front-side populated layout; Pi bottom THT separately. Manual prototype assembly remains selected, generated JLC SMT CSVs contain headers only. No supplier-facing order approved. Native FPC tail clamp, full cable routing and electrical/thermal tests remain prototype checks.",
   "C_LCD_IN_to_Pi_copper_land_mm": {
