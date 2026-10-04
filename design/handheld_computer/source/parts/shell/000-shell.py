@@ -109,6 +109,31 @@ def m2_flush_joint(frame, sheet, thickness, engagement, host, label):
 # A blank insert defines the shared mechanical envelope for later user-made modules.
 front_module=Pos(0,front_module_y,case_top_center-front_module_seat_depth/2)*extrude(RectangleRounded(front_module_width,front_module_depth,1.8),amount=front_module_seat_depth/2,both=True)
 front_module+=Pos(0,front_module_y,case_top_center-front_module_seat_depth-front_module_tongue_depth)*extrude(RectangleRounded(front_module_aperture_width-2*front_module_seat_clearance,front_module_aperture_depth-2*front_module_seat_clearance,1.2),amount=front_module_tongue_depth)
+# Exact physical top-body bounds from PCB release8816a764, source XY+(0,-19).
+# Fixed asset geometry; only the air allowance/remaining roof are design decisions.
+shell_pcb_top_air=param('shell_pcb_top_air',1.6)
+front_module_pcb_min_roof=param('front_module_pcb_min_roof',1.2)
+PCB_FRONT_BODY_BOUNDS=[
+    (-8.650013,-51.000000,22.594999, -7.350013,-49.000000,23.894999), # 0:assembly_1_1
+    (-8.850013,-23.800000,22.594999, -7.550013,-21.800000,23.894999), # 4:assembly_1_1
+    (-17.150013,-51.000000,22.594999, -15.850013,-49.000000,23.894999), # 8:assembly_1_1
+    (4.600000,-10.750000,22.594999, 5.400000,-9.150000,23.394999), # 9:assembly_1_10
+    (4.800000,-50.649987,22.594999, 6.800000,-49.349987,23.894999), # 10:assembly_1_1
+    (14.400000,-50.649987,22.594999, 16.400000,-49.349987,23.894999), # 11:assembly_1_1
+    (-14.006302,-51.449987,22.594999, -10.993698,-48.549987,23.845082), # 13:assembly_1_14
+    (-8.450000,-19.400000,22.594999, -5.550000,-16.600000,24.144999), # 15:SOT-23-6
+    (10.550000,-20.400000,22.594999, 13.450000,-17.600000,24.144999), # 17:SOT-23-6
+    (6.349987,-17.500000,22.594999, 7.649987,-15.500000,23.894999), # 21:assembly_1_1
+    (9.193698,-51.450013,22.594999, 12.206302,-48.550013,23.845082), # 24:assembly_1_14
+]
+for x0,y0,z0,x1,y1,z1 in PCB_FRONT_BODY_BOUNDS:
+    roof=case_top_center-(z1+shell_pcb_top_air)
+    assert roof>=front_module_pcb_min_roof, ('local roof',roof)
+    clearance=Pos((x0+x1)/2,(y0+y1)/2,(z0+z1)/2)*Box(x1-x0+2*shell_pcb_top_air,y1-y0+2*shell_pcb_top_air,z1-z0+2*shell_pcb_top_air)
+    body=body-clearance
+    front_module=front_module-clearance
+print('PCB_AIR_POCKETS',len(PCB_FRONT_BODY_BOUNDS), 'minimum roof',case_top_center-max(b[5] for b in PCB_FRONT_BODY_BOUNDS)-shell_pcb_top_air)
+
 front_module_screws=[]
 for xx in [-front_module_screw_x,front_module_screw_x]:
  for yy in [front_module_y-front_module_screw_y_offset,front_module_y+front_module_screw_y_offset]:

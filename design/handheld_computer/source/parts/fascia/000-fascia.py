@@ -1,6 +1,3 @@
-# cell: fascia
-# cell: fascia
-# cell: fascia
 import math
 fascia_width=param('fascia_width',77.0)
 fascia_depth=param('fascia_depth',65.0)
@@ -160,11 +157,21 @@ voids=[
 # Exact supplier package size0.8x1.6x0.8; local pocket follows its new position.
 fascia_pcb_small_component_air=param('fascia_pcb_small_component_air',1.6)
 voids.append(Pos(6.2,-1.2,fascia_pcb_bottom_z+PCB_T+0.8/2)*Box(0.8+2*fascia_pcb_small_component_air,1.6+2*fascia_pcb_small_component_air,0.8+2*fascia_pcb_small_component_air))
-# FH12A top-contact closed envelope is9.5x6.2x2.0; opened height3.6.
-# Manufacturer catalog p16/PDF11. Filled open-height prism is conservative
-# assembly keepout only, not latch geometry or a claimed cable insertion plane.
+# Released U_BUF1 body moved into front-right screen rail; rigid PCB datum.
+# Exact release8816a764 bounds X7.493685..13.50629,Y-10.5..-5.5,Z22.594999..23.695082.
+# Allowance is independently adjustable; screen/retainer screw axes stay fixed.
+retainer_pcb_buffer_air=param('retainer_pcb_buffer_air',1.6)
+voids.append(Pos(10.4999875,-8.0,23.1450405)*Box(6.012605+2*retainer_pcb_buffer_air,5.0+2*retainer_pcb_buffer_air,1.100083+2*retainer_pcb_buffer_air))
+# Current SHOU HAN C5373447 drawer, not the former hinged FH12A.
+# Actual closed bounds plus supplier PDF1 reference1.5mm forward stroke.
 fascia_fpc_latch_air=param('fascia_fpc_latch_air',0.5)
-voids.append(Pos(0,5.275,fascia_pcb_bottom_z+PCB_T+3.6/2)*Box(9.5+2*fascia_fpc_latch_air,6.2+2*fascia_fpc_latch_air,3.6+2*fascia_fpc_latch_air))
+voids.append(Pos(0,4.0699924,23.599999)*Box(10.6+2*fascia_fpc_latch_air,6.8+2*fascia_fpc_latch_air,2.010000+2*fascia_fpc_latch_air))
+# Negative service channel to the glass exit; not a manufactured cable model.
+# Frozen exitYZ(-0.5630558,27.9236986), selected horizontal mouth Y2.1699924.
+fascia_active_tail_channel_width=param('fascia_active_tail_channel_width',7.5)
+fascia_active_tail_channel_depth=param('fascia_active_tail_channel_depth',7.0)
+fascia_active_tail_channel_height=param('fascia_active_tail_channel_height',7.5)
+voids.append(Pos(0,0,25.75)*Box(fascia_active_tail_channel_width,fascia_active_tail_channel_depth,fascia_active_tail_channel_height))
 for void_world in voids:
  void_local=void_world.moved(SCREEN_WORLD.inverse())
  host=host-void_local
