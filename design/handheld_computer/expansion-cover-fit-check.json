@@ -1,0 +1,303 @@
+{
+  "revision": "62c250f7d454362081b060b4c0ce1341a9644d2f06e0e150ab746212e5f5b7e7",
+  "method": "Exact OCC per-solid checks of committed world-frame STEP; PCB copper/pad/via visualization excluded.",
+  "checks": {
+    "front_module_blank": {
+      "bounds": {
+        "min": [
+          -35.0,
+          -52.5,
+          25.0
+        ],
+        "max": [
+          35.0,
+          -15.499999999999998,
+          27.0
+        ]
+      },
+      "solid_count": 1,
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "base": 0.0,
+        "pi4b": 0.0,
+        "cooling_fan": 0.0,
+        "fascia": 0.0,
+        "fan_collar": 0.0,
+        "passive_heatsink": 0.0,
+        "physical_pcb": 0.0,
+        "pcb_mount_screw_1": 0.0,
+        "pcb_mount_screw_2": 0.0,
+        "pcb_mount_spacer_1": 0.0,
+        "pcb_mount_spacer_2": 0.0
+      }
+    },
+    "pcb_mount_screw_1": {
+      "bounds": {
+        "min": [
+          -17.9900001,
+          -33.99,
+          18.5999999
+        ],
+        "max": [
+          -14.0099999,
+          -30.0099999,
+          24.6
+        ]
+      },
+      "solid_count": 1,
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "base": 0.0,
+        "pi4b": 0.0,
+        "cooling_fan": 0.0,
+        "fascia": 0.0,
+        "fan_collar": 0.0,
+        "passive_heatsink": 0.0,
+        "physical_pcb": 0.0,
+        "front_module_blank": 0.0,
+        "pcb_mount_screw_2": 0.0,
+        "pcb_mount_spacer_1": 0.0,
+        "pcb_mount_spacer_2": 0.0
+      }
+    },
+    "pcb_mount_screw_2": {
+      "bounds": {
+        "min": [
+          14.01,
+          -33.99,
+          18.5999999
+        ],
+        "max": [
+          17.9900001,
+          -30.01,
+          24.6
+        ]
+      },
+      "solid_count": 1,
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "base": 0.0,
+        "pi4b": 0.0,
+        "cooling_fan": 0.0,
+        "fascia": 0.0,
+        "fan_collar": 0.0,
+        "passive_heatsink": 0.0,
+        "physical_pcb": 0.0,
+        "front_module_blank": 0.0,
+        "pcb_mount_screw_1": 0.0,
+        "pcb_mount_spacer_1": 0.0,
+        "pcb_mount_spacer_2": 0.0
+      }
+    },
+    "pcb_mount_spacer_1": {
+      "bounds": {
+        "min": [
+          -18.4,
+          -34.4,
+          20.6
+        ],
+        "max": [
+          -13.6,
+          -29.6,
+          21.8
+        ]
+      },
+      "solid_count": 1,
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "base": 0.0,
+        "pi4b": 0.0,
+        "cooling_fan": 0.0,
+        "fascia": 0.0,
+        "fan_collar": 0.0,
+        "passive_heatsink": 0.0,
+        "physical_pcb": 0.0,
+        "front_module_blank": 0.0,
+        "pcb_mount_screw_1": 0.0,
+        "pcb_mount_screw_2": 0.0,
+        "pcb_mount_spacer_2": 0.0
+      }
+    },
+    "pcb_mount_spacer_2": {
+      "bounds": {
+        "min": [
+          13.6,
+          -34.4,
+          20.6
+        ],
+        "max": [
+          18.4,
+          -29.6,
+          21.8
+        ]
+      },
+      "solid_count": 1,
+      "shared_volume_mm3": {
+        "shell": 0.0,
+        "base": 0.0,
+        "pi4b": 0.0,
+        "cooling_fan": 0.0,
+        "fascia": 0.0,
+        "fan_collar": 0.0,
+        "passive_heatsink": 0.0,
+        "physical_pcb": 0.0,
+        "front_module_blank": 0.0,
+        "pcb_mount_screw_1": 0.0,
+        "pcb_mount_screw_2": 0.0,
+        "pcb_mount_spacer_1": 0.0
+      }
+    }
+  },
+  "limits": [
+    "No physical print, module insertion, torque, load or repeated-removal test.",
+    "The central underside recess leaves a nominal0.645001mm non-load-bearing roof and0.1mm air; actual print and component tolerances remain unverified.",
+    "Removal checks sample vertical positions; monotonic clearance pockets and absence of undercuts are also checked visually.",
+    "Existing whole-product FPC, harness and cooling qualification remains outside this cover change."
+  ],
+  "closed_skin": {
+    "former_left_tip_hole": {
+      "probe_volume_mm3": 0.6283185,
+      "cover_volume_mm3": 0.6283185
+    },
+    "former_right_tip_hole": {
+      "probe_volume_mm3": 0.6283185,
+      "cover_volume_mm3": 0.6283185
+    },
+    "sealed_flat_socket_roof": {
+      "probe_volume_mm3": 4.8,
+      "cover_volume_mm3": 4.8
+    }
+  },
+  "closed_skin_passed": true,
+  "vertical_removal": {
+    "0.1": {
+      "shell": 0.0,
+      "base": 0.0,
+      "pi4b": 0.0,
+      "cooling_fan": 0.0,
+      "fascia": 0.0,
+      "fan_collar": 0.0,
+      "passive_heatsink": 0.0,
+      "pcb_mount_screw_1": 0.0,
+      "pcb_mount_screw_2": 0.0,
+      "pcb_mount_spacer_1": 0.0,
+      "pcb_mount_spacer_2": 0.0,
+      "retainer": 0.0,
+      "bezel": 0.0,
+      "physical_pcb": 0.0
+    },
+    "0.6": {
+      "shell": 0.0,
+      "base": 0.0,
+      "pi4b": 0.0,
+      "cooling_fan": 0.0,
+      "fascia": 0.0,
+      "fan_collar": 0.0,
+      "passive_heatsink": 0.0,
+      "pcb_mount_screw_1": 0.0,
+      "pcb_mount_screw_2": 0.0,
+      "pcb_mount_spacer_1": 0.0,
+      "pcb_mount_spacer_2": 0.0,
+      "retainer": 0.0,
+      "bezel": 0.0,
+      "physical_pcb": 0.0
+    },
+    "1.4": {
+      "shell": 0.0,
+      "base": 0.0,
+      "pi4b": 0.0,
+      "cooling_fan": 0.0,
+      "fascia": 0.0,
+      "fan_collar": 0.0,
+      "passive_heatsink": 0.0,
+      "pcb_mount_screw_1": 0.0,
+      "pcb_mount_screw_2": 0.0,
+      "pcb_mount_spacer_1": 0.0,
+      "pcb_mount_spacer_2": 0.0,
+      "retainer": 0.0,
+      "bezel": 0.0,
+      "physical_pcb": 0.0
+    },
+    "2.0": {
+      "shell": 0.0,
+      "base": 0.0,
+      "pi4b": 0.0,
+      "cooling_fan": 0.0,
+      "fascia": 0.0,
+      "fan_collar": 0.0,
+      "passive_heatsink": 0.0,
+      "pcb_mount_screw_1": 0.0,
+      "pcb_mount_screw_2": 0.0,
+      "pcb_mount_spacer_1": 0.0,
+      "pcb_mount_spacer_2": 0.0,
+      "retainer": 0.0,
+      "bezel": 0.0,
+      "physical_pcb": 0.0
+    },
+    "5.0": {
+      "shell": 0.0,
+      "base": 0.0,
+      "pi4b": 0.0,
+      "cooling_fan": 0.0,
+      "fascia": 0.0,
+      "fan_collar": 0.0,
+      "passive_heatsink": 0.0,
+      "pcb_mount_screw_1": 0.0,
+      "pcb_mount_screw_2": 0.0,
+      "pcb_mount_spacer_1": 0.0,
+      "pcb_mount_spacer_2": 0.0,
+      "retainer": 0.0,
+      "bezel": 0.0,
+      "physical_pcb": 0.0
+    },
+    "10.0": {
+      "shell": 0.0,
+      "base": 0.0,
+      "pi4b": 0.0,
+      "cooling_fan": 0.0,
+      "fascia": 0.0,
+      "fan_collar": 0.0,
+      "passive_heatsink": 0.0,
+      "pcb_mount_screw_1": 0.0,
+      "pcb_mount_screw_2": 0.0,
+      "pcb_mount_spacer_1": 0.0,
+      "pcb_mount_spacer_2": 0.0,
+      "retainer": 0.0,
+      "bezel": 0.0,
+      "physical_pcb": 0.0
+    }
+  },
+  "socket_top_z_mm": 26.254999,
+  "socket_air_mm": 0.1,
+  "socket_central_roof_mm": 0.645001,
+  "screw_tip_cover_clearance_mm": {
+    "pcb_mount_screw_1": 0.5,
+    "pcb_mount_screw_2": 0.5
+  },
+  "corner_mounts": {
+    "front_module_screw_1": {
+      "shared_volume_with_cover_mm3": 0.0,
+      "head_top_z_mm": 27.0
+    },
+    "front_module_screw_2": {
+      "shared_volume_with_cover_mm3": 0.0,
+      "head_top_z_mm": 27.0
+    },
+    "front_module_screw_3": {
+      "shared_volume_with_cover_mm3": 0.0,
+      "head_top_z_mm": 27.0
+    },
+    "front_module_screw_4": {
+      "shared_volume_with_cover_mm3": 0.0,
+      "head_top_z_mm": 27.0
+    }
+  },
+  "collision_passed": true,
+  "removal_passed": true,
+  "minimum_roof_passed": true,
+  "flat_top_passed": true,
+  "separate_part_passed": true,
+  "cover_part_id": "front_module_cover",
+  "corner_fasteners_passed": true,
+  "single_piece_cover_passed": true
+}

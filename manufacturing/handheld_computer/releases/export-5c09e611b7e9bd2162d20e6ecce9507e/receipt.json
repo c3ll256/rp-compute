@@ -1,26 +1,26 @@
 {
   "designId": "handheld_computer",
-  "revision": "a3ad0bddefeec6ea79ecd0e5d1ac9aeb94276e7795fead3fa2530d885ad8b33a",
+  "revision": "f7a2881b16c8992e6aef26389e47548bad0c4b7db00c64a95b19a198af783eeb",
   "schemaVersion": 2,
-  "exportId": "export-fcf4f55a7e77369ebba3fce4ada18ec2",
-  "generatedAt": "2026-10-04T10:01:37.787Z",
-  "designSha256": "db48bdc26e550df13956b4aac776af686ffa5d887ced4cd56be9b6384cd6f60d",
+  "exportId": "export-5c09e611b7e9bd2162d20e6ecce9507e",
+  "generatedAt": "2026-10-08T06:09:16.845Z",
+  "designSha256": "d02dca43b7af0f9b110d2afb10984d92395acdae596b0f7543355c48ab8af061",
   "role": "computer_enclosure",
-  "stateHash": "da334f5ef2f8d47be45109d1845acc06f497794a15d3f8d01af81896f743c647",
+  "stateHash": "085bb554271e40de6a862150f6d56bf7953924f1de9a36db9dfb5e2ac2a9d70d",
   "stateManifest": {
     "schemaVersion": 3,
     "designId": "handheld_computer",
     "role": "computer_enclosure",
     "design": {
-      "revision": "a3ad0bddefeec6ea79ecd0e5d1ac9aeb94276e7795fead3fa2530d885ad8b33a",
-      "designSha256": "3fda5cd89a0abf763609d2ace57f95ef71c0c6e67608f8f3e9f0e6ff8bb27877",
-      "manifestSha256": "d4015be975cfb27de44de3f65aa82ac9cf6f0b099d49e2834c9661311630e3b7",
-      "stepSha256": "42cfdcbfac6d72a2c00a73534fec24746d065463c0db911e728c7f45b7cffd9c",
+      "revision": "f7a2881b16c8992e6aef26389e47548bad0c4b7db00c64a95b19a198af783eeb",
+      "designSha256": "daf886dca6abcccbe68cbbda6d2dc52236f787bb3bb396a7f21cec9b8c24f69d",
+      "manifestSha256": "fd4f9b14ac609a3293c1cfa9015d5f7fd84b2d43788ba4fd752b982dfc59d404",
+      "stepSha256": "4d6dcea78b9908be688d9ff7b2bed0ee6fb0a0e047e729672f511e6e571be143",
       "pcbReleases": []
     },
     "brief": {
       "path": "design/handheld_computer/README.md",
-      "sha256": "ca8d0e73b3250f23e60c36e5da25af3b42aaf16e40ef51b391a4e7d81a4aca64"
+      "sha256": "21035bb3a248ea42c853e9509eb50074362c1515cfcd70badaf6915a7cb1ec99"
     },
     "requirement": {
       "artifactContractPath": "product/contract.json",
@@ -126,25 +126,26 @@
         "step"
       ]
     },
-    "stateHash": "da334f5ef2f8d47be45109d1845acc06f497794a15d3f8d01af81896f743c647"
+    "stateHash": "085bb554271e40de6a862150f6d56bf7953924f1de9a36db9dfb5e2ac2a9d70d"
   },
   "buildArtifacts": {
-    "manifestSha256": "d4015be975cfb27de44de3f65aa82ac9cf6f0b099d49e2834c9661311630e3b7",
-    "stepSha256": "42cfdcbfac6d72a2c00a73534fec24746d065463c0db911e728c7f45b7cffd9c"
+    "manifestSha256": "fd4f9b14ac609a3293c1cfa9015d5f7fd84b2d43788ba4fd752b982dfc59d404",
+    "stepSha256": "4d6dcea78b9908be688d9ff7b2bed0ee6fb0a0e047e729672f511e6e571be143"
   },
   "exportAlgorithm": {
     "version": 1,
-    "bootstrapSha256": "ee3801d485ce9c36c94064620fc14c1fad29a20395abe3cd26ac51a72ac105d1"
+    "bootstrapSha256": "e2af1b0833add633b44719abaa1621ecf0dce13d9b71da057d1343cb112a1509"
   },
   "sourceHashes": {
     "base/base": "1d9be648ec442d3182c2558398494923bdc437f90b2cf42e53b6ba05f28705ae",
     "bezel/bezel": "cb752d27f215b046a382b7ede17afc0a9594195d361e57bc0cc735d18d451823",
     "fascia/fascia": "3c75d36be168832cee6a5bc1ac85a65743109188a0162659455736c881053698",
+    "front_module_cover/front_module_cover": "706f044e7b7865371323b5ca01039bd3f78e6d81c1fc3276bc5182da4d5bdefb",
     "imports/cooling_fan": "30e9652c31dc3d0ec3daf53e9bebd04a1152d1b2846832669a14e3b5f78a1e66",
     "imports/pi_baseboard_lite": "9d4d8365487776edb36a4919f8eb8dcbda02155f944bc717de762a0a83f15935",
     "imports/pi4b": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40",
     "screen_cushions/screen_cushions": "99d4412dc2fdf2ffd47b86592ce3e38e8b1721dca7f9abdb04f3b28bfa861ac2",
-    "shell/shell": "a70a42bda34300719a04d7dc79eda48f1eca11e4b3e4ac5a32b3acb5b4201496",
+    "shell/shell": "ab9b933dd83ef43b646780e20c17e47667a635e9bd2a13a37ba7c5fd3a74caeb",
     "thermal_stack/thermal_stack": "eaebf66ddd60c24b0945943961d9afb2425d0b8b7e42fc7542e94c450c2a4bcb"
   },
   "assetHashes": {
@@ -154,68 +155,70 @@
   },
   "shapeHashes": {
     "base": "7061fd1e9366d5e4c87a4011c97abb609008a554c9d2b5872b7eaaa8bc905dbf",
-    "base_mount_screw_1": "f31174db78c464cbdc8e9dab8b6069951406e7b52dc1293a0e5459f48d3f10ad",
-    "base_mount_screw_2": "b4c1df6ffb402844e803ce27783ccf587fa544a8245328e35943feac4f0e478e",
-    "base_mount_screw_3": "c933d347bcf1c3fcbaaa8b58c77b4757bd2ac8dead1100355ac8d5a028b34017",
-    "base_mount_screw_4": "791e6a459e33bcb3b70602325d2589e4670939e80a017f95205b7b1089f4ab6a",
+    "base_mount_screw_1": "124f006c18746b9161debc6311986e30f3c9a36d897a3a11a04b2d2982c96e5c",
+    "base_mount_screw_2": "9e826d1341d329c37accc4dbccdd0007ee834489baa47e5c91cf794c23475b46",
+    "base_mount_screw_3": "30bf41654b4d980ecc398ea7503afe1fe606c7e9d3119a6fefe71089bfbacc4a",
+    "base_mount_screw_4": "013fe44c76206ae3e34674ae966f6913a66fab001f1f58f1fc3cf79bf06bcf4c",
     "bezel": "8774de76e9005319f79bdaac97948d01a5322135ab4d30ecd8ee75b0bd251129",
     "cooling_fan": "344c6207b44d2e381d5e989f78c2c461ae159f3610159c8a423210ece9d7ad22",
-    "cpu_thermal_tape": "aebc3eba47c488692dd42cc545da254118872f8828ca1ddaa5da5033232d622b",
+    "cpu_thermal_tape": "b2972a47aa24c11594d94a84f2ae6e3ea2f639cfd0c0928d24d3d278e0f7d664",
     "fan_collar": "bc3e2bf30c02bb0279d85eca0bb04943f9127893badd9c69ccba836fe0341185",
-    "fan_collar_screw_1": "2f0fed2b545364ac6904dda1b21d29723c45679aeb9b564c01dca57f315974b6",
-    "fan_collar_screw_2": "c303b746b1592ed931deb35a78e4de676e4f5151ce2a054d032313fee4c29fbb",
-    "fan_corner_pads": "313a4dad23829a99c94ccd865654f28e4913f656c924a31c58f46e5ab540e24b",
-    "fascia": "aa990adc08931bef352c47f59bffb8869e05ccaf82b790836c1d04fc75256225",
+    "fan_collar_screw_1": "5d70eb897bc080be9686bbb0af74bf70fb191ed136c796cfd3135f20abe166c7",
+    "fan_collar_screw_2": "78bce913b9f5d48b2c8c97c75d1f3a4b3a5c2f86171dc463ffb55740eb3f0d65",
+    "fan_corner_pads": "e74af733898472e454efd7551de8e83bc12e50958e6a6146a072219aa9dddbce",
+    "fascia": "a9f4bc8332218edcdfc985b02616837ebf9b56887226017c561b89f8160deb3c",
     "front_cushion": "3e1683f4becbf3cd5306da3885fe73f734d2aa45350c9ef77c0aa57710576bec",
-    "front_module_blank": "d3467361f9d07e8b8b6aeded9935ce8fd661c56fe6491179ff8194337f677e9d",
-    "front_module_screw_1": "ed5f75e5ddc6e2e5e5fb6640e875f25ba022e7c267014430c85639f2670910f5",
-    "front_module_screw_2": "8f7b0cb6e47774cdc62e847f66ebfa9a7c65ed6ec8c33c832759e1b06fb23d15",
-    "front_module_screw_3": "c8c73fee230aaf2c2197c6b6e040771b27486c03c5ee01eac613c01ba1fa41ef",
-    "front_module_screw_4": "5b49a428a4250ea5a0c9708ff7e3e6dcc9182572e9e430baaac88ce4d7d5c0ec",
+    "front_module_blank": "6a5270469eafb31e586e3f4fd134395cc8dcd148bcab77d8c328cb01bfc8aa1a",
+    "front_module_screw_1": "ca163d260cd609420c123acd128cc11b886ad60a9e5469f06c1e4044c9223fa2",
+    "front_module_screw_2": "2f669b4e339f32549b9a4ecfc57a160a0f3b2b2689ba67457afa5fd5015b1184",
+    "front_module_screw_3": "210eed1e2c52d83073e46006292379f50deab617a5ac4f68c5130984b10e7ae5",
+    "front_module_screw_4": "2edbf18df97cf88dadfe3f1d9b96c1bede12308e8b1c850feb89b840b86493bd",
     "passive_heatsink": "7847bfa306ae231d396c265af82fdade9eb0978577e64c52be2becffdb1cf77b",
-    "pcb_mount_screw_1": "cea1354228b99cd1a567956ac16e41a3a18ab4950003b17e3fbac73c846e270e",
-    "pcb_mount_screw_2": "590423c8dc528064757dc70858816eabfcc473dc6bfb7a851b05565d16f6b6f1",
-    "pi_baseboard_lite": "b2d54d81c31c2f6834ba492ff4794cdb28a6502e93432a8d6b3ef6ae937a7229",
-    "pi_mount_screw_1": "efed5cb9c45734f4aad682a49de9d887506d93e8cd7260f4f674543b550d7cb4",
-    "pi_mount_screw_2": "fbde4d51a01ce2c4271d3838d02cdf1e26acdef2930543cdb0f53ac9bafc01de",
-    "pi_mount_screw_3": "893e0993e29fdbdad010a50fe6b3e4dd7101dc3311335711be3225ba05d1e193",
-    "pi_mount_screw_4": "61885424daf09a015aa9f3e1573eca0dbb450492d0394fd52c191f2664c3e429",
-    "pi4b": "4bd5d2afb9631f2310f417c1aad088568c7fcf2ab7307b583b18018f58bfd4c9",
-    "ram_thermal_tape": "61f8feab222c165883a1620934b9fe74a97af4b312de5fc679c817982dc38508",
+    "pcb_mount_screw_1": "8f1df8bd4fe8cadb0685b8858aaa0e453824f4e9e13df1a8cef90008af940377",
+    "pcb_mount_screw_2": "9597c80841b2f011633724871b8dbbc2f878e33ef663c349218b24ba9cfa9a88",
+    "pcb_mount_spacer_1": "2669d5dc73484378541f9ad04d7ed5ea0b017450416b61deddef5a0002292f53",
+    "pcb_mount_spacer_2": "d9d22b20a02c11f22ac62bb788180543a366322301709600426e3877266311e4",
+    "pi_baseboard_lite": "9125f5496c32bbb9275ea7b4b5015eb6487bee0d5f0656f0fca0dc2b045f3223",
+    "pi_mount_screw_1": "21bfa49459a681e3eb0108a199644343c7592a88ce21311c26906624516c7709",
+    "pi_mount_screw_2": "cfc7ab53a496384c2a1ceeef3703f6fc9fa464162747e95ad66796aea01cfc10",
+    "pi_mount_screw_3": "2b1f78917657d11fdb1ede72d2d2ef5c2a3fa81499c899ed9a79668ea7494dc6",
+    "pi_mount_screw_4": "6863d37c21a5843009ef91bb0de2d014079f057926cb9ec94d7cde10bf82e855",
+    "pi4b": "4331570f5fabb51ff51bede645e634dffc0631d497174b0a1e6581bd906a3765",
+    "ram_thermal_tape": "ef26d5859df53533055f0a2f21b287bb43b8a43d9f3d8f8da9c6db21831c9897",
     "rear_cushion": "503045f26a376484855ba2afd345160ce6eca3d1ac4f4da88f4a2b26ec3e4e30",
     "retainer": "8287ac87bcc1e09160dde13eaf0f58af1d990594ebc354ba0da46cf31381187a",
-    "retainer_screw_1": "3425a90fdbbc93e7215984b9f3adf4a6f75fc32fd7b060f35023dcb587ecee61",
-    "retainer_screw_2": "b8802b4a8fe46a10fc937895572a678e296ab6bd4e082ce91fbd0d4d776ee87e",
-    "retainer_screw_3": "f386011f26fadc8dd1c6565c423a8e35b0565b8cbc9a6e3cbfc5ee75c4407685",
-    "retainer_screw_4": "cd290da617e881df5a06aa149915b7cc00d37f65668565b8ce6ec8eed7d8cfbf",
-    "shell": "a09cfd0990f0e718f9059055f52594716ed8619afcb89cf162f8d528c323c751"
+    "retainer_screw_1": "78f6d6cb2fdded8ac1771d4c9369855b40804045d75d15aab621b0d9138f961c",
+    "retainer_screw_2": "dda17ab6caae1c2b44d30291852dc36dafeb0963c95b65929b0f1aee815489d5",
+    "retainer_screw_3": "43870dc7cb1acc900040998fc467b9df80f9f36e10c15b6209949ef51881164a",
+    "retainer_screw_4": "f62f205ac803f7a057972db168fcc205bf092cc93066b4deb40814c12b24559e",
+    "shell": "b33d16089227ae6f67f292e615dd125ade751de2dab704bba2c2460642e513ec"
   },
   "runtime": {
-    "manifestHash": "ad4e6ab8908369894bf3efc22499a091e1bd46ac06f79e6d58fdf5326bf84537",
+    "manifestHash": "f155f520bcd8f826ef56781f449ca93b17fb335362ff437b5a0d5b5ce8fda0a7",
     "pythonVersion": "3.12.13",
     "build123dVersion": "0.10.0",
     "ocpVersion": "7.8.1.1.post1",
-    "cadpyHash": "eab6dc65ad496ee6860f3f3d9d8c9d9a5569c9c052c59081052894a8130ce5cf"
+    "cadpyHash": "81911f3a8adaeb8d0c4be9c12da56f8c18df074c4680646de6b0a4fe8457a5cc"
   },
   "artifacts": [
     {
-      "path": "manufacturing/handheld_computer/releases/export-fcf4f55a7e77369ebba3fce4ada18ec2/model.step",
+      "path": "manufacturing/handheld_computer/releases/export-5c09e611b7e9bd2162d20e6ecce9507e/model.step",
       "role": "model/step",
-      "sha256": "42cfdcbfac6d72a2c00a73534fec24746d065463c0db911e728c7f45b7cffd9c",
-      "sizeBytes": 110333591
+      "sha256": "4d6dcea78b9908be688d9ff7b2bed0ee6fb0a0e047e729672f511e6e571be143",
+      "sizeBytes": 89102423
     }
   ],
   "interference": {
-    "summary": "0 interfering pairs, 14 undetermined",
+    "summary": "0 interfering pairs, 18 undetermined",
     "counts": {
-      "objects": 36,
-      "pairs": 630,
-      "exact": 0,
-      "cached": 89,
+      "objects": 38,
+      "pairs": 703,
+      "exact": 14,
+      "cached": 74,
       "interference": 0,
       "undeclared": 0,
       "over_budget": 0,
-      "undetermined": 14
+      "undetermined": 18
     },
     "overlaps": []
   },
@@ -224,9 +227,9 @@
     "algorithm": "hmac-sha256",
     "keyId": "bcf92b0ef0c9bdb29ac662e9143b6212",
     "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
-    "receiptPath": "manufacturing/handheld_computer/releases/export-fcf4f55a7e77369ebba3fce4ada18ec2/receipt.json",
-    "payloadSha256": "ef6a8086722dc534f3c44a0653973ba4353620a1fa8cc1082b8bff689e8cf977",
-    "mac": "aba68e4739b49e191b26064702c16fc197421168d03758e7cd5b98f163881dc8"
+    "receiptPath": "manufacturing/handheld_computer/releases/export-5c09e611b7e9bd2162d20e6ecce9507e/receipt.json",
+    "payloadSha256": "0550997ffc2d45a402b64dcbeea46137e9b1f75c2b358773ec1500befa7a7c58",
+    "mac": "e73320de4451dea9605db556743e8346c4d083245c187e5920dc487b758a35c2"
   },
   "status": "handoff"
 }

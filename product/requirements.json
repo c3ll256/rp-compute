@@ -283,7 +283,7 @@
       "source": "default"
     },
     "front_module_replaceability": {
-      "value": "The marked front deck is a user-replaceable region for future GPIO function modules; the base product provides a removable blank and a reusable mechanical/electrical interface while preserving the display mounting and 1 mm screen-pod front rise.",
+      "value": "The front-deck cover is a separate removable part in CAD and in the physical assembly, replaceable by user-designed expansion modules using the same perimeter seat, locating tongue and four corner mounting points. The supplied blank has a flat outer face and a blind underside recess for the internal female socket, with no central opening or raised patch. Preserve display mounting and the1mm screen-pod rise above the fixed shell deck.",
       "source": "user"
     },
     "front_module_service_policy": {
@@ -424,7 +424,7 @@
         "inlet_air_gap_mm": 3,
         "geometry_evidence": "Heatsink overall size and mounting pattern manufacturer-backed; reliefs and undersurface are explicit photo-derived references, not vendor STEP.",
         "thermal_validation": "Prototype load-temperature and airflow tests still required.",
-        "airflow": "Rear-left intake, internal heatsink cavity, upward blower intake, left-side exhaust; fan near left wall, front exhaust closed."
+        "airflow": "Upward blower intake and left-side exhaust; front exhaust closed. Rear-left external inlet removed by user; installed replacement air path and cooling performance unmeasured."
       },
       "source": "default"
     },
@@ -487,6 +487,22 @@
         "approach": "Fill former electronics recess while preserving Pi, module, screw and rear guide datums; screen screw notch retained"
       },
       "source": "default"
+    },
+    "front_module_blank_socket_cover_rise_mm": {
+      "value": 0,
+      "source": "user"
+    },
+    "front_module_blank_socket_air_mm": {
+      "value": 0.1,
+      "source": "default"
+    },
+    "front_module_blank_socket_min_roof_mm": {
+      "value": 0.6,
+      "source": "default"
+    },
+    "rear_left_wall_openings": {
+      "value": "Remove the four rear-left wall inlet slots below the screen pod; restore a continuous wall. Keep the left-side blower exhaust slots.",
+      "source": "user"
     }
   },
   "open_questions": []

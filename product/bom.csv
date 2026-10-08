@@ -26,3 +26,5 @@ fan_connector,JST,SM02B-SRSS-TB,JST SH 1mm side-entry 2pin SMT fan socket,1,J_FA
 fan_factory_harness,JST / factory harness,SHR-02V-S + SSH-003T-P0.2-H,"Factory JST SH 2pin fan harness, pin1 red +5V / pin2 black GND",1,,Manufacturer / authorized distributor,,,https://www.jst-mfg.com/product/pdf/eng/eSH.pdf,,selected
 pi_upper_mount_screws,ISO standard,ISO7046-M2.5x6,"ISO7046 M2.5 countersunk cross-recess screws,6mm",4,,Manufacturer / authorized distributor,,,,,selected
 lcd_retainer_screws,ISO standard,ISO7046-M2x6,"ISO7046 M2 countersunk cross-recess screws,6mm",4,,Manufacturer / authorized distributor,,,,,selected
+bottom_cover_screws,ISO7046 standard,ISO7046-M2-0.4x6,"ISO7046 M2 countersunk cross-recess screws, 6mm",4,,External mechanical hardware supplier,,,,,
+pcb_mount_spacers,Project custom,handheld_computer-pcb-mount-spacer,"Custom PCB screw spacer, diameter4.8mm x thickness1.2mm",2,,Prototype fabrication,,,,,selected

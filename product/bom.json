@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "886c11bfd37ef9aa495fe69f93bb34ff89f1d758ddf8f74e8bde8f57d7024bea",
+  "requirements_digest": "dd6b4c0340a918e56ab9d8ed2fdb2c372a7c8493f078f43e79eb3e2072b0558f",
   "items": [
     {
       "id": "compute",
@@ -128,7 +128,7 @@
         "pin_count": 10,
         "pitch_mm": 0.5,
         "cable_thickness_mm": 0.3,
-        "closed_height_mm": 2.0,
+        "closed_height_mm": 2,
         "cable_contacts_face_when_mounted_on_top": "away_from_pcb",
         "pin1_position": "Supplier native top view, opening -Y: left end of signal row.",
         "evidence_refs": [
@@ -267,10 +267,21 @@
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "description": "Removable front module blank with upper-shell beam relief, tip clearances and recessed lower8pin socket access.",
-      "selection_reason": "Defined by committed enclosure geometry and the user-marked interchangeable area.",
+      "description": "Independent removable70x37mm cover,1.4mm plate, flat topZ27. Blind underside recess clears HLE female socket with0.1mm nominal air and0.645001mm non-load-bearing roof; four cornerM2 holes only. No raised centre patch.",
+      "selection_reason": "User requests a separately removable cover and underside recess. Standalone CAD part front_module_cover; user modules replace this entire panel using the existing locating seat and corner mounts.",
       "part_identity": "622d0f7d7c815f29",
-      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics."
+      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
+      "cad_relevance": {
+        "part_id": "front_module_cover",
+        "object_id": "front_module_blank",
+        "placement_mm": [
+          0,
+          -34,
+          27
+        ],
+        "minimum_socket_roof_mm": 0.6,
+        "physical_fit": "unverified thin-wall prototype"
+      }
     },
     {
       "id": "front_module_screws",
@@ -291,7 +302,17 @@
       "description": "Four ISO7046 M2x4 countersunk screws, total length4mm including head; heads flush with deckZ27 and seat only in printed cover. Printed receivers from printed-screw-joint-v1.",
       "selection_reason": "Four exposed deck heads seated flush in printed1.4mm cover, with kit-owned printed receivers.",
       "part_identity": "81eb50a1dedcc22e",
-      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics."
+      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
+      "cad_model": {
+        "provider": "bd-warehouse",
+        "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
+        "parameters": {
+          "size": "M2-0.4",
+          "length": 4,
+          "fastener_type": "iso7046"
+        },
+        "selection": "exact; catalog detail verified2026-10-06"
+      }
     },
     {
       "id": "gpio_aux_limiter",
@@ -557,7 +578,7 @@
       },
       "required_user_evidence": [],
       "description": "Printed upper shell, existing85x115x27mm exterior. Two transverse PCB screw beams plus rear edge shelf/guide integrated in the shell. CAD default PLA; print fit, strength and service life untested.",
-      "selection_reason": "Upper-shell PCB beams and rear guide support the raised HAT. Obsolete left charging aperture removed; cradle roots join continuous wall below/alongside left exhaust vents. Pi native USB-C remains exposed. Current lite right wall is continuous at the former side button; no button cap or switch is supplied.",
+      "selection_reason": "Upper-shell PCB beams and rear guide support the raised HAT. Obsolete left charging aperture removed; cradle roots join continuous wall below/alongside left exhaust vents. Pi native USB-C remains exposed. Current lite right wall is continuous at the former side button; no button cap or switch is supplied. User removed the four rear-left inlet slots below the screen pod; continuous2.4mm wall retained there.",
       "cad_relevance": {
         "description": "Two existing2.2mm PCB holes at world(+/-16,-32) and rear left board edge."
       },
@@ -580,12 +601,19 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "description": "Two underside-access M2x4 screws through released2.2mm PCB holes,1mm selected self-forming engagement in upper-shell beams. Kit-selected4mm screw protrudes beyond2mm receiving beam;3mm cover clearance holes prevent loading the removable module blank.",
+      "description": "Two underside-access ISO4762 M2x4 screws through separate1.2mm PLA spacers and unchanged2.2mm PCB holes;1mm selected self-forming engagement in upper-shell beams. Spacers move screw tips below sealed removable cover.",
       "selection_reason": "Upper shell carries PCB; no fastening into the bottom cover or removable front cassette.",
       "cad_model": {
         "format": "step",
         "source_url": "https://github.com/gumyr/bd_warehouse",
-        "model_id": "bd-warehouse:bd_warehouse.fastener.SocketHeadCapScrew"
+        "model_id": "bd-warehouse:bd_warehouse.fastener.SocketHeadCapScrew",
+        "provider": "bd-warehouse",
+        "parameters": {
+          "size": "M2-0.4",
+          "length": 4,
+          "fastener_type": "iso4762"
+        },
+        "selection": "exact; catalog detail verified2026-10-05"
       },
       "cad_relevance": {
         "description": "WorldX+/-16,Y-32, board bottomZ21.8; existing internal socket-head screws retained because PCB holes are unmodified clearance holes."
@@ -628,7 +656,7 @@
         "mounting": "Frame cradle and padded M2 collar; tiny1.5mm holes remain unused."
       },
       "product_url": "https://www.nidec-components.com/sg/product/detail/00000718/",
-      "selection_reason": "Retain selected Nidec16x16x4.5mm blower near left wall at(-29,-38)mm, inlet upward and exhaust leftward; no forward hot outlet. HATJ_FAN5V40mA always-on and factory2pin lead retained."
+      "selection_reason": "Retain selected Nidec16x16x4.5mm blower near left wall at(-29,-38)mm, inlet upward and exhaust leftward; no forward hot outlet. HATJ_FAN5V40mA always-on and factory2pin lead retained. Rear-left external inlet removed by user; existing left-side exhaust retained, installed airflow/temperature still unmeasured."
     },
     {
       "id": "compact_fan_collar",
@@ -898,6 +926,28 @@
         "head_flush_world_z_mm": 0
       },
       "part_identity": "fee164564ca889f6"
+    },
+    {
+      "id": "pcb_mount_spacers",
+      "role": "project_printed_part",
+      "name": "Custom PCB screw spacer, diameter4.8mm x thickness1.2mm",
+      "quantity": 2,
+      "manufacturer": "Project custom",
+      "mpn": "handheld_computer-pcb-mount-spacer",
+      "part_number": "handheld_computer-pcb-mount-spacer",
+      "supplier": "Prototype fabrication",
+      "source": "default",
+      "procurement_status": "project_fabrication_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "description": "Two separate PLA spacers under the PCB screw heads; clearance bores come from printed-screw-joint-v1. Preserve board height and eliminate cover screw-tip holes. Physical print compression and screw retention untested.",
+      "selection_reason": "Closed replaceable front cover requires the existingPCB screw tips to stay underneath.",
+      "part_identity": "ba29dbe1509223ab",
+      "stock": null,
+      "selection_status": "selected",
+      "required_user_evidence": []
     }
   ],
   "alternatives": [],
@@ -913,5 +963,5 @@
   ],
   "unresolved_items": [],
   "scope": "Active pi_baseboard_lite plus factory-wired5V fan and CPU/RAM heatsinks. Pi nativeUSB-C powers the system; no battery electronics. Cooling mechanical fit and temperature performance recorded separately.",
-  "review_status": "selected_parts_and_nominal_CAD_passed_physical_cooler_fit_and_thermal_test_pending"
+  "review_status": "independent_flat_cover_nominal_geometry_and_removal_passed_physical_fit_and_thermal_test_pending"
 }

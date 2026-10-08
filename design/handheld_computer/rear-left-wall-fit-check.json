@@ -1,0 +1,73 @@
+{
+  "revision": "f7a2881b16c8992e6aef26389e47548bad0c4b7db00c64a95b19a198af783eeb",
+  "scope": "Rear-left inlet removal only; exact OCC checks of the restored wall volume against committed world-frame solids.",
+  "restored_wall": {
+    "expected_volume_mm3": 224.64,
+    "shell_volume_mm3": 224.64,
+    "thickness_mm": 2.4
+  },
+  "retained_exhaust_slots": {
+    "1": {
+      "center_y_mm": -44.6,
+      "shell_volume_mm3": 0.0
+    },
+    "2": {
+      "center_y_mm": -40.2,
+      "shell_volume_mm3": 0.0
+    },
+    "3": {
+      "center_y_mm": -35.8,
+      "shell_volume_mm3": 0.0
+    },
+    "4": {
+      "center_y_mm": -31.4,
+      "shell_volume_mm3": 0.0
+    }
+  },
+  "hardware_shared_volume_mm3": {
+    "ram_thermal_tape": 0.0,
+    "cpu_thermal_tape": 0.0,
+    "passive_heatsink": 0.0,
+    "front_cushion": 0.0,
+    "rear_cushion": 0.0,
+    "pi_mount_screw_4": 0.0,
+    "fan_collar_screw_1": 0.0,
+    "base_mount_screw_1": 0.0,
+    "pcb_mount_screw_2": 0.0,
+    "pi_mount_screw_2": 0.0,
+    "pi_mount_screw_3": 0.0,
+    "front_module_screw_1": 0.0,
+    "pcb_mount_spacer_1": 0.0,
+    "fan_corner_pads": 0.0,
+    "front_module_screw_2": 0.0,
+    "pcb_mount_spacer_2": 0.0,
+    "pi_mount_screw_1": 0.0,
+    "base_mount_screw_4": 0.0,
+    "front_module_screw_3": 0.0,
+    "fan_collar": 0.0,
+    "front_module_screw_4": 0.0,
+    "base_mount_screw_3": 0.0,
+    "pcb_mount_screw_1": 0.0,
+    "base_mount_screw_2": 0.0,
+    "fan_collar_screw_2": 0.0,
+    "front_module_blank": 0.0,
+    "cooling_fan": 0.0,
+    "pi_baseboard_lite": 0.0,
+    "pi4b": 0.0,
+    "retainer_screw_2": 0.0,
+    "fascia": 0.0,
+    "retainer_screw_3": 0.0,
+    "retainer_screw_4": 0.0,
+    "retainer": 0.0,
+    "retainer_screw_1": 0.0,
+    "bezel": 0.0,
+    "base": 0.0
+  },
+  "limits": [
+    "No full-product interference verdict or installed airflow/temperature measurement."
+  ],
+  "closed_wall_passed": true,
+  "exhaust_retained_passed": true,
+  "restored_wall_clearance_passed": true,
+  "shell_single_valid_solid_passed": true
+}

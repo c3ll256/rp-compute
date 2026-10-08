@@ -101,13 +101,12 @@ def m2_flush_joint(frame, sheet, thickness, engagement, host, label):
   hardware=frame*(head+shaft)
   return joint,seat,hardware
 
-# A blank insert defines the shared mechanical envelope for later user-made modules.
-front_module=Pos(0,front_module_y,case_top_center-front_module_seat_depth/2)*extrude(RectangleRounded(front_module_width,front_module_depth,1.8),amount=front_module_seat_depth/2,both=True)
-front_module+=Pos(0,front_module_y,case_top_center-front_module_seat_depth-front_module_tongue_depth)*extrude(RectangleRounded(front_module_aperture_width-2*front_module_seat_clearance,front_module_aperture_depth-2*front_module_seat_clearance,1.2),amount=front_module_tongue_depth)
+# Cover is now a separate part; this sheet is a joint-solving datum only.
+front_module_blank_thickness=param('front_module_blank_thickness',1.4)
+front_module=Pos(0,front_module_y,case_top_center-front_module_blank_thickness)*extrude(RectangleRounded(front_module_width,front_module_depth,1.8),amount=front_module_blank_thickness)
 # Exact physical top-body bounds from PCB release8816a764, source XY+(0,-19).
 # Fixed asset geometry; only the air allowance/remaining roof are design decisions.
 shell_pcb_top_air=param('shell_pcb_top_air',1.6)
-front_module_pcb_min_roof=param('front_module_pcb_min_roof',1.2)
 PCB_FRONT_BODY_BOUNDS=[
     (-8.650013,-51.000000,22.594999, -7.350013,-49.000000,23.894999), # 0:assembly_1_1
     (-8.850013,-23.800000,22.594999, -7.550013,-21.800000,23.894999), # 4:assembly_1_1
@@ -124,17 +123,14 @@ PCB_FRONT_BODY_BOUNDS=[
 ]
 for x0,y0,z0,x1,y1,z1 in PCB_FRONT_BODY_BOUNDS:
     roof=case_top_center-(z1+shell_pcb_top_air)
-    assert roof>=front_module_pcb_min_roof, ('local roof',roof)
     clearance=Pos((x0+x1)/2,(y0+y1)/2,(z0+z1)/2)*Box(x1-x0+2*shell_pcb_top_air,y1-y0+2*shell_pcb_top_air,z1-z0+2*shell_pcb_top_air)
     body=body-clearance
-    front_module=front_module-clearance
 print('PCB_AIR_POCKETS',len(PCB_FRONT_BODY_BOUNDS), 'minimum roof',case_top_center-max(b[5] for b in PCB_FRONT_BODY_BOUNDS)-shell_pcb_top_air)
 
 front_module_screws=[]
 for xx in [-front_module_screw_x,front_module_screw_x]:
  for yy in [front_module_y-front_module_screw_y_offset,front_module_y+front_module_screw_y_offset]:
-  joint,seat,hardware=m2_flush_joint(Location((xx,yy,case_top_center)),front_module,front_module_seat_depth,front_module_screw_engagement,body,'front-module')
-  front_module=front_module-seat
+  joint,seat,hardware=m2_flush_joint(Location((xx,yy,case_top_center)),front_module,front_module_blank_thickness,front_module_screw_engagement,body,'front-module')
   if len(joint.bosses.solids())>0:
    body=body+joint.bosses
   body=body-joint.engage_cuts
@@ -152,18 +148,20 @@ pcb_rear_guide_y=param('pcb_rear_guide_y',24.0)
 pcb_rear_guide_width=param('pcb_rear_guide_width',8.0)
 pcb_rear_guide_thickness=param('pcb_rear_guide_thickness',1.5)
 pcb_rear_guide_clearance=param('pcb_rear_guide_clearance',0.3)
-front_module_gpio_width=param('front_module_gpio_width',11.2)
-front_module_gpio_depth=param('front_module_gpio_depth',6.2)
-front_module_pcb_tip_relief_diameter=param('front_module_pcb_tip_relief_diameter',3.0)
-front_module_gpio_pin_pocket_roof=param('front_module_gpio_pin_pocket_roof',1.2)
 PCB_FINISHED_T=0.8 # Frozen pi_baseboard_lite release; actual drilled holes2.2mm.
 PCB_LEFT_EDGE=-20.0 # Released board outline, no scaled PCB.
 mount_top=pcb_mount_bottom_z+PCB_FINISHED_T
 inner_side=case_width/2-shell_wall
 pcb_mount_screws=[]
+pcb_mount_spacers=[]
 pcb_joint_ids=[]
 for sx in [-1,1]:
  xx=sx*pcb_mount_x
+ spacer_id='pcb_mount_spacer_'+str(len(pcb_mount_spacers)+1)
+ spacer_thickness=param(spacer_id+'_thickness',1.2)
+ spacer_diameter=param(spacer_id+'_diameter',4.8)
+ # Positions are shared with the frozen PCB hole axes above.
+ spacer=Pos(xx,pcb_mount_y,pcb_mount_bottom_z-spacer_thickness/2)*Cylinder(spacer_diameter/2,spacer_thickness)
  # A transverse beam bridges the upper shell side wall to the existing PCB hole.
  # This is structural support geometry; screw geometry comes only from the kit.
  inner_tip=pcb_mount_x-pcb_mount_beam_width/2
@@ -173,21 +171,17 @@ for sx in [-1,1]:
  # Datum-only through-sheet probe: not a replacement for the actual imported PCB.
  # PCB holes remain the released2.2mm NPTHs. Kit screw shank fits those holes.
  through_probe=Pos(xx,pcb_mount_y,pcb_mount_bottom_z+PCB_FINISHED_T/2)*Box(pcb_mount_beam_width,pcb_mount_beam_width,PCB_FINISHED_T)
- joint=make_screw_joint_v1(size='M2',at=Location((xx,pcb_mount_y,pcb_mount_bottom_z),(180,0,0)),through=[(through_probe,PCB_FINISHED_T)],engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='through',label='upper-shell-pcb')
+ joint=make_screw_joint_v1(size='M2',at=Location((xx,pcb_mount_y,pcb_mount_bottom_z-spacer_thickness),(180,0,0)),through=[(spacer,spacer_thickness),(through_probe,PCB_FINISHED_T)],engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='through',label='upper-shell-pcb')
  assert len(joint.bosses.solids())==0
  body=body-joint.engage_cuts
  pcb_mount_screws.append(joint.hardware)
- # Standard kit selects M2x4; clearance hole keeps its tip off the removable cover.
- front_module=front_module-(Pos(xx,pcb_mount_y,case_top_center)*Cylinder(front_module_pcb_tip_relief_diameter/2,4*front_module_seat_depth))
+ spacer=spacer-joint.through_cuts[0]
+ spacer.color=Color(0.88,0.86,0.79)
+ pcb_mount_spacers.append(spacer)
+ # The 1.2mm underside spacer moves the unchanged M2x4 tip down, keeping a closed lid.
+ assert pcb_mount_bottom_z-spacer_thickness+joint.screw_length_mm<=mount_top+pcb_mount_beam_thickness+1e-6
  pcb_joint_ids.append('kit:printed-screw-joint-v1:'+str(sx))
  print('PCB_MOUNT',xx,pcb_mount_y,dict(length=joint.screw_length_mm,engagement=joint.engage_depth_mm,protrusion=joint.screw_protrusion_mm))
- # Underside cassette pocket preserves at least1.2mm roof; beams belong to shell.
- pocket_top=mount_top+pcb_mount_beam_thickness+pcb_mount_cover_clearance
- front_module=front_module-(Pos(sx*(inner_tip+outer_root)/2,pcb_mount_y,(pcb_mount_bottom_z+pocket_top)/2)*Box(outer_root-inner_tip+2*pcb_mount_cover_clearance,pcb_mount_beam_width+2*pcb_mount_cover_clearance,pocket_top-pcb_mount_bottom_z))
-# Small underside pocket clears the dock's front pin ends while retaining1.2mm roof.
-# XY is fixed by released J_PI pad row/source model; this is negative clearance only.
-pocket_top=case_top_center-front_module_gpio_pin_pocket_roof
-front_module=front_module-(Pos(-13.5,-19.4,(pcb_mount_bottom_z+pocket_top)/2)*Box(6.2,10.0,pocket_top-pcb_mount_bottom_z))
 # Rear edge support/guide rooted in upper-shell left wall.0.3mm slot clearance.
 guide_inner=PCB_LEFT_EDGE+0.8
 guide_outer=-inner_side-shell_wall/2
@@ -195,8 +189,7 @@ rear_shelf=Pos((guide_inner+guide_outer)/2,pcb_rear_guide_y,pcb_mount_bottom_z-p
 body=body+rear_shelf
 guide_back=PCB_LEFT_EDGE-pcb_rear_guide_clearance
 body=body+(Pos((guide_back+guide_outer)/2,pcb_rear_guide_y,pcb_mount_bottom_z+(PCB_FINISHED_T+pcb_rear_guide_clearance)/2)*Box(guide_back-guide_outer,pcb_rear_guide_width,PCB_FINISHED_T+pcb_rear_guide_clearance))
-# Access the raised8-contact female interface without loading it through the blank.
-front_module=front_module-(Pos(0,front_module_y,case_top_center)*Box(front_module_gpio_width,front_module_gpio_depth,4*front_module_seat_depth))
+# The internal eight-contact interface is reached only after removing the blank.
 assert len(pcb_joint_ids)==2
 assert case_top_center-(mount_top+pcb_mount_beam_thickness+pcb_mount_cover_clearance)>=1.2-1e-6
 
@@ -240,9 +233,6 @@ shell_fan_root_thickness=param('shell_fan_root_thickness',1.8)
 shell_cooling_slot_width=param('shell_cooling_slot_width',2.4)
 shell_cooling_slot_bridge=param('shell_cooling_slot_bridge',2.0)
 shell_cooling_slot_count=param('shell_cooling_slot_count',4)
-shell_cooling_inlet_y=param('shell_cooling_inlet_y',36.0)
-shell_cooling_inlet_z=param('shell_cooling_inlet_z',19.0)
-shell_cooling_inlet_height=param('shell_cooling_inlet_height',6.0)
 shell_cooling_exhaust_z=param('shell_cooling_exhaust_z',13.25)
 shell_cooling_exhaust_height=param('shell_cooling_exhaust_height',4.5)
 fan_collar_width=param('fan_collar_width',29.0)
@@ -280,10 +270,10 @@ for sx in [-1,1]:
  body-=joint.engage_cuts
  cooling_screws.append(hardware)
 pad_shape=Compound([FAN_FRAME*Pos(sx*FAN_CORNER_OFFSET,sy*FAN_CORNER_OFFSET,fan_collar_bottom_z-fan_corner_pads_thickness/2)*Box(fan_corner_pads_width,fan_corner_pads_depth,fan_corner_pads_thickness) for sx,sy in [(-1,-1),(1,-1),(1,1)]])
-# Rear-left intake and left-side outlet. Front edge remains solid.
+# User removed rear-left inlet slots; preserve full side-wall thickness.
+# Retain the left-side blower outlet. Front edge remains solid.
 for i in range(int(shell_cooling_slot_count)):
  offset=(i-(int(shell_cooling_slot_count)-1)/2)*(shell_cooling_slot_width+shell_cooling_slot_bridge)
- body-=Pos(-case_width/2,shell_cooling_inlet_y+offset,shell_cooling_inlet_z)*Box(4*shell_wall,shell_cooling_slot_width,shell_cooling_inlet_height)
  body-=Pos(-case_width/2,fy+offset,shell_cooling_exhaust_z)*Box(4*shell_wall,shell_cooling_slot_width,shell_cooling_exhaust_height)
 collar.color=Color(0.23,0.25,0.27)
 pad_shape.color=Color(0.1,0.1,0.1)
@@ -322,12 +312,11 @@ for i,(xx,yy) in enumerate(base_mount_axes):
  print('BOTTOM_JOINT',i+1,dict(axis=(xx,yy),length=joint.screw_length_mm,engagement=joint.engage_depth_mm,boss=joint.boss_length_mm))
 assert len(base_joint_ids)==4
 
-assert len(front_module.solids())==1
 assert len(body.solids())==1
 body.color=Color(0.88,0.86,0.79)
-front_module.color=Color(0.23,0.25,0.27)
 publish('shell',body,'Upper shell PCB mounts',material='pla')
-publish('front_module_blank',front_module,'User replaceable front module blank')
+for i,spacer in enumerate(pcb_mount_spacers):
+ publish('pcb_mount_spacer_'+str(i+1),spacer,'PCB screw spacer',material='pla')
 for i,screw in enumerate(front_module_screws):
  publish('front_module_screw_'+str(i+1),screw,'M2 front module screw')
 for i,screw in enumerate(pcb_mount_screws):
