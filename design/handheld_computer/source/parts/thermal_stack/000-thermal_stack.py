@@ -77,8 +77,8 @@ for xx in P165_HOLE_X:
  for yy in P165_HOLE_Y:sink-=Pos(xx,yy,(z+top)/2)*Cylinder(P165_THREAD_MAJOR_D/2,2*P165_H)
 assert len(sink.solids())==1
 sink.color=Color(0.12,0.13,0.14)
-publish('passive_heatsink',sink,'P165-B photo-derived reference',material='aluminum')
+publish('passive_heatsink',sink,'P165-B photo-derived reference',material='aluminum',role='reference')
 cpu_tape=Pos(cpu_heatsink_x,cpu_heatsink_y,cpu_heatsink_bottom_z-cpu_thermal_tape_thickness/2)*Box(cpu_thermal_tape_width,cpu_thermal_tape_depth,cpu_thermal_tape_thickness)
 ram_tape=Pos(ram_heatsink_x,ram_heatsink_y,ram_heatsink_bottom_z-ram_thermal_tape_thickness/2)*Box(ram_thermal_tape_width,ram_thermal_tape_depth,ram_thermal_tape_thickness)
 for oid,s in [('cpu_thermal_tape',cpu_tape),('ram_thermal_tape',ram_tape)]:
- s.color=Color(0.8,0.8,0.8);publish(oid,s,'Included kit TIM nominal gap reference',material='rubber')
+ s.color=Color(0.8,0.8,0.8);publish(oid,s,'Included kit TIM nominal gap reference',material='rubber',role='reference')

@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "ab9b933dd83ef43b646780e20c17e47667a635e9bd2a13a37ba7c5fd3a74caeb"
+          "sha256": "bf7ebc24938d6a8bb7b0bb870395d457a7972469cb0c1ac9cc4a7dbe51c7bb52"
         }
       ],
       "dependencies": []
@@ -26,7 +26,7 @@
           "target": "base",
           "order": 0,
           "path": "design/handheld_computer/source/parts/base/000-base.py",
-          "sha256": "1d9be648ec442d3182c2558398494923bdc437f90b2cf42e53b6ba05f28705ae"
+          "sha256": "9709114f27026745f270e23eb49b410edcc6c01662be241059015f65128f20d3"
         }
       ],
       "dependencies": []
@@ -40,7 +40,7 @@
           "target": "fascia",
           "order": 0,
           "path": "design/handheld_computer/source/parts/fascia/000-fascia.py",
-          "sha256": "3c75d36be168832cee6a5bc1ac85a65743109188a0162659455736c881053698"
+          "sha256": "7ff68711df8b2d5c0d3ac1ed21712ed24988431ee67c426adf1a45cbf4566c47"
         }
       ],
       "dependencies": []
@@ -54,7 +54,7 @@
           "target": "bezel",
           "order": 0,
           "path": "design/handheld_computer/source/parts/bezel/000-bezel.py",
-          "sha256": "cb752d27f215b046a382b7ede17afc0a9594195d361e57bc0cc735d18d451823"
+          "sha256": "fde6a0b6742ce43ddd0a00edeb53d094b14b4f1ccf641d592d6c811452e585d0"
         }
       ],
       "dependencies": []
@@ -96,7 +96,7 @@
           "target": "screen_cushions",
           "order": 0,
           "path": "design/handheld_computer/source/parts/screen_cushions/000-screen_cushions.py",
-          "sha256": "99d4412dc2fdf2ffd47b86592ce3e38e8b1721dca7f9abdb04f3b28bfa861ac2"
+          "sha256": "03f53565237a6b57542f8fc85a83080aadbf53afafb4613795d36d6d1b4a4984"
         }
       ],
       "dependencies": []
@@ -110,7 +110,7 @@
           "target": "thermal_stack",
           "order": 0,
           "path": "design/handheld_computer/source/parts/thermal_stack/000-thermal_stack.py",
-          "sha256": "eaebf66ddd60c24b0945943961d9afb2425d0b8b7e42fc7542e94c450c2a4bcb"
+          "sha256": "022c452018aa80903b83d9fe165a5cbc10be24bc31e849ad83cb4d9c2f92e238"
         }
       ],
       "dependencies": []
@@ -124,7 +124,21 @@
           "target": "front_module_cover",
           "order": 0,
           "path": "design/handheld_computer/source/parts/front_module_cover/000-front_module_cover.py",
-          "sha256": "706f044e7b7865371323b5ca01039bd3f78e6d81c1fc3276bc5182da4d5bdefb"
+          "sha256": "6801c31f8172c742a77ffc30825a887c436ab5bd6477b544836dc066a8f2dc54"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "display_placeholder",
+      "label": "display_placeholder",
+      "cells": [
+        {
+          "id": "display_placeholder",
+          "target": "display_placeholder",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/display_placeholder/000-display_placeholder.py",
+          "sha256": "280371c955b3fa368ce5bac3d1cd554db21e9f4dff759367e94d6e2f8ab692bb"
         }
       ],
       "dependencies": []
@@ -132,12 +146,13 @@
   ],
   "objects": [
     {
-      "id": "fan_collar",
+      "id": "base_mount_screw_1",
       "target": "shell",
-      "label": "Side blower collar",
-      "material": "pla",
+      "label": "Bottom cover screw",
+      "material": "stainless_steel",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "bc3e2bf30c02bb0279d85eca0bb04943f9127893badd9c69ccba836fe0341185",
+      "shapeHash": "5a452fdc95740fccd5be5b78bdd9d5bdf7d4d469c5f109517f9f3ee9c5570779",
       "transform": {
         "positionMm": [
           0,
@@ -159,12 +174,97 @@
       "datums": []
     },
     {
-      "id": "fan_corner_pads",
+      "id": "base_mount_screw_2",
       "target": "shell",
-      "label": "Fan corner pads",
-      "material": "silicone",
+      "label": "Bottom cover screw",
+      "material": "stainless_steel",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "e74af733898472e454efd7551de8e83bc12e50958e6a6146a072219aa9dddbce",
+      "shapeHash": "d7b58485a9529c302aaccfb42562004194e042c030bb8c9dfac0eb87fbb0034d",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "base_mount_screw_3",
+      "target": "shell",
+      "label": "Bottom cover screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "e85500ddaf5efded5956a7cdafc546bd4ce00e5acfead6ce89c6f2cd78a6d6b3",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "base_mount_screw_4",
+      "target": "shell",
+      "label": "Bottom cover screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "2a6d71aadbab30a8a6751ff9b8f105641cac4498c5984b6ea9716f2a6eb1534b",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "fan_collar",
+      "target": "shell",
+      "label": "Side blower collar",
+      "material": "pla",
+      "role": "part",
+      "kind": "generated",
+      "shapeHash": "bc3e2bf30c02bb0279d85eca0bb04943f9127893badd9c69ccba836fe0341185",
       "transform": {
         "positionMm": [
           0,
@@ -190,8 +290,9 @@
       "target": "shell",
       "label": "Flush fan collar screw",
       "material": "stainless_steel",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "5d70eb897bc080be9686bbb0af74bf70fb191ed136c796cfd3135f20abe166c7",
+      "shapeHash": "3eacefc24c8c9d49bfaf0e65871960750c99c32f5da3ce7dd59f01bcb1c2cac3",
       "transform": {
         "positionMm": [
           0,
@@ -217,8 +318,9 @@
       "target": "shell",
       "label": "Flush fan collar screw",
       "material": "stainless_steel",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "78bce913b9f5d48b2c8c97c75d1f3a4b3a5c2f86171dc463ffb55740eb3f0d65",
+      "shapeHash": "91c8f097cfc746506583776697546835985ffcb038a39f583985335a130cd7fa",
       "transform": {
         "positionMm": [
           0,
@@ -240,12 +342,177 @@
       "datums": []
     },
     {
-      "id": "shell",
+      "id": "fan_corner_pads",
       "target": "shell",
-      "label": "Upper shell PCB mounts",
-      "material": "pla",
+      "label": "Fan corner pads",
+      "material": "silicone",
+      "role": "part",
       "kind": "generated",
-      "shapeHash": "b33d16089227ae6f67f292e615dd125ade751de2dab704bba2c2460642e513ec",
+      "shapeHash": "313606e459db09b0787a41886b41a304715a311fde39e94b9b1126c447caf30a",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "front_module_screw_1",
+      "target": "shell",
+      "label": "M2 front module screw",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "a656a20cf27a926da6711ee62a9e095eb920e7c84b99baa8807271ad3cef9d26",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "front_module_screw_2",
+      "target": "shell",
+      "label": "M2 front module screw",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "85d6e6c309835cefadb284acd9f5b3fa2756705b90d9a77ea3bfbbc90bffa60a",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "front_module_screw_3",
+      "target": "shell",
+      "label": "M2 front module screw",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "721faf72918ac9c66bdb92a60add081937a95529b5e2907d1ceaa55c920af65f",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "front_module_screw_4",
+      "target": "shell",
+      "label": "M2 front module screw",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "dfbfc737856095e47ad75ea49ae38349d4a4058b381a60acb2663cd4a9f678e1",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pcb_mount_screw_1",
+      "target": "shell",
+      "label": "PCB mount screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "eae9b5a8ac31dee0f54afd91e0851b0a5ee84e33d396f617e8017e64ba18669d",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pcb_mount_screw_2",
+      "target": "shell",
+      "label": "PCB mount screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "933aea29a6c78c48984150bc4f41a22909af522681701281160932f24720be28",
       "transform": {
         "positionMm": [
           0,
@@ -271,6 +538,7 @@
       "target": "shell",
       "label": "PCB screw spacer",
       "material": "pla",
+      "role": "part",
       "kind": "generated",
       "shapeHash": "2669d5dc73484378541f9ad04d7ed5ea0b017450416b61deddef5a0002292f53",
       "transform": {
@@ -298,166 +566,9 @@
       "target": "shell",
       "label": "PCB screw spacer",
       "material": "pla",
+      "role": "part",
       "kind": "generated",
       "shapeHash": "d9d22b20a02c11f22ac62bb788180543a366322301709600426e3877266311e4",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "front_module_screw_1",
-      "target": "shell",
-      "label": "M2 front module screw",
-      "kind": "generated",
-      "shapeHash": "ca163d260cd609420c123acd128cc11b886ad60a9e5469f06c1e4044c9223fa2",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "front_module_screw_2",
-      "target": "shell",
-      "label": "M2 front module screw",
-      "kind": "generated",
-      "shapeHash": "2f669b4e339f32549b9a4ecfc57a160a0f3b2b2689ba67457afa5fd5015b1184",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "front_module_screw_3",
-      "target": "shell",
-      "label": "M2 front module screw",
-      "kind": "generated",
-      "shapeHash": "210eed1e2c52d83073e46006292379f50deab617a5ac4f68c5130984b10e7ae5",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "front_module_screw_4",
-      "target": "shell",
-      "label": "M2 front module screw",
-      "kind": "generated",
-      "shapeHash": "2edbf18df97cf88dadfe3f1d9b96c1bede12308e8b1c850feb89b840b86493bd",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pcb_mount_screw_1",
-      "target": "shell",
-      "label": "PCB mount screw",
-      "material": "stainless_steel",
-      "kind": "generated",
-      "shapeHash": "8f1df8bd4fe8cadb0685b8858aaa0e453824f4e9e13df1a8cef90008af940377",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pcb_mount_screw_2",
-      "target": "shell",
-      "label": "PCB mount screw",
-      "material": "stainless_steel",
-      "kind": "generated",
-      "shapeHash": "9597c80841b2f011633724871b8dbbc2f878e33ef663c349218b24ba9cfa9a88",
       "transform": {
         "positionMm": [
           0,
@@ -483,8 +594,9 @@
       "target": "shell",
       "label": "Pi corner screw",
       "material": "stainless_steel",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "21bfa49459a681e3eb0108a199644343c7592a88ce21311c26906624516c7709",
+      "shapeHash": "a47c1ff3a1ba40105aa2401760cacffd890f949e38ee4a2a9336c8e89ff01421",
       "transform": {
         "positionMm": [
           0,
@@ -510,8 +622,9 @@
       "target": "shell",
       "label": "Pi corner screw",
       "material": "stainless_steel",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "cfc7ab53a496384c2a1ceeef3703f6fc9fa464162747e95ad66796aea01cfc10",
+      "shapeHash": "3dfe4eab05d1093446ff5f86c7c47f8b5e09deaba2c7c8930be0b64fc530ae4c",
       "transform": {
         "positionMm": [
           0,
@@ -537,8 +650,9 @@
       "target": "shell",
       "label": "Pi corner screw",
       "material": "stainless_steel",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "2b1f78917657d11fdb1ede72d2d2ef5c2a3fa81499c899ed9a79668ea7494dc6",
+      "shapeHash": "efdd73cbb832812ceac051a30aab3735d9f403eda90c9a128817df194e11b75e",
       "transform": {
         "positionMm": [
           0,
@@ -564,8 +678,9 @@
       "target": "shell",
       "label": "Pi corner screw",
       "material": "stainless_steel",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "6863d37c21a5843009ef91bb0de2d014079f057926cb9ec94d7cde10bf82e855",
+      "shapeHash": "d960b58b1123fcf1fca0342012d2540dac1c09ddcc02ad0432b5507ee5938a05",
       "transform": {
         "positionMm": [
           0,
@@ -587,93 +702,13 @@
       "datums": []
     },
     {
-      "id": "base_mount_screw_1",
+      "id": "shell",
       "target": "shell",
-      "label": "Bottom cover screw",
-      "material": "stainless_steel",
+      "label": "Upper shell PCB mounts",
+      "material": "pla",
+      "role": "part",
       "kind": "generated",
-      "shapeHash": "124f006c18746b9161debc6311986e30f3c9a36d897a3a11a04b2d2982c96e5c",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "base_mount_screw_2",
-      "target": "shell",
-      "label": "Bottom cover screw",
-      "material": "stainless_steel",
-      "kind": "generated",
-      "shapeHash": "9e826d1341d329c37accc4dbccdd0007ee834489baa47e5c91cf794c23475b46",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "base_mount_screw_3",
-      "target": "shell",
-      "label": "Bottom cover screw",
-      "material": "stainless_steel",
-      "kind": "generated",
-      "shapeHash": "30bf41654b4d980ecc398ea7503afe1fe606c7e9d3119a6fefe71089bfbacc4a",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "base_mount_screw_4",
-      "target": "shell",
-      "label": "Bottom cover screw",
-      "material": "stainless_steel",
-      "kind": "generated",
-      "shapeHash": "013fe44c76206ae3e34674ae966f6913a66fab001f1f58f1fc3cf79bf06bcf4c",
+      "shapeHash": "b33d16089227ae6f67f292e615dd125ade751de2dab704bba2c2460642e513ec",
       "transform": {
         "positionMm": [
           0,
@@ -699,6 +734,7 @@
       "target": "base",
       "label": "Fixed bottom cover",
       "material": "pla",
+      "role": "part",
       "kind": "generated",
       "shapeHash": "7061fd1e9366d5e4c87a4011c97abb609008a554c9d2b5872b7eaaa8bc905dbf",
       "transform": {
@@ -725,8 +761,9 @@
       "id": "fascia",
       "target": "fascia",
       "label": "Screen housing mounts",
+      "role": "part",
       "kind": "generated",
-      "shapeHash": "a9f4bc8332218edcdfc985b02616837ebf9b56887226017c561b89f8160deb3c",
+      "shapeHash": "5e4d27bff963e079d78f13f82b281285a00d4833236e1278f609e4d466b1d3ee",
       "transform": {
         "positionMm": [
           0,
@@ -751,6 +788,7 @@
       "id": "retainer",
       "target": "fascia",
       "label": "Rear retaining frame",
+      "role": "part",
       "kind": "generated",
       "shapeHash": "8287ac87bcc1e09160dde13eaf0f58af1d990594ebc354ba0da46cf31381187a",
       "transform": {
@@ -777,8 +815,9 @@
       "id": "retainer_screw_1",
       "target": "fascia",
       "label": "M2 retaining screw",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "78f6d6cb2fdded8ac1771d4c9369855b40804045d75d15aab621b0d9138f961c",
+      "shapeHash": "37e528ffcaf4dbd0acbac847c790ab4ab5354eeceb0b06d2ec02bdd3515df0b1",
       "transform": {
         "positionMm": [
           0,
@@ -803,8 +842,9 @@
       "id": "retainer_screw_2",
       "target": "fascia",
       "label": "M2 retaining screw",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "dda17ab6caae1c2b44d30291852dc36dafeb0963c95b65929b0f1aee815489d5",
+      "shapeHash": "23a5451bbd2237b8f15f4fe49c46eb51fe84d7b04a1acea2445cf028bbe994c1",
       "transform": {
         "positionMm": [
           0,
@@ -829,8 +869,9 @@
       "id": "retainer_screw_3",
       "target": "fascia",
       "label": "M2 retaining screw",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "43870dc7cb1acc900040998fc467b9df80f9f36e10c15b6209949ef51881164a",
+      "shapeHash": "0525ff8a446cb60c5ecc2a82ce5ff798f3a24c59dfc98b989cf5691253fb91d6",
       "transform": {
         "positionMm": [
           0,
@@ -855,8 +896,9 @@
       "id": "retainer_screw_4",
       "target": "fascia",
       "label": "M2 retaining screw",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "f62f205ac803f7a057972db168fcc205bf092cc93066b4deb40814c12b24559e",
+      "shapeHash": "42d5c8935315641fb8d3a8a07735623ac829d0e346964eca68752f43ab32ea67",
       "transform": {
         "positionMm": [
           0,
@@ -881,6 +923,7 @@
       "id": "bezel",
       "target": "bezel",
       "label": "LCD locating bezel",
+      "role": "part",
       "kind": "generated",
       "shapeHash": "8774de76e9005319f79bdaac97948d01a5322135ab4d30ecd8ee75b0bd251129",
       "transform": {
@@ -892,32 +935,6 @@
         "rotationDeg": [
           13,
           0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pi4b",
-      "target": "imports",
-      "label": "Pi 4B reference",
-      "kind": "imported",
-      "shapeHash": "4331570f5fabb51ff51bede645e634dffc0631d497174b0a1e6581bd906a3765",
-      "transform": {
-        "positionMm": [
-          39,
-          -30.5,
-          7
-        ],
-        "rotationDeg": [
-          90,
-          90,
           0
         ],
         "rotationOrder": "XYZ",
@@ -956,11 +973,37 @@
       "datums": []
     },
     {
+      "id": "pi4b",
+      "target": "imports",
+      "label": "Pi 4B reference",
+      "kind": "imported",
+      "shapeHash": "8fb1be7fc69fdd9d21ae3e5faf7d3ab13b86eaa3b6e36a8662dd4d912b33696d",
+      "transform": {
+        "positionMm": [
+          39,
+          -30.5,
+          7
+        ],
+        "rotationDeg": [
+          90,
+          90,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
       "id": "pi_baseboard_lite",
       "target": "imports",
       "label": "pi_baseboard_lite",
       "kind": "imported",
-      "shapeHash": "9125f5496c32bbb9275ea7b4b5015eb6487bee0d5f0656f0fca0dc2b045f3223",
+      "shapeHash": "53ffe550dd988b2e2d2d5f6435db5d6af93699e7ea55a557afbe645df1e544cb",
       "transform": {
         "positionMm": [
           -100,
@@ -985,6 +1028,7 @@
       "id": "front_cushion",
       "target": "screen_cushions",
       "label": "Front light seal",
+      "role": "part",
       "kind": "generated",
       "shapeHash": "3e1683f4becbf3cd5306da3885fe73f734d2aa45350c9ef77c0aa57710576bec",
       "transform": {
@@ -1011,6 +1055,7 @@
       "id": "rear_cushion",
       "target": "screen_cushions",
       "label": "Rear compliant support",
+      "role": "part",
       "kind": "generated",
       "shapeHash": "503045f26a376484855ba2afd345160ce6eca3d1ac4f4da88f4a2b26ec3e4e30",
       "transform": {
@@ -1034,12 +1079,13 @@
       "datums": []
     },
     {
-      "id": "passive_heatsink",
+      "id": "cpu_thermal_tape",
       "target": "thermal_stack",
-      "label": "P165-B photo-derived reference",
-      "material": "aluminum",
+      "label": "Included kit TIM nominal gap reference",
+      "material": "rubber",
+      "role": "reference",
       "kind": "generated",
-      "shapeHash": "7847bfa306ae231d396c265af82fdade9eb0978577e64c52be2becffdb1cf77b",
+      "shapeHash": "aebc3eba47c488692dd42cc545da254118872f8828ca1ddaa5da5033232d622b",
       "transform": {
         "positionMm": [
           0,
@@ -1061,12 +1107,13 @@
       "datums": []
     },
     {
-      "id": "cpu_thermal_tape",
+      "id": "passive_heatsink",
       "target": "thermal_stack",
-      "label": "Included kit TIM nominal gap reference",
-      "material": "rubber",
+      "label": "P165-B photo-derived reference",
+      "material": "aluminum",
+      "role": "reference",
       "kind": "generated",
-      "shapeHash": "b2972a47aa24c11594d94a84f2ae6e3ea2f639cfd0c0928d24d3d278e0f7d664",
+      "shapeHash": "7847bfa306ae231d396c265af82fdade9eb0978577e64c52be2becffdb1cf77b",
       "transform": {
         "positionMm": [
           0,
@@ -1092,8 +1139,9 @@
       "target": "thermal_stack",
       "label": "Included kit TIM nominal gap reference",
       "material": "rubber",
+      "role": "reference",
       "kind": "generated",
-      "shapeHash": "ef26d5859df53533055f0a2f21b287bb43b8a43d9f3d8f8da9c6db21831c9897",
+      "shapeHash": "61f8feab222c165883a1620934b9fe74a97af4b312de5fc679c817982dc38508",
       "transform": {
         "positionMm": [
           0,
@@ -1119,6 +1167,7 @@
       "target": "front_module_cover",
       "label": "Independent expansion cover",
       "material": "pla",
+      "role": "part",
       "kind": "generated",
       "shapeHash": "6a5270469eafb31e586e3f4fd134395cc8dcd148bcab77d8c328cb01bfc8aa1a",
       "transform": {
@@ -1129,6 +1178,34 @@
         ],
         "rotationDeg": [
           0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "display_placeholder",
+      "target": "display_placeholder",
+      "label": "LCD placeholder",
+      "material": "glass",
+      "role": "reference",
+      "kind": "generated",
+      "shapeHash": "c1a1c18521ac562344b1500168afa05b2509946e51361574a043f0ac18141da4",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
           0,
           0
         ],
@@ -1182,7 +1259,7 @@
     }
   ],
   "fits": [],
-  "updatedAt": "2026-10-08T06:09:16.845Z",
+  "updatedAt": "2026-10-12T11:20:43.181Z",
   "parameters": {
     "shell": {
       "case_width": 85,
@@ -1501,6 +1578,13 @@
       "front_module_gpio_pin_pocket_roof": 1.2,
       "shell_pcb_top_air": 1.6,
       "front_module_pcb_min_roof": 1.2
+    },
+    "display_placeholder": {
+      "display_placeholder_width": 62.8,
+      "display_placeholder_height": 42.82,
+      "display_placeholder_thickness": 1.64,
+      "display_placeholder_center_y": -1.77,
+      "display_placeholder_front_z": -1.4
     }
   }
 }

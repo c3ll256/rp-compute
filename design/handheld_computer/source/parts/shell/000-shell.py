@@ -277,9 +277,9 @@ for i in range(int(shell_cooling_slot_count)):
  body-=Pos(-case_width/2,fy+offset,shell_cooling_exhaust_z)*Box(4*shell_wall,shell_cooling_slot_width,shell_cooling_exhaust_height)
 collar.color=Color(0.23,0.25,0.27)
 pad_shape.color=Color(0.1,0.1,0.1)
-publish('fan_collar',collar,'Side blower collar',material='pla')
-publish('fan_corner_pads',pad_shape,'Fan corner pads',material='silicone')
-for i,screw in enumerate(cooling_screws):publish('fan_collar_screw_'+str(i+1),screw,'Flush fan collar screw',material='stainless_steel')
+publish('fan_collar',collar,'Side blower collar',material='pla',role='part')
+publish('fan_corner_pads',pad_shape,'Fan corner pads',material='silicone',role='part')
+for i,screw in enumerate(cooling_screws):publish('fan_collar_screw_'+str(i+1),screw,'Flush fan collar screw',material='stainless_steel',role='fastener')
 
 # Shared bottom-cover attachment datums; asymmetric to avoid Pi rear USB bodies.
 base_mount_front_x=param('base_mount_front_x',32.0)
@@ -314,15 +314,15 @@ assert len(base_joint_ids)==4
 
 assert len(body.solids())==1
 body.color=Color(0.88,0.86,0.79)
-publish('shell',body,'Upper shell PCB mounts',material='pla')
+publish('shell',body,'Upper shell PCB mounts',material='pla',role='part')
 for i,spacer in enumerate(pcb_mount_spacers):
- publish('pcb_mount_spacer_'+str(i+1),spacer,'PCB screw spacer',material='pla')
+ publish('pcb_mount_spacer_'+str(i+1),spacer,'PCB screw spacer',material='pla',role='part')
 for i,screw in enumerate(front_module_screws):
- publish('front_module_screw_'+str(i+1),screw,'M2 front module screw')
+ publish('front_module_screw_'+str(i+1),screw,'M2 front module screw',role='fastener')
 for i,screw in enumerate(pcb_mount_screws):
- publish('pcb_mount_screw_'+str(i+1),screw,'PCB mount screw',material='stainless_steel')
+ publish('pcb_mount_screw_'+str(i+1),screw,'PCB mount screw',material='stainless_steel',role='fastener')
 
 for i,screw in enumerate(pi_mount_screws):
- publish('pi_mount_screw_'+str(i+1),screw,'Pi corner screw',material='stainless_steel')
+ publish('pi_mount_screw_'+str(i+1),screw,'Pi corner screw',material='stainless_steel',role='fastener')
 
-for i,screw in enumerate(base_mount_screws):publish('base_mount_screw_'+str(i+1),screw,'Bottom cover screw',material='stainless_steel')
+for i,screw in enumerate(base_mount_screws):publish('base_mount_screw_'+str(i+1),screw,'Bottom cover screw',material='stainless_steel',role='fastener')

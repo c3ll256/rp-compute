@@ -83,4 +83,4 @@ for xx in [-front_module_screw_x,front_module_screw_x]:
 assert len(cover.solids())==1
 assert abs(cover.bounding_box().max.Z)<1e-6
 cover.color=Color(0.23,0.25,0.27)
-publish('front_module_blank',cover,'Independent expansion cover',material='pla')
+publish('front_module_blank',cover,'Independent expansion cover',material='pla',role='part')

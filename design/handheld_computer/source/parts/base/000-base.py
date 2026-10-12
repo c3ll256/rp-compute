@@ -42,4 +42,4 @@ base=base+rim
 assert len(base.solids())==1
 
 base.color=Color(0.88,0.86,0.79)
-publish('base',base,'Fixed bottom cover',material='pla')
+publish('base',base,'Fixed bottom cover',material='pla',role='part')

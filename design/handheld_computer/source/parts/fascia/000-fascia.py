@@ -192,7 +192,7 @@ assert len(ring.solids())==1, ('ring solids',len(ring.solids()),[(round(s.volume
 assert len(host.solids())==1
 host.color=Color(0.96,0.31,0.07)
 ring.color=Color(0.17,0.18,0.19)
-publish('fascia',F*host,'Screen housing mounts')
-publish('retainer',ring,'Rear retaining frame')
+publish('fascia',F*host,'Screen housing mounts',role='part')
+publish('retainer',ring,'Rear retaining frame',role='part')
 for i,sc in enumerate(screws):
- publish('retainer_screw_'+str(i+1),sc,'M2 retaining screw')
+ publish('retainer_screw_'+str(i+1),sc,'M2 retaining screw',role='fastener')

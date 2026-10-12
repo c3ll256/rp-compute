@@ -22,5 +22,5 @@ rear-=Pos(0,GLASS_Y-GLASS_H/2,rear_cushion_z)*Box(rear_cushion_tail_gap,6,4*rear
 front.color=Color(0.12,0.12,0.12)
 rear.color=Color(0.24,0.24,0.25)
 assert len(front.solids())==1 and len(rear.solids())==1
-publish('front_cushion',front,'Front light seal')
-publish('rear_cushion',rear,'Rear compliant support')
+publish('front_cushion',front,'Front light seal',role='part')
+publish('rear_cushion',rear,'Rear compliant support',role='part')

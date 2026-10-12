@@ -42,4 +42,4 @@ for xx in [-20,20]:
 bezel=bezel.fuse(flange)
 assert len(bezel.solids())==1
 bezel.color=Color(0.08,0.09,0.09)
-publish('bezel',bezel,'LCD locating bezel')
+publish('bezel',bezel,'LCD locating bezel',role='part')
