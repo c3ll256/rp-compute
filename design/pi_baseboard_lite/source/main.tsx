@@ -9,7 +9,7 @@ import { boardPropsFromRules, groundPourPropsFromRules, keepoutPropsFromRules, n
 // Wider outline removes the recess bottleneck. Only J_PI remains on bottom.
 // Buffers have room for routing and service; their local bypass caps remain nearby.
 export default () => (
-  <board width={board.width} height={board.height} center_x={0} center_y={board.centerY} outline={board.outline} {...boardPropsFromRules()}>
+  <board width={board.width} height={board.height} center_x={board.centerX} center_y={board.centerY} outline={board.outline} {...boardPropsFromRules()}>
     {Object.keys(pcbRules.nets).map(n => <net key={n} name={n} {...netPropsFor(n)} />)}
     {groundPourPropsFromRules().map(p => <copperpour key={p.name} {...p} />)}
     {keepoutPropsFromRules().map(k => <keepout {...k} />)}

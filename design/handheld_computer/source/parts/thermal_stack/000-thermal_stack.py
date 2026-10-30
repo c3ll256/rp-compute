@@ -1,3 +1,4 @@
+layout=part('shell')
 # Geekworm P165-B explicit photo/dimension reference, NOT manufacturer STEP.
 # Verified outer size55x65x11mm and four M2.5 threads (Geekworm SKU100237).
 # Fin spacing, underside lands and port reliefs below are photo-derived defaults;
@@ -5,10 +6,10 @@
 P165_W=55.0
 P165_D=65.0
 P165_H=11.0
-P165_HOLE_X=(-13.5,35.5)
+P165_HOLE_X=tuple(x+layout.pi_offset_x for x in (-13.5,35.5))
 P165_HOLE_Y=(-27.,31.)
 passive_heatsink_allowance=param('passive_heatsink_allowance',0.0)
-passive_heatsink_x=param('passive_heatsink_x',11.0)
+passive_heatsink_x=param('passive_heatsink_x',11.0)+layout.pi_offset_x
 passive_heatsink_y=param('passive_heatsink_y',2.0)
 passive_heatsink_bottom_z=param('passive_heatsink_bottom_z',7.1)
 passive_heatsink_base_bottom_z=param('passive_heatsink_base_bottom_z',11.5)
@@ -23,20 +24,20 @@ passive_heatsink_dsi_relief_depth=param('passive_heatsink_dsi_relief_depth',7.2)
 passive_heatsink_av_relief_width=param('passive_heatsink_av_relief_width',12.5)
 passive_heatsink_av_relief_depth=param('passive_heatsink_av_relief_depth',13.0)
 passive_heatsink_av_relief_top_z=param('passive_heatsink_av_relief_top_z',14.5)
-passive_heatsink_dsi_relief_x=param('passive_heatsink_dsi_relief_x',11.0)
+passive_heatsink_dsi_relief_x=param('passive_heatsink_dsi_relief_x',11.0)+layout.pi_offset_x
 passive_heatsink_av_relief_y=param('passive_heatsink_av_relief_y',23.5)
 passive_heatsink_csi_relief_width=param('passive_heatsink_csi_relief_width',23.0)
 passive_heatsink_csi_relief_depth=param('passive_heatsink_csi_relief_depth',6.4)
 passive_heatsink_csi_relief_y=param('passive_heatsink_csi_relief_y',16.1)
 passive_heatsink_poe_relief_width=param('passive_heatsink_poe_relief_width',6.2)
 passive_heatsink_poe_relief_depth=param('passive_heatsink_poe_relief_depth',6.1)
-passive_heatsink_poe_relief_x=param('passive_heatsink_poe_relief_x',-7.36)
+passive_heatsink_poe_relief_x=param('passive_heatsink_poe_relief_x',-7.36)+layout.pi_offset_x
 passive_heatsink_poe_relief_y=param('passive_heatsink_poe_relief_y',31.0)
 # Existing contact datums retained;0.25mm TIM is a review assumption only.
-cpu_heatsink_x=param('cpu_heatsink_x',6.3725)
+cpu_heatsink_x=param('cpu_heatsink_x',6.3725)+layout.pi_offset_x
 cpu_heatsink_y=param('cpu_heatsink_y',-1.2681)
 cpu_heatsink_bottom_z=param('cpu_heatsink_bottom_z',9.55)
-ram_heatsink_x=param('ram_heatsink_x',6.58255)
+ram_heatsink_x=param('ram_heatsink_x',6.58255)+layout.pi_offset_x
 ram_heatsink_y=param('ram_heatsink_y',14.3315)
 ram_heatsink_bottom_z=param('ram_heatsink_bottom_z',8.05)
 cpu_thermal_tape_width=param('cpu_thermal_tape_width',13.5)

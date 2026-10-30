@@ -1,16 +1,16 @@
 {
-  "scope": "Display rear retention and native FPC routing only; preserve locator and 1mm front rise; no PCB",
+  "scope": "Two-piece display frame, including hidden frame-to-upper-shell fastening and unchanged current PCB/display/FPC datums.",
   "items": [
     {
       "id": "retainer_screws",
-      "catalog_id": "bd-warehouse:bd_warehouse.fastener.SocketHeadCapScrew",
-      "standard": "ISO 4762",
+      "catalog_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
+      "standard": "ISO7046",
       "size": "M2-0.4",
       "quantity": 4,
       "status": "selected",
       "source": "default",
-      "implementation": "printed-screw-joint-v1; solved5mm length,2mm through layer,3mm selected engagement; empty returned bosses handled conditionally",
-      "length_mm": 5
+      "implementation": "Printed-screw-joint-v1 receiving/through cuts; ISO7046 head fallback after M2 countersunk kit rejection. Solved4mm length,2mm through plate,2mm receiving engagement.",
+      "length_mm": 4
     },
     {
       "id": "display",
@@ -25,30 +25,59 @@
       "step_parts_id": "hirose_fh12_10s_0_5sh_1x10_1mp_p0_50mm_horizontal",
       "sha256": "e9d0b14513dfc84f1e9be9e3b1d0c5c710fa12b2abdcae6ad9b5880e4097a0e9",
       "evidence": "references/suppliers/c506791/c506791-datasheet.pdf pp1,5"
+    },
+    {
+      "id": "screen_pod_mount_screws",
+      "catalog_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
+      "catalog_fingerprint": "7b37f82b4c14c2268f0837cffcfcc95e78d65368c4c9b6374739272e6df1f70e",
+      "standard": "ISO7046",
+      "size": "M2-0.4",
+      "quantity": 4,
+      "source": "default",
+      "status": "selected",
+      "variants": [
+        {
+          "length_mm": 4,
+          "quantity": 2,
+          "position": "front"
+        },
+        {
+          "length_mm": 6,
+          "quantity": 2,
+          "position": "rear"
+        }
+      ],
+      "implementation": "Printed-screw-joint-v1 cuts in shared shell-owned interface, actual fascia receiving tabs and1.2mm closing-skin probes. Exact ISO7046 heads only after kit rejects M2 ISO10642."
     }
   ],
   "connections": [
     {
       "id": "glass_to_locator",
       "method": "free",
-      "implementation": "existing rear loading pocket, unchanged"
+      "implementation": "Integral rear-loading pocket in fascia, no independent bezel or thin flange."
     },
     {
       "id": "retainer_to_housing",
       "method": "printed-screw-joint-v1",
-      "implementation": "four underside M2 joints on hard stops; no glass in screw compression stack",
+      "implementation": "Four coplanar flat-plate tabs, kit-owned M2 receiving joints, ISO7046 head fallback only after kit rejection; hard stops bypass glass.",
       "status": "implemented"
     },
     {
       "id": "native_tail_to_zif",
       "method": "free",
-      "implementation": "manufacturer constrained fold and connector mechanical target; no PCB",
-      "status": "complete mechanical target;13.7mm total tail length unverified, no supported board"
+      "implementation": "Existing native-tail negative fold and current SHOU HAN connector keepouts retained; separate guard removed.",
+      "status": "Provisional13.7mm tail estimate; physical insertion not qualified."
     },
     {
       "id": "glass_compliant_support",
       "method": "free",
-      "implementation": "custom nonadhesive0.2mm front/1.0mm rear die-cut pads; material/pressure qualification pending"
+      "implementation": "Custom nonadhesive0.2mm front/2mm rear silicone pads; pressure qualification pending."
+    },
+    {
+      "id": "screen_pod_to_upper_shell",
+      "method": "printed-screw-joint-v1",
+      "implementation": "Four vertical inside-up joints, coplanar contact feet atZ27mm bridging only concealed0.3mm seam. FrontM2x4/rearM2x6, no added printed bracket.",
+      "status": "implemented; physical PLA pullout and service life untested"
     }
   ],
   "status": "modeled prototype; physical-fit qualifications remain"

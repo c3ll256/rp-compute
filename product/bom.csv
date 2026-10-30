@@ -6,7 +6,7 @@ ldo_3v3,Texas Instruments,TLV75533PDBVR,TLV75533PDBVR,2,U_LCD_LDO;U_AUX_LDO,LCSC
 display_buffer,Texas Instruments,SN74AHC125PWR,SN74AHC125PWR,2,U_BUF1;U_BUF2,LCSC,C54529,https://item.szlcsc.com/55547.html,https://www.ti.com/cn/lit/ds/symlink/sn74ahc125.pdf,https://alimg.szlcsc.com/upload/public/product/source/20221230/3C47C84BAAF1B86135DBFE6FB98B5466.jpg,pcb_check_ready_bench_validation_pending
 gpio_dock,SAMTEC,ESQ-120-12-G-D,ESQ-120-12-G-D,1,J_PI,LCSC / Samtec authorized distributor,C3319198,https://item.szlcsc.com/3883792.html,https://suddendocs.samtec.com/catalog_english/esq_th.pdf,,selected_for_interface_revision
 front_module_blank,Project custom,handheld_computer-front-module-blank,"Custom replaceable front-module blank, 70x37mm",1,,Prototype fabrication,,,,,
-front_module_screws,ISO 7046 standard,ISO7046-M2x4,"ISO7046 M2 countersunk cross-recess screws,4mm",4,,User-selected standard hardware,,,,,
+front_module_screws,ISO 10642 standard,ISO10642-M3-0.5x6,M3×6 90°沉头螺丝,4,,User-owned M3 stock,,,,,
 gpio_aux_limiter,Texas Instruments,TPS2553DBVR,TPS2553DBVR,2,U_LCD_LIMIT;U_AUX_LIMIT,Texas Instruments / authorized distributor,,https://www.ti.com/product/TPS2553,https://www.ti.com/lit/ds/symlink/tps2553.pdf,,pcb_check_ready_bench_validation_pending
 lite_header,SAMTEC,HLE-104-02-G-DV,HLE-104-02-G-DV,1,J_MOD,Samtec / authorized distributor,,https://www.samtec.com/products/hle-104-02-g-dv,https://suddendocs.samtec.com/catalog_english/hle.pdf,,selected_for_interface_revision
 lite_c100n,YAGEO(国巨),CC0603KRX7R9BB104,CC0603KRX7R9BB104,3,C_BUF1;C_BUF2;C_LCD_A,LCSC,C14663,https://item.szlcsc.com/15331.html,https://atta.szlcsc.com//upload/public/pdf/source/20250214/096C4C206003071F5D32E5F0D8E7F8DF.pdf,https://alimg.szlcsc.com/upload/public/product/source/20250715/565F44E7FCAE51D13767AECBC328360D.jpg,pcb_check_ready_bench_validation_pending
@@ -15,16 +15,21 @@ lite_r100k,UNI-ROYAL(厚声),0603WAF1003T5E,0603WAF1003T5E,7,R_OFF_CLK;R_OFF_DAT
 lite_r169k,UNI-ROYAL(厚声),0603WAF1693T5E,0603WAF1693T5E,2,R_LCD_ILIM;R_AUX_ILIM,LCSC,C22817,https://item.szlcsc.com/23544.html,https://atta.szlcsc.com//upload/public/pdf/source/20200306/C422600_1E6D84923E4A46A82E41ADD87F860B5C.pdf,https://alimg.szlcsc.com/upload/public/product/source/20221228/E2B3E62C4EB13D0501DF0B3C0442EE14.jpg,pcb_check_ready_bench_validation_pending
 lite_c2u2,SAMSUNG(三星),CL21A225KBQNNNE,CL21A225KBQNNNE,7,C_LCD_D;C_LCD_IN;C_LCD_LIN;C_LCD_LOUT;C_AUX_IN;C_AUX_LIN;C_AUX_LOUT,LCSC,C377773,https://item.szlcsc.com/350246.html,https://atta.szlcsc.com//upload/public/pdf/source/20160218/1457707763339.pdf,https://alimg.szlcsc.com/upload/public/product/source/20240318/586CF8A489086C6E8042B1D5672787EA.jpg,pcb_check_ready_bench_validation_pending
 upper_shell_pcb_fixture,Project custom,handheld_computer-upper-shell-pcb-mount,Upper enclosure with integrated PCB beams and rear guide,1,,Prototype fabrication,,,,,
-pcb_upper_mount_screws,ISO 4762 standard,ISO 4762 M2-0.4 x4 mm,ISO4762 M2-0.4 x4mm socket-head cap screw,2,,User-selected standard hardware,,,,,
+pcb_upper_mount_screws,ISO 4762 standard,ISO4762-M2-0.4x3,ISO4762 M2-0.4 x3mm socket-head cap screw,2,,User-selected standard hardware,,,,,
 compact_cooling_fan,Nidec Components,F16FB-05LLC,Nidec Components F16FB-05LLC,1,,Nidec Components authorized distributor,,https://www.nidec-components.com/sg/product/detail/00000718/,https://www.nidec-components.com/e/catalog/dc-fan/f16fb.pdf,,selected_manufacturer_drawing_and_STEP
-compact_fan_collar,Project Replicator,RP-F16-COLLAR,Compact fan collar,1,,,,,,,selected
+compact_fan_collar,Project Replicator,RP-F16-COLLAR,Fan cassette (printed U-channel),1,,,,,,,selected
 compact_fan_pads,Project Replicator,RP-F16-PAD-0.5,Silicone sheet corner pads,3,,,,,,,selected
-compact_fan_screws,ISO 7046 standard,ISO7046-M2x4,"ISO7046 M2 countersunk fan collar screws,4mm",2,,,,,,,selected
+compact_fan_screws,ISO 7046 standard,ISO7046-M2x12,"ISO7046 M2 countersunk fan cassette screws, 12mm",2,,,,,,,selected
 compact_factory_strain_relief,Dow,DOWSIL 3145 Clear,DOWSIL 3145 RTV MIL-A-46146 Adhesive/Sealant — Clear,1,,,,https://www.dow.com/en-us/pdp.dowsil-3145-rtv-mil-a-46146-adhesive-sealant.01059548z.html,,,selected_manufacturer_evidence
 compact_passive_heatsink,Geekworm,P165-B,"Geekworm Raspberry Pi 4 11mm Embedded Heatsink (P165-B), standalone SKU100237",1,,Manufacturer / authorized distributor,,https://geekworm.com/products/p165-b,https://geekworm.com/products/p165-b.js,,selected
 fan_connector,JST,SM02B-SRSS-TB,JST SH 1mm side-entry 2pin SMT fan socket,1,J_FAN,Manufacturer / authorized distributor,,https://www.jst-mfg.com/product/index.php?lang=2&series=231,https://www.jst-mfg.com/product/pdf/eng/eSH.pdf,,selected
 fan_factory_harness,JST / factory harness,SHR-02V-S + SSH-003T-P0.2-H,"Factory JST SH 2pin fan harness, pin1 red +5V / pin2 black GND",1,,Manufacturer / authorized distributor,,,https://www.jst-mfg.com/product/pdf/eng/eSH.pdf,,selected
-pi_upper_mount_screws,ISO standard,ISO7046-M2.5x6,"ISO7046 M2.5 countersunk cross-recess screws,6mm",4,,Manufacturer / authorized distributor,,,,,selected
-lcd_retainer_screws,ISO standard,ISO7046-M2x6,"ISO7046 M2 countersunk cross-recess screws,6mm",4,,Manufacturer / authorized distributor,,,,,selected
-bottom_cover_screws,ISO7046 standard,ISO7046-M2-0.4x6,"ISO7046 M2 countersunk cross-recess screws, 6mm",4,,External mechanical hardware supplier,,,,,
-pcb_mount_spacers,Project custom,handheld_computer-pcb-mount-spacer,"Custom PCB screw spacer, diameter4.8mm x thickness1.2mm",2,,Prototype fabrication,,,,,selected
+pi_upper_mount_screws,ISO standard,ISO7046-M2.5x10,"ISO7046 M2.5 countersunk cross-recess screws, 10mm",4,,Manufacturer / authorized distributor,,,,,selected
+lcd_retainer_screws,ISO standard,ISO7046-M2x4,ISO7046 M2×4 十字沉头螺丝,4,,Standard hardware supplier,,,,,selected
+bottom_cover_screws,ISO 10642 standard,ISO10642-M3-0.5x6,M3×6 90°沉头螺丝,4,,User-owned M3 stock,,,,,
+screen_integral_frame,Project custom,handheld-screen-integral-frame,一体屏舱前框（PLA打印）,1,,Prototype fabrication,,,,,
+screen_flat_retainer,Project custom,handheld-screen-flat-retainer,等厚屏幕后压框（PLA打印）,1,,Prototype fabrication,,,,,
+screen_front_pad,Project custom,handheld-screen-front-pad-0p2,屏幕前侧无胶硅胶软垫，0.2mm,1,,Prototype fabrication,,,,,
+screen_rear_pad,Project custom,handheld-screen-rear-pad-2p0,屏幕后侧无胶硅胶软垫，2mm,1,,Prototype fabrication,,,,,
+screen_shell_front_screws,ISO standard,ISO7046-M2x4,ISO7046 M2×4 十字沉头螺丝（前侧屏舱—上壳固定螺丝）,2,,Standard hardware supplier,,,,,
+screen_shell_rear_screws,ISO 10642 standard,ISO10642-M3-0.5x6,M3×6 90°沉头螺丝,2,,User-owned M3 stock,,,,,

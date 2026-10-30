@@ -75,7 +75,7 @@
       "source": "default"
     },
     "appearance": {
-      "value": "orange raised screen housing with dark inset bezel on an ivory low horizontal base; front horizontal deck; no inferred hidden functions",
+      "value": "orange integral screen housing with a shallow darkenable border line on an ivory low horizontal base; flat front deck",
       "source": "default"
     },
     "screen_mount": {
@@ -84,7 +84,7 @@
     },
     "initial_layout_envelope_mm": {
       "value": {
-        "width": 85,
+        "width": 76,
         "depth": 115,
         "max_height": 60,
         "status": "provisional corrected styling envelope, not verified hardware fit"
@@ -134,7 +134,7 @@
     "display_supply_v": {
       "value": {
         "min": 4.8,
-        "typ": 5.0,
+        "typ": 5,
         "max": 5.5
       },
       "source": "research"
@@ -242,8 +242,8 @@
       "value": {
         "base_height_mm": 27,
         "screen_angle_deg_from_horizontal": 13,
-        "screen_pod_width_mm": 77,
-        "screen_face_depth_mm": 65,
+        "screen_pod_width_mm": 76,
+        "screen_face_depth_mm": 59,
         "front_groove": "replaced by a removable blank module in a common locating seat",
         "power_button": "none; continuous right-side wall"
       },
@@ -275,7 +275,7 @@
       "source": "default"
     },
     "screen_pod_front_rise_mm": {
-      "value": 1,
+      "value": 1.67,
       "source": "user"
     },
     "screen_pod_front_rise_datum": {
@@ -283,7 +283,7 @@
       "source": "default"
     },
     "front_module_replaceability": {
-      "value": "The front-deck cover is a separate removable part in CAD and in the physical assembly, replaceable by user-designed expansion modules using the same perimeter seat, locating tongue and four corner mounting points. The supplied blank has a flat outer face and a blind underside recess for the internal female socket, with no central opening or raised patch. Preserve display mounting and the1mm screen-pod rise above the fixed shell deck.",
+      "value": "The front-deck cover is a separate removable part in CAD and in the physical assembly, replaceable by user-designed expansion modules using the same flat deck support and four corner mounting points. The cover underside has no locating tongue or raised boss. The supplied blank has a flat outer face, with no central opening or raised patch, and leaves clearance above the internal female socket. Preserve display mounting and the accepted approximately1.67mm screen-pod rise above the fixed shell deck.",
       "source": "user"
     },
     "front_module_service_policy": {
@@ -379,7 +379,7 @@
         "minimum_inner_bend_radius": 0.45,
         "allowed_bend_interval_from_glass": [
           0.8,
-          6.0
+          6
         ],
         "note": "0.5mm is additional free-space clearance, not cable-length extension. Manufacturer bend limits retained. Slot stop and pin1 still require evidence."
       },
@@ -437,7 +437,7 @@
       "source": "user"
     },
     "flush_fasteners": {
-      "value": "Use countersunk screws for most screws, especially externally exposed screw heads.",
+      "value": "Use M3 countersunk screws for most enclosure fasteners where the available geometry permits, prioritizing user-owned M3x6, M3x10 and M3x12 lengths. Retain smaller fasteners where original board holes, metal threads or narrow printed features require them.",
       "source": "user"
     },
     "cooler_mounting": {
@@ -445,7 +445,7 @@
       "source": "user"
     },
     "pcb_fastener_seat_policy": {
-      "value": "Pi four original holes stay cylindrical and unmodified; M2.5 countersunk heads seat in printed supporting shelves below the PCB, with screws threading into metal heatsink corners. HAT internal M2 screws remain flat socket-head. Exterior M2 heads use verified ISO7046 heads/seats; plastic threaded joints retain kit receivers.",
+      "value": "Preserve the Pi original cylindrical mounting holes and P165-B M2.5 metal threads; use M2.5x10 countersunk screws in the printed bottom carrier. Preserve the baseboard 2.2mm holes and two M2x3 socket-cap screws directly against the PCB underside, without screw spacers. Enclosure printed receivers are solved by the screwjoint kit; apply print allowance only to through/head seats.",
       "source": "default"
     },
     "fan_power_takeoff": {
@@ -502,6 +502,137 @@
     },
     "rear_left_wall_openings": {
       "value": "Remove the four rear-left wall inlet slots below the screen pod; restore a continuous wall. Keep the left-side blower exhaust slots.",
+      "source": "user"
+    },
+    "enclosure_flush_screen_outline": {
+      "value": "机身与屏幕凸起两侧齐宽；屏舱背部按用户紫线做上沿向前内收的斜面，下沿仍与机身后沿齐平，不留侧面或背面的水平台阶。",
+      "source": "user"
+    },
+    "enclosure_vent_profile": {
+      "value": "左前侧保留的四个通风孔采用圆角长孔。",
+      "source": "user"
+    },
+    "enclosure_flush_outline_implementation": {
+      "value": {
+        "case_width_mm": 76,
+        "screen_housing_width_mm": 76,
+        "rear_world_y_mm": 57.5,
+        "approach": "Narrow the case and pod together to76mm. Pi/heatsink move5mm left and fan3mm right; re-layout J_PI while retaining the LCD FPC and expansion socket datums. Front screen retainer screws move toX+/-27mm.",
+        "vent_slot_mm": [
+          2.4,
+          4.5
+        ],
+        "vent_end_radius_mm": 1.2
+      },
+      "source": "default"
+    },
+    "enclosure_rear_wall_profile": {
+      "value": "屏幕凸起的后壁按上传侧视图紫线向前倾斜，上端内收、下端接齐机身后壁。",
+      "source": "user"
+    },
+    "enclosure_rear_wall_lean_from_vertical_deg": {
+      "value": 26.2871101367786,
+      "source": "default"
+    },
+    "compact_enclosure_and_narrow_frame": {
+      "value": "收窄fascia屏幕边框并缩小机身；接受为此修改定制基板。",
+      "source": "user"
+    },
+    "compact_layout_defaults": {
+      "value": {
+        "case_width_mm": 76,
+        "case_depth_mm": 115,
+        "pi_offset_x_mm": -5,
+        "fan_offset_x_mm": 3,
+        "front_retainer_screw_x_mm": 27,
+        "pcb_envelope_mm": [
+          44.5,
+          83.5
+        ],
+        "screen_window_mm": [
+          66.5,
+          49.5
+        ],
+        "outer_side_frame_mm": 4.75,
+        "fan_offset_y_mm": -3,
+        "outer_frame_all_sides_mm": 4.75,
+        "front_retainer_screw_y_mm": -26.25
+      },
+      "source": "default"
+    },
+    "screen_pod_equal_border": {
+      "value": "屏幕舱上下左右四边等宽并收窄；接受前沿随此从1mm升至约1.67mm，保留屏幕玻璃、13°倾角和FPC安装基准。",
+      "source": "user"
+    },
+    "screen_pod_equal_border_defaults": {
+      "value": {
+        "outer_face_mm": [
+          76,
+          59
+        ],
+        "window_mm": [
+          66.5,
+          49.5
+        ],
+        "border_mm": 4.75,
+        "outer_corner_radius_mm": 7.5,
+        "actual_front_rise_mm": 1.6748531628559828,
+        "front_retainer_screw_y_mm": -26.25,
+        "window_role": "浅分界线外轮廓；玻璃有效显示口为59.4×35.88mm，独立定位框取消"
+      },
+      "source": "default"
+    },
+    "screen_frame_printed_part_count": {
+      "value": 2,
+      "source": "user"
+    },
+    "screen_frame_construction": {
+      "value": "一体屏舱前框和等厚后压框；前框集成玻璃定位口，取消独立内框、背面薄翻边及排线护栏。两个硬质打印件以四枚M2螺丝连接，软垫另计。",
+      "source": "default"
+    },
+    "screen_frame_print_defaults": {
+      "value": {
+        "front_lip_mm": 1.2,
+        "rear_plate_mm": 2,
+        "glass_pocket_clearance_per_side_mm": 0.3,
+        "front_pad_mm": 0.2,
+        "rear_pad_mm": 2,
+        "outer_border_line_width_mm": 0.5,
+        "outer_border_line_depth_mm": 0.3,
+        "orientation": "一体前框的屏面朝下；等厚后压框平放。PLA、0.2mm层高为样机默认，切片和实物试配另验。"
+      },
+      "source": "default"
+    },
+    "front_module_underside_protrusion_mm": {
+      "value": 0,
+      "source": "user"
+    },
+    "user_owned_m3_screws": {
+      "value": {
+        "thread": "M3",
+        "head": "countersunk",
+        "lengths_mm": [
+          6,
+          10,
+          12
+        ]
+      },
+      "source": "user"
+    },
+    "countersink_print_margin": {
+      "value": "Provide additional countersink seating space to accommodate printing tolerances.",
+      "source": "user"
+    },
+    "countersink_print_extra_diameter_mm": {
+      "value": 0.4,
+      "source": "default"
+    },
+    "countersink_print_extra_depth_mm": {
+      "value": 0.2,
+      "source": "default"
+    },
+    "pcb_screw_spacer_quantity": {
+      "value": 0,
       "source": "user"
     }
   },

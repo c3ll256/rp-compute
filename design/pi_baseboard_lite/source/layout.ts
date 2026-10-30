@@ -9,19 +9,15 @@
 // Original overall envelope and mounting datums are preserved; filled former recess
 // buys area for one-sided SMT and relaxed buffer placement.
 // Defaults for this layout iteration, not a qualified shell mounting pattern.
+// Narrow 76mm enclosure: Pi moves -5mm in X, while LCD and module stay fixed.
+// Front retainer screws now sit at X+/-27; the left outline clears their ear.
 export const board = {
-  width: "40mm", height: "83.5mm", centerY: 6.25,
+  width: "44.5mm", height: "83.5mm", centerX: -2.25, centerY: 6.25,
   outline: [
-    {x:-20,y:-35.5}, {x:20,y:-35.5},
-    // Exact old-enclosure retainer/fascia intersection at sourceX17.3..20,
-    // sourceY11.66..22.31; retain >=0.5mm physical relief.
-    {x:20,y:10.5}, {x:16.3,y:11.1}, {x:16.3,y:23.8}, {x:20,y:24.4},
-    {x:20,y:38}, {x:-5,y:38}, {x:-5,y:48}, {x:-20,y:48},
-    // Retained screen M2 screw1 world bbox x=-21.99..-18.01,y=-5.676..-1.378.
-    // Source Y=worldY+19; notch keeps >=0.5mm nominal screw clearance.
-    {x:-20,y:18.8}, {x:-19.4,y:18.2}, {x:-17.8,y:18.2},
-    {x:-17.3,y:17.7}, {x:-17.3,y:13.2}, {x:-17.8,y:12.7},
-    {x:-19.4,y:12.7}, {x:-20,y:12.1}
+    {x:-24.5,y:-35.5}, {x:20,y:-35.5},
+    {x:20,y:38}, {x:-5,y:38}, {x:-5,y:48}, {x:-24.5,y:48},
+    {x:-24.5,y:20}, {x:-23.5,y:19},
+    {x:-23.5,y:11.5}, {x:-24.5,y:10.5}
   ]
 };
 
@@ -60,7 +56,7 @@ export const interfaces = {
   // ESQ underside,11.05mm housing. Native supplier numbering is paired
   // across the opposite row from Pi top-view numbering: main.tsx swaps each pair.
   // This preserves every original Pi world pin datum; no GPIO net swap.
-  piDock: { x: -13.5, y: 21, rotation: 270, side: "bottom" },
+  piDock: { x: -18.5, y: 21, rotation: 270, side: "bottom" },
 
   // Horizontal top-side FPC, entry down/front (-Y) per user. Shifted rearward
   // with upward contacts matching the return-folded native tail. Position is a fit default.

@@ -1,14 +1,16 @@
+# cell: fascia
+# cell: fascia
 import math
-fascia_width=param('fascia_width',77.0)
-fascia_depth=param('fascia_depth',65.0)
-fascia_radius=param('fascia_radius',6.0)
+housing=part('shell')
+# Equal nominal border on the screen plane. The purchased glass, bezel and FPC
+# keep their existing pose; only the outside pod silhouette contracts.
+fascia_width=housing.case_width
 fascia_thickness=param('fascia_thickness',3.0)
 fascia_window_width=param('fascia_window_width',66.5)
 fascia_window_height=param('fascia_window_height',49.5)
 fascia_window_radius=param('fascia_window_radius',2.75)
 fascia_edge_radius=param('fascia_edge_radius',0.6)
 fascia_slope=param('fascia_slope',13.0)
-fascia_front_height=param('fascia_front_height',0.7)
 fascia_wall=param('fascia_wall',2.4)
 fascia_window_x=param('fascia_window_x',0.0)
 fascia_window_y=param('fascia_window_y',0.0)
@@ -17,95 +19,92 @@ fascia_fpc_length=param('fascia_fpc_length',10.0)
 fascia_fpc_y=param('fascia_fpc_y',-25.0)
 fascia_fpc_roof=param('fascia_fpc_roof',1.5)
 fascia_fpc_depth=param('fascia_fpc_depth',5.0)
+fascia_screen_center_z=param('fascia_screen_center_z',8.010909266)
+fascia_center_y=param('fascia_center_y',21.521201483)
+fascia_border=(fascia_width-fascia_window_width)/2
+fascia_depth=fascia_window_height+2*fascia_border
+fascia_radius=fascia_window_radius+fascia_border
+assert fascia_border>=fascia_wall
+assert abs(fascia_window_x)<1e-6 and abs(fascia_window_y)<1e-6
 a=math.radians(fascia_slope)
-d=fascia_depth*math.cos(a)
-zc=fascia_front_height+fascia_depth*math.sin(a)/2
-h=fascia_front_height+fascia_depth*math.sin(a)
+zc=fascia_screen_center_z
 F=Pos(0,0,zc)*Rot(fascia_slope,0,0)
-outer=extrude(RectangleRounded(fascia_width,d,fascia_radius),amount=h+fascia_thickness)
-outer=outer & (F*Pos(0,0,-2*h)*Box(4*fascia_width,4*fascia_depth,4*h))
+d=fascia_depth*math.cos(a)
+front_y=-d/2
+rear_y=housing.case_depth/2-fascia_center_y
+fascia_front_height=zc-fascia_depth*math.sin(a)/2
+h=zc+fascia_depth*math.sin(a)/2
+rear_lean=(rear_y-d/2)/h
+fascia_rear_lean_deg=math.degrees(math.atan(rear_lean))
+assert fascia_front_height>0 and 0<=fascia_rear_lean_deg<=35
+# Bottom rear corners match the case. The face is a true rounded 76x59
+# rectangle on the 13deg screen plane, including equal-offset corner radii.
+def pod_foot(z,inset=0.0):
+ front=front_y+inset
+ rear=rear_y-inset*math.sqrt(1+rear_lean**2)
+ radius=housing.case_corner-inset
+ return Pos(0,(front+rear)/2,z)*RectangleRounded(fascia_width-2*inset,rear-front,radius)
+def pod_face(inset=0.0):
+ return F*RectangleRounded(fascia_width-2*inset,fascia_depth-2*inset,fascia_radius-inset)
+outer=loft([pod_foot(0),pod_face()],ruled=True)
 edges=[e for e in outer.edges() if all(abs(v.Z-zc-v.Y*math.tan(a))<0.001 for v in e.vertices())]
 outer=fillet(edges,fascia_edge_radius)
-inner=Pos(0,0,-fascia_wall)*extrude(RectangleRounded(fascia_width-2*fascia_wall,d-2*fascia_wall,fascia_radius-fascia_wall),amount=h+2*fascia_wall)
+# Extend the negative interior below the part, then clip to the roof underside.
+# This avoids crossing loft sections at the very low front lip.
+inner=loft([pod_foot(-fascia_wall,fascia_wall),pod_face(fascia_wall)],ruled=True)
 innerclip=Pos(0,0,zc-fascia_thickness/math.cos(a))*Rot(fascia_slope,0,0)*Pos(0,0,-2*h)*Box(4*fascia_width,4*fascia_depth,4*h)
-body=outer-(inner & innerclip)
-window=F*Pos(fascia_window_x,fascia_window_y,-2*fascia_thickness)*extrude(RectangleRounded(fascia_window_width,fascia_window_height,fascia_window_radius),amount=4*fascia_thickness)
-body-=window
+# Protect four roof-backed ribs during hollowing.
+POD_WORLD=Pos(0,fascia_center_y,housing.SCREEN_POD_BASE_Z)
+raw_mounts=Compound(children=[s.moved(POD_WORLD.inverse()) for s in housing.screen_mount_receiver_blanks])
+hollow=(inner & innerclip)-raw_mounts
+body=outer-hollow
+gap=housing.SCREEN_POD_BASE_Z-housing.case_top_center
+feet=raw_mounts & (Pos(0,0,-gap/2)*Box(4*fascia_width,4*fascia_depth,gap))
+body=body.fuse(*list(feet.solids()))
+print('EQUAL_FRAME_DATUMS',dict(face_width=fascia_width,face_depth=fascia_depth,borders=[fascia_border]*4,front_rise_with_seam=fascia_front_height+0.3,rear_lean_deg=fascia_rear_lean_deg))
+# Integral optical lip replaces the independent bezel and its thin rear flange.
+fascia_optical_clearance=param('fascia_optical_clearance',0.3)
+fascia_glass_clearance=param('fascia_glass_clearance',0.3)
+fascia_front_lip=param('fascia_front_lip',1.2)
+fascia_optical_radius=param('fascia_optical_radius',0.35)
+# Sharp LCY-1210401A p26: glass and active-area datums are frozen.
+GLASS_W,GLASS_H,GLASS_Y,GLASS_BACK=62.8,42.82,-1.77,-3.04
+optical=F*Pos(0,0,-12)*extrude(RectangleRounded(58.8+2*fascia_optical_clearance,35.28+2*fascia_optical_clearance,fascia_optical_radius),amount=24)
+pocket=F*Pos(0,GLASS_Y,-12)*extrude(Rectangle(GLASS_W+2*fascia_glass_clearance,GLASS_H+2*fascia_glass_clearance),amount=12-fascia_front_lip)
+body=body-optical-pocket
+# Shallow 0.5mm-wide marking preserves the equal outer border without a third piece.
+fascia_border_line_width=param('fascia_border_line_width',0.5)
+fascia_border_line_depth=param('fascia_border_line_depth',0.3)
+border_line=RectangleRounded(fascia_window_width,fascia_window_height,fascia_window_radius)-RectangleRounded(fascia_window_width-2*fascia_border_line_width,fascia_window_height-2*fascia_border_line_width,fascia_window_radius-fascia_border_line_width)
+body=body-F*Pos(0,0,-fascia_border_line_depth)*extrude(border_line,amount=2*fascia_border_line_depth)
 # Underside relief, not an external port. No connector/PCB placeholder.
 body-=F*Pos(0,fascia_fpc_y,-fascia_fpc_roof-fascia_fpc_depth/2)*Box(fascia_fpc_width,fascia_fpc_length,fascia_fpc_depth)
-# Rear retaining assembly; local frame is the unchanged screen plane.
 from screwjoint import make_screw_joint_v1, ScrewJointNotApplicableV1
 from bd_warehouse.fastener import CounterSunkScrew, ClearanceHole
 # M2 countersunk kit rejects ISO10642 (starts at M3). Explicit free head/seat
 # fallback uses verified ISO7046 M2; compensated printed receiver stays kit-owned.
-def m2_flush_joint(frame, sheet, thickness, engagement, host, label):
- try:
-  joint=make_screw_joint_v1(size='M2',at=frame,through=[(sheet,thickness)],engage_depth=engagement,into=host,head='countersunk',material='PLA',label=label)
-  return joint, joint.through_cuts[0], joint.hardware
- except ScrewJointNotApplicableV1 as exc:
-  print('FREE_HEAD_FALLBACK',str(exc))
-  joint=make_screw_joint_v1(size='M2',at=frame,through=[(sheet,thickness)],engage_depth=engagement,into=host,head='socket_cap',material='PLA',label=label)
-  standard=CounterSunkScrew('M2-0.4',length=joint.screw_length_mm,fastener_type='iso7046')
-  assert thickness>=standard.head_height
-  seat=frame*ClearanceHole(standard,depth=thickness,counter_sunk=True,mode=Mode.PRIVATE)
-  k,dk=standard.head_height,standard.head_diameter
-  head=standard & Pos(0,0,-k/2)*Box(2*dk,2*dk,k)
-  shaft=joint.hardware.moved(frame.inverse()) & Pos(0,0,-(k+joint.screw_length_mm)/2)*Box(dk,dk,joint.screw_length_mm-k)
-  hardware=frame*(head+shaft)
-  return joint,seat,hardware
+# Same printed head allowance as the other enclosure joints.
+m2_flush_joint=housing.flush_joint
 
-
-retainer_width=param('retainer_width',66.0)
-retainer_depth=param('retainer_depth',44.0)
-retainer_y=param('retainer_y',-1.77)
+# Shared mechanical interface. All four stops share the glass-support plane.
 retainer_thickness=param('retainer_thickness',2.0)
-retainer_back_gap=param('retainer_back_gap',1.0)
-retainer_rail_width=param('retainer_rail_width',3.0)
-retainer_tail_gap=param('retainer_tail_gap',16.0)
+retainer_back_gap=param('fascia_rear_pad_thickness',2.0)
+retainer_engagement=param('fascia_stop_engagement',2.0)
 retainer_screw_x=param('retainer_screw_x',20.0)
-retainer_screw_y_front=param('retainer_screw_y_front',-28.0)
+retainer_screw_x_front=param('retainer_screw_x_front',27.0)
+retainer_screw_y_front=param('retainer_screw_y_front',-26.25)
 retainer_screw_y_rear=param('retainer_screw_y_rear',25.5)
 retainer_ear_width=param('retainer_ear_width',5.4)
 retainer_ear_depth=param('retainer_ear_depth',6.0)
-retainer_seat_z=param('retainer_seat_z',-7.0)
-retainer_engagement=param('retainer_engagement',3.0)
-# Sharp p26 stack; existing locator target glass rear is -3.04.
-GLASS_BACK=-3.04
-ret_top=GLASS_BACK-retainer_back_gap
-ret_bottom=ret_top-retainer_thickness
-ring=Pos(0,retainer_y,ret_bottom)*extrude(Rectangle(retainer_width,retainer_depth)-Rectangle(retainer_width-2*retainer_rail_width,retainer_depth-2*retainer_rail_width),amount=retainer_thickness)
-ring-=Pos(0,retainer_y-retainer_depth/2,ret_top)*Box(retainer_tail_gap,2*retainer_rail_width+2,4*retainer_thickness)
+retainer_seat_z=GLASS_BACK-retainer_back_gap
+ret_bottom=retainer_seat_z-retainer_thickness
 host=F.inverse()*body
-screws=[]
-for sx in [-1,1]:
- for yy in [retainer_screw_y_front,retainer_screw_y_rear]:
-  xx=sx*retainer_screw_x
-  # Solid receiver is a wall reinforcement rooted in the housing side/roof.
-  receiver=Pos(xx,yy,(retainer_seat_z-0.8)/2)*Box(retainer_ear_width,retainer_ear_depth,-retainer_seat_z-0.8)
-  receiver=receiver-(Pos(0,0,-3.6)*extrude(Rectangle(fascia_window_width,fascia_window_height),amount=4.0))
-  host=host+receiver
-  # Ear and short web set screw-stack height independently of soft glass support.
-  ear=Pos(xx,yy,retainer_seat_z-retainer_thickness/2)*Box(retainer_ear_width,retainer_ear_depth,retainer_thickness)
-  edge_y=retainer_y+(-retainer_depth/2 if yy<0 else retainer_depth/2)
-  web=Pos(xx,(edge_y+yy)/2,(ret_bottom+0.2+retainer_seat_z-retainer_thickness)/2)*Box(retainer_ear_width,abs(edge_y-yy)+retainer_ear_depth,ret_bottom+0.2-retainer_seat_z+retainer_thickness)
-  ring=ring.fuse(web,ear)
-# Hard-stop ears cannot intrude into the receiver or existing housing walls.
-ring=Compound(children=list(ring.solids()))-host
-if isinstance(ring,ShapeList): ring=Compound(children=list(ring))
-# Seat the bezel's added rear flange, leaving original glass pocket unchanged.
-flange_seat=Pos(0,-1.77,-4.2)*extrude(Rectangle(70,47)-Rectangle(63.4,43.42),amount=2)
-ring=ring-flange_seat
-if isinstance(ring,ShapeList): ring=Compound(children=list(ring))
-# U-shaped tail guard, open to rear servicing and clear of the bend.
-guard_width=param('retainer_guard_width',19.0)
-guard_depth=param('retainer_guard_depth',7.0)
-guard_wall=param('retainer_guard_wall',1.5)
-guard_y=param('retainer_guard_y',-24.75)
-guard=Pos(0,guard_y,ret_bottom)*extrude(Rectangle(guard_width,guard_depth)-Pos(0,guard_wall/2)*Rectangle(guard_width-2*guard_wall,guard_depth-guard_wall),amount=retainer_thickness)
-# Side arms overlap the front ring outside its 16mm tail notch.
-ring=ring.fuse(guard)
-ring=ring-flange_seat
-if isinstance(ring,ShapeList): ring=Compound(children=list(ring))
+joint_axes=[(sx*(retainer_screw_x_front if yy==retainer_screw_y_front else retainer_screw_x),yy) for sx in [-1,1] for yy in [retainer_screw_y_front,retainer_screw_y_rear]]
+for xx,yy in joint_axes:
+ receiver=Pos(xx,yy,(retainer_seat_z-0.8)/2)*Box(retainer_ear_width,retainer_ear_depth,-retainer_seat_z-0.8)
+ host=host+receiver
+# Positive glass locator walls and roof remain a single printable piece.
+host=host-(F.inverse()*pocket)-(F.inverse()*optical)
 # Full negative FPC path: one 180-degree fold behind the panel.
 # 0.30mm is the manufacturer's stiffened-tail thickness, used conservatively
 # over the flex span. Overall free length is a disclosed 13.7mm layout target,
@@ -132,7 +131,6 @@ route_return=Pos(0,(cy+tail_end_y)/2,FPC_Z-2*r)*Box(11,tail_end_y-cy,t)
 # Negative clearance only: no invented purchased FPC solid is published.
 for keepout in [route_arc,route_start,route_return]:
  host=host-keepout
- ring=ring-keepout
 print('FPC_LAYOUT',dict(bend_start=fpc_bend_start,bend_end=fpc_bend_start+math.pi*r,inner_radius=fpc_inner_radius,tail_end_y=tail_end_y,tail_z=FPC_Z-2*r))
 
 # Local PCB clearance at the front rail; glass and screw datums are unchanged.
@@ -175,24 +173,74 @@ voids.append(Pos(0,0,25.75)*Box(fascia_active_tail_channel_width,fascia_active_t
 for void_world in voids:
  void_local=void_world.moved(SCREEN_WORLD.inverse())
  host=host-void_local
- ring=ring-void_local
 
-# Every joint sees final host and retainer; do not add empty Compound bosses.
-for sx in [-1,1]:
- for yy in [retainer_screw_y_front,retainer_screw_y_rear]:
-  xx=sx*retainer_screw_x
-  joint,seat,hardware=m2_flush_joint(Location((xx,yy,retainer_seat_z-retainer_thickness),(180,0,0)),ring,retainer_thickness,retainer_engagement,host,'lcd-retainer')
-  ring=ring-seat
-  if len(joint.bosses.solids())>0:
-   host=host+joint.bosses
-  host=host-joint.engage_cuts
-  screws.append(hardware)
-  print("RETAINER_JOINT",xx,yy,joint.screw_length_mm,joint.boss_length_mm,joint.hole_profile)
-assert len(ring.solids())==1, ('ring solids',len(ring.solids()),[(round(s.volume,3),str(s.bounding_box())) for s in ring.solids()])
-assert len(host.solids())==1
-host.color=Color(0.96,0.31,0.07)
-ring.color=Color(0.17,0.18,0.19)
-publish('fascia',F*host,'Screen housing mounts',role='part')
-publish('retainer',ring,'Rear retaining frame',role='part')
-for i,sc in enumerate(screws):
- publish('retainer_screw_'+str(i+1),sc,'M2 retaining screw',role='fastener')
+
+# The through-sheet coupon represents only the joint stack, never a physical part.
+# The independently modeled flat retainer subtracts these exact same kit seats.
+retainer_cuts=[]
+retainer_hardware=[]
+joint_lengths=[]
+connections={}
+for i,(xx,yy) in enumerate(joint_axes):
+ sheet=Pos(xx,yy,ret_bottom+retainer_thickness/2)*Box(retainer_ear_width,retainer_ear_depth,retainer_thickness)
+ joint,seat,hardware=m2_flush_joint(Location((xx,yy,ret_bottom),(180,0,0)),sheet,retainer_thickness,retainer_engagement,host,'lcd-flat-retainer')
+ if len(joint.bosses.solids())>0:
+  host=host+joint.bosses
+ host=host-joint.engage_cuts
+ retainer_cuts.append(seat)
+ retainer_hardware.append(hardware)
+ joint_lengths.append(joint.screw_length_mm)
+ connections['lcd_stop_'+str(i+1)]='printed-screw-joint-v1 M2 receiver; free ISO7046 head/seat after kit rejection, printing allowance'
+ print('FLAT_RETAINER_JOINT',xx,yy,joint.screw_length_mm,joint.boss_length_mm)
+# Four receiving holes share the same kit and axes as the upper shell.
+mount_cuts=Compound(children=[s.moved(SCREEN_WORLD.inverse()) for s in housing.screen_mount_engage_cuts])
+host=host-mount_cuts
+cover_probes=Compound(children=[s.moved(SCREEN_WORLD.inverse()) for s in housing.screen_mount_cover_probes])
+missing=cover_probes-host
+v=0.0 if missing is None else (sum(s.volume for s in missing) if isinstance(missing,ShapeList) else missing.volume)
+assert v<0.00001,('screen mount closing skin',v)
+
+assert len(connections)==4
+assert len(host.solids())==1 and host.is_valid
+# No screw receiver may rise through the visible front surface.
+assert host.bounding_box().max.Z<0.001,('receiver breaks face',host.bounding_box())
+host.color=srgb('#e87736')
+publish('fascia',F*host,'Integral screen frame',material='pla',role='part')
+# Supplemental exact checks for the moved hardware. The ordinary assembly report
+# caps candidate pairs on these imported assemblies; check their individual solids
+# here against the final source-owned interfaces without changing published geometry.
+COMPACT_PI_ASSET="design/handheld_computer/source/assets/1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe.step"
+COMPACT_PCB_ASSET="design/handheld_computer/source/assets/fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8.step"
+compact_pi=asset(COMPACT_PI_ASSET).moved(Location((39+housing.pi_offset_x,-30.5,7),(90,90,0)))
+compact_pcb=asset(COMPACT_PCB_ASSET).moved(Location((-100,81,21.8)))
+compact_pod=(F*host).moved(Location((0,fascia_center_y,27.3)))
+compact_reference_bounds={}
+def compact_overlap_check(label,reference,target):
+ total=0.0
+ hits=[]
+ tb=target.bounding_box()
+ rb=reference.bounding_box()
+ if any(getattr(rb.max,k)<getattr(tb.min,k) or getattr(rb.min,k)>getattr(tb.max,k) for k in ("X","Y","Z")):
+  print("COMPACT_EXACT",label,0.0,"separated whole bounds")
+  return
+ key=id(reference)
+ if key not in compact_reference_bounds:
+  compact_reference_bounds[key]=[(i,s,s.bounding_box()) for i,s in enumerate(reference.solids())]
+ for i,solid,sb in compact_reference_bounds[key]:
+  if any(getattr(sb.max,k)<getattr(tb.min,k) or getattr(sb.min,k)>getattr(tb.max,k) for k in ("X","Y","Z")):
+   continue
+  overlap=solid & target
+  v=0.0 if overlap is None else (sum(q.volume for q in overlap if q is not None) if isinstance(overlap,ShapeList) else overlap.volume)
+  if v>0.00001:
+   hits.append((i,round(v,6),str(sb)))
+   total+=v
+ print("COMPACT_EXACT",label,round(total,8),hits)
+ assert total<0.00001,(label,round(total,6),hits)
+compact_overlap_check("Pi / shell",compact_pi,housing.body)
+compact_overlap_check("Pi / base",compact_pi,part("base").base)
+compact_overlap_check("PCB / shell",compact_pcb,housing.body)
+compact_overlap_check("PCB / pod",compact_pcb,compact_pod)
+for i,(screw,probe) in enumerate(zip(housing.screen_mount_screws,housing.screen_mount_access_probes)):
+ compact_overlap_check('PCB / screen screw '+str(i+1),compact_pcb,screw)
+ compact_overlap_check('PCB / driver access '+str(i+1),compact_pcb,probe)
+ compact_overlap_check('Pi / screen screw '+str(i+1),compact_pi,screw)

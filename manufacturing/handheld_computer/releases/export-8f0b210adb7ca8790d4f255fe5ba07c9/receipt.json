@@ -1,0 +1,239 @@
+{
+  "designId": "handheld_computer",
+  "revision": "68066619e346f05470d1dd2ed855aa6ce1a33a687e0b72faf5270d0c2d2d1192",
+  "schemaVersion": 3,
+  "exportId": "export-8f0b210adb7ca8790d4f255fe5ba07c9",
+  "generatedAt": "2026-10-28T04:08:00.548Z",
+  "designSha256": "6b8b87f9fb5ef4e8904be96905897ebbe366c44511b73086f107fec98c8a3595",
+  "role": "computer_enclosure",
+  "stateHash": "28b186bcfc9c0565a729e052db8e48ee2eb3760036d78a49aff475ed2be6eef6",
+  "stateManifest": {
+    "schemaVersion": 4,
+    "designId": "handheld_computer",
+    "role": "computer_enclosure",
+    "design": {
+      "revision": "68066619e346f05470d1dd2ed855aa6ce1a33a687e0b72faf5270d0c2d2d1192",
+      "designSha256": "07493cb141d7f6ceb768bce16a16ee2ee9175330d85290db050e057c7ee6752a",
+      "manifestSha256": "9bdcebf713af927ce5f28eeeea63d0e78d0f88d536fd1abb2714cedb1d583fbd",
+      "modelSha256": "0987522579cb9b3fea889366888bccbbfc67d05ff2a1bc4668804d43d9827eda",
+      "pcbReleases": []
+    },
+    "brief": {
+      "path": "design/handheld_computer/README.md",
+      "sha256": "e86ba4ab1e8f46b0788f29de4f1855976611cb4a562a125ae2cd48cdeab67403"
+    },
+    "requirement": {
+      "artifactContractPath": "product/contract.json",
+      "artifactContractSha256": "0d5b6b7d8622082c37da1038e7686e5309bf2676c61c45a2343de455460fc315",
+      "designRequirementSha256": "a48166678255835acd973b7ca03d9db2a6e2fcfe10d6e00610e523dcc727d712",
+      "inputs": [
+        {
+          "role": "external-reference",
+          "id": "correction_reference_1",
+          "path": "product/references/uploads/20260921T125420119Z-1-cleanshot-2026-09-21-at-21-53-40-2x.png",
+          "sha256": "5b816571a1d03f9ccf44cc8807905be7877af222f3ded8e8d3c042eb08038ac7",
+          "sizeBytes": 438116
+        },
+        {
+          "role": "external-reference",
+          "id": "correction_reference_2",
+          "path": "product/references/uploads/20260921T125420119Z-2-cleanshot-2026-09-21-at-21-54-09-2x.png",
+          "sha256": "1e97a706bb92a25a388cdd51ef75435ada9f0441946ecc0988e96fef16e84420",
+          "sizeBytes": 594496
+        },
+        {
+          "role": "external-reference",
+          "id": "fan_SH_datasheet",
+          "path": "product/references/jst-sh.pdf",
+          "sha256": "ea3071ca5ee5a6069eba534fa39a10f34c9fb742ee42135a69ab4156bfa0f5de",
+          "sizeBytes": 84427
+        },
+        {
+          "role": "external-reference",
+          "id": "front_gpio_module_markup",
+          "path": "product/references/uploads/20260923T073703116Z-1-mark.png",
+          "sha256": "0826315b422b0c75b3868c80468b9f9b2f83c91ecdd548cd9d39f2efc329b23c",
+          "sizeBytes": 686944
+        },
+        {
+          "role": "external-reference",
+          "id": "nidec_f16fb_fan",
+          "path": "product/references/nidec-f16fb.pdf",
+          "sha256": "45f24e838fe3c552e3e25f4aab7e00a7054075db7ba887591e00d066643a2178",
+          "sizeBytes": 299822
+        },
+        {
+          "role": "external-reference",
+          "id": "p165_manufacturer_reliefs",
+          "path": "product/references/p165-detail-2.jpg",
+          "sha256": "c2f566fbba8cf5627322df0e3b452b29b5c5628ab141558dd0a395b8e421654a",
+          "sizeBytes": 141223
+        },
+        {
+          "role": "external-reference",
+          "id": "pi4_passive_sink_user",
+          "path": "product/references/uploads/20261001T062704979Z-1-cleanshot-2026-10-01-at-15-25-51-2x.png",
+          "sha256": "62d24ee731c581690e24f8bf72c2cf811294ee645e19585481346b8b5bd59bf4",
+          "sizeBytes": 602312
+        },
+        {
+          "role": "external-reference",
+          "id": "pi4b_product_brief",
+          "path": "product/references/pi4b-product-brief.pdf",
+          "sha256": "00411dddb1ac92cf40bb8daa4e1389d991a9faa7620bcc1293dfaf478f92b1c3",
+          "sizeBytes": 1028776
+        },
+        {
+          "role": "external-reference",
+          "id": "reference_photo_angled",
+          "path": "product/references/uploads/20260920T083508002Z-1-cleanshot-2026-09-20-at-17-32-32-2x.png",
+          "sha256": "56e0b78d601e99279211bbf50b95178de03664ff0698e26a46e0403f26f11c04",
+          "sizeBytes": 789421
+        },
+        {
+          "role": "external-reference",
+          "id": "reference_photo_front",
+          "path": "product/references/uploads/20260920T083508002Z-2-cleanshot-2026-09-20-at-17-34-41-2x.png",
+          "sha256": "5d703f4fab13516c1b40f6fd674a65fa50d0822f253e2f110fea983e4064d8ad",
+          "sizeBytes": 1516484
+        },
+        {
+          "role": "external-reference",
+          "id": "screen_front_1mm_markup",
+          "path": "product/references/uploads/20260922T122038436Z-1-mark.png",
+          "sha256": "913ed45a89ad1d9bbecb51a323fd7039d54d9e6d03b44cda57034c4c9f2d62d1",
+          "sizeBytes": 611733
+        },
+        {
+          "role": "external-reference",
+          "id": "shallow_angle_markup",
+          "path": "product/references/uploads/20260922T052150882Z-1-mark.png",
+          "sha256": "285f59de9d212fbf3e3797e7e0f970c223027ba70cd09f9d6543ce65df0e6bae",
+          "sizeBytes": 94975
+        },
+        {
+          "role": "external-reference",
+          "id": "sharp_datasheet",
+          "path": "product/references/LS027B7DH01-sharp-2010.pdf",
+          "sha256": "997ecbcb7f020fbe077632dc90f6bf82d9e0e49ccf2211484093dec348965d98",
+          "sizeBytes": 790088
+        }
+      ]
+    },
+    "delivery": {
+      "target": "visual_review",
+      "formats": [
+        "step"
+      ]
+    },
+    "stateHash": "28b186bcfc9c0565a729e052db8e48ee2eb3760036d78a49aff475ed2be6eef6"
+  },
+  "buildArtifacts": {
+    "manifestSha256": "9bdcebf713af927ce5f28eeeea63d0e78d0f88d536fd1abb2714cedb1d583fbd",
+    "modelSha256": "0987522579cb9b3fea889366888bccbbfc67d05ff2a1bc4668804d43d9827eda"
+  },
+  "exportAlgorithm": {
+    "version": 1,
+    "bootstrapSha256": "95a40353b52cb251a09decd3776c839b879cfc8b2a6c32014fed9bd3172b4764"
+  },
+  "sourceHashes": {
+    "base/base": "8ad9a1c8a178203387758ea01d30e4d8d3e285f92a61503fee6cbd4eb5234dcf",
+    "display_placeholder/display_placeholder": "280371c955b3fa368ce5bac3d1cd554db21e9f4dff759367e94d6e2f8ab692bb",
+    "fascia/fascia": "d28e5e22a8020ec990efe71f175e0dc4d0ab4c87b4dc1f6a5316340a7a946141",
+    "front_module_cover/front_module_cover": "cd8c87386f34954d1745c64ec3af7250fcf12d3384f4d6b6044804fd429d2471",
+    "imports/cooling_fan": "30e9652c31dc3d0ec3daf53e9bebd04a1152d1b2846832669a14e3b5f78a1e66",
+    "imports/pi_baseboard_lite": "5261a409be2289b2226445ad570ff9eb8d050a478a85e19217f6130ef269de38",
+    "imports/pi4b": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40",
+    "lcd_retainer/lcd_retainer": "032452dcf2b3bab033ef6f5425ab8b4aadcd096e52249d8ad147f12c3a9148d1",
+    "screen_cushions/screen_cushions": "54a2f5ad6bbdc997e51ef7c64f557a3611cb54dd4df8512f6e37990723bf1568",
+    "shell/shell": "8ae30897f7a76ae968d77aac4edab06603d1c9a6db3ab8bf9a0ac260cb78c8b9",
+    "thermal_stack/thermal_stack": "ef96c89c9b9ee59f9486bf5428e6a722a8b7441b8f7bac952d846c47e8f19eb1"
+  },
+  "assetHashes": {
+    "cooling_fan": "e2f8b7cbed1d020a8861be66a5f32019d9404dfb20410347d0f201a42a6ba793",
+    "pi_baseboard_lite": "fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8",
+    "pi4b": "1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe"
+  },
+  "shapeHashes": {
+    "base": "d61d556ad2ef39bf4c0aa275552eaaddb055571427469b24fdb9e603b8574e20",
+    "base_mount_screw_1": "c684ab208e163484e3c90fd2d631bcae3fd202a4e178800e4f8485c3f7f72552",
+    "base_mount_screw_2": "66c818608fd8005f156dfe382f5065785bbe947a3ffac59a1e5738e8690728da",
+    "base_mount_screw_3": "5ba0aa742e2f896e48052002e3bf82d07e9d4fc8f2fb1e9421328bd25ea8fa1b",
+    "base_mount_screw_4": "bc4c718290bd70492d97f5bf64c787f0e11e6ee85f66a5ef43ef074fb4168787",
+    "cooling_fan": "f4f9c4bfa76fd1f4243bf6f9e78b4dd59f13fbc5ed67aae22dd7c19fd9106cf1",
+    "cpu_thermal_tape": "8c0db9222ddeca553699f420f374d51e215e72fbdd1b1f81f94a70320f135148",
+    "display_placeholder": "d148a58098cddbae79e7d17270a50f75c5eeedc7926dbcb94a67c08eef27cc92",
+    "fan_cassette": "546812a656bab283ef07f8880223f7d0c1599648780459dd7a9c0f3178816bb4",
+    "fan_cassette_screw_1": "681d114930cfacacf61b14bcdf883ec9888fd1bd100a0a7203527091b6d33341",
+    "fan_cassette_screw_2": "97a0f4c98a45d7df2d8c6656c1e2e7f8e134c450ae40719945a53ada19b76f83",
+    "fan_corner_pads": "deb68cc5c50722466d8f877b1da827ad36f25c2b6005050c75d8bf107a931397",
+    "fascia": "34af3cc4c010725b780970d6873ccf9ac7c872c415cd7bbdcec20541dd1654a1",
+    "front_cushion": "7f39fa49b58727ac0ea0a5ca199cf5d0e1f30cfb91cf796f3a0c42d83d5d24f6",
+    "front_module_blank": "e1a0dd51e54c22deeb20e06223a272482021bcb9d6688c1f510422dd57902f78",
+    "front_module_screw_1": "8faa6fe94f63fc1eb3d8ffeedf80f41d04bca005e37bbb72cfaf2b9773cccccf",
+    "front_module_screw_2": "31fafb717b64c727635e1c62e04b0898ea3ffbc66be053a221f93cdc692b6d4d",
+    "front_module_screw_3": "2376358ba1b071613bb7112a34a7a1c72bc45646f7e5b0f190bdb2b3804d2043",
+    "front_module_screw_4": "946992a2665032c653086b3c8db5600ac1db06991b24534c7a76794bf5dcfe06",
+    "passive_heatsink": "8ef1bebb7f21f2caec409f03513265dea5c399654b1834973cb418372892905d",
+    "pcb_mount_screw_1": "362e4e534f1a4322fe1c72ecdc2fccbfc098cb4fc9b3bb9138692b4715767dd9",
+    "pcb_mount_screw_2": "739a515dc613a6994d77108107d9bcb4dd1f783b85376a9176fe31d166d12e2d",
+    "pi_baseboard_lite": "452a0df2f463efd41269c209c5b05fb7e4668af037472caa0eaa5e9d0b680ba2",
+    "pi_mount_screw_1": "9ba9517b77a995aef0a7543df9facbdfdc7abf196d648bd088cb8c5e28fa2443",
+    "pi_mount_screw_2": "5fdc80e17258afcded13eb1805880ffba05433c0122c400b5f7c63dc97ce1f32",
+    "pi_mount_screw_3": "f51a6c3d1570c78e55065af2f2bb1e2719a3d3e60a06dbb48230d0cd027549ca",
+    "pi_mount_screw_4": "a4af55c3770ff2c500ffdd61501ba28a68b661ac0cd22e66efac4cde32dfa097",
+    "pi4b": "c7d4a4367eb26579b6a6910ece2a0cde7d2a41c6d7d104ba9b8ba45c6689d39d",
+    "ram_thermal_tape": "7430797790087053fac542b87743bd5ae66deb5fcb08c8712ec758a99a4e11b5",
+    "rear_cushion": "611a52962074fcfacbcf329e7f6888fa92a7f48b21bda9b1352cda14dc31240e",
+    "retainer": "2e1fafb5169f3b42e4a95d17410ca163e62bf0c8c16d0594a7eb680407475ac0",
+    "retainer_screw_1": "0f1fa9d83077ffd5c2d230c805afc1fb8cb026af8297c49dd9b8e5fde8169ed7",
+    "retainer_screw_2": "042aa4ab4840066529acfb83e4133140b5e179fd4ec56623ec6d366f3f2e268d",
+    "retainer_screw_3": "4b48ce74417928e9ad9e6aafc4571fc673bf435edd7e8590e808b6f0cd1eae13",
+    "retainer_screw_4": "436b8f06d5cdfd2968ee7bb3de2cda89999a9d6202838012bbe07794a1ff0df6",
+    "screen_mount_screw_1": "d384faea66d11f193f45e5552b0068a3e046acc26d89579bf5b83e8c3ae55e41",
+    "screen_mount_screw_2": "93d452eaadc9024f917409e28ec7487a325d60864b544b90467db5c948b4c995",
+    "screen_mount_screw_3": "ec6e9f162ff841c4098e643f3f912c8f7fa30b1882deaf054cc0bb9c71b8b1f1",
+    "screen_mount_screw_4": "e74384e0eb2cdf7a847f3bcf1dbc4cca840295574dc4bd8f464617e492c26909",
+    "shell": "bcf78caa929ada6840dc6a2f4d49365cb18f32ebafeadcba610ee352783de666"
+  },
+  "runtime": {
+    "manifestHash": "b776d3d376437252fb8a1b792f941d2f3b74e02ba7b9a1083cda59b365a56110",
+    "pythonVersion": "3.12.13",
+    "build123dVersion": "0.10.0",
+    "ocpVersion": "7.8.1.1.post1",
+    "cadpyHash": "6411eb3764a82d2d39f85af249ac8a90d498621ca5d699aefc39e8e7f5b31425"
+  },
+  "artifacts": [
+    {
+      "path": "manufacturing/handheld_computer/releases/export-8f0b210adb7ca8790d4f255fe5ba07c9/model.step",
+      "role": "model/step",
+      "sha256": "24088514da6fab082b84657688990317807586c12775224e4f034e2f8b192596",
+      "sizeBytes": 96906869
+    }
+  ],
+  "interference": {
+    "summary": "No interference across 780 object pairs.",
+    "counts": {
+      "objects": 40,
+      "pairs": 780,
+      "exact": 70,
+      "mesh": 9,
+      "cached": 23,
+      "interference": 0,
+      "undeclared": 0,
+      "over_budget": 0,
+      "undetermined": 0
+    },
+    "overlaps": []
+  },
+  "authority": {
+    "version": 1,
+    "algorithm": "hmac-sha256",
+    "keyId": "170dbfcb2d2fb358c3f534507d863491",
+    "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
+    "receiptPath": "manufacturing/handheld_computer/releases/export-8f0b210adb7ca8790d4f255fe5ba07c9/receipt.json",
+    "payloadSha256": "549724ff714176e6ddb420308519dae02902dcddc8d8bcd948277b573bd8afc5",
+    "mac": "3523dadc41877747d05a9be4129826804a129280df740046f2f1fb97c92e10ad"
+  },
+  "status": "handoff"
+}

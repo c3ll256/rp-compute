@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "units": "mm",
-  "coordinateFrame": "replicator-world-z-up",
+  "coordinateFrame": "makit-world-z-up",
   "targets": [
     {
       "id": "shell",
@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "bf7ebc24938d6a8bb7b0bb870395d457a7972469cb0c1ac9cc4a7dbe51c7bb52"
+          "sha256": "8ae30897f7a76ae968d77aac4edab06603d1c9a6db3ab8bf9a0ac260cb78c8b9"
         }
       ],
       "dependencies": []
@@ -26,10 +26,12 @@
           "target": "base",
           "order": 0,
           "path": "design/handheld_computer/source/parts/base/000-base.py",
-          "sha256": "9709114f27026745f270e23eb49b410edcc6c01662be241059015f65128f20d3"
+          "sha256": "8ad9a1c8a178203387758ea01d30e4d8d3e285f92a61503fee6cbd4eb5234dcf"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "shell"
+      ]
     },
     {
       "id": "fascia",
@@ -40,24 +42,13 @@
           "target": "fascia",
           "order": 0,
           "path": "design/handheld_computer/source/parts/fascia/000-fascia.py",
-          "sha256": "7ff68711df8b2d5c0d3ac1ed21712ed24988431ee67c426adf1a45cbf4566c47"
+          "sha256": "d28e5e22a8020ec990efe71f175e0dc4d0ab4c87b4dc1f6a5316340a7a946141"
         }
       ],
-      "dependencies": []
-    },
-    {
-      "id": "bezel",
-      "label": "bezel",
-      "cells": [
-        {
-          "id": "bezel",
-          "target": "bezel",
-          "order": 0,
-          "path": "design/handheld_computer/source/parts/bezel/000-bezel.py",
-          "sha256": "fde6a0b6742ce43ddd0a00edeb53d094b14b4f1ccf641d592d6c811452e585d0"
-        }
-      ],
-      "dependencies": []
+      "dependencies": [
+        "shell",
+        "base"
+      ]
     },
     {
       "id": "imports",
@@ -82,7 +73,7 @@
           "target": "imports",
           "order": 2,
           "path": "design/handheld_computer/source/parts/imports/002-pi_baseboard_lite.py",
-          "sha256": "9d4d8365487776edb36a4919f8eb8dcbda02155f944bc717de762a0a83f15935"
+          "sha256": "5261a409be2289b2226445ad570ff9eb8d050a478a85e19217f6130ef269de38"
         }
       ],
       "dependencies": []
@@ -96,7 +87,7 @@
           "target": "screen_cushions",
           "order": 0,
           "path": "design/handheld_computer/source/parts/screen_cushions/000-screen_cushions.py",
-          "sha256": "03f53565237a6b57542f8fc85a83080aadbf53afafb4613795d36d6d1b4a4984"
+          "sha256": "54a2f5ad6bbdc997e51ef7c64f557a3611cb54dd4df8512f6e37990723bf1568"
         }
       ],
       "dependencies": []
@@ -110,10 +101,12 @@
           "target": "thermal_stack",
           "order": 0,
           "path": "design/handheld_computer/source/parts/thermal_stack/000-thermal_stack.py",
-          "sha256": "022c452018aa80903b83d9fe165a5cbc10be24bc31e849ad83cb4d9c2f92e238"
+          "sha256": "ef96c89c9b9ee59f9486bf5428e6a722a8b7441b8f7bac952d846c47e8f19eb1"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "shell"
+      ]
     },
     {
       "id": "front_module_cover",
@@ -124,10 +117,12 @@
           "target": "front_module_cover",
           "order": 0,
           "path": "design/handheld_computer/source/parts/front_module_cover/000-front_module_cover.py",
-          "sha256": "6801c31f8172c742a77ffc30825a887c436ab5bd6477b544836dc066a8f2dc54"
+          "sha256": "cd8c87386f34954d1745c64ec3af7250fcf12d3384f4d6b6044804fd429d2471"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "shell"
+      ]
     },
     {
       "id": "display_placeholder",
@@ -142,6 +137,22 @@
         }
       ],
       "dependencies": []
+    },
+    {
+      "id": "lcd_retainer",
+      "label": "lcd_retainer",
+      "cells": [
+        {
+          "id": "lcd_retainer",
+          "target": "lcd_retainer",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/lcd_retainer/000-lcd_retainer.py",
+          "sha256": "032452dcf2b3bab033ef6f5425ab8b4aadcd096e52249d8ad147f12c3a9148d1"
+        }
+      ],
+      "dependencies": [
+        "fascia"
+      ]
     }
   ],
   "objects": [
@@ -152,7 +163,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "5a452fdc95740fccd5be5b78bdd9d5bdf7d4d469c5f109517f9f3ee9c5570779",
+      "shapeHash": "c684ab208e163484e3c90fd2d631bcae3fd202a4e178800e4f8485c3f7f72552",
       "transform": {
         "positionMm": [
           0,
@@ -180,7 +191,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "d7b58485a9529c302aaccfb42562004194e042c030bb8c9dfac0eb87fbb0034d",
+      "shapeHash": "66c818608fd8005f156dfe382f5065785bbe947a3ffac59a1e5738e8690728da",
       "transform": {
         "positionMm": [
           0,
@@ -208,7 +219,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "e85500ddaf5efded5956a7cdafc546bd4ce00e5acfead6ce89c6f2cd78a6d6b3",
+      "shapeHash": "5ba0aa742e2f896e48052002e3bf82d07e9d4fc8f2fb1e9421328bd25ea8fa1b",
       "transform": {
         "positionMm": [
           0,
@@ -236,7 +247,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "2a6d71aadbab30a8a6751ff9b8f105641cac4498c5984b6ea9716f2a6eb1534b",
+      "shapeHash": "bc4c718290bd70492d97f5bf64c787f0e11e6ee85f66a5ef43ef074fb4168787",
       "transform": {
         "positionMm": [
           0,
@@ -258,13 +269,13 @@
       "datums": []
     },
     {
-      "id": "fan_collar",
+      "id": "fan_cassette",
       "target": "shell",
-      "label": "Side blower collar",
+      "label": "Fan cassette",
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "bc3e2bf30c02bb0279d85eca0bb04943f9127893badd9c69ccba836fe0341185",
+      "shapeHash": "546812a656bab283ef07f8880223f7d0c1599648780459dd7a9c0f3178816bb4",
       "transform": {
         "positionMm": [
           0,
@@ -286,13 +297,13 @@
       "datums": []
     },
     {
-      "id": "fan_collar_screw_1",
+      "id": "fan_cassette_screw_1",
       "target": "shell",
-      "label": "Flush fan collar screw",
+      "label": "Fan cassette screw",
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "3eacefc24c8c9d49bfaf0e65871960750c99c32f5da3ce7dd59f01bcb1c2cac3",
+      "shapeHash": "681d114930cfacacf61b14bcdf883ec9888fd1bd100a0a7203527091b6d33341",
       "transform": {
         "positionMm": [
           0,
@@ -314,13 +325,13 @@
       "datums": []
     },
     {
-      "id": "fan_collar_screw_2",
+      "id": "fan_cassette_screw_2",
       "target": "shell",
-      "label": "Flush fan collar screw",
+      "label": "Fan cassette screw",
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "91c8f097cfc746506583776697546835985ffcb038a39f583985335a130cd7fa",
+      "shapeHash": "97a0f4c98a45d7df2d8c6656c1e2e7f8e134c450ae40719945a53ada19b76f83",
       "transform": {
         "positionMm": [
           0,
@@ -348,7 +359,7 @@
       "material": "silicone",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "313606e459db09b0787a41886b41a304715a311fde39e94b9b1126c447caf30a",
+      "shapeHash": "deb68cc5c50722466d8f877b1da827ad36f25c2b6005050c75d8bf107a931397",
       "transform": {
         "positionMm": [
           0,
@@ -372,10 +383,10 @@
     {
       "id": "front_module_screw_1",
       "target": "shell",
-      "label": "M2 front module screw",
+      "label": "M3 module screw",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "a656a20cf27a926da6711ee62a9e095eb920e7c84b99baa8807271ad3cef9d26",
+      "shapeHash": "8faa6fe94f63fc1eb3d8ffeedf80f41d04bca005e37bbb72cfaf2b9773cccccf",
       "transform": {
         "positionMm": [
           0,
@@ -399,10 +410,10 @@
     {
       "id": "front_module_screw_2",
       "target": "shell",
-      "label": "M2 front module screw",
+      "label": "M3 module screw",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "85d6e6c309835cefadb284acd9f5b3fa2756705b90d9a77ea3bfbbc90bffa60a",
+      "shapeHash": "31fafb717b64c727635e1c62e04b0898ea3ffbc66be053a221f93cdc692b6d4d",
       "transform": {
         "positionMm": [
           0,
@@ -426,10 +437,10 @@
     {
       "id": "front_module_screw_3",
       "target": "shell",
-      "label": "M2 front module screw",
+      "label": "M3 module screw",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "721faf72918ac9c66bdb92a60add081937a95529b5e2907d1ceaa55c920af65f",
+      "shapeHash": "2376358ba1b071613bb7112a34a7a1c72bc45646f7e5b0f190bdb2b3804d2043",
       "transform": {
         "positionMm": [
           0,
@@ -453,10 +464,10 @@
     {
       "id": "front_module_screw_4",
       "target": "shell",
-      "label": "M2 front module screw",
+      "label": "M3 module screw",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "dfbfc737856095e47ad75ea49ae38349d4a4058b381a60acb2663cd4a9f678e1",
+      "shapeHash": "946992a2665032c653086b3c8db5600ac1db06991b24534c7a76794bf5dcfe06",
       "transform": {
         "positionMm": [
           0,
@@ -484,7 +495,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "eae9b5a8ac31dee0f54afd91e0851b0a5ee84e33d396f617e8017e64ba18669d",
+      "shapeHash": "362e4e534f1a4322fe1c72ecdc2fccbfc098cb4fc9b3bb9138692b4715767dd9",
       "transform": {
         "positionMm": [
           0,
@@ -512,7 +523,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "933aea29a6c78c48984150bc4f41a22909af522681701281160932f24720be28",
+      "shapeHash": "739a515dc613a6994d77108107d9bcb4dd1f783b85376a9176fe31d166d12e2d",
       "transform": {
         "positionMm": [
           0,
@@ -534,69 +545,13 @@
       "datums": []
     },
     {
-      "id": "pcb_mount_spacer_1",
+      "id": "screen_mount_screw_1",
       "target": "shell",
-      "label": "PCB screw spacer",
-      "material": "pla",
-      "role": "part",
-      "kind": "generated",
-      "shapeHash": "2669d5dc73484378541f9ad04d7ed5ea0b017450416b61deddef5a0002292f53",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pcb_mount_spacer_2",
-      "target": "shell",
-      "label": "PCB screw spacer",
-      "material": "pla",
-      "role": "part",
-      "kind": "generated",
-      "shapeHash": "d9d22b20a02c11f22ac62bb788180543a366322301709600426e3877266311e4",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pi_mount_screw_1",
-      "target": "shell",
-      "label": "Pi corner screw",
+      "label": "Screen mount M2 x 4.0",
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "a47c1ff3a1ba40105aa2401760cacffd890f949e38ee4a2a9336c8e89ff01421",
+      "shapeHash": "d384faea66d11f193f45e5552b0068a3e046acc26d89579bf5b83e8c3ae55e41",
       "transform": {
         "positionMm": [
           0,
@@ -618,13 +573,13 @@
       "datums": []
     },
     {
-      "id": "pi_mount_screw_2",
+      "id": "screen_mount_screw_2",
       "target": "shell",
-      "label": "Pi corner screw",
+      "label": "Screen mount M2 x 4.0",
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "3dfe4eab05d1093446ff5f86c7c47f8b5e09deaba2c7c8930be0b64fc530ae4c",
+      "shapeHash": "93d452eaadc9024f917409e28ec7487a325d60864b544b90467db5c948b4c995",
       "transform": {
         "positionMm": [
           0,
@@ -646,13 +601,13 @@
       "datums": []
     },
     {
-      "id": "pi_mount_screw_3",
+      "id": "screen_mount_screw_3",
       "target": "shell",
-      "label": "Pi corner screw",
+      "label": "Screen mount M3 x 6.0",
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "efdd73cbb832812ceac051a30aab3735d9f403eda90c9a128817df194e11b75e",
+      "shapeHash": "ec6e9f162ff841c4098e643f3f912c8f7fa30b1882deaf054cc0bb9c71b8b1f1",
       "transform": {
         "positionMm": [
           0,
@@ -674,13 +629,13 @@
       "datums": []
     },
     {
-      "id": "pi_mount_screw_4",
+      "id": "screen_mount_screw_4",
       "target": "shell",
-      "label": "Pi corner screw",
+      "label": "Screen mount M3 x 6.0",
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "d960b58b1123fcf1fca0342012d2540dac1c09ddcc02ad0432b5507ee5938a05",
+      "shapeHash": "e74384e0eb2cdf7a847f3bcf1dbc4cca840295574dc4bd8f464617e492c26909",
       "transform": {
         "positionMm": [
           0,
@@ -704,11 +659,11 @@
     {
       "id": "shell",
       "target": "shell",
-      "label": "Upper shell PCB mounts",
+      "label": "Upper shell",
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "b33d16089227ae6f67f292e615dd125ade751de2dab704bba2c2460642e513ec",
+      "shapeHash": "bcf78caa929ada6840dc6a2f4d49365cb18f32ebafeadcba610ee352783de666",
       "transform": {
         "positionMm": [
           0,
@@ -732,11 +687,123 @@
     {
       "id": "base",
       "target": "base",
-      "label": "Fixed bottom cover",
+      "label": "Bottom cover and Pi carrier",
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "7061fd1e9366d5e4c87a4011c97abb609008a554c9d2b5872b7eaaa8bc905dbf",
+      "shapeHash": "d61d556ad2ef39bf4c0aa275552eaaddb055571427469b24fdb9e603b8574e20",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_mount_screw_1",
+      "target": "base",
+      "label": "Pi M2.5x10 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "9ba9517b77a995aef0a7543df9facbdfdc7abf196d648bd088cb8c5e28fa2443",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_mount_screw_2",
+      "target": "base",
+      "label": "Pi M2.5x10 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "5fdc80e17258afcded13eb1805880ffba05433c0122c400b5f7c63dc97ce1f32",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_mount_screw_3",
+      "target": "base",
+      "label": "Pi M2.5x10 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "f51a6c3d1570c78e55065af2f2bb1e2719a3d3e60a06dbb48230d0cd027549ca",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_mount_screw_4",
+      "target": "base",
+      "label": "Pi M2.5x10 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "a4af55c3770ff2c500ffdd61501ba28a68b661ac0cd22e66efac4cde32dfa097",
       "transform": {
         "positionMm": [
           0,
@@ -760,10 +827,11 @@
     {
       "id": "fascia",
       "target": "fascia",
-      "label": "Screen housing mounts",
+      "label": "Integral screen frame",
+      "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "5e4d27bff963e079d78f13f82b281285a00d4833236e1278f609e4d466b1d3ee",
+      "shapeHash": "34af3cc4c010725b780970d6873ccf9ac7c872c415cd7bbdcec20541dd1654a1",
       "transform": {
         "positionMm": [
           0,
@@ -785,177 +853,15 @@
       "datums": []
     },
     {
-      "id": "retainer",
-      "target": "fascia",
-      "label": "Rear retaining frame",
-      "role": "part",
-      "kind": "generated",
-      "shapeHash": "8287ac87bcc1e09160dde13eaf0f58af1d990594ebc354ba0da46cf31381187a",
-      "transform": {
-        "positionMm": [
-          0,
-          21.521201483,
-          35.310909266
-        ],
-        "rotationDeg": [
-          13,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "retainer_screw_1",
-      "target": "fascia",
-      "label": "M2 retaining screw",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "37e528ffcaf4dbd0acbac847c790ab4ab5354eeceb0b06d2ec02bdd3515df0b1",
-      "transform": {
-        "positionMm": [
-          0,
-          21.521201483,
-          35.310909266
-        ],
-        "rotationDeg": [
-          13,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "retainer_screw_2",
-      "target": "fascia",
-      "label": "M2 retaining screw",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "23a5451bbd2237b8f15f4fe49c46eb51fe84d7b04a1acea2445cf028bbe994c1",
-      "transform": {
-        "positionMm": [
-          0,
-          21.521201483,
-          35.310909266
-        ],
-        "rotationDeg": [
-          13,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "retainer_screw_3",
-      "target": "fascia",
-      "label": "M2 retaining screw",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "0525ff8a446cb60c5ecc2a82ce5ff798f3a24c59dfc98b989cf5691253fb91d6",
-      "transform": {
-        "positionMm": [
-          0,
-          21.521201483,
-          35.310909266
-        ],
-        "rotationDeg": [
-          13,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "retainer_screw_4",
-      "target": "fascia",
-      "label": "M2 retaining screw",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "42d5c8935315641fb8d3a8a07735623ac829d0e346964eca68752f43ab32ea67",
-      "transform": {
-        "positionMm": [
-          0,
-          21.521201483,
-          35.310909266
-        ],
-        "rotationDeg": [
-          13,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "bezel",
-      "target": "bezel",
-      "label": "LCD locating bezel",
-      "role": "part",
-      "kind": "generated",
-      "shapeHash": "8774de76e9005319f79bdaac97948d01a5322135ab4d30ecd8ee75b0bd251129",
-      "transform": {
-        "positionMm": [
-          0,
-          21.521201483,
-          35.310909266
-        ],
-        "rotationDeg": [
-          13,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
       "id": "cooling_fan",
       "target": "imports",
       "label": "F16FB side blower",
       "kind": "imported",
-      "shapeHash": "344c6207b44d2e381d5e989f78c2c461ae159f3610159c8a423210ece9d7ad22",
+      "shapeHash": "f4f9c4bfa76fd1f4243bf6f9e78b4dd59f13fbc5ed67aae22dd7c19fd9106cf1",
       "transform": {
         "positionMm": [
-          -29,
-          -38,
+          -26,
+          -41,
           11.55
         ],
         "rotationDeg": [
@@ -977,10 +883,10 @@
       "target": "imports",
       "label": "Pi 4B reference",
       "kind": "imported",
-      "shapeHash": "8fb1be7fc69fdd9d21ae3e5faf7d3ab13b86eaa3b6e36a8662dd4d912b33696d",
+      "shapeHash": "c7d4a4367eb26579b6a6910ece2a0cde7d2a41c6d7d104ba9b8ba45c6689d39d",
       "transform": {
         "positionMm": [
-          39,
+          34,
           -30.5,
           7
         ],
@@ -1001,9 +907,9 @@
     {
       "id": "pi_baseboard_lite",
       "target": "imports",
-      "label": "pi_baseboard_lite",
+      "label": "Compact Pi baseboard",
       "kind": "imported",
-      "shapeHash": "53ffe550dd988b2e2d2d5f6435db5d6af93699e7ea55a557afbe645df1e544cb",
+      "shapeHash": "452a0df2f463efd41269c209c5b05fb7e4668af037472caa0eaa5e9d0b680ba2",
       "transform": {
         "positionMm": [
           -100,
@@ -1027,10 +933,11 @@
     {
       "id": "front_cushion",
       "target": "screen_cushions",
-      "label": "Front light seal",
+      "label": "Front silicone pad",
+      "material": "silicone",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "3e1683f4becbf3cd5306da3885fe73f734d2aa45350c9ef77c0aa57710576bec",
+      "shapeHash": "7f39fa49b58727ac0ea0a5ca199cf5d0e1f30cfb91cf796f3a0c42d83d5d24f6",
       "transform": {
         "positionMm": [
           0,
@@ -1054,10 +961,11 @@
     {
       "id": "rear_cushion",
       "target": "screen_cushions",
-      "label": "Rear compliant support",
+      "label": "Rear silicone pad",
+      "material": "silicone",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "503045f26a376484855ba2afd345160ce6eca3d1ac4f4da88f4a2b26ec3e4e30",
+      "shapeHash": "611a52962074fcfacbcf329e7f6888fa92a7f48b21bda9b1352cda14dc31240e",
       "transform": {
         "positionMm": [
           0,
@@ -1085,7 +993,7 @@
       "material": "rubber",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "aebc3eba47c488692dd42cc545da254118872f8828ca1ddaa5da5033232d622b",
+      "shapeHash": "8c0db9222ddeca553699f420f374d51e215e72fbdd1b1f81f94a70320f135148",
       "transform": {
         "positionMm": [
           0,
@@ -1113,7 +1021,7 @@
       "material": "aluminum",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "7847bfa306ae231d396c265af82fdade9eb0978577e64c52be2becffdb1cf77b",
+      "shapeHash": "8ef1bebb7f21f2caec409f03513265dea5c399654b1834973cb418372892905d",
       "transform": {
         "positionMm": [
           0,
@@ -1141,7 +1049,7 @@
       "material": "rubber",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "61f8feab222c165883a1620934b9fe74a97af4b312de5fc679c817982dc38508",
+      "shapeHash": "7430797790087053fac542b87743bd5ae66deb5fcb08c8712ec758a99a4e11b5",
       "transform": {
         "positionMm": [
           0,
@@ -1169,12 +1077,12 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "6a5270469eafb31e586e3f4fd134395cc8dcd148bcab77d8c328cb01bfc8aa1a",
+      "shapeHash": "e1a0dd51e54c22deeb20e06223a272482021bcb9d6688c1f510422dd57902f78",
       "transform": {
         "positionMm": [
           0,
           -34,
-          27
+          29.4
         ],
         "rotationDeg": [
           0,
@@ -1197,7 +1105,147 @@
       "material": "glass",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "c1a1c18521ac562344b1500168afa05b2509946e51361574a043f0ac18141da4",
+      "shapeHash": "d148a58098cddbae79e7d17270a50f75c5eeedc7926dbcb94a67c08eef27cc92",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "retainer",
+      "target": "lcd_retainer",
+      "label": "Flat rear retainer",
+      "material": "pla",
+      "role": "part",
+      "kind": "generated",
+      "shapeHash": "2e1fafb5169f3b42e4a95d17410ca163e62bf0c8c16d0594a7eb680407475ac0",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "retainer_screw_1",
+      "target": "lcd_retainer",
+      "label": "M2 x 4.0 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "0f1fa9d83077ffd5c2d230c805afc1fb8cb026af8297c49dd9b8e5fde8169ed7",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "retainer_screw_2",
+      "target": "lcd_retainer",
+      "label": "M2 x 4.0 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "042aa4ab4840066529acfb83e4133140b5e179fd4ec56623ec6d366f3f2e268d",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "retainer_screw_3",
+      "target": "lcd_retainer",
+      "label": "M2 x 4.0 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "4b48ce74417928e9ad9e6aafc4571fc673bf435edd7e8590e808b6f0cd1eae13",
+      "transform": {
+        "positionMm": [
+          0,
+          21.521201483,
+          35.310909266
+        ],
+        "rotationDeg": [
+          13,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "retainer_screw_4",
+      "target": "lcd_retainer",
+      "label": "M2 x 4.0 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "436b8f06d5cdfd2968ee7bb3de2cda89999a9d6202838012bbe07794a1ff0df6",
       "transform": {
         "positionMm": [
           0,
@@ -1250,40 +1298,30 @@
     {
       "id": "pi_baseboard_lite",
       "kind": "step",
-      "path": "design/handheld_computer/source/assets/7be47336983ab285b75e6c7d2a93d2c29418654a82397f66cf8ef8e56ad6b53d.step",
-      "sha256": "7be47336983ab285b75e6c7d2a93d2c29418654a82397f66cf8ef8e56ad6b53d",
-      "label": "pi_baseboard_lite",
+      "path": "design/handheld_computer/source/assets/fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8.step",
+      "sha256": "fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8",
+      "label": "Compact Pi baseboard",
       "provenance": {
-        "sourcePath": "manufacturing/pi_baseboard_lite/releases/8816a764c91d71af56bd3042eeca5a34a6f0ec2096f8967712fe44e23a199537/package/assembly.step"
+        "sourcePath": "manufacturing/pi_baseboard_lite/releases/cd04f943ef57c8363e042d7d455cd9599f11065206ac235a43715b5c526e2ad6/package/assembly.step",
+        "sourceVersion": "cd04f943ef57c8363e042d7d455cd9599f11065206ac235a43715b5c526e2ad6",
+        "declaredSha256": "fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8"
       }
     }
   ],
   "fits": [],
-  "updatedAt": "2026-10-12T11:20:43.181Z",
+  "updatedAt": "2026-10-28T04:08:00.548Z",
   "parameters": {
     "shell": {
-      "case_width": 85,
+      "case_width": 76,
       "case_depth": 115,
       "case_corner": 9,
       "case_top_center": 27,
       "shell_wall": 2.4,
       "shell_lower_z": 2.7,
-      "panel_gap": 0.25,
-      "button_y": -37,
-      "button_diameter": 9,
-      "charge_width": 10.5,
-      "charge_height": 4.4,
-      "charge_z": 12,
       "shell_edge_radius": 1,
-      "shell_button_z": 12,
-      "shell_groove_width": 58,
-      "shell_groove_height": 2,
-      "shell_groove_depth": 0.7,
-      "shell_groove_y": -33,
       "shell_passage_width": 71,
       "shell_passage_depth": 54,
       "shell_passage_y": 21.5,
-      "shell_charge_y": -37,
       "shell_rj45_x": -6.75,
       "shell_rj45_z": 14,
       "shell_rj45_width": 17,
@@ -1309,112 +1347,106 @@
       "shell_pi_usb_c_z": 8.18,
       "shell_pi_usb_c_width": 10.2,
       "shell_pi_usb_c_height": 5.2,
-      "shell_pi_usb_c_outer_wall": 0,
       "shell_lcd_mount_x": 20,
-      "shell_lcd_mount_y_front": -28,
+      "shell_lcd_mount_y_front": -26.25,
       "shell_lcd_mount_y_rear": 25.5,
       "shell_lcd_well_width": 6.4,
       "shell_lcd_well_depth": 7,
       "front_module_width": 70,
       "front_module_depth": 37,
       "front_module_y": -34,
-      "front_module_seat_clearance": 0.3,
-      "front_module_seat_depth": 1.4,
       "front_module_aperture_width": 54,
       "front_module_aperture_depth": 26,
-      "front_module_tongue_depth": 0.6,
-      "front_module_screw_x": 31,
-      "front_module_screw_y_offset": 15,
-      "front_module_screw_engagement": 2,
+      "front_module_screw_x": 29.5,
+      "front_module_screw_y_offset": 11,
+      "front_module_screw_engagement": 3.6,
       "pcb_mount_bottom_z": 21.8,
       "pcb_mount_x": 16,
       "pcb_mount_y": -32,
       "pcb_mount_beam_width": 6,
       "pcb_mount_beam_thickness": 2,
-      "pcb_mount_engagement": 1,
+      "pcb_mount_engagement": 2,
       "pcb_mount_cover_clearance": 0.5,
       "pcb_rear_guide_y": 24,
       "pcb_rear_guide_width": 8,
       "pcb_rear_guide_thickness": 1.5,
       "pcb_rear_guide_clearance": 0.3,
-      "front_module_gpio_width": 11.2,
-      "front_module_gpio_depth": 6.2,
-      "front_module_pcb_tip_relief_diameter": 3,
-      "front_module_gpio_pin_pocket_roof": 1.2,
       "shell_fan_center_x": -29,
       "shell_fan_center_y": -38,
-      "shell_fan_floor_z": 9.8,
-      "shell_fan_floor_width": 29,
-      "shell_fan_floor_depth": 17.2,
-      "shell_fan_floor_thickness": 1.2,
       "shell_fan_cavity_width": 17.2,
       "shell_fan_rail_thickness": 1.2,
-      "shell_fan_rail_height": 5,
-      "shell_fan_root_width": 6,
-      "shell_fan_root_thickness": 1.8,
-      "shell_cooling_duct_left_x": -3.5,
-      "shell_cooling_duct_right_x": 15,
-      "shell_cooling_duct_wall": 1.2,
-      "shell_cooling_duct_front_y": -10,
-      "shell_cooling_duct_rear_y": 24,
-      "shell_cooling_duct_exit_y": 11,
-      "shell_cooling_duct_floor_z": 10.8,
-      "shell_cooling_duct_roof_z": 18.5,
-      "shell_cooling_duct_roof_front_y": -7.2,
-      "shell_cooling_inlet_y": 36,
-      "shell_cooling_inlet_z": 19,
-      "shell_cooling_exhaust_y": 25,
       "shell_cooling_exhaust_z": 13.25,
       "shell_cooling_slot_width": 2.4,
       "shell_cooling_slot_bridge": 2,
-      "shell_cooling_inlet_height": 6,
       "shell_cooling_exhaust_height": 4.5,
       "shell_cooling_slot_count": 4,
-      "fan_collar_width": 29,
-      "fan_collar_depth": 19,
-      "fan_collar_thickness": 1.4,
-      "fan_collar_inlet_width": 13.6,
-      "fan_collar_bottom_z": 16,
-      "fan_collar_screw_offset": 12.2,
-      "fan_collar_engagement": 2,
       "fan_corner_pads_width": 2,
       "fan_corner_pads_depth": 2,
       "fan_corner_pads_thickness": 0.5,
-      "pi_mount_board_top": 7.1,
-      "pi_mount_engagement": 3,
-      "pi_mount_front_bridge_z": 19.5,
-      "pi_mount_bridge_thickness": 2,
-      "pi_mount_bridge_width": 3.8,
-      "pi_mount_shelf_thickness": 1.8,
-      "pi_mount_ear_width": 6.4,
       "shell_pcb_top_air": 1.6,
-      "front_module_pcb_min_roof": 1.2,
       "base_mount_front_x": 32,
       "base_mount_front_y": -48,
       "base_mount_left_rear_x": -32,
-      "base_mount_left_rear_y": 47,
+      "base_mount_left_rear_y": 51.5,
       "base_mount_right_mid_x": 32,
       "base_mount_right_mid_y": -35,
       "base_thickness": 2.4,
       "shell_base_pad_width": 8,
-      "shell_base_pad_top": 9,
       "base_screw_engagement": 3.6,
-      "front_module_blank_thickness": 1.4,
-      "front_module_blank_socket_cover_rise": 0.9,
-      "front_module_blank_socket_cover_width": 14.2,
-      "front_module_blank_socket_cover_depth": 9.2,
-      "front_module_blank_socket_cover_x": 0,
-      "front_module_blank_socket_cover_y": -34,
-      "front_module_blank_socket_cover_radius": 0.4,
-      "front_module_blank_socket_air": 0.3,
-      "front_module_blank_socket_roof": 1.2,
+      "front_module_blank_thickness": 2.4,
       "pcb_mount_spacer_1_thickness": 1.2,
       "pcb_mount_spacer_1_diameter": 4.8,
       "pcb_mount_spacer_2_thickness": 1.2,
-      "pcb_mount_spacer_2_diameter": 4.8
+      "pcb_mount_spacer_2_diameter": 4.8,
+      "shell_pi_groove_clearance": 0.3,
+      "base_mount_left_front_x": -32,
+      "base_mount_left_front_y": -15,
+      "shell_fan_cavity_height": 5,
+      "shell_fan_boss_diameter": 6,
+      "fan_cassette_floor_z": 9.8,
+      "fan_cassette_floor_thickness": 1.2,
+      "fan_cassette_roof_thickness": 1.4,
+      "fan_cassette_inlet_width": 13.6,
+      "fan_cassette_ear_width": 6,
+      "fan_cassette_engagement": 4.4,
+      "pi_offset_x": -5,
+      "fan_offset_x": 3,
+      "shell_lcd_mount_x_front": 27,
+      "fan_offset_y": -3,
+      "fan_cassette_ear_inset": 2.5,
+      "fan_cassette_ear_clearance": 0.4,
+      "cassette_wall_gap": 0.3,
+      "shell_passage_radius": 4.5,
+      "shell_lcd_front_well_depth": 6.6,
+      "shell_usbc_shoulder_width": 13,
+      "shell_hdmi_shoulder_width": 12,
+      "shell_plug_shoulder_height": 7,
+      "shell_audio_shoulder_diameter": 11,
+      "shell_usbc_entry_y_flare": 0.5,
+      "shell_plug_entry_z_flare": 0.3,
+      "shell_plug_entry_radius": 1,
+      "shell_plug_inner_reach": 0.5,
+      "screen_mount_front_x": 35,
+      "screen_mount_front_y": 4.2,
+      "screen_mount_rear_x": 27,
+      "screen_mount_rear_y": 51,
+      "screen_mount_front_pad_width": 5.6,
+      "screen_mount_rear_pad_width": 6.4,
+      "screen_mount_rear_pad_depth": 8,
+      "screen_mount_front_height": 4.5,
+      "screen_mount_rear_height": 8,
+      "screen_mount_front_engagement": 1.2,
+      "screen_mount_rear_engagement": 3,
+      "screen_mount_driver_diameter": 3,
+      "screen_mount_front_axis_x": 34.4,
+      "screen_mount_driver_shaft_diameter": 2.4,
+      "screen_mount_front_rib_height": 20,
+      "screen_mount_rear_rib_height": 20,
+      "countersink_print_radial_allowance": 0.2,
+      "front_module_receiver_width": 7.2,
+      "screen_mount_rear_driver_diameter": 3.4
     },
     "base": {
-      "base_width": 85,
       "base_depth": 115,
       "base_corner": 9,
       "base_thickness": 2.4,
@@ -1422,26 +1454,35 @@
       "base_mount_front_x": 32,
       "base_mount_front_y": -48,
       "base_mount_left_rear_x": -32,
-      "base_mount_left_rear_y": 47,
+      "base_mount_left_rear_y": 51.5,
       "base_mount_right_mid_x": 32,
       "base_mount_right_mid_y": -35,
       "base_rim_height": 0.8,
       "base_rim_thickness": 1.2,
       "base_rim_clearance": 0.3,
       "shell_wall": 2.4,
-      "shell_base_pad_width": 8
+      "shell_base_pad_width": 8,
+      "base_mount_left_front_x": -32,
+      "base_mount_left_front_y": -15,
+      "base_pi_post_diameter": 5.6,
+      "shell_rj45_z": 14,
+      "shell_rj45_width": 17,
+      "shell_rj45_height": 15,
+      "shell_usb_mid_z": 15,
+      "shell_usb_mid_width": 15,
+      "shell_usb_mid_height": 17,
+      "shell_usb_right_z": 14.5,
+      "shell_usb_right_width": 16,
+      "shell_usb_right_height": 18,
+      "base_port_filler_clearance": 0.25
     },
     "fascia": {
-      "fascia_width": 77,
-      "fascia_depth": 65,
-      "fascia_radius": 6,
       "fascia_thickness": 3,
       "fascia_window_width": 66.5,
       "fascia_window_height": 49.5,
       "fascia_window_radius": 2.75,
       "fascia_edge_radius": 0.6,
       "fascia_slope": 13,
-      "fascia_front_height": 0.7,
       "fascia_wall": 2.4,
       "fascia_window_x": 0,
       "fascia_window_y": 0,
@@ -1450,24 +1491,12 @@
       "fascia_fpc_y": -25,
       "fascia_fpc_roof": 1.5,
       "fascia_fpc_depth": 5,
-      "retainer_width": 66,
-      "retainer_depth": 44,
-      "retainer_y": -1.77,
       "retainer_thickness": 2,
-      "retainer_back_gap": 1,
-      "retainer_rail_width": 3,
-      "retainer_tail_gap": 16,
       "retainer_ear_width": 5.4,
       "retainer_ear_depth": 6,
-      "retainer_engagement": 3,
       "retainer_screw_x": 20,
-      "retainer_screw_y_front": -28,
+      "retainer_screw_y_front": -26.25,
       "retainer_screw_y_rear": 25.5,
-      "retainer_seat_z": -7,
-      "retainer_guard_width": 19,
-      "retainer_guard_depth": 7,
-      "retainer_guard_wall": 1.5,
-      "retainer_guard_y": -24.75,
       "fpc_bend_start": 1,
       "fpc_inner_radius": 1.35,
       "fpc_free_length": 13.7,
@@ -1480,27 +1509,18 @@
       "retainer_pcb_buffer_air": 1.6,
       "fascia_active_tail_channel_width": 7.5,
       "fascia_active_tail_channel_depth": 7,
-      "fascia_active_tail_channel_height": 7.5
-    },
-    "bezel": {
-      "bezel_width": 66,
-      "bezel_height": 49,
-      "bezel_thickness": 3.6,
-      "bezel_recess": 3.5,
-      "bezel_radius": 2.5,
-      "bezel_window_clearance": 0.3,
-      "bezel_window_radius": 0.35,
-      "bezel_pocket_clearance": 0.3,
-      "bezel_front_lip": 1.2,
-      "bezel_glass_airgap": 0.2,
-      "bezel_fpc_width": 12,
-      "bezel_fpc_relief_height": 2.3,
-      "bezel_flange_width": 70,
-      "bezel_flange_depth": 47,
-      "bezel_flange_thickness": 1.2,
-      "bezel_flange_top": -3,
-      "bezel_flange_tail_gap": 16,
-      "bezel_flange_mount_clearance": 0.3
+      "fascia_active_tail_channel_height": 7.5,
+      "fascia_center_y": 21.521201483,
+      "retainer_screw_x_front": 27,
+      "fascia_screen_center_z": 8.010909266,
+      "fascia_optical_clearance": 0.3,
+      "fascia_glass_clearance": 0.3,
+      "fascia_front_lip": 1.2,
+      "fascia_optical_radius": 0.35,
+      "fascia_rear_pad_thickness": 2,
+      "fascia_stop_engagement": 2,
+      "fascia_border_line_width": 0.5,
+      "fascia_border_line_depth": 0.3
     },
     "imports": {},
     "screen_cushions": {
@@ -1510,19 +1530,17 @@
       "front_cushion_window_h": 35.88,
       "front_cushion_tail_gap": 12,
       "front_cushion_z": -1.4,
-      "rear_cushion_thickness": 1,
+      "rear_cushion_thickness": 2,
       "rear_cushion_inset": 0,
       "rear_cushion_window_w": 60,
       "rear_cushion_window_h": 38,
       "rear_cushion_tail_gap": 16,
-      "rear_cushion_z": -4.04
+      "rear_cushion_z": -5.04
     },
     "thermal_stack": {
-      "cpu_heatsink_allowance": 0,
       "cpu_heatsink_x": 6.3725,
       "cpu_heatsink_y": -1.2681,
       "cpu_heatsink_bottom_z": 9.55,
-      "ram_heatsink_allowance": 0,
       "ram_heatsink_x": 6.58255,
       "ram_heatsink_y": 14.3315,
       "ram_heatsink_bottom_z": 8.05,
@@ -1561,23 +1579,13 @@
     "front_module_cover": {
       "front_module_width": 70,
       "front_module_depth": 37,
-      "front_module_seat_clearance": 0.3,
-      "front_module_seat_depth": 1.4,
-      "front_module_tongue_depth": 0.6,
-      "front_module_aperture_width": 54,
-      "front_module_aperture_depth": 26,
-      "front_module_screw_x": 31,
-      "front_module_screw_y_offset": 15,
-      "front_module_blank_thickness": 1.4,
-      "front_module_blank_corner": 1.8,
-      "front_module_blank_tongue_corner": 1.2,
-      "front_module_blank_socket_cover_x": 0,
-      "front_module_blank_socket_cover_y": -34,
-      "front_module_blank_socket_air": 0.1,
-      "front_module_blank_socket_roof": 0.6,
-      "front_module_gpio_pin_pocket_roof": 1.2,
-      "shell_pcb_top_air": 1.6,
-      "front_module_pcb_min_roof": 1.2
+      "front_module_blank_corner": 4,
+      "front_module_blank_edge_chamfer": 0.4,
+      "front_module_opening_width": 40,
+      "front_module_opening_depth": 20,
+      "front_module_opening_radius": 2,
+      "front_module_opening_x": 0,
+      "front_module_opening_y": 0
     },
     "display_placeholder": {
       "display_placeholder_width": 62.8,
@@ -1585,6 +1593,14 @@
       "display_placeholder_thickness": 1.64,
       "display_placeholder_center_y": -1.77,
       "display_placeholder_front_z": -1.4
+    },
+    "lcd_retainer": {
+      "retainer_width": 66,
+      "retainer_depth": 44,
+      "retainer_y": -1.77,
+      "retainer_rail_width": 3,
+      "retainer_tail_gap": 16,
+      "retainer_shell_clearance": 0.3
     }
   }
 }

@@ -279,11 +279,11 @@
     {
       "name": "PI25_GND_BRIDGE",
       "net": "GND",
-      "xMm": -8.605,
+      "xMm": -13.605,
       "yMm": 22.749,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Filled bottom GND lobe bbox(-14.226,19.964)..(-0.785,24.534) intersects top main ground; source-frame coordinate proven using .31mm polygon erosion and .46mm obstacle exclusion. Restores return near J_PI pad25."
+      "rationale": "Existing header-local GND bridge translated -5mm with J_PI for the 76mm enclosure. Connectivity and all-layer copper clearance must pass fresh routing and DRC."
     },
     {
       "name": "FRONT_BUFFER_GND_BRIDGE",
@@ -306,11 +306,11 @@
     {
       "name": "PI26_INNER_GND_BRIDGE",
       "net": "GND",
-      "xMm": -10.490051,
+      "xMm": -15.490051,
       "yMm": 24.295851,
       "diameterMm": 0.6,
       "drillMm": 0.3,
-      "rationale": "Exact diagnosed GND lobe bridge; actual polygons on source and destination ground planes eroded.31mm; every pad and all-stack foreign copper/vias excluded. Proof:pi-inner-ground-via-proof.json"
+      "rationale": "Existing header-local GND bridge translated -5mm with J_PI for the 76mm enclosure. Connectivity and all-layer copper clearance must pass fresh routing and DRC."
     }
   ],
   "copperAreas": [],

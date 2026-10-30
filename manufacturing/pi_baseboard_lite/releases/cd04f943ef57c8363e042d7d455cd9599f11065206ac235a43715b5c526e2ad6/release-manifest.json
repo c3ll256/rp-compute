@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "releaseId": "8816a764c91d71af56bd3042eeca5a34a6f0ec2096f8967712fe44e23a199537",
+  "releaseId": "cd04f943ef57c8363e042d7d455cd9599f11065206ac235a43715b5c526e2ad6",
   "designId": "pi_baseboard_lite",
-  "buildId": "74243f2e9887ca94aa3ad385af2fe3a64e6d4654abe573d9fa06137dc41f7fcc",
-  "candidateId": "dfe77e560447b519f85fc27fd8b29a64aaba47b7b25a911feb5a925a38842951",
-  "approvedAt": "2026-10-02T06:33:44.548Z",
+  "buildNumber": 0,
+  "candidateId": "95bc5474ee0f0fc9a67f08dd9bf3ae1a97b9f0f85636628c2dc083853c5d4020",
+  "approvedAt": "2026-10-17T06:41:05.591Z",
   "sections": [
     {
       "id": "fabrication",
@@ -104,92 +104,92 @@
     },
     {
       "path": "assembly.glb",
-      "sha256": "59bdb603b2dfffc9dcac67a613283c2e3e7d9261eb83b29e29e126bcb981f065",
-      "sizeBytes": 48211320
+      "sha256": "1ac888c61378b0f31044fc843d54faf37b8297e0943fe95b5327e403653bc79a",
+      "sizeBytes": 46955356
     },
     {
       "path": "assembly.step",
-      "sha256": "7be47336983ab285b75e6c7d2a93d2c29418654a82397f66cf8ef8e56ad6b53d",
-      "sizeBytes": 18132112
+      "sha256": "fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8",
+      "sizeBytes": 17724977
     },
     {
       "path": "circuit.json",
-      "sha256": "eb390077ee875cf0c6bddad5877135aaac390b13e96897384ddf6eae9bae92cd",
-      "sizeBytes": 1121580
+      "sha256": "f46a2c0cee7053fa7e80594996d30b2a33f65023c23d287db85d3777a613e55a",
+      "sizeBytes": 1116323
     },
     {
       "path": "drill/board-NPTH.drl",
-      "sha256": "9c8f9ed9647d0555903864d6bd5fb28f6ab32289ebf89ed75616ab5deeeb56db",
+      "sha256": "9832b3eddbebd2c4f382ec0104ff169d2a1f4bdd6f3ba6a49d0ae5ddf97af126",
       "sizeBytes": 355
     },
     {
       "path": "drill/board-PTH.drl",
-      "sha256": "b5cf9619e355fc68754594ff9b8f606734ff872639422f0f65bb7760adbffd30",
-      "sizeBytes": 1553
+      "sha256": "f326e5106c108de18ec649d715ceb60bd1d7196831d4bd010378ea3f590878b7",
+      "sizeBytes": 1583
     },
     {
       "path": "drill/pi_baseboard_lite-drill-report.txt",
-      "sha256": "e24c92ee9b93d7f8b021cf6e67d53840bdc6105caeffa1ca47adefeb1619d1fa",
+      "sha256": "6634d2895b063fef9b3b417aeb8f4f8c05fc66bcf712d385b2683894d0f66eec",
       "sizeBytes": 759
     },
     {
       "path": "gerbers/board-B_Cu.gbl",
-      "sha256": "b2f796dcc2ffb8176d029d28df54b08357d3d9c6f16748eb5ecfc2f2018b4b1b",
-      "sizeBytes": 118565
+      "sha256": "cafe175954a326d42d342692dcda2cc0e50570fd4ecb1ebb917282dbe1fdf67b",
+      "sizeBytes": 116896
     },
     {
       "path": "gerbers/board-B_Mask.gbs",
-      "sha256": "c1593de1d4b142fa09890fc1029e990cabb0478e2f15c451364359c259ea3633",
+      "sha256": "20b47fcbd12f3c444b27e9ac6053bf1f16135412a3f2a3a430ef8c7834903d0b",
       "sizeBytes": 1608
     },
     {
       "path": "gerbers/board-B_Paste.gbp",
-      "sha256": "c9b8a3f26ac4520da502c3529a20b6cfa02ccdc469d11d8cb45a947c878bc044",
+      "sha256": "e7ae1390a796452c2acd4f14f25c133312026c9f754a419a59b0141dc5c44475",
       "sizeBytes": 450
     },
     {
       "path": "gerbers/board-B_Silkscreen.gbo",
-      "sha256": "0a9880dc3138fd449a164a891dd2123b944c7c383ef9f81b5a9ad4a37c79e445",
+      "sha256": "81eae23b4ba3e722087377bf5a6b1deeb6e594c8676ce2f34542def34b4f57b3",
       "sizeBytes": 790
     },
     {
       "path": "gerbers/board-Edge_Cuts.gm1",
-      "sha256": "da8465d145c9cba496c7f30b40aa4dc3dbc502e98a5e919a255c75fa1ba920ef",
-      "sizeBytes": 1360
+      "sha256": "31823d654f5f48018e939f8fa0c392b04c798bfc118f2e69a6a17942aeafbff3",
+      "sizeBytes": 968
     },
     {
       "path": "gerbers/board-F_Cu.gtl",
-      "sha256": "fcf174747b1880d882cd67d1bab09d8abeb9126ed9e5d5e94d9fd924c381e80b",
-      "sizeBytes": 207922
+      "sha256": "672e884b4ee995e5b56270fa8bd0d91effef201bcf04cda315611ca92f852002",
+      "sizeBytes": 197836
     },
     {
       "path": "gerbers/board-F_Mask.gts",
-      "sha256": "f17ffcfb375977c20dafcdf5814b75de25210e3eb1e9c20704d04e21bbaa4c87",
+      "sha256": "c2247f8d6f570cb42a4ce79b84086c5d4c3dc1d216c6f640043ada1c34a07a10",
       "sizeBytes": 5797
     },
     {
       "path": "gerbers/board-F_Paste.gtp",
-      "sha256": "d5e3c3fe70f4fe27301fdfa6aeeae0a6071b02a4983c98681ef8578110fc2b9c",
+      "sha256": "32040bdbdfdff7bccae0eedc466d97b84b0fa5eac3a8a5176064d862309f07cb",
       "sizeBytes": 4634
     },
     {
       "path": "gerbers/board-F_Silkscreen.gto",
-      "sha256": "f3f505177b57a282acccefe2791ea701f0936c94c5d33ebe605812c4bf27189e",
+      "sha256": "9ecaadb39831c4af19f594af6a10834f5a368e93a7b94a5e593c3a2dbcfd4661",
       "sizeBytes": 12475
     },
     {
       "path": "gerbers/board-In1_Cu.g1",
-      "sha256": "dde32460cd0ddbd065217964aa0559e6289de9c7b5729a08c8fa49fedf150b2f",
-      "sizeBytes": 115708
+      "sha256": "cf498e9d2801eafb5425b6bdcb6411bd37c5fa7ad24d6bf4fda7f4a4ac5d5a22",
+      "sizeBytes": 105424
     },
     {
       "path": "gerbers/board-In2_Cu.g2",
-      "sha256": "081c8eec6f1d1bdc656cb5542948c829307f66e7ab6a53187e8c57500abf11f8",
-      "sizeBytes": 4766
+      "sha256": "bbb4b08b4f2d617088d1dc98b1b7a15d0248a130c36cd83d7292218947294034",
+      "sizeBytes": 5710
     },
     {
       "path": "gerbers/board-job.gbrjob",
-      "sha256": "4f73df255475be5fd560d4e446b72c4fc4166bd146fe6b4977f9996b1f56e6ac",
+      "sha256": "c45b814a4bd02b1be3f627271a8735205ce76f8399302064fb3fcaaf09256d5f",
       "sizeBytes": 3644
     },
     {
@@ -204,33 +204,13 @@
     },
     {
       "path": "manifest.json",
-      "sha256": "c2140d7de8cdfa8e8ce20a156fb1414e457cf0a40b40abe4a8e7f0181a578918",
-      "sizeBytes": 26392
+      "sha256": "0e747b051502404d4b67aa6f5e6d649dc463d656aaa63ee2dc2efd5c9a8ca49f",
+      "sizeBytes": 26144
     },
     {
       "path": "previews/assembly-iso.png",
-      "sha256": "67287ab56d002e013605e454399e30218069197e378175b2aae64bbe692a815e",
-      "sizeBytes": 314580
-    },
-    {
-      "path": "previews/gerber-bottom.png",
-      "sha256": "b76cd9b58530e0061a8d6aa798243f4afabd872aa96370288d78c9da52d59acb",
-      "sizeBytes": 221796
-    },
-    {
-      "path": "previews/gerber-bottom.svg",
-      "sha256": "bc2735a0444f28f26d6d26854d12c6b770341f2b61d12a618003170e01cafb65",
-      "sizeBytes": 114328
-    },
-    {
-      "path": "previews/gerber-top.png",
-      "sha256": "7d9f1728ab18c59836d211721b5d17380fdeeac7f3def52e0d75015d0a9f5c11",
-      "sizeBytes": 330083
-    },
-    {
-      "path": "previews/gerber-top.svg",
-      "sha256": "5d8ec79df59cd5c43103d10bc3e16b936c64c4429a8abace9e572ad210e386e4",
-      "sizeBytes": 219448
+      "sha256": "388a3e7bd5fc1eda44a04e49f6c8a0919c59d30b43ddcb2590a551ab3528abd9",
+      "sizeBytes": 329151
     }
   ]
 }

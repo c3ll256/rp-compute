@@ -14,7 +14,7 @@
     {
       "id": "sharp_display_fit",
       "kind": "internal_fit",
-      "description": "LS027B7DH01 显示窗口、无应力固定、FPC 和连接器空间",
+      "description": "LS027B7DH01 显示窗口、无应力固定及FPC空间；屏幕框采用一体前框和等厚后压框两个硬质打印件，软垫和螺丝另计。",
       "source": "user_requested",
       "required": true
     },
@@ -56,7 +56,7 @@
     {
       "id": "front_gpio_module",
       "kind": "internal_fit",
-      "description": "用户标记的屏幕前方平台采用可从上方拆下的共用模块位，保留定位台阶、窗口、固定基准及内部GPIO连接空间；首版装空白盖板，未来模块断电更换。屏幕定位槽和屏舱1mm前沿保持，完整FPC路线须与单基板重新核定。",
+      "description": "用户标记的屏幕前方平台采用可从上方拆下的共用模块位，保留平面承托、窗口、四角固定基准及内部GPIO连接空间；首版空白盖板底面无定位舌或凸台，未来模块断电更换。屏幕定位槽和屏舱约1.67mm前沿保持，完整FPC路线须与单基板重新核定。",
       "source": "user_requested",
       "required": true
     },
@@ -121,7 +121,7 @@
     {
       "id": "screen_front_1mm_markup",
       "source": "user_requested",
-      "description": "用户红框指定屏舱前沿只留1mm，不是底座高度；前沿名义高度含分缝，圆角低于名义交线。",
+      "description": "原1mm前沿参考；用户为屏舱四边等宽接受前沿升至约1.67mm。前沿按含分缝的名义交线计。",
       "path": "product/references/uploads/20260922T122038436Z-1-mark.png"
     },
     {
@@ -170,7 +170,7 @@
       {
         "role": "computer_enclosure",
         "design_id": "handheld_computer",
-        "description": "外观及Pi接口布局STEP：后方USB/RJ45，右侧micro-HDMI/AV，精简版右侧Pi原生USB-C供电、左侧连续封闭；未验证紧固、工作联锁、真实插头或电池仓。 屏舱前沿高出平台名义1mm。 用户取消侧面按钮；右侧原按钮位置为连续全厚侧壁。",
+        "description": "外观及Pi接口布局STEP：后方USB/RJ45，右侧micro-HDMI/AV，精简版右侧Pi原生USB-C供电、左侧连续封闭；未验证紧固、工作联锁、真实插头或电池仓。 屏舱前沿高出平台名义约1.67mm。 用户取消侧面按钮；右侧原按钮位置为连续全厚侧壁。 两件式屏幕框：一体屏舱前框、平板后压框；名义CAD检查不能替代实物打印及玻璃受压试验。",
         "delivery_target": "visual_review",
         "required_formats": [
           "step"
