@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "c73acc8dcdc48463390247415a0f001075fe5eb08550ae4e70344dff28928a1b",
+  "requirements_digest": "543c83fedb5581488277e56502d8e211135b048809e76dd16afd3900a5389442",
   "items": [
     {
       "id": "compute",
@@ -267,9 +267,9 @@
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "description": "Independent70×37mm flat cover with R4 corners and0.4mm upper chamfer; uniform2.4mm thickness, undersideworldZ27 and topZ29.4. Four M3x6 countersunk seats at localX±29.5,Y±11;59×22mm pattern. No underside locating tongue, boss or socket pocket.",
-      "selection_reason": "M3 heads need a thicker cover and more edge distance. Retain a completely flat underside on the original deck, move the four holes inward, and leave nominal0.745mm socket clearance. Pair with this revision of the upper shell. Print underside down.",
-      "part_identity": "9b40e8120055ef93",
+      "description": "Current project front-module blank: 70 x 37 x 2.4 mm, R4 corners, 0.4 mm upper chamfer; four M3 countersinks on a 59 x 22 mm pattern and flat underside at world Z27. Source: current front_module_cover and shell CAD cells.",
+      "selection_reason": "Matches the current four M3x6 shell joints and 2.4 mm flat cover. Nominal socket air gap is 0.745 mm; physical printing and fit remain unverified.",
+      "part_identity": "622d0f7d7c815f29",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "cad_relevance": {
         "part_id": "front_module_cover",
@@ -299,9 +299,9 @@
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "description": "前拓展盖板，4颗；59×22mm孔距，2.4mm均匀平板，名义接收啮合3.6mm。 总长6mm包含沉头；头部参考直径6mm、90°。沉头口径增加0.4mm、深度增加0.2mm。",
-      "selection_reason": "匹配用户现有M3×6；接收孔采用printed-screw-joint-v1。套件沉头长度表不含6mm时，记录拒绝并保留套件接收孔，另用库内ISO10642头/座；实物头型及打印松紧仍需试装。",
-      "part_identity": "735e4e922fc128f2",
+      "description": "Four ISO10642 M3-0.5 x 6 mm countersunk screws, length including head, 90 degree seat and nominal 6 mm head. Current joint uses 2.4 mm cover thickness and 3.6 mm receiver engagement.",
+      "selection_reason": "Uses user-owned M3x6 stock in the current cover joints. Printed seats add 0.4 mm diameter and 0.2 mm depth allowance. Verify actual head shape and printed thread fit.",
+      "part_identity": "9bce79979275ed00",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "cad_library_reference": {
         "provider": "bd-warehouse",
@@ -577,8 +577,8 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "description": "Printed upper shell, 76x115x27mm exterior, printed deck-down with no support material: flat deck (expansion cover sits on top), full-height screw columns for the bottom cover, roof-backed PCB beams, 51-degree rear PCB guide, two roof-hung fan cassette bosses. Rear USB/RJ45 windows open to the lower edge and inner grooves for the audio jack/USB-C let it drop straight over the Pi. No Pi shelves. CAD default PLA; print fit, strength and service life untested. Four integral roof tabs carry the screen pod via concealed underside screws; front diameter2.4mm and rear diameter3.4mm driver paths; front paths remain within the original inner cavity. Remove Pi/bottom assembly before screen service.",
-      "selection_reason": "76mm enclosure and76x59mm screen housing face with equal4.75mm borders outside66.5x49.5mm shallow border line. Glass/FPC datum unchanged; user accepts front rise approximately1.67mm. Front retainer screws at local(+/-27,-26.25), rear(+/-20,25.5); shell wells retained; independent bezel and thin flange removed. Rear pod foot stays flush atY57.5 with approximately26.29deg forward lean. Pi/heatsink offsetX-5mm, fan(+3,-3)mm,44.5x83.5mm released PCB and capsule vents retained. Existing85mm enclosure/PCB releases are not interchangeable. Side ports now clear default straight overmould envelopes12x6mm USB-C,11x6mm per micro-HDMI and diameter10mm audio, with enlarged full-depth bores and1.5mm HDMI separator; these are negative enclosure-clearance targets, not verified purchasable cable identities. Paired with M3 front-module and bottom-cover receivers, rear M3 pod mounts, and the current M3 retainer.",
+      "description": "Printed upper shell, 76x115x27mm exterior, printed deck-down with no support material: flat deck (expansion cover sits on top), full-height screw columns for the bottom cover, roof-backed PCB beams, 51-degree rear PCB guide. No fan bosses, cassette, pads or fan screws; existing left slots are passive ventilation. Rear USB/RJ45 windows open to the lower edge and inner grooves for the audio jack/USB-C let it drop straight over the Pi. Three internal receivers extend down to Z5.4 to accept the flat Pi carrier ears; use together with the flat carrier. CAD default PLA; print fit, strength and service life untested. Four integral roof tabs carry the screen pod via concealed underside screws; front diameter2.4mm and rear diameter3.4mm driver paths; front paths remain within the original inner cavity. Remove Pi with its independent carrier before screen service.",
+      "selection_reason": "76mm enclosure and76x59mm screen housing face with equal4.75mm borders outside66.5x49.5mm shallow border line. Glass/FPC datum unchanged; user accepts front rise approximately1.67mm. Front retainer screws at local(+/-27,-26.25), rear(+/-20,25.5); shell wells retained; independent bezel and thin flange removed. Rear pod foot stays flush atY57.5 with approximately26.29deg forward lean. Pi/heatsink offsetX-5mm, 44.5x83.5mm released PCB and capsule slots retained for passive ventilation. Existing85mm enclosure/PCB releases are not interchangeable. Side ports now clear default straight overmould envelopes12x6mm USB-C,11x6mm per micro-HDMI and diameter10mm audio, with enlarged full-depth bores and1.5mm HDMI separator; these are negative enclosure-clearance targets, not verified purchasable cable identities. Paired with M3 front-module and bottom-cover receivers, rear M3 pod mounts, and the current M2 retainer.",
       "cad_relevance": {
         "description": "Two existing2.2mm PCB holes at world(+/-16,-32) and rear left board edge."
       },
@@ -632,8 +632,8 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "description": "Two ISO4762 M2x3 socket-head screws bear directly on the unchanged PCB underside mounting lands. Board bottomZ21.8, finished thickness0.8mm and2.2mm original bores retained. No screw spacer; nominal tipZ24.8 stays2.2mm below deck/cover undersideZ27.",
-      "selection_reason": "User requested removal of screw spacers. A3mm under-head screw replaces the4mm screw plus1.2mm printed spacer while retaining the PCB and receiver datums. The kit rejects3mm because its nominal length table starts at4mm; explicit free standard head/shaft implementation preserves the kit-owned compensated receiver. Print fit and PCB bearing pressure require prototype.",
+      "description": "Two ISO4762 M2-0.4 x 3 mm socket-head screws, length under head, through the existing 2.2 mm holes in the 0.8 mm PCB, without spacers. Nominal board bottom Z21.8 and screw tip Z24.8 mm.",
+      "selection_reason": "Matches current upper-shell PCB receiver datums after removing the spacer. Preserve the existing PCB holes. Verify bearing pressure and printed fit.",
       "cad_model": {
         "format": "step",
         "source_url": "https://github.com/gumyr/bd_warehouse",
@@ -644,131 +644,12 @@
           "length": 3,
           "fastener_type": "iso4762"
         },
-        "selection": "ISO4762 M2 size verified in catalog; explicit3mm library hardware after kit nominal-length rejection"
+        "selection": "ISO4762 M2-0.4 x3, under-head length, matches current screw hardware and spacer-free shell joint."
       },
       "cad_relevance": {
         "description": "WorldX+/-16,Y-32, board bottomZ21.8; existing internal socket-head screws retained because PCB holes are unmodified clearance holes."
       },
-      "part_identity": "1d5ded756f20f2ee"
-    },
-    {
-      "id": "compact_cooling_fan",
-      "role": "processor_and_memory_airflow",
-      "name": "Nidec Components F16FB-05LLC",
-      "quantity": 1,
-      "supplier": "Nidec Components authorized distributor",
-      "manufacturer": "Nidec Components",
-      "part_number": "F16FB-05LLC",
-      "mpn": "F16FB-05LLC",
-      "stock": null,
-      "source": "default",
-      "procurement_status": "external_procurement_required",
-      "datasheet_url": "https://www.nidec-components.com/e/catalog/dc-fan/f16fb.pdf",
-      "selection_status": "selected_manufacturer_drawing_and_STEP",
-      "description": "5V40mA0.2W two-wire side blower,16x16x4.5mm +/-0.5mm outline. Free-air0.012m3/min, shutoff5.5Pa; installed flow unmeasured. Red+5V/blackGND,80+/-10mm AWG36 leads, factory converted to JST SH2pin harness. HATJ_FAN supplies from physicalPi2/4+5V andPi6GND; no user soldering.",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "required_user_evidence": [],
-      "supply_risk": "Stock/price unverified; very low static pressure, thermal prototype test required.",
-      "part_identity": "98d2abbf6af4e9a5",
-      "cad_relevance": {
-        "asset": "product/references/F16FB.STEP",
-        "sha256": "e2f8b7cbed1d020a8861be66a5f32019d9404dfb20410347d0f201a42a6ba793",
-        "frame_mm": [
-          16,
-          16
-        ],
-        "thickness_mm": 4.5,
-        "tolerance_mm": 0.5,
-        "holes_mm": 1.5,
-        "pitch_mm": 13,
-        "mounting": "Frame cradle and padded M2 collar; tiny1.5mm holes remain unused."
-      },
-      "product_url": "https://www.nidec-components.com/sg/product/detail/00000718/",
-      "selection_reason": "Retain selected Nidec16x16x4.5mm blower near left wall at(-26,-41)mm, inlet upward and exhaust leftward; no forward hot outlet. HATJ_FAN5V40mA always-on and factory2pin lead retained. Rear-left external inlet removed by user; existing left-side exhaust retained, installed airflow/temperature still unmeasured."
-    },
-    {
-      "id": "compact_fan_collar",
-      "role": "compact_cooling_assembly",
-      "name": "Fan cassette (printed U-channel)",
-      "mpn": "RP-F16-COLLAR",
-      "part_number": "RP-F16-COLLAR",
-      "manufacturer": "Project Replicator",
-      "quantity": 1,
-      "source": "default",
-      "procurement_status": "external_procurement_required",
-      "selection_status": "selected",
-      "description": "Printed U-channel holding the F16FB blower: floor, two 1.2mm side rails, 1.4mm bridged roof with 13.6mm inlet and two full-height screw ears. Prints floor-down without supports (one 17mm roof bridge). Replaces the separate collar and the shell-integrated cradle.",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "required_user_evidence": [],
-      "part_identity": "ba989e8798c5aaa6",
-      "selection_reason": "Shell cradle needed support material inside the case; the fan now rides in a separate cassette screwed up into two roof-hung bosses."
-    },
-    {
-      "id": "compact_fan_pads",
-      "role": "compact_cooling_assembly",
-      "name": "Silicone sheet corner pads",
-      "mpn": "RP-F16-PAD-0.5",
-      "part_number": "RP-F16-PAD-0.5",
-      "manufacturer": "Project Replicator",
-      "quantity": 3,
-      "source": "default",
-      "procurement_status": "external_procurement_required",
-      "selection_status": "selected",
-      "description": "Die-cut2x2x0.5mm silicone corner pads; compress to take up fan thickness variation.",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "required_user_evidence": [],
-      "part_identity": "7b218094917c8597"
-    },
-    {
-      "id": "compact_fan_screws",
-      "role": "compact_cooling_assembly",
-      "name": "ISO7046 M2 countersunk fan cassette screws, 12mm",
-      "mpn": "ISO7046-M2x12",
-      "part_number": "ISO7046-M2x12",
-      "manufacturer": "ISO 7046 standard",
-      "quantity": 2,
-      "source": "default",
-      "procurement_status": "external_procurement_required",
-      "selection_status": "selected",
-      "description": "Two ISO7046 M2x12 countersunk screws from below through the 7.6mm cassette ears into kit-owned printed receivers in the roof-hung bosses, 4.4mm engagement.",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "required_user_evidence": [],
-      "part_identity": "fb874473aebb047b",
-      "selection_reason": "另购ISO7046 M2×12十字沉头2颗；保留风扇窄耳几何及4.4mm名义啮合，沉头口径+0.4mm、深度+0.2mm。"
-    },
-    {
-      "id": "compact_factory_strain_relief",
-      "role": "factory_cooling_harness_consumable",
-      "name": "DOWSIL 3145 RTV MIL-A-46146 Adhesive/Sealant — Clear",
-      "manufacturer": "Dow",
-      "mpn": "DOWSIL 3145 Clear",
-      "part_number": "DOWSIL 3145 Clear",
-      "quantity": 1,
-      "source": "default",
-      "procurement_status": "external_procurement_required",
-      "selection_status": "selected_manufacturer_evidence",
-      "product_url": "https://www.dow.com/en-us/pdp.dowsil-3145-rtv-mil-a-46146-adhesive-sealant.01059548z.html",
-      "description": "Factory stock allowance0.2mL perassembly for insulated-lead strain relief outside checkedairpath; dose and fullcure determined by factoryprocess. No userapplication and no55min full-cure claim.",
-      "included_in_product_kit": false,
-      "include_in_procurement_totals": false,
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "required_user_evidence": [],
-      "part_identity": "45c6ba9275547661"
+      "part_identity": "462c9a662d57ba10"
     },
     {
       "id": "compact_passive_heatsink",
@@ -802,7 +683,7 @@
         "thread": "M2.5",
         "mounting": "Shared four board corners; do not use bundled spacers in this shell"
       },
-      "selection_reason": "User image matches manufacturer dimensions; retain Pi4B and add separate internal fan.",
+      "selection_reason": "Retain user-selected Geekworm P165-B on Pi4B. Internal fan and its harness/mounts removed; fanless temperature performance requires prototype testing.",
       "supply_risk": "Purchase exact 11mm P165-B standalone; no8mm P165-A or Pi5 replacement. Underside relief heights and included TIM thickness need prototype inspection; CAD is explicit photo-derived reference.",
       "part_identity": "a69b252d0141b942"
     },
@@ -835,7 +716,7 @@
         "1": "+5V V5_PI_IN",
         "2": "GND"
       },
-      "selection_reason": "Low side-entry socket below HAT, away from screen FPC and expansion module. Exact supplier match unavailable; original JST is sourced externally and factory mounted.",
+      "selection_reason": "Preserve the released board in this enclosure-only removal. The unused socket is not a requirement to fit a fan.",
       "supply_risk": "Supplier search timed out; exact MPN detail returned no exact row. No LCSC or JLC-library claim. Use verified KiCad stock footprint/model.",
       "part_identity": "75e6679ed1582a9c",
       "cad_relevance": {
@@ -844,38 +725,18 @@
         "height_mm": 2.9,
         "layer": "bottom",
         "entry": "front -Y"
-      }
-    },
-    {
-      "id": "fan_factory_harness",
-      "role": "internal_fan_harness",
-      "name": "Factory JST SH 2pin fan harness, pin1 red +5V / pin2 black GND",
-      "quantity": 1,
-      "manufacturer": "JST / factory harness",
-      "mpn": "SHR-02V-S + SSH-003T-P0.2-H",
-      "part_number": "SHR-02V-S + SSH-003T-P0.2-H",
-      "source": "default",
-      "supplier": "Manufacturer / authorized distributor",
-      "procurement_status": "external_procurement_required",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
       },
-      "required_user_evidence": [],
-      "selection_status": "selected",
-      "datasheet_url": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
-      "selection_reason": "Factory crimped mating plug with32AWG pigtail, joined/insulated to fan36AWG leads by harness supplier; no user soldering. Maximum installed length70mm, bend radius2mm,2-wire always-on. Original fan leads are too fine for direct SH terminal crimp.",
-      "supply_risk": "Factory must confirm contact/wire qualification and perform continuity/polarity test; do not rely on generic plug color ordering.",
-      "part_identity": "ff93f2a4f9e05664"
+      "description": "Existing released-board JST SH SM02B-SRSS-TB at J_FAN remains physically fitted on pi_baseboard_lite; it is unused and has no fan harness. PCB geometry, copper and population remain unchanged.",
+      "usage_note": "Unused; leave disconnected."
     },
     {
       "id": "pi_upper_mount_screws",
       "role": "pi_four_corner_shared_mount",
-      "name": "ISO7046 M2.5 countersunk cross-recess screws, 10mm",
+      "name": "ISO7046 M2.5×6 十字沉头螺丝",
       "quantity": 4,
       "manufacturer": "ISO standard",
-      "mpn": "ISO7046-M2.5x10",
-      "part_number": "ISO7046-M2.5x10",
+      "mpn": "ISO7046-M2.5x6",
+      "part_number": "ISO7046-M2.5x6",
       "source": "default",
       "supplier": "Manufacturer / authorized distributor",
       "procurement_status": "external_procurement_required",
@@ -885,8 +746,8 @@
       },
       "required_user_evidence": [],
       "selection_status": "selected",
-      "selection_reason": "另购ISO7046 M2.5×10十字沉头4颗；保留Pi原孔与P165-B金属M2.5螺纹。沉头口径+0.4mm、深度+0.2mm。",
-      "part_identity": "86282dfb06ee6f1a"
+      "selection_reason": "Four ISO7046 M2.5x6 cross-recess countersunk screws pass through the current independent carrier and original Pi holes into P165-B metal M2.5 receivers. Carrier seat Z3.3 and Pi underside Z5.3 mm give 2 mm nominal metal engagement; verify physical thread depth.",
+      "part_identity": "a6c8476e34de4e99"
     },
     {
       "id": "lcd_retainer_screws",
@@ -905,9 +766,9 @@
       },
       "required_user_evidence": [],
       "selection_status": "selected",
-      "part_identity": "40c9d723c40090e2",
-      "selection_reason": "Retain the compact M2 joint: the3.6mm plate needed to use stock M3x6 was rejected by exact PCB interference checking. No additional printed pieces. Minimum buy quantity for all M2x4 countersunk positions is6, including the two pod-front screws.",
-      "description": "Four M2x4 screws retain the2mm flat rear retainer. Keep the original plate thickness and hole pattern to avoid the released PCB. Printed countersinks are0.4mm wider and0.2mm deeper than the standard head.",
+      "part_identity": "6a295f48219a565c",
+      "selection_reason": "Matches current thin retainer and PCB clearance. Six M2x4 screws in total: these four plus two front screen-pod fixings.",
+      "description": "Four ISO7046 M2x4 cross-recess countersunk screws, total length including head, retain the current uniform 2 mm rear plate. Seats add 0.4 mm diameter and 0.2 mm depth clearance.",
       "cad_library_reference": {
         "provider": "bd-warehouse",
         "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
@@ -936,7 +797,7 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "selection_reason": "匹配用户现有M3×6；接收孔采用printed-screw-joint-v1。套件沉头长度表不含6mm时，记录拒绝并保留套件接收孔，另用库内ISO10642头/座；实物头型及打印松紧仍需试装。",
+      "selection_reason": "Uses user-owned M3x6 stock and current upper-shell bottom receivers. Printed seats add 0.4 mm diameter and 0.2 mm depth clearance. Bottom cover does not carry Pi loads.",
       "cad_relevance": {
         "axes_world_xy_mm": [
           [
@@ -959,7 +820,7 @@
         "receiving_host": "upper shell",
         "head_flush_world_z_mm": 0.2
       },
-      "part_identity": "735e4e922fc128f2",
+      "part_identity": "9bce79979275ed00",
       "cad_library_reference": {
         "provider": "bd-warehouse",
         "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
@@ -970,13 +831,13 @@
         },
         "selection": "M3 diameter and6mm length from user inventory;90deg,6mm head model is a disclosed default."
       },
-      "description": "底盖到上壳，4颗；保留原有四处不对称孔位，2.4mm穿过厚度和3.6mm名义接收啮合。 总长6mm包含沉头；头部参考直径6mm、90°。沉头口径增加0.4mm、深度增加0.2mm。"
+      "description": "Four ISO10642 M3-0.5 x 6 mm countersunk screws, length including head, 90 degree seat and nominal 6 mm head. Current bottom joints have 2.4 mm pass-through and 3.6 mm receiver engagement at the four existing asymmetric axes."
     },
     {
       "id": "screen_integral_frame",
       "role": "printed_screen_frame",
       "name": "一体屏舱前框（PLA打印）",
-      "description": "Integral screen pod and glass locator; unchanged glass/FPC datum,1.2mm optical lip and63.4×43.42mm glass pocket. Four M2 rear-retainer receivers, two M2 front shell mounts and two M3 rear shell mounts. Roof-backed ribs seat on shellZ27. Pair with the revised shell and retainer.",
+      "description": "Current integral screen pod/glass locator: nominal 76 x 59 mm front envelope, 13 degree screen plane, 1.2 mm optical lip and 63.4 x 43.42 mm glass pocket. Four M2 retainer receivers, two M2 front shell joints and two M3 rear shell joints. Source: current fascia CAD cell; physical glass pressure unverified.",
       "quantity": 1,
       "manufacturer": "Project custom",
       "mpn": "handheld-screen-integral-frame",
@@ -990,13 +851,13 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "f2af863175cdae4c"
+      "part_identity": "037420504f2bb5c2"
     },
     {
       "id": "screen_flat_retainer",
       "role": "printed_screen_retainer",
       "name": "等厚屏幕后压框（PLA打印）",
-      "description": "2mm uniform rear retainer with four coplanar M2x4 screw tabs, native-tail opening and shell-lug reliefs. No plate thickening, so the released PCB remains clear. Countersinks receive0.4mm extra diameter and0.2mm extra depth. Original glass and silicone-pad planes retained.",
+      "description": "Current rear retainer: nominal 66 x 44 mm outline, uniform 2 mm plate, 3 mm rails and 16 mm tail gap. Four coplanar M2x4 countersunk tabs and shell-lug reliefs preserve glass/pad planes. Source: lcd_retainer/fascia CAD cells; fit unverified.",
       "quantity": 1,
       "manufacturer": "Project custom",
       "mpn": "handheld-screen-flat-retainer",
@@ -1010,13 +871,13 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "490de999c7d823fe"
+      "part_identity": "84e4ae5e7be00bf5"
     },
     {
       "id": "screen_front_pad",
       "role": "screen_compliant_pad",
       "name": "屏幕前侧无胶硅胶软垫，0.2mm",
-      "description": "Custom die-cut62.8x42.82mm nominal outline; active opening59.4x35.88mm,tail gap12mm. Nonadhesive contact; pressure and polarizer compatibility require test.",
+      "description": "Project cut-to-shape nonadhesive front silicone pad: nominal 0.2 mm thickness, 62.8 x 42.82 mm outline, 59.4 x 35.88 mm optical opening and 12 mm tail gap. Current CAD nominal dimensions; pressure and polarizer compatibility require tests.",
       "quantity": 1,
       "manufacturer": "Project custom",
       "mpn": "handheld-screen-front-pad-0p2",
@@ -1030,13 +891,13 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "e48b8d749d45ff73"
+      "part_identity": "0864ff01b4dfe720"
     },
     {
       "id": "screen_rear_pad",
       "role": "screen_compliant_pad",
       "name": "屏幕后侧无胶硅胶软垫，2mm",
-      "description": "Custom die-cut62.8x42.82mm nominal outline; opening60x38mm,tail gap16mm. Hard stops set nominal stack; compression and glass loading require test.",
+      "description": "Project cut-to-shape nonadhesive rear silicone pad: nominal 2 mm thickness, 62.8 x 42.82 mm outline, 60 x 38 mm opening and 16 mm tail gap. Matches current hard-stop retainer stack; compression and glass loading require tests.",
       "quantity": 1,
       "manufacturer": "Project custom",
       "mpn": "handheld-screen-rear-pad-2p0",
@@ -1050,7 +911,7 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "b7b42a1ab5df26da"
+      "part_identity": "226a32ca0f433dde"
     },
     {
       "id": "screen_shell_front_screws",
@@ -1069,7 +930,7 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "selection_reason": "另购ISO7046 M2×4十字沉头2颗；前侧低边缘空间不宜加大。沉头打印余量口径+0.4mm、深度+0.2mm。",
+      "selection_reason": "Two ISO7046 M2x4 cross-recess countersunk screws match the current low front pod joints and restricted PCB clearance. Seats add 0.4 mm diameter and 0.2 mm depth. Same exact screw as four rear-retainer fasteners; total product count six.",
       "cad_relevance": {
         "object_ids": [
           "screen_mount_screw_1",
@@ -1080,7 +941,7 @@
         "length_mm": 4,
         "driver_shaft_diameter_mm": 2.4
       },
-      "part_identity": "40c9d723c40090e2"
+      "part_identity": "6a295f48219a565c"
     },
     {
       "id": "screen_shell_rear_screws",
@@ -1099,7 +960,7 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "selection_reason": "匹配用户现有M3×6；接收孔采用printed-screw-joint-v1。套件沉头长度表不含6mm时，记录拒绝并保留套件接收孔，另用库内ISO10642头/座；实物头型及打印松紧仍需试装。",
+      "selection_reason": "Uses user-owned M3x6 stock in current rear pod receivers. Printed countersinks add 0.4 mm diameter and 0.2 mm depth; physical head shape and fit require checks.",
       "cad_relevance": {
         "object_ids": [
           "screen_mount_screw_3",
@@ -1110,8 +971,8 @@
         "length_mm": 6,
         "driver_shaft_diameter_mm": 3.4
       },
-      "part_identity": "735e4e922fc128f2",
-      "description": "屏舱到上壳后侧，2颗；2.4mm穿过厚度和3mm名义接收啮合。 总长6mm包含沉头；头部参考直径6mm、90°。沉头口径增加0.4mm、深度增加0.2mm。",
+      "part_identity": "9bce79979275ed00",
+      "description": "Two ISO10642 M3-0.5 x 6 mm countersunk screws, length including head, 90 degree seat and nominal 6 mm head, secure the rear screen pod to the upper shell. Current joint has 2.4 mm pass-through and 3 mm nominal receiver engagement.",
       "cad_library_reference": {
         "provider": "bd-warehouse",
         "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
@@ -1122,6 +983,70 @@
         },
         "selection": "M3 diameter and6mm length from user inventory;90deg,6mm head model is a disclosed default."
       }
+    },
+    {
+      "id": "pi_independent_carrier",
+      "role": "pi_upper_shell_carrier",
+      "name": "Pi 独立上壳托架",
+      "quantity": 1,
+      "manufacturer": "Custom printed part",
+      "mpn": "pi_carrier",
+      "part_number": "pi_carrier",
+      "supplier": "Local FDM printing",
+      "stock": null,
+      "source": "default",
+      "description": "Current one-piece project Pi carrier: 2 mm rails, four original Pi pads and three coplanar 2.4 mm ears starting at world Z3. Pi underside Z5.3 and shell receiver faces Z5.4 mm. PLA default; nominal floor clearance 0.6 mm and whole-carrier minimum 0.4 mm.",
+      "selection_reason": "Current flat carrier fixes Pi to upper shell with three M2x6 screws and four shared M2.5x6 Pi/heatsink screws. Bottom removal preserves GPIO connection. Matches current lowered shell receivers; physical print fit unverified.",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected",
+      "part_identity": "957eb1bec98b6aef"
+    },
+    {
+      "id": "pi_carrier_shell_screws",
+      "role": "pi_carrier_to_shell_fasteners",
+      "name": "ISO7046 M2×6 十字沉头螺丝",
+      "quantity": 3,
+      "manufacturer": "ISO standard",
+      "mpn": "ISO7046-M2x6",
+      "part_number": "ISO7046-M2x6",
+      "supplier": "Standard hardware supplier",
+      "stock": null,
+      "source": "default",
+      "description": "Three ISO7046 M2x6 cross-recess countersunk screws, total length including head, secure the current flat 2.4 mm carrier ears from below. Ear underside Z3, receiver face Z5.4 and nominal printed engagement 3.6 mm.",
+      "selection_reason": "Matches the three current independent carrier joints, allowing bottom removal with Pi/GPIO fixed. Recessed heads preserve nominal 0.8 mm bottom clearance; verify actual printed fit.",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected",
+      "procurement_status": "external_procurement_required",
+      "part_identity": "fd7c4ae73ebc407e"
+    },
+    {
+      "id": "bottom_closure",
+      "role": "enclosure_bottom_closure",
+      "name": "终端底盖（不承载树莓派）",
+      "quantity": 1,
+      "manufacturer": "Custom printed part",
+      "mpn": "handheld-bottom-closure",
+      "part_number": "handheld-bottom-closure",
+      "supplier": "Local FDM printing",
+      "stock": null,
+      "source": "default",
+      "description": "Current project bottom closure: 76 x 115 mm envelope, 2.4 mm nominal floor, locating rim, four M3x6 countersunk seats and rear port fillers. No Pi posts or Pi screw holes. Source: current base CAD cell.",
+      "selection_reason": "Matches the current upper shell and independent Pi carrier; closes the enclosure without carrying Pi or disconnecting GPIO during removal. Physical fit remains unverified.",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected",
+      "part_identity": "f91a09a96cf9816e"
     }
   ],
   "alternatives": [],
@@ -1136,6 +1061,6 @@
     }
   ],
   "unresolved_items": [],
-  "scope": "Active pi_baseboard_lite plus factory-wired5V fan and CPU/RAM heatsinks. Pi nativeUSB-C powers the system; no battery electronics. Cooling mechanical fit and temperature performance recorded separately.",
+  "scope": "Active pi_baseboard_lite and P165-B passive heatsink; no fan, fan harness or fan mounting parts. Pi native USB-C supplies system. Existing board J_FAN is fitted but unused; no PCB change.",
   "review_status": "independent_flat_cover_nominal_geometry_and_removal_passed_physical_fit_and_thermal_test_pending"
 }

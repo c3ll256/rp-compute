@@ -48,6 +48,8 @@ export function boardPropsFromRules() {
   const absoluteClearance = manufacturing.absoluteMinimumCopperClearanceMm;
   return {
     routingDisabled: true,
+    // Connectivity source only; the check profile owns all PCB routing.
+    routeRemaining: false,
     // Layer count reaches the board here and nowhere else: tscircuit turns it
     // into pcb_board.num_layers, which is what gives the generated KiCad file
     // its layer table and its vias the right layer span.

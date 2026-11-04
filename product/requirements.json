@@ -410,30 +410,26 @@
       "source": "default"
     },
     "processor_memory_cooling": {
-      "value": "Add a small fan and heatsinks for the Pi4B processor and memory area in the current compact enclosure.",
+      "value": "删除内部风扇，保留Pi4B的Geekworm P165-B被动散热片。",
       "source": "user"
     },
     "compact_cooling_defaults": {
       "value": {
         "heatsink": "Geekworm P165-B standalone,65x55x11mm, four M2.5 threaded mounting corners",
-        "fan": "Nidec F16FB-05LLC,16x16x4.5mm,5V40mA; retain existing selected fan",
-        "fan_control": "always on when Pi5V is present; no logic GPIO used",
-        "fan_budget_ma": 100,
-        "connector": "JST SM02B-SRSS-TB side-entry 1mm 2pin, bottom HAT side; pin1 +5V, pin2 GND",
-        "mounting": "Four countersunk M2.5x6 screws through upper-shell lower corner shelves and the unchanged Pi mounting holes into metal heatsink threads. No independent heatsink bracket.",
-        "inlet_air_gap_mm": 3,
+        "mounting": "Four ISO7046 M2.5x6 screws through the separate Pi carrier and unchanged Pi holes into P165-B metal threads; three independent M2x6 carrier-to-upper-shell screws. Bottom cover carries no Pi load.",
         "geometry_evidence": "Heatsink overall size and mounting pattern manufacturer-backed; reliefs and undersurface are explicit photo-derived references, not vendor STEP.",
-        "thermal_validation": "Prototype load-temperature and airflow tests still required.",
-        "airflow": "Upward blower intake and left-side exhaust; front exhaust closed. Rear-left external inlet removed by user; installed replacement air path and cooling performance unmeasured."
+        "thermal_validation": "Fanless prototype load-temperature test required; no cooling performance claim.",
+        "airflow": "No forced airflow. Existing left-side slots remain for passive ventilation; temperatures unmeasured.",
+        "mode": "passive_only"
       },
       "source": "default"
     },
     "compact_cooling_enclosure_priority": {
-      "value": "Prioritize keeping the current compact enclosure while completing fan/heatsink selection, power, airflow and CAD fit verification together.",
+      "value": "Prioritize keeping the current compact enclosure while retaining the passive heatsink and removing the internal fan.",
       "source": "user"
     },
     "compute_board_corner_mounting": {
-      "value": "Mainboard must screw to upper shell at all four corner mounting holes; cooler mounting is independent.",
+      "value": "树莓派通过四个原装安装孔固定到独立支架，支架固定在上壳；底盖只负责封闭，拆底盖不拔GPIO。尽量保持现有主板及接口位置。",
       "source": "user"
     },
     "flush_fasteners": {
@@ -441,19 +437,15 @@
       "source": "user"
     },
     "cooler_mounting": {
-      "value": "Use the user-selected Pi4B passive heatsink directly on the compute board, without a separate upper-shell heatsink bracket; add an internal fan supplied through the HAT from GPIO power contacts.",
+      "value": "Use the user-selected Pi4B passive heatsink directly on the compute board, without a separate upper-shell heatsink bracket or internal fan.",
       "source": "user"
     },
     "pcb_fastener_seat_policy": {
-      "value": "Preserve the Pi original cylindrical mounting holes and P165-B M2.5 metal threads; use M2.5x10 countersunk screws in the printed bottom carrier. Preserve the baseboard 2.2mm holes and two M2x3 socket-cap screws directly against the PCB underside, without screw spacers. Enclosure printed receivers are solved by the screwjoint kit; apply print allowance only to through/head seats.",
+      "value": "Preserve Pi cylindrical mounting holes and P165-B M2.5 metal threads. Four ISO7046 M2.5x6 screws seat in the independent upper-shell carrier at Z3.3, nominal metal engagement2mm. Preserve baseboard2.2mm holes and two M2x3 socket-cap screws without spacers. Printed receivers use screwjoint; seat allowance only on printed clearance/head seats.",
       "source": "default"
     },
-    "fan_power_takeoff": {
-      "value": "HAT routes GPIO-header 5V and GND to an internal fan connector.",
-      "source": "user"
-    },
     "lite_left_charging_opening": {
-      "value": "Remove the unused left-side baseboard charging opening; active lite enclosure has a continuous left wall at the fan support. Pi native USB-C remains the supply entrance.",
+      "value": "Remove the unused left-side baseboard charging opening; active lite enclosure has a continuous left wall at the former fan area. Pi native USB-C remains the supply entrance.",
       "source": "user"
     },
     "cooling_exhaust_direction": {
@@ -501,7 +493,7 @@
       "source": "default"
     },
     "rear_left_wall_openings": {
-      "value": "Remove the four rear-left wall inlet slots below the screen pod; restore a continuous wall. Keep the left-side blower exhaust slots.",
+      "value": "Remove the four rear-left wall inlet slots below the screen pod; restore a continuous wall. Keep the existing left-side slots for passive ventilation.",
       "source": "user"
     },
     "enclosure_flush_screen_outline": {
@@ -517,7 +509,7 @@
         "case_width_mm": 76,
         "screen_housing_width_mm": 76,
         "rear_world_y_mm": 57.5,
-        "approach": "Narrow the case and pod together to76mm. Pi/heatsink move5mm left and fan3mm right; re-layout J_PI while retaining the LCD FPC and expansion socket datums. Front screen retainer screws move toX+/-27mm.",
+        "approach": "Narrow the case and pod together to76mm. Pi/heatsink move5mm left; re-layout J_PI while retaining the LCD FPC and expansion socket datums. Front screen retainer screws move toX+/-27mm.",
         "vent_slot_mm": [
           2.4,
           4.5
@@ -543,7 +535,6 @@
         "case_width_mm": 76,
         "case_depth_mm": 115,
         "pi_offset_x_mm": -5,
-        "fan_offset_x_mm": 3,
         "front_retainer_screw_x_mm": 27,
         "pcb_envelope_mm": [
           44.5,
@@ -554,7 +545,6 @@
           49.5
         ],
         "outer_side_frame_mm": 4.75,
-        "fan_offset_y_mm": -3,
         "outer_frame_all_sides_mm": 4.75,
         "front_retainer_screw_y_mm": -26.25
       },
@@ -634,6 +624,35 @@
     "pcb_screw_spacer_quantity": {
       "value": 0,
       "source": "user"
+    },
+    "pi_independent_carrier_defaults": {
+      "value": {
+        "printed_material": "PLA prototype",
+        "shell_attachment": "3 x ISO7046 M2x6, self-forming printed receivers, nominal3.6mm engagement",
+        "pi_attachment": "4 x ISO7046 M2.5x6 into existing metal heatsink threads",
+        "board_bottom_z_mm": 5.3,
+        "frame_bottom_z_mm": 3.0,
+        "rail_thickness_mm": 2.0,
+        "bottom_cover_gap_mm": 0.4,
+        "pi_pad_bottom_z_mm": 3.3,
+        "qualification": "Nominal geometry; print fit, strength, fastener life and physical assembly require prototype.",
+        "floor_gap_mm": 0.6,
+        "shape": "Three flat mounting ears share the frame bed plane; no raised overhanging ears",
+        "shell_receiver_bottom_z_mm": 5.4
+      },
+      "source": "default"
+    },
+    "pi_carrier_printability": {
+      "value": "树莓派独立托架应避免悬空结构，便于打印。",
+      "source": "user"
+    },
+    "fan_installed": {
+      "value": false,
+      "source": "user"
+    },
+    "unused_existing_fan_socket": {
+      "value": "Keep released pi_baseboard_lite J_FAN socket physically present and electrically unchanged, with no connected fan or harness. No PCB revision in this enclosure change.",
+      "source": "default"
     }
   },
   "open_questions": []

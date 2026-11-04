@@ -2,7 +2,7 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "visual_draft",
-  "summary": "保留紧凑Pi4B、上壳固定HAT和向下入口上接触FPC；采用65×55×11mm被动散热片、独立16mm风扇及HAT两针5V风扇供电。名义CAD、PCB布线检查完成；散热片底部和高GPIO母座兼容、导热贴及温升需实物样机验证。",
+  "summary": "紧凑Pi4B终端采用P165-B被动散热片，取消内部风扇及专用固定和线束；保留上壳固定HAT、平底Pi托架及上接触FPC。无风扇温升和实物装配尚需验证。",
   "required_interfaces": [
     {
       "id": "compute_mount",
@@ -70,7 +70,7 @@
     {
       "id": "processor_memory_cooling",
       "kind": "internal_fit",
-      "description": "用户选择Pi4被动散热片，独立风扇固定在外壳左侧内壁附近，后部左侧进气并向左排热，前侧不开排气孔；HAT从GPIO-header5V/GND取电到J_FAN，工厂两针插线。主板四角与散热片共用螺丝，无独立金属散热片上壳支架；保留紧凑外形并检查名义进出风空间。未标注底部细节和温升需实体测试。",
+      "description": "Pi4B保留Geekworm P165-B被动散热片，主板与散热片共用四角螺丝固定到独立平底托架，托架连接上壳。取消风扇、托架、软垫、专用螺丝和线束，现有左侧通风孔保留。无风扇温升须实测。",
       "source": "user_requested",
       "required": true
     }
@@ -156,8 +156,8 @@
     }
   ],
   "assembly_story": {
-    "installation": "Pi自身USB-C供电；散热片与Pi在四角通过沉头螺丝固定上壳下托耳，HAT仍由上壳支承。风扇两针线插入HAT底面J_FAN，预装工厂接头，无用户焊接；断电装配。导热贴厚度、高GPIO插到底及实际温升需实体确认。",
-    "maintenance": "精简版先正常关机、清屏并关闭LCD电源，拔Pi USB-C后再更换模块；不能热插拔或外接模块电源。",
+    "installation": "断电装配：Pi与P165-B通过四个原孔固定在独立托架上；从下方竖直插入上壳内的GPIO母座，再以三颗独立螺丝固定托架到上壳，最后安装只负责封闭的底盖。屏舱固定先于Pi/托架装入。没有风扇和风扇线束，基板已有J_FAN留空。接口位置保留，原生排线与散热实物试装仍需验证。",
+    "maintenance": "先软件关机并拔除电源；单独卸下底盖时Pi、散热片及GPIO连接保持固定。拆Pi时先卸三颗托架螺丝，再竖直拔出Pi/托架；拆屏舱须先移出Pi托架。",
     "user_access": [
       "Pi native USB-C and other native ports",
       "replaceable cold-plug 8-pin GPIO module",

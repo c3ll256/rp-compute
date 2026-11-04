@@ -8,11 +8,11 @@ Sharp资料：product/references/LS027B7DH01-sharp-2010.pdf，SHA256 997ecbcb7f0
 
 TI原厂资料：[TPS2553](https://www.ti.com/lit/ds/symlink/tps2553.pdf)、[TLV755P](https://www.ti.com/lit/ds/symlink/tlv755p.pdf)、[SN74AHC125](https://www.ti.com/lit/ds/symlink/sn74ahc125.pdf)。复用已核对DBV/PW封装及引脚。TPS2553采用KiCad SOT-23-6，1=IN、2=GND、3=EN、4=FAULT_N、5=ILIM、6=OUT。TLV75533为1=IN、2=GND、3=EN、4=NC、5=OUT。
 
-母座：[Samtec SSQ-104-02-G-D](https://www.samtec.com/products/ssq-104-02-g-d)。已目视核对本地ssq-series-print.pdf第1页Rev BH，SHA256 3609be190ef021cc260abf423296449d797dd474fe1618dcf0fec719e2a05141；来源https://suddendocs.samtec.com/prints/ssq-1xx-xx-xxx-x-xx-xxx-xx-x-mkt.pdf。2×4、2.54mm间距/排距、0.64mm方尾、壳高8.51mm、焊尾4.93mm，壳长10.67mm、宽4.93mm。采用官方KiCad Connector_PinSocket_2.54mm/PinSocket_2x04_P2.54mm_Vertical，1.7mm焊盘/1.0mm孔。标准库3D不是该精确料号的制造模型，焊尾长度等不能用于装机定版；未验证公母插合高度及壳体避让。旧公针实物行顺序不作为兼容依据；模块必须遵循新母座1–8编号。
+当前母座：Pi座为Samtec ESQ-120-12-G-D，2×20、2.54mm间距、11.05mm壳高、2.29mm焊尾，原厂资料https://suddendocs.samtec.com/catalog_english/esq_th.pdf。扩展座为Samtec HLE-104-02-G-DV，2×4、2.54mm配合间距、3.66mm壳高、正面SMT，原厂资料https://suddendocs.samtec.com/catalog_english/hle.pdf。HLE焊盘行距5.05mm，不得用普通通孔母座替代。SSQ-104历史高母座已不是活动BOM的扩展接口。Pi物理针序和扩展口1–8映射保持原已核定设计；实物插合和壳体适配仍需样机验证。
 
 ## 显示端子映射
 
-| FPC针 | Sharp信号 | 本板网络 / Pi来源 |
+| 屏幕端子（非座端子编号） | Sharp信号 | 本板网络 / Pi来源 |
 |---|---|---|
 | 1 | SCLK | LCD_SCLK，GPIO11物理23，经缓冲 |
 | 2 | SI | LCD_SI，GPIO10物理19，经缓冲 |
@@ -30,7 +30,7 @@ Pi原生USB-C唯一输入。显示EN为GPIO24/物理18并以100k默认关闭；�
 
 169kΩ±1%设置TPS2553，原厂上下界约136–187mA。模块正常预算100mA；LDO在5.25V、100mA时约耗散0.195W，样板需测温。2.2µF/50V/X5R/0805为CL21A225KBQNNNE，偏压后有效容量和LDO稳定性仍须实物核对，不能以额定电压代替容量证据。
 
-外层1oz、10°C温升IPC-2221估算：0.5A约0.115mm、0.2A约0.033mm，设计电流下限统一至少0.20mm。实际输入/模块干线0.5mm，显示5V全网0.25mm，缓冲电源0.30mm。FPC采用0.15mm铜间隙；未通过降低电流预算解决DRC。双面地铺铜，18个明确定位的缝合过孔，无via-in-pad例外。
+外层1oz、10°C温升IPC-2221估算：0.5A约0.115mm、0.2A约0.033mm，设计电流下限统一至少0.20mm。实际输入/模块干线0.5mm，显示5V全网0.25mm，缓冲电源0.30mm。FPC采用0.15mm铜间隙；未通过降低电流预算解决DRC。当前为四层、内外1oz、0.8mm厚；GND铺铜位于F.Cu、In1.Cu和B.Cu。四个源声明的桥接过孔及其他布线过孔共39个，全部0.6/0.3mm，无via-in-pad例外。
 
 ## 驱动约束（尚未实现）
 
@@ -42,7 +42,7 @@ Pi原生USB-C唯一输入。显示EN为GPIO24/物理18并以100k默认关闭；�
 
 ## 未验证边界
 
-检查通过不证明波形、COM持续性、5V压降、温升和模拟稳定性。原理图电气类型元数据仍不完整，不声明仿真或满覆盖ERC。装机需打开Pi USB-C，核实GPIO堆叠、连接器/散热器避让、支柱孔位、完整短FPC路径及锁扣操作。不得将本电气样板直接当作整机已验证安装板。
+检查通过不证明波形、COM持续性、5V压降、温升和模拟稳定性。电气类型元数据和24个NC声明已进入编译电路及原生原理图；当前完整原生ERC为0错误、447条警告，原生原理图/PCB逐网络一致。Pi冗余电源触点不再被声明为独立电源，缓冲器的功能引脚排列修复了接地输入识别。详细证据见electrical-export-issue.md及electrical-review.json。装机需打开Pi USB-C，核实GPIO堆叠、连接器/散热器避让、支柱孔位、完整短FPC路径及锁扣操作。不得将本电气样板直接当作整机已验证安装板。
 
 当前FPC为首韩C5373447上接触抽屉式；厂家图纸及供应商封装/模型证据见接口比较记录。入口-Y，源(0,24.65)，保留座端子=11−屏幕端子。座1..10对应VSSA,VSS,EXTMODE,VDD,VDDA,DISP,EXTCOMIN,SCS,SI,SCLK；5V接3/4/5，GND接1/2。
 

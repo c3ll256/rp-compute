@@ -1,0 +1,40 @@
+{
+  "build_id": "ecf9d3b0bce379ab317601a3061dbe14d03f04cdef9805de9e6a52e56c17b1dd",
+  "source_and_native_pcb_failures": [],
+  "released_net_membership_preserved": true,
+  "mechanical_geometry_and_all_32_component_placements_preserved": true,
+  "source_component_count": 32,
+  "source_net_count": 25,
+  "connected_terminal_count": 132,
+  "native_pcb_pads_checked": 156,
+  "explicit_nc_terminals": 24,
+  "critical_terminal_expectations_checked": 70,
+  "native_schematic_component_count": 32,
+  "native_schematic_net_partitions_checked": 25,
+  "native_schematic_parity_failures": [],
+  "raw_native_pcb_violations": {
+    "warning:lib_footprint_mismatch": 13
+  },
+  "raw_native_pcb_unconnected": 0,
+  "native_schematic_violations": {
+    "warning:lib_symbol_issues": 79,
+    "warning:endpoint_off_grid": 323,
+    "warning:unconnected_wire_endpoint": 43,
+    "warning:same_local_global_label": 2
+  },
+  "native_schematic_nc_markers": 24,
+  "native_schematic_error_details": [],
+  "native_schematic_error_count": 0,
+  "limitation": "Digital checks do not verify physical soldering, dynamic waveforms, COM/boot/shutdown timing, heat rise or actual FPC fit. Native warning counts are preserved; only pcb.run(release) can publish fabrication deliverables.",
+  "release_id": "dfb9406b2d96fdd68e51510993e6d9fe0f0034fea6f9908f29e3cc6f32c65043",
+  "visual_observations": [
+    "current schematic: four functional sections; buffer supply/ground separated from I/O",
+    "current routed top and bottom",
+    "In1.Cu and In2.Cu",
+    "released top/bottom Gerber previews and assembly ISO"
+  ],
+  "cad_compatibility": {
+    "existing_cad_pcb_release": "cd04f943ef57c8363e042d7d455cd9599f11065206ac235a43715b5c526e2ad6",
+    "geometry_comparison": "same board outline, thickness, layer count, mounting holes and all component placements; no enclosure geometry follow-up required by this electrical revision"
+  }
+}
