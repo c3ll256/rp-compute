@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "8ae30897f7a76ae968d77aac4edab06603d1c9a6db3ab8bf9a0ac260cb78c8b9"
+          "sha256": "c5cd750ee04cee058736d59a38cf9e8713fa5edb71de807e199af16ae40f4dbf"
         }
       ],
       "dependencies": []
@@ -26,7 +26,7 @@
           "target": "base",
           "order": 0,
           "path": "design/handheld_computer/source/parts/base/000-base.py",
-          "sha256": "8ad9a1c8a178203387758ea01d30e4d8d3e285f92a61503fee6cbd4eb5234dcf"
+          "sha256": "3d9517a213d76d6178f3e1137055fa9db55c80f5cbe8d3ba3ab9c89b227cca18"
         }
       ],
       "dependencies": [
@@ -42,7 +42,7 @@
           "target": "fascia",
           "order": 0,
           "path": "design/handheld_computer/source/parts/fascia/000-fascia.py",
-          "sha256": "d28e5e22a8020ec990efe71f175e0dc4d0ab4c87b4dc1f6a5316340a7a946141"
+          "sha256": "e9f063b5d1b191083a5147ad0c0232f88fc80c2482ab3adb6070574a7cadb794"
         }
       ],
       "dependencies": [
@@ -62,17 +62,10 @@
           "sha256": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40"
         },
         {
-          "id": "cooling_fan",
-          "target": "imports",
-          "order": 1,
-          "path": "design/handheld_computer/source/parts/imports/001-cooling_fan.py",
-          "sha256": "30e9652c31dc3d0ec3daf53e9bebd04a1152d1b2846832669a14e3b5f78a1e66"
-        },
-        {
           "id": "pi_baseboard_lite",
           "target": "imports",
-          "order": 2,
-          "path": "design/handheld_computer/source/parts/imports/002-pi_baseboard_lite.py",
+          "order": 1,
+          "path": "design/handheld_computer/source/parts/imports/001-pi_baseboard_lite.py",
           "sha256": "5261a409be2289b2226445ad570ff9eb8d050a478a85e19217f6130ef269de38"
         }
       ],
@@ -147,11 +140,27 @@
           "target": "lcd_retainer",
           "order": 0,
           "path": "design/handheld_computer/source/parts/lcd_retainer/000-lcd_retainer.py",
-          "sha256": "032452dcf2b3bab033ef6f5425ab8b4aadcd096e52249d8ad147f12c3a9148d1"
+          "sha256": "a6ccefde96ed110bbf374954a80630f9c52a54b9482f2eaedd86c5dc76df378a"
         }
       ],
       "dependencies": [
         "fascia"
+      ]
+    },
+    {
+      "id": "pi_carrier",
+      "label": "pi_carrier",
+      "cells": [
+        {
+          "id": "pi_carrier",
+          "target": "pi_carrier",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/pi_carrier/000-pi_carrier.py",
+          "sha256": "b70024173dfb2d7af1574db50b16381762a63390374b7094de74041b20f3f77c"
+        }
+      ],
+      "dependencies": [
+        "shell"
       ]
     }
   ],
@@ -248,118 +257,6 @@
       "role": "fastener",
       "kind": "generated",
       "shapeHash": "bc4c718290bd70492d97f5bf64c787f0e11e6ee85f66a5ef43ef074fb4168787",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "fan_cassette",
-      "target": "shell",
-      "label": "Fan cassette",
-      "material": "pla",
-      "role": "part",
-      "kind": "generated",
-      "shapeHash": "546812a656bab283ef07f8880223f7d0c1599648780459dd7a9c0f3178816bb4",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "fan_cassette_screw_1",
-      "target": "shell",
-      "label": "Fan cassette screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "681d114930cfacacf61b14bcdf883ec9888fd1bd100a0a7203527091b6d33341",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "fan_cassette_screw_2",
-      "target": "shell",
-      "label": "Fan cassette screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "97a0f4c98a45d7df2d8c6656c1e2e7f8e134c450ae40719945a53ada19b76f83",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "fan_corner_pads",
-      "target": "shell",
-      "label": "Fan corner pads",
-      "material": "silicone",
-      "role": "part",
-      "kind": "generated",
-      "shapeHash": "deb68cc5c50722466d8f877b1da827ad36f25c2b6005050c75d8bf107a931397",
       "transform": {
         "positionMm": [
           0,
@@ -663,7 +560,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "bcf78caa929ada6840dc6a2f4d49365cb18f32ebafeadcba610ee352783de666",
+      "shapeHash": "018121fe0599dd14f3b73c08d6a7bfb306dc11eb45708beb557a898fcc932a83",
       "transform": {
         "positionMm": [
           0,
@@ -687,123 +584,11 @@
     {
       "id": "base",
       "target": "base",
-      "label": "Bottom cover and Pi carrier",
+      "label": "Bottom closure",
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "d61d556ad2ef39bf4c0aa275552eaaddb055571427469b24fdb9e603b8574e20",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pi_mount_screw_1",
-      "target": "base",
-      "label": "Pi M2.5x10 screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "9ba9517b77a995aef0a7543df9facbdfdc7abf196d648bd088cb8c5e28fa2443",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pi_mount_screw_2",
-      "target": "base",
-      "label": "Pi M2.5x10 screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "5fdc80e17258afcded13eb1805880ffba05433c0122c400b5f7c63dc97ce1f32",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pi_mount_screw_3",
-      "target": "base",
-      "label": "Pi M2.5x10 screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "f51a6c3d1570c78e55065af2f2bb1e2719a3d3e60a06dbb48230d0cd027549ca",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pi_mount_screw_4",
-      "target": "base",
-      "label": "Pi M2.5x10 screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "a4af55c3770ff2c500ffdd61501ba28a68b661ac0cd22e66efac4cde32dfa097",
+      "shapeHash": "967eba49ad54cf75a8e67f3ababe036daa548256d953be0fa67a573bdbcc2414",
       "transform": {
         "positionMm": [
           0,
@@ -831,7 +616,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "34af3cc4c010725b780970d6873ccf9ac7c872c415cd7bbdcec20541dd1654a1",
+      "shapeHash": "ad21782a2127659dce011f7097686344b2b6a19f24e7727049c0a4bc1a109c86",
       "transform": {
         "positionMm": [
           0,
@@ -842,32 +627,6 @@
           0,
           0,
           0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "cooling_fan",
-      "target": "imports",
-      "label": "F16FB side blower",
-      "kind": "imported",
-      "shapeHash": "f4f9c4bfa76fd1f4243bf6f9e78b4dd59f13fbc5ed67aae22dd7c19fd9106cf1",
-      "transform": {
-        "positionMm": [
-          -26,
-          -41,
-          11.55
-        ],
-        "rotationDeg": [
-          180,
-          0,
-          270
         ],
         "rotationOrder": "XYZ",
         "scale": [
@@ -1133,7 +892,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "2e1fafb5169f3b42e4a95d17410ca163e62bf0c8c16d0594a7eb680407475ac0",
+      "shapeHash": "a23a030133dbe242fb5d115496be3ada803105e0c125cd41c2ed9ac1d37a46d0",
       "transform": {
         "positionMm": [
           0,
@@ -1265,6 +1024,230 @@
         ]
       },
       "datums": []
+    },
+    {
+      "id": "pi_carrier",
+      "target": "pi_carrier",
+      "label": "Pi independent carrier",
+      "material": "pla",
+      "role": "part",
+      "kind": "generated",
+      "shapeHash": "25a09d5ae44faaede82628b83f72a8053e30df28de8bbf4317c019a3240d3471",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_carrier_shell_screw_1",
+      "target": "pi_carrier",
+      "label": "Carrier M2 shell screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "c0323d7674e609d84eac4dafa5569776cf66576d8ea264ee44095b89d33d7341",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_carrier_shell_screw_2",
+      "target": "pi_carrier",
+      "label": "Carrier M2 shell screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "02ef6f50fe77af56abdb3b69543bd81f1a1c406b991019142ffa8b10832fb2ca",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_carrier_shell_screw_3",
+      "target": "pi_carrier",
+      "label": "Carrier M2 shell screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "57ae6bbb8359c8936efc567fb1c75d199de985e05269ce22e32cf93960b47d1b",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_mount_screw_1",
+      "target": "pi_carrier",
+      "label": "Pi M2.5x6 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "bc5505d3d5010b0acbb18646232c9ee60ac32016d632467c0a2d581c5186b35a",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_mount_screw_2",
+      "target": "pi_carrier",
+      "label": "Pi M2.5x6 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "78a6fc8796461f557f71109d193aafa4e05d5e09650c8eb038bf0d693d6a0a86",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_mount_screw_3",
+      "target": "pi_carrier",
+      "label": "Pi M2.5x6 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "1aac3dcc07eea1cdb888bb014b9fc930ac2ff204993edf6732b637564fb09c6e",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_mount_screw_4",
+      "target": "pi_carrier",
+      "label": "Pi M2.5x6 screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "320d142a8ec9e9868f9899b2637a35e013aa9c3be1aa014328ddc53f8a62476e",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
     }
   ],
   "assets": [
@@ -1283,19 +1266,6 @@
       }
     },
     {
-      "id": "cooling_fan",
-      "kind": "step",
-      "path": "design/handheld_computer/source/assets/e2f8b7cbed1d020a8861be66a5f32019d9404dfb20410347d0f201a42a6ba793.step",
-      "sha256": "e2f8b7cbed1d020a8861be66a5f32019d9404dfb20410347d0f201a42a6ba793",
-      "label": "F16FB side blower",
-      "provenance": {
-        "sourcePath": "product/references/F16FB.STEP",
-        "provider": "Nidec Components",
-        "sourceUrl": "https://www.nidec-components.com/e/3dcad/fan/F16FB.STEP",
-        "declaredSha256": "e2f8b7cbed1d020a8861be66a5f32019d9404dfb20410347d0f201a42a6ba793"
-      }
-    },
-    {
       "id": "pi_baseboard_lite",
       "kind": "step",
       "path": "design/handheld_computer/source/assets/fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8.step",
@@ -1309,7 +1279,7 @@
     }
   ],
   "fits": [],
-  "updatedAt": "2026-10-28T04:08:00.548Z",
+  "updatedAt": "2026-11-04T14:41:32.951Z",
   "parameters": {
     "shell": {
       "case_width": 76,
@@ -1444,7 +1414,22 @@
       "screen_mount_rear_rib_height": 20,
       "countersink_print_radial_allowance": 0.2,
       "front_module_receiver_width": 7.2,
-      "screen_mount_rear_driver_diameter": 3.4
+      "screen_mount_rear_driver_diameter": 3.4,
+      "pi_carrier_ear_bottom": 3,
+      "pi_carrier_ear_thickness": 2.4,
+      "pi_carrier_ear_width": 6.4,
+      "pi_carrier_neck_length": 8.6,
+      "pi_carrier_mount_clearance": 0.3,
+      "pi_carrier_engagement": 3.6,
+      "pi_carrier_left_mount_x": -29,
+      "pi_carrier_left_front_y": -22,
+      "pi_carrier_left_rear_y": 40,
+      "pi_carrier_front_mount_x": 24,
+      "pi_carrier_front_mount_y": -50,
+      "shell_vent_center_y": -41,
+      "corner_support_start_y": 34,
+      "corner_support_end_y": 53,
+      "corner_support_inner_x": 33
     },
     "base": {
       "base_depth": 115,
@@ -1464,7 +1449,6 @@
       "shell_base_pad_width": 8,
       "base_mount_left_front_x": -32,
       "base_mount_left_front_y": -15,
-      "base_pi_post_diameter": 5.6,
       "shell_rj45_z": 14,
       "shell_rj45_width": 17,
       "shell_rj45_height": 15,
@@ -1474,7 +1458,11 @@
       "shell_usb_right_z": 14.5,
       "shell_usb_right_width": 16,
       "shell_usb_right_height": 18,
-      "base_port_filler_clearance": 0.25
+      "base_port_filler_clearance": 0.25,
+      "base_corner_rail_width": 1.5,
+      "base_corner_rail_height": 2.4,
+      "base_rear_web_height": 0.65,
+      "base_rear_web_depth": 11
     },
     "fascia": {
       "fascia_thickness": 3,
@@ -1520,7 +1508,8 @@
       "fascia_rear_pad_thickness": 2,
       "fascia_stop_engagement": 2,
       "fascia_border_line_width": 0.5,
-      "fascia_border_line_depth": 0.3
+      "fascia_border_line_depth": 0.3,
+      "fascia_min_roof_skin": 1.2
     },
     "imports": {},
     "screen_cushions": {
@@ -1601,6 +1590,19 @@
       "retainer_rail_width": 3,
       "retainer_tail_gap": 16,
       "retainer_shell_clearance": 0.3
+    },
+    "pi_carrier": {
+      "pi_carrier_bottom": 2.7,
+      "pi_carrier_rail_thickness": 2,
+      "pi_carrier_rail_width": 3.2,
+      "pi_carrier_left_rail_x": -24.8,
+      "pi_carrier_front_rail_y": -38,
+      "pi_carrier_pad_diameter": 6,
+      "pi_carrier_riser_thickness": 2.4,
+      "pi_carrier_pad_bottom": 3.3,
+      "pi_carrier_metal_screw_length": 6,
+      "pi_carrier_right_rail_x": 26,
+      "pi_carrier_rear_rail_y": 36
     }
   }
 }

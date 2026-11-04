@@ -1,14 +1,15 @@
 # cell: shell
 # cell: shell
 # cell: shell
+# cell: shell
+# cell: shell
+# cell: shell
 # Print orientation: roof face down on the bed (Z=case_top_center is the bed plane).
 # Every interior feature grows from the roof or a wall, or slopes >=45 deg, so the
-# shell prints without support material. Assembly is vertical: the shell drops
-# straight down over the Pi that is already screwed to the bottom cover.
+# shell is printed deck-down. The Pi/carrier assembly enters vertically from
+# below and is independently fastened here; the bottom cover is closure only.
 case_width=param('case_width',85.0)
 pi_offset_x=param('pi_offset_x',-5.0)
-fan_offset_x=param('fan_offset_x',3.0)
-fan_offset_y=param('fan_offset_y',-3.0)
 case_depth=param('case_depth',115.0)
 case_corner=param('case_corner',9.0)
 case_top_center=param('case_top_center',27.0)
@@ -118,29 +119,6 @@ for xx,yy in base_mount_axes:
  column=Pos(sx*(tip+root)/2,yy,(base_thickness+roof_under+0.2)/2)*Box(root-tip,shell_base_pad_width,roof_under+0.2-base_thickness)
  body+=column & column_envelope
 
-# Fan cassette receivers: two roof-hung bosses outside the module aperture.
-shell_fan_center_x=param('shell_fan_center_x',-29.0)+fan_offset_x
-shell_fan_center_y=param('shell_fan_center_y',-38.0)+fan_offset_y
-shell_fan_cavity_width=param('shell_fan_cavity_width',17.2)
-shell_fan_cavity_height=param('shell_fan_cavity_height',5.0)
-shell_fan_rail_thickness=param('shell_fan_rail_thickness',1.2)
-shell_fan_boss_diameter=param('shell_fan_boss_diameter',6.0)
-fan_cassette_floor_z=param('fan_cassette_floor_z',9.8)
-fan_cassette_floor_thickness=param('fan_cassette_floor_thickness',1.2)
-fan_cassette_roof_thickness=param('fan_cassette_roof_thickness',1.4)
-fan_cassette_inlet_width=param('fan_cassette_inlet_width',13.6)
-fan_cassette_ear_x=shell_fan_center_x-param('fan_cassette_ear_inset',2.5)
-fan_cassette_ear_offset=(shell_fan_cavity_width+2*shell_fan_rail_thickness)/2+param('fan_cassette_ear_clearance',0.4)
-fan_cassette_ear_width=param('fan_cassette_ear_width',6.0)
-fan_cassette_engagement=param('fan_cassette_engagement',4.4)
-fx,fy=shell_fan_center_x,shell_fan_center_y
-c_floor_top=fan_cassette_floor_z+fan_cassette_floor_thickness
-c_roof_bot=c_floor_top+shell_fan_cavity_height
-c_top=c_roof_bot+fan_cassette_roof_thickness
-for s in [-1,1]:
- body+=Pos(fan_cassette_ear_x,fy+s*fan_cassette_ear_offset,(c_top+roof_under+0.2)/2)*Cylinder(shell_fan_boss_diameter/2,roof_under+0.2-c_top)
-assert len(body.solids())==1, ('after adds',[round(s.volume,1) for s in body.solids()])
-
 # Cuts.
 body-=Pos(0,shell_passage_y,roof_under)*extrude(RectangleRounded(shell_passage_width,shell_passage_depth,shell_passage_radius),amount=2*shell_wall)
 # Module aperture keeps the roof over both PCB beams, so the beams never span the opening.
@@ -148,12 +126,20 @@ aperture=Pos(0,front_module_y,roof_under-0.5)*extrude(RectangleRounded(front_mod
 for sx in [-1,1]:
  aperture-=Pos(sx*(beam_tip+front_module_aperture_width/2+1)/2,pcb_mount_y,case_top_center)*Box(front_module_aperture_width/2+1-beam_tip,pcb_mount_beam_width,10)
 body-=aperture
-# Rear USB/RJ45 windows run out through the lower edge: the shell slides down over the
-# connectors, and tongues on the bottom cover fill the slot below each window.
+# One shared USB/RJ45 aperture. Removing both free-ended separators avoids
+# weak FDM fingers. The roof-down print grows the header from the roof.
+# The cover supplies a continuous low sill and remains removable vertically.
+rear_ports=[(shell_rj45_x,shell_rj45_z,shell_rj45_width,shell_rj45_height),(shell_usb_mid_x,shell_usb_mid_z,shell_usb_mid_width,shell_usb_mid_height),(shell_usb_right_x,shell_usb_right_z,shell_usb_right_width,shell_usb_right_height)]
+rear_window_left=min(x-w/2 for x,z,w,h in rear_ports)
+rear_window_right=max(x+w/2 for x,z,w,h in rear_ports)
+rear_window_top=max(z+h/2 for x,z,w,h in rear_ports)
+rear_window_sill=min(z-h/2 for x,z,w,h in rear_ports)
+rear_window_center=(rear_window_left+rear_window_right)/2
+rear_window_width=rear_window_right-rear_window_left
 port_bottom=shell_lower_z-1.0
-for x,z,w,h in [(shell_rj45_x,shell_rj45_z,shell_rj45_width,shell_rj45_height),(shell_usb_mid_x,shell_usb_mid_z,shell_usb_mid_width,shell_usb_mid_height),(shell_usb_right_x,shell_usb_right_z,shell_usb_right_width,shell_usb_right_height)]:
- top=z+h/2
- body-=Pos(x,case_depth/2,(top+port_bottom)/2)*extrude(Plane.XZ*RectangleRounded(w,top-port_bottom,shell_port_radius),amount=4*shell_wall,both=True)
+body-=Pos(rear_window_center,case_depth/2,(rear_window_top+port_bottom)/2)*extrude(Plane.XZ*RectangleRounded(rear_window_width,rear_window_top-port_bottom,shell_port_radius),amount=4*shell_wall,both=True)
+assert case_top_center-rear_window_top>=3.0
+print('SHARED_REAR_WINDOW',dict(left=rear_window_left,right=rear_window_right,top=rear_window_top,sill=rear_window_sill,header_height=case_top_center-rear_window_top))
 # Side ports clear the moulded plug shoulder as well as the metal nose.
 # Negative design reserves only: these are not purchased plug models.
 # The user's actual cables are not specified. Nominal supported shoulder bodies:
@@ -249,7 +235,8 @@ PCB_FRONT_BODY_BOUNDS=[
 ]
 for bx0,by0,bz0,bx1,by1,bz1 in PCB_FRONT_BODY_BOUNDS:
  body-=Pos((bx0+bx1)/2,(by0+by1)/2,(bz0+bz1)/2)*Box(bx1-bx0+2*shell_pcb_top_air,by1-by0+2*shell_pcb_top_air,bz1-bz0+2*shell_pcb_top_air)
-# Left-side blower exhaust slots.
+# Existing left-side slots retained as passive ventilation after fan removal.
+shell_vent_center_y=param('shell_vent_center_y',-41.0)
 shell_cooling_slot_width=param('shell_cooling_slot_width',2.4)
 shell_cooling_slot_bridge=param('shell_cooling_slot_bridge',2.0)
 shell_cooling_slot_count=param('shell_cooling_slot_count',4)
@@ -257,7 +244,7 @@ shell_cooling_exhaust_z=param('shell_cooling_exhaust_z',13.25)
 shell_cooling_exhaust_height=param('shell_cooling_exhaust_height',4.5)
 for i in range(int(shell_cooling_slot_count)):
  offset=(i-(int(shell_cooling_slot_count)-1)/2)*(shell_cooling_slot_width+shell_cooling_slot_bridge)
- body-=Pos(-case_width/2,fy+offset,shell_cooling_exhaust_z)*extrude(Plane.YZ*SlotOverall(shell_cooling_exhaust_height,shell_cooling_slot_width,rotation=90),amount=4*shell_wall,both=True)
+ body-=Pos(-case_width/2,shell_vent_center_y+offset,shell_cooling_exhaust_z)*extrude(Plane.YZ*SlotOverall(shell_cooling_exhaust_height,shell_cooling_slot_width,rotation=90),amount=4*shell_wall,both=True)
 assert len(body.solids())==1, ('after cuts',[round(s.volume,1) for s in body.solids()])
 
 # Rear-left PCB edge guide: seat lip + side stop, closed up to the deck with a 51 deg
@@ -364,46 +351,6 @@ for sx in [-1,1]:
  print('PCB_DIRECT_MOUNT',xx,pcb_mount_y,dict(length=length,engagement=joint.engage_depth_mm,tip_z=tip_z,spacers=0))
 assert case_top_center-(mount_top+pcb_mount_beam_thickness+pcb_mount_cover_clearance)>=1.2-1e-6
 
-# Fan cassette: separate printed U-channel that holds the blower. Printed floor-down:
-# floor, two side rails, a bridged roof with the inlet and two full-height ears.
-# Two M2 screws go up through the ears into the roof-hung bosses.
-cx0=-inner_side+0.3
-cx1=fx+shell_fan_cavity_width/2
-outer_w=shell_fan_cavity_width+2*shell_fan_rail_thickness
-cassette=Pos((cx0+cx1)/2,fy,(fan_cassette_floor_z+c_top)/2)*Box(cx1-cx0,outer_w,c_top-fan_cassette_floor_z)
-cassette-=Pos((cx0+cx1)/2,fy,(c_floor_top+c_roof_bot)/2)*Box(cx1-cx0+4,shell_fan_cavity_width,shell_fan_cavity_height)
-cassette-=Pos(fx,fy,c_top)*Box(fan_cassette_inlet_width,fan_cassette_inlet_width,4*fan_cassette_roof_thickness)
-for s in [-1,1]:
- ey=fy+s*fan_cassette_ear_offset
- y_in=fy+s*(outer_w/2-0.2)
- y_out=ey+s*fan_cassette_ear_width/2
- cassette+=Pos(fan_cassette_ear_x,(y_in+y_out)/2,(fan_cassette_floor_z+c_top)/2)*Box(fan_cassette_ear_width,abs(y_out-y_in),c_top-fan_cassette_floor_z)
-# Keep the cassette clear of the narrowed front-left rounded wall.
-cassette_wall_gap=param('cassette_wall_gap',0.3)
-cassette_inset=shell_wall+cassette_wall_gap
-cassette_envelope=extrude(RectangleRounded(case_width-2*cassette_inset,case_depth-2*cassette_inset,case_corner-cassette_inset),amount=case_top_center)
-cassette=cassette & cassette_envelope
-cooling_screws=[]
-for s in [-1,1]:
- joint,seat,hardware=m2_flush_joint(Location((fan_cassette_ear_x,fy+s*fan_cassette_ear_offset,fan_cassette_floor_z),(180,0,0)),cassette,c_top-fan_cassette_floor_z,fan_cassette_engagement,body,'fan-cassette')
- cassette-=seat
- if len(joint.bosses.solids()):body+=joint.bosses
- body-=joint.engage_cuts
- cooling_screws.append(hardware)
- print('FAN_CASSETTE_JOINT',dict(length=joint.screw_length_mm,engagement=joint.engage_depth_mm,boss=joint.boss_length_mm))
-assert len(cassette.solids())==1, ('cassette',[round(s.volume,1) for s in cassette.solids()])
-fan_corner_pads_width=param('fan_corner_pads_width',2.0)
-fan_corner_pads_depth=param('fan_corner_pads_depth',2.0)
-fan_corner_pads_thickness=param('fan_corner_pads_thickness',0.5)
-FAN_CORNER_OFFSET=6.5 # Nidec nominal mounting corner, standard not editable.
-FAN_FRAME=Pos(fx,fy,0)*Rot(0,0,90)
-pad_shape=Compound([FAN_FRAME*Pos(sx*FAN_CORNER_OFFSET,sy*FAN_CORNER_OFFSET,c_roof_bot-fan_corner_pads_thickness/2)*Box(fan_corner_pads_width,fan_corner_pads_depth,fan_corner_pads_thickness) for sx,sy in [(-1,-1),(1,-1),(1,1)]])
-cassette.color=Color(0.23,0.25,0.27)
-pad_shape.color=Color(0.1,0.1,0.1)
-publish('fan_cassette',cassette,'Fan cassette',material='pla',role='part')
-publish('fan_corner_pads',pad_shape,'Fan corner pads',material='silicone',role='part')
-for i,screw in enumerate(cooling_screws):publish('fan_cassette_screw_'+str(i+1),screw,'Fan cassette screw',material='stainless_steel',role='fastener')
-
 # Bottom cover screws thread into the full-height columns.
 base_screw_probe=extrude(RectangleRounded(case_width,case_depth,case_corner),amount=base_thickness)
 base_mount_screws=[]
@@ -450,7 +397,7 @@ for i,(xx,yy) in enumerate(screen_mount_axes):
  # Rectangular roof tabs are fused into the side and rear deck edges.
  lug=Pos(xx,yy,case_top_center-shell_wall/2)*Box(ww,dd,shell_wall)
  body=body+lug
- # Blind internal access groove. Pi stays on its removable bottom assembly.
+ # Blind internal access groove; remove the independent Pi carrier for access.
  access=Pos(xx,yy,roof_under/2)*Cylinder((screen_mount_driver_shaft_diameter if front else screen_mount_rear_driver_diameter)/2,roof_under)
  body=body-access
  screen_mount_access_probes.append(access)
@@ -469,6 +416,68 @@ for i,(xx,yy) in enumerate(screen_mount_axes):
  screen_mount_connections['pod_to_shell_'+str(i+1)]='printed-screw-joint-v1 receiver; free standard head after kit rejection when needed; compensated seat'
 assert len(screen_mount_connections)==4
 assert case_width/2-(screen_mount_front_axis_x+screen_mount_driver_shaft_diameter/2)>=1.5-1e-6
+
+
+# Shared flat carrier interface; upper-shell receivers extend down to its top face.
+pi_carrier_ear_bottom=param('pi_carrier_ear_bottom',3.0)
+pi_carrier_ear_thickness=param('pi_carrier_ear_thickness',2.4)
+pi_carrier_ear_width=param('pi_carrier_ear_width',6.4)
+pi_carrier_neck_length=param('pi_carrier_neck_length',8.6)
+pi_carrier_mount_clearance=param('pi_carrier_mount_clearance',0.3)
+pi_carrier_engagement=param('pi_carrier_engagement',3.6)
+pi_carrier_left_mount_x=param('pi_carrier_left_mount_x',-29.0)
+pi_carrier_left_front_y=param('pi_carrier_left_front_y',-22.0)
+pi_carrier_left_rear_y=param('pi_carrier_left_rear_y',40.0)
+pi_carrier_front_mount_x=param('pi_carrier_front_mount_x',24.0)
+pi_carrier_front_mount_y=param('pi_carrier_front_mount_y',-50.0)
+pi_carrier_axes=[(pi_carrier_left_mount_x,pi_carrier_left_front_y),(pi_carrier_left_mount_x,pi_carrier_left_rear_y),(pi_carrier_front_mount_x,pi_carrier_front_mount_y)]
+pi_carrier_ear_top=pi_carrier_ear_bottom+pi_carrier_ear_thickness
+pi_carrier_tabs=[]
+pi_carrier_tab_seats=[]
+pi_carrier_hardware=[]
+for i,(xx,yy) in enumerate(pi_carrier_axes):
+ # Flat carrier lug joins its rail on the common print-bed plane.
+ left=i<2
+ wx=pi_carrier_neck_length if left else pi_carrier_ear_width
+ wy=pi_carrier_ear_width if left else pi_carrier_neck_length
+ cx=xx+(pi_carrier_neck_length-pi_carrier_ear_width)/2 if left else xx
+ cy=yy if left else yy+(pi_carrier_neck_length-pi_carrier_ear_width)/2
+ tab=Pos(cx,cy,pi_carrier_ear_bottom+pi_carrier_ear_thickness/2)*Box(wx,wy,pi_carrier_ear_thickness)
+ pi_carrier_tabs.append(tab)
+ # Open-bottom relief permits the whole carrier to enter and leave vertically.
+ body-=Pos(cx,cy,pi_carrier_ear_top/2)*Box(wx+2*pi_carrier_mount_clearance,wy+2*pi_carrier_mount_clearance,pi_carrier_ear_top)
+ # Side/root wedge has a 45-degree upper slope for deck-down printing.
+ root=(-case_width/2+shell_wall/2) if left else (-case_depth/2+shell_wall/2)
+ inner=(xx+pi_carrier_ear_width/2) if left else (yy+pi_carrier_ear_width/2)
+ ztip=case_top_center-(inner-root)
+ assert ztip>pi_carrier_ear_top+pi_carrier_engagement+1.0
+ pts=[(root,pi_carrier_ear_top),(inner,pi_carrier_ear_top),(inner,ztip),(root,case_top_center)]
+ rib=(Pos(0,yy,0)*extrude(Plane.XZ*Polygon(*pts,align=None),amount=pi_carrier_ear_width/2,both=True)) if left else (Pos(xx,0,0)*extrude(Plane.YZ*Polygon(*pts,align=None),amount=pi_carrier_ear_width/2,both=True))
+ body+=rib
+ joint,seat,hardware=m2_flush_joint(Location((xx,yy,pi_carrier_ear_bottom),(180,0,0)),tab,pi_carrier_ear_thickness,pi_carrier_engagement,body,'Pi-independent-carrier-'+str(i+1),size='M2')
+ assert len(joint.bosses.solids())==0
+ body-=joint.engage_cuts
+ pi_carrier_tab_seats.append(seat)
+ pi_carrier_hardware.append(hardware)
+ print('PI_CARRIER_SHELL_JOINT',i+1,dict(axis=(xx,yy),length=joint.screw_length_mm,engagement=joint.engage_depth_mm))
+
+
+# Rear-right corner compression stop. The four existing screws clamp the cover;
+# continue this open, unscrewed corner down to the same Z as their bearing pads.
+# No undercut: the Pi and its carrier still insert from below.
+corner_support_start_y=param('corner_support_start_y',34.0)
+corner_support_end_y=param('corner_support_end_y',53.0)
+corner_support_inner_x=param('corner_support_inner_x',33.0)
+corner_stop_height=shell_lower_z+shell_edge_radius-base_thickness+0.3
+corner_wall=Pos(0,0,base_thickness)*extrude(
+ RectangleRounded(case_width,case_depth,case_corner)-
+ RectangleRounded(case_width-2*shell_wall,case_depth-2*shell_wall,case_corner-shell_wall),
+ amount=corner_stop_height)
+corner_stop=corner_wall & Pos((corner_support_inner_x+case_width/2)/2,(corner_support_start_y+corner_support_end_y)/2,base_thickness+corner_stop_height/2)*Box(case_width/2-corner_support_inner_x,corner_support_end_y-corner_support_start_y,corner_stop_height)
+# Keep the imported PCB corner's original vertical insertion relief.
+rx0,rx1,ry0,ry1,rz1=PI_REAR_CORNER_RELIEF
+corner_stop-=Pos((rx0+rx1)/2,(ry0+ry1)/2,base_thickness+corner_stop_height/2)*Box(rx1-rx0,ry1-ry0,corner_stop_height+0.2)
+body+=corner_stop
 
 # Check the final shell, including screw columns and other later additions.
 for label,probe in plug_reserves:

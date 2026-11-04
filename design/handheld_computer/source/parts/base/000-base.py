@@ -1,8 +1,8 @@
 # cell: base
+# cell: base
 layout=part('shell')
 # Printed flat, outer face down; every feature grows straight up, so no supports.
-# The Pi 4 + P165-B stack is screwed onto four posts here first; the upper shell then
-# drops straight down over it, so nothing on the shell has to be bent to fit the Pi.
+# Closure only; Pi is carried by the separate upper-shell carrier.
 base_width=layout.case_width
 base_depth=param('base_depth',115.0)
 base_corner=param('base_corner',9.0)
@@ -42,31 +42,11 @@ for xx,yy in base_mount_axes:
  rim=rim-(Pos(sx*(tip+root)/2,yy,base_thickness+base_rim_height/2)*Box(root-tip,shell_base_pad_width+2*base_rim_clearance,base_rim_height+0.2))
 base=base+rim
 
-# Pi 4 support posts on the official 49 x 58 hole pattern at the imported board placement.
-# The board underside sits at Z5.3 (board top 7.1 minus the 1.8 board stack).
-PI_HOLE_X=tuple(x+layout.pi_offset_x for x in (-13.5,35.5))
-PI_HOLE_Y=(-27.0,31.0)
+# Imported Pi PCB underside datum, retained for port-filler corner relief only.
 PI_BOARD_BOTTOM_Z=5.3
-PI_PCB_T=1.8
-base_pi_post_diameter=param('base_pi_post_diameter',5.6)
-for xx in PI_HOLE_X:
- for yy in PI_HOLE_Y:
-  base+=Pos(xx,yy,(base_thickness-0.2+PI_BOARD_BOTTOM_Z)/2)*Cylinder(base_pi_post_diameter/2,PI_BOARD_BOTTOM_Z-base_thickness+0.2)
 
-# Rear port fillers: tongues in the wall plane fill the open-bottom slots of the shell's
-# USB/RJ45 windows up to the original window sill, so the closed case looks unchanged.
-shell_rj45_x=layout.shell_rj45_x
-shell_rj45_z=param('shell_rj45_z',14.0)
-shell_rj45_width=param('shell_rj45_width',17.0)
-shell_rj45_height=param('shell_rj45_height',15.0)
-shell_usb_mid_x=layout.shell_usb_mid_x
-shell_usb_mid_z=param('shell_usb_mid_z',15.0)
-shell_usb_mid_width=param('shell_usb_mid_width',15.0)
-shell_usb_mid_height=param('shell_usb_mid_height',17.0)
-shell_usb_right_x=layout.shell_usb_right_x
-shell_usb_right_z=param('shell_usb_right_z',14.5)
-shell_usb_right_width=param('shell_usb_right_width',16.0)
-shell_usb_right_height=param('shell_usb_right_height',18.0)
+# One continuous rear sill closes the shared lower-edge aperture.
+# All opening limits are owned by the shell, so both pieces track together.
 base_port_filler_clearance=param('base_port_filler_clearance',0.25)
 wall_ring=extrude(RectangleRounded(base_width,base_depth,base_corner)-RectangleRounded(base_width-2*shell_wall,base_depth-2*shell_wall,base_corner-shell_wall),amount=40)
 # The Pi's rear-right board corner reaches into the rounded wall (same relief as the
@@ -74,35 +54,42 @@ wall_ring=extrude(RectangleRounded(base_width,base_depth,base_corner)-RectangleR
 PI_REAR_CORNER_RELIEF=(35.5+layout.pi_offset_x,39.5+layout.pi_offset_x,51.3,55.3)
 rx0,rx1,ry0,ry1=PI_REAR_CORNER_RELIEF
 corner_relief=Pos((rx0+rx1)/2,(ry0+ry1)/2,PI_BOARD_BOTTOM_Z-0.2+5)*Box(rx1-rx0,ry1-ry0,10)
-for x,z,w,h in [(shell_rj45_x,shell_rj45_z,shell_rj45_width,shell_rj45_height),(shell_usb_mid_x,shell_usb_mid_z,shell_usb_mid_width,shell_usb_mid_height),(shell_usb_right_x,shell_usb_right_z,shell_usb_right_width,shell_usb_right_height)]:
- sill=z-h/2
- z0=base_thickness-base_edge_radius
- tongue=wall_ring & (Pos(x,base_depth/2,(z0+sill)/2)*Box(w-2*base_port_filler_clearance,4*shell_wall,sill-z0))
- base=base+(tongue-corner_relief)
+sill=layout.rear_window_sill
+z0=base_thickness-base_edge_radius
+tongue=wall_ring & (Pos(layout.rear_window_center,base_depth/2,(z0+sill)/2)*Box(layout.rear_window_width-2*base_port_filler_clearance,4*shell_wall,sill-z0))
+base=base+(tongue-corner_relief)
+
+# A continuous L-shaped internal reinforcement carries the free rear-right corner
+# toward the existing right-mid and left-rear screw columns. The outer bottom
+# face stays flat on the print bed; no new fasteners or cantilever clips.
+base_corner_rail_width=param('base_corner_rail_width',1.5)
+base_corner_rail_height=param('base_corner_rail_height',2.4)
+base_rear_web_height=param('base_rear_web_height',0.65)
+base_rear_web_depth=param('base_rear_web_depth',11.0)
+rail_start=layout.base_mount_right_mid_y+shell_base_pad_width/2+base_rim_clearance
+rail_end=base_depth/2-base_corner
+rail_outer=base_width/2-inset
+reinforcement_floor=base_thickness-0.2
+reinforcement_clip=extrude(RectangleRounded(base_width-2*inset,base_depth-2*inset,base_corner-inset),amount=base_thickness+base_corner_rail_height)
+corner_rail=Pos(rail_outer-base_corner_rail_width/2,(rail_start+rail_end)/2,(reinforcement_floor+base_thickness+base_corner_rail_height)/2)*Box(base_corner_rail_width,rail_end-rail_start,base_corner_rail_height+0.2)
+corner_rail=corner_rail & reinforcement_clip
+web_rear=base_depth/2-inset
+rear_web=Pos(0,web_rear-base_rear_web_depth/2,(reinforcement_floor+base_thickness+base_rear_web_height)/2)*Box(base_width,base_rear_web_depth,base_rear_web_height+0.2)
+rear_web=rear_web & reinforcement_clip
+# Register around, rather than on, existing receiving columns.
+for xx,yy in layout.base_mount_axes:
+ clearance=Pos(xx,yy,base_thickness+base_corner_rail_height/2)*Box(shell_base_pad_width+2*base_rim_clearance,shell_base_pad_width+2*base_rim_clearance,base_corner_rail_height+0.2)
+ corner_rail-=clearance
+ rear_web-=clearance
+base=base+corner_rail+rear_web
+assert base.is_valid
+print('CORNER_STIFFENING',dict(rail_top=base_thickness+base_corner_rail_height,rear_web_top=base_thickness+base_rear_web_height,rail_start_y=rail_start,rail_end_y=rail_end))
 
 # Cover screws into the shell columns.
 for seat in layout.base_mount_seats:
  base=base-seat
 
-# Pi screws: ISO7046 M2.5x10 from below, through cover + post + Pi board into the
-# P165-B heatsink's own M2.5 metal threads (2.9 mm engagement). No printed thread.
-PI_SCREW_LENGTH=10.0
-pi_mount_screws=[]
-for xx in PI_HOLE_X:
- for yy in PI_HOLE_Y:
-  screw=CounterSunkScrew('M2.5-0.45',length=PI_SCREW_LENGTH,fastener_type='iso7046')
-  assert base_thickness>=screw.head_height
-  frame=Location((xx,yy,0),(180,0,0))
-  seat=frame*layout.printed_seat(screw,PI_BOARD_BOTTOM_Z)
-  base=base-seat
-  pi_mount_screws.append(frame*Pos(0,0,-layout.countersink_settle_depth)*screw)
-  print('PI_METAL_JOINT',dict(axis=(xx,yy),metal_engagement=PI_SCREW_LENGTH-PI_BOARD_BOTTOM_Z-PI_PCB_T))
 assert len(base.solids())==1, ('base',[round(s.volume,1) for s in base.solids()])
 
 base.color=Color(0.88,0.86,0.79)
-publish('base',base,'Bottom cover and Pi carrier',material='pla',role='part')
-for i,screw in enumerate(pi_mount_screws):
- publish('pi_mount_screw_'+str(i+1),screw,'Pi M2.5x10 screw',material='stainless_steel',role='fastener')
-
-connection_inventory={**{'module_'+str(i+1):'kit' for i in range(len(layout.front_module_screws))},**{'pcb_'+str(i+1):'kit' for i in range(len(layout.pcb_mount_screws))},**{'fan_'+str(i+1):'kit' for i in range(len(layout.cooling_screws))},**{'bottom_'+str(i+1):'kit' for i in range(len(layout.base_mount_screws))},**{'pod_'+str(i+1):'kit' for i in range(len(layout.screen_mount_screws))},**{'pi_'+str(i+1):'metal M2.5 receiver, free standard screw' for i in range(len(pi_mount_screws))}}
-assert len(connection_inventory)==20
+publish('base',base,'Bottom closure',material='pla',role='part')

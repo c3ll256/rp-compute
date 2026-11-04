@@ -9,11 +9,6 @@
       "ref": "BASE",
       "name": "pi_baseboard_lite ESQ-120-12-G-D dock",
       "quantity": 1
-    },
-    {
-      "ref": "FAN",
-      "name": "Nidec Components F16FB-05LLC",
-      "quantity": 1
     }
   ],
   "connections": [
@@ -23,17 +18,15 @@
         "pin": "2"
       },
       "to": {
-        "part": "FAN",
-        "pin": "RED +5V"
+        "part": "BASE",
+        "pin": "J_PI P2 (pad1)"
       },
       "bus": "power",
       "via": "other",
       "evidence": [
-        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
-        "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
-        "https://www.nidec-components.com/e/catalog/dc-fan/f16fb.pdf"
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png"
       ],
-      "notes": "Pi physical2/4 via BASEJ_PI pads1/3, routedV5_PI_IN to BASEJ_FAN pin1; factorySHR02plug"
+      "notes": "Existing Pi dock5V input; Pi supplies display/module baseboard. No fan load or fan harness."
     },
     {
       "from": {
@@ -41,33 +34,17 @@
         "pin": "6"
       },
       "to": {
-        "part": "FAN",
-        "pin": "BLACK GND"
+        "part": "BASE",
+        "pin": "J_PI P6 (pad5)"
       },
       "bus": "power",
       "via": "other",
       "evidence": [
-        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
-        "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
-        "https://www.nidec-components.com/e/catalog/dc-fan/f16fb.pdf"
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png"
       ],
-      "notes": "Pi GND via BASEJ_PI pad5 and plane to BASEJ_FAN pin2; factorySHR02plug"
+      "notes": "Existing dock GND. Mapping matches released baseboard J_PI pin labels."
     }
   ],
-  "power": [
-    {
-      "name": "5V fan",
-      "voltage": 5,
-      "current_ma": 40,
-      "source": {
-        "part": "PI",
-        "pin": "2"
-      },
-      "description": "5V40mA rated,100mA allowance; always-on through dedicated HAT J_FAN2pin connector, no logic GPIO and no user soldering.",
-      "consumers": [
-        "FAN"
-      ]
-    }
-  ],
+  "power": [],
   "schema_version": 1
 }

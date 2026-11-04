@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "active_lite_PCB_released_existing_CAD_board_import_stale",
   "bom_ready": true,
-  "requirements_digest": "83367a88e1a9c166d41031a0dc46d20f409fdbba29ac2b0bbdf86002fca8a7fa",
+  "requirements_digest": "543c83fedb5581488277e56502d8e211135b048809e76dd16afd3900a5389442",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD",
@@ -321,12 +321,6 @@
       "description": "No qualified drop-in alternative established for BQ25622, TPS22990, new charger inductor or XT30U pair; substitutions require new interface review."
     },
     {
-      "id": "cooling_integration",
-      "severity": "advisory",
-      "design_critical": false,
-      "description": "PI4-FAN-PWM selected with supplied pads/screws, no adapter. Keep airflow path open and battery away from sink/exhaust. Confirm fan startup current, PWM behavior, wiring and mounting clearance; no measured thermal/noise performance. GPIO docking consumesPi header; baseboard must provide3-wire fan breakout and clearance, not a second plug on same header."
-    },
-    {
       "id": "cooling_no_dropin",
       "severity": "advisory",
       "design_critical": false,
@@ -404,8 +398,7 @@
     "output_tolerance_fraction": 0.02,
     "pi_allocation_includes": [
       "Pi4B",
-      "one nativeUSB peripheral up to500mA",
-      "GPIO-powered fan up to assumed100mA"
+      "one nativeUSB peripheral up to500mA"
     ],
     "display_logic_reserve_a": 0.1,
     "additional_margin_a": 0.1,
@@ -416,7 +409,7 @@
     "charge_current_proposal_a": 0.48,
     "charge_voltage_proposal_v": 4.2,
     "nominal_boost_loss_w": 2.88,
-    "limits": "5.6254A arithmetic is conditional, not qualification.3A includes nativeUSB and baseboard fan, no added500mA or fan counted twice. LCD/logic100mA+100mA margin yield3.2A. BelowSYS3.5V the budget is invalid; early controlled shutdown requires actual pack data. No promise of full load to2.5V pack cutoff.",
+    "limits": "Archived full-power arithmetic is not a measured system rating. Active lite variant uses Pi nativeUSB-C for Pi plus display/module baseboard, with no fan load. Measure actual operating and startup current; no runtime qualification implied.",
     "charging": "Default configured target480mA (ICHG6 x80mA),4.2V (VREG420 x10mV), only after compatible pack and sensors accepted. CE external default-disabled; POR1040mA must never reach unidentified pack. Watchdog/register reset/CC downshift fail-safe network remains schematic task.",
     "input": "5V3A Type-C source target; existing conservative2.6A input limit for3A advertisement,1.2A for1.5A; unknown<=100mA/no charging. Even13W input before conversion cannot sustain16.32W design output; battery supplements, charging reduces/stops. No indefinite peak operation on external power or batteryless claim.",
     "thermal": "At nominal16.32W output and85% efficiency boost dissipates2.88W, before charger, switch, wiring and input losses. Needs board copper/thermal design separate from Pi heatsink; no thermal pass.",
@@ -455,7 +448,7 @@
   "runtime_budget": {
     "source": "default",
     "nominal_wh": 12.21,
-    "calculation": "t=12.21Wh*usable_fraction/(total_regulated_load_W/efficiency+0.1W); scenario load includes Pi+display+fan+any USB peripheral.",
+    "calculation": "t=12.21Wh*usable_fraction/(total_regulated_load_W/efficiency+0.1W); scenario load includes Pi+display+any USB peripheral; no fan load.",
     "target_hours": null,
     "usable_fraction": null,
     "efficiency": null,
@@ -732,7 +725,7 @@
     },
     "storage": "microSD; 32GB A1/Class10 accessory target retained, exact card unselected",
     "power_input": "Baseboard regulated/protected5V via GPIOpowercontacts, not internalUSB-C; retainPi3A supply reference, includingUSBload. Exact protection/header-rating design pending.",
-    "cooling": "PI4-FAN-PWM withoutadapter retained subject toGPIOsocket height/mount fit; fan leads tobaseboardbreakout.",
+    "cooling": "Geekworm P165-B passive heatsink retained; no internal fan.",
     "evidence": "product/references/pi4b-product-brief.pdf pp3,5; p5 visually inspected",
     "board_model_reference": {
       "id": "raspberry_pi_4_model_b",
@@ -759,6 +752,64 @@
       ],
       "mapping": "world X=asset Z+39; world Y=asset X-30.5; world Z=asset Y+7",
       "qualification": "Port-layout reference only; no final GPIO socket or mounting constraints implied"
+    },
+    "independent_carrier": {
+      "source": "user",
+      "attachment": "Four original Pi holes to independent carrier, three carrier screws to upper shell",
+      "bottom_cover": "Closure only; no Pi support posts or screw holes",
+      "retain_pi_and_port_placement": true,
+      "defaults": {
+        "printed_material": "PLA prototype",
+        "shell_attachment": "3 x ISO7046 M2x6, self-forming printed receivers, nominal3.6mm engagement",
+        "pi_attachment": "4 x ISO7046 M2.5x6 into existing metal heatsink threads",
+        "board_bottom_z_mm": 5.3,
+        "frame_bottom_z_mm": 3.0,
+        "rail_thickness_mm": 2.0,
+        "bottom_cover_gap_mm": 0.4,
+        "pi_pad_bottom_z_mm": 3.3,
+        "qualification": "Nominal geometry; print fit, strength, fastener life and physical assembly require prototype.",
+        "floor_gap_mm": 0.6,
+        "shape": "Three flat mounting ears share the frame bed plane; no raised overhanging ears",
+        "shell_receiver_bottom_z_mm": 5.4
+      },
+      "default_mount_centers_mm": [
+        [
+          -29,
+          -22
+        ],
+        [
+          -29,
+          40
+        ],
+        [
+          24,
+          -50
+        ]
+      ],
+      "printability": {
+        "source": "default",
+        "bed_plane_z_mm": 3.0,
+        "flat_ears": true,
+        "receiver_bottom_z_mm": 5.4,
+        "nominal_rail_top_z_mm": 5.0,
+        "board_bottom_z_mm": 5.3,
+        "support_strategy": "Flat underside on bed; designed without support under mounting ears; confirm slicer and prototype."
+      },
+      "nominal_cad_checks": {
+        "carrier_to_base_min_gap_mm": 0.4,
+        "frame_to_floor_vertical_gap_mm": 0.6,
+        "carrier_shell_screw_to_base_min_gap_mm": 0.8,
+        "bottom_removal_mm": 20,
+        "pi_carrier_removal_mm": 25,
+        "mesh_tolerance_mm": 0.02,
+        "path_step_mm": 0.5,
+        "downward_horizontal_faces_z_mm": [
+          3.0
+        ],
+        "bed_area_mm2": 989.76688,
+        "countersink_slope_deg": 45,
+        "actual_print_or_fit_test": false
+      }
     }
   },
   "ports": [
@@ -809,7 +860,7 @@
     "source": "default",
     "mpn": "ATTINY1616-SN",
     "selection_status": "selected_candidate_interface_allocated",
-    "note": "ATtiny1616 AON retained. Pi BCM17 shutdown request/BCM27 acknowledgement and UART14/15 reserved, fanGPIO12 separately. Wait for Linux safe shutdown, not fixed delay alone. ADC loaded-voltage thresholds await exact pack discharge/sag; no validated state-of-charge estimate.",
+    "note": "ATtiny1616 AON retained. Pi BCM17 shutdown request/BCM27 acknowledgement and UART14/15 reserved, GPIO12 is LCD COM in active lite variant; no fan. Wait for Linux safe shutdown, not fixed delay alone. ADC loaded-voltage thresholds await exact pack discharge/sag; no validated state-of-charge estimate.",
     "user_controls": "Historical full-power variant only; current lite variant has no supervisor or side power button."
   },
   "pcb_handoff_tasks": [
@@ -985,102 +1036,20 @@
   },
   "cooling": {
     "source": "user",
-    "status": "nominal_geometry_passed_physical_cooler_fit_and_thermal_test_pending",
+    "mode": "passive_only",
+    "fan_installed": false,
     "heatsink": "Geekworm P165-B",
     "heatsink_outline_mm": [
       55,
       65,
       11
     ],
-    "fan": "F16FB-05LLC",
-    "fan_outline_mm": [
-      16,
-      16,
-      4.5
-    ],
-    "fan_tolerance_mm": 0.5,
-    "supply_v": 5,
-    "rated_current_ma": 40,
-    "power_budget_w": 0.5,
-    "control": "Always-on; power contacts only, GPIO12 LCD COM preserved",
-    "takeoff": "HAT J_PI Pi physical2/4 5V and physical6 GND -> routed J_FAN pin1 5V / pin2 GND -> factory2pin fan harness",
-    "inlet_gap_target_mm": 3,
-    "thermal_status": "unmeasured",
+    "mounting": "Pi and P165-B share four M2.5x6 screws through the separate upper-shell carrier; no separate heatsink bracket.",
     "geometry_limits": "P165-B outline/pitch verified; undersurface, fins and port reliefs photo-derived, not exact vendor STEP. TIM gap and four tapped depths need actual kit check.",
-    "fan_position_mm": [
-      -29,
-      -38,
-      11.55
-    ],
-    "fan_rotation_deg": [
-      180,
-      0,
-      270
-    ],
-    "mounting": "Shared four screws through shelf/Pi into heatsink, no separate upper-shell heatsink bracket",
-    "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
-    "pcb_release": "dbacb2cc60cdef69951f80af131442ea24b1ed03394f9e446a1f890bf9a1d209",
-    "pcb_step_sha256": "fc63232fc7ddf1972848edb829711607d9a1d65cc299b42f3427e71f542c520a",
-    "heatsink_to_shell_measured_mm": 1.6,
-    "heatsink_GPIO_end_gap_mm": 0.345,
-    "fan_inlet_free_column_mm": {
-      "diameter": 12,
-      "bottom_z": 16,
-      "height": 3
-    },
-    "factory_lead_route": {
-      "points_mm": [
-        [
-          -20.6,
-          -31.6,
-          12.95
-        ],
-        [
-          -10.4,
-          -31.6,
-          12.95
-        ],
-        [
-          -10.4,
-          -31.6,
-          20.3
-        ],
-        [
-          -10.4,
-          -54.1,
-          20.3
-        ],
-        [
-          0,
-          -54.1,
-          20.3
-        ],
-        [
-          0,
-          -51.625,
-          20.3
-        ]
-      ],
-      "bundle_OD_allowance_mm": 1.4,
-      "bend_radius_mm": 2,
-      "lead_length_including_ends_mm": 52.521,
-      "minimum_factory_lead_length_mm": 70,
-      "length_passed": true,
-      "intersections": [],
-      "limits": "Actual bent vendor AWG36 leads plus factory32AWG SH pigtail are fitted to this reserve; do not directly crimp AWG36 into SH. Connector plug modeled as reserve; no exact formed-wire CAD claimed."
-    },
-    "intake_area_mm2": 0,
-    "exhaust_area_mm2": 43.2,
-    "physical_part_dimensions_verified": false,
-    "airflow": {
-      "mode": "extract internal air",
-      "inlet": "Rear-left external inlet removed; no replacement external intake added",
-      "exhaust": "left wall near fan",
-      "forward_exhaust": false,
-      "direction_source": "user",
-      "side_location_source": "default",
-      "status": "Rear-left slots closed by user; left-side exhaust and internal fan inlet clearance retained. Installed air supply, flow and temperature unmeasured."
-    },
+    "thermal_status": "fanless_unmeasured",
+    "fan_load_ma": 0,
+    "left_slots": "Retained as passive ventilation at existing centers; no replacement intake added.",
+    "unused_board_connector": "J_FAN remains fitted in released board with no harness attached.",
     "rear_left_inlet_removed": {
       "value": true,
       "source": "user",
@@ -1168,7 +1137,7 @@
       "stack_height_mm": null,
       "mpn": "SSQ-120-02-G-D",
       "electrical_qualification": "5V supply pins are notGPIO logic outputs. Connector contact sharing/drop/heat unverified, no hot-plug. Power circuit must independently protect output and prevent backfeed/dual-source damage.",
-      "mechanical_qualification": "SupportPi on mounting posts, not socket alone. Pin1 clear marking plus guides to preventrotation or row offset. Keep heatsink/fan, USB/Ethernet, microSD and extraction access clear. NoHAT certification or allPi compatibility claim.",
+      "mechanical_qualification": "SupportPi on mounting posts, not socket alone. Pin1 clear marking plus guides to preventrotation or row offset. Keep heatsink, USB/Ethernet, microSD and extraction access clear. NoHAT certification or allPi compatibility claim.",
       "installation": "Preassembled baseboard; cold-plugPi into socket then fasten independent supports. No soldering or per-signal jumpers by user. Do not promise tool-free or hot-swap.",
       "socket_housing_height_mm": 8.51,
       "socket_tail_length_mm": 4.93,
@@ -1188,15 +1157,6 @@
       "production_footprint_evidence": "product/references/ssq-footprint.pdf p1 Fig1:2rows2.54mm,20positions,1.02mmhole. ActualPCB footprint has not been built.",
       "production_hole_diameter_mm": 1.02,
       "manufacturer_hole_pattern_verified": true
-    },
-    "fan_breakout": {
-      "source": "default",
-      "signals": [
-        "regulated5V",
-        "GND",
-        "PiGPIO12PWM"
-      ],
-      "note": "Fan leads land on baseboard, not occupiedPiheader. Include fan load within existing3A compute/fan/USB budget; exact breakout connector chosen with dock."
     },
     "pi_port_cover_interlock": {
       "source": "default",
@@ -1769,11 +1729,6 @@
       0,
       0
     ],
-    "fan_translation_mm": [
-      3,
-      -3,
-      0
-    ],
     "pcb_gpio_centroid_world_xy_mm": [
       -18.5,
       2
@@ -1965,13 +1920,6 @@
       },
       {
         "size": "M2",
-        "length_mm": 12,
-        "head": "ISO7046 countersunk",
-        "quantity": 2,
-        "use": "fan_cassette"
-      },
-      {
-        "size": "M2",
         "length_mm": 3,
         "head": "ISO4762 socket_cap",
         "quantity": 2,
@@ -1979,7 +1927,7 @@
       },
       {
         "size": "M2.5",
-        "length_mm": 10,
+        "length_mm": 6,
         "head": "ISO7046 countersunk",
         "quantity": 4,
         "use": "Pi original bores and P165-B metal threads"

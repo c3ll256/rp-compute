@@ -75,10 +75,12 @@ body=body-optical-pocket
 # Shallow 0.5mm-wide marking preserves the equal outer border without a third piece.
 fascia_border_line_width=param('fascia_border_line_width',0.5)
 fascia_border_line_depth=param('fascia_border_line_depth',0.3)
+fascia_min_roof_skin=param('fascia_min_roof_skin',1.2)
 border_line=RectangleRounded(fascia_window_width,fascia_window_height,fascia_window_radius)-RectangleRounded(fascia_window_width-2*fascia_border_line_width,fascia_window_height-2*fascia_border_line_width,fascia_window_radius-fascia_border_line_width)
 body=body-F*Pos(0,0,-fascia_border_line_depth)*extrude(border_line,amount=2*fascia_border_line_depth)
-# Underside relief, not an external port. No connector/PCB placeholder.
-body-=F*Pos(0,fascia_fpc_y,-fascia_fpc_roof-fascia_fpc_depth/2)*Box(fascia_fpc_width,fascia_fpc_length,fascia_fpc_depth)
+# The relief roof follows the screen plane; its skin also accounts for the groove.
+fpc_relief_roof=max(fascia_fpc_roof,fascia_border_line_depth+fascia_min_roof_skin)
+body-=F*Pos(0,fascia_fpc_y,-fpc_relief_roof-fascia_fpc_depth/2)*Box(fascia_fpc_width,fascia_fpc_length,fascia_fpc_depth)
 from screwjoint import make_screw_joint_v1, ScrewJointNotApplicableV1
 from bd_warehouse.fastener import CounterSunkScrew, ClearanceHole
 # M2 countersunk kit rejects ISO10642 (starts at M3). Explicit free head/seat
@@ -170,6 +172,12 @@ fascia_active_tail_channel_width=param('fascia_active_tail_channel_width',7.5)
 fascia_active_tail_channel_depth=param('fascia_active_tail_channel_depth',7.0)
 fascia_active_tail_channel_height=param('fascia_active_tail_channel_height',7.5)
 voids.append(Pos(0,0,25.75)*Box(fascia_active_tail_channel_width,fascia_active_tail_channel_depth,fascia_active_tail_channel_height))
+# A service reserve may approach the face only as far as the protected skin.
+# Clip the cutters themselves, instead of plugging a through-hole after the cut.
+# The same clipped reserves are shared with the independent rear retainer.
+service_roof_depth=fascia_border_line_depth+fascia_min_roof_skin
+service_cut_limit=Pos(0,0,-(4*h+service_roof_depth)/2)*Box(4*fascia_width,4*fascia_depth,4*h-service_roof_depth)
+voids=[(void_world.moved(SCREEN_WORLD.inverse()) & service_cut_limit).moved(SCREEN_WORLD) for void_world in voids]
 for void_world in voids:
  void_local=void_world.moved(SCREEN_WORLD.inverse())
  host=host-void_local
@@ -199,6 +207,21 @@ cover_probes=Compound(children=[s.moved(SCREEN_WORLD.inverse()) for s in housing
 missing=cover_probes-host
 v=0.0 if missing is None else (sum(s.volume for s in missing) if isinstance(missing,ShapeList) else missing.volume)
 assert v<0.00001,('screen mount closing skin',v)
+
+# Exact full-area guards catch any future relief breaking through the decoration
+# or thinning the glass-support lip. These are assertions, not published parts.
+groove_floor_guard=Pos(0,0,-fascia_border_line_depth-fascia_min_roof_skin)*extrude(border_line,amount=fascia_min_roof_skin)
+glass_lip_guard=Pos(0,GLASS_Y,-fascia_front_lip)*extrude(Rectangle(GLASS_W+2*fascia_glass_clearance,GLASS_H+2*fascia_glass_clearance),amount=fascia_front_lip)
+glass_lip_guard=glass_lip_guard-(F.inverse()*optical)
+for label,guard in [('complete decoration floor',groove_floor_guard),('complete optical lip',glass_lip_guard)]:
+ missing_skin=guard-host
+ missing_skin_volume=0.0 if not missing_skin else missing_skin.volume
+ print('SCREEN_SKIN_GUARD',label,dict(required_mm=fascia_min_roof_skin,missing_mm3=missing_skin_volume))
+ assert missing_skin_volume<0.00001,(label,missing_skin_volume)
+for label,probe in [('fold arc',route_arc),('fold start',route_start),('fold return',route_return)]:
+ collision=host & probe
+ collision_volume=0.0 if not collision else collision.volume
+ assert collision_volume<0.00001,('protected skin blocks FPC reserve',label,collision_volume)
 
 assert len(connections)==4
 assert len(host.solids())==1 and host.is_valid

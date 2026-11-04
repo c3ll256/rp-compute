@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "models": [
+    {
+      "file": "models/handheld_computer.glb",
+      "design": "handheld_computer"
+    },
+    {
+      "file": "models/pi_baseboard_lite.glb",
+      "design": "pi_baseboard_lite"
+    }
+  ]
+}
