@@ -145,7 +145,7 @@
     },
     "acceptance": {
       "value": [
-        "With all power disconnected, user mates their Pi4B to the baseboard GPIO socket and mechanically secures it; baseboard powers Pi and LS027B7DH01 terminal operates without an internal USB-C power cable.",
+        "With all power disconnected, user mates their Pi4B to the baseboard GPIO socket and mechanically secures it; baseboard powers Pi and LS027B7DH01 (or accepted alternative LS027B7DH01A) terminal operates without an internal USB-C power cable.",
         "Use external keyboard on Pi native USB for navigation and shell commands; no added navigation keys or baseboard USB-A.",
         "demonstrate an SSH session over Wi-Fi",
         "measure and report actual runtime in the defined no-USB-peripheral light-use baseline and separately with a USB keyboard; no fixed minimum-hour pass/fail threshold",
@@ -205,7 +205,7 @@
     "baseboard_extension_scope": {
       "value": [
         "power and battery management",
-        "Sharp LS027B7DH01 display interface",
+        "Sharp LS027B7DH01 (or accepted alternative LS027B7DH01A) display interface",
         "user-replaceable front-deck GPIO expansion interface"
       ],
       "source": "user"
@@ -296,7 +296,7 @@
     },
     "lite_baseboard_scope": {
       "value": [
-        "Sharp LS027B7DH01 display FPC interface",
+        "Sharp LS027B7DH01 (or accepted alternative LS027B7DH01A) display FPC interface",
         "8-contact GPIO-style expansion connector"
       ],
       "source": "user"
@@ -653,6 +653,30 @@
     "unused_existing_fan_socket": {
       "value": "Keep released pi_baseboard_lite J_FAN socket physically present and electrically unchanged, with no connected fan or harness. No PCB revision in this enclosure change.",
       "source": "default"
+    },
+    "display_alternative_models": {
+      "value": [
+        "Sharp LS027B7DH01A"
+      ],
+      "source": "user"
+    },
+    "display_substitution_verification": {
+      "value": "LS027B7DH01A is accepted as an alternative to the primary LS027B7DH01; fit one panel per unit. Retain prototype verification of native-tail reach, contact orientation and seating, latch retention, glass clamping/pad pressure, all display rows/text, COM inversion and controlled power sequencing, plus viewing-angle/readability assessment. Datasheet compatibility is not completed physical or electrical qualification.",
+      "source": "user"
+    },
+    "display_alternative_optical_characteristics": {
+      "value": {
+        "model": "Sharp LS027B7DH01A",
+        "viewing_angle_cr_gte_2_deg": {
+          "minimum_each_direction": 40,
+          "typical_horizontal_each_direction": 55,
+          "typical_vertical_each_direction": 60
+        },
+        "transmission_ratio_percent_typical": 0.25,
+        "comparison": "LS027B7DH01 specifies minimum60deg each direction and approximately0.35percent transmission. Do not transfer those optical guarantees to A.",
+        "evidence": "Sharp LCP-1112041 printed pp7,21,23; LCY-1210401A printed pp7,21,23."
+      },
+      "source": "research"
     }
   },
   "open_questions": []

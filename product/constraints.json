@@ -2,10 +2,10 @@
   "schema_version": 1,
   "status": "active_lite_PCB_released_existing_CAD_board_import_stale",
   "bom_ready": true,
-  "requirements_digest": "543c83fedb5581488277e56502d8e211135b048809e76dd16afd3900a5389442",
+  "requirements_digest": "960e0191c23ec0738395519faf76990b6d0530ef4afa1df340a78ffb3c984e7c",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
-    "display": "LS027B7DH01 serial Memory LCD",
+    "display": "LS027B7DH01 serial Memory LCD; LS027B7DH01A accepted one-for-one alternative, prototype verification required",
     "battery": "User-supplied factory-protected1S3.7V3300mAh; interface fixed, exact MPN excluded from procurement.",
     "power_path": "USB-C -> TPS259531 -> BQ25622; BAT accepts user pack; SYS -> TPS61088 -> TPS22990 -> independent TPS259470L Pi/LCD branches. AON3.3V reset/latch supervises start. Circuit not authored.",
     "usb_a": "NativePiUSB-A only. No baseboardUSB-A socket, hub or data extension. Enclosure must expose native ports; existing500mA peripheral budget remains and is not per-port simultaneous capacity.",
@@ -126,7 +126,18 @@
         "Top contact face is resolved; exact insertion-plane height/angle, stiffener seating and physical latch operation remain prototype checks.",
         "Soft support material, polarizer pressure, print strength and thermal behavior require prototype checks."
       ]
-    }
+    },
+    "primary_model": "LS027B7DH01",
+    "accepted_alternatives": [
+      {
+        "mpn": "LS027B7DH01A",
+        "bom_alternative_id": "display_alt_ls027b7dh01a",
+        "source": "user",
+        "quantity_policy": "1 primary OR1 alternative per unit; not additive",
+        "mechanical_evidence": "Sharp LCP-1112041 PDF9/25 (printed7/23), same nominal body, active area and native FPC geometry as primary; thickness1.64mm",
+        "qualification": "Prototype required: native-tail reach/bend and contact orientation; full insertion and latch retention in C5373447; glass clamping and pad pressure; all rows/text, COM inversion and controlled power sequencing; actual viewing-angle/readability. No physical or electrical qualification is claimed from datasheet matching."
+      }
+    ]
   },
   "unresolved_items": [
     {

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "543c83fedb5581488277e56502d8e211135b048809e76dd16afd3900a5389442",
+  "requirements_digest": "960e0191c23ec0738395519faf76990b6d0530ef4afa1df340a78ffb3c984e7c",
   "items": [
     {
       "id": "compute",
@@ -72,13 +72,13 @@
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "part_identity": "3f2bc5eddcf211cc",
+      "part_identity": "4612e73150b55cf7",
       "datasheet_url": "https://media.digikey.com/pdf/Data%20Sheets/Sharp%20PDFs/LS027B7DH01.pdf",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
-      "selection_reason": "Exact LS027B7DH01 retained. One-piece housing has a rear-loading63.4x43.42mm negative pocket,0.3mm nominal clearance per side and1.77mm active-area offset. Optical opening59.4x35.88mm. Glass/FPC pose and13deg slope retained; front rise approximately1.67mm. Manufacturer drawing defines nominal glass; no exact panel STEP. Physical pressure and fit need testing.",
+      "selection_reason": "Primary LS027B7DH01 retained; user accepts LS027B7DH01A as a one-for-one alternative, not an additional panel. Total fitted quantity is1. One-piece housing has a rear-loading63.4x43.42mm negative pocket,0.3mm nominal clearance per side and1.77mm active-area offset. Optical opening59.4x35.88mm. Glass/FPC pose and13deg slope retained; front rise approximately1.67mm. Manufacturer drawing defines nominal glass; no exact panel STEP. Physical pressure and fit need testing.",
       "mechanical_integration": "Two printed pieces: integral housing/locator and2mm flat rear retainer. Four M2 hard-stop joints; nonadhesive0.2mm front and2mm rear silicone supports. Native-tail keepout retained without separate guard. Fit and polarizer load need prototype.",
       "assembly_dimension_assumption": {
         "value": 13.7,
@@ -92,7 +92,11 @@
         "datum": "Along the native tail from glass exit edge to the physical tip, including the stiffener and the portion inserted into the connector.",
         "basis": "Retain the earlier 13.7mm drawing-proportion estimate; ±0.5mm is an agent-selected review allowance, not a manufacturer tolerance or guaranteed bound.",
         "qualification": "User delegated estimation; no further measurement question is needed to continue provisional design. Do not claim fit validation or stretch the cable. Check shortest reach and longest-tail accommodation separately."
-      }
+      },
+      "approved_alternative_ids": [
+        "display_alt_ls027b7dh01a"
+      ],
+      "prototype_verification": "Prototype required: native-tail reach/bend and contact orientation; full insertion and latch retention in C5373447; glass clamping and pad pressure; all rows/text, COM inversion and controlled power sequencing; actual viewing-angle/readability. No physical or electrical qualification is claimed from datasheet matching."
     },
     {
       "id": "display_fpc",
@@ -1049,7 +1053,43 @@
       "part_identity": "f91a09a96cf9816e"
     }
   ],
-  "alternatives": [],
+  "alternatives": [
+    {
+      "id": "display_alt_ls027b7dh01a",
+      "role": "display",
+      "alternative_for": "display",
+      "name": "LS027B7DH01A",
+      "description": "Sharp2.7inch400x240 monochrome Memory LCD panel. LCP-1112041 printed pp7,8,10–18,21,23: body62.8x42.82x1.64mm excluding protrusions; active area58.8x35.28mm;10-terminal0.5mm pitch FPC,0.30mm stiffened thickness; same panel terminal assignment and serial/COM interface as primary. Viewing CR>=2 minimum40deg each direction, typical55deg horizontal/60deg vertical; typical transmission0.25percent.",
+      "quantity": 1,
+      "supplier": "LCSC / 嘉立创",
+      "manufacturer": "SHARP(夏普)",
+      "part_number": "LS027B7DH01A",
+      "mpn": "LS027B7DH01A",
+      "lcsc_code": "C17247735",
+      "jlc_smt_library": "extended",
+      "procurement_status": "external_procurement_required",
+      "stock": null,
+      "unit_price_cny": 111.65,
+      "source": "user",
+      "product_url": "https://item.szlcsc.com/18376852.html",
+      "source_url": "https://d7rh5s3nxmpy4.cloudfront.net/CMP7377/files/LS027B7DH01A_06Aug12_Spec_LCP-1112041.pdf",
+      "datasheet_url": "https://atta.szlcsc.com//upload/public/pdf/source/231023/C17247735-14a278f895650197ffb5ca82a2541ea8.pdf",
+      "datasheet_path": "product/references/LS027B7DH01A-sharp-2012.pdf",
+      "image_url": "https://alimg.szlcsc.com/upload/public/product/source/20260714/18934B8DC670298AC1ACCDE519E15FC0.jpg",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_status": "user_accepted_alternative_prototype_verification_pending",
+      "include_in_procurement_totals": false,
+      "selection_reason": "User explicitly accepts A as an alternative to primary LS027B7DH01. Buy1 primary OR1 alternative per unit, never both for the standard kit. Complete manufacturer specs confirm nominal interface and mechanical compatibility. Existing circuit, connector and geometry may be retained for prototype; optical specifications differ. Exact supplier match C17247735 is Extended; this panel is separately installed, not placed by JLC SMT.",
+      "prototype_verification": "Prototype required: native-tail reach/bend and contact orientation; full insertion and latch retention in C5373447; glass clamping and pad pressure; all rows/text, COM inversion and controlled power sequencing; actual viewing-angle/readability. No physical or electrical qualification is claimed from datasheet matching.",
+      "supply_risk": "Supplier public catalog exact match observed2026-11-05 reports out-of-stock, no positive stock count;111.65CNY is public1pc list price, not an order quote. Availability advisory only. Datasheet compatibility is not prototype qualification. Native tail13.7+/-0.5mm remains an agent estimate, not manufacturer tolerance.",
+      "observed_date": "2026-11-05",
+      "part_identity": "3075055504e70506"
+    }
+  ],
   "supply_risks": [
     {
       "id": "prototype_fit",
@@ -1057,7 +1097,7 @@
     },
     {
       "id": "exact_parts",
-      "description": "Use selected exact Sharp panel, SHOU HAN C5373447 FPC, Samtec sockets and TI ICs; unselected FPC comparison alternatives are not qualified drop-in substitutes."
+      "description": "Fit either primary LS027B7DH01 or user-accepted alternative LS027B7DH01A,1 panel per unit, with prototype checks pending. Retain selected SHOU HAN C5373447 FPC, Samtec sockets and TI ICs; unselected FPC comparison alternatives are not qualified substitutes."
     }
   ],
   "unresolved_items": [],

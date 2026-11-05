@@ -14,7 +14,7 @@
     {
       "id": "sharp_display_fit",
       "kind": "internal_fit",
-      "description": "LS027B7DH01 显示窗口、无应力固定及FPC空间；屏幕框采用一体前框和等厚后压框两个硬质打印件，软垫和螺丝另计。",
+      "description": "LS027B7DH01（主选）或LS027B7DH01A（可替代、每台二选一）显示窗口、无应力固定及FPC空间；屏幕框采用一体前框和等厚后压框两个硬质打印件，软垫和螺丝另计。 两型号均保留排线插接/锁扣、玻璃固定/软垫压力、显示/COM/上下电及实际视角的样机验证要求，资料匹配不代表实物验证通过。",
       "source": "user_requested",
       "required": true
     },
@@ -153,6 +153,12 @@
       "source": "existing_workspace",
       "description": "JST original SH2pin mating plug/contact data.",
       "path": "product/references/jst-sh.pdf"
+    },
+    {
+      "id": "sharp_datasheet_alternative_a",
+      "source": "existing_workspace",
+      "description": "Sharp LCP-1112041 LS027B7DH01A完整原厂规格书（2012-08-06）；PDF9/10/12–20/23/25页核对尺寸、接口、电气、协议和光学差异。",
+      "path": "product/references/LS027B7DH01A-sharp-2012.pdf"
     }
   ],
   "assembly_story": {
@@ -199,7 +205,8 @@
           "nidec_f16fb_fan",
           "pi4_passive_sink_user",
           "p165_manufacturer_reliefs",
-          "fan_SH_datasheet"
+          "fan_SH_datasheet",
+          "sharp_datasheet_alternative_a"
         ]
       }
     ]
