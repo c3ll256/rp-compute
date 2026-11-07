@@ -2,8 +2,20 @@
   "schemaVersion": 1,
   "models": [
     {
+      "file": "models/connector_fit_references.glb",
+      "design": "connector_fit_references"
+    },
+    {
+      "file": "models/fpc_fit_reference.glb",
+      "design": "fpc_fit_reference"
+    },
+    {
       "file": "models/handheld_computer.glb",
       "design": "handheld_computer"
+    },
+    {
+      "file": "models/hle_fit_reference.glb",
+      "design": "hle_fit_reference"
     },
     {
       "file": "models/pi_baseboard_lite.glb",
