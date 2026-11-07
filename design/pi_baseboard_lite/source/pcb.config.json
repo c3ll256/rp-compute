@@ -254,7 +254,7 @@
         "maxTemperatureRiseC": 10,
         "requiredWidthMm": 0.31,
         "calculationMethod": "IPC-2221 internal coefficient0.024, 1oz, 10C rise; conservative minimum for any routing layer",
-        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board. Includes2x200mA display/aux branch budgets plus100mA fan allowance (40mA rated)."
+        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board. Includes2x200mA display/aux branch budgets plus100mA design margin; fan connector removed."
       },
       "minimumWidthMm": 0.31,
       "rationale": "500mA input on 1oz internal copper needs0.30038mm by IPC-2221 coefficient0.024 at10C rise; impose0.31mm floor while retaining0.50mm nominal."
@@ -295,15 +295,6 @@
       "rationale": "Diagnosed F.Cu GND lobe area13.108016mm2 bbox native(101.8831,79.560524)..(103.7525,87.349528). Exact point is in lobe and largest In1.Cu ground, eroded both .31mm; excluded all pads, every foreign track, existing vias across stack. Topedge margin.9347mm, In1 edge5.760877mm, obstacle residual.6252mm. See front-side-ground-via-proof.json."
     },
     {
-      "name": "LCD_LDO_GND_BRIDGE",
-      "net": "GND",
-      "xMm": -12.669743,
-      "yMm": -30.997673,
-      "diameterMm": 0.6,
-      "drillMm": 0.3,
-      "rationale": "Exact diagnosed GND lobe bridge; actual polygons on source and destination ground planes eroded.31mm; every pad and all-stack foreign copper/vias excluded. Proof:additional-front-ground-via-proof.json"
-    },
-    {
       "name": "PI26_INNER_GND_BRIDGE",
       "net": "GND",
       "xMm": -15.490051,
@@ -311,6 +302,15 @@
       "diameterMm": 0.6,
       "drillMm": 0.3,
       "rationale": "Existing header-local GND bridge translated -5mm with J_PI for the 76mm enclosure. Connectivity and all-layer copper clearance must pass fresh routing and DRC."
+    },
+    {
+      "name": "BUF1_BYPASS_GND_BRIDGE",
+      "net": "GND",
+      "xMm": -12.042092,
+      "yMm": 30.519928,
+      "diameterMm": 0.6,
+      "drillMm": 0.3,
+      "rationale": "Measured isolated F.Cu5.346427mm2 lobe near C_BUF1 on board SHA c62cc767. Point(native87.957908,69.480072) lies in lobe and largest In1.Cu plane: boundary distances0.449188/1.335900mm. All pads, foreign tracks and vias on the whole stack excluded with0.46mm offset; residual0.139689mm. Targeted return-path bridge, no rule relaxation."
     }
   ],
   "copperAreas": [],
@@ -366,13 +366,6 @@
       "targetOpening": "down",
       "expectedLayer": "top",
       "rationale": "Delegated modeled replacement SHOU HAN C5373447: top contacts, native/target entrance -Y on top, pin1 left; native screen copper upward after back fold."
-    },
-    {
-      "componentRef": "J_FAN",
-      "nativeOpening": "down",
-      "targetOpening": "down",
-      "expectedLayer": "top",
-      "rationale": "All populated parts except Pi socket are on top per user. Internal fan JST SH entrance -Y, placed in widened central electronics area for cable access."
     }
   ],
   "bomBindings": [
@@ -470,13 +463,6 @@
         "R_LCD_BLEED",
         "R_AUX_BLEED",
         "R_FAULT_PU"
-      ],
-      "populate": true
-    },
-    {
-      "bomItemId": "fan_connector",
-      "designators": [
-        "J_FAN"
       ],
       "populate": true
     }

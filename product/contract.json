@@ -7,7 +7,7 @@
     {
       "id": "compute_mount",
       "kind": "internal_fit",
-      "description": "用户自带Pi4B通过40针GPIO插入基板，配独立机械固定和防错插导向；验证母座堆叠、散热、microSD、USB/Ethernet及拆卸空间。无需内部USB-C电源线。 简化为断电对准插入及少量固定件，无用户焊接或逐根GPIO跳线。",
+      "description": "用户自带Pi4B通过用户选用的8mm塑高2×20通孔母座插接基板，并由独立托架固定。按实物针距、插入深度和焊脚重新核对PCB、散热片、端口及外壳高度；允许为便宜和薄型目标调整外壳。",
       "source": "user_requested",
       "required": true
     },
@@ -56,7 +56,7 @@
     {
       "id": "front_gpio_module",
       "kind": "internal_fit",
-      "description": "用户标记的屏幕前方平台采用可从上方拆下的共用模块位，保留平面承托、窗口、四角固定基准及内部GPIO连接空间；首版空白盖板底面无定位舌或凸台，未来模块断电更换。屏幕定位槽和屏舱约1.67mm前沿保持，完整FPC路线须与单基板重新核定。",
+      "description": "可换模块使用2×4、2.54mm通孔母座与配套公排针，保留8路逻辑功能；模块螺丝承担固定载荷，仅断电插拔。通孔母座具体尺寸核实后修改PCB钻孔、布局和盖板净空。",
       "source": "user_requested",
       "required": true
     },
@@ -159,10 +159,22 @@
       "source": "existing_workspace",
       "description": "Sharp LCP-1112041 LS027B7DH01A完整原厂规格书（2012-08-06）；PDF9/10/12–20/23/25页核对尺寸、接口、电气、协议和光学差异。",
       "path": "product/references/LS027B7DH01A-sharp-2012.pdf"
+    },
+    {
+      "id": "user_replacement_gpio_dock",
+      "source": "user_requested",
+      "description": "40Pin candidate seller image; dimensions are labels, not a complete production drawing.",
+      "path": "product/references/uploads/20261106T124430370Z-1-cleanshot-2026-11-06-at-20-39-37-2x.png"
+    },
+    {
+      "id": "user_replacement_lite_header",
+      "source": "user_requested",
+      "description": "Image shows5mm SMT female sockets; it is a visual height reference and does not identify the requested through-hole replacement.",
+      "path": "product/references/uploads/20261106T125120328Z-1-cleanshot-2026-11-06-at-20-50-28-2x.png"
     }
   ],
   "assembly_story": {
-    "installation": "断电装配：Pi与P165-B通过四个原孔固定在独立托架上；从下方竖直插入上壳内的GPIO母座，再以三颗独立螺丝固定托架到上壳，最后安装只负责封闭的底盖。屏舱固定先于Pi/托架装入。没有风扇和风扇线束，基板已有J_FAN留空。接口位置保留，原生排线与散热实物试装仍需验证。",
+    "installation": "断电装配：Pi与P165-B通过四个原孔固定在独立托架上；从下方竖直插入上壳内的GPIO母座，再以三颗独立螺丝固定托架到上壳，最后安装只负责封闭的底盖。屏舱固定先于Pi/托架装入。没有风扇、风扇电源座或风扇线束。接口位置保留，原生排线与散热实物试装仍需验证。",
     "maintenance": "先软件关机并拔除电源；单独卸下底盖时Pi、散热片及GPIO连接保持固定。拆Pi时先卸三颗托架螺丝，再竖直拔出Pi/托架；拆屏舱须先移出Pi托架。",
     "user_access": [
       "Pi native USB-C and other native ports",

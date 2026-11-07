@@ -1,6 +1,6 @@
 {
   "scope": "Active lite PCB purchase rows; canonical quantities and bindings are in product/bom.json.",
-  "requirements_digest": "f1398504b9c62a24af5001c26fca789c3321e659a895a5e1a139e08c42fe2c87",
+  "requirements_digest": "199b2b78a63c661cf362c272b9502a34c024da2f70ab65a87e76a96791731aae",
   "items": [
     {
       "id": "display_fpc",
@@ -25,8 +25,12 @@
       "footprint": "jlcpcb:C5373447",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
-        "side": "top"
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": true,
+        "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json",
+        "risk_class": "mechanical_smt",
+        "jlc_smt_rotation": 0
       },
       "designators": [
         "J_LCD"
@@ -36,7 +40,7 @@
         "pin_count": 10,
         "pitch_mm": 0.5,
         "cable_thickness_mm": 0.3,
-        "closed_height_mm": 2.0,
+        "closed_height_mm": 2,
         "cable_contacts_face_when_mounted_on_top": "away_from_pcb",
         "pin1_position": "Supplier native top view, opening -Y: left end of signal row.",
         "evidence_refs": [
@@ -45,12 +49,23 @@
           "design/pi_baseboard_lite/fpc-connector-comparison.json"
         ]
       },
-      "selection_reason": "User delegated replacement. Exact top-contact 10P/0.5mm/0.3mm candidate with real bound STEP; recommended conductor>=3mm and stiffener>=4mm closest to native Sharp tail3.5/4mm. Focused JLC search returned no matching Basic candidate; Extended selected. New footprint and slide latch accepted through delegated selection.",
-      "selection_status": "selected_for_front_SMT_layout",
+      "selection_reason": "User delegated replacement. Exact top-contact 10P/0.5mm/0.3mm candidate with real bound STEP; recommended conductor>=3mm and stiffener>=4mm closest to native Sharp tail3.5/4mm. Focused JLC search returned no matching Basic candidate; Extended selected. New footprint and slide latch accepted through delegated selection. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
+      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "observed_date": "2026-10-02",
       "required_user_evidence": [],
-      "supply_risk": "Screen stiffener nominal4mm is exactly the recommendation minimum. Native-tail seating/retention requires prototype; library STEP is detailed geometry, not certified mating tolerances. Manual front-side reflow intent; no automatic JLC order verification claimed.",
-      "part_identity": "d36ea902ecb37a1b"
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
+      "part_identity": "d36ea902ecb37a1b",
+      "catalog_evidence": {
+        "url": "https://easyeda.com/api/products/C5373447/components",
+        "path": "product/references/jlc-assembly/C5373447-easyeda.json",
+        "observed_date": "2026-11-06",
+        "manufacturer_part_number": "0.5-10P CTSJ-H2.0 119",
+        "jlc_part_class": "Extended Part",
+        "jlc_on_sale": 1,
+        "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
+        "live_stock_verified": false
+      },
+      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
     },
     {
       "id": "ldo_3v3",
@@ -66,8 +81,10 @@
       "procurement_status": "catalog_verified",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
-        "side": "top"
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": true,
+        "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
       },
       "lcsc_code": "C404027",
       "unit_price_cny": 0.982,
@@ -78,14 +95,25 @@
       "jlc_smt_library": "extended",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
       "part_identity": "f1fcb37b6ecdf118",
-      "selection_status": "pcb_check_ready_bench_validation_pending",
+      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "designators": [
         "U_LCD_LDO",
         "U_AUX_LDO"
-      ]
+      ],
+      "catalog_evidence": {
+        "url": "https://easyeda.com/api/products/C404027/components",
+        "path": "product/references/jlc-assembly/C404027-easyeda.json",
+        "observed_date": "2026-11-06",
+        "manufacturer_part_number": "TLV75533PDBVR",
+        "jlc_part_class": "Extended Part",
+        "jlc_on_sale": 1,
+        "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
+        "live_stock_verified": false
+      },
+      "selection_reason": " User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern."
     },
     {
       "id": "display_buffer",
@@ -101,8 +129,10 @@
       "procurement_status": "catalog_verified",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
-        "side": "top"
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": true,
+        "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
       },
       "lcsc_code": "C54529",
       "unit_price_cny": 2.263,
@@ -111,122 +141,285 @@
       "datasheet_url": "https://www.ti.com/cn/lit/ds/symlink/sn74ahc125.pdf",
       "package": "TSSOP-14",
       "jlc_smt_library": "extended",
-      "selection_reason": "AHC125 at local 3.3V, VOL<=0.1V at50uA versus DH01 VIL<=0.15V. Five buffered inputs; Pi GPIO12 controls COM, GPIO25 DISP. No large capacitive load on DISP. Verify waveform edges on prototype.",
+      "selection_reason": "AHC125 at local 3.3V, VOL<=0.1V at50uA versus DH01 VIL<=0.15V. Five buffered inputs; Pi GPIO12 controls COM, GPIO25 DISP. No large capacitive load on DISP. Verify waveform edges on prototype. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
-      "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
       "part_identity": "92c508680dfac711",
-      "selection_status": "pcb_check_ready_bench_validation_pending",
+      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "designators": [
         "U_BUF1",
         "U_BUF2"
-      ]
+      ],
+      "catalog_evidence": {
+        "url": "https://easyeda.com/api/products/C54529/components",
+        "path": "product/references/jlc-assembly/C54529-easyeda.json",
+        "observed_date": "2026-11-06",
+        "manufacturer_part_number": "SN74AHC125PWR",
+        "jlc_part_class": "Extended Part",
+        "jlc_on_sale": 1,
+        "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
+        "live_stock_verified": false
+      }
     },
     {
       "id": "gpio_dock",
       "role": "gpio_dock",
+      "name": "20×2Pin 短排母，2.54mm，塑高8mm，脚长3.5mm",
       "quantity": 1,
       "designators": [
         "J_PI"
       ],
-      "source": "default",
-      "stock": 6,
-      "observed_date": "2026-09-30",
+      "supplier": "User supplied / generic connector selected by dimensions",
+      "source": "user",
+      "stock": null,
+      "procurement_status": "external_procurement_required",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
+        "method": "through_hole",
         "side": "bottom"
       },
+      "selection_status": "selected_generic_through_hole_PCB_verified",
       "required_user_evidence": [],
-      "name": "ESQ-120-12-G-D",
-      "mpn": "ESQ-120-12-G-D",
-      "part_number": "ESQ-120-12-G-D",
-      "manufacturer": "SAMTEC",
-      "supplier": "LCSC / Samtec authorized distributor",
-      "procurement_status": "catalog_verified",
-      "product_url": "https://item.szlcsc.com/3883792.html",
-      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/esq_th.pdf",
-      "package": "2x20 through-hole, 2.54mm pitch/row spacing",
-      "footprint": "jlcpcb:C3319198",
-      "description": "ESQ-120-12-G-D: installed housing height 11.05mm; 2.29mm square solder tails, insertion3.68..6.35mm.",
-      "selection_reason": "User requested a higher Pi female socket; selected11.05mm ESQ at21.8mm substrate datum yields4.75mm nominal official-header engagement.",
-      "supply_risk": "Exact supplier identity verified; supplier/3D model height and pad orientation checked after compile. Manual assembly prototype.",
-      "part_identity": "bdd6cd0fb7d72c2f",
-      "lcsc_code": "C3319198",
-      "datasheet_path": "references/suppliers/c3319198/c3319198-datasheet.pdf",
-      "jlc_smt_library": "extended",
-      "selection_status": "selected_for_interface_revision",
-      "unit_price_cny": 48.76
+      "supply_risk": "Generic user-purchased dimensions, not a certified manufacturer contact design. CAD uses current PCB nominal geometry atZ21.0, Pi/sink lifted1.3mm. GPIO nominal engagement3.885mm at official Pi tip datum;8Pin cover gap0.205mm is tight and must be checked with actual part/print tolerances. Native-tail seating remains a prototype check.",
+      "reference_image": "product/references/uploads/20261106T124430370Z-1-cleanshot-2026-11-06-at-20-39-37-2x.png",
+      "superseded_built_reference": {
+        "id": "gpio_dock",
+        "role": "gpio_dock",
+        "quantity": 1,
+        "designators": [
+          "J_PI"
+        ],
+        "source": "default",
+        "stock": 6,
+        "observed_date": "2026-09-30",
+        "assembly": {
+          "population": "mounted",
+          "method": "through_hole",
+          "side": "bottom"
+        },
+        "required_user_evidence": [],
+        "name": "ESQ-120-12-G-D",
+        "mpn": "ESQ-120-12-G-D",
+        "part_number": "ESQ-120-12-G-D",
+        "manufacturer": "SAMTEC",
+        "supplier": "LCSC / Samtec authorized distributor",
+        "procurement_status": "catalog_verified",
+        "product_url": "https://item.szlcsc.com/3883792.html",
+        "datasheet_url": "https://suddendocs.samtec.com/catalog_english/esq_th.pdf",
+        "package": "2x20 through-hole, 2.54mm pitch/row spacing",
+        "footprint": "jlcpcb:C3319198",
+        "description": "ESQ-120-12-G-D: installed housing height 11.05mm; 2.29mm square solder tails, insertion3.68..6.35mm.",
+        "selection_reason": "Retain the verified ESQ-120-12-G-D11.05mm socket and its physical pin mapping; J_PI moves fromX-13.5 to-18.5mm for the narrower enclosure. LCD and module datums remain fixed. Requires the new PCB.",
+        "supply_risk": "Retain exact ESQ-120-12-G-D bottom through-hole socket for separate soldering after top-side JLC SMT; footprint and geometry unchanged.",
+        "part_identity": "bdd6cd0fb7d72c2f",
+        "lcsc_code": "C3319198",
+        "datasheet_path": "references/suppliers/c3319198/c3319198-datasheet.pdf",
+        "jlc_smt_library": "extended",
+        "selection_status": "selected_for_interface_revision",
+        "unit_price_cny": 48.76
+      },
+      "part_number": "20×2Pin 短排母，2.54mm，塑高8mm，脚长3.5mm",
+      "footprint": "vendor:KiCad_PinSocket_2x20_P2.54mm_GenericH8",
+      "package": "2x20 through-hole,2.54mm mating grid",
+      "selection_reason": "User accepts selection from supplied specifications. Use the installed standard KiCad through-hole land pattern; drill1mm/pad1.7mm verified in the library. Row spacing2.54mm and0.64mm square tails are engineering defaults. No manufacturer SKU is invented. PCB uses a project copy of the published KiCad footprint with unrelated stock3D model stanza removed and a documented rigid translation of every2D feature to the body-centre origin; pad/row spacing, pad shape and numbering are unchanged. Nominal user-specification STEP comes from connector_fit_references; no copper is hand drawn.",
+      "cad_relevance": {
+        "body_mm": {
+          "value": [
+            51,
+            5,
+            8
+          ],
+          "source": "user"
+        },
+        "tail_length_mm": {
+          "value": 3.5,
+          "source": "user"
+        },
+        "mating_pitch_mm": {
+          "value": 2.54,
+          "source": "default"
+        },
+        "row_spacing_mm": {
+          "value": 2.54,
+          "source": "default"
+        },
+        "pin_cross_section_mm": {
+          "value": [
+            0.64,
+            0.64
+          ],
+          "source": "default"
+        },
+        "drill_mm": {
+          "value": 1,
+          "source": "research"
+        },
+        "pad_mm": {
+          "value": [
+            1.7,
+            1.7
+          ],
+          "source": "research"
+        },
+        "evidence": "design/pi_baseboard_lite/connector-specification.json"
+      },
+      "part_identity": "67d89e18034ccf90"
     },
     {
       "id": "gpio_aux_limiter",
       "role": "display_and_module_branch_current_limit",
       "name": "TPS2553DBVR",
       "quantity": 2,
-      "supplier": "Texas Instruments / authorized distributor",
+      "supplier": "LCSC / JLCPCB",
       "manufacturer": "Texas Instruments",
       "mpn": "TPS2553DBVR",
       "part_number": "TPS2553DBVR",
       "stock": null,
       "source": "default",
-      "procurement_status": "external_procurement_required",
+      "procurement_status": "catalog_verified",
       "package": "SOT-23-6 DBV",
-      "product_url": "https://www.ti.com/product/TPS2553",
+      "product_url": "https://jlcpcb.com/partdetail/TexasInstruments-TPS2553DBVR/C55266",
       "datasheet_url": "https://www.ti.com/lit/ds/symlink/tps2553.pdf",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
-        "side": "top"
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": true,
+        "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json",
+        "jlc_smt_rotation": 270
       },
       "required_user_evidence": [],
-      "selection_reason": "TI SLVS841F pp5,6,15,25: active-high 2.5-6.5V adjustable current-limit switch, 169k 1% RILIM gives approximately 136-187mA limits ahead of a dedicated 3.3V LDO; normal module allocation is100mA. Pi3.3V only controls enable. Exact DBV stock KiCad footprint.",
-      "supply_risk": "Supplier search did not finish; no stock, price or JLC assembly claim. Manufacturer datasheet resolves exact electrical identity and package; procure exact TPS2553DBVR externally.",
-      "part_identity": "55bfe64614da6ce2",
-      "selection_status": "pcb_check_ready_bench_validation_pending",
+      "selection_reason": "TI SLVS841F pp5,6,15,25: active-high 2.5-6.5V adjustable current-limit switch, 169k 1% RILIM gives approximately 136-187mA limits ahead of a dedicated 3.3V LDO; normal module allocation is100mA. Pi3.3V only controls enable. Exact DBV stock KiCad footprint. Exact unchanged TPS2553DBVR (not the -1 latch-off variant) now matched to C55266 in the JLCPCB catalog and official EasyEDA library; preserve existing KiCad SOT-23-6 copper and topology. Extended retained to preserve the qualified exact part. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
+      "part_identity": "77394c38da87bdc6",
+      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "designators": [
         "U_LCD_LIMIT",
         "U_AUX_LIMIT"
-      ]
+      ],
+      "lcsc_code": "C55266",
+      "jlc_smt_library": "extended",
+      "image_url": "https://image.lceda.cn/szlcsc/C55266.jpg",
+      "datasheet_path": "references/suppliers/c55266/c55266-datasheet.pdf",
+      "catalog_evidence": {
+        "url": "https://easyeda.com/api/products/C55266/components",
+        "path": "product/references/jlc-assembly/C55266-easyeda.json",
+        "observed_date": "2026-11-06",
+        "manufacturer_part_number": "TPS2553DBVR",
+        "jlc_part_class": "Extended Part",
+        "jlc_on_sale": 1,
+        "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
+        "live_stock_verified": false
+      }
     },
     {
       "id": "lite_header",
       "role": "lite_header",
+      "name": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标",
       "quantity": 1,
       "designators": [
         "J_MOD"
       ],
-      "source": "default",
+      "supplier": "User supplied / generic connector selected by dimensions",
+      "source": "user",
       "stock": null,
-      "observed_date": "2026-09-30",
+      "procurement_status": "external_procurement_required",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
+        "method": "through_hole",
         "side": "top"
       },
+      "selection_status": "selected_generic_through_hole_PCB_verified",
       "required_user_evidence": [],
-      "name": "HLE-104-02-G-DV",
-      "mpn": "HLE-104-02-G-DV",
-      "part_number": "HLE-104-02-G-DV",
-      "manufacturer": "SAMTEC",
-      "supplier": "Samtec / authorized distributor",
-      "procurement_status": "external_procurement_required",
-      "product_url": "https://www.samtec.com/products/hle-104-02-g-dv",
-      "datasheet_url": "https://suddendocs.samtec.com/catalog_english/hle.pdf",
-      "package": "2x4 SMT, 2.54mm mating pitch/row spacing",
-      "footprint": "vendor:Samtec_HLE-104-02-xxx-DV_2x04_P2.54mm_Horizontal",
-      "description": "HLE-104-02-G-DV: installed housing height 3.66mm; SMT top entry; insertion1.78..3.43mm; native land centres5.05mm apart.",
-      "selection_reason": "User requested a lower8pin interface. HLE3.66mm is0.91mm lower than SLW4.57mm; same2.54mm mating pitch, new verified SMT land pattern.",
-      "supply_risk": "LCSC currently has no stock evidence; external procurement may be needed. Module retention must be mechanical; verify insertion depth1.78..3.43mm.",
-      "part_identity": "0b77c3e9c7ad5571",
-      "datasheet_path": "references/suppliers/c6630649/c6630649-datasheet.pdf",
-      "selection_status": "selected_for_interface_revision",
-      "unit_price_cny": 20.66,
-      "catalog_evidence": {
-        "lcsc": "C6630649",
-        "status": "exact identity but supplier footprint unavailable; use matching stock KiCad HLE-DV footprint"
-      }
+      "supply_risk": "Generic user-purchased dimensions, not a certified manufacturer contact design. CAD uses current PCB nominal geometry atZ21.0, Pi/sink lifted1.3mm. GPIO nominal engagement3.885mm at official Pi tip datum;8Pin cover gap0.205mm is tight and must be checked with actual part/print tolerances. Native-tail seating remains a prototype check.",
+      "reference_image": "product/references/uploads/20261106T125120328Z-1-cleanshot-2026-11-06-at-20-50-28-2x.png",
+      "superseded_built_reference": {
+        "id": "lite_header",
+        "role": "lite_header",
+        "quantity": 1,
+        "designators": [
+          "J_MOD"
+        ],
+        "source": "default",
+        "stock": null,
+        "observed_date": "2026-09-30",
+        "assembly": {
+          "population": "mounted",
+          "method": "manual",
+          "side": "top"
+        },
+        "required_user_evidence": [],
+        "name": "HLE-104-02-G-DV",
+        "mpn": "HLE-104-02-G-DV",
+        "part_number": "HLE-104-02-G-DV",
+        "manufacturer": "SAMTEC",
+        "supplier": "Samtec / authorized distributor",
+        "procurement_status": "external_procurement_required",
+        "product_url": "https://www.samtec.com/products/hle-104-02-g-dv",
+        "datasheet_url": "https://suddendocs.samtec.com/catalog_english/hle.pdf",
+        "package": "2x4 SMT, 2.54mm mating pitch/row spacing",
+        "footprint": "vendor:Samtec_HLE-104-02-xxx-DV_2x04_P2.54mm_Horizontal",
+        "description": "HLE-104-02-G-DV: installed housing height 3.66mm; SMT top entry; insertion1.78..3.43mm; native land centres5.05mm apart.",
+        "selection_reason": "User requested a lower8pin interface. HLE3.66mm is0.91mm lower than SLW4.57mm; same2.54mm mating pitch, new verified SMT land pattern.",
+        "supply_risk": "Retain exact HLE-104-02-G-DV for separate soldering; no confirmed JLC placement identity for this exact variant. No substitution with -P-TR or -LC-K variants.",
+        "part_identity": "0b77c3e9c7ad5571",
+        "datasheet_path": "references/suppliers/c6630649/c6630649-datasheet.pdf",
+        "selection_status": "selected_for_interface_revision",
+        "unit_price_cny": 20.66,
+        "catalog_evidence": {
+          "lcsc": "C6630649",
+          "status": "exact identity but supplier footprint unavailable; use matching stock KiCad HLE-DV footprint"
+        }
+      },
+      "part_number": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标",
+      "footprint": "vendor:KiCad_PinSocket_2x04_P2.54mm_GenericH5",
+      "package": "2x4 through-hole,2.54mm mating grid",
+      "selection_reason": "User accepts selection from supplied specifications. Use the installed standard KiCad through-hole land pattern; drill1mm/pad1.7mm verified in the library. Row spacing2.54mm and0.64mm square tails are engineering defaults. No manufacturer SKU is invented. PCB uses a project copy of the published KiCad footprint with unrelated stock3D model stanza removed and a documented rigid translation of every2D feature to the body-centre origin; pad/row spacing, pad shape and numbering are unchanged. Nominal user-specification STEP comes from connector_fit_references; no copper is hand drawn.",
+      "cad_relevance": {
+        "body_mm": {
+          "value": [
+            10.16,
+            5.08,
+            5
+          ],
+          "source": "default"
+        },
+        "tail_length_mm": {
+          "value": 3,
+          "source": "default"
+        },
+        "mating_pitch_mm": {
+          "value": 2.54,
+          "source": "user"
+        },
+        "row_spacing_mm": {
+          "value": 2.54,
+          "source": "default"
+        },
+        "pin_cross_section_mm": {
+          "value": [
+            0.64,
+            0.64
+          ],
+          "source": "default"
+        },
+        "drill_mm": {
+          "value": 1,
+          "source": "research"
+        },
+        "pad_mm": {
+          "value": [
+            1.7,
+            1.7
+          ],
+          "source": "research"
+        },
+        "evidence": "design/pi_baseboard_lite/connector-specification.json"
+      },
+      "part_identity": "a446a34b733c8bab"
     },
     {
       "id": "lite_c100n",
@@ -249,10 +442,12 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
-        "side": "top"
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": true,
+        "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
       },
-      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
+      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
       "part_identity": "793924b009c093b0",
       "designators": [
@@ -260,7 +455,18 @@
         "C_BUF2",
         "C_LCD_A"
       ],
-      "selection_status": "pcb_check_ready_bench_validation_pending"
+      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
+      "catalog_evidence": {
+        "url": "https://easyeda.com/api/products/C14663/components",
+        "path": "product/references/jlc-assembly/C14663-easyeda.json",
+        "observed_date": "2026-11-06",
+        "manufacturer_part_number": "CC0603KRX7R9BB104",
+        "jlc_part_class": "Basic Part",
+        "jlc_on_sale": 1,
+        "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
+        "live_stock_verified": false
+      },
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment."
     },
     {
       "id": "lite_r10k",
@@ -283,10 +489,12 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
-        "side": "top"
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": true,
+        "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
       },
-      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
+      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
       "part_identity": "521357339b7b313a",
       "designators": [
@@ -294,7 +502,18 @@
         "R_AUX_BLEED",
         "R_FAULT_PU"
       ],
-      "selection_status": "pcb_check_ready_bench_validation_pending"
+      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
+      "catalog_evidence": {
+        "url": "https://easyeda.com/api/products/C25804/components",
+        "path": "product/references/jlc-assembly/C25804-easyeda.json",
+        "observed_date": "2026-11-06",
+        "manufacturer_part_number": "0603WAF1002T5E",
+        "jlc_part_class": "Basic Part",
+        "jlc_on_sale": 1,
+        "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
+        "live_stock_verified": false
+      },
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment."
     },
     {
       "id": "lite_r100k",
@@ -317,10 +536,12 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
-        "side": "top"
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": true,
+        "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
       },
-      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
+      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
       "part_identity": "14b2d76ef981c976",
       "designators": [
@@ -332,7 +553,18 @@
         "R_LCD_EN",
         "R_AUX_EN"
       ],
-      "selection_status": "pcb_check_ready_bench_validation_pending"
+      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
+      "catalog_evidence": {
+        "url": "https://easyeda.com/api/products/C25803/components",
+        "path": "product/references/jlc-assembly/C25803-easyeda.json",
+        "observed_date": "2026-11-06",
+        "manufacturer_part_number": "0603WAF1003T5E",
+        "jlc_part_class": "Basic Part",
+        "jlc_on_sale": 1,
+        "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
+        "live_stock_verified": false
+      },
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment."
     },
     {
       "id": "lite_r169k",
@@ -355,17 +587,30 @@
       "jlc_smt_library": "extended",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
-        "side": "top"
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": true,
+        "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
       },
-      "selection_reason": "Exact value/package verified; manual prototype assembly. Extended resistor chosen only because no exact Basic match.",
+      "selection_reason": "Exact value/package verified; JLC SMT assembly. Extended resistor chosen only because no exact Basic match. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
       "part_identity": "3f2bf7b7819c1031",
       "designators": [
         "R_LCD_ILIM",
         "R_AUX_ILIM"
       ],
-      "selection_status": "pcb_check_ready_bench_validation_pending"
+      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
+      "catalog_evidence": {
+        "url": "https://easyeda.com/api/products/C22817/components",
+        "path": "product/references/jlc-assembly/C22817-easyeda.json",
+        "observed_date": "2026-11-06",
+        "manufacturer_part_number": "0603WAF1693T5E",
+        "jlc_part_class": "Extended Part",
+        "jlc_on_sale": 1,
+        "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
+        "live_stock_verified": false
+      },
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment."
     },
     {
       "id": "lite_c2u2",
@@ -388,10 +633,12 @@
       "jlc_smt_library": "basic",
       "assembly": {
         "population": "mounted",
-        "method": "manual",
-        "side": "top"
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": true,
+        "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
       },
-      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; manual prototype assembly. No unqualified substitute.",
+      "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
       "part_identity": "fca643e731731cf2",
       "designators": [
@@ -403,47 +650,18 @@
         "C_AUX_LIN",
         "C_AUX_LOUT"
       ],
-      "selection_status": "pcb_check_ready_bench_validation_pending"
-    },
-    {
-      "id": "fan_connector",
-      "role": "internal_fan_power_connector",
-      "name": "JST SH 1mm side-entry 2pin SMT fan socket",
-      "quantity": 1,
-      "manufacturer": "JST",
-      "mpn": "SM02B-SRSS-TB",
-      "part_number": "SM02B-SRSS-TB",
-      "source": "default",
-      "supplier": "Manufacturer / authorized distributor",
-      "procurement_status": "external_procurement_required",
-      "assembly": {
-        "population": "mounted",
-        "method": "manual",
-        "side": "top"
+      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
+      "catalog_evidence": {
+        "url": "https://easyeda.com/api/products/C377773/components",
+        "path": "product/references/jlc-assembly/C377773-easyeda.json",
+        "observed_date": "2026-11-06",
+        "manufacturer_part_number": "CL21A225KBQNNNE",
+        "jlc_part_class": "Basic Part",
+        "jlc_on_sale": 1,
+        "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
+        "live_stock_verified": false
       },
-      "required_user_evidence": [],
-      "selection_status": "selected",
-      "designators": [
-        "J_FAN"
-      ],
-      "footprint": "kicad:Connector_JST/JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal",
-      "product_url": "https://www.jst-mfg.com/product/index.php?lang=2&series=231",
-      "datasheet_url": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
-      "datasheet_path": "product/references/jst-sh.pdf",
-      "pin_map": {
-        "1": "+5V V5_PI_IN",
-        "2": "GND"
-      },
-      "selection_reason": "Low side-entry socket below HAT, away from screen FPC and expansion module. Exact supplier match unavailable; original JST is sourced externally and factory mounted.",
-      "supply_risk": "Supplier search timed out; exact MPN detail returned no exact row. No LCSC or JLC-library claim. Use verified KiCad stock footprint/model.",
-      "part_identity": "75e6679ed1582a9c",
-      "cad_relevance": {
-        "pitch_mm": 1,
-        "pin_count": 2,
-        "height_mm": 2.9,
-        "layer": "bottom",
-        "entry": "front -Y"
-      }
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment."
     }
   ]
 }

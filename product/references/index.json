@@ -233,6 +233,69 @@
       "share": false
     },
     {
+      "file": "jlc-assembly/C14663-easyeda.json",
+      "sha256": "f0fe8bf63f3c5054a75fe465b4373c180635762f42368b239c66b36db2f81008",
+      "bytes": 14249,
+      "addedAt": "2026-11-06T11:18:50.408Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C22817-easyeda.json",
+      "sha256": "a3715f2b71d210658e56a006254a02bae5ae44ffd0e8ca2b2fa4b19937dcb6cd",
+      "bytes": 21904,
+      "addedAt": "2026-11-06T11:18:50.408Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C25803-easyeda.json",
+      "sha256": "984c523bc14a93b27ee677728199d026f55e2a2f787ce85a8ecba7943dd7b83a",
+      "bytes": 21905,
+      "addedAt": "2026-11-06T11:18:50.409Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C25804-easyeda.json",
+      "sha256": "abef5b75b48680fc1ebd6815590a646eacfd1a15c74ff5ed429fcbf05fd59afa",
+      "bytes": 21863,
+      "addedAt": "2026-11-06T11:18:50.409Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C377773-easyeda.json",
+      "sha256": "633baa719a3fe707b024cf96faeeaabd8dcf1e23cba6aa7cdb6483eb6a26ff7d",
+      "bytes": 15071,
+      "addedAt": "2026-11-06T11:18:50.410Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C404027-easyeda.json",
+      "sha256": "7f3cd44efcdb3baf9e2e205f0f884e33fd8f1222795077ba075ea54417078c9e",
+      "bytes": 25390,
+      "addedAt": "2026-11-06T11:18:50.410Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C5373447-easyeda.json",
+      "sha256": "fb48b7c68e86177ef44ea6e6c896708277933be066a9faf41add951985220f91",
+      "bytes": 26459,
+      "addedAt": "2026-11-06T11:18:50.411Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C54529-easyeda.json",
+      "sha256": "b741a752271401e180fe590bd3d6ca830d9e1e3bfb318762b0af93de4209ff38",
+      "bytes": 37276,
+      "addedAt": "2026-11-06T11:18:50.411Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C55266-easyeda.json",
+      "sha256": "9108626d93d8e4401f1eab6d101df0dbf59e973db25ce89f014a3a2c2748d9a4",
+      "bytes": 25585,
+      "addedAt": "2026-11-06T11:18:50.412Z",
+      "share": false
+    },
+    {
       "file": "jst-ph-source.txt",
       "sha256": "4b19c3ddf07fc3571f10f54567c86d8702558b640b89be58d935eb610a5048e3",
       "bytes": 72213,
@@ -405,6 +468,20 @@
       "sha256": "7b38e874caf62e9c02a716a60db618aab8180da3ed8385de52f9dad378bb2695",
       "bytes": 402017,
       "addedAt": "2026-09-29T08:20:39.225Z",
+      "share": false
+    },
+    {
+      "file": "smt-pi-baseboard-lite-manufacturing-2026-11-6.pdf",
+      "sha256": "e911d173bd3109857154223a892116e6fb62f9b58dedeb410e2d03c3ffbff8c9",
+      "bytes": 647365,
+      "addedAt": "2026-11-06T12:34:31.517Z",
+      "share": false
+    },
+    {
+      "file": "smt-pi-baseboard-lite-manufacturing-2026-11-7.pdf",
+      "sha256": "c1de48b175821dfc86edadb90acfaf1dcde6456fc414c2309b0a97ed1dd87a69",
+      "bytes": 647015,
+      "addedAt": "2026-11-07T12:00:00.792Z",
       "share": false
     },
     {
@@ -643,6 +720,41 @@
       "sha256": "b13b4e900824be8ef843c4747d4e1062f0209dc903ca80a4b287ae50e75f2eba",
       "bytes": 607765,
       "addedAt": "2026-11-04T10:27:59.413Z",
+      "share": false
+    },
+    {
+      "file": "uploads/20261106T124430370Z-1-cleanshot-2026-11-06-at-20-39-37-2x.png",
+      "sha256": "cc84e71a8819a5eb124daf584efbb24ed554b999197209778dfb3498718047cf",
+      "bytes": 312621,
+      "addedAt": "2026-11-06T12:44:31.094Z",
+      "share": false
+    },
+    {
+      "file": "uploads/20261106T124737918Z-1-cleanshot-2026-11-06-at-20-46-52-2x.png",
+      "sha256": "5def4eb00187bd95ac05ce65dd0f7c64c8e180524c59944d05c1d32dacc5dc78",
+      "bytes": 347075,
+      "addedAt": "2026-11-06T12:47:56.232Z",
+      "share": false
+    },
+    {
+      "file": "uploads/20261106T125120328Z-1-cleanshot-2026-11-06-at-20-50-28-2x.png",
+      "sha256": "ab0528077fdca479c413a11e1ae09b546c7a55d2b855daaf2f61a23633fb365f",
+      "bytes": 427563,
+      "addedAt": "2026-11-06T12:51:45.744Z",
+      "share": false
+    },
+    {
+      "file": "uploads/20261107T105611537Z-1-cleanshot-2026-11-07-at-18-55-56-2x.png",
+      "sha256": "67ffbbfb3b6db3b393394427db3ccdb839fc1bfba95c0cf705e25b6586e44d03",
+      "bytes": 39103,
+      "addedAt": "2026-11-07T10:56:16.121Z",
+      "share": false
+    },
+    {
+      "file": "uploads/20261107T122534444Z-1-cleanshot-2026-11-07-at-20-25-24-2x.png",
+      "sha256": "ddfc917c897e268ffc1d0a5acce22ccca73ebabd90d1c8049207aa83bd0d440a",
+      "bytes": 113279,
+      "addedAt": "2026-11-07T12:26:27.529Z",
       "share": false
     },
     {

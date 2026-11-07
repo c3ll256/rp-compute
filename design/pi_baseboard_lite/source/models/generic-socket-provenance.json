@@ -1,0 +1,62 @@
+[
+  {
+    "object_id": "generic_40pin",
+    "cad_revision": "94bdb20ebfb021eee5fb28a0ab9a212f363bf1e0b96fe9e3367b7aae941e9747",
+    "cad_export_id": "export-4f50cb2b848cda1db5be17eba8e0044a",
+    "cad_source_step_sha256": "3c0bf85faaa46a7b05417fcaf3b2078303cec28472f47708c110582bc67cb94e",
+    "source_step": "manufacturing/connector_fit_references/releases/export-4f50cb2b848cda1db5be17eba8e0044a/model.step",
+    "removed_display_translation_mm": [
+      80,
+      0,
+      0
+    ],
+    "native_2d_origin_translation_mm": [
+      1.27,
+      -24.13
+    ],
+    "model_origin_position_mm": [
+      -1.27,
+      -24.13,
+      0
+    ],
+    "model_path": "design/pi_baseboard_lite/source/models/generic_40pin-nominal.step",
+    "model_sha256": "c7ef264d36d631912814677c176948b2dfb1b1a075a17c38fc87943e1fce1f3c",
+    "footprint": "vendor:KiCad_PinSocket_2x20_P2.54mm_GenericH8",
+    "footprint_source_url": "https://gitlab.com/kicad/libraries/kicad-footprints/-/blob/master/Connector_PinSocket_2.54mm.pretty/PinSocket_2x20_P2.54mm_Vertical.kicad_mod",
+    "upstream_footprint_sha256": "a48bc586f3c2cad420273c1ae750874fd9604c47ea97d22f20fddf1f4d6b810b",
+    "project_footprint_sha256": "8f8e484a1dd07f51dd1d556e13ce781838b26b839d13654aed931d50354fe474",
+    "license": "KiCad library GPL-3.0 with library exception; nominal model is project-generated reference",
+    "modification": "Remove the stock3D model stanza; rebase all published2D geometry uniformly from pin1 to pad-grid center. Copper/hole sizes, pairwise positions, numbering, silk and courtyard geometry remain unchanged.",
+    "qualification": "Nominal specification reference, not manufacturer-certified internal contact or mating geometry."
+  },
+  {
+    "object_id": "generic_8pin",
+    "cad_revision": "94bdb20ebfb021eee5fb28a0ab9a212f363bf1e0b96fe9e3367b7aae941e9747",
+    "cad_export_id": "export-4f50cb2b848cda1db5be17eba8e0044a",
+    "cad_source_step_sha256": "3c0bf85faaa46a7b05417fcaf3b2078303cec28472f47708c110582bc67cb94e",
+    "source_step": "manufacturing/connector_fit_references/releases/export-4f50cb2b848cda1db5be17eba8e0044a/model.step",
+    "removed_display_translation_mm": [
+      100,
+      0,
+      0
+    ],
+    "native_2d_origin_translation_mm": [
+      1.27,
+      -3.81
+    ],
+    "model_origin_position_mm": [
+      -1.27,
+      -3.81,
+      0
+    ],
+    "model_path": "design/pi_baseboard_lite/source/models/generic_8pin-nominal.step",
+    "model_sha256": "ba6b71cd1983f7515b1252264c5759be27692e721626958c602329d4cd872251",
+    "footprint": "vendor:KiCad_PinSocket_2x04_P2.54mm_GenericH5",
+    "footprint_source_url": "https://gitlab.com/kicad/libraries/kicad-footprints/-/blob/master/Connector_PinSocket_2.54mm.pretty/PinSocket_2x04_P2.54mm_Vertical.kicad_mod",
+    "upstream_footprint_sha256": "d6a5ffd0462a3aed62745e912c02d457c780f2299c908869bb3e8edcee0d5446",
+    "project_footprint_sha256": "d1a5de7d79a57bc64871f7439a1eeea1b8929f578d1dafd88dce1d958546c8bc",
+    "license": "KiCad library GPL-3.0 with library exception; nominal model is project-generated reference",
+    "modification": "Remove the stock3D model stanza; rebase all published2D geometry uniformly from pin1 to pad-grid center. Copper/hole sizes, pairwise positions, numbering, silk and courtyard geometry remain unchanged.",
+    "qualification": "Nominal specification reference, not manufacturer-certified internal contact or mating geometry."
+  }
+]

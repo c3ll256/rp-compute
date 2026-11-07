@@ -5,19 +5,15 @@
 // All values here are BOARD frame; world placement is the dock transform in
 // design/handheld_computer (see the README there).
 //
-// Wider continuous electronics area: all populated parts on top except J_PI.
-// Original overall envelope and mounting datums are preserved; filled former recess
-// buys area for one-sided SMT and relaxed buffer placement.
-// Defaults for this layout iteration, not a qualified shell mounting pattern.
-// Narrow 76mm enclosure: Pi moves -5mm in X, while LCD and module stay fixed.
-// Front retainer screws now sit at X+/-27; the left outline clears their ear.
+// Compact rectangular board: remove the unused front15mm and straighten the
+// former left relief/rear step. Full width connects both mount pads to the
+// GPIO spine without a narrow neck. All interface and mounting datums stay put.
+// Strength bias: retain0.8mm FR4, two M2 holes and the rear shell edge support.
 export const board = {
-  width: "44.5mm", height: "83.5mm", centerX: -2.25, centerY: 6.25,
+  width: "43.5mm", height: "68.5mm", centerX: -1.75, centerY: 13.75,
   outline: [
-    {x:-24.5,y:-35.5}, {x:20,y:-35.5},
-    {x:20,y:38}, {x:-5,y:38}, {x:-5,y:48}, {x:-24.5,y:48},
-    {x:-24.5,y:20}, {x:-23.5,y:19},
-    {x:-23.5,y:11.5}, {x:-24.5,y:10.5}
+    {x:-23.5,y:-20.5}, {x:20,y:-20.5},
+    {x:20,y:48}, {x:-23.5,y:48}
   ]
 };
 
@@ -53,10 +49,10 @@ export function rotationForOpening(
 }
 
 export const interfaces = {
-  // ESQ underside,11.05mm housing. Native supplier numbering is paired
-  // across the opposite row from Pi top-view numbering: main.tsx swaps each pair.
-  // This preserves every original Pi world pin datum; no GPIO net swap.
-  piDock: { x: -18.5, y: 21, rotation: 270, side: "bottom" },
+  // Native KiCad2x20 is long alongY; bottom-side mirror plus180deg
+  // preserves the Pi physical pin datums with identity Pn-to-padn labels.
+  // Generic housing8mm; tails3.5mm. Exact coordinates audited after compile.
+  piDock: { centerX: -18.5, centerY: 21, x: -18.5, y: 21, rotation: 180, side: "bottom" },
 
   // Horizontal top-side FPC, entry down/front (-Y) per user. Shifted rearward
   // with upward contacts matching the return-folded native tail. Position is a fit default.
@@ -69,10 +65,57 @@ export const interfaces = {
     opening: "-Y / down in board top view"
   },
 
-  // Top-side3.66mm HLE SMT2x4. Physical mating pitch2.54mm, land-row
-  // separation5.05mm. Pin1 is front-view upper/left, same module net order.
-  frontModule: { x: 0, y: -15, rotation: 0, side: "top", mating: "+Z" },
+  // Generic5mm-height2x4 PTH socket.90deg rotates native longY
+  // to longX; physical pin1 remains upper/left,2 lower/left.
+  frontModule: { centerX: 0, centerY: -15, x: 0, y: -15, rotation: 90, side: "top", mating: "+Z" },
 
   // Keepout the socket body needs through the deck aperture.
   frontModuleAperture: { width: 54.0, depth: 26.0, centreY: -34.0 }
 };
+
+// Placement-only cleanup: fixed interfaces, outline, holes and the FPC service
+// corridor above are assembly datums. Movable electronics use these functional
+// clusters on top; only J_PI is on bottom. Values are engineering defaults.
+// Display buffers share a row behind the FPC, with their input pull-downs behind
+// them and bypass capacitors at VCC. Parallel LCD/module power clusters place
+// each limiter, LDO and its support parts together instead of at opposite ends.
+export const placements = {
+  U_BUF1: { pcbX: -7.5, pcbY: 32, pcbRotation: 90 },
+  U_BUF2: { pcbX: 11.5, pcbY: 32, pcbRotation: 90 },
+  C_BUF1: { pcbX: -13, pcbY: 30.05, pcbRotation: 90 },
+  C_BUF2: { pcbX: 6, pcbY: 30.05, pcbRotation: 90 },
+  C_LCD_A: { pcbX: -2, pcbY: 29.5, pcbRotation: 0 },
+  C_LCD_D: { pcbX: 2, pcbY: 29.5, pcbRotation: 0 },
+  R_OFF_CLK: { pcbX: -4, pcbY: 35.5, pcbRotation: 0 },
+  R_OFF_DATA: { pcbX: 0, pcbY: 35.5, pcbRotation: 0 },
+  R_OFF_CS: { pcbX: -12, pcbY: 35.5, pcbRotation: 0 },
+  R_OFF_DISP: { pcbX: -8, pcbY: 35.5, pcbRotation: 0 },
+  R_OFF_COM: { pcbX: 12, pcbY: 35.5, pcbRotation: 0 },
+  U_LCD_LIMIT: { pcbX: -9, pcbY: 2, pcbRotation: 90 },
+  C_LCD_IN: { pcbX: -13, pcbY: 1, pcbRotation: 90 },
+  R_LCD_EN: { pcbX: -6, pcbY: -1, pcbRotation: 0 },
+  R_LCD_ILIM: { pcbX: -9, pcbY: 6, pcbRotation: 0 },
+  U_LCD_LDO: { pcbX: -9, pcbY: -7.5, pcbRotation: 180 },
+  C_LCD_LIN: { pcbX: -13, pcbY: -6.5, pcbRotation: 90 },
+  C_LCD_LOUT: { pcbX: -5, pcbY: -6.5, pcbRotation: 90 },
+  R_LCD_BLEED: { pcbX: -9, pcbY: -11.0, pcbRotation: 0 },
+  U_AUX_LIMIT: { pcbX: 10, pcbY: 2, pcbRotation: 90 },
+  C_AUX_IN: { pcbX: 6, pcbY: 1, pcbRotation: 90 },
+  R_AUX_EN: { pcbX: 13, pcbY: -1, pcbRotation: 0 },
+  R_AUX_ILIM: { pcbX: 10, pcbY: 6, pcbRotation: 0 },
+  U_AUX_LDO: { pcbX: 10, pcbY: -7.5, pcbRotation: 180 },
+  C_AUX_LIN: { pcbX: 6, pcbY: -6.5, pcbRotation: 90 },
+  C_AUX_LOUT: { pcbX: 14, pcbY: -6.5, pcbRotation: 90 },
+  R_AUX_BLEED: { pcbX: 10, pcbY: -11.0, pcbRotation: 0 },
+  R_FAULT_PU: { pcbX: 0, pcbY: 1, pcbRotation: 0 },
+} as const;
+
+export const functionalLabels = [
+  { text: "U_BUF1", pcbX: -7.5, pcbY: 28.2 },
+  { text: "U_BUF2", pcbX: 11.5, pcbY: 28.2 },
+  { text: "LCD / FPC", pcbX: 0, pcbY: 18 },
+  { text: "LCD PWR", pcbX: -9, pcbY: 9 },
+  { text: "AUX PWR", pcbX: 10, pcbY: 9 },
+  { text: "MODULE", pcbX: 0, pcbY: -11 },
+  { text: "PI LITE", pcbX: 10, pcbY: 22 },
+] as const;

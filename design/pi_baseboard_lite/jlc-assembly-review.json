@@ -1,0 +1,1262 @@
+{
+  "local_checks_passed": true,
+  "supplier_kinds": 9,
+  "smt_devices": 29,
+  "rows": [
+    {
+      "ref": "J_LCD",
+      "code": "C5373447",
+      "mpn": "0.5-10P CTSJ-H2.0 119",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        100.0,
+        75.35
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.349999
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "fb48b7c68e86177ef44ea6e6c896708277933be066a9faf41add951985220f91"
+    },
+    {
+      "ref": "U_LCD_LDO",
+      "code": "C404027",
+      "mpn": "TLV75533PDBVR",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        87.5,
+        131.0
+      ],
+      "expected_jlc_rotation_deg": 180,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "7f3cd44efcdb3baf9e2e205f0f884e33fd8f1222795077ba075ea54417078c9e"
+    },
+    {
+      "ref": "U_AUX_LDO",
+      "code": "C404027",
+      "mpn": "TLV75533PDBVR",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        110.7,
+        131.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        -0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "7f3cd44efcdb3baf9e2e205f0f884e33fd8f1222795077ba075ea54417078c9e"
+    },
+    {
+      "ref": "U_BUF1",
+      "code": "C54529",
+      "mpn": "SN74AHC125PWR",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        110.5,
+        89.0
+      ],
+      "expected_jlc_rotation_deg": 90,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        -0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "b741a752271401e180fe590bd3d6ca830d9e1e3bfb318762b0af93de4209ff38"
+    },
+    {
+      "ref": "U_BUF2",
+      "code": "C54529",
+      "mpn": "SN74AHC125PWR",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        113.0,
+        69.0
+      ],
+      "expected_jlc_rotation_deg": 90,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        -0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "b741a752271401e180fe590bd3d6ca830d9e1e3bfb318762b0af93de4209ff38"
+    },
+    {
+      "ref": "U_LCD_LIMIT",
+      "code": "C55266",
+      "mpn": "TPS2553DBVR",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        93.0,
+        99.0
+      ],
+      "expected_jlc_rotation_deg": 270,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.21251,
+      "evidence_sha256": "9108626d93d8e4401f1eab6d101df0dbf59e973db25ce89f014a3a2c2748d9a4"
+    },
+    {
+      "ref": "U_AUX_LIMIT",
+      "code": "C55266",
+      "mpn": "TPS2553DBVR",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        112.0,
+        100.0
+      ],
+      "expected_jlc_rotation_deg": 270,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.21251,
+      "evidence_sha256": "9108626d93d8e4401f1eab6d101df0dbf59e973db25ce89f014a3a2c2748d9a4"
+    },
+    {
+      "ref": "C_BUF1",
+      "code": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        105.0,
+        90.95
+      ],
+      "expected_jlc_rotation_deg": 90,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        0.0,
+        -0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "f0fe8bf63f3c5054a75fe465b4373c180635762f42368b239c66b36db2f81008"
+    },
+    {
+      "ref": "C_BUF2",
+      "code": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        107.5,
+        70.95
+      ],
+      "expected_jlc_rotation_deg": 90,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        0.0,
+        -0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "f0fe8bf63f3c5054a75fe465b4373c180635762f42368b239c66b36db2f81008"
+    },
+    {
+      "ref": "C_LCD_A",
+      "code": "C14663",
+      "mpn": "CC0603KRX7R9BB104",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        98.0,
+        70.5
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "f0fe8bf63f3c5054a75fe465b4373c180635762f42368b239c66b36db2f81008"
+    },
+    {
+      "ref": "R_LCD_BLEED",
+      "code": "C25804",
+      "mpn": "0603WAF1002T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        92.0,
+        127.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "abef5b75b48680fc1ebd6815590a646eacfd1a15c74ff5ed429fcbf05fd59afa"
+    },
+    {
+      "ref": "R_AUX_BLEED",
+      "code": "C25804",
+      "mpn": "0603WAF1002T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        116.2,
+        127.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "abef5b75b48680fc1ebd6815590a646eacfd1a15c74ff5ed429fcbf05fd59afa"
+    },
+    {
+      "ref": "R_FAULT_PU",
+      "code": "C25804",
+      "mpn": "0603WAF1002T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        100.0,
+        130.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "abef5b75b48680fc1ebd6815590a646eacfd1a15c74ff5ed429fcbf05fd59afa"
+    },
+    {
+      "ref": "R_OFF_CLK",
+      "code": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        95.0,
+        94.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "984c523bc14a93b27ee677728199d026f55e2a2f787ce85a8ecba7943dd7b83a"
+    },
+    {
+      "ref": "R_OFF_DATA",
+      "code": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        105.0,
+        94.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "984c523bc14a93b27ee677728199d026f55e2a2f787ce85a8ecba7943dd7b83a"
+    },
+    {
+      "ref": "R_OFF_CS",
+      "code": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        94.0,
+        66.5
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "984c523bc14a93b27ee677728199d026f55e2a2f787ce85a8ecba7943dd7b83a"
+    },
+    {
+      "ref": "R_OFF_DISP",
+      "code": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        107.0,
+        64.5
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "984c523bc14a93b27ee677728199d026f55e2a2f787ce85a8ecba7943dd7b83a"
+    },
+    {
+      "ref": "R_OFF_COM",
+      "code": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        114.0,
+        64.5
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "984c523bc14a93b27ee677728199d026f55e2a2f787ce85a8ecba7943dd7b83a"
+    },
+    {
+      "ref": "R_LCD_EN",
+      "code": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        94.6,
+        104.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "984c523bc14a93b27ee677728199d026f55e2a2f787ce85a8ecba7943dd7b83a"
+    },
+    {
+      "ref": "R_AUX_EN",
+      "code": "C25803",
+      "mpn": "0603WAF1003T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        112.0,
+        104.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "984c523bc14a93b27ee677728199d026f55e2a2f787ce85a8ecba7943dd7b83a"
+    },
+    {
+      "ref": "R_LCD_ILIM",
+      "code": "C22817",
+      "mpn": "0603WAF1693T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        98.0,
+        99.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "a3715f2b71d210658e56a006254a02bae5ae44ffd0e8ca2b2fa4b19937dcb6cd"
+    },
+    {
+      "ref": "R_AUX_ILIM",
+      "code": "C22817",
+      "mpn": "0603WAF1693T5E",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        116.2,
+        100.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "a3715f2b71d210658e56a006254a02bae5ae44ffd0e8ca2b2fa4b19937dcb6cd"
+    },
+    {
+      "ref": "C_LCD_D",
+      "code": "C377773",
+      "mpn": "CL21A225KBQNNNE",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        104.0,
+        71.5
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "633baa719a3fe707b024cf96faeeaabd8dcf1e23cba6aa7cdb6483eb6a26ff7d"
+    },
+    {
+      "ref": "C_LCD_IN",
+      "code": "C377773",
+      "mpn": "CL21A225KBQNNNE",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        91.8,
+        103.8
+      ],
+      "expected_jlc_rotation_deg": 90,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "633baa719a3fe707b024cf96faeeaabd8dcf1e23cba6aa7cdb6483eb6a26ff7d"
+    },
+    {
+      "ref": "C_LCD_LIN",
+      "code": "C377773",
+      "mpn": "CL21A225KBQNNNE",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        92.0,
+        131.0
+      ],
+      "expected_jlc_rotation_deg": 90,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "633baa719a3fe707b024cf96faeeaabd8dcf1e23cba6aa7cdb6483eb6a26ff7d"
+    },
+    {
+      "ref": "C_LCD_LOUT",
+      "code": "C377773",
+      "mpn": "CL21A225KBQNNNE",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        83.5,
+        131.0
+      ],
+      "expected_jlc_rotation_deg": 90,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "633baa719a3fe707b024cf96faeeaabd8dcf1e23cba6aa7cdb6483eb6a26ff7d"
+    },
+    {
+      "ref": "C_AUX_IN",
+      "code": "C377773",
+      "mpn": "CL21A225KBQNNNE",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        107.0,
+        97.5
+      ],
+      "expected_jlc_rotation_deg": 90,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "633baa719a3fe707b024cf96faeeaabd8dcf1e23cba6aa7cdb6483eb6a26ff7d"
+    },
+    {
+      "ref": "C_AUX_LIN",
+      "code": "C377773",
+      "mpn": "CL21A225KBQNNNE",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        105.8,
+        131.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "633baa719a3fe707b024cf96faeeaabd8dcf1e23cba6aa7cdb6483eb6a26ff7d"
+    },
+    {
+      "ref": "C_AUX_LOUT",
+      "code": "C377773",
+      "mpn": "CL21A225KBQNNNE",
+      "side": "top",
+      "native_kicad_xy_mm": [
+        115.4,
+        131.0
+      ],
+      "expected_jlc_rotation_deg": 0,
+      "supplier_origin_to_compiled_pad_shift_source_xy_mm": [
+        -0.0,
+        0.0
+      ],
+      "max_pad_center_residual_mm": 0.0,
+      "evidence_sha256": "633baa719a3fe707b024cf96faeeaabd8dcf1e23cba6aa7cdb6483eb6a26ff7d"
+    }
+  ],
+  "remaining_pin_functions_and_29_other_component_placements_preserved": true,
+  "native_KiCad_all_48_PTH_pin_net_assignments_verified": true,
+  "pi_max_physical_pin_shift_mm": 1.6561134004869395e-13,
+  "generic_through_hole_socket_checks": [
+    {
+      "ref": "J_PI",
+      "through_holes": 40,
+      "drill_mm": 1,
+      "land_mm": 1.7,
+      "side": "bottom",
+      "semantic_pin_positions_source_mm": {
+        "P1": [
+          -17.230000000000004,
+          -3.129999999999999
+        ],
+        "P2": [
+          -19.770000000000003,
+          -3.129999999999999
+        ],
+        "P3": [
+          -17.230000000000004,
+          -0.5899999999999999
+        ],
+        "P4": [
+          -19.770000000000003,
+          -0.5899999999999999
+        ],
+        "P5": [
+          -17.230000000000004,
+          1.9499999999999993
+        ],
+        "P6": [
+          -19.770000000000003,
+          1.9499999999999993
+        ],
+        "P7": [
+          -17.23,
+          4.489999999999998
+        ],
+        "P8": [
+          -19.770000000000003,
+          4.489999999999998
+        ],
+        "P9": [
+          -17.23,
+          7.029999999999999
+        ],
+        "P10": [
+          -19.770000000000003,
+          7.029999999999999
+        ],
+        "P11": [
+          -17.23,
+          9.57
+        ],
+        "P12": [
+          -19.770000000000003,
+          9.57
+        ],
+        "P13": [
+          -17.23,
+          12.11
+        ],
+        "P14": [
+          -19.77,
+          12.11
+        ],
+        "P15": [
+          -17.23,
+          14.65
+        ],
+        "P16": [
+          -19.77,
+          14.65
+        ],
+        "P17": [
+          -17.23,
+          17.19
+        ],
+        "P18": [
+          -19.77,
+          17.19
+        ],
+        "P19": [
+          -17.23,
+          19.73
+        ],
+        "P20": [
+          -19.77,
+          19.73
+        ],
+        "P21": [
+          -17.23,
+          22.27
+        ],
+        "P22": [
+          -19.77,
+          22.27
+        ],
+        "P23": [
+          -17.23,
+          24.81
+        ],
+        "P24": [
+          -19.77,
+          24.81
+        ],
+        "P25": [
+          -17.23,
+          27.35
+        ],
+        "P26": [
+          -19.77,
+          27.35
+        ],
+        "P27": [
+          -17.23,
+          29.89
+        ],
+        "P28": [
+          -19.77,
+          29.89
+        ],
+        "P29": [
+          -17.229999999999997,
+          32.43
+        ],
+        "P30": [
+          -19.77,
+          32.43
+        ],
+        "P31": [
+          -17.229999999999997,
+          34.97
+        ],
+        "P32": [
+          -19.77,
+          34.97
+        ],
+        "P33": [
+          -17.229999999999997,
+          37.510000000000005
+        ],
+        "P34": [
+          -19.77,
+          37.510000000000005
+        ],
+        "P35": [
+          -17.229999999999997,
+          40.05
+        ],
+        "P36": [
+          -19.769999999999996,
+          40.05
+        ],
+        "P37": [
+          -17.229999999999997,
+          42.59
+        ],
+        "P38": [
+          -19.769999999999996,
+          42.59
+        ],
+        "P39": [
+          -17.229999999999997,
+          45.129999999999995
+        ],
+        "P40": [
+          -19.769999999999996,
+          45.129999999999995
+        ]
+      }
+    },
+    {
+      "ref": "J_MOD",
+      "through_holes": 8,
+      "drill_mm": 1,
+      "land_mm": 1.7,
+      "side": "top",
+      "semantic_pin_positions_source_mm": {
+        "M1": [
+          -3.81,
+          -13.73
+        ],
+        "M2": [
+          -3.81,
+          -16.27
+        ],
+        "M3": [
+          -1.27,
+          -13.73
+        ],
+        "M4": [
+          -1.27,
+          -16.27
+        ],
+        "M5": [
+          1.27,
+          -13.73
+        ],
+        "M6": [
+          1.27,
+          -16.27
+        ],
+        "M7": [
+          3.81,
+          -13.73
+        ],
+        "M8": [
+          3.81,
+          -16.27
+        ]
+      }
+    }
+  ],
+  "existing_enclosure_compatibility": {
+    "cad_design": "handheld_computer",
+    "imported_pcb_release": "1286ca06b0f271d5718a9a0cce4b884e21ec88652c70a55631e5a3024f2b770a",
+    "board_outline_thickness_and_mounting_holes_unchanged": true,
+    "connector_changes_mm": {
+      "J_PI_body_height": [
+        11.05,
+        8
+      ],
+      "J_PI_tail_length": [
+        2.29,
+        3.5
+      ],
+      "J_MOD_body_height": [
+        3.66,
+        5
+      ],
+      "J_MOD_new_bottom_tail_beyond_board": 2.2
+    },
+    "enclosure_change_needed": false,
+    "followup": "Current adapted CAD uses PCB bottom21mm, Pi/sink lift1.3mm and generic sockets. J_FAN removal only frees space; no printed structure edit required. Cover air0.205mm, generic contact stroke and full native-tail seating still need physical trial."
+  },
+  "mechanical_gate_user_facts": {
+    "population": "2026-11-06 user explicitly requests suitable parts assembled by JLCPCB.",
+    "side_and_entry": "requirements.lite_fpc_placement source=user: top; entrance front/-Y.",
+    "contact_face": "Same user requirement: native-tail exposed copper upward; top contacts.",
+    "pin_order": "Existing main.tsx maps panel terminal n to socket terminal 11-n; exact native supplier pin1 left. Net membership unchanged."
+  },
+  "fpc_checks": {
+    "exact_part": "SHOU HAN 0.5-10P CTSJ-H2.0 119 / C5373447; official library Extended, SMT, on-sale.",
+    "datasheet": "references/suppliers/c5373447/c5373447-datasheet.pdf p1, rendered and visually reviewed.",
+    "land_pattern": "10 signal lands:0.5mm pitch,4.5mm span,0.30x1.80mm; width is at drawing 0.35+/-0.05mm lower limit. Two2.50x3.20mm tabs atX+/-4.20mm. No locating holes or slots.",
+    "origin": "Importer shifts all native supplier lands +0.35mm in sourceY. Final KiCad origin(100,75.35); no hand-edited CPL origin. JLC preview must confirm body centering against all lands.",
+    "chirality": "Top-only JLC population; no bottom SMT mirror applied. Opening -Y; pin1 left; pad1/2 GND; pad10 LCD_SCLK.",
+    "rotation": "Supplier native and board target opening both -Y; expected JLC angle0deg.",
+    "visual": "Current routed top and bottom previews inspected; connector entry and latch corridor preserved."
+  },
+  "tps2553_rotation": "C55266 native library pin1 is bottom-right. Retained KiCad SOT-23-6 at90deg places pin1 bottom-left. Explicit JLC270deg aligns every pin. KiCad pad-row half-span1.1375mm versus supplier1.350mm is a retained stock-land-pattern difference, not a mirror or changed package.",
+  "manual_refs": [
+    "J_PI",
+    "J_MOD"
+  ],
+  "limitations": [
+    "Current JLC order inventory and price not verified.",
+    "Upload Gerbers, JLC BOM and JLC CPL; return the JLC placement screenshot before payment, especially J_LCD centering and six IC pin1 marks.",
+    "Prototype FPC seating, power sequencing, COM waveforms and temperature remain untested."
+  ],
+  "released_48_connector_drills_coordinate_and_diameter_verified": true,
+  "drill_inventory": {
+    "PTH_connector_1mm": 48,
+    "PTH_via_0p3mm": 34,
+    "NPTH_mount_2p2mm": 2
+  },
+  "visual_review": {
+    "status": "performed",
+    "scope": [
+      "routed top",
+      "routed bottom from_bottom",
+      "schematic",
+      "inner1/inner2 header detail",
+      "released Gerber top and bottom"
+    ],
+    "observations": "Top FPC opens toward-Y, module socket top, GPIO socket bottom. Pi pin1 and module pin1 square pads checked. Native pad-net and drill coordinates establish chirality, independently of mirrored bottom images.",
+    "preview_sha256": {
+      ".work/pcb/pi_baseboard_lite/previews/pcb-routed-top.png": "5a0c46ceb15705b8478bcbc73b8ca915cb5f700688d26eebc8c65dabdb9d58dc",
+      ".work/pcb/pi_baseboard_lite/previews/pcb-routed-bottom.png": "53275de17f95c27ea30d4fbb374d13933168a4a62c7161a9fa648eb31e1a6fe6",
+      ".work/pcb/pi_baseboard_lite/previews/schematic.png": "baa4c28c4e4fd2a105383b17cbaca908da841df6fbcb4eb492c8a5ab06d127e3",
+      "manufacturing/pi_baseboard_lite/releases/1286ca06b0f271d5718a9a0cce4b884e21ec88652c70a55631e5a3024f2b770a/package/previews/gerber-top.png": "085aacebad836028846e36dabd9b63fdffc5c5dc6cfad3e197489c05a310f147",
+      "manufacturing/pi_baseboard_lite/releases/1286ca06b0f271d5718a9a0cce4b884e21ec88652c70a55631e5a3024f2b770a/package/previews/gerber-bottom.png": "001ef2f7b6c40d749f6e26c0007d13f56359af716d2c236e95c7a72ea9cdb12c"
+    }
+  },
+  "release_id": "1286ca06b0f271d5718a9a0cce4b884e21ec88652c70a55631e5a3024f2b770a",
+  "release_file_hashes_verified": 31,
+  "released_bom_identity_quantity_and_cpl_xy_layer_rotation_verified": true,
+  "released_bom_rows": 9,
+  "released_cpl_rows": 29,
+  "released_bom": [
+    {
+      "Comment": "0.5-10P CTSJ-H2.0 119",
+      "Description": "display_fpc",
+      "Designator": "J_LCD",
+      "Footprint": "0_5-10P_CTSJ-H2_0_119",
+      "LibRef": "",
+      "Pins": "",
+      "Quantity": "1",
+      "编号": "C5373447"
+    },
+    {
+      "Comment": "SN74AHC125PWR",
+      "Description": "five_display_signal_buffers",
+      "Designator": "U_BUF1, U_BUF2",
+      "Footprint": "SN74AHC125PWR",
+      "LibRef": "",
+      "Pins": "",
+      "Quantity": "2",
+      "编号": "C54529"
+    },
+    {
+      "Comment": "CC0603KRX7R9BB104",
+      "Description": "100nF ±10% 50V",
+      "Designator": "C_BUF1, C_BUF2, C_LCD_A",
+      "Footprint": "CC0603KRX7R9BB104",
+      "LibRef": "",
+      "Pins": "",
+      "Quantity": "3",
+      "编号": "C14663"
+    },
+    {
+      "Comment": "CL21A225KBQNNNE",
+      "Description": "2.2uF ±10% 50V",
+      "Designator": "C_LCD_D, C_LCD_IN, C_LCD_LIN, C_LCD_LOUT, C_AUX_IN, C_AUX_LIN, C_AUX_LOUT",
+      "Footprint": "CL21A225KBQNNNE",
+      "LibRef": "",
+      "Pins": "",
+      "Quantity": "7",
+      "编号": "C377773"
+    },
+    {
+      "Comment": "0603WAF1003T5E",
+      "Description": "厚膜电阻 100kΩ ±1% 100mW",
+      "Designator": "R_OFF_CLK, R_OFF_DATA, R_OFF_CS, R_OFF_DISP, R_OFF_COM, R_LCD_EN, R_AUX_EN",
+      "Footprint": "0603WAF1003T5E",
+      "LibRef": "",
+      "Pins": "",
+      "Quantity": "7",
+      "编号": "C25803"
+    },
+    {
+      "Comment": "TPS2553DBVR",
+      "Description": "display_and_module_branch_current_limit",
+      "Designator": "U_LCD_LIMIT, U_AUX_LIMIT",
+      "Footprint": "TPS2553DBVR",
+      "LibRef": "",
+      "Pins": "",
+      "Quantity": "2",
+      "编号": "C55266"
+    },
+    {
+      "Comment": "0603WAF1693T5E",
+      "Description": "厚膜电阻 169kΩ ±1% 100mW",
+      "Designator": "R_LCD_ILIM, R_AUX_ILIM",
+      "Footprint": "0603WAF1693T5E",
+      "LibRef": "",
+      "Pins": "",
+      "Quantity": "2",
+      "编号": "C22817"
+    },
+    {
+      "Comment": "TLV75533PDBVR",
+      "Description": "display_logic_and_module_3v3_regulators",
+      "Designator": "U_LCD_LDO, U_AUX_LDO",
+      "Footprint": "TLV75533PDBVR",
+      "LibRef": "",
+      "Pins": "",
+      "Quantity": "2",
+      "编号": "C404027"
+    },
+    {
+      "Comment": "0603WAF1002T5E",
+      "Description": "厚膜电阻 10kΩ ±1% 100mW",
+      "Designator": "R_LCD_BLEED, R_AUX_BLEED, R_FAULT_PU",
+      "Footprint": "0603WAF1002T5E",
+      "LibRef": "",
+      "Pins": "",
+      "Quantity": "3",
+      "编号": "C25804"
+    }
+  ],
+  "released_cpl": [
+    {
+      "Designator": "J_LCD",
+      "Footprint": "0_5-10P_CTSJ-H2_0_119",
+      "Mid X": "100mm",
+      "Mid Y": "-75.35mm",
+      "Ref X": "100mm",
+      "Ref Y": "-75.35mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "J_LCD"
+    },
+    {
+      "Designator": "U_BUF1",
+      "Footprint": "SN74AHC125PWR",
+      "Mid X": "110.5mm",
+      "Mid Y": "-89mm",
+      "Ref X": "110.5mm",
+      "Ref Y": "-89mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "90",
+      "Comment": "SN74AHC125PWR"
+    },
+    {
+      "Designator": "U_BUF2",
+      "Footprint": "SN74AHC125PWR",
+      "Mid X": "113mm",
+      "Mid Y": "-69mm",
+      "Ref X": "113mm",
+      "Ref Y": "-69mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "90",
+      "Comment": "SN74AHC125PWR"
+    },
+    {
+      "Designator": "C_BUF1",
+      "Footprint": "CC0603KRX7R9BB104",
+      "Mid X": "105mm",
+      "Mid Y": "-90.95mm",
+      "Ref X": "105mm",
+      "Ref Y": "-90.95mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "90",
+      "Comment": "100nF"
+    },
+    {
+      "Designator": "C_BUF2",
+      "Footprint": "CC0603KRX7R9BB104",
+      "Mid X": "107.5mm",
+      "Mid Y": "-70.95mm",
+      "Ref X": "107.5mm",
+      "Ref Y": "-70.95mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "90",
+      "Comment": "100nF"
+    },
+    {
+      "Designator": "C_LCD_A",
+      "Footprint": "CC0603KRX7R9BB104",
+      "Mid X": "98mm",
+      "Mid Y": "-70.5mm",
+      "Ref X": "98mm",
+      "Ref Y": "-70.5mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "100nF"
+    },
+    {
+      "Designator": "C_LCD_D",
+      "Footprint": "CL21A225KBQNNNE",
+      "Mid X": "104mm",
+      "Mid Y": "-71.5mm",
+      "Ref X": "104mm",
+      "Ref Y": "-71.5mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "2.2uF"
+    },
+    {
+      "Designator": "C_LCD_IN",
+      "Footprint": "CL21A225KBQNNNE",
+      "Mid X": "91.8mm",
+      "Mid Y": "-103.8mm",
+      "Ref X": "91.8mm",
+      "Ref Y": "-103.8mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "90",
+      "Comment": "2.2uF"
+    },
+    {
+      "Designator": "C_LCD_LIN",
+      "Footprint": "CL21A225KBQNNNE",
+      "Mid X": "92mm",
+      "Mid Y": "-131mm",
+      "Ref X": "92mm",
+      "Ref Y": "-131mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "90",
+      "Comment": "2.2uF"
+    },
+    {
+      "Designator": "C_LCD_LOUT",
+      "Footprint": "CL21A225KBQNNNE",
+      "Mid X": "83.5mm",
+      "Mid Y": "-131mm",
+      "Ref X": "83.5mm",
+      "Ref Y": "-131mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "90",
+      "Comment": "2.2uF"
+    },
+    {
+      "Designator": "C_AUX_IN",
+      "Footprint": "CL21A225KBQNNNE",
+      "Mid X": "107mm",
+      "Mid Y": "-97.5mm",
+      "Ref X": "107mm",
+      "Ref Y": "-97.5mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "90",
+      "Comment": "2.2uF"
+    },
+    {
+      "Designator": "C_AUX_LIN",
+      "Footprint": "CL21A225KBQNNNE",
+      "Mid X": "105.8mm",
+      "Mid Y": "-131mm",
+      "Ref X": "105.8mm",
+      "Ref Y": "-131mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "2.2uF"
+    },
+    {
+      "Designator": "C_AUX_LOUT",
+      "Footprint": "CL21A225KBQNNNE",
+      "Mid X": "115.4mm",
+      "Mid Y": "-131mm",
+      "Ref X": "115.4mm",
+      "Ref Y": "-131mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "2.2uF"
+    },
+    {
+      "Designator": "R_OFF_CLK",
+      "Footprint": "0603WAF1003T5E",
+      "Mid X": "95mm",
+      "Mid Y": "-94mm",
+      "Ref X": "95mm",
+      "Ref Y": "-94mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "100kΩ"
+    },
+    {
+      "Designator": "R_OFF_DATA",
+      "Footprint": "0603WAF1003T5E",
+      "Mid X": "105mm",
+      "Mid Y": "-94mm",
+      "Ref X": "105mm",
+      "Ref Y": "-94mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "100kΩ"
+    },
+    {
+      "Designator": "R_OFF_CS",
+      "Footprint": "0603WAF1003T5E",
+      "Mid X": "94mm",
+      "Mid Y": "-66.5mm",
+      "Ref X": "94mm",
+      "Ref Y": "-66.5mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "100kΩ"
+    },
+    {
+      "Designator": "R_OFF_DISP",
+      "Footprint": "0603WAF1003T5E",
+      "Mid X": "107mm",
+      "Mid Y": "-64.5mm",
+      "Ref X": "107mm",
+      "Ref Y": "-64.5mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "100kΩ"
+    },
+    {
+      "Designator": "R_OFF_COM",
+      "Footprint": "0603WAF1003T5E",
+      "Mid X": "114mm",
+      "Mid Y": "-64.5mm",
+      "Ref X": "114mm",
+      "Ref Y": "-64.5mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "100kΩ"
+    },
+    {
+      "Designator": "R_LCD_EN",
+      "Footprint": "0603WAF1003T5E",
+      "Mid X": "94.6mm",
+      "Mid Y": "-104mm",
+      "Ref X": "94.6mm",
+      "Ref Y": "-104mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "100kΩ"
+    },
+    {
+      "Designator": "R_AUX_EN",
+      "Footprint": "0603WAF1003T5E",
+      "Mid X": "112mm",
+      "Mid Y": "-104mm",
+      "Ref X": "112mm",
+      "Ref Y": "-104mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "100kΩ"
+    },
+    {
+      "Designator": "U_LCD_LIMIT",
+      "Footprint": "TPS2553DBVR",
+      "Mid X": "93mm",
+      "Mid Y": "-99mm",
+      "Ref X": "93mm",
+      "Ref Y": "-99mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "270",
+      "Comment": "TPS2553DBVR"
+    },
+    {
+      "Designator": "U_AUX_LIMIT",
+      "Footprint": "TPS2553DBVR",
+      "Mid X": "112mm",
+      "Mid Y": "-100mm",
+      "Ref X": "112mm",
+      "Ref Y": "-100mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "270",
+      "Comment": "TPS2553DBVR"
+    },
+    {
+      "Designator": "R_LCD_ILIM",
+      "Footprint": "0603WAF1693T5E",
+      "Mid X": "98mm",
+      "Mid Y": "-99mm",
+      "Ref X": "98mm",
+      "Ref Y": "-99mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "169kΩ"
+    },
+    {
+      "Designator": "R_AUX_ILIM",
+      "Footprint": "0603WAF1693T5E",
+      "Mid X": "116.2mm",
+      "Mid Y": "-100mm",
+      "Ref X": "116.2mm",
+      "Ref Y": "-100mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "169kΩ"
+    },
+    {
+      "Designator": "U_LCD_LDO",
+      "Footprint": "TLV75533PDBVR",
+      "Mid X": "87.5mm",
+      "Mid Y": "-131mm",
+      "Ref X": "87.5mm",
+      "Ref Y": "-131mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "180",
+      "Comment": "TLV75533PDBVR"
+    },
+    {
+      "Designator": "U_AUX_LDO",
+      "Footprint": "TLV75533PDBVR",
+      "Mid X": "110.7mm",
+      "Mid Y": "-131mm",
+      "Ref X": "110.7mm",
+      "Ref Y": "-131mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "TLV75533PDBVR"
+    },
+    {
+      "Designator": "R_LCD_BLEED",
+      "Footprint": "0603WAF1002T5E",
+      "Mid X": "92mm",
+      "Mid Y": "-127mm",
+      "Ref X": "92mm",
+      "Ref Y": "-127mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "10kΩ"
+    },
+    {
+      "Designator": "R_AUX_BLEED",
+      "Footprint": "0603WAF1002T5E",
+      "Mid X": "116.2mm",
+      "Mid Y": "-127mm",
+      "Ref X": "116.2mm",
+      "Ref Y": "-127mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "10kΩ"
+    },
+    {
+      "Designator": "R_FAULT_PU",
+      "Footprint": "0603WAF1002T5E",
+      "Mid X": "100mm",
+      "Mid Y": "-130mm",
+      "Ref X": "100mm",
+      "Ref Y": "-130mm",
+      "Pad X": "",
+      "Pad Y": "",
+      "Layer": "T",
+      "Rotation": "0",
+      "Comment": "10kΩ"
+    }
+  ]
+}

@@ -307,14 +307,14 @@
     },
     "lite_expansion_pitch_mm": {
       "value": 2.54,
-      "source": "default"
+      "source": "user"
     },
     "variant_scope_policy": {
       "value": "Active lite variant has display and 8-contact expansion only; battery, charger, MCU, Pi supply and interlock requirements apply exclusively to retained full pi_baseboard variant.",
       "source": "default"
     },
     "lite_expansion_form": {
-      "value": "2x4 vertical female socket, 2.54mm pitch",
+      "value": "2x4 vertical female socket, 2.54mm mating pitch, through-hole solder tails for repeated module insertion; module side uses matching male header.",
       "source": "user"
     },
     "lite_supply_entry": {
@@ -352,10 +352,10 @@
     },
     "lite_compact_connectors": {
       "value": {
-        "display": "Compatible modeled top-contact FPC; exact replacement delegated to agent",
-        "pi_dock": "ESQ-120-12-G-D",
-        "expansion": "HLE-104-02-G-DV",
-        "intent": "Higher Pi socket, lower 8pin expansion socket, horizontal top-contact FPC opening toward lower/front side."
+        "display": "SHOU HAN 0.5-10P CTSJ-H2.0 119 / C5373447; retain top contacts and front/-Y entrance",
+        "pi_dock": "User-selected generic2x20 female through-hole socket,8mm housing,3.5mm tails,51x5mm body; use2.54mm standard mating grid.",
+        "expansion": "Generic2x4 female through-hole socket,2.54mm pitch; nominal5mm body target and standard land-pattern details are engineering defaults.",
+        "intent": "Prefer cheaper connectors and a thinner enclosure; PCB and enclosure may change to suit verified replacement geometry."
       },
       "source": "user"
     },
@@ -391,10 +391,9 @@
     },
     "lite_baseboard_raised_datum_mm": {
       "value": {
-        "bottom_world_z": 21.8,
-        "rise_from_previous": 4.3,
-        "reduction_from_22_5_trial": 0.7,
-        "note": "Agent default lowered to provide air space while retaining higher-socket engagement."
+        "bottom_world_z": 21.0,
+        "pi_lift_mm": 1.3,
+        "note": "Agent-selected socket stack: retain27mm deck, lower PCB0.8mm from the prior21.8mm pose and raise Pi/sink1.3mm; generic socket tolerances and native-tail seating need prototype."
       },
       "source": "default"
     },
@@ -441,7 +440,7 @@
       "source": "user"
     },
     "pcb_fastener_seat_policy": {
-      "value": "Preserve Pi cylindrical mounting holes and P165-B M2.5 metal threads. Four ISO7046 M2.5x6 screws seat in the independent upper-shell carrier at Z3.3, nominal metal engagement2mm. Preserve baseboard2.2mm holes and two M2x3 socket-cap screws without spacers. Printed receivers use screwjoint; seat allowance only on printed clearance/head seats.",
+      "value": "Preserve Pi cylindrical mounting holes and P165-B M2.5 metal threads. Four ISO7046 M2.5x6 screws seat in the independent upper-shell carrier at Z4.6, nominal metal engagement2mm. Preserve baseboard2.2mm holes and two M2x3 socket-cap screws without spacers. Printed receivers use screwjoint; seat allowance only on printed clearance/head seats.",
       "source": "default"
     },
     "lite_left_charging_opening": {
@@ -630,11 +629,11 @@
         "printed_material": "PLA prototype",
         "shell_attachment": "3 x ISO7046 M2x6, self-forming printed receivers, nominal3.6mm engagement",
         "pi_attachment": "4 x ISO7046 M2.5x6 into existing metal heatsink threads",
-        "board_bottom_z_mm": 5.3,
+        "board_bottom_z_mm": 6.6,
         "frame_bottom_z_mm": 3.0,
         "rail_thickness_mm": 2.0,
         "bottom_cover_gap_mm": 0.4,
-        "pi_pad_bottom_z_mm": 3.3,
+        "pi_pad_bottom_z_mm": 4.6,
         "qualification": "Nominal geometry; print fit, strength, fastener life and physical assembly require prototype.",
         "floor_gap_mm": 0.6,
         "shape": "Three flat mounting ears share the frame bed plane; no raised overhanging ears",
@@ -651,8 +650,8 @@
       "source": "user"
     },
     "unused_existing_fan_socket": {
-      "value": "Keep released pi_baseboard_lite J_FAN socket physically present and electrically unchanged, with no connected fan or harness. No PCB revision in this enclosure change.",
-      "source": "default"
+      "value": "Remove J_FAN fan-power socket from pi_baseboard_lite, including its footprint and dedicated5V/GND branches. Fanless product has no fan connector or harness.",
+      "source": "user"
     },
     "display_alternative_models": {
       "value": [
@@ -677,6 +676,26 @@
         "evidence": "Sharp LCP-1112041 printed pp7,21,23; LCY-1210401A printed pp7,21,23."
       },
       "source": "research"
+    },
+    "connector_cost_and_enclosure_priority": {
+      "value": "Use affordable generic40Pin and8Pin sockets instead of the prior exact Samtec selections; accept PCB and enclosure redesign and prefer a thinner assembly.",
+      "source": "user"
+    },
+    "lite_pi_socket_housing_height_mm": {
+      "value": 8,
+      "source": "user"
+    },
+    "lite_pi_socket_tail_length_mm": {
+      "value": 3.5,
+      "source": "user"
+    },
+    "lite_expansion_body_height_target_mm": {
+      "value": 5,
+      "source": "default"
+    },
+    "lite_expansion_retention": {
+      "value": "Use through-hole soldered module socket to reduce pad-peel risk under repeated insertion; module screws carry assembly loads.",
+      "source": "user"
     }
   },
   "open_questions": []

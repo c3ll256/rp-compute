@@ -63,7 +63,6 @@ export const electrical = {
     M3: gpio, M4: gpio,
     M5: input, M6: output, M7: input, M8: input,
   },
-  J_FAN: { FAN_5V: supply5, FAN_GND: ground },
 };
 
 // Reserved/unused Pi contacts are intentionally not routed, not missing wires.

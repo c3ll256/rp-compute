@@ -1,0 +1,24 @@
+{
+  "removed_ref": "J_FAN",
+  "removed_identity": "JST SM02B-SRSS-TB",
+  "current_release": "1286ca06b0f271d5718a9a0cce4b884e21ec88652c70a55631e5a3024f2b770a",
+  "assembly_step_sha256": "d29ec8dca230f3f99ec135acc27b27e6eae845fa7975f36bf66daf0f853f6c27",
+  "components_remaining": 31,
+  "proof": "review-jlc-assembly.py checks31 refs with noJ_FAN, all remaining semantic pin/net functions,29 other component poses versus Git-retained baseline,40 Pi physical pin positions and48 native PTH pin/net/drill assignments. Header replacements retain their separately checked generic source datums.",
+  "JLC_BOM_kinds": 9,
+  "JLC_CPL_devices": 29,
+  "released_files_hash_checked": 31,
+  "DRC_errors": 0,
+  "logical_unconnected": 0,
+  "routing_nets_rebuilt": [
+    "GND",
+    "V5_PI_IN"
+  ],
+  "commodity_vias": {
+    "PTH_connector_1mm": 48,
+    "PTH_via_0p3mm": 34,
+    "NPTH_mount_2p2mm": 2
+  },
+  "cad_revision": "4581964b46e5fcf23befe9b19a1dd087bec4d87a81931e6ca0daea0d30cd165e",
+  "limits": "Unused historical stock STEP assets may remain in the library package; J_FAN is absent from current source,footprint,BOM and actual mounted assembly. Generic socket mating and full native-tail seating prototype qualifications are unchanged."
+}

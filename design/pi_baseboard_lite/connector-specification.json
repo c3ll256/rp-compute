@@ -1,0 +1,108 @@
+{
+  "scope": "Specification-based user-selected generic connectors; no catalog MPN or supplier-stock claim.",
+  "user_resolution": "User states the provided image/specification text is sufficient; proceed without another listing or dimension request.",
+  "J_PI": {
+    "contacts": 40,
+    "rows": 2,
+    "contacts_per_row": 20,
+    "mating_pitch_mm": {
+      "value": 2.54,
+      "source": "default"
+    },
+    "row_spacing_mm": {
+      "value": 2.54,
+      "source": "default"
+    },
+    "body_mm": {
+      "value": [
+        51,
+        5,
+        8
+      ],
+      "source": "user"
+    },
+    "tail_length_mm": {
+      "value": 3.5,
+      "source": "user"
+    },
+    "pin_cross_section_mm": {
+      "value": [
+        0.64,
+        0.64
+      ],
+      "source": "default"
+    },
+    "drill_mm": {
+      "value": 1,
+      "source": "research"
+    },
+    "pad_mm": {
+      "value": [
+        1.7,
+        1.7
+      ],
+      "source": "research"
+    },
+    "footprint": "vendor:KiCad_PinSocket_2x20_P2.54mm_GenericH8",
+    "image": "product/references/uploads/20261106T124430370Z-1-cleanshot-2026-11-06-at-20-39-37-2x.png"
+  },
+  "J_MOD": {
+    "contacts": 8,
+    "rows": 2,
+    "contacts_per_row": 4,
+    "mating_pitch_mm": {
+      "value": 2.54,
+      "source": "user"
+    },
+    "row_spacing_mm": {
+      "value": 2.54,
+      "source": "default"
+    },
+    "body_mm": {
+      "value": [
+        10.16,
+        5.08,
+        5
+      ],
+      "source": "default"
+    },
+    "tail_length_mm": {
+      "value": 3,
+      "source": "default"
+    },
+    "pin_cross_section_mm": {
+      "value": [
+        0.64,
+        0.64
+      ],
+      "source": "default"
+    },
+    "drill_mm": {
+      "value": 1,
+      "source": "research"
+    },
+    "pad_mm": {
+      "value": [
+        1.7,
+        1.7
+      ],
+      "source": "research"
+    },
+    "footprint": "vendor:KiCad_PinSocket_2x04_P2.54mm_GenericH5",
+    "reference_image": "product/references/uploads/20261106T125120328Z-1-cleanshot-2026-11-06-at-20-50-28-2x.png",
+    "reference_qualification": "Image is SMT; through-hole is user-requested adaptation.5mm remains an engineering target, not proof that the pictured item is through-hole."
+  },
+  "source_evidence": {
+    "land_pattern": "Installed KiCad Connector_PinSocket_2.54mm library: exact2x04 and2x20 vertical footprints,2.54mm grid,1mm drill,1.7mm pad; inspected native pads and numbering.",
+    "url": "https://gitlab.com/kicad/libraries/kicad-footprints/-/tree/master/Connector_PinSocket_2.54mm.pretty",
+    "supplier_evidence": "Seller labels establish40Pin outer dimensions. No exact brand/MPN, live stock, solder-tail section or insertion-depth guarantee is claimed."
+  },
+  "assembly_limits": [
+    "Both connectors separately through-hole soldered; not JLC SMT rows.",
+    "Match the generic socket insertion stroke to actual Pi pins during prototype assembly; do not pull into engagement with screws.",
+    "Final PCB must recheck physical pin numbering and both-side tail/component clearance.",
+    "The stock KiCad3D body height is not evidence for the selected8mm/5mm housings; enclosure and released board geometry need corrected dimension references in their implementation stages.",
+    "No prediction of exact enclosure thickness reduction from socket height difference alone."
+  ],
+  "implementation_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
+}

@@ -1,5 +1,5 @@
 import { electrical, unusedPiPins } from "./electrical";
-import { board, mountingHoles, interfaces } from "./layout";
+import { board, mountingHoles, interfaces, placements, functionalLabels } from "./layout";
 import { boardPropsFromRules, groundPourPropsFromRules, keepoutPropsFromRules, netPropsFor, pcbRules } from "./lib/replicator-pcb";
 
 // Lite variant: Pi USB-C is the only input. Pins 2/4 feed this PCB, never the Pi.
@@ -8,30 +8,30 @@ import { boardPropsFromRules, groundPourPropsFromRules, keepoutPropsFromRules, n
 // Ordinary parts target >=2mm land-envelope clearance from every outline edge.
 // The Pi/module interfaces retain their mechanical datums; decouplers follow their ICs.
 // Wider outline removes the recess bottleneck. Only J_PI remains on bottom.
-// Buffers have room for routing and service; their local bypass caps remain nearby.
+// Functional clusters and side map are declared in layout.ts; bypass caps follow VCC.
 export default () => (
   <board width={board.width} height={board.height} center_x={board.centerX} center_y={board.centerY} outline={board.outline} {...boardPropsFromRules()}>
     {Object.keys(pcbRules.nets).map(n => <net key={n} name={n} {...netPropsFor(n)} />)}
     {groundPourPropsFromRules().map(p => <copperpour key={p.name} {...p} />)}
     {keepoutPropsFromRules().map(k => <keepout {...k} />)}
-    {["Pi and expansion", "LCD interface", "Display buffers", "Power"].map(n => <schematicsection key={n} name={n} />)}
+    {["Pi and expansion", "LCD interface", "LCD SPI buffer", "LCD COM buffer", "LCD supply", "Module supply"].map(n => <schematicsection key={n} name={n} />)}
+    {functionalLabels.map(label => <silkscreentext key={label.text} {...label} fontSize="1mm" layer="top" />)}
     {mountingHoles.map(h => <hole key={h.name} name={h.name} pcbX={h.x} pcbY={h.y} diameter="2.2mm" />)}
     <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="J_PI"
       pinAttributes={electrical.J_PI}
       noConnect={unusedPiPins}
-      manufacturerPartNumber="ESQ-120-12-G-D"
-      // Nominal manufacturer-drawing reference replaces supplier STEP with wrong tails.
-      cadModel={{stepUrl:"./source/models/esq-120-12-g-d-drawing-reference.step",modelOriginPosition:{x:0,y:0,z:0},positionOffset:{x:0,y:0,z:0},rotationOffset:{x:0,y:0,z:0},modelUnitToMmScale:1,modelBoardNormalDirection:"z+"}}
-      footprint="jlcpcb:C3319198"
-      pinLabels={{"pin1":"P2","pin2":"P1","pin3":"P4","pin4":"P3","pin5":"P6","pin6":"P5","pin7":"P8","pin8":"P7","pin9":"P10","pin10":"P9","pin11":"P12","pin12":"P11","pin13":"P14","pin14":"P13","pin15":"P16","pin16":"P15","pin17":"P18","pin18":"P17","pin19":"P20","pin20":"P19","pin21":"P22","pin22":"P21","pin23":"P24","pin24":"P23","pin25":"P26","pin26":"P25","pin27":"P28","pin28":"P27","pin29":"P30","pin30":"P29","pin31":"P32","pin32":"P31","pin33":"P34","pin34":"P33","pin35":"P36","pin36":"P35","pin37":"P38","pin38":"P37","pin39":"P40","pin40":"P39"}}
+      // Generic user-selected2x20 PTH socket; native KiCad2.54mm grid,1mm drills.
+      // Copper is the unchanged KiCad library; model is the explicit8mm/3.5mm user-spec reference.
+      cadModel={{stepUrl:"./source/models/generic_40pin-nominal.step",modelOriginPosition:{x:-1.27,y:-24.13,z:0},positionOffset:{x:0,y:0,z:0},rotationOffset:{x:0,y:0,z:0},modelUnitToMmScale:1,modelBoardNormalDirection:"z+"}}
+      footprint="vendor:KiCad_PinSocket_2x20_P2.54mm_GenericH8"
+      pinLabels={{"pin1": "P1", "pin2": "P2", "pin3": "P3", "pin4": "P4", "pin5": "P5", "pin6": "P6", "pin7": "P7", "pin8": "P8", "pin9": "P9", "pin10": "P10", "pin11": "P11", "pin12": "P12", "pin13": "P13", "pin14": "P14", "pin15": "P15", "pin16": "P16", "pin17": "P17", "pin18": "P18", "pin19": "P19", "pin20": "P20", "pin21": "P21", "pin22": "P22", "pin23": "P23", "pin24": "P24", "pin25": "P25", "pin26": "P26", "pin27": "P27", "pin28": "P28", "pin29": "P29", "pin30": "P30", "pin31": "P31", "pin32": "P32", "pin33": "P33", "pin34": "P34", "pin35": "P35", "pin36": "P36", "pin37": "P37", "pin38": "P38", "pin39": "P39", "pin40": "P40"}}
       connections={{"P2": "net.V5_PI_IN", "P4": "net.V5_PI_IN", "P1": "net.V3V3_PI", "P17": "net.V3V3_PI", "P3": "net.GPIO2", "P5": "net.GPIO3", "P19": "net.GPIO10", "P21": "net.GPIO9", "P23": "net.GPIO11", "P24": "net.GPIO8", "P26": "net.GPIO7", "P32": "net.GPIO12", "P22": "net.GPIO25", "P18": "net.GPIO24", "P36": "net.FAULT_N", "P6": "net.GND", "P9": "net.GND", "P14": "net.GND", "P20": "net.GND", "P25": "net.GND", "P30": "net.GND", "P34": "net.GND", "P39": "net.GND"}}
       layer="bottom"
       pcbX={interfaces.piDock.x}
       pcbY={interfaces.piDock.y}
       pcbRotation={interfaces.piDock.rotation}
-      schSectionName="Pi and expansion"
-      supplierPartNumbers={{"jlcpcb": ["C3319198"]}} />
+      schSectionName="Pi and expansion" />
     <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="J_LCD"
       pinAttributes={electrical.J_LCD}
@@ -56,10 +56,10 @@ export default () => (
     <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="J_MOD"
       pinAttributes={electrical.J_MOD}
-      manufacturerPartNumber="HLE-104-02-G-DV"
-      // KiCad copper preserved; unavailable stock model replaced with explicit drawing reference.
-      cadModel={{stepUrl:"./source/models/hle-104-02-g-dv-drawing-reference.step",modelOriginPosition:{x:0,y:0,z:0},positionOffset:{x:0,y:0,z:0},rotationOffset:{x:0,y:0,z:0},modelUnitToMmScale:1,modelBoardNormalDirection:"z+"}}
-      footprint="vendor:Samtec_HLE-104-02-xxx-DV_2x04_P2.54mm_Horizontal"
+      // Repeated-insertion module port:8 PTH terminals, standard1mm drills.
+      // Copper is the unchanged KiCad library;5mm/3mm are disclosed nominal reference dimensions.
+      cadModel={{stepUrl:"./source/models/generic_8pin-nominal.step",modelOriginPosition:{x:-1.27,y:-3.81,z:0},positionOffset:{x:0,y:0,z:0},rotationOffset:{x:0,y:0,z:0},modelUnitToMmScale:1,modelBoardNormalDirection:"z+"}}
+      footprint="vendor:KiCad_PinSocket_2x04_P2.54mm_GenericH5"
       pinLabels={{"pin1": "M1", "pin2": "M2", "pin3": "M3", "pin4": "M4", "pin5": "M5", "pin6": "M6", "pin7": "M7", "pin8": "M8"}}
       connections={{"M1": "net.AUX_3V3", "M2": "net.GND", "M3": "net.GPIO2", "M4": "net.GPIO3", "M5": "net.GPIO10", "M6": "net.GPIO9", "M7": "net.GPIO11", "M8": "net.GPIO7"}}
       layer="top"
@@ -68,16 +68,6 @@ export default () => (
       pcbRotation={interfaces.frontModule.rotation}
       schSectionName="Pi and expansion"
       />
-    <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="J_FAN"
-      pinAttributes={electrical.J_FAN}
-      manufacturerPartNumber="SM02B-SRSS-TB"
-      footprint="kicad:Connector_JST/JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal"
-      pinLabels={{"pin1":"FAN_5V","pin2":"FAN_GND"}}
-      connections={{"FAN_5V":"net.V5_PI_IN","FAN_GND":"net.GND"}}
-      layer="top"
-      pcbX={0} pcbY={34} pcbRotation={0}
-      schSectionName="Pi and expansion" />
     <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="U_BUF1"
       pinAttributes={electrical.U_BUF1}
@@ -92,10 +82,8 @@ export default () => (
       pinLabels={{"pin1": "OE1_N", "pin2": "A1", "pin3": "Y1", "pin4": "OE2_N", "pin5": "A2", "pin6": "Y2", "pin7": "GND", "pin8": "Y3", "pin9": "A3", "pin10": "OE3_N", "pin11": "Y4", "pin12": "A4", "pin13": "OE4_N", "pin14": "VCC"}}
       connections={{"VCC": "net.V3V3_LCD", "GND": "net.GND", "OE1_N": "net.GND", "A1": "net.GPIO11", "Y1": "net.LCD_SCLK", "OE2_N": "net.GND", "A2": "net.GPIO10", "Y2": "net.LCD_SI", "OE3_N": "net.GND", "A3": "net.GPIO8", "Y3": "net.LCD_SCS", "OE4_N": "net.GND", "A4": "net.GPIO25", "Y4": "net.LCD_DISP"}}
       layer="top"
-      pcbX={10.5}
-      pcbY={11}
-      pcbRotation={90}
-      schSectionName="Display buffers"
+      {...placements.U_BUF1}
+      schSectionName="LCD SPI buffer"
       supplierPartNumbers={{"jlcpcb": ["C54529"]}} />
     <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="U_BUF2"
@@ -112,10 +100,8 @@ export default () => (
       pinLabels={{"pin1": "OE1_N", "pin2": "A1", "pin3": "Y1", "pin4": "OE2_N", "pin5": "A2", "pin6": "Y2", "pin7": "GND", "pin8": "Y3", "pin9": "A3", "pin10": "OE3_N", "pin11": "Y4", "pin12": "A4", "pin13": "OE4_N", "pin14": "VCC"}}
       connections={{"VCC": "net.V3V3_LCD", "GND": "net.GND", "OE1_N": "net.GND", "A1": "net.GPIO12", "Y1": "net.LCD_COM", "OE2_N": "net.V3V3_LCD", "A2": "net.GND", "OE3_N": "net.V3V3_LCD", "A3": "net.GND", "OE4_N": "net.V3V3_LCD", "A4": "net.GND"}}
       layer="top"
-      pcbX={13}
-      pcbY={31}
-      pcbRotation={90}
-      schSectionName="Display buffers"
+      {...placements.U_BUF2}
+      schSectionName="LCD COM buffer"
       supplierPartNumbers={{"jlcpcb": ["C54529"]}} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="C_BUF1"
@@ -123,10 +109,8 @@ export default () => (
       footprint="jlcpcb:C14663"
       connections={{"pin1": "net.V3V3_LCD", "pin2": "net.GND"}}
       layer="top"
-      pcbX={5}
-      pcbY={9.05}
-      pcbRotation={90}
-      schSectionName="Display buffers"
+      {...placements.C_BUF1}
+      schSectionName="LCD SPI buffer"
       supplierPartNumbers={{"jlcpcb": ["C14663"]}}
       capacitance="100nF" />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -135,10 +119,8 @@ export default () => (
       footprint="jlcpcb:C14663"
       connections={{"pin1": "net.V3V3_LCD", "pin2": "net.GND"}}
       layer="top"
-      pcbX={7.5}
-      pcbY={29.05}
-      pcbRotation={90}
-      schSectionName="Display buffers"
+      {...placements.C_BUF2}
+      schSectionName="LCD COM buffer"
       supplierPartNumbers={{"jlcpcb": ["C14663"]}}
       capacitance="100nF" />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -147,9 +129,7 @@ export default () => (
       footprint="jlcpcb:C14663"
       connections={{"pin1": "net.V5_LCD", "pin2": "net.GND"}}
       layer="top"
-      pcbX={-2}
-      pcbY={29.5}
-      pcbRotation={0}
+      {...placements.C_LCD_A}
       schSectionName="LCD interface"
       supplierPartNumbers={{"jlcpcb": ["C14663"]}}
       capacitance="100nF" />
@@ -159,9 +139,7 @@ export default () => (
       footprint="jlcpcb:C377773"
       connections={{"pin1": "net.V5_LCD", "pin2": "net.GND"}}
       layer="top"
-      pcbX={4}
-      pcbY={28.5}
-      pcbRotation={0}
+      {...placements.C_LCD_D}
       schSectionName="LCD interface"
       supplierPartNumbers={{"jlcpcb": ["C377773"]}}
       capacitance="2.2uF" />
@@ -171,10 +149,8 @@ export default () => (
       footprint="jlcpcb:C25803"
       connections={{"pin1": "net.GPIO11", "pin2": "net.GND"}}
       layer="top"
-      pcbX={-5}
-      pcbY={6}
-      pcbRotation={0}
-      schSectionName="Display buffers"
+      {...placements.R_OFF_CLK}
+      schSectionName="LCD SPI buffer"
       supplierPartNumbers={{"jlcpcb": ["C25803"]}}
       resistance="100k" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -183,10 +159,8 @@ export default () => (
       footprint="jlcpcb:C25803"
       connections={{"pin1": "net.GPIO10", "pin2": "net.GND"}}
       layer="top"
-      pcbX={5}
-      pcbY={6}
-      pcbRotation={0}
-      schSectionName="Display buffers"
+      {...placements.R_OFF_DATA}
+      schSectionName="LCD SPI buffer"
       supplierPartNumbers={{"jlcpcb": ["C25803"]}}
       resistance="100k" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -195,10 +169,8 @@ export default () => (
       footprint="jlcpcb:C25803"
       connections={{"pin1": "net.GPIO8", "pin2": "net.GND"}}
       layer="top"
-      pcbX={-6}
-      pcbY={33.5}
-      pcbRotation={0}
-      schSectionName="Display buffers"
+      {...placements.R_OFF_CS}
+      schSectionName="LCD SPI buffer"
       supplierPartNumbers={{"jlcpcb": ["C25803"]}}
       resistance="100k" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -207,10 +179,8 @@ export default () => (
       footprint="jlcpcb:C25803"
       connections={{"pin1": "net.GPIO25", "pin2": "net.GND"}}
       layer="top"
-      pcbX={7}
-      pcbY={35.5}
-      pcbRotation={0}
-      schSectionName="Display buffers"
+      {...placements.R_OFF_DISP}
+      schSectionName="LCD SPI buffer"
       supplierPartNumbers={{"jlcpcb": ["C25803"]}}
       resistance="100k" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -219,10 +189,8 @@ export default () => (
       footprint="jlcpcb:C25803"
       connections={{"pin1": "net.GPIO12", "pin2": "net.GND"}}
       layer="top"
-      pcbX={14}
-      pcbY={35.5}
-      pcbRotation={0}
-      schSectionName="Display buffers"
+      {...placements.R_OFF_COM}
+      schSectionName="LCD COM buffer"
       supplierPartNumbers={{"jlcpcb": ["C25803"]}}
       resistance="100k" />
     <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -233,20 +201,16 @@ export default () => (
       pinLabels={{"pin1": "IN", "pin2": "GND", "pin3": "EN", "pin4": "FAULT_N", "pin5": "ILIM", "pin6": "OUT"}}
       connections={{"IN": "net.V5_PI_IN", "GND": "net.GND", "EN": "net.GPIO24", "FAULT_N": "net.FAULT_N", "ILIM": "net.LCD_ILIM", "OUT": "net.V5_LCD"}}
       layer="top"
-      pcbX={-7}
-      pcbY={1}
-      pcbRotation={90}
-      schSectionName="Power" />
+      {...placements.U_LCD_LIMIT}
+      schSectionName="LCD supply" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="R_LCD_ILIM"
       manufacturerPartNumber="0603WAF1693T5E"
       footprint="jlcpcb:C22817"
       connections={{"pin1": "net.LCD_ILIM", "pin2": "net.GND"}}
       layer="top"
-      pcbX={-2}
-      pcbY={1}
-      pcbRotation={0}
-      schSectionName="Power"
+      {...placements.R_LCD_ILIM}
+      schSectionName="LCD supply"
       supplierPartNumbers={{"jlcpcb": ["C22817"]}}
       resistance="169k" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -255,10 +219,8 @@ export default () => (
       footprint="jlcpcb:C25803"
       connections={{"pin1": "net.GPIO24", "pin2": "net.GND"}}
       layer="top"
-      pcbX={-5.4}
-      pcbY={-4}
-      pcbRotation={0}
-      schSectionName="Power"
+      {...placements.R_LCD_EN}
+      schSectionName="LCD supply"
       supplierPartNumbers={{"jlcpcb": ["C25803"]}}
       resistance="100k" />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -267,10 +229,8 @@ export default () => (
       footprint="jlcpcb:C377773"
       connections={{"pin1": "net.V5_PI_IN", "pin2": "net.GND"}}
       layer="top"
-      pcbX={-8.2}
-      pcbY={-3.8}
-      pcbRotation={90}
-      schSectionName="Power"
+      {...placements.C_LCD_IN}
+      schSectionName="LCD supply"
       supplierPartNumbers={{"jlcpcb": ["C377773"]}}
       capacitance="2.2uF" />
     <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -282,10 +242,8 @@ export default () => (
       pinLabels={{"pin1": "IN", "pin2": "GND", "pin3": "EN", "pin4": "NC", "pin5": "OUT"}}
       connections={{"IN": "net.V5_LCD", "GND": "net.GND", "EN": "net.V5_LCD", "OUT": "net.V3V3_LCD"}}
       layer="top"
-      pcbX={-12.5}
-      pcbY={-31}
-      pcbRotation={180}
-      schSectionName="Power"
+      {...placements.U_LCD_LDO}
+      schSectionName="LCD supply"
       supplierPartNumbers={{"jlcpcb": ["C404027"]}} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="C_LCD_LIN"
@@ -293,10 +251,8 @@ export default () => (
       footprint="jlcpcb:C377773"
       connections={{"pin1": "net.V5_LCD", "pin2": "net.GND"}}
       layer="top"
-      pcbX={-8}
-      pcbY={-31}
-      pcbRotation={90}
-      schSectionName="Power"
+      {...placements.C_LCD_LIN}
+      schSectionName="LCD supply"
       supplierPartNumbers={{"jlcpcb": ["C377773"]}}
       capacitance="2.2uF" />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -305,10 +261,8 @@ export default () => (
       footprint="jlcpcb:C377773"
       connections={{"pin1": "net.V3V3_LCD", "pin2": "net.GND"}}
       layer="top"
-      pcbX={-16.5}
-      pcbY={-31}
-      pcbRotation={90}
-      schSectionName="Power"
+      {...placements.C_LCD_LOUT}
+      schSectionName="LCD supply"
       supplierPartNumbers={{"jlcpcb": ["C377773"]}}
       capacitance="2.2uF" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -317,10 +271,8 @@ export default () => (
       footprint="jlcpcb:C25804"
       connections={{"pin1": "net.V5_LCD", "pin2": "net.GND"}}
       layer="top"
-      pcbX={-8}
-      pcbY={-27}
-      pcbRotation={0}
-      schSectionName="Power"
+      {...placements.R_LCD_BLEED}
+      schSectionName="LCD supply"
       supplierPartNumbers={{"jlcpcb": ["C25804"]}}
       resistance="10k" />
     <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -331,20 +283,16 @@ export default () => (
       pinLabels={{"pin1": "IN", "pin2": "GND", "pin3": "EN", "pin4": "FAULT_N", "pin5": "ILIM", "pin6": "OUT"}}
       connections={{"IN": "net.V5_PI_IN", "GND": "net.GND", "EN": "net.V3V3_PI", "FAULT_N": "net.FAULT_N", "ILIM": "net.AUX_ILIM", "OUT": "net.V5_AUX"}}
       layer="top"
-      pcbX={12}
-      pcbY={0}
-      pcbRotation={90}
-      schSectionName="Power" />
+      {...placements.U_AUX_LIMIT}
+      schSectionName="Module supply" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="R_AUX_ILIM"
       manufacturerPartNumber="0603WAF1693T5E"
       footprint="jlcpcb:C22817"
       connections={{"pin1": "net.AUX_ILIM", "pin2": "net.GND"}}
       layer="top"
-      pcbX={16.2}
-      pcbY={0}
-      pcbRotation={0}
-      schSectionName="Power"
+      {...placements.R_AUX_ILIM}
+      schSectionName="Module supply"
       supplierPartNumbers={{"jlcpcb": ["C22817"]}}
       resistance="169k" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -353,10 +301,8 @@ export default () => (
       footprint="jlcpcb:C25803"
       connections={{"pin1": "net.V3V3_PI", "pin2": "net.GND"}}
       layer="top"
-      pcbX={12}
-      pcbY={-4}
-      pcbRotation={0}
-      schSectionName="Power"
+      {...placements.R_AUX_EN}
+      schSectionName="Module supply"
       supplierPartNumbers={{"jlcpcb": ["C25803"]}}
       resistance="100k" />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -365,10 +311,8 @@ export default () => (
       footprint="jlcpcb:C377773"
       connections={{"pin1": "net.V5_PI_IN", "pin2": "net.GND"}}
       layer="top"
-      pcbX={7}
-      pcbY={2.5}
-      pcbRotation={90}
-      schSectionName="Power"
+      {...placements.C_AUX_IN}
+      schSectionName="Module supply"
       supplierPartNumbers={{"jlcpcb": ["C377773"]}}
       capacitance="2.2uF" />
     <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -380,10 +324,8 @@ export default () => (
       pinLabels={{"pin1": "IN", "pin2": "GND", "pin3": "EN", "pin4": "NC", "pin5": "OUT"}}
       connections={{"IN": "net.V5_AUX", "GND": "net.GND", "EN": "net.V5_AUX", "OUT": "net.AUX_3V3"}}
       layer="top"
-      pcbX={10.7}
-      pcbY={-31}
-      pcbRotation={0}
-      schSectionName="Power"
+      {...placements.U_AUX_LDO}
+      schSectionName="Module supply"
       supplierPartNumbers={{"jlcpcb": ["C404027"]}} />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="C_AUX_LIN"
@@ -391,10 +333,8 @@ export default () => (
       footprint="jlcpcb:C377773"
       connections={{"pin1": "net.V5_AUX", "pin2": "net.GND"}}
       layer="top"
-      pcbX={5.8}
-      pcbY={-31}
-      pcbRotation={0}
-      schSectionName="Power"
+      {...placements.C_AUX_LIN}
+      schSectionName="Module supply"
       supplierPartNumbers={{"jlcpcb": ["C377773"]}}
       capacitance="2.2uF" />
     <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -403,10 +343,8 @@ export default () => (
       footprint="jlcpcb:C377773"
       connections={{"pin1": "net.AUX_3V3", "pin2": "net.GND"}}
       layer="top"
-      pcbX={15.4}
-      pcbY={-31}
-      pcbRotation={0}
-      schSectionName="Power"
+      {...placements.C_AUX_LOUT}
+      schSectionName="Module supply"
       supplierPartNumbers={{"jlcpcb": ["C377773"]}}
       capacitance="2.2uF" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -415,10 +353,8 @@ export default () => (
       footprint="jlcpcb:C25804"
       connections={{"pin1": "net.V5_AUX", "pin2": "net.GND"}}
       layer="top"
-      pcbX={16.2}
-      pcbY={-27}
-      pcbRotation={0}
-      schSectionName="Power"
+      {...placements.R_AUX_BLEED}
+      schSectionName="Module supply"
       supplierPartNumbers={{"jlcpcb": ["C25804"]}}
       resistance="10k" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -427,9 +363,7 @@ export default () => (
       footprint="jlcpcb:C25804"
       connections={{"pin1": "net.V3V3_PI", "pin2": "net.FAULT_N"}}
       layer="top"
-      pcbX={0}
-      pcbY={-30}
-      pcbRotation={0}
+      {...placements.R_FAULT_PU}
       schSectionName="Pi and expansion"
       supplierPartNumbers={{"jlcpcb": ["C25804"]}}
       resistance="10k" />
