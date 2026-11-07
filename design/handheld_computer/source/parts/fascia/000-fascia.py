@@ -1,9 +1,7 @@
-# cell: fascia
-# cell: fascia
 import math
 housing=part('shell')
-# Equal nominal border on the screen plane. The purchased glass, bezel and FPC
-# keep their existing pose; only the outside pod silhouette contracts.
+# Equal nominal border on the screen plane. The pod base stays on the shell seam;
+# the screen plane (glass, frame, retainer) sits fascia_screen_center_z above it.
 fascia_width=housing.case_width
 fascia_thickness=param('fascia_thickness',3.0)
 fascia_window_width=param('fascia_window_width',66.5)
@@ -19,7 +17,9 @@ fascia_fpc_length=param('fascia_fpc_length',10.0)
 fascia_fpc_y=param('fascia_fpc_y',-25.0)
 fascia_fpc_roof=param('fascia_fpc_roof',1.5)
 fascia_fpc_depth=param('fascia_fpc_depth',5.0)
-fascia_screen_center_z=param('fascia_screen_center_z',8.010909266)
+# 7.21 = former 8.01 lowered 0.8mm so the LCD tail drop to the J_LCD slot is
+# 4.18mm and its back fold ends inside Sharp's 0.8..6.0mm zone.
+fascia_screen_center_z=param('fascia_screen_center_z',7.210909266)
 fascia_center_y=param('fascia_center_y',21.521201483)
 fascia_border=(fascia_width-fascia_window_width)/2
 fascia_depth=fascia_window_height+2*fascia_border
@@ -110,7 +110,8 @@ host=host-(F.inverse()*pocket)-(F.inverse()*optical)
 # Full negative FPC path: one 180-degree fold behind the panel.
 # 0.30mm is the manufacturer's stiffened-tail thickness, used conservatively
 # over the flex span. Overall free length is a disclosed 13.7mm layout target,
-# not a toleranced manufacturer length; user authorized continued provisional\n# design from this estimate. This old negative channel does not certify mating.
+# not a toleranced manufacturer length; user authorized continued provisional
+# design from this estimate. This old negative channel does not certify mating.
 fpc_bend_start=param('fpc_bend_start',1.0)
 fpc_inner_radius=param('fpc_inner_radius',1.35)
 fpc_free_length=param('fpc_free_length',13.7)
@@ -136,11 +137,16 @@ for keepout in [route_arc,route_start,route_return]:
 print('FPC_LAYOUT',dict(bend_start=fpc_bend_start,bend_end=fpc_bend_start+math.pi*r,inner_radius=fpc_inner_radius,tail_end_y=tail_end_y,tail_z=FPC_Z-2*r))
 
 # Local PCB clearance at the front rail; glass and screw datums are unchanged.
-fascia_pcb_bottom_z=param('fascia_pcb_bottom_z',21.8)
+fascia_pcb_bottom_z=housing.pcb_mount_bottom_z  # one shared board mounting datum
 fascia_pcb_clearance=param('fascia_pcb_clearance',0.5)
 fascia_pcb_top_air=param('fascia_pcb_top_air',1.5)
 PCB_T=0.8 # Frozen PCB release finished thickness.
-SCREEN_WORLD=Location((0,21.521201483,35.310909266),(13,0,0))
+# Screen active-centre frame in world, derived from the pod base and screen height.
+SCREEN_WORLD=Location((0,fascia_center_y,housing.SCREEN_POD_BASE_Z+fascia_screen_center_z),(fascia_slope,0,0))
+# The shell cuts the retainer-ear wells from its own copy of this datum.
+shell_screen_z=getattr(housing,'SCREEN_CENTER_Z',None)
+if shell_screen_z is not None:
+ assert abs(shell_screen_z-(housing.SCREEN_POD_BASE_Z+fascia_screen_center_z))<1e-6,('shell screen datum',shell_screen_z)
 # Negative probes only, derived from the released front spine and its screw notch.
 # Three straight pockets avoid widening the retained screw-axis material.
 zmid=fascia_pcb_bottom_z+PCB_T/2+(fascia_pcb_top_air-fascia_pcb_clearance)/2
@@ -161,17 +167,19 @@ voids.append(Pos(6.2,-1.2,fascia_pcb_bottom_z+PCB_T+0.8/2)*Box(0.8+2*fascia_pcb_
 # Exact release8816a764 bounds X7.493685..13.50629,Y-10.5..-5.5,Z22.594999..23.695082.
 # Allowance is independently adjustable; screen/retainer screw axes stay fixed.
 retainer_pcb_buffer_air=param('retainer_pcb_buffer_air',1.6)
-voids.append(Pos(10.4999875,-8.0,23.1450405)*Box(6.012605+2*retainer_pcb_buffer_air,5.0+2*retainer_pcb_buffer_air,1.100083+2*retainer_pcb_buffer_air))
-# Current SHOU HAN C5373447 drawer, not the former hinged FH12A.
+voids.append(Pos(10.4999875,-8.0,23.1450405+fascia_pcb_bottom_z-21.8)*Box(6.012605+2*retainer_pcb_buffer_air,5.0+2*retainer_pcb_buffer_air,1.100083+2*retainer_pcb_buffer_air))
+# Current SHOU HAN C5373447 drawer (J_LCD).
 # Actual closed bounds plus supplier PDF1 reference1.5mm forward stroke.
 fascia_fpc_latch_air=param('fascia_fpc_latch_air',0.5)
-voids.append(Pos(0,4.0699924,23.599999)*Box(10.6+2*fascia_fpc_latch_air,6.8+2*fascia_fpc_latch_air,2.010000+2*fascia_fpc_latch_air))
+voids.append(Pos(0,4.0699924,23.599999+fascia_pcb_bottom_z-21.8)*Box(10.6+2*fascia_fpc_latch_air,6.8+2*fascia_fpc_latch_air,2.010000+2*fascia_fpc_latch_air))
 # Negative service channel to the glass exit; not a manufactured cable model.
-# Frozen exitYZ(-0.5630558,27.9236986), selected horizontal mouth Y2.1699924.
+# Tail exit YZ(-0.5630558,27.1236986) after the 0.8mm screen drop; J_LCD mouth Y2.17.
+# The channel keeps its former extent relative to the exit (centre 1.17 below it).
 fascia_active_tail_channel_width=param('fascia_active_tail_channel_width',7.5)
 fascia_active_tail_channel_depth=param('fascia_active_tail_channel_depth',7.0)
 fascia_active_tail_channel_height=param('fascia_active_tail_channel_height',7.5)
-voids.append(Pos(0,0,25.75)*Box(fascia_active_tail_channel_width,fascia_active_tail_channel_depth,fascia_active_tail_channel_height))
+TAIL_EXIT_Z=SCREEN_WORLD.position.Z-23.18*math.sin(a)-2.23*math.cos(a)
+voids.append(Pos(0,0,TAIL_EXIT_Z-2.1736986)*Box(fascia_active_tail_channel_width,fascia_active_tail_channel_depth,fascia_active_tail_channel_height))
 # A service reserve may approach the face only as far as the protected skin.
 # Clip the cutters themselves, instead of plugging a through-hole after the cut.
 # The same clipped reserves are shared with the independent rear retainer.
@@ -229,14 +237,14 @@ assert len(host.solids())==1 and host.is_valid
 assert host.bounding_box().max.Z<0.001,('receiver breaks face',host.bounding_box())
 host.color=srgb('#e87736')
 publish('fascia',F*host,'Integral screen frame',material='pla',role='part')
+# Pi-specific source guards; released PCB interfaces are measured against the placed
+# imported board with cad.inspect so changing an asset never leaves a hidden old PCB.
 # Supplemental exact checks for the moved hardware. The ordinary assembly report
 # caps candidate pairs on these imported assemblies; check their individual solids
 # here against the final source-owned interfaces without changing published geometry.
 COMPACT_PI_ASSET="design/handheld_computer/source/assets/1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe.step"
-COMPACT_PCB_ASSET="design/handheld_computer/source/assets/fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8.step"
-compact_pi=asset(COMPACT_PI_ASSET).moved(Location((39+housing.pi_offset_x,-30.5,7),(90,90,0)))
-compact_pcb=asset(COMPACT_PCB_ASSET).moved(Location((-100,81,21.8)))
-compact_pod=(F*host).moved(Location((0,fascia_center_y,27.3)))
+compact_pi=asset(COMPACT_PI_ASSET).moved(Location((39+housing.pi_offset_x,-30.5,7+getattr(housing,'pi_stack_lift',0.0)),(90,90,0)))
+compact_pod=(F*host).moved(Location((0,fascia_center_y,housing.SCREEN_POD_BASE_Z)))
 compact_reference_bounds={}
 def compact_overlap_check(label,reference,target):
  total=0.0
@@ -261,9 +269,5 @@ def compact_overlap_check(label,reference,target):
  assert total<0.00001,(label,round(total,6),hits)
 compact_overlap_check("Pi / shell",compact_pi,housing.body)
 compact_overlap_check("Pi / base",compact_pi,part("base").base)
-compact_overlap_check("PCB / shell",compact_pcb,housing.body)
-compact_overlap_check("PCB / pod",compact_pcb,compact_pod)
 for i,(screw,probe) in enumerate(zip(housing.screen_mount_screws,housing.screen_mount_access_probes)):
- compact_overlap_check('PCB / screen screw '+str(i+1),compact_pcb,screw)
- compact_overlap_check('PCB / driver access '+str(i+1),compact_pcb,probe)
  compact_overlap_check('Pi / screen screw '+str(i+1),compact_pi,screw)

@@ -1,9 +1,26 @@
-# FH12A contact revision reference
+# C5373447 屏幕 FPC 连接器参考件
 
-Manufacturer-drawing outer envelope for Hirose FH12A-10S-0.5SH(55), top contact. This auxiliary source generates the PCB CAD model. The reference is deliberately modeled, not a manufacturer STEP. A=9.1mm, D=9.5mm maximum width, depth6.2mm, closed height2.0mm; latch-open height3.6mm from Hirose catalog printed p16 (PDF p11), https://docs.rs-online.com/f450/0900766b813ce339.pdf . Footprint datum alignment is inferred from the exact C5139870 supplier pad and silkscreen geometry; it is not a tolerance specification.
+主板屏幕接口 J_LCD 现用连接器的尺寸参考：SHOU HAN（首韩）0.5-10P CTSJ-H2.0 119，立创编号 C5373447。规格为 10P、0.5 mm 间距，抽屉式，上接触，适配 0.3 mm 厚 FPC，闭合高 2.0 mm。几何直接取自 JLCEDA/EasyEDA 官方库 STEP（SHA256 504b9584…），和主板发布模型里用的是同一个文件，不是自建外形。原来这里的 Hirose FH12A 填实外形块已删除，FH12A 不在当前主板上。
 
-The solid fills the complete closed envelope conservatively. No internal contact, mouth height, latch kinematics, solder profile, or cable angle is certified by it. Contact identity is supported by the manufacturer, independent of the supplier's erroneous bottom-contact descriptor.
+## 坐标
 
-## Making and assembly
+坐标与主板封装一致：焊接面在 Z=0，模型相对原始 STEP 平移 (0, −0.93, +1) mm，和主板源码里的模型偏移相同。插口朝 −Y，焊脚在 +Y 侧。装进整机后（主板发布版 69ac2649…，外壳装配中主板位置 (−100, 81, 21)），本参考件坐标加 (0, 5.65, 21.795) 就是整机坐标。
 
-Do not print or purchase this reference. Use the exact purchased Hirose part. Fold the native screen tail behind the glass with exposed copper upward and install in the -Y-facing entrance. Release the display pod for latch access, connect before final pod fastening, and support the glass independently. Native tail13.7±0.5mm remains an authorized estimate; actual reach, latch force and contact seating require a prototype check.
+## 模型里能确认的和不能确认的
+
+能确认的是外形和插口：
+- 抽屉前沿在 Y=−3.48，壳体前沿在 Y=−2.58。
+- 插口是高 0.4 mm 的入口（Z 1.05–1.45），从壳体前沿往里约 0.9 mm（到 Y≈−1.68）。0.3 mm 屏线在插口处的中面约为 Z=1.25。
+- 抽屉拉开行程按规格书取 1.5 mm（打开深度 6.7 减闭合 5.2），朝 −Y。
+
+不能确认的是内部：壳体实体除插口外是实心块，体积 55.6 mm³ 也印证了这一点。插槽、止挡和接触弹片都没有建模，模型里那条接触片只是一根简化平片。插入深度按规格书剖面 A-A 的 2.7 mm（壳体前沿到止挡）取用，这是对图纸的解读，不是认证尺寸。
+
+更正：当天早些时候的记录写过"从模型剖面量到止挡在 Y≈0.15、壳体前沿到止挡 2.73 mm"。那是对多实体组合整体做逐点取样时的误判，已作废。
+
+## 制作与装配
+
+本参考件不打印、不单独采购，实际使用主板上贴装的 C5373447。
+
+屏线金手指在屏幕背面，向后折 180° 后铜面朝上，从 −Y 侧插入抽屉口。插到底后推回抽屉。拉抽屉时两端均匀用力；玻璃要单独托住，不能靠排线承重。
+
+屏线长度 13.7±0.5 mm 仍是估计值。屏幕平面降低 0.8 mm 后，按 2.7 mm 插入深度，整个长度范围内的折弯都落在 Sharp 规定的 0.8–6.0 mm 区间内（详见整机走线记录）。实际插入深度是样机的第一项检查。

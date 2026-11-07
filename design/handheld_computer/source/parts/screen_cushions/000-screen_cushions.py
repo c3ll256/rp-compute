@@ -19,6 +19,14 @@ rear_cushion_tail_gap=param('rear_cushion_tail_gap',16.0)
 rear_cushion_z=param('rear_cushion_z',-5.04)
 rear=Pos(0,GLASS_Y,rear_cushion_z)*extrude(Rectangle(GLASS_W-2*rear_cushion_inset,GLASS_H-2*rear_cushion_inset)-Rectangle(rear_cushion_window_w,rear_cushion_window_h),amount=rear_cushion_thickness)
 rear-=Pos(0,GLASS_Y-GLASS_H/2,rear_cushion_z)*Box(rear_cushion_tail_gap,6,4*rear_cushion_thickness)
+# Die-cut notch in the front rail over the two frontmost baseboard GPIO tails
+# (3.5mm untrimmed, X-20.1..-16.9). After the 0.8mm screen drop they came within
+# 0.05mm of this pad; the notch gives 0.67mm and leaves a 0.8mm connecting strip.
+rear_cushion_gpio_notch_x=param('rear_cushion_gpio_notch_x',-18.5)
+rear_cushion_gpio_notch_width=param('rear_cushion_gpio_notch_width',5.8)
+rear_cushion_gpio_notch_depth=param('rear_cushion_gpio_notch_depth',1.6)
+rear_front_edge=GLASS_Y-GLASS_H/2+rear_cushion_inset
+rear-=Pos(rear_cushion_gpio_notch_x,rear_front_edge+rear_cushion_gpio_notch_depth/2-0.5,rear_cushion_z+rear_cushion_thickness/2)*Box(rear_cushion_gpio_notch_width,rear_cushion_gpio_notch_depth+1.0,2*rear_cushion_thickness)
 front.color=Color(0.12,0.12,0.12)
 rear.color=Color(0.24,0.24,0.25)
 assert len(front.solids())==1 and len(rear.solids())==1

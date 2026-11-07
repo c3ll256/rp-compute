@@ -1,57 +1,53 @@
 {
-  "schema_version": 3,
-  "status": "contact_orientation_and_pin_map_resolved_tail_seating_provisional",
+  "schema_version": 5,
+  "status": "contact_orientation_and_pin_map_resolved_tail_route_passes_after_screen_drop",
+  "reviewed_on": "2026-11-07",
   "source": "default",
   "length_estimate_mm": 13.7,
   "estimate_uncertainty_mm": 0.5,
-  "estimate_qualification": "User authorized estimation.13.2..14.2mm is a design review allowance, not measured free length or a bound certified by the Sharp drawing. Do not stretch the tail or claim full installed reach.",
-  "non_contact_clearance_per_side_mm": 0.5,
-  "current_board_bottom_world_z_mm": 21.8,
-  "current_board_finished_top_world_z_mm": 22.6,
+  "estimate_qualification": "User authorized estimation. 13.2..14.2mm is a design review allowance, not measured free length or a bound certified by the Sharp drawing. Do not stretch the tail or claim full installed reach.",
+  "current_board_bottom_world_z_mm": 21.0,
+  "current_board_finished_top_world_z_mm": 21.75,
   "native_exit_world_yz_mm": [
-    -0.5630557675,
-    27.9236985818
+    -0.5631,
+    27.1237
   ],
-  "connector": "FH12A-10S-0.5SH(55)",
-  "connector_source_xy_mm": [
-    0,
-    26
-  ],
-  "connector_world_origin_xy_mm": [
-    0,
-    7
-  ],
-  "connector_opening": "horizontal-Y / front/down",
-  "contact_face": "upward/away from PCB",
-  "contact_identity_status": "manufacturer_verified",
-  "physical_pin_map": "socket terminal=11-panel terminal; all10 compiled pad positions, signal labels and nets verified",
-  "reference_closed_envelope_mm": [
-    9.5,
-    6.2,
-    2
-  ],
-  "reference_opened_height_mm": 3.6,
-  "datum_alignment": "Filled outer reference frontY=-4.825, width9.5,depth6.2; inferred alignment to C5139870 supplier silk/pads. No slot-height or angle is invented.",
-  "catalog_mated_section": "Hirose printed16/PDF11 labels1.9mm tip insertion and5mm from housing front to tip stop; tail protrudes upward at an unspecified angle. These nominal figures are not an exact3D mating plane.",
+  "connector": "SHOU HAN 0.5-10P CTSJ-H2.0 119 (LCSC C5373447)",
+  "connector_world_closed_bounds_mm": {
+    "min": [
+      -5.3,
+      2.17,
+      21.795
+    ],
+    "max": [
+      5.3,
+      7.47,
+      23.805
+    ]
+  },
+  "connector_opening": "horizontal -Y / front",
+  "contact_face": "top contact (supplier 上接); folded tail copper faces up",
+  "physical_pin_map": "socket terminal = 11 - panel terminal; pad10 SCLK at +X, pad1 VSSA/GND at -X; all 10 routed pad positions and nets verified on release 69ac2649",
+  "slot_from_step": "STEP housing is a filled block except a 0.4mm-high mouth (seat+1.05..1.45, housing front Y3.07..3.97); no modelled stop. Insertion 2.7mm from housing front is read from supplier drawing section A-A (interpretation). Cable centre at mouth world Z23.045.",
   "recommended_bend_interval_mm": [
     0.8,
     6
   ],
   "minimum_inner_radius_mm": 0.45,
   "stiffener_length_mm": 4,
-  "assembly": "Release screen pod for access, shape one back fold without twisting, copper upward, insert and close latch before final pod fastening. Panel has independent support.",
+  "route_result": "Pass after the screen plane was lowered 0.8mm (screen centre world Z34.51). Drop 4.079mm; with 2.7mm insertion, 13.2/13.7/14.2mm tails end their bends at 5.58/5.75/5.91mm (limit 6.0). If insertion is only ~1.9mm, 14.2mm reaches 6.16mm. Before the drop: fail (shortest route 6.18mm).",
+  "route_record": "design/handheld_computer/fpc-route.json",
+  "assembly": "Release the screen pod for access, shape one back fold without twisting, copper upward, insert to the stop and push the drawer closed before final pod fastening. Panel has independent support.",
   "evidence": [
-    "Sharp LS027B7DH01 PDF11 and26",
-    "Hirose manufacturer catalog PDF11/printed16",
-    "C5139870 supplier footprint",
-    "fpc-physical-pin-review.json"
+    "Sharp LS027B7DH01 PDF11 and PDF26",
+    "SHOU HAN C5373447 supplier datasheet PDF1",
+    "JLCEDA/EasyEDA C5373447 STEP SHA504b9584...",
+    "fpc-physical-pin-review.json (pad positions re-measured on release 69ac2649)"
   ],
   "not_claimed": [
-    "Complete13.2..14.2mm native-tail route seated against an exact internal stop",
-    "Certified mouth plane/angle or physical latch motion",
-    "Physical GPIO engagement tolerances",
-    "Measured thermal performance"
+    "Measured tail length or real insertion depth/stop",
+    "Certified contact point, contact force or drawer motion"
   ],
-  "pcb_release": "90c5e7e3d87051e673eb4af85e3debf84ebc81adcc72dfc6dc141548fa7afe7d",
-  "cad_revision": "bd3a4861e4a55080ebf6217f622f8789631da4b61aa90558279edebd83e0273d"
+  "pcb_release": "69ac26497e08aced1b2858ee0777f8e5f23b9fe97a135c3ad144ca151cb584af",
+  "cad_revision": "0872fe334c68835e8272806489a8fd59bdab74445c8ebae5adf6e79dd1591614"
 }

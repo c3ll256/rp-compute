@@ -1,15 +1,10 @@
-# cell: shell
-# cell: shell
-# cell: shell
-# cell: shell
-# cell: shell
-# cell: shell
 # Print orientation: roof face down on the bed (Z=case_top_center is the bed plane).
 # Every interior feature grows from the roof or a wall, or slopes >=45 deg, so the
 # shell is printed deck-down. The Pi/carrier assembly enters vertically from
 # below and is independently fastened here; the bottom cover is closure only.
 case_width=param('case_width',85.0)
 pi_offset_x=param('pi_offset_x',-5.0)
+pi_stack_lift=param('pi_stack_lift',1.3)  # new socket stack; Pi, sink and ports move together
 case_depth=param('case_depth',115.0)
 case_corner=param('case_corner',9.0)
 case_top_center=param('case_top_center',27.0)
@@ -31,28 +26,28 @@ shell_passage_y=param('shell_passage_y',21.5)
 shell_passage_radius=param('shell_passage_radius',4.5)
 # Opening centres follow the placed step.parts Pi4B reference.
 shell_rj45_x=param('shell_rj45_x',-6.75)+pi_offset_x
-shell_rj45_z=param('shell_rj45_z',14.0)
+shell_rj45_z=param('shell_rj45_z',14.0)+pi_stack_lift
 shell_rj45_width=param('shell_rj45_width',17.0)
 shell_rj45_height=param('shell_rj45_height',15.0)
 shell_usb_mid_x=param('shell_usb_mid_x',12.0)+pi_offset_x
-shell_usb_mid_z=param('shell_usb_mid_z',15.0)
+shell_usb_mid_z=param('shell_usb_mid_z',15.0)+pi_stack_lift
 shell_usb_mid_width=param('shell_usb_mid_width',15.0)
 shell_usb_mid_height=param('shell_usb_mid_height',17.0)
 shell_usb_right_x=param('shell_usb_right_x',30.0)+pi_offset_x
-shell_usb_right_z=param('shell_usb_right_z',14.5)
+shell_usb_right_z=param('shell_usb_right_z',14.5)+pi_stack_lift
 shell_usb_right_width=param('shell_usb_right_width',16.0)
 shell_usb_right_height=param('shell_usb_right_height',18.0)
 shell_hdmi1_y=param('shell_hdmi1_y',-4.5)
 shell_hdmi2_y=param('shell_hdmi2_y',9.0)
-shell_hdmi_z=param('shell_hdmi_z',8.6)
+shell_hdmi_z=param('shell_hdmi_z',8.6)+pi_stack_lift
 shell_hdmi_width=param('shell_hdmi_width',7.4)
 shell_hdmi_height=param('shell_hdmi_height',4.2)
 shell_jack_y=param('shell_jack_y',23.5)
-shell_jack_z=param('shell_jack_z',9.6)
+shell_jack_z=param('shell_jack_z',9.6)+pi_stack_lift
 shell_jack_diameter=param('shell_jack_diameter',7.6)
 shell_port_radius=param('shell_port_radius',0.5)
 shell_pi_usb_c_y=param('shell_pi_usb_c_y',-19.3)
-shell_pi_usb_c_z=param('shell_pi_usb_c_z',8.18)
+shell_pi_usb_c_z=param('shell_pi_usb_c_z',8.18)+pi_stack_lift
 shell_pi_usb_c_width=param('shell_pi_usb_c_width',10.2)
 shell_pi_usb_c_height=param('shell_pi_usb_c_height',5.2)
 shell_pi_groove_clearance=param('shell_pi_groove_clearance',0.3)
@@ -101,12 +96,12 @@ assert len(body.solids())==1, ('shell body',len(body.solids()))
 
 # Raised PCB beams: they touch the roof underside, so they print as roof ribs.
 PCB_FINISHED_T=0.8 # Frozen pi_baseboard_lite release; drilled holes 2.2mm.
-PCB_LEFT_EDGE=-24.5 # Released board outline.
+PCB_LEFT_EDGE=-23.5 # Compact rectangular PCB: rear guide follows its new left edge.
 mount_top=pcb_mount_bottom_z+PCB_FINISHED_T
 beam_tip=pcb_mount_x-pcb_mount_beam_width/2
 for sx in [-1,1]:
  outer_root=inner_side+shell_wall/2
- body+=Pos(sx*(beam_tip+outer_root)/2,pcb_mount_y,mount_top+pcb_mount_beam_thickness/2+0.1)*Box(outer_root-beam_tip,pcb_mount_beam_width,pcb_mount_beam_thickness+0.2)
+ body+=Pos(sx*(beam_tip+outer_root)/2,pcb_mount_y,mount_top+max(pcb_mount_beam_thickness+0.2,roof_under-mount_top+0.2)/2)*Box(outer_root-beam_tip,pcb_mount_beam_width,max(pcb_mount_beam_thickness+0.2,roof_under-mount_top+0.2))
 
 # Bottom-cover screw columns: full height from the roof to the cover, rooted in the
 # side wall. They replace the old floating pads that needed support.
@@ -126,9 +121,9 @@ aperture=Pos(0,front_module_y,roof_under-0.5)*extrude(RectangleRounded(front_mod
 for sx in [-1,1]:
  aperture-=Pos(sx*(beam_tip+front_module_aperture_width/2+1)/2,pcb_mount_y,case_top_center)*Box(front_module_aperture_width/2+1-beam_tip,pcb_mount_beam_width,10)
 body-=aperture
-# One shared USB/RJ45 aperture. Removing both free-ended separators avoids
-# weak FDM fingers. The roof-down print grows the header from the roof.
-# The cover supplies a continuous low sill and remains removable vertically.
+# Rear USB/RJ45 aperture. Two roof-backed separators share a deep stem and
+# 45-degree root webs; their narrow lower tips register in cover pockets.
+# The cover remains removable vertically.
 rear_ports=[(shell_rj45_x,shell_rj45_z,shell_rj45_width,shell_rj45_height),(shell_usb_mid_x,shell_usb_mid_z,shell_usb_mid_width,shell_usb_mid_height),(shell_usb_right_x,shell_usb_right_z,shell_usb_right_width,shell_usb_right_height)]
 rear_window_left=min(x-w/2 for x,z,w,h in rear_ports)
 rear_window_right=max(x+w/2 for x,z,w,h in rear_ports)
@@ -138,8 +133,50 @@ rear_window_center=(rear_window_left+rear_window_right)/2
 rear_window_width=rear_window_right-rear_window_left
 port_bottom=shell_lower_z-1.0
 body-=Pos(rear_window_center,case_depth/2,(rear_window_top+port_bottom)/2)*extrude(Plane.XZ*RectangleRounded(rear_window_width,rear_window_top-port_bottom,shell_port_radius),amount=4*shell_wall,both=True)
-assert case_top_center-rear_window_top>=3.0
+assert case_top_center-rear_window_top>=2.0  # >=2mm continuous FDM header, reinforced by roof ribs
 print('SHARED_REAR_WINDOW',dict(left=rear_window_left,right=rear_window_right,top=rear_window_top,sill=rear_window_sill,header_height=case_top_center-rear_window_top))
+
+# The separators are ribs of the upper shell, continuously rooted in its roof.
+# Centre each within the existing gap; none reduces the original port window.
+rear_divider_width=param('rear_divider_width',2.4)
+rear_divider_depth=param('rear_divider_depth',4.0)
+rear_divider_root_depth=param('rear_divider_root_depth',8.0)
+rear_divider_tip_engagement=param('rear_divider_tip_engagement',1.2)
+rear_divider_shoulder_z=param('rear_divider_shoulder_z',7.5)+pi_stack_lift
+rear_divider_x=[]
+for left,right in zip(sorted(rear_ports),sorted(rear_ports)[1:]):
+ gap_left=left[0]+left[2]/2
+ gap_right=right[0]-right[2]/2
+ assert gap_right-gap_left>=rear_divider_width
+ rear_divider_x.append((gap_left+gap_right)/2)
+rear_divider_tip_z=rear_window_sill-rear_divider_tip_engagement
+rear_divider_rear_y=case_depth/2
+rear_divider_tip_inner_y=rear_divider_rear_y-shell_wall
+rear_divider_deep_y=rear_divider_rear_y-rear_divider_depth
+rear_divider_step=rear_divider_depth-shell_wall
+assert rear_divider_step>=0 and rear_divider_shoulder_z>7.1
+rear_divider_stems=[]
+rear_divider_gussets=[]
+for xx in rear_divider_x:
+ profile=Plane.YZ*Polygon(
+  (rear_divider_tip_inner_y,rear_divider_tip_z),
+  (rear_divider_rear_y,rear_divider_tip_z),
+  (rear_divider_rear_y,case_top_center),
+  (rear_divider_deep_y,case_top_center),
+  (rear_divider_deep_y,rear_divider_shoulder_z+rear_divider_step),
+  (rear_divider_tip_inner_y,rear_divider_shoulder_z),align=None)
+ stem=Pos(xx,0,0)*extrude(profile,amount=rear_divider_width/2,both=True)
+ # Deck-down printing narrows both these 45-degree slopes as it grows.
+ gusset=Pos(xx,0,0)*extrude(Plane.YZ*Polygon(
+  (rear_divider_rear_y-rear_divider_root_depth,case_top_center),
+  (rear_divider_rear_y,case_top_center),
+  (rear_divider_rear_y,case_top_center-rear_divider_root_depth),align=None),
+  amount=rear_divider_width/2,both=True)
+ rear_divider_stems.append(stem)
+ rear_divider_gussets.append(gusset)
+ body=body+stem+gusset
+print('ROOF_BACKED_REAR_DIVIDERS',dict(x=rear_divider_x,width=rear_divider_width,depth=rear_divider_depth,root_depth=rear_divider_root_depth,tip_z=rear_divider_tip_z))
+
 # Side ports clear the moulded plug shoulder as well as the metal nose.
 # Negative design reserves only: these are not purchased plug models.
 # The user's actual cables are not specified. Nominal supported shoulder bodies:
@@ -209,32 +246,42 @@ for (y0,y1,xm),ztop in [(PI_JACK_IN_WALL,shell_jack_z),(PI_USBC_IN_WALL,shell_pi
  if xb>xa:
   body-=Pos((xa+xb)/2,(y0+y1)/2,(port_bottom+ztop)/2)*Box(xb-xa,y1-y0+2*g,ztop-port_bottom)
 # Pi rear board corner sits inside the rounded wall; its relief is open to the lower edge.
-PI_REAR_CORNER_RELIEF=(35.5+pi_offset_x,39.5+pi_offset_x,51.3,55.3,7.6)
+PI_REAR_CORNER_RELIEF=(35.5+pi_offset_x,39.5+pi_offset_x,51.3,55.3,7.6+pi_stack_lift)
 rx0,rx1,ry0,ry1,rz1=PI_REAR_CORNER_RELIEF
 body-=Pos((rx0+rx1)/2,(ry0+ry1)/2,(port_bottom+rz1)/2)*Box(rx1-rx0,ry1-ry0,rz1-port_bottom)
 # Concealed wells under the screen pod clear the rear-frame mounting ears.
-SCREEN_FRAME=Pos(0,21.521201483,35.310909266)*Rot(13,0,0)
+# Screen active-centre datum shared with the fascia, which asserts that its
+# pod base + fascia_screen_center_z equals SCREEN_CENTER_Z. Lowered 0.8mm
+# (from 35.310909266) so the LCD tail drop to the J_LCD slot is 4.18mm.
+SCREEN_CENTER_Y=21.521201483
+SCREEN_CENTER_Z=34.510909266
+SCREEN_FRAME=Pos(0,SCREEN_CENTER_Y,SCREEN_CENTER_Z)*Rot(13,0,0)
 for yy in [shell_lcd_mount_y_front,shell_lcd_mount_y_rear]:
  mx=shell_lcd_mount_x_front if yy==shell_lcd_mount_y_front else shell_lcd_mount_x
  for xx in [-mx,mx]:
   body-=SCREEN_FRAME*Pos(xx,yy,-8)*Box(shell_lcd_well_width,shell_lcd_front_well_depth if yy==shell_lcd_mount_y_front else shell_lcd_well_depth,20)
-# Exact physical top-body bounds from PCB release 8816a764, source XY+(0,-19).
-PCB_FRONT_BODY_BOUNDS=[
-    (-8.650013,-51.000000,22.594999, -7.350013,-49.000000,23.894999),
-    (-8.850013,-23.800000,22.594999, -7.550013,-21.800000,23.894999),
-    (-17.150013,-51.000000,22.594999, -15.850013,-49.000000,23.894999),
-    (4.600000,-10.750000,22.594999, 5.400000,-9.150000,23.394999),
-    (4.800000,-50.649987,22.594999, 6.800000,-49.349987,23.894999),
-    (14.400000,-50.649987,22.594999, 16.400000,-49.349987,23.894999),
-    (-14.006302,-51.449987,22.594999, -10.993698,-48.549987,23.845082),
-    (-8.450000,-19.400000,22.594999, -5.550000,-16.600000,24.144999),
-    (10.550000,-20.400000,22.594999, 13.450000,-17.600000,24.144999),
-    (6.349987,-17.500000,22.594999, 7.649987,-15.500000,23.894999),
-    (9.193698,-51.450013,22.594999, 12.206302,-48.550013,23.845082),
-    (7.493685,-10.500000,22.594999, 13.506290,-5.500000,23.695082),
-]
+# Exact world-frame physical bounds from compact PCB release69ac2649,
+# STEP d5eedbdd; board placement(-100,81,21). Ordinary bodies only;
+# connectors retain their independently checked mating/roof reserves.
+PCB_FRONT_BODY_BOUNDS=[[-13.650013,-26.5,21.794999,-12.350013,-24.5,23.094999],[13.349987,-26.5,21.794999,14.649987,-24.5,23.094999],[5.349987,-26.5,21.794999,6.649987,-24.5,23.094999],[5.6,10.25,21.794999,6.4,11.85,22.594999],[-5.650013,-26.5,21.794999,-4.350013,-24.5,23.094999],[9.19,-30.405,21.794999,10.81,-29.595,22.244999],[-13.4,10.25,21.794999,-12.6,11.85,22.594999],[-0.81,-18.405,21.794999,0.81,-17.595,22.244999],[-10.506315,10.5,21.794999,-4.49371,15.5,22.895082],[-12.81,16.095,21.794999,-11.19,16.905,22.244999],[-9.81,-30.405,21.794999,-8.19,-29.595,22.244999],[8.493698,-27.949987,21.794999,11.506302,-25.049987,23.045082],[-2.8,10.1,21.794999,-1.2,10.9,22.594999],[8.55,-18.4,21.794999,11.45,-15.6,23.344999],[9.19,-13.405,21.794999,10.81,-12.595,22.244999],[11.19,16.095,21.794999,12.81,16.905,22.244999],[-10.506302,-27.949987,21.794999,-7.493698,-25.049987,23.045082],[-0.81,16.095,21.794999,0.81,16.905,22.244999],[-4.81,16.095,21.794999,-3.19,16.905,22.244999],[-6.81,-20.405,21.794999,-5.19,-19.595,22.244999],[-8.81,16.095,21.794999,-7.19,16.905,22.244999],[-10.45,-18.4,21.794999,-7.55,-15.6,23.344999],[-9.81,-13.405,21.794999,-8.19,-12.595,22.244999],[12.19,-20.405,21.794999,13.81,-19.595,22.244999],[8.493685,10.5,21.794999,14.50629,15.5,22.895082],[1,9.850013,21.794999,3,11.150013,23.094999],[5.349987,-19,21.794999,6.649987,-17,23.094999],[-13.650013,-19,21.794999,-12.350013,-17,23.094999]]
 for bx0,by0,bz0,bx1,by1,bz1 in PCB_FRONT_BODY_BOUNDS:
- body-=Pos((bx0+bx1)/2,(by0+by1)/2,(bz0+bz1)/2)*Box(bx1-bx0+2*shell_pcb_top_air,by1-by0+2*shell_pcb_top_air,bz1-bz0+2*shell_pcb_top_air)
+ body-=Pos((bx0+bx1)/2,(by0+by1)/2,(bz0+bz1)/2+pcb_mount_bottom_z-21.0)*Box(bx1-bx0+2*shell_pcb_top_air,by1-by0+2*shell_pcb_top_air,bz1-bz0+2*shell_pcb_top_air)
+# Preserve a continuous2mm roof skin and full5mm-diameter bearing rings at
+# both existing PCB joints. Cutters must not weaken the screw-bearing zone.
+assert max(b[5] for b in PCB_FRONT_BODY_BOUNDS)+shell_pcb_top_air+pcb_mount_bottom_z-21.0<=case_top_center-2.0+1e-6
+for sx in [-1,1]:
+ bearing=Pos(sx*pcb_mount_x,pcb_mount_y,mount_top+0.1)*(Cylinder(2.5,0.2)-Cylinder(1.2,0.2))
+ absent=bearing-body
+ assert absent.volume<1e-5,('PCB bearing ring interrupted',sx,absent.volume)
+
+# Selected3.5mm GPIO tails emerge on top of the0.8mm board. Reserve
+# >=0.5mm to untrimmed ends; a local ceiling preserves >=2mm printed roof.
+gpio_tail_roof_air=param('gpio_tail_roof_air',0.5)
+GPIO_TAIL_LENGTH=3.5
+gpio_tail_ceiling=pcb_mount_bottom_z+GPIO_TAIL_LENGTH+gpio_tail_roof_air
+assert case_top_center-gpio_tail_ceiling>=2.0-1e-6, 'GPIO roof skin below2mm'
+body-=Pos(-18.5,2,(mount_top+gpio_tail_ceiling)/2)*Box(6,52,gpio_tail_ceiling-mount_top)
+
 # Existing left-side slots retained as passive ventilation after fan removal.
 shell_vent_center_y=param('shell_vent_center_y',-41.0)
 shell_cooling_slot_width=param('shell_cooling_slot_width',2.4)
@@ -274,12 +321,12 @@ def printed_seat(standard,depth):
  return ClearanceHole(cutter_screw,depth=depth,counter_sunk=True,mode=Mode.PRIVATE)
 def flush_joint(frame,sheet,thickness,engagement,host,label,size='M2'):
  try:
-  joint=make_screw_joint_v1(size=size,at=frame,through=[(sheet,thickness)],engage_depth=engagement,into=host,head='countersunk',material='PLA',label=label)
+  joint=make_screw_joint_v1(size=size,at=frame,through=[(sheet,thickness)],seat='countersink',engage_depth=engagement,into=host,head='countersunk',material='PLA',label=label)
   hardware=joint.hardware
   standard=CounterSunkScrew('M3-0.5',length=joint.screw_length_mm,fastener_type='iso10642')
  except ScrewJointNotApplicableV1 as exc:
   print('FREE_HEAD_FALLBACK',size,str(exc))
-  joint=make_screw_joint_v1(size=size,at=frame,through=[(sheet,thickness)],engage_depth=engagement,into=host,head='socket_cap',material='PLA',label=label)
+  joint=make_screw_joint_v1(size=size,at=frame,through=[(sheet,thickness)],seat='countersink',engage_depth=engagement,into=host,head='socket_cap',material='PLA',label=label)
   standard=CounterSunkScrew('M2-0.4' if size=='M2' else 'M3-0.5',length=joint.screw_length_mm,fastener_type='iso7046' if size=='M2' else 'iso10642')
   k,dk=standard.head_height,standard.head_diameter
   head=standard & Pos(0,0,-k/2)*Box(2*dk,2*dk,k)
@@ -315,12 +362,12 @@ for xx in [-front_module_screw_x,front_module_screw_x]:
 pcb_mount_screws=[]
 for sx in [-1,1]:
  xx=sx*pcb_mount_x
- # Preserve the real PCB at Z21.8; the head now bears directly on its
+ # The real PCB follows pcb_mount_bottom_z; the head now bears directly on its
  # unchanged underside mounting land. No washer or printed spacer.
  through_probe=Pos(xx,pcb_mount_y,pcb_mount_bottom_z+PCB_FINISHED_T/2)*Box(pcb_mount_beam_width,pcb_mount_beam_width,PCB_FINISHED_T)
  frame=Location((xx,pcb_mount_y,pcb_mount_bottom_z),(180,0,0))
  try:
-  joint=make_screw_joint_v1(size='M2',at=frame,through=[(through_probe,PCB_FINISHED_T)],engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='blind',label='upper-shell-pcb-direct')
+  joint=make_screw_joint_v1(size='M2',at=frame,through=[(through_probe,PCB_FINISHED_T)],seat='surface',engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='blind',label='upper-shell-pcb-direct')
  except ScrewJointNotApplicableV1 as exc:
   print('PCB_DIRECT_FREE_STANDARD_LENGTH',str(exc))
   # Receiver-only calibration gauge. Its lower plane is selected from the
@@ -330,7 +377,7 @@ for sx in [-1,1]:
   PCB_RECEIVER_GAUGE_T=2.0
   gauge_frame=frame*Pos(0,0,PCB_RECEIVER_GAUGE_T-PCB_FINISHED_T)
   gauge=Pos(xx,pcb_mount_y,mount_top-PCB_RECEIVER_GAUGE_T/2)*Box(pcb_mount_beam_width,pcb_mount_beam_width,PCB_RECEIVER_GAUGE_T)
-  joint=make_screw_joint_v1(size='M2',at=gauge_frame,through=[(gauge,PCB_RECEIVER_GAUGE_T)],engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='blind',label='pcb-receiver-gauge-only')
+  joint=make_screw_joint_v1(size='M2',at=gauge_frame,through=[(gauge,PCB_RECEIVER_GAUGE_T)],seat='surface',engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='blind',label='pcb-receiver-gauge-only')
   from bd_warehouse.fastener import SocketHeadCapScrew
   PCB_DIRECT_SCREW_LENGTH=3.0  # Explicit standard free implementation after rejection.
   actual=SocketHeadCapScrew('M2-0.4',length=PCB_DIRECT_SCREW_LENGTH,fastener_type='iso4762')
@@ -366,8 +413,10 @@ for i,(xx,yy) in enumerate(base_mount_axes):
 
 
 # Four concealed screws fasten the screen pod to this roof from the inside.
+# Front pair at Y9.2 (was 4.2): after the 0.8mm screen drop their blind holes
+# keep >=0.4mm of skin below the sloped face and its border groove.
 screen_mount_front_axis_x=param('screen_mount_front_axis_x',34.4)
-screen_mount_front_y=param('screen_mount_front_y',4.2)
+screen_mount_front_y=param('screen_mount_front_y',9.2)
 screen_mount_rear_x=param('screen_mount_rear_x',27.0)
 screen_mount_rear_y=param('screen_mount_rear_y',51.0)
 screen_mount_front_pad_width=param('screen_mount_front_pad_width',5.6)

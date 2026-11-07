@@ -24,7 +24,7 @@
       "target": "hle_drawing_reference",
       "label": "HLE drawing reference; contact details omitted",
       "kind": "generated",
-      "shapeHash": "4a442f383556748d9bc729651bfb14702c552b7cdb29eaf72277cbc1465d31cb",
+      "shapeHash": "5e3f5c20646ae91b9a82cab7dc4d12353093fba94db356d9c5eb0da67a446051",
       "transform": {
         "positionMm": [
           0,
@@ -48,7 +48,7 @@
   ],
   "assets": [],
   "fits": [],
-  "updatedAt": "2026-09-30T09:27:00.715Z",
+  "updatedAt": "2026-11-07T12:54:17.645Z",
   "parameters": {
     "hle_drawing_reference": {
       "hle_reference_margin": 0

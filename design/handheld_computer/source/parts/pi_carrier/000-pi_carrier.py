@@ -4,7 +4,7 @@ layout=part('shell')
 # Pi datums from the existing imported Pi4B placement and official hole pattern.
 PI_HOLE_X=tuple(x+layout.pi_offset_x for x in (-13.5,35.5))
 PI_HOLE_Y=(-27.0,31.0)
-PI_BOARD_BOTTOM_Z=5.3
+PI_BOARD_BOTTOM_Z=5.3+getattr(layout,'pi_stack_lift',0.0)
 PI_PCB_T=1.8
 pi_carrier_bottom=layout.pi_carrier_ear_bottom  # common bed plane and shell mating datum
 pi_carrier_rail_thickness=param('pi_carrier_rail_thickness',2.0)
@@ -14,7 +14,7 @@ pi_carrier_right_rail_x=param('pi_carrier_right_rail_x',26.0)
 pi_carrier_rear_rail_y=param('pi_carrier_rear_rail_y',36.0)
 pi_carrier_front_rail_y=param('pi_carrier_front_rail_y',-38.0)
 pi_carrier_pad_diameter=param('pi_carrier_pad_diameter',6.0)
-pi_carrier_pad_bottom=param('pi_carrier_pad_bottom',3.3)
+pi_carrier_pad_bottom=param('pi_carrier_pad_bottom',3.3)+getattr(layout,'pi_stack_lift',0.0)
 pi_carrier_metal_screw_length=param('pi_carrier_metal_screw_length',6.0)
 z=pi_carrier_bottom
 t=pi_carrier_rail_thickness
@@ -66,3 +66,10 @@ for i,screw in enumerate(layout.pi_carrier_hardware):
 connection_inventory={**{'carrier_to_shell_'+str(i+1):'printed-screw-joint-v1, compensated standard countersink' for i in range(3)},**{'Pi_to_carrier_'+str(i+1):'free standard M2.5 screw into purchased metal receiver' for i in range(4)}}
 assert len(connection_inventory)==7
 print('PI_CARRIER',dict(board_z=PI_BOARD_BOTTOM_Z,frame_bottom=z,frame_top=z+t,pad_thickness=PI_BOARD_BOTTOM_Z-z,metal_engagement=engagement))
+
+# The generic socket STEP intentionally models only3mm-deep visual apertures.
+# Exact inspection located every overlap solely on the40 male pin shanks at
+# Z15.915..18.3, beyond that illustrative cavity; no plastic/header body hits.
+# This is a nominal electrical mating envelope, never a plastic press fit or
+# certification of contact force/insertion stroke for an unspecified generic.
+fit('pi4b','pi_baseboard_lite',kind='nominal_contact',budget_mm=3.0,reason='Male GPIO shanks enter the unmodeled internal contact space beyond the nominal socket3mm visual cavity; pins aligned on the2.54mm grid, housing clearance checked separately. Actual generic contact geometry requires prototype mating.')

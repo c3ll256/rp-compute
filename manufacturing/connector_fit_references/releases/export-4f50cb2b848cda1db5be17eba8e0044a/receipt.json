@@ -1,0 +1,98 @@
+{
+  "designId": "connector_fit_references",
+  "revision": "94bdb20ebfb021eee5fb28a0ab9a212f363bf1e0b96fe9e3367b7aae941e9747",
+  "schemaVersion": 3,
+  "exportId": "export-4f50cb2b848cda1db5be17eba8e0044a",
+  "generatedAt": "2026-11-07T09:56:36.927Z",
+  "designSha256": "ffe323fa5a82a841f9ad15195315f86609b5c658fcdd57db9ff4961aa8ade826",
+  "role": "connector_fit_references",
+  "stateHash": "985291cbb9ae008c0f4dd93129426ade8ea14de29863332cf2cf629f69d57161",
+  "stateManifest": {
+    "schemaVersion": 4,
+    "designId": "connector_fit_references",
+    "role": "connector_fit_references",
+    "design": {
+      "revision": "94bdb20ebfb021eee5fb28a0ab9a212f363bf1e0b96fe9e3367b7aae941e9747",
+      "designSha256": "4dcdc63945db27f4a8cb52e66da74caa22e633dac93bbd6b0a9de444e50b2e35",
+      "manifestSha256": "d218307f575a1d42bc4b0c792e48805e46aca681e4939e71ac97ec13dbcec9cd",
+      "modelSha256": "a37dff6cd54e860e568f428df09572a5e3ba9e8a7128b50a872c4ec896773442",
+      "pcbReleases": []
+    },
+    "brief": {
+      "path": "design/connector_fit_references/README.md",
+      "sha256": "0f0bb253c96c353280b0c9abac20fbb4ac0f750621d07bb91222ec6fcb4abc9a"
+    },
+    "requirement": {
+      "artifactContractPath": "product/contract.json",
+      "artifactContractSha256": null,
+      "designRequirementSha256": null,
+      "inputs": []
+    },
+    "delivery": {
+      "target": "visual_review",
+      "formats": [
+        "step"
+      ]
+    },
+    "stateHash": "985291cbb9ae008c0f4dd93129426ade8ea14de29863332cf2cf629f69d57161"
+  },
+  "buildArtifacts": {
+    "manifestSha256": "d218307f575a1d42bc4b0c792e48805e46aca681e4939e71ac97ec13dbcec9cd",
+    "modelSha256": "a37dff6cd54e860e568f428df09572a5e3ba9e8a7128b50a872c4ec896773442"
+  },
+  "exportAlgorithm": {
+    "version": 1,
+    "bootstrapSha256": "73e2a6d20ca2ee605997d4e1a375b8831f0b363e3d66e5778b9738224ab9bcea"
+  },
+  "sourceHashes": {
+    "esq_drawing_reference/esq_drawing_reference": "fdef024300bfaa4b192038e2b1c3b719dda97664f55d8393a7226315a48c8ef0",
+    "generic_40pin/generic_40pin": "75ae5d1c72e258ed9ac8b03b2d81fbd6a142045f77ffff1a6823c549b9ba961b",
+    "generic_8pin/generic_8pin": "c45be78705d39c8e8d20e3ceab9db4aad744323ec2c1907d2527b046a53f7144"
+  },
+  "assetHashes": {},
+  "shapeHashes": {
+    "esq_nominal_reference": "a8e84addf6d32422b527c2e0b1f92c854853d9359cf0b024e7a8191cced8b932",
+    "generic_40pin": "d4b157a2e1904e2f04149f5e8adaf7344776e3523f5ec6ce1c748a737306d791",
+    "generic_8pin": "63140fc6b65c73b804aa70c15cc3be22fe5620304c222759210432cd7b90683e"
+  },
+  "runtime": {
+    "manifestHash": "812a724d07f3f900a89cd4775a3346c1e89250df8afd5deb70ea374bde88b711",
+    "pythonVersion": "3.12.13",
+    "build123dVersion": "0.10.0",
+    "ocpVersion": "7.8.1.1.post1",
+    "cadpyHash": "d5e9f5168ad46e1ecf2fc58e659e9bb49f508a73b0e43b6d4d70331eb4232b74"
+  },
+  "artifacts": [
+    {
+      "path": "manufacturing/connector_fit_references/releases/export-4f50cb2b848cda1db5be17eba8e0044a/model.step",
+      "role": "model/step",
+      "sha256": "3c0bf85faaa46a7b05417fcaf3b2078303cec28472f47708c110582bc67cb94e",
+      "sizeBytes": 3547884
+    }
+  ],
+  "interference": {
+    "summary": "No interference across 3 object pairs.",
+    "counts": {
+      "objects": 3,
+      "pairs": 3,
+      "exact": 0,
+      "mesh": 0,
+      "cached": 0,
+      "interference": 0,
+      "undeclared": 0,
+      "over_budget": 0,
+      "undetermined": 0
+    },
+    "overlaps": []
+  },
+  "authority": {
+    "version": 1,
+    "algorithm": "hmac-sha256",
+    "keyId": "170dbfcb2d2fb358c3f534507d863491",
+    "projectId": "e3185296-d6e3-4f6c-b6ba-b9f8cbebe2cd",
+    "receiptPath": "manufacturing/connector_fit_references/releases/export-4f50cb2b848cda1db5be17eba8e0044a/receipt.json",
+    "payloadSha256": "5a86ea5d8ee104bc9c4e243b6a5e63d180698a05b572d6c296ef5cfc2623d900",
+    "mac": "23b26edee1bce89c898294e383147f89c20a5dd047ee031f74989bae656b5b9e"
+  },
+  "status": "handoff"
+}

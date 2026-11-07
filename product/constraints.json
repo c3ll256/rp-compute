@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "status": "active_lite_PCB_released_existing_CAD_board_import_stale",
+  "status": "replacement_connector_specifications_ready_geometry_revision_pending",
   "bom_ready": true,
-  "requirements_digest": "960e0191c23ec0738395519faf76990b6d0530ef4afa1df340a78ffb3c984e7c",
+  "requirements_digest": "199b2b78a63c661cf362c272b9502a34c024da2f70ab65a87e76a96791731aae",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD; LS027B7DH01A accepted one-for-one alternative, prototype verification required",
@@ -119,7 +119,7 @@
       ],
       "deck_opening_center_y_mm": 21.5,
       "retention": "Four kit-generated M2x5 joints with hard stops, rear frame, captured bezel flange and nonadhesive0.2/1.0mm front/rear supports. No glass in screw compression stack; pad pressure and print strength not verified.",
-      "route": "Historical negative fold clearance retained. Active socket is the released PCB FH12A top-contact reference envelope, with conservative3.6mm latch-open reservation. No precise internal mating-plane geometry is available.",
+      "route": "Active socket is J_LCD, SHOU HAN 0.5-10P CTSJ-H2.0 119 (LCSC C5373447): top-contact sliding drawer, opening -Y, 1.5mm drawer stroke reserved; mouth from its JLCEDA STEP (seat+1.05..1.45), insertion 2.7mm read from supplier section A-A (STEP has no modelled stop). Screen plane lowered 0.8mm on 2026-11-07 (screen centre world Z34.51): 13.2/13.7/14.2mm tails end bends at 5.58/5.75/5.91mm, inside Sharp 0.8-6.0mm. Real insertion depth is the first prototype check. See design/handheld_computer/fpc-route.json.",
       "risks": [
         "No exact panel STEP; glass fit uses a manufacturer-drawing envelope.",
         "Tail13.7±0.5mm is a delegated estimate; it is not bounded by the Sharp drawing or measured.",
@@ -532,7 +532,7 @@
     ],
     "underside_tongue_depth_mm": 0,
     "electrical_connector": {
-      "board_mpn": "HLE-104-02-G-DV",
+      "board_mpn": null,
       "contacts": 8,
       "pitch_mm": 2.54,
       "arrangement": "2x4 vertical female socket",
@@ -540,10 +540,11 @@
         0,
         -34
       ],
-      "world_top_z_mm": 26.254999,
+      "world_top_z_mm": 26.794999,
       "pinout_document": "product/front-module-interface.md",
-      "status": "existing released PCB; socket accessible only with cover removed",
-      "source": "research"
+      "status": "nominal_CAD_adapted_physical_tolerances_pending",
+      "source": "research",
+      "part_name": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标"
     },
     "service": "cold-swap only; external power disconnected and battery isolated",
     "cover_surface": "Uniform2.4mm plate, undersideZ27/topZ29.4; R4 outline, flat underside and four compensated countersinks.",
@@ -554,10 +555,10 @@
       "cover_underside_world_z_mm": 27,
       "cover_top_world_z_mm": 29.4,
       "plate_thickness_mm": 2.4,
-      "nominal_socket_air_mm": 0.745001,
+      "nominal_socket_air_mm": 0.205001,
       "air_source": "research",
-      "reference_socket_top_world_z_mm": 26.254999,
-      "assembly_note": "Nominal released-assembly fit; printed flatness, tolerances and seating require prototype."
+      "reference_socket_top_world_z_mm": 26.794999,
+      "assembly_note": "Flat cover remainsZ27..29.4;5mm socket nominal top26.794999, gap0.205001mm. Tight clearance needs actual part/print trial. No underside tongue or local raised cover."
     },
     "cad_part_id": "front_module_cover",
     "cad_object_id": "front_module_blank",
@@ -608,10 +609,10 @@
           -32
         ]
       ],
-      "pcb_bottom_z_mm": 21.8,
+      "pcb_bottom_z_mm": 21.0,
       "pcb_thickness_mm": 0.8,
-      "screw_tip_z_mm": 24.8,
-      "tip_to_deck_mm": 2.2,
+      "screw_tip_z_mm": 24.0,
+      "tip_to_deck_mm": 3.0,
       "receiver": "Prior kit-owned2mm nominal-engagement receiver retained at the unchanged PCB/beam interface."
     }
   },
@@ -700,7 +701,7 @@
     "model": "Raspberry Pi 4 Model B",
     "selection_status": "byop_pi4b_reference_socket_selected_fit_pending",
     "ram_gb": {
-      "value": 4,
+      "value": 4.0,
       "source": "default"
     },
     "outline_mm": [
@@ -815,7 +816,7 @@
         "mesh_tolerance_mm": 0.02,
         "path_step_mm": 0.5,
         "downward_horizontal_faces_z_mm": [
-          3.0
+          3
         ],
         "bed_area_mm2": 989.76688,
         "countersink_slope_deg": 45,
@@ -1060,7 +1061,7 @@
     "thermal_status": "fanless_unmeasured",
     "fan_load_ma": 0,
     "left_slots": "Retained as passive ventilation at existing centers; no replacement intake added.",
-    "unused_board_connector": "J_FAN remains fitted in released board with no harness attached.",
+    "unused_board_connector": "J_FAN removed from PCB, footprint, copper branches, BOM and assembly per user request; no fan harness.",
     "rear_left_inlet_removed": {
       "value": true,
       "source": "user",
@@ -1404,11 +1405,11 @@
   },
   "active_lite_interface_revision": {
     "source": "user",
-    "status": "PCB_routing_and_DFM_passed_existing_CAD_air_target_pending",
+    "status": "PCB_and_nominal_CAD_generic_sockets_implemented_prototype_mating_pending",
     "connectors": {
       "J_LCD": "0.5-10P CTSJ-H2.0 119",
-      "J_PI": "ESQ-120-12-G-D",
-      "J_MOD": "HLE-104-02-G-DV"
+      "J_PI": "20×2Pin 短排母，2.54mm，塑高8mm，脚长3.5mm",
+      "J_MOD": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标"
     },
     "proposal": "design/pi_baseboard_lite/interface-layout-proposal.json",
     "supersedes": "Current user direction is horizontal side entry with a bent native tail. The previous vertical FPC proposal and tooling blocker are obsolete.",
@@ -1431,10 +1432,10 @@
     },
     "pcb": {
       "envelope_mm": [
-        40,
-        83.5
+        43.5,
+        68.5
       ],
-      "area_mm2": 3025.83,
+      "area_mm2": 2979.75,
       "finished_thickness_mm": 0.8,
       "copper_layers": 4,
       "copper_oz": {
@@ -1443,7 +1444,7 @@
       },
       "source": "default",
       "reason": "Narrow GPIO spine and dense connector fanout repeatedly left unrouted power nets and disconnected ground regions on 2 layers; 4layer revision passed all connectivity and DFM gates.",
-      "outline_intent": "Fill former central/display recess; retain envelope and fixed datums; local right-side relief clears exact fascia/retainer/screw3 at sourceX17.3..20,Y11.66..22.31.",
+      "outline_intent": "Four-edge rectangle; sourceX-23.5..20,Y-20.5..48. Front15mm removed, left relief straightened and rear step filled. No narrow neck. Two original M2 datums and all interfaces retained.",
       "component_sides": {
         "top": "all except J_PI",
         "bottom": [
@@ -1457,7 +1458,7 @@
     ],
     "interfaces_world_xy_mm": {
       "J_PI_centroid": [
-        -13.5,
+        -18.5,
         2
       ],
       "J_LCD_origin": [
@@ -1469,20 +1470,20 @@
         -34
       ]
     },
-    "cad_models": "J_LCD uses downloaded official-library detailed STEP; J_PI and J_MOD retain declared manufacturer-drawing reference bodies.",
-    "screen_screw_relief": "Left PCB edge has a chamfered notch at sourceY12.1..18.8, Xup to-17.3, to preserve screen screw1 with nominal0.5mm clearance.",
-    "cad_revision": "82ffbfe4e57949e3264e188079107e331e2ea36690ffda9ae6a7cb11e72667be",
+    "cad_models": "Current PCB complete release imported; nominal socket internal cavities do not certify contact geometry.",
+    "screen_screw_relief": "Former left local notch replaced by straight X-23.5 edge; new edge is at or inside the previous outline throughout the screw-relief region.",
+    "cad_revision": "8e98fce566f1dd171ef8f66850801130390a3f638360e63ba77df2e78c2e059e",
     "screen_screw_measured_clearance_mm": 1.292813,
     "fpc_fit_review": {
       "schema_version": 3,
-      "status": "new_connector_nominal_tail_dimensions_match_physical_seating_pending",
+      "status": "new_stack_service_clearance_measured_complete_native_tail_seating_not_certified",
       "source": "default",
       "length_estimate_mm": 13.7,
       "estimate_uncertainty_mm": 0.5,
       "estimate_qualification": "User authorized estimation.13.2..14.2mm is a design review allowance, not measured free length or a bound certified by the Sharp drawing. Do not stretch the tail or claim full installed reach.",
       "non_contact_clearance_per_side_mm": 0.5,
-      "current_board_bottom_world_z_mm": 21.8,
-      "current_board_finished_top_world_z_mm": 22.6,
+      "current_board_bottom_world_z_mm": 21.0,
+      "current_board_finished_top_world_z_mm": 21.8,
       "native_exit_world_yz_mm": [
         -0.5630557675,
         27.9236985818
@@ -1531,8 +1532,8 @@
       "prior_geometry_review_release": "ceada78d56239a5a67ad64659dc0cfd2148fbb590c4dc810c60042197d11e74f",
       "current_pcb_release_authority": "manufacturing/pi_baseboard_lite/release-index.json"
     },
-    "pcb_bottom_world_z_mm": 21.8,
-    "pcb_rise_mm": 4.3,
+    "pcb_bottom_world_z_mm": 21.0,
+    "pcb_rise_mm": 3.5,
     "pcb_attachment": {
       "source": "user",
       "host": "upper shell",
@@ -1547,7 +1548,7 @@
         ]
       ],
       "rear_guide_xy_world_mm": [
-        -20,
+        -23.5,
         24
       ],
       "support_not_on": [
@@ -1557,35 +1558,32 @@
       "kit": "printed-screw-joint-v1",
       "beam_width_mm": 6,
       "beam_thickness_mm": 2,
-      "engagement_mm": 1,
+      "engagement_mm": 2,
       "board_finished_thickness_mm": 0.8,
       "guide_clearance_mm": 0.3,
-      "remaining_blank_roof_mm": 1.9,
-      "qualification": "CAD review; physical PLA thread calibration, load and service life not tested",
-      "bottom_world_z_mm": 21.8
+      "remaining_blank_roof_mm": 2.055001,
+      "qualification": "Final geometry: unchanged two M2x3 joints; final5mm-OD bearing annuli outside3.4mm receiver lead-in exclusion remain complete;8mm-long rear edge support. PLA torque, insertion loads, FR4 flex and service life require prototype testing.",
+      "bottom_world_z_mm": 21.0
     },
     "gpio_stack_conflict": {
-      "status": "resolved_by_user_taller_socket",
-      "selected": "ESQ-120-12-G-D",
-      "body_height_mm": 11.05,
-      "mouth_world_z_mm": 10.75,
-      "official_pin_tip_z_mm": 15.5,
-      "engagement_mm": 4.75,
-      "allowed_insertion_mm": [
-        3.68,
-        6.35
-      ],
-      "third_party_model_pin_tip_z_mm": 17,
-      "model_engagement_mm": 6.25,
-      "STEP_reference_model_engagement_mm": 6.335
+      "status": "nominal_stack_adapted_generic_contact_depth_unqualified",
+      "selected": "20×2Pin 短排母，2.54mm，塑高8mm，脚长3.5mm",
+      "body_height_mm": 8,
+      "mouth_world_z_mm": 12.915,
+      "official_pin_tip_z_mm": 16.8,
+      "nominal_engagement_mm": 3.885,
+      "qualified_minimum_insertion_mm": null,
+      "note": "Pi/sink up1.3mm and PCB down0.8mm; socket mouth from released nominal model includes0.085mm bottom model seating offset. Third-party Pi model tip is18.3mm, so its modeled entry is5.385mm. Only pin shanks overlap unmodeled interior beyond3mm visual cavity."
     },
     "expansion_socket": {
-      "selected": "HLE-104-02-G-DV",
-      "body_height_mm": 3.66,
-      "top_world_z_mm": 26.254999,
+      "selected": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标",
+      "body_height_mm": 5,
+      "top_world_z_mm": 26.794999,
       "deck_top_z_mm": 27,
-      "recess_mm": 0.7450009999999985,
-      "installation": "top-entry via module aperture; retain mechanically independent cassette"
+      "nominal_interference_mm": 0,
+      "new_tail_projection_below_board_mm": 2.2,
+      "status": "nominal_CAD_adapted_physical_tolerances_pending",
+      "nominal_cover_gap_mm": 0.205001
     },
     "fpc_opening": "-Y, front/down in board top view; horizontal top-side top-contact connector",
     "thermal_clearance_target_mm": 1.5,
@@ -1593,17 +1591,13 @@
       "value": "removed;2.4mm left wall retained at cradle roots, with separate left exhaust vents above/between roots",
       "source": "user"
     },
-    "cad_board_binding": "Existing enclosure retains earlier PCB import; new release has not been imported. This revision only assesses physical impact.",
+    "cad_board_binding": "Compact rectangle release69ac26497e08aced1b2858ee0777f8e5f23b9fe97a135c3ad144ca151cb584af; STEP d5eedbdd2e46ee9693cc34f90c7cba7747c453ec3ba94badc9c13c7c85ab0b27 at(-100,81,21.0). Guide follows X-23.5. Shell ordinary-component pockets follow current28 component bodies.",
     "new_population_impact": {
       "source": "research",
       "minimum_ordinary_top_air_mm": 0.455001,
       "minimum_air_target_mm": 1.5,
       "minimum_air_target_passed": false,
       "reason": "New top-mounted power circuits under front deck approach shell roof. No user requirement changed; existing CAD needs local relief or future placement adjustment before complete enclosure qualification.",
-      "fan_source_xy_mm": [
-        0,
-        34
-      ],
       "right_edge_local_relief_source_xy_mm": [
         [
           20,
@@ -1745,8 +1739,8 @@
       2
     ],
     "pcb_envelope_mm": [
-      44.5,
-      83.5
+      43.5,
+      68.5
     ],
     "front_retainer_screw_x_mm": 27,
     "source": "default",
@@ -1958,5 +1952,144 @@
       "total": 18
     },
     "retainer_exception": "Retain2mm plate and M2x4:3.6mm thickening collided with the released PCB by26.589721mm3 in the failed candidate; candidate was not committed."
+  },
+  "connector_replacement_targets": {
+    "source": "user",
+    "J_PI": {
+      "contacts": 40,
+      "rows": 2,
+      "contacts_per_row": 20,
+      "mating_pitch_mm": {
+        "value": 2.54,
+        "source": "default"
+      },
+      "row_spacing_mm": {
+        "value": 2.54,
+        "source": "default"
+      },
+      "body_mm": {
+        "value": [
+          51,
+          5,
+          8
+        ],
+        "source": "user"
+      },
+      "tail_length_mm": {
+        "value": 3.5,
+        "source": "user"
+      },
+      "pin_cross_section_mm": {
+        "value": [
+          0.64,
+          0.64
+        ],
+        "source": "default"
+      },
+      "drill_mm": {
+        "value": 1,
+        "source": "research"
+      },
+      "pad_mm": {
+        "value": [
+          1.7,
+          1.7
+        ],
+        "source": "research"
+      },
+      "footprint": "vendor:KiCad_PinSocket_2x20_P2.54mm_GenericH8",
+      "image": "product/references/uploads/20261106T124430370Z-1-cleanshot-2026-11-06-at-20-39-37-2x.png"
+    },
+    "J_MOD": {
+      "contacts": 8,
+      "rows": 2,
+      "contacts_per_row": 4,
+      "mating_pitch_mm": {
+        "value": 2.54,
+        "source": "user"
+      },
+      "row_spacing_mm": {
+        "value": 2.54,
+        "source": "default"
+      },
+      "body_mm": {
+        "value": [
+          10.16,
+          5.08,
+          5
+        ],
+        "source": "default"
+      },
+      "tail_length_mm": {
+        "value": 3,
+        "source": "default"
+      },
+      "pin_cross_section_mm": {
+        "value": [
+          0.64,
+          0.64
+        ],
+        "source": "default"
+      },
+      "drill_mm": {
+        "value": 1,
+        "source": "research"
+      },
+      "pad_mm": {
+        "value": [
+          1.7,
+          1.7
+        ],
+        "source": "research"
+      },
+      "footprint": "vendor:KiCad_PinSocket_2x04_P2.54mm_GenericH5",
+      "reference_image": "product/references/uploads/20261106T125120328Z-1-cleanshot-2026-11-06-at-20-50-28-2x.png",
+      "reference_qualification": "Image is SMT; through-hole is user-requested adaptation.5mm remains an engineering target, not proof that the pictured item is through-hole."
+    },
+    "specification_authority": "design/pi_baseboard_lite/connector-specification.json",
+    "status": "PCB_and_nominal_CAD_implemented_prototype_mating_pending"
+  },
+  "connector_stack_implementation": {
+    "source": "default",
+    "pcb_bottom_z_mm": 21.0,
+    "pi_lift_mm": 1.3,
+    "pi_board_bottom_z_mm": 6.6,
+    "Pi_screw_seat_z_mm": 4.6,
+    "retainer_through_gap_width_mm": 42,
+    "GPIO_tail_roof_skin_mm": 2.0,
+    "cover_socket_nominal_gap_mm": 0.205001,
+    "review": "design/handheld_computer/connector-stack-review.json"
+  },
+  "pcb_mounting_strength": {
+    "requirement": {
+      "value": "Consider installation strength when simplifying the PCB and updating CAD.",
+      "source": "user"
+    },
+    "implementation": {
+      "value": {
+        "finished_thickness_mm": 0.8,
+        "outline": "full rectangle without neck or internal reentrant corner",
+        "two_M2_hole_axes_source_mm": [
+          [
+            -16,
+            -13
+          ],
+          [
+            16,
+            -13
+          ]
+        ],
+        "minimum_hole_edge_to_board_edge_mm": 2.9,
+        "front_hole_edge_to_board_edge_mm": 6.4,
+        "rear_edge_guide_length_mm": 8,
+        "ordinary_pocket_roof_skin_min_mm": 2.055001,
+        "bearing_annulus_mm": {
+          "outer_diameter": 5,
+          "inner_exclusion_diameter": 3.4
+        },
+        "limits": "Geometric support review only; no load, torque, flex or insertion-cycle test."
+      },
+      "source": "default"
+    }
   }
 }

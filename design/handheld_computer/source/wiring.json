@@ -7,7 +7,7 @@
     },
     {
       "ref": "BASE",
-      "name": "pi_baseboard_lite ESQ-120-12-G-D dock",
+      "name": "pi_baseboard_lite2x20 GPIO dock; selected generic8mm-body through-hole socket",
       "quantity": 1
     }
   ],
@@ -19,14 +19,14 @@
       },
       "to": {
         "part": "BASE",
-        "pin": "J_PI P2 (pad1)"
+        "pin": "J_PI P2 (pad2)"
       },
       "bus": "power",
       "via": "other",
       "evidence": [
         "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png"
       ],
-      "notes": "Existing Pi dock5V input; Pi supplies display/module baseboard. No fan load or fan harness."
+      "notes": "Existing Pi dock5V input; Pi supplies display/module baseboard. No fan load or fan harness. Logical Pi power/GND assignment retained. Generic KiCad replacement now maps Pi physicalPn directly to padn. All40 physical pin XY positions and logical functions were compared to the prior PCB and preserved."
     },
     {
       "from": {
@@ -35,14 +35,14 @@
       },
       "to": {
         "part": "BASE",
-        "pin": "J_PI P6 (pad5)"
+        "pin": "J_PI P6 (pad6)"
       },
       "bus": "power",
       "via": "other",
       "evidence": [
         "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png"
       ],
-      "notes": "Existing dock GND. Mapping matches released baseboard J_PI pin labels."
+      "notes": "Existing dock GND. Mapping matches released baseboard J_PI pin labels. Logical Pi power/GND assignment retained. Generic KiCad replacement now maps Pi physicalPn directly to padn. All40 physical pin XY positions and logical functions were compared to the prior PCB and preserved."
     }
   ],
   "power": [],

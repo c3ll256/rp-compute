@@ -43,7 +43,7 @@ for xx,yy in base_mount_axes:
 base=base+rim
 
 # Imported Pi PCB underside datum, retained for port-filler corner relief only.
-PI_BOARD_BOTTOM_Z=5.3
+PI_BOARD_BOTTOM_Z=5.3+getattr(layout,'pi_stack_lift',0.0)
 
 # One continuous rear sill closes the shared lower-edge aperture.
 # All opening limits are owned by the shell, so both pieces track together.
@@ -58,6 +58,20 @@ sill=layout.rear_window_sill
 z0=base_thickness-base_edge_radius
 tongue=wall_ring & (Pos(layout.rear_window_center,base_depth/2,(z0+sill)/2)*Box(layout.rear_window_width-2*base_port_filler_clearance,4*shell_wall,sill-z0))
 base=base+(tongue-corner_relief)
+
+
+# Sliding pockets brace the separator tips without preloading or snap hooks.
+base_rear_divider_clearance=param('base_rear_divider_clearance',0.25)
+base_rear_divider_floor_clearance=param('base_rear_divider_floor_clearance',0.3)
+base_rear_divider_pocket_floor=layout.rear_divider_tip_z-base_rear_divider_floor_clearance
+assert base_rear_divider_pocket_floor>base_thickness
+for xx in layout.rear_divider_x:
+ pocket=Pos(xx,base_depth/2,(base_rear_divider_pocket_floor+layout.rear_window_sill+0.2)/2)*Box(
+  layout.rear_divider_width+2*base_rear_divider_clearance,
+  4*shell_wall,
+  layout.rear_window_sill+0.2-base_rear_divider_pocket_floor)
+ base=base-pocket
+print('REAR_DIVIDER_POCKETS',dict(side_clearance=base_rear_divider_clearance,floor_z=base_rear_divider_pocket_floor,tip_floor_clearance=base_rear_divider_floor_clearance))
 
 # A continuous L-shaped internal reinforcement carries the free rear-right corner
 # toward the existing right-mid and left-rear screw columns. The outer bottom

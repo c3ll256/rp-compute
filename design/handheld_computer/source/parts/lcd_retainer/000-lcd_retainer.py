@@ -48,7 +48,7 @@ for seat in p.retainer_cuts: ring=ring-seat
 
 assert len(ring.solids())==1 and ring.is_valid,('flat retainer',len(ring.solids()))
 assert abs(ring.bounding_box().size.Z-p.retainer_thickness)<0.001
-p.compact_overlap_check('PCB / flat retainer',p.compact_pcb,ring.moved(p.SCREEN_WORLD))
+# PCB/retainer clearance is measured against the active imported release using cad.inspect; no duplicate historical PCB asset.
 ring.color=srgb('#363b40')
 publish('retainer',ring,'Flat rear retainer',material='pla',role='part')
 for i,sc in enumerate(p.retainer_hardware):

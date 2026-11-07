@@ -1,0 +1,94 @@
+{
+  "cad_revision": "8e98fce566f1dd171ef8f66850801130390a3f638360e63ba77df2e78c2e059e",
+  "pcb_release": "69ac26497e08aced1b2858ee0777f8e5f23b9fe97a135c3ad144ca151cb584af",
+  "pcb_build": "6f4d4082eaefa4fce3a78952b931d3e983881202fa64062eadc579b1e8b1da1e",
+  "pcb_step_sha256": "d5eedbdd2e46ee9693cc34f90c7cba7747c453ec3ba94badc9c13c7c85ab0b27",
+  "outline": {
+    "old_envelope_mm": [
+      44.5,
+      83.5
+    ],
+    "new_envelope_mm": [
+      43.5,
+      68.5
+    ],
+    "old_area_mm2": 3457.25,
+    "new_area_mm2": 2979.75,
+    "reduction_percent": 13.81155,
+    "vertices": 4
+  },
+  "mounts": {
+    "source_axes_mm": [
+      [
+        -16,
+        -13
+      ],
+      [
+        16,
+        -13
+      ]
+    ],
+    "world_axes_mm": [
+      [
+        -16,
+        -32
+      ],
+      [
+        16,
+        -32
+      ]
+    ],
+    "hole_diameter_mm": 2.2,
+    "minimum_edge_ligament_mm": 2.9,
+    "front_edge_ligament_mm": 6.4,
+    "board_thickness_mm": 0.8,
+    "screws": "2x ISO4762 M2x3",
+    "bearing_outer_diameter_mm": 5,
+    "bearing_inner_exclusion_diameter_mm": 3.4,
+    "minimum_annular_area_mm2": 10.555751316,
+    "missing_material_mm3": [
+      0,
+      0
+    ],
+    "rear_guide_length_mm": 8,
+    "rear_guide_thickness_mm": 1.5
+  },
+  "ordinary_component_clearance": {
+    "components": 28,
+    "allowance_mm": 1.6,
+    "checks": 112,
+    "overlaps": [],
+    "mesh_tolerance_mm": 0.02
+  },
+  "roof_min_above_ordinary_pockets_mm": 2.055001,
+  "shell": {
+    "solids": 1,
+    "valid": true
+  },
+  "Pi_with_heatsink_carrier_removal": {
+    "translation_mm": [
+      0,
+      0,
+      -16
+    ],
+    "against": [
+      "shell",
+      "fascia",
+      "retainer",
+      "front_module_blank"
+    ],
+    "first_overlap": null,
+    "step_mm": 0.25,
+    "mesh_tolerance_mm": 0.02
+  },
+  "drc": {
+    "errors": 0,
+    "warnings": 0,
+    "unconnected": 0
+  },
+  "limits": [
+    "Geometry review, no load or FR4 bending qualification.",
+    "No physical print, torque, repeated insertion, drop, thermal or service-life test.",
+    "Existing nominal GPIO pin/socket contact declaration retained; internal socket contacts and actual FPC seating not certified."
+  ]
+}

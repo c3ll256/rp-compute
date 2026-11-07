@@ -1,0 +1,1 @@
+publish("c5373447", asset("design/fpc_fit_reference/source/assets/504b9584227db6e9942faceadb3f6e21c08d76d2b1e142ccfa9dea79109cca87.step"), "C5373447 FPC socket")

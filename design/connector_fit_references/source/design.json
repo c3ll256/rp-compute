@@ -16,6 +16,34 @@
         }
       ],
       "dependencies": []
+    },
+    {
+      "id": "generic_40pin",
+      "label": "generic_40pin",
+      "cells": [
+        {
+          "id": "generic_40pin",
+          "target": "generic_40pin",
+          "order": 0,
+          "path": "design/connector_fit_references/source/parts/generic_40pin/000-generic_40pin.py",
+          "sha256": "75ae5d1c72e258ed9ac8b03b2d81fbd6a142045f77ffff1a6823c549b9ba961b"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "generic_8pin",
+      "label": "generic_8pin",
+      "cells": [
+        {
+          "id": "generic_8pin",
+          "target": "generic_8pin",
+          "order": 0,
+          "path": "design/connector_fit_references/source/parts/generic_8pin/000-generic_8pin.py",
+          "sha256": "c45be78705d39c8e8d20e3ceab9db4aad744323ec2c1907d2527b046a53f7144"
+        }
+      ],
+      "dependencies": []
     }
   ],
   "objects": [
@@ -24,10 +52,66 @@
       "target": "esq_drawing_reference",
       "label": "ESQ drawing reference; contact details omitted",
       "kind": "generated",
-      "shapeHash": "b9a301eb8fda657090fb1f88c47c229bf47558ef83def9c45412f12f9b0cd6d3",
+      "shapeHash": "a8e84addf6d32422b527c2e0b1f92c854853d9359cf0b024e7a8191cced8b932",
       "transform": {
         "positionMm": [
           0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "generic_40pin",
+      "target": "generic_40pin",
+      "label": "40 pin nominal socket",
+      "material": "nylon",
+      "role": "reference",
+      "kind": "generated",
+      "shapeHash": "d4b157a2e1904e2f04149f5e8adaf7344776e3523f5ec6ce1c748a737306d791",
+      "transform": {
+        "positionMm": [
+          80,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "generic_8pin",
+      "target": "generic_8pin",
+      "label": "8 pin nominal socket",
+      "material": "nylon",
+      "role": "reference",
+      "kind": "generated",
+      "shapeHash": "63140fc6b65c73b804aa70c15cc3be22fe5620304c222759210432cd7b90683e",
+      "transform": {
+        "positionMm": [
+          100,
           0,
           0
         ],
@@ -48,10 +132,30 @@
   ],
   "assets": [],
   "fits": [],
-  "updatedAt": "2026-09-30T09:26:56.971Z",
+  "updatedAt": "2026-11-07T09:56:36.927Z",
   "parameters": {
     "esq_drawing_reference": {
       "esq_reference_margin": 0
+    },
+    "generic_40pin": {
+      "generic_40pin_positions_per_row": 20,
+      "generic_40pin_body_width": 5,
+      "generic_40pin_body_length": 51,
+      "generic_40pin_body_height": 8,
+      "generic_40pin_tail_length": 3.5,
+      "generic_40pin_square_tail": 0.64,
+      "generic_40pin_aperture": 1,
+      "generic_40pin_visual_cavity_depth": 3
+    },
+    "generic_8pin": {
+      "generic_8pin_positions_per_row": 4,
+      "generic_8pin_body_width": 5.08,
+      "generic_8pin_body_length": 10.16,
+      "generic_8pin_body_height": 5,
+      "generic_8pin_tail_length": 3,
+      "generic_8pin_square_tail": 0.64,
+      "generic_8pin_aperture": 1,
+      "generic_8pin_visual_cavity_depth": 3
     }
   }
 }

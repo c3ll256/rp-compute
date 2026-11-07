@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "c5cd750ee04cee058736d59a38cf9e8713fa5edb71de807e199af16ae40f4dbf"
+          "sha256": "eb0b29dee716113e4b8d83012192fabd50c152bccd1e4ddf9030f1b3bf794079"
         }
       ],
       "dependencies": []
@@ -26,7 +26,7 @@
           "target": "base",
           "order": 0,
           "path": "design/handheld_computer/source/parts/base/000-base.py",
-          "sha256": "3d9517a213d76d6178f3e1137055fa9db55c80f5cbe8d3ba3ab9c89b227cca18"
+          "sha256": "1ea2cfee7bdcc707eae5f031d9d51db3a1b6fc40067da6294075facd675cc4b3"
         }
       ],
       "dependencies": [
@@ -42,7 +42,7 @@
           "target": "fascia",
           "order": 0,
           "path": "design/handheld_computer/source/parts/fascia/000-fascia.py",
-          "sha256": "e9f063b5d1b191083a5147ad0c0232f88fc80c2482ab3adb6070574a7cadb794"
+          "sha256": "1cb95df0eb553902a42c80ab7a6b6c0f58ee873b6a99366b91a318f63a559d88"
         }
       ],
       "dependencies": [
@@ -66,7 +66,7 @@
           "target": "imports",
           "order": 1,
           "path": "design/handheld_computer/source/parts/imports/001-pi_baseboard_lite.py",
-          "sha256": "5261a409be2289b2226445ad570ff9eb8d050a478a85e19217f6130ef269de38"
+          "sha256": "905a1d3ca277dd99f6c34fd3746537e9b46158315e21592de8272c7310e4a240"
         }
       ],
       "dependencies": []
@@ -80,7 +80,7 @@
           "target": "screen_cushions",
           "order": 0,
           "path": "design/handheld_computer/source/parts/screen_cushions/000-screen_cushions.py",
-          "sha256": "54a2f5ad6bbdc997e51ef7c64f557a3611cb54dd4df8512f6e37990723bf1568"
+          "sha256": "491fca84efc3df6385d8929decff28315b30b105e7e319f3471c3b5ccdf0647f"
         }
       ],
       "dependencies": []
@@ -94,7 +94,7 @@
           "target": "thermal_stack",
           "order": 0,
           "path": "design/handheld_computer/source/parts/thermal_stack/000-thermal_stack.py",
-          "sha256": "ef96c89c9b9ee59f9486bf5428e6a722a8b7441b8f7bac952d846c47e8f19eb1"
+          "sha256": "3179f41768d0c5cd3a1c9476130eca1f00578229edf3234a66d0d7c92bbfd2c4"
         }
       ],
       "dependencies": [
@@ -140,7 +140,7 @@
           "target": "lcd_retainer",
           "order": 0,
           "path": "design/handheld_computer/source/parts/lcd_retainer/000-lcd_retainer.py",
-          "sha256": "a6ccefde96ed110bbf374954a80630f9c52a54b9482f2eaedd86c5dc76df378a"
+          "sha256": "67f40ce1a8e0bab0f4ec38f9db8295ad065c09e20f46245c825a495adfc6e9af"
         }
       ],
       "dependencies": [
@@ -156,7 +156,7 @@
           "target": "pi_carrier",
           "order": 0,
           "path": "design/handheld_computer/source/parts/pi_carrier/000-pi_carrier.py",
-          "sha256": "b70024173dfb2d7af1574db50b16381762a63390374b7094de74041b20f3f77c"
+          "sha256": "22e4fe8f70e6f7f8a8d0f698c8ddd56f9aab57a185a6bcdda2f4b890aa38aad5"
         }
       ],
       "dependencies": [
@@ -172,7 +172,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "c684ab208e163484e3c90fd2d631bcae3fd202a4e178800e4f8485c3f7f72552",
+      "shapeHash": "b21364b63606e6efe8184e0996bd84995db9f7a24efd595753a24bbe2ec0b6df",
       "transform": {
         "positionMm": [
           0,
@@ -200,7 +200,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "66c818608fd8005f156dfe382f5065785bbe947a3ffac59a1e5738e8690728da",
+      "shapeHash": "a24c3d1876c3e34dbbe9173e52b57cc4fe68f50f3bac94ffb3215cabdd0c3bba",
       "transform": {
         "positionMm": [
           0,
@@ -228,7 +228,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "5ba0aa742e2f896e48052002e3bf82d07e9d4fc8f2fb1e9421328bd25ea8fa1b",
+      "shapeHash": "ae48a332f3402048db9c0474751049622fcc04dc5cbcc517e4bd20ff3f194a0a",
       "transform": {
         "positionMm": [
           0,
@@ -256,7 +256,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "bc4c718290bd70492d97f5bf64c787f0e11e6ee85f66a5ef43ef074fb4168787",
+      "shapeHash": "00a1b12a1971c888aafc0c5668dff17bc4525a4e19360bed06d5c01ead144dc5",
       "transform": {
         "positionMm": [
           0,
@@ -283,7 +283,7 @@
       "label": "M3 module screw",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "8faa6fe94f63fc1eb3d8ffeedf80f41d04bca005e37bbb72cfaf2b9773cccccf",
+      "shapeHash": "b9115841ef20459762322a04d4e4e52c2dc704e5f6e5d6a8f276090dcd44ac53",
       "transform": {
         "positionMm": [
           0,
@@ -310,7 +310,7 @@
       "label": "M3 module screw",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "31fafb717b64c727635e1c62e04b0898ea3ffbc66be053a221f93cdc692b6d4d",
+      "shapeHash": "d24a8913b5b2e4503dc7ca9ad0a9d2298da071c55d7d143a1faade70b3591fd2",
       "transform": {
         "positionMm": [
           0,
@@ -337,7 +337,7 @@
       "label": "M3 module screw",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "2376358ba1b071613bb7112a34a7a1c72bc45646f7e5b0f190bdb2b3804d2043",
+      "shapeHash": "750f814602697ab23f1b5457f85969308287e81572be32d0c37ff432cf5bd584",
       "transform": {
         "positionMm": [
           0,
@@ -364,7 +364,7 @@
       "label": "M3 module screw",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "946992a2665032c653086b3c8db5600ac1db06991b24534c7a76794bf5dcfe06",
+      "shapeHash": "9a748459b337d9a4953148d38f44cc96582f62f5171b02d3634f40d7ab4129cb",
       "transform": {
         "positionMm": [
           0,
@@ -392,7 +392,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "362e4e534f1a4322fe1c72ecdc2fccbfc098cb4fc9b3bb9138692b4715767dd9",
+      "shapeHash": "89e82a63d2ae9e2e8e75b0cd1e9a1d617f72c8b12db9a0fa3ed3ddf9372cafcc",
       "transform": {
         "positionMm": [
           0,
@@ -420,7 +420,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "739a515dc613a6994d77108107d9bcb4dd1f783b85376a9176fe31d166d12e2d",
+      "shapeHash": "f0c90f43be3b90b1f04d63d4aa4de4fbd8b504db01f2ac2114d42b78b4ee6f04",
       "transform": {
         "positionMm": [
           0,
@@ -448,7 +448,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "d384faea66d11f193f45e5552b0068a3e046acc26d89579bf5b83e8c3ae55e41",
+      "shapeHash": "18b574d515d7b7cca996dfd7688fe257b4231332044a2f83a2d565994d5bb30f",
       "transform": {
         "positionMm": [
           0,
@@ -476,7 +476,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "93d452eaadc9024f917409e28ec7487a325d60864b544b90467db5c948b4c995",
+      "shapeHash": "3870434f8f44ab047fff821704519aec2a341462dcc1e912009d26634e570f2d",
       "transform": {
         "positionMm": [
           0,
@@ -504,7 +504,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "ec6e9f162ff841c4098e643f3f912c8f7fa30b1882deaf054cc0bb9c71b8b1f1",
+      "shapeHash": "c4575fa1c45e83d3d521c0295e716a874c53fc5ea626ee091a8db989ce72c47d",
       "transform": {
         "positionMm": [
           0,
@@ -532,7 +532,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "e74384e0eb2cdf7a847f3bcf1dbc4cca840295574dc4bd8f464617e492c26909",
+      "shapeHash": "e5181adfad7eb74407e5a2925d57b66e0c6169625e2de90452212fd98443dc2e",
       "transform": {
         "positionMm": [
           0,
@@ -560,7 +560,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "018121fe0599dd14f3b73c08d6a7bfb306dc11eb45708beb557a898fcc932a83",
+      "shapeHash": "701c149f6b6e3da5a0f692821153937295fcb365310589280c7d1c924f31a44d",
       "transform": {
         "positionMm": [
           0,
@@ -588,7 +588,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "967eba49ad54cf75a8e67f3ababe036daa548256d953be0fa67a573bdbcc2414",
+      "shapeHash": "bf4fb62f767d589c709e413d446d76bfd7ce8516ec78f8612ae89af031ceed10",
       "transform": {
         "positionMm": [
           0,
@@ -616,7 +616,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "ad21782a2127659dce011f7097686344b2b6a19f24e7727049c0a4bc1a109c86",
+      "shapeHash": "a269d164781881bc7fb6ab080313daaeaacd832ede7686c42018660196d13e31",
       "transform": {
         "positionMm": [
           0,
@@ -642,12 +642,12 @@
       "target": "imports",
       "label": "Pi 4B reference",
       "kind": "imported",
-      "shapeHash": "c7d4a4367eb26579b6a6910ece2a0cde7d2a41c6d7d104ba9b8ba45c6689d39d",
+      "shapeHash": "1ffdac56bc98d58fb89e32f5316cdbab4528f6092acd76948f411d103917d9e4",
       "transform": {
         "positionMm": [
           34,
           -30.5,
-          7
+          8.3
         ],
         "rotationDeg": [
           90,
@@ -666,14 +666,14 @@
     {
       "id": "pi_baseboard_lite",
       "target": "imports",
-      "label": "Compact Pi baseboard",
+      "label": "Compact rectangular baseboard",
       "kind": "imported",
-      "shapeHash": "452a0df2f463efd41269c209c5b05fb7e4668af037472caa0eaa5e9d0b680ba2",
+      "shapeHash": "d5de8a517c48ff6562d4243d3056c7667b14803fb0efe7621824ce8f8c287f65",
       "transform": {
         "positionMm": [
           -100,
           81,
-          21.8
+          21
         ],
         "rotationDeg": [
           0,
@@ -696,12 +696,12 @@
       "material": "silicone",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "7f39fa49b58727ac0ea0a5ca199cf5d0e1f30cfb91cf796f3a0c42d83d5d24f6",
+      "shapeHash": "30200c75bac80fcb5b5825671594d61d4390d430ab88cff9c45c75c9a27918dd",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          35.310909266
+          34.510909266
         ],
         "rotationDeg": [
           13,
@@ -724,12 +724,12 @@
       "material": "silicone",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "611a52962074fcfacbcf329e7f6888fa92a7f48b21bda9b1352cda14dc31240e",
+      "shapeHash": "8bde0e55ecac0c23a19ce76e40bae31e87c5e61dd7f05832c0a5ab8dcef84887",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          35.310909266
+          34.510909266
         ],
         "rotationDeg": [
           13,
@@ -752,7 +752,7 @@
       "material": "rubber",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "8c0db9222ddeca553699f420f374d51e215e72fbdd1b1f81f94a70320f135148",
+      "shapeHash": "c3a2b6e41be61920182beb66e15dfcdea0a285d3061fe684e77e87a4b3f28102",
       "transform": {
         "positionMm": [
           0,
@@ -780,7 +780,7 @@
       "material": "aluminum",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "8ef1bebb7f21f2caec409f03513265dea5c399654b1834973cb418372892905d",
+      "shapeHash": "9b2f17ccbd736bd393534b79b04d96c4b513c24a77c893258bf1c53cb1440e93",
       "transform": {
         "positionMm": [
           0,
@@ -808,7 +808,7 @@
       "material": "rubber",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "7430797790087053fac542b87743bd5ae66deb5fcb08c8712ec758a99a4e11b5",
+      "shapeHash": "f149f9ef1b8d8af811c7d2830e59614ae1253da6c1aeb1b06494a19fe45b9f40",
       "transform": {
         "positionMm": [
           0,
@@ -836,7 +836,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "e1a0dd51e54c22deeb20e06223a272482021bcb9d6688c1f510422dd57902f78",
+      "shapeHash": "725bb2680310e7b1d495d8441869e3a529c8d14f89660daea5ba55a8d2adaf66",
       "transform": {
         "positionMm": [
           0,
@@ -864,12 +864,12 @@
       "material": "glass",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "d148a58098cddbae79e7d17270a50f75c5eeedc7926dbcb94a67c08eef27cc92",
+      "shapeHash": "d46cfc4b63b1c374cb36ad29dcdfa54206d85d84c44754a1745d47e70fba8a44",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          35.310909266
+          34.510909266
         ],
         "rotationDeg": [
           13,
@@ -892,12 +892,12 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "a23a030133dbe242fb5d115496be3ada803105e0c125cd41c2ed9ac1d37a46d0",
+      "shapeHash": "130e2203ccd5b257614f2c7e1b450e467e66bf505cf63b20325d9fda4fa630e7",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          35.310909266
+          34.510909266
         ],
         "rotationDeg": [
           13,
@@ -920,12 +920,12 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "0f1fa9d83077ffd5c2d230c805afc1fb8cb026af8297c49dd9b8e5fde8169ed7",
+      "shapeHash": "7a817a4cbfe7e972b95dfc16d5f1a00a93a982b7b85fe74e828c2729f3a94a9c",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          35.310909266
+          34.510909266
         ],
         "rotationDeg": [
           13,
@@ -948,12 +948,12 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "042aa4ab4840066529acfb83e4133140b5e179fd4ec56623ec6d366f3f2e268d",
+      "shapeHash": "11fcc260100d79e3c89421b5ebf3ad59280c47bea0ce15d204a6bf481d4b18f1",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          35.310909266
+          34.510909266
         ],
         "rotationDeg": [
           13,
@@ -976,12 +976,12 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "4b48ce74417928e9ad9e6aafc4571fc673bf435edd7e8590e808b6f0cd1eae13",
+      "shapeHash": "057f2ee77dd491a8db87ceaaf9310445463892197495e795b1c1abb790f08a38",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          35.310909266
+          34.510909266
         ],
         "rotationDeg": [
           13,
@@ -1004,12 +1004,12 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "436b8f06d5cdfd2968ee7bb3de2cda89999a9d6202838012bbe07794a1ff0df6",
+      "shapeHash": "16a6177e5abad6390d064a45545216dac540f4c778622042027aa464423e0384",
       "transform": {
         "positionMm": [
           0,
           21.521201483,
-          35.310909266
+          34.510909266
         ],
         "rotationDeg": [
           13,
@@ -1032,7 +1032,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "25a09d5ae44faaede82628b83f72a8053e30df28de8bbf4317c019a3240d3471",
+      "shapeHash": "37b5075f9ab1d67dd62d061a7f5508d918f2653bd7a4b800b084aebf95f17f5f",
       "transform": {
         "positionMm": [
           0,
@@ -1060,7 +1060,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "c0323d7674e609d84eac4dafa5569776cf66576d8ea264ee44095b89d33d7341",
+      "shapeHash": "a41d32dceb0ae4cc87aa0ec3eff7440f6731d267f3769a2028f56ce4e8586cb7",
       "transform": {
         "positionMm": [
           0,
@@ -1088,7 +1088,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "02ef6f50fe77af56abdb3b69543bd81f1a1c406b991019142ffa8b10832fb2ca",
+      "shapeHash": "069d6d9105596222a61b8a355a77ebf00305b24f6e7859e8fb618edfbdb53d10",
       "transform": {
         "positionMm": [
           0,
@@ -1116,7 +1116,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "57ae6bbb8359c8936efc567fb1c75d199de985e05269ce22e32cf93960b47d1b",
+      "shapeHash": "03c4f6e13f6b05c02739ab92ade79c62a7557767a8a0240fec075e2b3e626050",
       "transform": {
         "positionMm": [
           0,
@@ -1144,7 +1144,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "bc5505d3d5010b0acbb18646232c9ee60ac32016d632467c0a2d581c5186b35a",
+      "shapeHash": "197173d6677d21fde8bc7568b0cdf5934b3556d79ad8220011907ef89797916f",
       "transform": {
         "positionMm": [
           0,
@@ -1172,7 +1172,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "78a6fc8796461f557f71109d193aafa4e05d5e09650c8eb038bf0d693d6a0a86",
+      "shapeHash": "7676ffff56eaab2dbea3388300000c12eba4c522cb472fdbd0e499f668ae4a7d",
       "transform": {
         "positionMm": [
           0,
@@ -1200,7 +1200,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "1aac3dcc07eea1cdb888bb014b9fc930ac2ff204993edf6732b637564fb09c6e",
+      "shapeHash": "c4c2c2ba12c6a8dea430161587c66ff79b5838b43eb27c7f4dcd5889f77537de",
       "transform": {
         "positionMm": [
           0,
@@ -1228,7 +1228,7 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "320d142a8ec9e9868f9899b2637a35e013aa9c3be1aa014328ddc53f8a62476e",
+      "shapeHash": "ba470ad8494acc8297e6315e086fd51467c151a2e3fead1a5ec132cf7a2508c4",
       "transform": {
         "positionMm": [
           0,
@@ -1268,18 +1268,24 @@
     {
       "id": "pi_baseboard_lite",
       "kind": "step",
-      "path": "design/handheld_computer/source/assets/fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8.step",
-      "sha256": "fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8",
-      "label": "Compact Pi baseboard",
+      "path": "design/handheld_computer/source/assets/d5eedbdd2e46ee9693cc34f90c7cba7747c453ec3ba94badc9c13c7c85ab0b27.step",
+      "sha256": "d5eedbdd2e46ee9693cc34f90c7cba7747c453ec3ba94badc9c13c7c85ab0b27",
+      "label": "Compact rectangular baseboard",
       "provenance": {
-        "sourcePath": "manufacturing/pi_baseboard_lite/releases/cd04f943ef57c8363e042d7d455cd9599f11065206ac235a43715b5c526e2ad6/package/assembly.step",
-        "sourceVersion": "cd04f943ef57c8363e042d7d455cd9599f11065206ac235a43715b5c526e2ad6",
-        "declaredSha256": "fc6d293414ed15fcebd1226aa4a9bee691ebe59ee7340ee3075cb63742b08fa8"
+        "sourcePath": "manufacturing/pi_baseboard_lite/releases/69ac26497e08aced1b2858ee0777f8e5f23b9fe97a135c3ad144ca151cb584af/package/assembly.step"
       }
     }
   ],
-  "fits": [],
-  "updatedAt": "2026-11-04T14:41:32.951Z",
+  "fits": [
+    {
+      "kind": "nominal_contact",
+      "budget_mm": 3,
+      "reason": "Male GPIO shanks enter the unmodeled internal contact space beyond the nominal socket3mm visual cavity; pins aligned on the2.54mm grid, housing clearance checked separately. Actual generic contact geometry requires prototype mating.",
+      "a": "pi4b",
+      "b": "pi_baseboard_lite"
+    }
+  ],
+  "updatedAt": "2026-11-07T15:06:44.243Z",
   "parameters": {
     "shell": {
       "case_width": 76,
@@ -1330,15 +1336,15 @@
       "front_module_screw_x": 29.5,
       "front_module_screw_y_offset": 11,
       "front_module_screw_engagement": 3.6,
-      "pcb_mount_bottom_z": 21.8,
+      "pcb_mount_bottom_z": 21,
       "pcb_mount_x": 16,
       "pcb_mount_y": -32,
       "pcb_mount_beam_width": 6,
       "pcb_mount_beam_thickness": 2,
       "pcb_mount_engagement": 2,
       "pcb_mount_cover_clearance": 0.5,
-      "pcb_rear_guide_y": 24,
-      "pcb_rear_guide_width": 8,
+      "pcb_rear_guide_y": 25.5,
+      "pcb_rear_guide_width": 7,
       "pcb_rear_guide_thickness": 1.5,
       "pcb_rear_guide_clearance": 0.3,
       "shell_fan_center_x": -29,
@@ -1397,7 +1403,7 @@
       "shell_plug_entry_radius": 1,
       "shell_plug_inner_reach": 0.5,
       "screen_mount_front_x": 35,
-      "screen_mount_front_y": 4.2,
+      "screen_mount_front_y": 9.2,
       "screen_mount_rear_x": 27,
       "screen_mount_rear_y": 51,
       "screen_mount_front_pad_width": 5.6,
@@ -1429,7 +1435,14 @@
       "shell_vent_center_y": -41,
       "corner_support_start_y": 34,
       "corner_support_end_y": 53,
-      "corner_support_inner_x": 33
+      "corner_support_inner_x": 33,
+      "rear_divider_width": 2.4,
+      "rear_divider_depth": 4,
+      "rear_divider_root_depth": 8,
+      "rear_divider_tip_engagement": 1.2,
+      "rear_divider_shoulder_z": 7.5,
+      "pi_stack_lift": 1.3,
+      "gpio_tail_roof_air": 0.5
     },
     "base": {
       "base_depth": 115,
@@ -1462,7 +1475,9 @@
       "base_corner_rail_width": 1.5,
       "base_corner_rail_height": 2.4,
       "base_rear_web_height": 0.65,
-      "base_rear_web_depth": 11
+      "base_rear_web_depth": 11,
+      "base_rear_divider_clearance": 0.25,
+      "base_rear_divider_floor_clearance": 0.3
     },
     "fascia": {
       "fascia_thickness": 3,
@@ -1500,7 +1515,7 @@
       "fascia_active_tail_channel_height": 7.5,
       "fascia_center_y": 21.521201483,
       "retainer_screw_x_front": 27,
-      "fascia_screen_center_z": 8.010909266,
+      "fascia_screen_center_z": 7.210909266,
       "fascia_optical_clearance": 0.3,
       "fascia_glass_clearance": 0.3,
       "fascia_front_lip": 1.2,
@@ -1524,7 +1539,10 @@
       "rear_cushion_window_w": 60,
       "rear_cushion_window_h": 38,
       "rear_cushion_tail_gap": 16,
-      "rear_cushion_z": -5.04
+      "rear_cushion_z": -5.04,
+      "rear_cushion_gpio_notch_x": -18.5,
+      "rear_cushion_gpio_notch_width": 5.8,
+      "rear_cushion_gpio_notch_depth": 1.6
     },
     "thermal_stack": {
       "cpu_heatsink_x": 6.3725,
@@ -1588,7 +1606,7 @@
       "retainer_depth": 44,
       "retainer_y": -1.77,
       "retainer_rail_width": 3,
-      "retainer_tail_gap": 16,
+      "retainer_tail_gap": 42,
       "retainer_shell_clearance": 0.3
     },
     "pi_carrier": {
