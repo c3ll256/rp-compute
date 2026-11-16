@@ -6,10 +6,12 @@
 # cell: fascia
 # cell: fascia
 # cell: fascia
+# cell: fascia
+# cell: fascia
 import math
 housing=part('shell')
 # Equal line-to-optical-window band on the screen plane; outer face is independent. The pod base stays on the shell seam;
-# the screen plane (glass, frame, retainer) sits fascia_screen_center_z above it.
+# the screen pose is derived from the specified front rise and tilt.
 fascia_width=housing.case_width
 fascia_thickness=param('fascia_thickness',3.0)
 fascia_border_inner_gap=param('fascia_border_inner_gap',3.0)
@@ -29,10 +31,6 @@ fascia_fpc_length=param('fascia_fpc_length',10.0)
 fascia_fpc_y=param('fascia_fpc_y',-25.0)
 fascia_fpc_roof=param('fascia_fpc_roof',1.5)
 fascia_fpc_depth=param('fascia_fpc_depth',5.0)
-# 7.21 = former 8.01 lowered 0.8mm so the LCD tail drop to the J_LCD slot is
-# 4.18mm and its back fold ends inside Sharp's 0.8..6.0mm zone.
-fascia_screen_center_z=param('fascia_screen_center_z',7.210909266)
-fascia_center_y=param('fascia_center_y',21.521201483)
 fascia_border=(fascia_width-fascia_window_width)/2
 # The visible face offsets the existing line by exactly the side margin.
 # The front skirt drops vertically from the visible face; glass and FPC stay put.
@@ -43,7 +41,35 @@ fascia_radius=fascia_face_corner_radius
 assert fascia_border>=fascia_edge_radius+0.5
 assert (fascia_depth-fascia_window_height)/2>=fascia_edge_radius+0.5
 assert abs(fascia_window_x)<1e-6 and abs(fascia_window_y)<1e-6
+fascia_glass_clearance=param('fascia_glass_clearance',0.3)
+fascia_front_lip=param('fascia_front_lip',1.5)
+
+# Outline from Sharp p26; thickness from the user's physical sample.
+GLASS_W,GLASS_H,GLASS_Y=62.8,42.82,-1.77
+screen_measured_thickness=param('screen_measured_thickness',1.8)
+screen_foam_sheet_thickness=param('screen_foam_sheet_thickness',0.2)
+screen_foam_compression_ratio=param('screen_foam_compression_ratio',0.10)
+assert 0<=screen_foam_compression_ratio<=0.20
+foam_installed_thickness=screen_foam_sheet_thickness*(1-screen_foam_compression_ratio)
+GLASS_FRONT=-fascia_front_lip-foam_installed_thickness
+GLASS_BACK=GLASS_FRONT-screen_measured_thickness
+screen_clamp_gap=screen_measured_thickness+2*foam_installed_thickness
+
+# Keep the printed shell and PCB fixed, preserve the user's front height,
+# and derive the raised display pose and a compatible native-tail route.
+# The shell retains its original service-well datum.
+GLASS_EDGE=-23.18
+FPC_Z=GLASS_FRONT-0.83
+# Preserve the user's1.67mm nominal front rise. A1mm forward shift provides
+# native-tail reach without changing the printed shell or its mounting axes.
+fascia_front_nominal_rise=param('fascia_front_nominal_rise',1.67)
+fascia_screen_forward=param('fascia_screen_forward',1.0)
+REFERENCE_FRONT_WORLD_Y=-4.04626901696457
 a=math.radians(fascia_slope)
+fascia_center_y=REFERENCE_FRONT_WORLD_Y-fascia_screen_forward+fascia_depth*math.cos(a)/2
+fascia_screen_center_z=housing.case_top_center+fascia_front_nominal_rise-housing.SCREEN_POD_BASE_Z+fascia_depth*math.sin(a)/2
+FPC_ANCHOR_Y=fascia_center_y+GLASS_EDGE*math.cos(a)-FPC_Z*math.sin(a)
+FPC_ANCHOR_Z=housing.SCREEN_POD_BASE_Z+fascia_screen_center_z+GLASS_EDGE*math.sin(a)+FPC_Z*math.cos(a)
 zc=fascia_screen_center_z
 F=Pos(0,0,zc)*Rot(fascia_slope,0,0)
 d=fascia_depth*math.cos(a)
@@ -81,19 +107,6 @@ body=body.fuse(*list(feet.solids()))
 print('EQUAL_WINDOW_LINE_BAND',dict(face_width=fascia_width,face_depth=fascia_depth,gaps=[fascia_border_inner_gap]*4,line_outer=[fascia_window_width,fascia_window_height],line_radius=fascia_window_radius,front_rise_with_seam=fascia_front_height+0.3,rear_lean_deg=fascia_rear_lean_deg))
 # Integral optical lip replaces the independent bezel and its thin rear flange.
 
-fascia_glass_clearance=param('fascia_glass_clearance',0.3)
-fascia_front_lip=param('fascia_front_lip',1.5)
-
-# Outline from Sharp p26; thickness from the user's physical sample.
-GLASS_W,GLASS_H,GLASS_Y=62.8,42.82,-1.77
-screen_measured_thickness=param('screen_measured_thickness',1.8)
-screen_foam_sheet_thickness=param('screen_foam_sheet_thickness',0.2)
-screen_foam_compression_ratio=param('screen_foam_compression_ratio',0.10)
-assert 0<=screen_foam_compression_ratio<=0.20
-foam_installed_thickness=screen_foam_sheet_thickness*(1-screen_foam_compression_ratio)
-GLASS_FRONT=-fascia_front_lip-foam_installed_thickness
-GLASS_BACK=GLASS_FRONT-screen_measured_thickness
-screen_clamp_gap=screen_measured_thickness+2*foam_installed_thickness
 print('MEASURED_SCREEN_STACK',dict(glass=screen_measured_thickness,foam_sheet=screen_foam_sheet_thickness,foam_layers=2,compression_ratio=screen_foam_compression_ratio,closed_gap=screen_clamp_gap))
 optical=F*Pos(0,0,-12)*extrude(RectangleRounded(58.8+2*fascia_optical_clearance,35.28+2*fascia_optical_clearance,fascia_optical_radius),amount=24)
 pocket=F*Pos(0,GLASS_Y,-12)*extrude(Rectangle(GLASS_W+2*fascia_glass_clearance,GLASS_H+2*fascia_glass_clearance),amount=12-fascia_front_lip)
@@ -169,35 +182,67 @@ for xx,yy in joint_axes:
    host=host+(column & receiver_envelope)
 # Positive glass locator walls and roof remain a single printable piece.
 host=host-(F.inverse()*pocket)-(F.inverse()*optical)
-# Full negative FPC path: one 180-degree fold behind the panel.
-# 0.30mm is the manufacturer's stiffened-tail thickness, used conservatively
-# over the flex span. Overall free length is a disclosed 13.7mm layout target,
-# not a toleranced manufacturer length; user authorized continued provisional
-# design from this estimate. This old negative channel does not certify mating.
-fpc_bend_start=param('fpc_bend_start',1.0)
-fpc_inner_radius=param('fpc_inner_radius',1.35)
+# Negative reserve for the active top-contact socket; no purchased cable solid.
+# Native total length remains the user's delegated13.7+/-0.5mm estimate.
+# All bends stay between0.8 and6mm from the glass; stiffness and seating
+# still need actual mating. The initial straight accommodates the steeper exit.
 fpc_free_length=param('fpc_free_length',13.7)
 fpc_path_clearance=param('fpc_path_clearance',0.25)
+fpc_initial_straight=0.85 #0.8mm manufacturer no-bend zone plus0.05mm nominal margin.
+FPC_T_MAX=0.33
+FPC_R2=0.45+FPC_T_MAX/2
+FPC_SOCKET_STOP_Y=5.77
+FPC_SOCKET_SLOT_Z=23.045
 FPC_T=0.30
-FPC_Z=GLASS_FRONT-0.83 # Follow the measured glass stack; retain socket and mounting datums.
-# The native tail's seating and insertion still require physical trial fitting.
-GLASS_EDGE=-23.18
-r=fpc_inner_radius+FPC_T/2
-cy=GLASS_EDGE-fpc_bend_start
-cz=FPC_Z-r
-tail_end_y=cy+fpc_free_length-fpc_bend_start-math.pi*r
-assert fpc_bend_start>=0.8 and fpc_bend_start+math.pi*r<=6.0
-assert fpc_inner_radius>=0.45
-assert fpc_free_length-fpc_bend_start-math.pi*r>4.0
-t=FPC_T+2*fpc_path_clearance
-route_arc=Pos(0,cy,cz)*Rot(0,90,0)*(Cylinder(r+t/2,11)-Cylinder(r-t/2,12))
-route_arc=route_arc & (Pos(0,cy-r-t/2,cz)*Box(12,2*r+t,2*r+t))
-route_start=Pos(0,(GLASS_EDGE+cy)/2,FPC_Z)*Box(11,fpc_bend_start,t)
-route_return=Pos(0,(cy+tail_end_y)/2,FPC_Z-2*r)*Box(11,tail_end_y-cy,t)
-# Negative clearance only: no invented purchased FPC solid is published.
-for keepout in [route_arc,route_start,route_return]:
- host=host-keepout
-print('FPC_LAYOUT',dict(bend_start=fpc_bend_start,bend_end=fpc_bend_start+math.pi*r,inner_radius=fpc_inner_radius,tail_end_y=tail_end_y,tail_z=FPC_Z-2*r))
+SCREEN_WORLD=Location((0,fascia_center_y,housing.SCREEN_POD_BASE_Z+fascia_screen_center_z),(fascia_slope,0,0))
+reserve_t=FPC_T_MAX+2*fpc_path_clearance
+reserve_w=11.0
+route_theta=math.pi+a
+route_beta=1.5*math.pi-route_theta
+route_coeff=route_beta-math.cos(a)+1-math.sin(a)
+route_const=fpc_initial_straight+FPC_ANCHOR_Z-fpc_initial_straight*math.sin(a)-FPC_R2-FPC_SOCKET_SLOT_Z+math.pi/2*FPC_R2+FPC_SOCKET_STOP_Y-FPC_ANCHOR_Y+fpc_initial_straight*math.cos(a)-FPC_R2
+assert 0.8<=fpc_initial_straight<6.0
+
+def fpc_arc_band(y,z,r,theta0,theta1,width,thickness):
+ center=(y-r*math.sin(theta0),z+r*math.cos(theta0))
+ phi0=theta0-math.pi/2
+ phi1=theta1-math.pi/2
+ def pt(rr,phi):return (center[0]+rr*math.cos(phi),center[1]+rr*math.sin(phi),0)
+ ro=r+thickness/2
+ ri=r-thickness/2
+ edges=[Edge.make_three_point_arc(pt(ro,phi0),pt(ro,(phi0+phi1)/2),pt(ro,phi1)),Edge.make_line(pt(ro,phi1),pt(ri,phi1)),Edge.make_three_point_arc(pt(ri,phi1),pt(ri,(phi0+phi1)/2),pt(ri,phi0)),Edge.make_line(pt(ri,phi0),pt(ro,phi0))]
+ band=Pos(-width/2,0,0)*extrude(Plane.YZ*Face(Wire(edges)),amount=width)
+ return band,(center[0]+r*math.sin(theta1),center[1]-r*math.cos(theta1))
+
+def fpc_route_case(length,width,thickness):
+ r1=(length-route_const)/route_coeff
+ v=FPC_ANCHOR_Z-fpc_initial_straight*math.sin(a)-r1*math.cos(a)-FPC_R2-FPC_SOCKET_SLOT_Z
+ bend_end=fpc_initial_straight+route_beta*r1+v+math.pi/2*FPC_R2
+ assert r1-FPC_T_MAX/2>=0.45 and v>=0 and bend_end<=6.0,(length,r1,v,bend_end)
+ first_end=(FPC_ANCHOR_Y+fpc_initial_straight*math.cos(route_theta),FPC_ANCHOR_Z+fpc_initial_straight*math.sin(route_theta))
+ first=Pos(0,(FPC_ANCHOR_Y+first_end[0])/2,(FPC_ANCHOR_Z+first_end[1])/2)*Rot(math.degrees(route_theta),0,0)*Box(width,fpc_initial_straight,thickness)
+ arc1,p1=fpc_arc_band(first_end[0],first_end[1],r1,route_theta,1.5*math.pi,width,thickness)
+ vertical=Pos(0,p1[0],p1[1]-v/2)*Box(width,thickness,v)
+ arc2,p2=fpc_arc_band(p1[0],p1[1]-v,FPC_R2,1.5*math.pi,2*math.pi,width,thickness)
+ last=Pos(0,(p2[0]+FPC_SOCKET_STOP_Y)/2,FPC_SOCKET_SLOT_Z)*Box(width,FPC_SOCKET_STOP_Y-p2[0],thickness)
+ report=dict(length_mm=length,r1_mm=r1,vertical_mm=v,bend_end_mm=bend_end,free_straight_mm=length-bend_end,last_bend_y=p2[0])
+ return (first,arc1+vertical+arc2,last),report
+native_route_reserves_world=[]
+native_route_cases=[]
+start_cuts=[];arc_cuts=[];return_cuts=[]
+for length in [fpc_free_length-0.5,fpc_free_length,fpc_free_length+0.5]:
+ shapes,report=fpc_route_case(length,reserve_w,reserve_t)
+ native_route_reserves_world.append(shapes)
+ native_route_cases.append(report)
+ start_cuts.append(shapes[0].moved(SCREEN_WORLD.inverse()))
+ arc_cuts.append(shapes[1].moved(SCREEN_WORLD.inverse()))
+ return_cuts.append(shapes[2].moved(SCREEN_WORLD.inverse()))
+ print('NATIVE_TAIL_ANALYTIC',report)
+route_start=Compound(children=start_cuts)
+route_arc=Compound(children=arc_cuts)
+route_return=Compound(children=return_cuts)
+for keepout in [route_start,route_arc,route_return]:host=host-keepout
+print('RAISED_SCREEN_POSE',dict(slope=fascia_slope,center_y=fascia_center_y,center_z=housing.SCREEN_POD_BASE_Z+fascia_screen_center_z,exit_y=FPC_ANCHOR_Y,exit_z=FPC_ANCHOR_Z))
 
 # Local PCB clearance at the front rail; glass and screw datums are unchanged.
 fascia_pcb_bottom_z=housing.pcb_mount_bottom_z
@@ -205,9 +250,8 @@ fascia_pcb_clearance=param('fascia_pcb_clearance',0.5)
 fascia_pcb_top_air=param('fascia_pcb_top_air',1.5)
 PCB_T=0.8
 SCREEN_WORLD=Location((0,fascia_center_y,housing.SCREEN_POD_BASE_Z+fascia_screen_center_z),(fascia_slope,0,0))
-shell_screen_z=getattr(housing,'SCREEN_CENTER_Z',None)
-if shell_screen_z is not None:
- assert abs(shell_screen_z-(housing.SCREEN_POD_BASE_Z+fascia_screen_center_z))<1e-6,('shell screen datum',shell_screen_z)
+assert abs(fascia_center_y+GLASS_EDGE*math.cos(a)-FPC_Z*math.sin(a)-FPC_ANCHOR_Y)<1e-6
+assert abs(housing.SCREEN_POD_BASE_Z+fascia_screen_center_z+GLASS_EDGE*math.sin(a)+FPC_Z*math.cos(a)-FPC_ANCHOR_Z)<1e-6
 # Negative probes only, derived from the released front spine and its screw notch.
 zmid=fascia_pcb_bottom_z+PCB_T/2+(fascia_pcb_top_air-fascia_pcb_clearance)/2
 height=PCB_T+fascia_pcb_clearance+fascia_pcb_top_air
@@ -241,6 +285,9 @@ for void_world in voids:
 # The independently modeled flat retainer subtracts these exact same kit seats.
 retainer_cuts=[]
 retainer_hardware=[]
+retainer_head_service_depth=param('retainer_head_service_depth',6.0)
+retainer_service_floor_z=param('retainer_service_floor_z',-32.0)
+retainer_service_skin=param('retainer_service_skin',1.25)
 joint_lengths=[]
 connections={}
 retainer_screw_axes=[axis for axis in joint_axes if axis[1]>0]
@@ -249,7 +296,30 @@ for i,(xx,yy) in enumerate(retainer_screw_axes):
  joint,seat,hardware=m2_flush_joint(Location((xx,yy,ret_bottom),(180,0,0)),sheet,retainer_thickness,retainer_engagement,host,'lcd-flat-retainer')
  if len(joint.bosses.solids())>0:
   host=host+joint.bosses
- host=host-joint.engage_cuts
+ # Extend the kit's own seat-mouth profile for removal of the rear screw.
+ # This is access clearance below the stop, not a hand-modeled receiving hole.
+ zbottom=seat.bounding_box().min.Z
+ mouths=[face for face in seat.faces() if abs(face.center().Z-zbottom)<1e-5 and face.normal_at().Z<-.99]
+ mouth=max(mouths,key=lambda face:face.area)
+ head_service=extrude(mouth,amount=retainer_head_service_depth,dir=(0,0,-1))
+ # Rear access cavity widens with depth, leaving the outer rear skin closed.
+ # Its upper end stops exactly at the hard stop, retaining thread engagement.
+ service_top=retainer_seat_z
+ service_bottom=retainer_service_floor_z
+ rear_top=yy+2.8
+ rear_bottom=rear_top+0.12*(service_top-service_bottom)
+ front=yy-retainer_ear_depth/2-0.3
+ width=retainer_ear_width+0.6
+ def rear_access_section(z,rear,extra=0.0):
+  return Pos(xx,(front+rear+extra)/2,z)*Rectangle(width,rear-front+extra)
+ service=loft([rear_access_section(service_bottom,rear_bottom),rear_access_section(service_top,rear_top)],ruled=True)
+ # A geometric envelope behind the cavity proves the thin local access skin.
+ guard=loft([rear_access_section(service_bottom,rear_bottom,retainer_service_skin),rear_access_section(service_top,rear_top,retainer_service_skin)],ruled=True)
+ guard=guard & (F.inverse()*(Pos(0,0,100)*Box(4*fascia_width,4*fascia_depth,200)))
+ missing=guard-(F.inverse()*outer)
+ vv=0.0 if not missing else missing.volume
+ assert vv<1e-5,('rear access closing skin',vv)
+ host=host-joint.engage_cuts-seat-head_service-service
  retainer_cuts.append(seat)
  retainer_hardware.append(hardware)
  joint_lengths.append(joint.screw_length_mm)
@@ -286,6 +356,45 @@ connections['front_right_capture']='free: rigid sliding pocket, no flex snap, 1.
 assert len(connections)==4
 assert len(host.solids())==1 and host.is_valid
 assert host.bounding_box().max.Z<0.001,('receiver breaks face',host.bounding_box())
+
+# Rear branding uses the supplied SVG's mM path, without its app-icon tile,
+# gradients, blur or shadow. Normalised XY outline retains circular arc segments.
+# Source: product/references/uploads/20261116T193239198Z-1-icon.svg
+rear_brand_text=param('rear_brand_text','Makit Compute')
+rear_brand_font_size=param('rear_brand_font_size',6.0)
+rear_brand_logo_width=param('rear_brand_logo_width',12.0)
+rear_brand_gap=param('rear_brand_gap',3.0)
+rear_brand_center_z=param('rear_brand_center_z',13.0)
+rear_brand_relief=param('rear_brand_relief',0.45)
+rear_brand_finish_t=param('rear_brand_finish_t',0.02)
+assert 0.4<=rear_brand_relief<=0.8 and 0<rear_brand_finish_t<=0.05
+rear_brand_logo_commands=[[[0.143062029401219,0.2689135891000359,0],[0.24883470778056646,0.2689135891000359,0]],[[0.24883470778056646,0.2689135891000359,0],[0.2611625923963443,0.2664245229883055,0],[0.2716027249910362,0.25941197561850127,0]],[[0.2716027249910362,0.25941197561850127,0],[0.4904983865184655,0.04069558981713874,0]],[[0.4904983865184655,0.04069558981713874,0],[0.49754530987419004,0.03017267913475118,0],[0.5,0.017748296880602327,0]],[[0.5,0.017748296880602327,0],[0.5,-0.23664395840803157,0]],[[0.5,-0.23664395840803157,0],[0.49054844399669745,-0.2594620330967333,0],[0.4677303693079957,-0.2689135891000359,0]],[[0.4677303693079957,-0.2689135891000359,0],[0.3592685550376479,-0.2689135891000359,0]],[[0.3592685550376479,-0.2689135891000359,0],[0.34694067042187,-0.2664245229883054,0],[0.3365005378271783,-0.2594119756185014,0]],[[0.3365005378271783,-0.2594119756185014,0],[0.1301541771244174,-0.05306561491574045,0]],[[0.1301541771244174,-0.05306561491574045,0],[0.1182993130089981,-0.0506390450036757,0],[0.11168877733954816,-0.06077447113660807,0]],[[0.11168877733954816,-0.06077447113660807,0],[0.11168877733954816,-0.23664395840803157,0]],[[0.11168877733954816,-0.23664395840803157,0],[0.10223722133624562,-0.2594620330967333,0],[0.07941914664754385,-0.2689135891000359,0]],[[0.07941914664754385,-0.2689135891000359,0],[-0.028863391896737225,-0.2689135891000359,0]],[[-0.028863391896737225,-0.2689135891000359,0],[-0.04128777415088618,-0.2664588989742259,0],[-0.051810684833273536,-0.2594119756185014,0]],[[-0.051810684833273536,-0.2594119756185014,0],[-0.25815704553603447,-0.05306561491574045,0]],[[-0.25815704553603447,-0.05306561491574045,0],[-0.2698651562633208,-0.05083550890560959,0],[-0.27644316959483684,-0.06077447113660807,0]],[[-0.27644316959483684,-0.06077447113660807,0],[-0.27644316959483684,-0.23664395840803157,0]],[[-0.27644316959483684,-0.23664395840803157,0],[-0.2858947255981394,-0.2594620330967333,0],[-0.30871280028684117,-0.2689135891000359,0]],[[-0.30871280028684117,-0.2689135891000359,0],[-0.4677303693079957,-0.2689135891000359,0]],[[-0.4677303693079957,-0.2689135891000359,0],[-0.49054844399669745,-0.2594620330967333,0],[-0.5,-0.23664395840803157,0]],[[-0.5,-0.23664395840803157,0],[-0.5,-0.025098601649336683,0]],[[-0.5,-0.025098601649336683,0],[-0.49054844399669756,-0.002280526960634915,0],[-0.4677303693079957,0.0071710290426676235,0]],[[-0.4677303693079957,0.0071710290426676235,0],[-0.302438149874507,0.0071710290426676235,0]],[[-0.302438149874507,0.0071710290426676235,0],[-0.2846907584499611,0.01452223926745843,0],[-0.2773395482251703,0.03226963069200431,0]],[[-0.2773395482251703,0.03226963069200431,0],[-0.2773395482251703,0.23664395840803157,0]],[[-0.2773395482251703,0.23664395840803157,0],[-0.26788799222186777,0.2594620330967333,0],[-0.245069917533166,0.2689135891000359,0]],[[-0.245069917533166,0.2689135891000359,0],[-0.13929723915381856,0.2689135891000359,0]],[[-0.13929723915381856,0.2689135891000359,0],[-0.12696935453804079,0.2664245229883055,0],[-0.11652922194334887,0.25941197561850127,0]],[[-0.11652922194334887,0.25941197561850127,0],[0.09250627465041238,0.050376479024740094,0]],[[0.09250627465041238,0.050376479024740094,0],[0.10421438537769873,0.048146373014609334,0],[0.1107923987092147,0.05808533524560771,0]],[[0.1107923987092147,0.05808533524560771,0],[0.1107923987092147,0.23664395840803157,0]],[[0.1107923987092147,0.23664395840803157,0],[0.12024395471251724,0.2594620330967333,0],[0.143062029401219,0.2689135891000359,0]]]
+brand_edges=[]
+for command in rear_brand_logo_commands:
+ pts=[Vector(p)*rear_brand_logo_width for p in command]
+ brand_edges.append(Edge.make_line(*pts) if len(pts)==2 else Edge.make_three_point_arc(*pts))
+brand_logo=Face(Wire(brand_edges))
+brand_letters=Text(rear_brand_text,rear_brand_font_size,font='Arial',font_style=FontStyle.BOLD)
+brand_text_bounds=brand_letters.bounding_box()
+brand_text_w=brand_text_bounds.size.X
+brand_letters=Pos(-(brand_text_bounds.min.X+brand_text_bounds.max.X)/2,-(brand_text_bounds.min.Y+brand_text_bounds.max.Y)/2)*brand_letters
+brand_width=rear_brand_logo_width+rear_brand_gap+brand_text_w
+assert brand_width<fascia_width-14
+brand_art=Pos(-brand_width/2+rear_brand_logo_width/2,0)*brand_logo+Pos(brand_width/2-brand_text_w/2,0)*brand_letters
+brand_plane=Plane(origin=(0,rear_y-rear_lean*rear_brand_center_z,rear_brand_center_z),x_dir=(-1,0,0),z_dir=(0,1,rear_lean))
+brand_pod=brand_plane*Pos(0,0,-0.05)*extrude(brand_art,amount=rear_brand_relief+0.05,dir=(0,0,1))
+brand_inside=brand_plane*Pos(0,0,-0.05)*extrude(brand_art,amount=0.05,dir=(0,0,1))
+brand_missing=brand_inside-(F*host)
+brand_missing_v=0.0 if not brand_missing else brand_missing.volume
+assert brand_missing_v<1e-5,('branding foot must fully meet rear wall',brand_missing_v)
+host=host+brand_pod.moved(F.inverse())
+assert len(host.solids())==1 and host.is_valid
+# Paint is a reference only. Relief is integral to the original orange frame.
+rear_brand_finish=brand_plane*Pos(0,0,rear_brand_relief)*extrude(brand_art,amount=rear_brand_finish_t,dir=(0,0,1))
+rear_brand_finish.color=srgb('#e9e6df')
+publish('rear_brand_finish',rear_brand_finish,'Rear brand paint',role='reference')
+print('REAR_BRANDING',dict(text=rear_brand_text,width_mm=brand_width,logo_width_mm=rear_brand_logo_width,font_size_mm=rear_brand_font_size,relief_mm=rear_brand_relief,plane_center_z_world=rear_brand_center_z+housing.SCREEN_POD_BASE_Z))
+
 host.color=srgb('#e87736')
 publish('fascia',F*host,'Integral screen frame',material='pla',role='part')
 # Cosmetic finish only: a nominal20um dry paint layer above the unchanged

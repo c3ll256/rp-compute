@@ -1,10 +1,10 @@
 {
-  "schema_version": 6,
-  "status": "narrow_border_clearance_checked_native_tail_seating_requires_trial",
-  "reviewed_on": "2026-11-07",
-  "cad_revision": "94ea82a623e27c47c574759fdccaaffbb422f98251a237e71724fd5a552c0e34",
-  "pcb_release": "69ac26497e08aced1b2858ee0777f8e5f23b9fe97a135c3ad144ca151cb584af",
-  "pcb_step_sha256": "d5eedbdd2e46ee9693cc34f90c7cba7747c453ec3ba94badc9c13c7c85ab0b27",
+  "schema_version": 7,
+  "status": "raised_screen_provisional_geometry_checked_physical_tail_seating_requires_trial",
+  "reviewed_on": "2026-11-17",
+  "cad_revision": "86f8b536ca8ba864c124e79d3d5dc609674afbe08d3ba90d7f029d20461ddf3b",
+  "pcb_release": "652af371684be9547491468057c5040d54a8621926537a530785095f68458473",
+  "pcb_step_sha256": "9646c96b6ef8b9988d3382da1e969c014f99d7fc087cdfb053901519d2101f27",
   "pcb_placement_world_mm": [
     -100,
     81,
@@ -12,16 +12,41 @@
   ],
   "pcb_stack_world_z_mm": {
     "board_bottom": 21.0,
-    "board_finished_top": 21.75,
+    "board_finished_top": 21.8,
     "connector_seat": 21.795,
     "note": "Board is 0.8mm finished, lowered from Z21.8 to Z21.0 for the 8mm Pi socket stack (connector-stack-review.json)."
   },
   "screen_change": {
-    "summary": "Screen plane lowered 0.8mm in world Z (fascia_screen_center_z 8.0109 -> 7.2109; screen active centre world Z 35.3109 -> 34.5109). Pod base, seam and slope unchanged; pod front lip now 0.575mm above its base (0.875mm above the deck with the 0.3mm seam).",
-    "follow_on_changes": [
-      "Front screen-pod screws moved from Y4.2 to Y9.2 so their blind holes keep skin under the lowered face",
-      "Rear-left PCB edge guide narrowed 8 -> 7mm and centred at Y25.5 (spans Y22..29, still ends at the board rear edge) to clear the lowered retainer by 0.39mm",
-      "Rear silicone pad: 5.8 x 1.6mm die-cut notch over the two frontmost GPIO tails (0.67mm clearance, 0.8mm connecting strip kept)"
+    "summary": {
+      "angle_from_horizontal_deg": 25,
+      "screen_frame_center_world_mm": [
+        0,
+        18.735247314877125,
+        39.75950318807595
+      ],
+      "front_edge_forward_shift_mm": 1,
+      "front_rise_above_deck_mm": 1.67,
+      "actual_highest_z_mm": 50.6839216822922,
+      "rear_sharp_top_z_mm": 50.8490063761519,
+      "rear_wall_lean_from_vertical_deg": 32.4668713941779,
+      "replacement_prints": [
+        "fascia",
+        "retainer"
+      ],
+      "reuse": "Existing main shell, base, Pi carrier, front cover, side panel, PCB and fastener axes unchanged.",
+      "qualification": "Default25deg based on user green sketch; native13.7±0.5mm tail length remains an unmeasured estimate; physical seating and print fit require trial."
+    },
+    "replaced_prints": [
+      "fascia",
+      "retainer"
+    ],
+    "reused_geometry": [
+      "shell",
+      "base",
+      "pi_carrier",
+      "front_module_blank",
+      "side_port_panel",
+      "pi_baseboard_lite"
     ]
   },
   "active_connector": {
@@ -80,11 +105,11 @@
   },
   "native_tail": {
     "exit_world_yz_mm": [
-      -0.5631,
-      27.1237
+      -1.2121953516632658,
+      27.68837933546455
     ],
-    "exit_basis": "Screen frame origin (0,21.5212,34.5109), rotation X13deg; glass edge local Y-23.18; tail plane local Z-2.23 (front surface -1.4 minus front polariser 0.23 and front glass 0.6)",
-    "exit_tangent_deg_from_positive_Y": 193,
+    "exit_basis": "Screen frame origin(0,18.735247314877125,39.75950318807595), rotationX25deg; glass edge localY-23.18, tail localZ-2.51.",
+    "exit_tangent_deg_from_positive_Y": 205,
     "width_mm": {
       "near_glass": "8.64-9.5 for the first ~6.2-6.9mm (drawing views disagree), tapering to 5.5",
       "stiffener": 5.5
@@ -114,73 +139,63 @@
     "copper_face_after_back_fold": "+Z"
   },
   "route_review": {
-    "result": "historical_only_not_requalified_after_glass_inset",
-    "summary": "Historical analytic review before the0.3mm glass inset for the narrow border. The cases and clearances below are not current fit certification. Native tail length and real connector insertion depth remain unmeasured.",
-    "route_family": "straight a=0.8 at 193deg; arc R1 to 270deg; vertical straight; arc R2=0.615 (centreline, inner R0.45 at 0.33mm worst thickness) to 0deg; horizontal straight at Z23.045 into the mouth",
+    "result": "provisional_analytic_and_modeled_clearance_pass_not_physical_mating_certification",
+    "route_family": "0.85mm straight at205deg; arcR1 to270deg; vertical straight; arcR2=0.615mm to360deg; horizontal+Y atZ23.045 to interpreted stopY5.77",
+    "assumptions": "Native length13.7±0.5mm unmeasured; insertion2.7mm supplier drawing interpretation. Worst thickness0.33mm, inner bend radius>=0.45mm, first bend starts beyond0.8mm and last ends before6mm. Longest case has only0.068mm bend-zone margin.",
     "cases_insertion_2.7mm": [
       {
         "tail_length_mm": 13.2,
-        "R1_mm": 1.444,
-        "bend_end_mm": 5.583,
-        "margin_mm": 0.417,
-        "front_most_centre_y": -2.46
+        "R1_mm": 0.7166012037411236,
+        "vertical_mm": 3.019692561834539,
+        "bend_end_mm": 5.648690580700825,
+        "margin_to_6mm": 0.3513094192991746,
+        "straight_after_last_bend_mm": 7.551309419299174,
+        "last_bend_world_y_mm": -1.7813094192991756
       },
       {
         "tail_length_mm": 13.7,
-        "R1_mm": 1.881,
-        "bend_end_mm": 5.745,
-        "margin_mm": 0.255,
-        "front_most_centre_y": -2.8
+        "R1_mm": 1.3373044129166571,
+        "vertical_mm": 2.457144409920115,
+        "bend_end_mm": 5.790307882843931,
+        "margin_to_6mm": 0.20969211715606928,
+        "straight_after_last_bend_mm": 7.909692117156069,
+        "last_bend_world_y_mm": -2.1396921171560717
       },
       {
         "tail_length_mm": 14.2,
-        "R1_mm": 2.318,
-        "bend_end_mm": 5.906,
-        "margin_mm": 0.094,
-        "front_most_centre_y": -3.14
+        "R1_mm": 1.9580076220921905,
+        "vertical_mm": 1.8945962580056879,
+        "bend_end_mm": 5.9319251849870325,
+        "margin_to_6mm": 0.06807481501296753,
+        "straight_after_last_bend_mm": 8.268074815012966,
+        "last_bend_world_y_mm": -2.4980748150129672
       }
     ],
-    "sensitivity_insertion_1.93mm": "If the tail only enters 1.93mm past the housing front, 13.2/13.7/14.2mm end at 5.832/5.993/6.155mm: 14.2mm would exceed the zone. The real insertion depth is the main prototype check.",
     "clearances_mm": {
-      "method": "Swept band 9.5mm wide to s=8.9 then 5.5mm, 0.3mm thick, exact distance to committed CAD objects, worst over the three lengths",
-      "fascia": 0.58,
+      "method": "Exact CAD sweep/distance on modeled0.33mm thick band; width9.5mm untils8.9 then5.5mm. Exclude initial0.8mm glass attachment; PCB measured only before mouthY3.06 because socket interior is not modeled. All three cases have zero overlap.",
+      "fascia": 0.845,
+      "shell": 0.221925184987,
+      "retainer": 16.2505,
       "display_glass_from_s0.8": 0.8,
-      "shell": 2.21,
-      "front_cushion": 1.63,
-      "rear_cushion": 3.41,
-      "retainer": 16.25,
-      "pcb_before_mouth": "rides on the drawer top at the mouth (0.03); 1.05 above the board top"
+      "front_cushion": 1.6263,
+      "rear_cushion": 3.44246,
+      "pcb_before_mouth": 0.03
     },
-    "previous_state": "Before the screen drop (board at Z21.0, screen centre Z35.31) the shortest legal route ended at 6.18mm: fail.",
-    "method": "Analytic route plus exact boolean/distance checks (cad.inspect eval)."
+    "qualification": "Actual tail length, insertion stop, stiffener, copper orientation, physical latch and material flex need trial; do not stretch or claim guaranteed fit."
   },
   "negative_channel": {
-    "center_world_mm": [
-      0,
-      0,
-      24.677176363698266
-    ],
-    "size_mm": [
-      7.5,
-      7,
-      7.5
-    ],
-    "scope": "Local negative clearance in fascia and retainer, centred 2.17mm below the tail exit (follows the screen). Narrower than the 8.64-9.5mm tail near the glass; the older 11mm-wide fold cut in the screen parts provides the width there."
+    "scope": "Three route-family reserves in screen frame and retainer, width11mm and total thickness0.83mm; not a physical cable solid."
   },
   "retired_route": {
-    "status": "superseded",
-    "summary": "An earlier layout assumed an inverted bottom-contact Hirose FH12 socket hanging under the screen pod, with a 180-degree fold of inner R1.35mm and an 11mm-wide negative path cut into the fascia and retainer. That socket is no longer in the design; the board uses C5373447. Only the 11mm channel cut remains, moving with the screen.",
-    "negative_path_clearance": {
-      "width_mm": 11.0,
-      "surface_margin_mm": 0.25
-    }
+    "status": "removed_and_superseded",
+    "summary": "Old180deg negative reserve and historical13deg route replaced by the current25deg two-arc route; active top-contact C5373447 socket remains fixed on current PCB."
   },
   "signal_review": {
     "result": "pass",
     "pin_map": "Released board pads: 1 GND(VSSA), 2 GND(VSS), 3-5 V5_LCD(EXTMODE,VDD,VDDA), 6 LCD_DISP, 7 LCD_COM, 8 LCD_SCS, 9 LCD_SI, 10 LCD_SCLK; socket = 11 - panel terminal",
     "pi_header": "SCLK<-GPIO11 pin23, SI<-GPIO10 pin19 (MOSI), SCS<-GPIO8 pin24 (CE0), EXTCOMIN<-GPIO12 pin32 (PWM0), DISP<-GPIO25 pin22, LCD power enable GPIO24 pin18; matches product/references/pi-gpio-pinout.png",
     "levels": "Signals buffered by SN74AHC125 at 3.3V: VOH ~3.3V meets Sharp VIH 2.7V min / 3.0V recommended (PDF13); VDD/VDDA 5V from current-limited switch (Sharp 4.8-5.5V); EXTMODE high selects EXTCOMIN mode",
-    "release_gates": "Release 69ac2649 published with fabrication, assembly and mechanical sections ready"
+    "release_gates": "Current bound release652af371684be9547491468057c5040d54a8621926537a530785095f68458473; signal mapping retained; no new PCB electrical validation claimed in this mechanical revision."
   },
   "service": {
     "assembly": "Power off. Release the screen pod and reach the connector from the rear; support the glass independently. Pull the drawer evenly at both ends, insert the straight stiffener copper-up fully, push the drawer closed before fastening the pod. Remove the Pi if needed for access.",
@@ -192,17 +207,17 @@
     "references/suppliers/c5373447/c5373447-datasheet.pdf PDF1 section A-A",
     "product/references/fpc-candidates/C5373447-easyeda.step",
     "product/references/pi-gpio-pinout.png",
-    "manufacturing/pi_baseboard_lite/releases/69ac26497e08aced1b2858ee0777f8e5f23b9fe97a135c3ad144ca151cb584af/package/assembly.step"
+    "manufacturing/pi_baseboard_lite/releases/652af371684be9547491468057c5040d54a8621926537a530785095f68458473/package/assembly.step"
   ],
   "measured_screen_fit": {
-    "cad_revision": "28211411b622ffd1ad1b9d7c8d901d6ac06bd4e5766ea4e1e7808aa5ea066d7c",
+    "cad_revision": "86f8b536ca8ba864c124e79d3d5dc609674afbe08d3ba90d7f029d20461ddf3b",
     "screen_thickness_mm": 1.8,
     "foam_sheet_thickness_mm": 0.2,
     "foam_layers_default": 2,
     "installed_foam_mm_per_layer_default": 0.18,
     "glass_front_normal_shift_mm": -0.28,
     "negative_channel_datum_unchanged": false,
-    "qualification": "Glass moved inward0.3mm from the prior measured-fit revision to preserve1.2mm skin below the narrow decorative groove. Tail reserve follows the glass; mounting ears, socket and2.16mm clamp gap retained. Current CAD guards pass and no added physical overlap was reported. Historical tail-length calculations are not requalification; trial seating and pressure checks remain required.",
+    "qualification": "1.8mm user glass; two user0.2mm foam sheets at assumed0.18mm installed each.2.16mm hard-stop gap unchanged; geometry checks pass, pressure and fit untested.",
     "glass_front_normal_z_mm": -1.68,
     "glass_rear_normal_z_mm": -3.48,
     "tail_channel_normal_z_mm": -2.51,
@@ -213,7 +228,9 @@
     "front": "rigid captured tongues",
     "rear_screws": 2,
     "clamp_gap_mm": 2.16,
-    "screen_and_fpc_datums": "unchanged by the upright-skirt and lower-body refinements",
-    "native_tail_mating": "still requires physical trial"
+    "screen_and_fpc_datums": "Raised25deg screen with1mm front-edge shift; fixed PCB/socket unchanged.",
+    "native_tail_mating": "still requires physical trial",
+    "release_path": "remove rear screws6mm along negative screen normal, lower retainer rear12deg about front capture, slide rearward1.7mm in screen plane, withdraw3mm along negative screen normal, then10mm vertically downward",
+    "slot_top_and_side_air_mm": 0.5
   }
 }

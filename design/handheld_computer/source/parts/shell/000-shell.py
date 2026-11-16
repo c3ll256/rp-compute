@@ -5,6 +5,7 @@
 # cell: shell
 # cell: shell
 # cell: shell
+# cell: shell
 # Roof-down printing; bottom cover is closure only.
 case_width=param('case_width',85.0)
 pi_offset_x=param('pi_offset_x',-5.0)
@@ -279,49 +280,6 @@ for i,y in enumerate([shell_hdmi1_y,shell_hdmi2_y]):
 side_panel_blanks.append(recessed_side_port('USB-C',shell_pi_usb_c_y,shell_pi_usb_c_z,usbc_clear_w,usbc_clear_h,usbc_socket_front_x,'usb_c',12.35,6.5,shell_usbc_entry_y_flare))
 side_panel_blanks.append(recessed_side_port('3.5mm audio',shell_jack_y,shell_jack_z,audio_clear_d,audio_clear_d,audio_socket_front_x,'audio_3_5mm',10.0,10.0,circular=True))
 
-# A single common rear bed plane replaces isolated cup feet. Keep the existing
-# port throats, wide plug pockets, exterior lower facet and two fixing axes.
-side_panel_screw_y_front=param('side_panel_screw_y_front',-31.5)
-side_panel_screw_y_rear=param('side_panel_screw_y_rear',32.5)
-side_panel_screw_z=param('side_panel_screw_z',17.5)
-side_panel_receiver_width=param('side_panel_receiver_width',6.4)
-side_panel_receiver_top=param('side_panel_receiver_top',23.5)
-side_panel_print_back_x=usbc_socket_front_x+side_port_socket_face_air-side_port_web
-side_panel_print_splay=side_panel_back_x-side_panel_print_back_x
-side_panel_print_bridge_air=param('side_panel_print_bridge_air',0.3)
-def side_panel_bed_section(x,inset,extra=0.0):
- return Pos(x,side_panel_center_y,side_panel_center_z)*(Plane.YZ*RectangleRounded(side_panel_width-2*inset+2*extra,side_panel_height-2*inset+2*extra,max(0.3,side_panel_corner-inset)+extra))
-side_panel_backing=loft([side_panel_bed_section(side_panel_print_back_x,side_panel_print_splay),side_panel_bed_section(side_panel_back_x,0)],ruled=True)
-side_panel_backing_seat=loft([side_panel_bed_section(side_panel_print_back_x-side_panel_fit,side_panel_print_splay,side_panel_fit),side_panel_bed_section(side_panel_back_x,0,side_panel_fit)],ruled=True)
-# Leave the original screw receivers intact. A7mm local bridge over each
-# receiver recess is on the hidden side and supported at both ends.
-side_panel_pad_reserves=[]
-for yy in [side_panel_screw_y_front,side_panel_screw_y_rear]:
- z0=side_panel_screw_z-side_panel_receiver_width/2-side_panel_print_bridge_air
- z1=side_panel_receiver_top+side_panel_print_bridge_air
- reserve=Pos(side_panel_back_x-10,yy,(z0+z1)/2)*Box(20,side_panel_receiver_width+2*side_panel_print_bridge_air,z1-z0)
- side_panel_pad_reserves.append(reserve)
-side_panel_backing=side_panel_backing-side_panel_pad_reserves
-side_panel_backing_seat=side_panel_backing_seat-side_panel_pad_reserves
-# Preserve the nearby vertical M3 bottom-cover receiver. Only this small
-# hidden corner needs optional local support when printing on the rear face.
-side_panel_base_receiver_radius=param('side_panel_base_receiver_radius',3.0)
-base_joint_keepout_top=base_thickness+base_screw_engagement+3.0
-base_receiver_keep=Pos(base_mount_right_mid_x,base_mount_right_mid_y,base_thickness)*Cylinder(side_panel_base_receiver_radius,base_joint_keepout_top-base_thickness,align=(Align.CENTER,Align.CENTER,Align.MIN))
-base_receiver_air=Pos(base_mount_right_mid_x,base_mount_right_mid_y,base_thickness-side_panel_fit)*Cylinder(side_panel_base_receiver_radius+side_panel_fit,base_joint_keepout_top-base_thickness+2*side_panel_fit,align=(Align.CENTER,Align.CENTER,Align.MIN))
-side_panel_backing=side_panel_backing-base_receiver_air
-side_panel_backing_seat=side_panel_backing_seat-base_receiver_keep
-# Back-only audio service relief: a gently narrowing U clears the AV body
-# and avoids a hairline first-layer strip below the rear circular opening.
-# The original1.2mm front throat remains complete; its hidden bridge is11mm.
-audio_rear_x=audio_socket_front_x+side_port_socket_face_air-side_port_web
-audio_rear_width=audio_clear_d+2*(audio_rear_x-side_panel_print_back_x)*0.5
-# Separate circle and rectangular reliefs keep each loft section one wire.
-audio_rear_relief=loft([Pos(side_panel_print_back_x-0.1,shell_jack_y,shell_jack_z)*(Plane.YZ*Circle(audio_rear_width/2)),Pos(audio_rear_x,shell_jack_y,shell_jack_z)*(Plane.YZ*Circle(audio_clear_d/2))],ruled=True)
-audio_rear_relief+=loft([Pos(side_panel_print_back_x-0.1,shell_jack_y,shell_jack_z-10)*(Plane.YZ*Rectangle(audio_rear_width,20)),Pos(audio_rear_x,shell_jack_y,shell_jack_z-10)*(Plane.YZ*Rectangle(audio_clear_d,20))],ruled=True)
-side_panel_backing=side_panel_backing-audio_rear_relief
-side_panel_blanks.append(side_panel_backing)
-
 side_panel_blank=side_panel_blanks[0].fuse(*side_panel_blanks[1:])
 for pocket in side_port_pockets:side_panel_blank=side_panel_blank-pocket
 for aperture in side_port_bores:side_panel_blank=side_panel_blank-aperture
@@ -335,7 +293,7 @@ side_service_y_max=30.8
 side_service_top=18.4
 side_service_bottom=-10.0
 side_service_window=Pos(pi_board_edge_x-0.1,(side_service_y_min+side_service_y_max)/2,(side_service_top+side_service_bottom)/2)*extrude(Plane.YZ*RectangleRounded(side_service_y_max-side_service_y_min,side_service_top-side_service_bottom,1.2),amount=outer_port_x+2-pi_board_edge_x+0.1)
-body=body-side_panel_seat-side_service_window-side_panel_backing_seat
+body=body-side_panel_seat-side_service_window
 for label,guard in side_port_floor_guards:
  missing=guard-side_panel_blank
  v=0.0 if not missing else missing.volume
@@ -565,6 +523,11 @@ body+=corner_stop
 # Two side-facing flush kit joints release the frame along+X for service.
 # Short through-receivers stay outside the heatsink; no blind-hole floor
 # projects into the bought part. A2mm receiver retains1.2mm engagement after the kit lead-in.
+side_panel_screw_y_front=param('side_panel_screw_y_front',-31.5)
+side_panel_screw_y_rear=param('side_panel_screw_y_rear',32.5)
+side_panel_screw_z=param('side_panel_screw_z',17.5)
+side_panel_receiver_width=param('side_panel_receiver_width',6.4)
+side_panel_receiver_top=param('side_panel_receiver_top',23.5)
 side_panel_engagement=param('side_panel_light_engagement',1.2)
 side_panel_front_engagement=param('side_panel_front_engagement',2.0)
 side_panel_receiver_depth=side_panel_thickness

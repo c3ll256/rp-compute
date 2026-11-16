@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "1a9fa16883f35cf9a4d112260f16f7377f1b809d0447192334d6667048d20990"
+          "sha256": "14f5a0e23de4af06521fa59ae488e56f548734806b5fb527ca3f936987242c7d"
         }
       ],
       "dependencies": []
@@ -43,7 +43,7 @@
           "target": "fascia",
           "order": 0,
           "path": "design/handheld_computer/source/parts/fascia/000-fascia.py",
-          "sha256": "0d443c7898f46a4812676a60b4291f911084ecab94af7c9db1424bc5375aa9d6"
+          "sha256": "68d20673b2ce0450aa6bea68f5a0b19fcd0d33e5f2c6506417c9ef11840dcbf8"
         }
       ],
       "dependencies": [
@@ -145,7 +145,7 @@
           "target": "lcd_retainer",
           "order": 0,
           "path": "design/handheld_computer/source/parts/lcd_retainer/000-lcd_retainer.py",
-          "sha256": "41e054943de41439c98a52e65a81dcbf5a310babace9ff23a419f46f2baf4433"
+          "sha256": "556fb1aa7a685ab101da5b3ecc14176e81cd6b79079147ff489ce8aa4f478d76"
         }
       ],
       "dependencies": [
@@ -177,7 +177,7 @@
           "target": "side_port_bezel",
           "order": 0,
           "path": "design/handheld_computer/source/parts/side_port_bezel/000-side_port_bezel.py",
-          "sha256": "8b9ee9a1adcf102b07960567006b8c752b467880817264aded27073a04c4481c"
+          "sha256": "0ef779151953c5f5d21c4615d058e4d8576460a7e6fee7141675067bc1d3ec48"
         }
       ],
       "dependencies": [
@@ -187,13 +187,97 @@
   ],
   "objects": [
     {
-      "id": "shell",
+      "id": "base_mount_screw_1",
       "target": "shell",
-      "label": "Upper shell",
-      "material": "pla",
-      "role": "part",
+      "label": "Bottom cover screw",
+      "material": "stainless_steel",
+      "role": "fastener",
       "kind": "generated",
-      "shapeHash": "120a8f645df9a03a03ff2cca608f1241d63b6918b4e5f74dfbcbea4cf7651c40",
+      "shapeHash": "99127cc4b86518ddeaae864573a772fce9dd3448904054251526fc6e527d6422",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "base_mount_screw_2",
+      "target": "shell",
+      "label": "Bottom cover screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "315c6759668e2993e2d930b249145b616728f2e11daf392da493cb07e9c77f53",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "base_mount_screw_3",
+      "target": "shell",
+      "label": "Bottom cover screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "c2ca1ae2bce6112f1aa741151959bb92664126e778636095b86456568db52e74",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "base_mount_screw_4",
+      "target": "shell",
+      "label": "Bottom cover screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "77ac79862dfbc422726d730cafe1207ca9c113d188acb75c05abf34536270699",
       "transform": {
         "positionMm": [
           0,
@@ -379,118 +463,6 @@
       "datums": []
     },
     {
-      "id": "base_mount_screw_1",
-      "target": "shell",
-      "label": "Bottom cover screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "99127cc4b86518ddeaae864573a772fce9dd3448904054251526fc6e527d6422",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "base_mount_screw_2",
-      "target": "shell",
-      "label": "Bottom cover screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "315c6759668e2993e2d930b249145b616728f2e11daf392da493cb07e9c77f53",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "base_mount_screw_3",
-      "target": "shell",
-      "label": "Bottom cover screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "c2ca1ae2bce6112f1aa741151959bb92664126e778636095b86456568db52e74",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "base_mount_screw_4",
-      "target": "shell",
-      "label": "Bottom cover screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "77ac79862dfbc422726d730cafe1207ca9c113d188acb75c05abf34536270699",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
       "id": "screen_mount_screw_1",
       "target": "shell",
       "label": "Screen mount M2.5 x 4.0",
@@ -603,6 +575,34 @@
       "datums": []
     },
     {
+      "id": "shell",
+      "target": "shell",
+      "label": "Upper shell",
+      "material": "pla",
+      "role": "part",
+      "kind": "generated",
+      "shapeHash": "e73711509d4caffe6b04a663d561a7d6bb06ec2b6a588a94b6cb77d90891b76b",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
       "id": "base",
       "target": "base",
       "label": "Bottom closure",
@@ -631,17 +631,44 @@
       "datums": []
     },
     {
+      "id": "rear_brand_finish",
+      "target": "fascia",
+      "label": "Rear brand paint",
+      "role": "reference",
+      "kind": "generated",
+      "shapeHash": "d359021b3e86ead80870befcecb3a82ca9168c7a5ec93979204346dc7e09f2d5",
+      "transform": {
+        "positionMm": [
+          0,
+          18.735247314877125,
+          27.3
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
       "id": "fascia",
       "target": "fascia",
       "label": "Integral screen frame",
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "c6b56d10bc391c7d1c1867168251e72cfc5b2106cf90f37b114b79ad22cdd000",
+      "shapeHash": "cf837b7c25d18dbe1d976d2f81845ca0430b2332fb0bc8ac78f7af03e2d49b43",
       "transform": {
         "positionMm": [
           0,
-          21.521201483,
+          18.735247314877125,
           27.3
         ],
         "rotationDeg": [
@@ -664,11 +691,11 @@
       "label": "Matte screen finish",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "0da828dae416a0ecf263ebe5771ab9f01f699bedb94e5694fa3929fd7d3ca3eb",
+      "shapeHash": "5944f08237f2655dc44f449d9b1cc24fdd6db9c4f5968142cd13940cb48c9191",
       "transform": {
         "positionMm": [
           0,
-          21.521201483,
+          18.735247314877125,
           27.3
         ],
         "rotationDeg": [
@@ -744,15 +771,15 @@
       "material": "rubber",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "2ba0ea3a74d5b6eca08ea14c7f987e89ca8e26fa2ce9a5bb601d81b0d9412623",
+      "shapeHash": "a7a9da77c298fe33b247396419f9bc7fa6477ab3c12182557334e94606773bd7",
       "transform": {
         "positionMm": [
           0,
-          21.521201483,
-          34.510909266
+          18.735247314877125,
+          39.75950318807595
         ],
         "rotationDeg": [
-          13,
+          25,
           0,
           0
         ],
@@ -772,43 +799,15 @@
       "material": "rubber",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "ea328aa71f2687fec20d0aa76bdfb04817c12c2df15165eecbc72412b81ce889",
+      "shapeHash": "bbb8d46faa6e320576a9959b6b4d850fd289271cc3124228bd3de9126c9e2b2e",
       "transform": {
         "positionMm": [
           0,
-          21.521201483,
-          34.510909266
+          18.735247314877125,
+          39.75950318807595
         ],
         "rotationDeg": [
-          13,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "passive_heatsink",
-      "target": "thermal_stack",
-      "label": "P165-B photo-derived reference",
-      "material": "aluminum",
-      "role": "reference",
-      "kind": "generated",
-      "shapeHash": "9b2f17ccbd736bd393534b79b04d96c4b513c24a77c893258bf1c53cb1440e93",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
+          25,
           0,
           0
         ],
@@ -829,6 +828,34 @@
       "role": "reference",
       "kind": "generated",
       "shapeHash": "c3a2b6e41be61920182beb66e15dfcdea0a285d3061fe684e77e87a4b3f28102",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "passive_heatsink",
+      "target": "thermal_stack",
+      "label": "P165-B photo-derived reference",
+      "material": "aluminum",
+      "role": "reference",
+      "kind": "generated",
+      "shapeHash": "9b2f17ccbd736bd393534b79b04d96c4b513c24a77c893258bf1c53cb1440e93",
       "transform": {
         "positionMm": [
           0,
@@ -912,15 +939,15 @@
       "material": "glass",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "573268c06aa7c66ecbd547bb171889b939b2f966aaf1df2d61b31cd06638c59f",
+      "shapeHash": "c0d850da15a99e75b5cbc83ce07491efb7ef1adbaeee6cd121ae4efbfc5c197b",
       "transform": {
         "positionMm": [
           0,
-          21.521201483,
-          34.510909266
+          18.735247314877125,
+          39.75950318807595
         ],
         "rotationDeg": [
-          13,
+          25,
           0,
           0
         ],
@@ -940,15 +967,15 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "f6f006558bf784e2119ddc3ccdedeef0808f2a74a5a4bae9dfcc5d2ff1515d77",
+      "shapeHash": "3f34790b01cec481f2f5d8622a6ccee14ed5fe80c926c915b204f2f415be51b6",
       "transform": {
         "positionMm": [
           0,
-          21.521201483,
-          34.510909266
+          18.735247314877125,
+          39.75950318807595
         ],
         "rotationDeg": [
-          13,
+          25,
           0,
           0
         ],
@@ -968,15 +995,15 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "98b569d217da648526b25653580930c735b6f8d5b04ce43e8459e05679b7be3e",
+      "shapeHash": "986a73ce54fa7bbbb8d3a276d2e59b19ad610807c442637b7e41e1b00d49a1e4",
       "transform": {
         "positionMm": [
           0,
-          21.521201483,
-          34.510909266
+          18.735247314877125,
+          39.75950318807595
         ],
         "rotationDeg": [
-          13,
+          25,
           0,
           0
         ],
@@ -996,15 +1023,15 @@
       "material": "stainless_steel",
       "role": "fastener",
       "kind": "generated",
-      "shapeHash": "5ed21115eaef423a34cfcf039b289ddc1cb3908b4a702729c2306d836217320b",
+      "shapeHash": "b6639753bc0c453ded842f593422eb335a7d60d0095c11dce54d8717f09562fe",
       "transform": {
         "positionMm": [
           0,
-          21.521201483,
-          34.510909266
+          18.735247314877125,
+          39.75950318807595
         ],
         "rotationDeg": [
-          13,
+          25,
           0,
           0
         ],
@@ -1025,6 +1052,90 @@
       "role": "part",
       "kind": "generated",
       "shapeHash": "dd90373f0f9a265e91e7e70c0332619ac2c925bec04017e760efb2598aab7bde",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_carrier_shell_screw_1",
+      "target": "pi_carrier",
+      "label": "Carrier M2.5 shell screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "619e7ec85f6d834b6fddeb24018ef01cb290c9c294c40bee416f71c0d6cbeda4",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_carrier_shell_screw_2",
+      "target": "pi_carrier",
+      "label": "Carrier M2.5 shell screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "6744ba90a888d40840347646aeed014a0709f932eeca8df3b12660d985017082",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_carrier_shell_screw_3",
+      "target": "pi_carrier",
+      "label": "Carrier M2.5 shell screw",
+      "material": "stainless_steel",
+      "role": "fastener",
+      "kind": "generated",
+      "shapeHash": "3cface743cc6134ddb46945251beccfc1d63035a1568abe95c2297b4a2aac3f7",
       "transform": {
         "positionMm": [
           0,
@@ -1158,97 +1269,13 @@
       "datums": []
     },
     {
-      "id": "pi_carrier_shell_screw_1",
-      "target": "pi_carrier",
-      "label": "Carrier M2.5 shell screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "619e7ec85f6d834b6fddeb24018ef01cb290c9c294c40bee416f71c0d6cbeda4",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pi_carrier_shell_screw_2",
-      "target": "pi_carrier",
-      "label": "Carrier M2.5 shell screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "6744ba90a888d40840347646aeed014a0709f932eeca8df3b12660d985017082",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pi_carrier_shell_screw_3",
-      "target": "pi_carrier",
-      "label": "Carrier M2.5 shell screw",
-      "material": "stainless_steel",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "3cface743cc6134ddb46945251beccfc1d63035a1568abe95c2297b4a2aac3f7",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
       "id": "side_port_panel",
       "target": "side_port_bezel",
       "label": "Recessed port frame",
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "a78d4908034834f96be71b16e465e44a6ae35289cc14ec133dfbcac2f941823f",
+      "shapeHash": "f1f76f36b2b4e68ed4d58b1d98708e57b5533f6c51182bec0a12ee56da037ee6",
       "transform": {
         "positionMm": [
           0,
@@ -1361,7 +1388,7 @@
       "b": "pi_baseboard_lite"
     }
   ],
-  "updatedAt": "2026-11-16T16:07:21.407Z",
+  "updatedAt": "2026-11-16T19:39:05.035Z",
   "parameters": {
     "shell": {
       "case_width": 76,
@@ -1535,7 +1562,7 @@
       "screen_mount_right_front_x": 34,
       "screen_mount_right_front_y": 18,
       "side_panel_thickness": 2,
-      "side_panel_width": 77,
+      "side_panel_width": 72,
       "side_panel_height": 17.7,
       "side_panel_center_y": 0.5,
       "side_panel_bottom_z": 3.8,
@@ -1596,7 +1623,7 @@
       "fascia_window_height": 49.5,
       "fascia_window_radius": 2.75,
       "fascia_edge_radius": 0.6,
-      "fascia_slope": 13,
+      "fascia_slope": 25,
       "fascia_wall": 2.4,
       "fascia_window_x": 0,
       "fascia_window_y": 0,
@@ -1648,10 +1675,23 @@
       "retainer_front_tip_y": -26.4,
       "retainer_front_capture_overlap": 1.5,
       "retainer_front_capture_floor": 1.2,
-      "retainer_front_slot_air": 0.3,
+      "retainer_front_slot_air": 0.5,
       "retainer_front_capture_side_wall": 1.5,
       "retainer_front_underfoot_y": -3.2,
-      "retainer_front_capture_x": 28.5
+      "retainer_front_capture_x": 28.5,
+      "fpc_initial_straight": 1.5,
+      "retainer_head_service_depth": 6,
+      "retainer_service_floor_z": -32,
+      "retainer_service_skin": 1.25,
+      "fascia_front_nominal_rise": 1.67,
+      "fascia_screen_forward": 1,
+      "rear_brand_text": "Makit Compute",
+      "rear_brand_font_size": 6,
+      "rear_brand_logo_width": 12,
+      "rear_brand_gap": 3,
+      "rear_brand_center_z": 13,
+      "rear_brand_relief": 0.45,
+      "rear_brand_finish_t": 0.02
     },
     "imports": {},
     "screen_cushions": {

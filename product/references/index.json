@@ -821,6 +821,20 @@
       "share": false
     },
     {
+      "file": "uploads/20261116T185507131Z-1-mark-1.png",
+      "sha256": "92639d5d257f0bcf36207bc14a399979ab0d5fbc342ecae7a224d34744c51928",
+      "bytes": 117446,
+      "addedAt": "2026-11-16T18:55:13.367Z",
+      "share": false
+    },
+    {
+      "file": "uploads/20261116T193239198Z-1-icon.svg",
+      "sha256": "e9d6aca5f7d3725b763f8bfaf4a79376aa33aa42071d19039161761b9fc73192",
+      "bytes": 5493,
+      "addedAt": "2026-11-16T19:32:45.324Z",
+      "share": false
+    },
+    {
       "file": "usb2cc50cm.pdf",
       "sha256": "6d050e77a3f863bebbf1965b9b8fb870b8dac00d42310f6e3ea6e74eb160b0f9",
       "bytes": 66875,

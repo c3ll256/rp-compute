@@ -2,6 +2,7 @@
 # cell: lcd_retainer
 # cell: lcd_retainer
 # cell: lcd_retainer
+# cell: lcd_retainer
 p=part('fascia')
 retainer_width=param('retainer_width',66.0)
 retainer_depth=param('retainer_depth',44.0)
@@ -27,7 +28,7 @@ mount_reliefs=[]
 for i,(xx,yy) in enumerate(p.housing.screen_mount_axes):
  ww=p.housing.screen_mount_front_pad_width if i<2 else p.housing.screen_mount_rear_pad_width
  dd=p.housing.screen_mount_front_pad_width if i<2 else p.housing.screen_mount_rear_pad_depth
- service_forward=3.6 if i==2 else 0.0
+ service_forward=2.5 if i<2 else (6.0 if i==2 else 0.0)
  cut=Pos(xx,yy-service_forward/2,p.housing.case_top_center)*Box(ww+2*retainer_shell_clearance,dd+2*retainer_shell_clearance+service_forward,2*p.housing.case_top_center)
  mount_reliefs.append(cut.moved(p.SCREEN_WORLD.inverse()))
 # Flat base bridge runs ahead of the left rear pod mount so the captive
@@ -64,7 +65,7 @@ print('RETAINER_FULL_THICKNESS',dict(thickness_mm=p.retainer_thickness,clearance
 if p.retainer_pressure_rise>0:
  pressure_land=Pos(0,retainer_y,p.retainer_seat_z)*extrude(Rectangle(retainer_width,retainer_depth)-Rectangle(retainer_width-2*retainer_rail_width,retainer_depth-2*retainer_rail_width),amount=p.retainer_pressure_rise)
  pressure_land-=Pos(0,retainer_y-retainer_depth/2,p.retainer_contact_z)*Box(retainer_tail_gap,2*retainer_rail_width+2,4*(p.retainer_thickness+p.retainer_pressure_rise))
- # Clearance ahead of the rear receivers permits the6deg unhooking rotation.
+ # Clearance ahead of the rear receivers permits the12deg unhooking rotation.
  rear_tilt_reliefs=[Pos(xx,yy,(p.retainer_seat_z+1)/2)*Box(p.retainer_ear_width+0.6,p.retainer_ear_depth+0.6,1-p.retainer_seat_z) for xx,yy in p.joint_axes if yy>0]
  pressure_land=pressure_land-assembly_keepouts-through_clearances-rear_tilt_reliefs
  ring=ring.fuse(*list(pressure_land.solids()))

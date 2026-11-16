@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "1bb16dee7ccf4a101799e4d623521f6ba476544937d453ae3cf2cc7f9eb88bdf",
+  "requirements_digest": "7846854dcfda18bf491cca4bbbfbdce82f93e832ac74293cad5882992ebb8e57",
   "items": [
     {
       "id": "compute",
@@ -78,8 +78,8 @@
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
-      "selection_reason": "Primary LS027B7DH01 retained; user accepts LS027B7DH01A as a one-for-one alternative, not an additional panel. Total fitted quantity is1. One-piece housing has a rear-loading63.4x43.42mm negative pocket,0.3mm nominal clearance per side and1.77mm active-area offset. Optical opening59.4x35.88mm. 13deg screen slope retained; measured screen thickness1.8mm replaces nominal1.64mm in this sample fit; front rise approximately1.67mm. Manufacturer drawing defines nominal glass; no exact panel STEP. Physical pressure and fit need testing.",
-      "mechanical_integration": "Measured1.8mm glass, two user0.2mm foam sheets modeled installed0.18mm each, closed gap2.16mm. Original screen and FPC datums retained. Frame front is upright at worldY-4.046269mm, with0.6mm edge radius. Retainer has2mm base,1.38mm pressure rail, two rigid front tongues captured with1.5mm bearing on1.2mm floors, and two rear M2.5x4 at(±20,22.65). Inner band4.5mm and outer band3.3mm remain equal. Actual foam pressure, tongue fit and native-tail seating require prototype testing.",
+      "selection_reason": "Primary LS027B7DH01 retained; user accepts LS027B7DH01A as a one-for-one alternative, not an additional panel. Total fitted quantity is1. One-piece housing has a rear-loading63.4x43.42mm negative pocket,0.3mm nominal clearance per side and1.77mm active-area offset. Optical opening59.4x35.88mm. 25deg screen slope selected to raise the rear per user green sketch; measured screen thickness1.8mm replaces nominal1.64mm in this sample fit; front rise approximately1.67mm. Manufacturer drawing defines nominal glass; no exact panel STEP. Physical pressure and fit need testing.",
+      "mechanical_integration": "Measured1.8mm glass and two0.2mm foam sheets, each installed0.18mm by default, closed gap2.16mm. Screen25deg, frame center world(0,18.735247,39.759503), front rise1.67mm.2mm retainer base,1.38mm pressure rail,1.5mm front tongue bearing on1.2mm floors, two rear M2.5x4 at(±20,22.65). Dark band4.5mm and orange band3.3mm remain equal. Existing main shell, fixed PCB/socket and mount axes unchanged. Actual foam pressure, print fit and native-tail seating need trial.",
       "assembly_dimension_assumption": {
         "value": 13.7,
         "source": "default",
@@ -843,10 +843,11 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "description": "Printed upper shell with76x115mm maximum envelope and retained27mm deck datum. Front top edge has1.6mm bevel with a tangent cubic runout fromY-18 to+2mm beside the screen-pod front corners; bevel width and depth shrink together to zero on both sides. Lower6mm wall band insets0.9mm per side; inner wall shifts0.6mm at the bottom and tapers out to retain2mm nominal wall; matched to the0.6mm beveled bottom closure. PCB beams, carrier receivers, screen supports, board and pod-to-shell fastener axes retain their current positions. Side port web is a separate outward-removable frame held by two kit joints; upper shell includes its recessed seat and service opening. Nominal lower-wall allowance2mm after the0.1mm edge break. PLA default; physical fit untested. Screen passage front is worldY-3.5mm, closed where the old screen ramp and front screw wells were removed. Side-frame seat is77.5mm wide with a matching rear-backing relief. Bottom-cover receiver stock is preserved with a dedicated keepout; printed fastening axes stay fixed.",
-      "selection_reason": "Strengthens the visual lower-body inset while retaining the base screw footprint and Pi/PCB datums. Use matching bottom closure, vertical-front screen pair and side port frame. Match the77mm-wide common-back-plane side frame.",
+      "description": "Printed upper shell with76x115mm maximum envelope and retained27mm deck datum. Front top edge has1.6mm bevel with a tangent cubic runout fromY-18 to+2mm beside the screen-pod front corners; bevel width and depth shrink together to zero on both sides. Lower6mm wall band insets0.9mm per side; inner wall shifts0.6mm at the bottom and tapers out to retain2mm nominal wall; matched to the0.6mm beveled bottom closure. PCB beams, carrier receivers, screen supports, board and pod-to-shell fastener axes retain their current positions. Side port web is a separate outward-removable frame held by two kit joints; upper shell includes its recessed seat and service opening. Nominal lower-wall allowance2mm after the0.1mm edge break. PLA default; physical fit untested. Screen passage front is worldY-3.5mm, closed where the old screen ramp and front screw wells were removed.",
+      "selection_reason": "Strengthens the visual lower-body inset while retaining the base screw footprint and Pi/PCB datums. Use matching bottom closure, vertical-front screen pair and side port frame.",
       "cad_relevance": {
-        "description": "Two original2.2mm PCB holes at world(+/-16,-32) and rear left board edge; ordered PCB retained."
+        "description": "Two original2.2mm PCB holes at world(+/-16,-32) and rear left board edge; ordered PCB retained.",
+        "replacement_policy": "Reuse existing upper shell unchanged: both the72mm panel-seat correction and25deg screen raise retain its geometry and receiver axes."
       },
       "part_identity": "d715663448aa1447",
       "mechanical_outline_revision": {
@@ -858,14 +859,14 @@
           4.5
         ],
         "vent_end_radius_mm": 1.2,
-        "rear_wall_lean_from_vertical_deg": 38.44718962692716,
+        "rear_wall_lean_from_vertical_deg": 32.4668713941779,
         "source": "default",
         "screen_face_mm": [
           76,
           52.48
         ],
         "screen_border_mm": 3.3,
-        "screen_front_rise_mm": 1.608193600016982
+        "screen_front_rise_mm": 1.67
       },
       "side_port_clearance": {
         "source": "default",
@@ -1051,7 +1052,7 @@
       "selection_status": "selected",
       "part_identity": "604279b487f1a4e1",
       "selection_reason": "Keeps blind receiving material and the2.16mm hard-stop clamp stack while allowing a vertical front skirt. Use with the matching front-capture frame and retainer.",
-      "description": "Two ISO7046 M2.5x4 rear countersunk screws through2mm ears, with2mm nominal receiver engagement. Front retention uses rigid captured tongues instead of screws.",
+      "description": "Two ISO7046 M2.5x4 rear countersunk screws through2mm ears, with2mm nominal receiver engagement. Front retention uses rigid captured tongues instead of screws. Both screws withdraw6mm along negative screen normal through new frame access pockets; checked at mesh0.02mm,step0.2mm.",
       "cad_library_reference": {
         "provider": "bd-warehouse",
         "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
@@ -1121,7 +1122,7 @@
       "id": "screen_integral_frame",
       "role": "printed_screen_frame",
       "name": "一体屏舱前框（PLA打印）",
-      "description": "Integral76x52.48mm,13deg screen pod, upright front skirt at worldY-4.046269mm with0.6mm top radius. Optical opening59.4x35.88mm; equal4.5mm dark band and3.3mm outer orange band.0.5x0.25mm engraving retains complete1.2mm floor; optical lip1.5mm. Two front rigid capture slots have1.2mm bearing floors,1.5mm side walls and0.3mm upper/side assembly air. Two rear M2.5x4 receivers at(±20,22.65). Existing glass/FPC datums and0.02mm matte reference finish retained.",
+      "description": "Integral76x52.48mm,25deg screen pod; front edge worldY-5.046269mm, nominal1.67mm above deck,0.6mm edge radius, actual highestZ50.683922mm. Optical opening59.4x35.88mm; equal4.5mm dark band and3.3mm orange band;0.5x0.25mm groove over complete1.2mm floor. Optical lip1.5mm. Rigid front capture floors1.2mm, sidewalls1.5mm, upper/side air0.5mm. Rear M2.5x4 at screen(±20,22.65),6mm head access pockets and locally1.25mm closing rear skin. Existing four main-shell axes retained; no main-shell reprint. Rear wall includes integral0.45mm raised Makit glyph from user SVG mM and Makit Compute lettering;12mm logo,6mm Arial Bold,3mm gap; optional20um warm-white paint reference, no separate badge.",
       "quantity": 1,
       "manufacturer": "Project custom",
       "mpn": "handheld-screen-integral-frame",
@@ -1136,7 +1137,7 @@
       },
       "required_user_evidence": [],
       "part_identity": "f2af863175cdae4c",
-      "selection_reason": "Removes the user-marked broad front ramp without exposing screw holes or thinning receiving caps. Front screws are replaced by rigid captive tongues; match the new retainer and upper-shell aperture.",
+      "selection_reason": "Raises screen rear by about10.34mm while retaining user1.67mm front rise and the already printed main shell. Replace only this frame and matching retainer; reuse all four pod mounting screws and fixed PCB. Native tail route remains provisional. Rear branding preserves internal wall material and original mounting fit; no additional main-shell replacement.",
       "surface_finish": {
         "source": "default",
         "method": "masked matte paint; apply to the unassembled frame",
@@ -1151,13 +1152,25 @@
         "cad_reference_object": "screen_face_finish",
         "print_policy": "Do not export cosmetic reference as a third printed piece.",
         "prototype_check": "Try finish on scrap; fully cure before fitting glass and foam."
+      },
+      "rear_branding": {
+        "host_print": "fascia",
+        "layout": "logo left, Makit Compute right, centered one-line group on orange rear screen-pod wall",
+        "logo_svg_path_id": "mM",
+        "logo_width_mm": 12,
+        "font": "Arial Bold",
+        "font_size_mm": 6,
+        "gap_mm": 3,
+        "raised_height_mm": 0.45,
+        "finish": "optional warm-white paint on raised tops, nominal0.02mm visual reference only",
+        "reuse": "Main shell, base, side panel, PCB, retainer and all mounting interfaces unchanged. Branding is integral to screen frame; no separate badge."
       }
     },
     {
       "id": "screen_flat_retainer",
       "role": "printed_screen_retainer",
       "name": "屏幕后压框（2mm底板、1.38mm加高压边）",
-      "description": "One-piece2mm base,1.38mm pressure rail. Two front tongues atX±28.5,tipY-26.4 engage1.5mm in rigid slots; two rear M2.5x4 at(±20,22.65). Extra flat bridge and rear clearance permit unhooking: remove screws, lower rear6deg, slide rearward1.7mm, then withdraw. Closed glass/foam gap2.16mm is unchanged.",
+      "description": "One-piece2mm base,1.38mm pressure rail, two rigid front tongues atX±28.5,tipY-26.4 with1.5mm engagement; rear2xM2.5x4 at(±20,22.65). Closed gap2.16mm unchanged. Service: remove rear screws6mm along negative screen normal, lower retainer rear12deg about front capture, slide rearward1.7mm in screen plane, withdraw3mm along negative screen normal, then10mm vertically downward.",
       "quantity": 1,
       "manufacturer": "Project custom",
       "mpn": "handheld-screen-flat-retainer",
@@ -1172,7 +1185,7 @@
       },
       "required_user_evidence": [],
       "part_identity": "490de999c7d823fe",
-      "selection_reason": "Front bearing remains at the original retainer underside datum. Static fit and unhooking path checked; pressure, creep and print tolerances still require trial. Match current fascia; old four-screw retainer is incompatible."
+      "selection_reason": "Matching25deg frame; rear-left fixed-post relief6mm and continuous3.3mm bridge keep one valid solid. Front bearing and clamp gap retained.12deg release path checked at mesh0.02mm,step0.2mm; print strength, pressure and fit need trial."
     },
     {
       "id": "screen_front_pad",
@@ -1385,8 +1398,8 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "description": "One-piece77x17.7mm frame,2mm outer face plate and3.7mm maximum depth, including a shared rear bed plane atX34.3. About743.4mm2 contact area; rear edge splays1.7mm toward the face. Original1.2mm closed throats and port recesses retained. Back-only audio U relief clears the AV body; small front-lower notch preserves the bottom-cover receiver. Two original ISO7046 M2.5x4 screws and all port centers retained.",
-      "selection_reason": "A broad coplanar rear backing makes inner-face-down printing more stable than isolated cup feet. End margins grow2.5mm each so screw-recess bridges have end support. Use matching revised upper shell; bridge and support settings require trial.",
+      "description": "One-piece72x17.7mm replacement frame, original2mm face plate,3.7mm maximum depth. Flat exterior face atX38 with0.3mm perimeter chamfer provides about792.85mm2 bed contact. Only its lower exterior facet is filled, projecting about0.69mm relative to the inset body locally; mating plane, four1.2mm throat webs, plug recesses and screw axes unchanged. Print outer face down, rear cup feet upward; check7.6–11mm pocket bridges. Two original ISO7046 M2.5x4 retained.",
+      "selection_reason": "Reuses the already printed72mm-seat upper shell and existing fixing hardware. Restores the original interface and improves bed placement by flattening only the small removable frame exterior. Only this frame needs reprinting; no deeper seat or common rear backing.",
       "cad_relevance": {
         "design_id": "handheld_computer",
         "part_id": "side_port_bezel",
@@ -1457,23 +1470,28 @@
             "shoulder_diameter_mm": 10
           }
         },
-        "qualification": "One valid solid; port-web guards complete, numeric plug envelopes clear within1e-5mm3; no extra assembly interference. Frame+X8mm and Pi-Z16mm removal paths clear at0.02mm mesh tolerance. Physical cable and print qualification pending.",
+        "qualification": "One valid solid and one connected thin bed section. Four throat-web guards complete; numeric plug envelopes below1e-5mm3 overlap. Frame+X8mm path clear at0.02mm mesh tolerance,0.25mm step. Existing shell geometry matches the pre77mm baseline94ea82a.",
         "printing": {
-          "bed_face": "inner shared rear plane",
-          "bed_x_world_mm": 34.3,
+          "bed_face": "outer flat face with countersunk screw mouths, facing down",
+          "bed_x_world_mm": 38.0,
+          "print_growth_world_axis": "-X",
           "nominal_envelope_depth_mm": 3.7,
-          "rear_contact_area_mm2": 743.425591,
-          "rear_perimeter_splay_mm": 1.7,
-          "screw_recess_bridge_mm": 7.0,
-          "audio_rear_bridge_mm": 11.0,
-          "local_support": "small front-lower notch around the bottom-cover receiver",
+          "flat_contact_area_mm2": 792.848082,
+          "flat_contact_islands": 1,
+          "outer_edge_bevel_mm": 0.3,
+          "throat_bridge_span_mm": [
+            7.6,
+            11.0
+          ],
           "default_layer_mm": 0.2,
           "default_nozzle_mm": 0.4,
           "brim_mm": 4,
-          "qualification": "CAD fit and rear bed contact checked; short bridges and local support removal need slicer review and trial printing."
+          "lower_edge_projection_vs_inset_body_mm_approx": 0.69,
+          "existing_shell": "reuse original72mm panel seat, holes and receivers",
+          "qualification": "Geometric fit and a thin first-layer section checked; not a sliced or physically tested print. Check7–11mm pocket bridges in the slicer."
         },
         "panel_mm": [
-          77,
+          72,
           17.7,
           2
         ]

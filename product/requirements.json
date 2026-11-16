@@ -250,7 +250,7 @@
       "source": "default"
     },
     "screen_angle_direction": {
-      "value": "Reduce the steep screen slope toward the shallow red-line profile in mark.png; no exact angle specified.",
+      "value": "按绿色侧视轮廓抬高屏幕后端、增大固定倾角，保持可用结构；精确角度由设计选择。",
       "source": "user"
     },
     "external_port_location": {
@@ -551,7 +551,7 @@
       "source": "default"
     },
     "screen_pod_equal_border": {
-      "value": "屏框细线内缘到显示窗口的间距四边相等，包括圆角；细线外缘到屏舱正面外缘也四边相等。保持13°屏角、玻璃夹持和FPC安装基准，并保持结构可用性。",
+      "value": "屏框细线内缘到显示窗口的间距四边相等，包括圆角；细线外缘到屏舱正面外缘也四边相等。保持四边等宽、玻璃夹持及固定主板上的FPC插座基准，屏幕按绿色轮廓抬高，并保持结构可用性。",
       "source": "user"
     },
     "screen_pod_equal_border_defaults": {
@@ -566,7 +566,7 @@
         ],
         "border_mm": 4.5,
         "outer_corner_radius_mm": 8.65,
-        "actual_front_rise_mm": 1.608193600016982,
+        "actual_front_rise_mm": 1.67,
         "front_retainer_screw_y_mm": -26.25,
         "window_role": "装饰线外轮廓；显示净口59.4×35.88mm，正面76×52.48mm由四边外圈3.3mm推导；承力底脚独立保留。",
         "border_reference": "optical opening edge to decorative-line inner edge",
@@ -813,7 +813,7 @@
     "side_port_recess_defaults": {
       "value": {
         "panel_mm": [
-          77,
+          72,
           17.7,
           2
         ],
@@ -893,18 +893,23 @@
         },
         "qualification": "Pi STEP establishes USB-C/AV front faces. Detailed micro-HDMI solids are absent; port centers/3mm height from official RP-008343-DS p1,1.2mm front overhang is provisional. Actual cable insertion and printed strength require trial.",
         "printing": {
-          "bed_face": "inner shared rear plane",
-          "bed_x_world_mm": 34.3,
+          "bed_face": "outer flat face with countersunk screw mouths, facing down",
+          "bed_x_world_mm": 38.0,
+          "print_growth_world_axis": "-X",
           "nominal_envelope_depth_mm": 3.7,
-          "rear_contact_area_mm2": 743.425591,
-          "rear_perimeter_splay_mm": 1.7,
-          "screw_recess_bridge_mm": 7.0,
-          "audio_rear_bridge_mm": 11.0,
-          "local_support": "small front-lower notch around the bottom-cover receiver",
+          "flat_contact_area_mm2": 792.848082,
+          "flat_contact_islands": 1,
+          "outer_edge_bevel_mm": 0.3,
+          "throat_bridge_span_mm": [
+            7.6,
+            11.0
+          ],
           "default_layer_mm": 0.2,
           "default_nozzle_mm": 0.4,
           "brim_mm": 4,
-          "qualification": "CAD fit and rear bed contact checked; short bridges and local support removal need slicer review and trial printing."
+          "lower_edge_projection_vs_inset_body_mm_approx": 0.69,
+          "existing_shell": "reuse original72mm panel seat, holes and receivers",
+          "qualification": "Geometric fit and a thin first-layer section checked; not a sliced or physically tested print. Check7–11mm pocket bridges in the slicer."
         }
       },
       "source": "default"
@@ -920,7 +925,7 @@
     "screen_front_capture_defaults": {
       "value": {
         "front_wall": "vertical in world Y; no broad front ramp",
-        "front_wall_y_world_mm": -4.04626901696457,
+        "front_wall_y_world_mm": -5.04626901696457,
         "front_edge_radius_mm": 0.6,
         "front_capture_x_screen_mm": [
           -28.5,
@@ -930,19 +935,70 @@
         "capture_overlap_mm": 1.5,
         "capture_floor_mm": 1.2,
         "capture_side_wall_mm": 1.5,
-        "slot_top_and_side_air_mm": 0.3,
+        "slot_top_and_side_air_mm": 0.5,
         "retainer_base_mm": 2,
         "pressure_rail_mm": 1.38,
         "rear_screws": "two ISO7046 M2.5x4 at screen(±20,22.65)",
-        "release": "remove rear screws, lower retainer rear6deg, slide rearward1.7mm, withdraw along negative screen normal",
+        "release": "remove rear screws6mm along negative screen normal, lower retainer rear12deg about front capture, slide rearward1.7mm in screen plane, withdraw3mm along negative screen normal, then10mm vertically downward",
         "clamp_gap_mm": 2.16,
-        "qualification": "Rigid captured tongues, no flex snap; nominal bearing fixes the same pressure plane. Print variation, retention force and glass pressure require trial assembly."
+        "qualification": "Rigid captured tongues, no flex snap; nominal bearing fixes the same pressure plane. Print variation, retention force and glass pressure require trial assembly.",
+        "rear_head_service_depth_mm": 6,
+        "rear_service_closing_skin_mm": 1.25
       },
       "source": "default"
     },
     "side_port_panel_printability": {
       "value": "优化可拆侧接口围板的打印可行性，改善贴床和凹舱支撑，保持接口遮蔽、插头空间及可拆装。",
       "source": "user"
+    },
+    "side_port_panel_existing_shell_reuse": {
+      "value": "优化侧接口围板不得要求重新打印整壳；保留已经打印的上壳安装座和孔位，只更换围板。",
+      "source": "user"
+    },
+    "raised_screen_pose_defaults": {
+      "value": {
+        "angle_from_horizontal_deg": 25,
+        "screen_frame_center_world_mm": [
+          0,
+          18.735247314877125,
+          39.75950318807595
+        ],
+        "front_edge_forward_shift_mm": 1,
+        "front_rise_above_deck_mm": 1.67,
+        "actual_highest_z_mm": 50.6839216822922,
+        "rear_sharp_top_z_mm": 50.8490063761519,
+        "rear_wall_lean_from_vertical_deg": 32.4668713941779,
+        "replacement_prints": [
+          "fascia",
+          "retainer"
+        ],
+        "reuse": "Existing main shell, base, Pi carrier, front cover, side panel, PCB and fastener axes unchanged.",
+        "qualification": "Default25deg based on user green sketch; native13.7±0.5mm tail length remains an unmeasured estimate; physical seating and print fit require trial."
+      },
+      "source": "default"
+    },
+    "rear_branding": {
+      "value": {
+        "text": "Makit Compute",
+        "logo_reference": "product/references/uploads/20261116T193239198Z-1-icon.svg",
+        "location": "rear of device"
+      },
+      "source": "user"
+    },
+    "rear_branding_defaults": {
+      "value": {
+        "host_print": "fascia",
+        "layout": "logo left, Makit Compute right, centered one-line group on orange rear screen-pod wall",
+        "logo_svg_path_id": "mM",
+        "logo_width_mm": 12,
+        "font": "Arial Bold",
+        "font_size_mm": 6,
+        "gap_mm": 3,
+        "raised_height_mm": 0.45,
+        "finish": "optional warm-white paint on raised tops, nominal0.02mm visual reference only",
+        "reuse": "Main shell, base, side panel, PCB, retainer and all mounting interfaces unchanged. Branding is integral to screen frame; no separate badge."
+      },
+      "source": "default"
     }
   },
   "open_questions": []
