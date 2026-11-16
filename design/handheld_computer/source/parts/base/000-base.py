@@ -1,6 +1,9 @@
 # cell: base
 # cell: base
+# cell: base
+# cell: base
 layout=part('shell')
+carrier_layout=part('pi_carrier')
 # Printed flat, outer face down; every feature grows straight up, so no supports.
 # Closure only; Pi is carried by the separate upper-shell carrier.
 base_width=layout.case_width
@@ -31,7 +34,7 @@ base_rim_thickness=param('base_rim_thickness',1.2)
 base_rim_clearance=param('base_rim_clearance',0.3)
 shell_wall=param('shell_wall',2.4)
 shell_base_pad_width=param('shell_base_pad_width',8.0)
-inset=shell_wall+base_rim_clearance
+inset=shell_wall+base_rim_clearance+layout.shell_lower_inner_shift
 rim_outer=Pos(0,0,base_thickness)*extrude(RectangleRounded(base_width-2*inset,base_depth-2*inset,base_corner-inset),amount=base_rim_height)
 rim_inner=Pos(0,0,base_thickness-0.1)*extrude(RectangleRounded(base_width-2*(inset+base_rim_thickness),base_depth-2*(inset+base_rim_thickness),base_corner-inset-base_rim_thickness),amount=base_rim_height+0.2)
 rim=rim_outer-rim_inner
@@ -40,6 +43,15 @@ for xx,yy in base_mount_axes:
  tip=abs(xx)-shell_base_pad_width/2-base_rim_clearance
  root=base_width/2
  rim=rim-(Pos(sx*(tip+root)/2,yy,base_thickness+base_rim_height/2)*Box(root-tip,shell_base_pad_width+2*base_rim_clearance,base_rim_height+0.2))
+# Preserve0.3mm service air at the carrier pads and front lug after the rim moves inward.
+carrier_reliefs=[]
+for xx in carrier_layout.PI_HOLE_X:
+ for yy in carrier_layout.PI_HOLE_Y:
+  carrier_reliefs.append(Pos(xx,yy,base_thickness)*Cylinder(carrier_layout.pi_carrier_pad_diameter/2+base_rim_clearance,8,align=(Align.CENTER,Align.CENTER,Align.MIN)))
+for tab in layout.pi_carrier_tabs:
+ bb=tab.bounding_box()
+ carrier_reliefs.append(Pos((bb.min.X+bb.max.X)/2,(bb.min.Y+bb.max.Y)/2,base_thickness+4)*Box(bb.size.X+2*base_rim_clearance,bb.size.Y+2*base_rim_clearance,8))
+rim=rim-carrier_reliefs
 base=base+rim
 
 # Imported Pi PCB underside datum, retained for port-filler corner relief only.
@@ -48,7 +60,7 @@ PI_BOARD_BOTTOM_Z=5.3+getattr(layout,'pi_stack_lift',0.0)
 # One continuous rear sill closes the shared lower-edge aperture.
 # All opening limits are owned by the shell, so both pieces track together.
 base_port_filler_clearance=param('base_port_filler_clearance',0.25)
-wall_ring=extrude(RectangleRounded(base_width,base_depth,base_corner)-RectangleRounded(base_width-2*shell_wall,base_depth-2*shell_wall,base_corner-shell_wall),amount=40)
+wall_ring=extrude(RectangleRounded(base_width,base_depth,base_corner),amount=40)-layout.lower_inner_void
 # The Pi's rear-right board corner reaches into the rounded wall (same relief as the
 # shell); fillers stop below the board there. Fixed by the imported Pi placement.
 PI_REAR_CORNER_RELIEF=(35.5+layout.pi_offset_x,39.5+layout.pi_offset_x,51.3,55.3)
@@ -95,6 +107,8 @@ for xx,yy in layout.base_mount_axes:
  clearance=Pos(xx,yy,base_thickness+base_corner_rail_height/2)*Box(shell_base_pad_width+2*base_rim_clearance,shell_base_pad_width+2*base_rim_clearance,base_corner_rail_height+0.2)
  corner_rail-=clearance
  rear_web-=clearance
+corner_rail=corner_rail-carrier_reliefs
+rear_web=rear_web-carrier_reliefs
 base=base+corner_rail+rear_web
 assert base.is_valid
 print('CORNER_STIFFENING',dict(rail_top=base_thickness+base_corner_rail_height,rear_web_top=base_thickness+base_rear_web_height,rail_start_y=rail_start,rail_end_y=rail_end))
@@ -103,6 +117,7 @@ print('CORNER_STIFFENING',dict(rail_top=base_thickness+base_corner_rail_height,r
 for seat in layout.base_mount_seats:
  base=base-seat
 
+base=base & layout.lower_visual_envelope
 assert len(base.solids())==1, ('base',[round(s.volume,1) for s in base.solids()])
 
 base.color=Color(0.88,0.86,0.79)

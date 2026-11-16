@@ -7,7 +7,7 @@ export const silkscreenRules = {
   minTextHeightMm: 1,
   minLineWidthMm: 0.15,
   minPadClearanceMm: 0.15,
-  sourceTextFontSizeMm: 1.5,
+  sourceTextFontSizeMm: 1,
 } as const;
 
 export function silkscreenTextProps() {

@@ -310,7 +310,7 @@
       "source": "user"
     },
     "variant_scope_policy": {
-      "value": "Active lite variant has display and 8-contact expansion only; battery, charger, MCU, Pi supply and interlock requirements apply exclusively to retained full pi_baseboard variant.",
+      "value": "Active lite variant has display and 8-contact expansion only. The legacy full pi_baseboard design is deleted; battery, charger, MCU, Pi supply and interlock text is historical and is not a current delivery requirement.",
       "source": "default"
     },
     "lite_expansion_form": {
@@ -415,7 +415,7 @@
     "compact_cooling_defaults": {
       "value": {
         "heatsink": "Geekworm P165-B standalone,65x55x11mm, four M2.5 threaded mounting corners",
-        "mounting": "Four ISO7046 M2.5x6 screws through the separate Pi carrier and unchanged Pi holes into P165-B metal threads; three independent M2x6 carrier-to-upper-shell screws. Bottom cover carries no Pi load.",
+        "mounting": "Four ISO7046 M2.5x6 screws through the separate Pi carrier and unchanged Pi holes into P165-B metal threads; three independent M2.5x6 carrier-to-upper-shell screws. Bottom cover carries no Pi load.",
         "geometry_evidence": "Heatsink overall size and mounting pattern manufacturer-backed; reliefs and undersurface are explicit photo-derived references, not vendor STEP.",
         "thermal_validation": "Fanless prototype load-temperature test required; no cooling performance claim.",
         "airflow": "No forced airflow. Existing left-side slots remain for passive ventilation; temperatures unmeasured.",
@@ -432,7 +432,7 @@
       "source": "user"
     },
     "flush_fasteners": {
-      "value": "Use M3 countersunk screws for most enclosure fasteners where the available geometry permits, prioritizing user-owned M3x6, M3x10 and M3x12 lengths. Retain smaller fasteners where original board holes, metal threads or narrow printed features require them.",
+      "value": "Use M3 countersunk screws for most enclosure fasteners where the available geometry permits, prioritizing user-owned M3x6, M3x10 and M3x12 lengths. Use M2.5 for the smaller screen-retainer, front-pod and carrier fasteners. The already-ordered baseboard and its two M2x3 mounting screws remain unchanged through the original2.2mm holes; preserve the original Pi and heatsink metal threads.",
       "source": "user"
     },
     "cooler_mounting": {
@@ -440,7 +440,7 @@
       "source": "user"
     },
     "pcb_fastener_seat_policy": {
-      "value": "Preserve Pi cylindrical mounting holes and P165-B M2.5 metal threads. Four ISO7046 M2.5x6 screws seat in the independent upper-shell carrier at Z4.6, nominal metal engagement2mm. Preserve baseboard2.2mm holes and two M2x3 socket-cap screws without spacers. Printed receivers use screwjoint; seat allowance only on printed clearance/head seats.",
+      "value": "Preserve Pi cylindrical mounting holes and P165-B M2.5 metal threads. Four ISO7046 M2.5x6 screws seat in the independent upper-shell carrier at Z4.6, nominal metal engagement2mm. Preserve the ordered baseboard2.2mm holes and two ISO4762 M2x3 socket-cap screws without spacers. Other printed receivers use screwjoint; matched M2.5 kit seats carry0.2mm head recess.",
       "source": "default"
     },
     "lite_left_charging_opening": {
@@ -540,34 +540,44 @@
           83.5
         ],
         "screen_window_mm": [
-          66.5,
-          49.5
+          69.4,
+          45.88
         ],
-        "outer_side_frame_mm": 4.75,
-        "outer_frame_all_sides_mm": 4.75,
-        "front_retainer_screw_y_mm": -26.25
+        "outer_side_frame_mm": 3.3,
+        "front_retainer_screw_y_mm": -26.25,
+        "outer_top_bottom_frame_mm": 3.3,
+        "window_to_line_inner_band_all_sides_mm": 4.5
       },
       "source": "default"
     },
     "screen_pod_equal_border": {
-      "value": "屏幕舱上下左右四边等宽并收窄；接受前沿随此从1mm升至约1.67mm，保留屏幕玻璃、13°倾角和FPC安装基准。",
+      "value": "屏框细线内缘到显示窗口的间距四边相等，包括圆角；细线外缘到屏舱正面外缘也四边相等。保持13°屏角、玻璃夹持和FPC安装基准，并保持结构可用性。",
       "source": "user"
     },
     "screen_pod_equal_border_defaults": {
       "value": {
         "outer_face_mm": [
           76,
-          59
+          52.48
         ],
         "window_mm": [
-          66.5,
-          49.5
+          69.4,
+          45.88
         ],
-        "border_mm": 4.75,
-        "outer_corner_radius_mm": 7.5,
-        "actual_front_rise_mm": 1.6748531628559828,
+        "border_mm": 4.5,
+        "outer_corner_radius_mm": 8.65,
+        "actual_front_rise_mm": 1.608193600016982,
         "front_retainer_screw_y_mm": -26.25,
-        "window_role": "浅分界线外轮廓；玻璃有效显示口为59.4×35.88mm，独立定位框取消"
+        "window_role": "装饰线外轮廓；显示净口59.4×35.88mm，正面76×52.48mm由四边外圈3.3mm推导；承力底脚独立保留。",
+        "border_reference": "optical opening edge to decorative-line inner edge",
+        "line_outer_corner_radius_mm": 5.35,
+        "line_width_depth_mm": [
+          0.5,
+          0.25
+        ],
+        "support_detail": "底脚外轮廓沿用59mm面长的原接缝基准。后压框螺丝Y由25.5移至22.65mm，接收台按外壳内侧裁齐；原M2.5×4、2mm底板和2.16mm夹持间距保持。",
+        "outer_border_mm": 3.3,
+        "rear_retainer_screw_y_mm": 22.65
       },
       "source": "default"
     },
@@ -576,19 +586,20 @@
       "source": "user"
     },
     "screen_frame_construction": {
-      "value": "一体屏舱前框和等厚后压框；前框集成玻璃定位口，取消独立内框、背面薄翻边及排线护栏。两个硬质打印件以四枚M2螺丝连接，软垫另计。",
+      "value": "一体屏舱前框和带加高压边的后压框；后压框保留2mm底板与原螺丝耳，玻璃侧周边压边加高1.38mm。两个硬质打印件以四枚原M2.5×4螺丝连接，泡棉另计。",
       "source": "default"
     },
     "screen_frame_print_defaults": {
       "value": {
-        "front_lip_mm": 1.2,
+        "front_lip_mm": 1.5,
         "rear_plate_mm": 2,
         "glass_pocket_clearance_per_side_mm": 0.3,
         "front_pad_mm": 0.2,
-        "rear_pad_mm": 2,
+        "rear_pad_mm": 0.2,
         "outer_border_line_width_mm": 0.5,
-        "outer_border_line_depth_mm": 0.3,
-        "orientation": "一体前框的屏面朝下；等厚后压框平放。PLA、0.2mm层高为样机默认，切片和实物试配另验。"
+        "outer_border_line_depth_mm": 0.25,
+        "orientation": "一体前框的屏面朝下；等厚后压框平放。PLA、0.2mm层高为样机默认，切片和实物试配另验。",
+        "raised_pressure_rail_mm": 1.38
       },
       "source": "default"
     },
@@ -627,7 +638,7 @@
     "pi_independent_carrier_defaults": {
       "value": {
         "printed_material": "PLA prototype",
-        "shell_attachment": "3 x ISO7046 M2x6, self-forming printed receivers, nominal3.6mm engagement",
+        "shell_attachment": "3 x ISO7046 M2.5x6, self-forming printed receivers, nominal3.6mm engagement",
         "pi_attachment": "4 x ISO7046 M2.5x6 into existing metal heatsink threads",
         "board_bottom_z_mm": 6.6,
         "frame_bottom_z_mm": 3.0,
@@ -695,6 +706,242 @@
     },
     "lite_expansion_retention": {
       "value": "Use through-hole soldered module socket to reduce pad-peel risk under repeated insertion; module screws carry assembly loads.",
+      "source": "user"
+    },
+    "screen_measured_thickness_mm": {
+      "value": 1.8,
+      "source": "user"
+    },
+    "screen_foam_sheet_thickness_mm": {
+      "value": 0.2,
+      "source": "user"
+    },
+    "screen_clamp_stack_defaults": {
+      "value": {
+        "foam_layers": 2,
+        "placement": "one perimeter foam ring on each side of screen",
+        "compression_ratio_per_layer": 0.1,
+        "installed_foam_mm_per_layer": 0.18,
+        "closed_gap_mm": 2.16,
+        "qualification": "Provisional geometric preload only. Foam stiffness, adhesive thickness and print tolerance are not measured; trial assembly must confirm retention without panel bowing."
+      },
+      "source": "default"
+    },
+    "front_module_cover_lower_profile": {
+      "value": "Reduce the front-module cover thickness and projection above the platform.",
+      "source": "user"
+    },
+    "front_module_cover_thickness_mm": {
+      "value": 1.8,
+      "source": "default"
+    },
+    "design_direction": {
+      "value": "参考用户图片的橙色外圈、深色屏幕边框与暖白平台，统一前盖板和机身颜色，柔化边角、减轻视觉厚重感；保持结构可用性、可拆装与原有安装接口。",
+      "source": "user"
+    },
+    "visual_edge_profile_defaults": {
+      "value": {
+        "front_upper_bevel_mm": 1.6,
+        "bevel_fade_y_mm": [
+          -18,
+          2
+        ],
+        "lower_side_inset_mm": 0.9,
+        "lower_side_facet_height_mm": 6,
+        "bottom_cover_45deg_bevel_mm": 0.6,
+        "module_cover_face_bevel_mm": 1,
+        "body_height_and_internal_datums": "retained",
+        "bevel_runout": "Cubic tangent runout on both sides; bevel width and depth taper together from1.6mm to0. Ends beside the screen-pod front corner.",
+        "lower_inner_wall_shift_mm": 0.6,
+        "bottom_support_footprint_mm": [
+          73,
+          112
+        ],
+        "lower_wall_nominal_min_mm": 2.0
+      },
+      "source": "default"
+    },
+    "screen_border_spacing_direction": {
+      "value": "显示窗口与装饰细线之间的边框需四边等宽；6.31mm过宽、3mm过细，取适中的宽度。",
+      "source": "user"
+    },
+    "screen_pod_body_edge_transition": {
+      "value": "修顺屏舱前角与机身上沿的衔接，消除倒角收尾形成的突兀折线。",
+      "source": "user"
+    },
+    "reference_styling_usable_structure": {
+      "value": "按参考图试做外观，但必须保持结构可用性。",
+      "source": "user"
+    },
+    "reference_style_defaults": {
+      "value": {
+        "reference_image": "product/references/uploads/20261116T133644157Z-1-cleanshot-2026-11-16-at-21-20-54-2x.png",
+        "screen_inner_band_mm": 4.5,
+        "screen_inner_color_hex": "#26282b",
+        "screen_outer_color_hex": "#e87736",
+        "front_cover_color": "same as upper shell",
+        "cover_corner_radius_mm": 6,
+        "cover_top_chamfer_mm": 1,
+        "cover_thickness_mm": 1.8,
+        "cosmetic_finish": "masked matte coating on front inner band and optical opening wall",
+        "nominal_dry_finish_mm": 0.02,
+        "painted_optical_clear_mm": [
+          59.36,
+          35.84
+        ],
+        "minimum_active_area_margin_mm": 0.28,
+        "printed_screen_piece_count": 2,
+        "fastener_access": "retain four front-access M3x6 cover screws",
+        "qualification": "Appearance trial; actual coating and print fit still require prototype checks.",
+        "screen_outer_band_mm": 3.3,
+        "screen_face_mm": [
+          76,
+          52.48
+        ],
+        "screen_face_corner_radius_mm": 8.65
+      },
+      "source": "default"
+    },
+    "screen_outer_border_equal": {
+      "value": "屏舱正面上下橙色外圈间距与左右统一，四边等宽。",
+      "source": "user"
+    },
+    "side_port_recessed_surround": {
+      "value": "右侧接口采用内凹空间给插头留位，周围封闭，只保留匹配接口的小开口，避免大通孔直接露出内部。保持接口可用和主板可拆装。",
+      "source": "user"
+    },
+    "side_port_recess_defaults": {
+      "value": {
+        "panel_mm": [
+          77,
+          17.7,
+          2
+        ],
+        "panel_throat_web_mm": 1.2,
+        "edge_fit_clearance_mm": 0.25,
+        "outer_perimeter_bevel_mm": 0.3,
+        "removal": "remove two side screws, withdraw frame along+X, then remove bottom cover and Pi assembly along-Z",
+        "hardware": "two ISO7046 M2.5x4 countersunk cross-recess screws",
+        "receiver_engagement_mm": [
+          2.0,
+          1.2
+        ],
+        "rear_screw_protrusion_mm": 0.1,
+        "ports": {
+          "usb_c": {
+            "center_yz_mm": [
+              -19.3,
+              9.88
+            ],
+            "inner_opening_mm": [
+              9.6,
+              3.9
+            ],
+            "pocket_floor_x_mm": 35.5,
+            "back_x_mm": 34.3,
+            "recess_mm": 2.5,
+            "shoulder_mm": [
+              12.35,
+              6.5
+            ]
+          },
+          "micro_hdmi_1": {
+            "center_yz_mm": [
+              -4.5,
+              9.9
+            ],
+            "inner_opening_mm": [
+              7.4,
+              4.2
+            ],
+            "pocket_floor_x_mm": 35.5,
+            "back_x_mm": 34.3,
+            "recess_mm": 2.5,
+            "shoulder_mm": [
+              11,
+              6
+            ]
+          },
+          "micro_hdmi_2": {
+            "center_yz_mm": [
+              9,
+              9.9
+            ],
+            "inner_opening_mm": [
+              7.4,
+              4.2
+            ],
+            "pocket_floor_x_mm": 35.5,
+            "back_x_mm": 34.3,
+            "recess_mm": 2.5,
+            "shoulder_mm": [
+              11,
+              6
+            ]
+          },
+          "audio": {
+            "center_yz_mm": [
+              23.5,
+              11.3
+            ],
+            "inner_diameter_mm": 6.5,
+            "pocket_floor_x_mm": 36.8,
+            "back_x_mm": 35.6,
+            "recess_mm": 1.2,
+            "shoulder_diameter_mm": 10
+          }
+        },
+        "qualification": "Pi STEP establishes USB-C/AV front faces. Detailed micro-HDMI solids are absent; port centers/3mm height from official RP-008343-DS p1,1.2mm front overhang is provisional. Actual cable insertion and printed strength require trial.",
+        "printing": {
+          "bed_face": "inner shared rear plane",
+          "bed_x_world_mm": 34.3,
+          "nominal_envelope_depth_mm": 3.7,
+          "rear_contact_area_mm2": 743.425591,
+          "rear_perimeter_splay_mm": 1.7,
+          "screw_recess_bridge_mm": 7.0,
+          "audio_rear_bridge_mm": 11.0,
+          "local_support": "small front-lower notch around the bottom-cover receiver",
+          "default_layer_mm": 0.2,
+          "default_nozzle_mm": 0.4,
+          "brim_mm": 4,
+          "qualification": "CAD fit and rear bed contact checked; short bridges and local support removal need slicer review and trial printing."
+        }
+      },
+      "source": "default"
+    },
+    "screen_front_skirt_no_ramp": {
+      "value": "取消屏舱前沿向前铺开的斜面，采用短直立前沿；保持等宽边框与屏幕结构可用。",
+      "source": "user"
+    },
+    "lower_body_more_inset": {
+      "value": "整个机身底部周边进一步内收，让视觉更薄，同时保持结构可用性。",
+      "source": "user"
+    },
+    "screen_front_capture_defaults": {
+      "value": {
+        "front_wall": "vertical in world Y; no broad front ramp",
+        "front_wall_y_world_mm": -4.04626901696457,
+        "front_edge_radius_mm": 0.6,
+        "front_capture_x_screen_mm": [
+          -28.5,
+          28.5
+        ],
+        "front_tongue_tip_y_screen_mm": -26.4,
+        "capture_overlap_mm": 1.5,
+        "capture_floor_mm": 1.2,
+        "capture_side_wall_mm": 1.5,
+        "slot_top_and_side_air_mm": 0.3,
+        "retainer_base_mm": 2,
+        "pressure_rail_mm": 1.38,
+        "rear_screws": "two ISO7046 M2.5x4 at screen(±20,22.65)",
+        "release": "remove rear screws, lower retainer rear6deg, slide rearward1.7mm, withdraw along negative screen normal",
+        "clamp_gap_mm": 2.16,
+        "qualification": "Rigid captured tongues, no flex snap; nominal bearing fixes the same pressure plane. Print variation, retention force and glass pressure require trial assembly."
+      },
+      "source": "default"
+    },
+    "side_port_panel_printability": {
+      "value": "优化可拆侧接口围板的打印可行性，改善贴床和凹舱支撑，保持接口遮蔽、插头空间及可拆装。",
       "source": "user"
     }
   },

@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+// Sharp SCS is active-high. Keep the expansion port's CE1 active-low.
+/ {
+    compatible = "brcm,bcm2835";
+
+    fragment@0 {
+        target = <&spi0>;
+        __overlay__ {
+            cs-gpios = <&gpio 8 0>, <&gpio 7 1>;
+        };
+    };
+
+    fragment@1 {
+        target = <&spidev0>;
+        __overlay__ {
+            spi-cs-high;
+        };
+    };
+};

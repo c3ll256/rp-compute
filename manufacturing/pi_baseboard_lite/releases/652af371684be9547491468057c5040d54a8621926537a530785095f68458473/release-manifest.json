@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "652af371684be9547491468057c5040d54a8621926537a530785095f68458473",
+  "designId": "pi_baseboard_lite",
+  "buildId": "79bd4703ca74b68657cedc6c0047d7b303a28029ab08fdb193790a23785d389e",
+  "candidateId": "496f2519e451ff2a5c456078fdfc6d496ce94c5c3e66796e0e6bbc7e717a2447",
+  "approvedAt": "2026-11-09T12:24:27.396Z",
+  "sections": [
+    {
+      "id": "fabrication",
+      "status": "ready",
+      "files": [
+        "drill/board-NPTH.drl",
+        "drill/board-PTH.drl",
+        "drill/pi_baseboard_lite-drill-report.txt",
+        "gerbers/board-B_Cu.gbl",
+        "gerbers/board-B_Mask.gbs",
+        "gerbers/board-B_Paste.gbp",
+        "gerbers/board-B_Silkscreen.gbo",
+        "gerbers/board-Edge_Cuts.gm1",
+        "gerbers/board-F_Cu.gtl",
+        "gerbers/board-F_Mask.gts",
+        "gerbers/board-F_Paste.gtp",
+        "gerbers/board-F_Silkscreen.gto",
+        "gerbers/board-In1_Cu.g1",
+        "gerbers/board-In2_Cu.g2",
+        "gerbers/board-job.gbrjob"
+      ],
+      "blockingCodes": []
+    },
+    {
+      "id": "assembly",
+      "status": "ready",
+      "files": [
+        "jlc-smt-bom.csv",
+        "jlc-smt-placement.csv"
+      ],
+      "blockingCodes": []
+    },
+    {
+      "id": "mechanical",
+      "status": "ready",
+      "files": [
+        "3dmodels/pi_baseboard_lite.3dshapes/C5373447-easyeda.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/esq-120-12-g-d-drawing-reference.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/fh12a-10s-0.5sh-drawing-reference.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/generic_40pin-nominal.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/generic_8pin-nominal.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/hle-104-02-g-dv-drawing-reference.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/PinHeader_2x04_P2.54mm_Vertical.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x04_P2.54mm_Vertical.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x20_P2.54mm_Vertical.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/SOT-23-6.step",
+        "assembly.glb",
+        "assembly.step"
+      ],
+      "blockingCodes": []
+    }
+  ],
+  "package": [
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/C5373447-easyeda.step",
+      "sha256": "504b9584227db6e9942faceadb3f6e21c08d76d2b1e142ccfa9dea79109cca87",
+      "sizeBytes": 1948246
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal.step",
+      "sha256": "c7580ba6320b5978fc3e659ad51a0c3ae8aba7e2d06dfd92fed391446fa3c525",
+      "sizeBytes": 54957
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/PinHeader_2x04_P2.54mm_Vertical.step",
+      "sha256": "8c93c8dc19c54899e69e49abcf27681edd2e73c562bb405efbcc88fee20ac8d8",
+      "sizeBytes": 245557
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x04_P2.54mm_Vertical.step",
+      "sha256": "22ed9c34c1d3d16fe62e5dbbb4b1eadb9789ad786b2d048e70f817ab6910e4b7",
+      "sizeBytes": 171232
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x20_P2.54mm_Vertical.step",
+      "sha256": "964ca9c969824b42d3f7412f7b3692eaecd9c9e99f66ed085d9548475f676d5a",
+      "sizeBytes": 842942
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/SOT-23-6.step",
+      "sha256": "c9fe686b4d1b56927a41fa84a9bc1efb61d8a45a123a3db43bcaa05c2891d635",
+      "sizeBytes": 99639
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/esq-120-12-g-d-drawing-reference.step",
+      "sha256": "1c4e4fd307d7f8a48d0965b581b95c1e37590160069f9e4f6665a3c083be10fc",
+      "sizeBytes": 1366220
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/fh12a-10s-0.5sh-drawing-reference.step",
+      "sha256": "c1987e5cab3ebd5650d23145a0b3bee0ed8d268f3965fc8881b0c9ec5ba74388",
+      "sizeBytes": 17458
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/generic_40pin-nominal.step",
+      "sha256": "c7ef264d36d631912814677c176948b2dfb1b1a075a17c38fc87943e1fce1f3c",
+      "sizeBytes": 1406483
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/generic_8pin-nominal.step",
+      "sha256": "ba6b71cd1983f7515b1252264c5759be27692e721626958c602329d4cd872251",
+      "sizeBytes": 288651
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/hle-104-02-g-dv-drawing-reference.step",
+      "sha256": "33dce5b72ab2367bfa9f56eeb865dfe7837cbf12eb2d9434a77a5909335b00b0",
+      "sizeBytes": 243710
+    },
+    {
+      "path": "assembly.glb",
+      "sha256": "18727aacd9723ad5d99a6b701c25247f07d8c09e74647290b47ac85dfdc49568",
+      "sizeBytes": 47004264
+    },
+    {
+      "path": "assembly.step",
+      "sha256": "9646c96b6ef8b9988d3382da1e969c014f99d7fc087cdfb053901519d2101f27",
+      "sizeBytes": 17283890
+    },
+    {
+      "path": "circuit.json",
+      "sha256": "b3a515011ee24a19304dc0117d37fa4d1729a527852c240c3403c1135b75cb5f",
+      "sizeBytes": 994895
+    },
+    {
+      "path": "drill/board-NPTH.drl",
+      "sha256": "8ce9d3aff701c2ad8690080568ef20da3ba9095b3650b31e43bcc31d1b696fec",
+      "sizeBytes": 355
+    },
+    {
+      "path": "drill/board-PTH.drl",
+      "sha256": "c045ca700c2401415341daa7dd75a1217f7b610f85bc248f0cbc9adbf566bdde",
+      "sizeBytes": 1431
+    },
+    {
+      "path": "drill/pi_baseboard_lite-drill-report.txt",
+      "sha256": "5d6cfb64d923593322d7e7c5ad91aa177e5a9312bc4bb0635d157a4618b688d1",
+      "sizeBytes": 759
+    },
+    {
+      "path": "gerbers/board-B_Cu.gbl",
+      "sha256": "81bb835cd1a7ed7411c75943e3702dceb46cffdcd556af017827719f4e00f469",
+      "sizeBytes": 90089
+    },
+    {
+      "path": "gerbers/board-B_Mask.gbs",
+      "sha256": "6436763a7715225afbae7d0c1798af394016ef57f11cc1491f2dd3bfd47dd685",
+      "sizeBytes": 1842
+    },
+    {
+      "path": "gerbers/board-B_Paste.gbp",
+      "sha256": "4755b2bacde416c9f82c00e2d990a49737db40f63edb83d2bd7890bd6f15114d",
+      "sizeBytes": 450
+    },
+    {
+      "path": "gerbers/board-B_Silkscreen.gbo",
+      "sha256": "c0a3e4bed491aa198cf7f67499e2ac4e79e80fc024e0704c639965cd5f82179a",
+      "sizeBytes": 890
+    },
+    {
+      "path": "gerbers/board-Edge_Cuts.gm1",
+      "sha256": "147c371e4a29f097209bebd9e79d669d686bd1968ce9d32cf360de7bcc7afb18",
+      "sizeBytes": 680
+    },
+    {
+      "path": "gerbers/board-F_Cu.gtl",
+      "sha256": "171197ec717e40af3854f355195ebf2f39781eaa4b9a97a21d11d62b49496731",
+      "sizeBytes": 172105
+    },
+    {
+      "path": "gerbers/board-F_Mask.gts",
+      "sha256": "87f4db084142906451d42c5d28182993601e2065232fbb14eb8b577a924e1dd4",
+      "sizeBytes": 5544
+    },
+    {
+      "path": "gerbers/board-F_Paste.gtp",
+      "sha256": "1dd240fe338c66cafdcb4b4c844df038aa581889ae9d919d404f2a32b9d57be5",
+      "sizeBytes": 4142
+    },
+    {
+      "path": "gerbers/board-F_Silkscreen.gto",
+      "sha256": "d4b1791b932bbcce5f8614f040fadd70fffc7932a55719e14ce83230e0447999",
+      "sizeBytes": 23987
+    },
+    {
+      "path": "gerbers/board-In1_Cu.g1",
+      "sha256": "f46d11f4d32e55e1f271f31c5e7402b213d0a073884b1c610028aeaf7088ce22",
+      "sizeBytes": 91829
+    },
+    {
+      "path": "gerbers/board-In2_Cu.g2",
+      "sha256": "dcbb7dbf1accb694d31b54eb5a70e55d3d657800725a36457ee66154146d62c5",
+      "sizeBytes": 4754
+    },
+    {
+      "path": "gerbers/board-job.gbrjob",
+      "sha256": "fe224eb05d7465d9462b526ecb7a0d8dbf4cbee8b9228df214ba6fd5b7fccfed",
+      "sizeBytes": 3644
+    },
+    {
+      "path": "jlc-smt-bom.csv",
+      "sha256": "c5802b294e80d9492111fa7511fdbdb80b6dd1d5b093d00b263eaef86f87e837",
+      "sizeBytes": 1017
+    },
+    {
+      "path": "jlc-smt-placement.csv",
+      "sha256": "c4c8e9f6083d4c74259a23aaae35f9ec004a18c61ab8c4279944729a3f3af465",
+      "sizeBytes": 1996
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "8e401e67dbf55072d0bceb123a06515f1023737bdcd8b1c648021b094d637515",
+      "sizeBytes": 31305
+    },
+    {
+      "path": "previews/gerber-bottom.png",
+      "sha256": "c2f2d14d3586d32c3c2ac460b7462fa2f22c63299521257beeceff41ea40c518",
+      "sizeBytes": 184447
+    },
+    {
+      "path": "previews/gerber-bottom.svg",
+      "sha256": "2cce1ef04c15bc4a45ca7fbc834542be9f4d74c31aa5b62908183624f5401368",
+      "sizeBytes": 88726
+    },
+    {
+      "path": "previews/gerber-top.png",
+      "sha256": "b743e69682a42089dd15db5aee05d371d709608083f0c0e1eb3ab051ecd4e094",
+      "sizeBytes": 305218
+    },
+    {
+      "path": "previews/gerber-top.svg",
+      "sha256": "fbddb49ce3c739f1798e15645e59bbe0c9e440087f66e01765ac9fb4f3092e51",
+      "sizeBytes": 189803
+    }
+  ]
+}

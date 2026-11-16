@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "199b2b78a63c661cf362c272b9502a34c024da2f70ab65a87e76a96791731aae",
+  "requirements_digest": "1bb16dee7ccf4a101799e4d623521f6ba476544937d453ae3cf2cc7f9eb88bdf",
   "items": [
     {
       "id": "compute",
@@ -45,7 +45,7 @@
         "license": "not returned by provider; do not infer the license of the different FreeCAD seed asset",
         "asset_note": "Bundled exact FreeCAD STEP missing at installation; exact-model fallback, not a Pi5/Pico substitution."
       },
-      "part_identity": "1ee97ce502b5d33b",
+      "part_identity": "9274337c427b1308",
       "supply_model": "customer_supplied_reference_board",
       "included_in_product_kit": false,
       "include_in_procurement_totals": false,
@@ -72,14 +72,14 @@
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "part_identity": "3f2bc5eddcf211cc",
+      "part_identity": "4612e73150b55cf7",
       "datasheet_url": "https://media.digikey.com/pdf/Data%20Sheets/Sharp%20PDFs/LS027B7DH01.pdf",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
-      "selection_reason": "Primary LS027B7DH01 retained; user accepts LS027B7DH01A as a one-for-one alternative, not an additional panel. Total fitted quantity is1. One-piece housing has a rear-loading63.4x43.42mm negative pocket,0.3mm nominal clearance per side and1.77mm active-area offset. Optical opening59.4x35.88mm. Glass/FPC pose and13deg slope retained; front rise approximately1.67mm. Manufacturer drawing defines nominal glass; no exact panel STEP. Physical pressure and fit need testing.",
-      "mechanical_integration": "Two printed pieces: integral housing/locator and2mm flat rear retainer. Four M2 hard-stop joints; nonadhesive0.2mm front and2mm rear silicone supports. Native-tail keepout retained without separate guard. Fit and polarizer load need prototype.",
+      "selection_reason": "Primary LS027B7DH01 retained; user accepts LS027B7DH01A as a one-for-one alternative, not an additional panel. Total fitted quantity is1. One-piece housing has a rear-loading63.4x43.42mm negative pocket,0.3mm nominal clearance per side and1.77mm active-area offset. Optical opening59.4x35.88mm. 13deg screen slope retained; measured screen thickness1.8mm replaces nominal1.64mm in this sample fit; front rise approximately1.67mm. Manufacturer drawing defines nominal glass; no exact panel STEP. Physical pressure and fit need testing.",
+      "mechanical_integration": "Measured1.8mm glass, two user0.2mm foam sheets modeled installed0.18mm each, closed gap2.16mm. Original screen and FPC datums retained. Frame front is upright at worldY-4.046269mm, with0.6mm edge radius. Retainer has2mm base,1.38mm pressure rail, two rigid front tongues captured with1.5mm bearing on1.2mm floors, and two rear M2.5x4 at(±20,22.65). Inner band4.5mm and outer band3.3mm remain equal. Actual foam pressure, tongue fit and native-tail seating require prototype testing.",
       "assembly_dimension_assumption": {
         "value": 13.7,
         "source": "default",
@@ -150,7 +150,7 @@
       "observed_date": "2026-10-02",
       "required_user_evidence": [],
       "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
-      "part_identity": "d36ea902ecb37a1b",
+      "part_identity": "9c5a25df559dd9ae",
       "catalog_evidence": {
         "url": "https://easyeda.com/api/products/C5373447/components",
         "path": "product/references/jlc-assembly/C5373447-easyeda.json",
@@ -192,7 +192,7 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
-      "part_identity": "f1fcb37b6ecdf118",
+      "part_identity": "7286a48c8388d7b9",
       "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "designators": [
@@ -241,7 +241,7 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
-      "part_identity": "92c508680dfac711",
+      "part_identity": "a64234362567ca9d",
       "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "designators": [
@@ -361,7 +361,7 @@
         },
         "evidence": "design/pi_baseboard_lite/connector-specification.json"
       },
-      "part_identity": "67d89e18034ccf90"
+      "part_identity": "a98d6a26b0dbb360"
     },
     {
       "id": "front_module_blank",
@@ -379,9 +379,9 @@
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "description": "Current project front-module blank: 70 x 37 x 2.4 mm, R4 corners, 0.4 mm upper chamfer; four M3 countersinks on a 59 x 22 mm pattern and flat underside at world Z27. Source: current front_module_cover and shell CAD cells.",
-      "selection_reason": "Retain the existing flat cover and M3 mounting concept as the starting geometry. Socket air gap must be recalculated after the through-hole replacement and PCB stack are fixed; previous0.745mm result is not a replacement-part clearance.",
-      "part_identity": "622d0f7d7c815f29",
+      "description": "Project removable front cover70x37x1.8mm, R6 corners,1.0mm upper chamfer. Shares the warm-white upper-shell color. Original four M3 countersinks on59x22mm pattern, flat undersideZ27, topZ28.8 and original M3x6 hardware retained. No underside boss or locating tongue. PLA default; actual flatness, countersink fit and0.205mm socket air need trial assembly.",
+      "selection_reason": "Reference-inspired same-color front deck and softer corners, while retaining1.8mm structural thickness, original screw access and removable-module interface. Four lower bearing rings remain complete; upward removal checked with no new interference.",
+      "part_identity": "9b40e8120055ef93",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "cad_relevance": {
         "part_id": "front_module_cover",
@@ -389,10 +389,12 @@
         "placement_mm": [
           0,
           -34,
-          28.4
+          28.8
         ],
         "minimum_socket_roof_mm": 2.05,
-        "physical_fit": "unverified prototype"
+        "physical_fit": "unverified prototype",
+        "thickness_mm": 1.8,
+        "projection_above_deck_mm": 1.8
       },
       "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
     },
@@ -412,9 +414,9 @@
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "description": "Four ISO10642 M3-0.5 x 6 mm countersunk screws, length including head, 90 degree seat and nominal 6 mm head. Current joint uses 2.4 mm cover thickness and 3.6 mm receiver engagement.",
-      "selection_reason": "Uses user-owned M3x6 stock in the current cover joints. Printed seats add 0.4 mm diameter and 0.2 mm depth allowance. Verify actual head shape and printed thread fit.",
-      "part_identity": "9bce79979275ed00",
+      "description": "Four original ISO10642 M3-0.5x6 countersunk screws in the1.8mm front cover, matched kit seats and3.6mm nominal receiver engagement. Nominal remaining countersink land about0.295mm; lightly tighten, physical print fit untested.",
+      "selection_reason": "Retain user-owned M3x6 screws after thinning cover to1.8mm; current kit selected the same length.",
+      "part_identity": "735e4e922fc128f2",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "cad_library_reference": {
         "provider": "bd-warehouse",
@@ -454,7 +456,7 @@
       "required_user_evidence": [],
       "selection_reason": "TI SLVS841F pp5,6,15,25: active-high 2.5-6.5V adjustable current-limit switch, 169k 1% RILIM gives approximately 136-187mA limits ahead of a dedicated 3.3V LDO; normal module allocation is100mA. Pi3.3V only controls enable. Exact DBV stock KiCad footprint. Exact unchanged TPS2553DBVR (not the -1 latch-off variant) now matched to C55266 in the JLCPCB catalog and official EasyEDA library; preserve existing KiCad SOT-23-6 copper and topology. Extended retained to preserve the qualified exact part. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
-      "part_identity": "77394c38da87bdc6",
+      "part_identity": "75e6ea40403af1fc",
       "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "designators": [
@@ -580,7 +582,7 @@
         },
         "evidence": "design/pi_baseboard_lite/connector-specification.json"
       },
-      "part_identity": "a446a34b733c8bab"
+      "part_identity": "f6ceed1309269ef0"
     },
     {
       "id": "lite_c100n",
@@ -610,7 +612,7 @@
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
-      "part_identity": "793924b009c093b0",
+      "part_identity": "8f87eaca99f65f55",
       "designators": [
         "C_BUF1",
         "C_BUF2",
@@ -657,7 +659,7 @@
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
-      "part_identity": "521357339b7b313a",
+      "part_identity": "4b7e4e3b801e0ae6",
       "designators": [
         "R_LCD_BLEED",
         "R_AUX_BLEED",
@@ -704,7 +706,7 @@
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
-      "part_identity": "14b2d76ef981c976",
+      "part_identity": "87519947d316cc59",
       "designators": [
         "R_OFF_CLK",
         "R_OFF_DATA",
@@ -755,7 +757,7 @@
       },
       "selection_reason": "Exact value/package verified; JLC SMT assembly. Extended resistor chosen only because no exact Basic match. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
-      "part_identity": "3f2bf7b7819c1031",
+      "part_identity": "7ad84abcf85cd1d0",
       "designators": [
         "R_LCD_ILIM",
         "R_AUX_ILIM"
@@ -801,7 +803,7 @@
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
-      "part_identity": "fca643e731731cf2",
+      "part_identity": "027aa59031771287",
       "designators": [
         "C_LCD_D",
         "C_LCD_IN",
@@ -841,12 +843,12 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "description": "Printed upper shell, 76x115x27mm exterior, printed deck-down with no support material: flat deck (expansion cover sits on top), full-height screw columns for the bottom cover, roof-backed PCB beams, 51-degree rear PCB guide. No fan bosses, cassette, pads or fan screws; existing left slots are passive ventilation. Rear USB/RJ45 windows open to the lower edge and inner grooves for the audio jack/USB-C let it drop straight over the Pi. Three internal receivers extend down to Z5.4 to accept the flat Pi carrier ears; use together with the flat carrier. CAD default PLA; print fit, strength and service life untested. Four integral roof tabs carry the screen pod via concealed underside screws; front diameter2.4mm and rear diameter3.4mm driver paths; front paths remain within the original inner cavity. Remove Pi with its independent carrier before screen service.",
-      "selection_reason": "76mm enclosure and76x59mm screen housing face with equal4.75mm borders outside66.5x49.5mm shallow border line. Glass/FPC datum unchanged; user accepts front rise approximately1.67mm. Front retainer screws at local(+/-27,-26.25), rear(+/-20,25.5); shell wells retained; independent bezel and thin flange removed. Rear pod foot stays flush atY57.5 with approximately26.29deg forward lean. Pi/heatsink offsetX-5mm, 44.5x83.5mm released PCB and capsule slots retained for passive ventilation. Existing85mm enclosure/PCB releases are not interchangeable. Side ports now clear default straight overmould envelopes12x6mm USB-C,11x6mm per micro-HDMI and diameter10mm audio, with enlarged full-depth bores and1.5mm HDMI separator; these are negative enclosure-clearance targets, not verified purchasable cable identities. Paired with M3 front-module and bottom-cover receivers, rear M3 pod mounts, and the current M2 retainer. Socket stack uses PCB bottomZ21.0 and Pi/sink lift1.3mm. Port openings follow Pi vertically; GPIO tail roof recess retains2mm skin and expanded rear-retainer gap clears untrimmed3.5mm leads.",
+      "description": "Printed upper shell with76x115mm maximum envelope and retained27mm deck datum. Front top edge has1.6mm bevel with a tangent cubic runout fromY-18 to+2mm beside the screen-pod front corners; bevel width and depth shrink together to zero on both sides. Lower6mm wall band insets0.9mm per side; inner wall shifts0.6mm at the bottom and tapers out to retain2mm nominal wall; matched to the0.6mm beveled bottom closure. PCB beams, carrier receivers, screen supports, board and pod-to-shell fastener axes retain their current positions. Side port web is a separate outward-removable frame held by two kit joints; upper shell includes its recessed seat and service opening. Nominal lower-wall allowance2mm after the0.1mm edge break. PLA default; physical fit untested. Screen passage front is worldY-3.5mm, closed where the old screen ramp and front screw wells were removed. Side-frame seat is77.5mm wide with a matching rear-backing relief. Bottom-cover receiver stock is preserved with a dedicated keepout; printed fastening axes stay fixed.",
+      "selection_reason": "Strengthens the visual lower-body inset while retaining the base screw footprint and Pi/PCB datums. Use matching bottom closure, vertical-front screen pair and side port frame. Match the77mm-wide common-back-plane side frame.",
       "cad_relevance": {
-        "description": "Two existing2.2mm PCB holes at world(+/-16,-32) and rear left board edge."
+        "description": "Two original2.2mm PCB holes at world(+/-16,-32) and rear left board edge; ordered PCB retained."
       },
-      "part_identity": "7907fe52a3d40080",
+      "part_identity": "d715663448aa1447",
       "mechanical_outline_revision": {
         "case_width_mm": 76,
         "screen_housing_width_mm": 76,
@@ -856,29 +858,85 @@
           4.5
         ],
         "vent_end_radius_mm": 1.2,
-        "rear_wall_lean_from_vertical_deg": 26.2871101367786,
+        "rear_wall_lean_from_vertical_deg": 38.44718962692716,
         "source": "default",
         "screen_face_mm": [
           76,
-          59
+          52.48
         ],
-        "screen_border_mm": 4.75,
-        "screen_front_rise_mm": 1.6748531628559828
+        "screen_border_mm": 3.3,
+        "screen_front_rise_mm": 1.608193600016982
       },
       "side_port_clearance": {
         "source": "default",
-        "usb_c_bore_mm": [
-          13,
-          7
-        ],
-        "micro_hdmi_bore_mm": [
-          12,
-          7
-        ],
-        "audio_bore_diameter_mm": 11,
-        "qualification": "Actual cable fit requires prototype; no new cable SKU selected."
+        "implementation": "separate recessed frame, remove along+X before bottom cover and Pi service",
+        "ports": {
+          "usb_c": {
+            "center_yz_mm": [
+              -19.3,
+              9.88
+            ],
+            "inner_opening_mm": [
+              9.6,
+              3.9
+            ],
+            "pocket_floor_x_mm": 35.5,
+            "back_x_mm": 34.3,
+            "recess_mm": 2.5,
+            "shoulder_mm": [
+              12.35,
+              6.5
+            ]
+          },
+          "micro_hdmi_1": {
+            "center_yz_mm": [
+              -4.5,
+              9.9
+            ],
+            "inner_opening_mm": [
+              7.4,
+              4.2
+            ],
+            "pocket_floor_x_mm": 35.5,
+            "back_x_mm": 34.3,
+            "recess_mm": 2.5,
+            "shoulder_mm": [
+              11,
+              6
+            ]
+          },
+          "micro_hdmi_2": {
+            "center_yz_mm": [
+              9,
+              9.9
+            ],
+            "inner_opening_mm": [
+              7.4,
+              4.2
+            ],
+            "pocket_floor_x_mm": 35.5,
+            "back_x_mm": 34.3,
+            "recess_mm": 2.5,
+            "shoulder_mm": [
+              11,
+              6
+            ]
+          },
+          "audio": {
+            "center_yz_mm": [
+              23.5,
+              11.3
+            ],
+            "inner_diameter_mm": 6.5,
+            "pocket_floor_x_mm": 36.8,
+            "back_x_mm": 35.6,
+            "recess_mm": 1.2,
+            "shoulder_diameter_mm": 10
+          }
+        },
+        "qualification": "Bound STEP lacks detailed HDMI connector solids; HDMI nose/overhang and actual cables need trial fitting."
       },
-      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
+      "replacement_fit_status": "Current8mm generic Pi socket and5mm target expansion socket are represented by the active assembly. Nominal fit only; prototype connector and print tolerances require checking."
     },
     {
       "id": "pcb_upper_mount_screws",
@@ -897,8 +955,8 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "description": "Two ISO4762 M2-0.4 x 3 mm socket-head screws, length under head, through the existing 2.2 mm holes in the 0.8 mm PCB, without spacers. Nominal board bottom Z21.0 and screw tip Z24.0 mm.",
-      "selection_reason": "Two M2x3 socket-cap screws bear directly on unchanged0.8mm PCB through2.2mm NPTH; raised shell beams follow newZ21.0 datum. No spacers; nominal screw tipZ24.0 leaves3mm to deck. Physical torque and thread life untested.",
+      "description": "Two ISO4762 M2-0.4 x 3 mm socket-head screws, length under head, through the original 2.2 mm holes in the ordered 0.8 mm PCB, without spacers. Nominal board bottom Z21.0 and screw tip Z24.0 mm.",
+      "selection_reason": "The already-ordered baseboard is unchanged. Two M2x3 socket-cap screws bear directly on its 0.8mm PCB through the original2.2mm NPTH; raised shell beams follow the Z21.0 datum. No spacers; nominal screw tipZ24.0 leaves3mm to deck. Physical torque and thread life untested.",
       "cad_model": {
         "format": "step",
         "source_url": "https://github.com/gumyr/bd_warehouse",
@@ -909,12 +967,12 @@
           "length": 3,
           "fastener_type": "iso4762"
         },
-        "selection": "ISO4762 M2-0.4 x3, under-head length, matches current screw hardware and spacer-free shell joint."
+        "selection": "ISO4762 M2-0.4 x3 retained for the ordered PCB; M2.5 is used on the other small enclosure joints."
       },
       "cad_relevance": {
-        "description": "WorldX+/-16,Y-32, board bottomZ21.8; existing internal socket-head screws retained because PCB holes are unmodified clearance holes."
+        "description": "World X+/-16, Y-32, board bottom Z21.0; original2.2mm NPTH and2.5mm-radius all-layer copper keepouts retained."
       },
-      "part_identity": "462c9a662d57ba10",
+      "part_identity": "1d5ded756f20f2ee",
       "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
     },
     {
@@ -951,7 +1009,7 @@
       },
       "selection_reason": "Retain user-selected Geekworm P165-B on Pi4B. Internal fan and its harness/mounts removed; fanless temperature performance requires prototype testing.",
       "supply_risk": "Purchase exact 11mm P165-B standalone; no8mm P165-A or Pi5 replacement. Underside relief heights and included TIM thickness need prototype inspection; CAD is explicit photo-derived reference.",
-      "part_identity": "a69b252d0141b942"
+      "part_identity": "f6a01b3a2c8f788f"
     },
     {
       "id": "pi_upper_mount_screws",
@@ -971,17 +1029,17 @@
       "required_user_evidence": [],
       "selection_status": "selected",
       "selection_reason": "Four ISO7046 M2.5x6 cross-recess countersunk screws pass through the current independent carrier and original Pi holes into P165-B metal M2.5 receivers. Carrier seat Z4.6 and Pi underside Z6.6 mm give 2 mm nominal metal engagement; verify physical thread depth.",
-      "part_identity": "a6c8476e34de4e99",
+      "part_identity": "96e56c21db9e5704",
       "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
     },
     {
       "id": "lcd_retainer_screws",
       "role": "lcd_rear_retainer_fasteners",
-      "name": "ISO7046 M2×4 十字沉头螺丝",
-      "quantity": 4,
+      "name": "ISO7046 M2.5×4 十字沉头螺丝",
+      "quantity": 2,
       "manufacturer": "ISO standard",
-      "mpn": "ISO7046-M2x4",
-      "part_number": "ISO7046-M2x4",
+      "mpn": "ISO7046-M2.5x4",
+      "part_number": "ISO7046-M2.5x4",
       "source": "default",
       "supplier": "Standard hardware supplier",
       "procurement_status": "external_procurement_required",
@@ -991,18 +1049,18 @@
       },
       "required_user_evidence": [],
       "selection_status": "selected",
-      "part_identity": "6a295f48219a565c",
-      "selection_reason": "Matches current thin retainer and PCB clearance. Six M2x4 screws in total: these four plus two front screen-pod fixings.",
-      "description": "Four ISO7046 M2x4 cross-recess countersunk screws, total length including head, retain the current uniform 2 mm rear plate. Seats add 0.4 mm diameter and 0.2 mm depth clearance.",
+      "part_identity": "604279b487f1a4e1",
+      "selection_reason": "Keeps blind receiving material and the2.16mm hard-stop clamp stack while allowing a vertical front skirt. Use with the matching front-capture frame and retainer.",
+      "description": "Two ISO7046 M2.5x4 rear countersunk screws through2mm ears, with2mm nominal receiver engagement. Front retention uses rigid captured tongues instead of screws.",
       "cad_library_reference": {
         "provider": "bd-warehouse",
         "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
         "parameters": {
-          "size": "M2-0.4",
+          "size": "M2.5-0.45",
           "length": 4,
           "fastener_type": "iso7046"
         },
-        "selection": "existing compact M2 standard retained"
+        "selection": "M2.5 standard with kit-matched ISO7046 head and0.2mm recess"
       }
     },
     {
@@ -1045,7 +1103,7 @@
         "receiving_host": "upper shell",
         "head_flush_world_z_mm": 0.2
       },
-      "part_identity": "9bce79979275ed00",
+      "part_identity": "735e4e922fc128f2",
       "cad_library_reference": {
         "provider": "bd-warehouse",
         "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
@@ -1063,7 +1121,7 @@
       "id": "screen_integral_frame",
       "role": "printed_screen_frame",
       "name": "一体屏舱前框（PLA打印）",
-      "description": "Current integral screen pod/glass locator: nominal 76 x 59 mm front envelope, 13 degree screen plane, 1.2 mm optical lip and 63.4 x 43.42 mm glass pocket. Four M2 retainer receivers, two M2 front shell joints and two M3 rear shell joints. Source: current fascia CAD cell; physical glass pressure unverified.",
+      "description": "Integral76x52.48mm,13deg screen pod, upright front skirt at worldY-4.046269mm with0.6mm top radius. Optical opening59.4x35.88mm; equal4.5mm dark band and3.3mm outer orange band.0.5x0.25mm engraving retains complete1.2mm floor; optical lip1.5mm. Two front rigid capture slots have1.2mm bearing floors,1.5mm side walls and0.3mm upper/side assembly air. Two rear M2.5x4 receivers at(±20,22.65). Existing glass/FPC datums and0.02mm matte reference finish retained.",
       "quantity": 1,
       "manufacturer": "Project custom",
       "mpn": "handheld-screen-integral-frame",
@@ -1077,13 +1135,29 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "037420504f2bb5c2"
+      "part_identity": "f2af863175cdae4c",
+      "selection_reason": "Removes the user-marked broad front ramp without exposing screw holes or thinning receiving caps. Front screws are replaced by rigid captive tongues; match the new retainer and upper-shell aperture.",
+      "surface_finish": {
+        "source": "default",
+        "method": "masked matte paint; apply to the unassembled frame",
+        "color_hex": "#26282b",
+        "nominal_dry_mm": 0.02,
+        "mask": "glass/light passage, foam support faces, screw holes and outer orange frame",
+        "painted_optical_clear_mm": [
+          59.36,
+          35.84
+        ],
+        "active_area_clearance_per_side_mm": 0.28,
+        "cad_reference_object": "screen_face_finish",
+        "print_policy": "Do not export cosmetic reference as a third printed piece.",
+        "prototype_check": "Try finish on scrap; fully cure before fitting glass and foam."
+      }
     },
     {
       "id": "screen_flat_retainer",
       "role": "printed_screen_retainer",
-      "name": "等厚屏幕后压框（PLA打印）",
-      "description": "Current rear retainer: nominal 66 x 44 mm outline, uniform 2 mm plate, 3 mm rails and 16 mm tail gap. Four coplanar M2x4 countersunk tabs and shell-lug reliefs preserve glass/pad planes. Source: lcd_retainer/fascia CAD cells; fit unverified.",
+      "name": "屏幕后压框（2mm底板、1.38mm加高压边）",
+      "description": "One-piece2mm base,1.38mm pressure rail. Two front tongues atX±28.5,tipY-26.4 engage1.5mm in rigid slots; two rear M2.5x4 at(±20,22.65). Extra flat bridge and rear clearance permit unhooking: remove screws, lower rear6deg, slide rearward1.7mm, then withdraw. Closed glass/foam gap2.16mm is unchanged.",
       "quantity": 1,
       "manufacturer": "Project custom",
       "mpn": "handheld-screen-flat-retainer",
@@ -1097,56 +1171,59 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "84e4ae5e7be00bf5"
+      "part_identity": "490de999c7d823fe",
+      "selection_reason": "Front bearing remains at the original retainer underside datum. Static fit and unhooking path checked; pressure, creep and print tolerances still require trial. Match current fascia; old four-screw retainer is incompatible."
     },
     {
       "id": "screen_front_pad",
       "role": "screen_compliant_pad",
-      "name": "屏幕前侧无胶硅胶软垫，0.2mm",
-      "description": "Project cut-to-shape nonadhesive front silicone pad: nominal 0.2 mm thickness, 62.8 x 42.82 mm outline, 59.4 x 35.88 mm optical opening and 12 mm tail gap. Current CAD nominal dimensions; pressure and polarizer compatibility require tests.",
+      "name": "屏幕前侧泡棉垫圈，0.2mm",
+      "description": "Cut one perimeter ring from the user-provided0.2mm foam sheet. Default installed thickness0.18mm is provisional10% compression. Outline and window follow current screen cushion CAD; no adhesive contact with polarizer. Material pressure and fit need trial assembly.",
       "quantity": 1,
       "manufacturer": "Project custom",
-      "mpn": "handheld-screen-front-pad-0p2",
-      "part_number": "handheld-screen-front-pad-0p2",
+      "mpn": "handheld-screen-front-foam-0p2",
+      "part_number": "handheld-screen-front-foam-0p2",
       "supplier": "Prototype fabrication",
       "stock": null,
-      "source": "default",
+      "source": "user",
       "procurement_status": "external_procurement_required",
       "assembly": {
         "population": "not_mounted",
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "0864ff01b4dfe720"
+      "part_identity": "9b956a99a3a344e7",
+      "selection_reason": "Uses user-measured0.2mm foam, one ring on this screen face by default; matched to1.8mm screen and2.16mm hard-stop gap."
     },
     {
       "id": "screen_rear_pad",
       "role": "screen_compliant_pad",
-      "name": "屏幕后侧无胶硅胶软垫，2mm",
-      "description": "Project cut-to-shape nonadhesive rear silicone pad: nominal 2 mm thickness, 62.8 x 42.82 mm outline, 60 x 38 mm opening and 16 mm tail gap. Matches current hard-stop retainer stack; compression and glass loading require tests.",
+      "name": "屏幕后侧泡棉垫圈，0.2mm",
+      "description": "Cut one perimeter ring from the user-provided0.2mm foam sheet. Default installed thickness0.18mm is provisional10% compression. Outline and window follow current screen cushion CAD; no adhesive contact with polarizer. Material pressure and fit need trial assembly.",
       "quantity": 1,
       "manufacturer": "Project custom",
-      "mpn": "handheld-screen-rear-pad-2p0",
-      "part_number": "handheld-screen-rear-pad-2p0",
+      "mpn": "handheld-screen-rear-foam-0p2",
+      "part_number": "handheld-screen-rear-foam-0p2",
       "supplier": "Prototype fabrication",
       "stock": null,
-      "source": "default",
+      "source": "user",
       "procurement_status": "external_procurement_required",
       "assembly": {
         "population": "not_mounted",
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "226a32ca0f433dde"
+      "part_identity": "e7506d2f7b4d4ce6",
+      "selection_reason": "Uses user-measured0.2mm foam, one ring on this screen face by default; matched to1.8mm screen and2.16mm hard-stop gap."
     },
     {
       "id": "screen_shell_front_screws",
       "role": "screen_pod_to_shell_fasteners",
-      "name": "ISO7046 M2×4 十字沉头螺丝（前侧屏舱—上壳固定螺丝）",
+      "name": "ISO7046 M2.5×4 十字沉头螺丝（前侧屏舱—上壳固定螺丝）",
       "quantity": 2,
       "manufacturer": "ISO standard",
-      "mpn": "ISO7046-M2x4",
-      "part_number": "ISO7046-M2x4",
+      "mpn": "ISO7046-M2.5x4",
+      "part_number": "ISO7046-M2.5x4",
       "supplier": "Standard hardware supplier",
       "stock": null,
       "source": "default",
@@ -1156,7 +1233,7 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "selection_reason": "Two ISO7046 M2x4 cross-recess countersunk screws match the current low front pod joints and restricted PCB clearance. Seats add 0.4 mm diameter and 0.2 mm depth. Same exact screw as four rear-retainer fasteners; total product count six.",
+      "selection_reason": "Two ISO7046 M2.5x4 cross-recess countersunk screws match the current low front pod joints and restricted PCB clearance. Seats add 0.4 mm diameter and 0.2 mm depth. Same exact screw as four rear-retainer fasteners; total product count eight including two side-frame screws.",
       "cad_relevance": {
         "object_ids": [
           "screen_mount_screw_1",
@@ -1167,7 +1244,7 @@
         "length_mm": 4,
         "driver_shaft_diameter_mm": 2.4
       },
-      "part_identity": "6a295f48219a565c"
+      "part_identity": "604279b487f1a4e1"
     },
     {
       "id": "screen_shell_rear_screws",
@@ -1186,7 +1263,7 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "selection_reason": "Uses user-owned M3x6 stock in current rear pod receivers. Printed countersinks add 0.4 mm diameter and 0.2 mm depth; physical head shape and fit require checks.",
+      "selection_reason": "Uses existing M3x6 stock. Left rear axis is (-26.5,47)mm with a 7mm access channel checked for a 6mm straight screwdriver shaft; right rear axis remains (27,51)mm. Matching shell/fascia/retainer prints are required. Nominal engagement remains3mm; physical fit and torque need testing.",
       "cad_relevance": {
         "object_ids": [
           "screen_mount_screw_3",
@@ -1195,9 +1272,23 @@
         "receiver": "fascia",
         "through": "shell",
         "length_mm": 6,
-        "driver_shaft_diameter_mm": 3.4
+        "driver_shaft_diameter_mm": {
+          "left": 6,
+          "right": 3.4
+        },
+        "axes_world_xy_mm": [
+          [
+            -26.5,
+            47
+          ],
+          [
+            27,
+            51
+          ]
+        ],
+        "left_access_channel_diameter_mm": 7
       },
-      "part_identity": "9bce79979275ed00",
+      "part_identity": "735e4e922fc128f2",
       "description": "Two ISO10642 M3-0.5 x 6 mm countersunk screws, length including head, 90 degree seat and nominal 6 mm head, secure the rear screen pod to the upper shell. Current joint has 2.4 mm pass-through and 3 mm nominal receiver engagement.",
       "cad_library_reference": {
         "provider": "bd-warehouse",
@@ -1229,21 +1320,21 @@
       },
       "required_user_evidence": [],
       "selection_status": "selected",
-      "part_identity": "957eb1bec98b6aef",
+      "part_identity": "d918f50230ae76da",
       "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
     },
     {
       "id": "pi_carrier_shell_screws",
       "role": "pi_carrier_to_shell_fasteners",
-      "name": "ISO7046 M2×6 十字沉头螺丝",
+      "name": "ISO7046 M2.5×6 十字沉头螺丝",
       "quantity": 3,
       "manufacturer": "ISO standard",
-      "mpn": "ISO7046-M2x6",
-      "part_number": "ISO7046-M2x6",
+      "mpn": "ISO7046-M2.5x6",
+      "part_number": "ISO7046-M2.5x6",
       "supplier": "Standard hardware supplier",
       "stock": null,
       "source": "default",
-      "description": "Three ISO7046 M2x6 cross-recess countersunk screws, total length including head, secure the current flat 2.4 mm carrier ears from below. Ear underside Z3, receiver face Z5.4 and nominal printed engagement 3.6 mm.",
+      "description": "Three ISO7046 M2.5x6 cross-recess countersunk screws, total length including head, secure the current flat 2.4 mm carrier ears from below. Ear underside Z3, receiver face Z5.4 and nominal printed engagement 3.6 mm.",
       "selection_reason": "Matches the three current independent carrier joints, allowing bottom removal with Pi/GPIO fixed. Recessed heads preserve nominal 0.8 mm bottom clearance; verify actual printed fit.",
       "assembly": {
         "population": "not_mounted",
@@ -1252,7 +1343,7 @@
       "required_user_evidence": [],
       "selection_status": "selected",
       "procurement_status": "external_procurement_required",
-      "part_identity": "fd7c4ae73ebc407e",
+      "part_identity": "96e56c21db9e5704",
       "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
     },
     {
@@ -1266,16 +1357,176 @@
       "supplier": "Local FDM printing",
       "stock": null,
       "source": "default",
-      "description": "Current project bottom closure: 76 x 115 mm envelope, 2.4 mm nominal floor, locating rim, four M3x6 countersunk seats and rear port fillers. No Pi posts or Pi screw holes. Source: current base CAD cell.",
-      "selection_reason": "Matches the current upper shell and independent Pi carrier; closes the enclosure without carrying Pi or disconnecting GPIO during removal. Physical fit remains unverified.",
+      "description": "Matched bottom closure with2.4mm central floor,0.9mm body-side inset and0.6mm lower45deg bevel. Bottom support footprint73x112mm retained for the four M3x6 seats. Rim shifts0.6mm inward; carrier-pad/lug reliefs and rear-web depth10.7mm retain service air. Rear port fillers follow the matching inner-wall profile; no Pi support posts.",
+      "selection_reason": "Makes the lower side band narrower while retaining screw bearing material, a continuous2.4mm floor and independent bottom removal.",
       "assembly": {
         "population": "not_mounted",
         "method": "not_assembled"
       },
       "required_user_evidence": [],
       "selection_status": "selected",
-      "part_identity": "f91a09a96cf9816e",
-      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
+      "part_identity": "907e9b5fc646abd6",
+      "replacement_fit_status": "Current8mm generic Pi socket and5mm target expansion socket are represented by the active assembly. Nominal fit only; prototype connector and print tolerances require checking."
+    },
+    {
+      "id": "side_port_frame",
+      "role": "printed_side_port_frame",
+      "name": "右侧内凹接口围板（PLA打印）",
+      "mpn": "handheld-side-port-frame",
+      "part_number": "handheld-side-port-frame",
+      "quantity": 1,
+      "manufacturer": "Project custom",
+      "supplier": "Prototype fabrication",
+      "stock": null,
+      "source": "default",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "description": "One-piece77x17.7mm frame,2mm outer face plate and3.7mm maximum depth, including a shared rear bed plane atX34.3. About743.4mm2 contact area; rear edge splays1.7mm toward the face. Original1.2mm closed throats and port recesses retained. Back-only audio U relief clears the AV body; small front-lower notch preserves the bottom-cover receiver. Two original ISO7046 M2.5x4 screws and all port centers retained.",
+      "selection_reason": "A broad coplanar rear backing makes inner-face-down printing more stable than isolated cup feet. End margins grow2.5mm each so screw-recess bridges have end support. Use matching revised upper shell; bridge and support settings require trial.",
+      "cad_relevance": {
+        "design_id": "handheld_computer",
+        "part_id": "side_port_bezel",
+        "object_ids": [
+          "side_port_panel"
+        ],
+        "port_data": {
+          "usb_c": {
+            "center_yz_mm": [
+              -19.3,
+              9.88
+            ],
+            "inner_opening_mm": [
+              9.6,
+              3.9
+            ],
+            "pocket_floor_x_mm": 35.5,
+            "back_x_mm": 34.3,
+            "recess_mm": 2.5,
+            "shoulder_mm": [
+              12.35,
+              6.5
+            ]
+          },
+          "micro_hdmi_1": {
+            "center_yz_mm": [
+              -4.5,
+              9.9
+            ],
+            "inner_opening_mm": [
+              7.4,
+              4.2
+            ],
+            "pocket_floor_x_mm": 35.5,
+            "back_x_mm": 34.3,
+            "recess_mm": 2.5,
+            "shoulder_mm": [
+              11,
+              6
+            ]
+          },
+          "micro_hdmi_2": {
+            "center_yz_mm": [
+              9,
+              9.9
+            ],
+            "inner_opening_mm": [
+              7.4,
+              4.2
+            ],
+            "pocket_floor_x_mm": 35.5,
+            "back_x_mm": 34.3,
+            "recess_mm": 2.5,
+            "shoulder_mm": [
+              11,
+              6
+            ]
+          },
+          "audio": {
+            "center_yz_mm": [
+              23.5,
+              11.3
+            ],
+            "inner_diameter_mm": 6.5,
+            "pocket_floor_x_mm": 36.8,
+            "back_x_mm": 35.6,
+            "recess_mm": 1.2,
+            "shoulder_diameter_mm": 10
+          }
+        },
+        "qualification": "One valid solid; port-web guards complete, numeric plug envelopes clear within1e-5mm3; no extra assembly interference. Frame+X8mm and Pi-Z16mm removal paths clear at0.02mm mesh tolerance. Physical cable and print qualification pending.",
+        "printing": {
+          "bed_face": "inner shared rear plane",
+          "bed_x_world_mm": 34.3,
+          "nominal_envelope_depth_mm": 3.7,
+          "rear_contact_area_mm2": 743.425591,
+          "rear_perimeter_splay_mm": 1.7,
+          "screw_recess_bridge_mm": 7.0,
+          "audio_rear_bridge_mm": 11.0,
+          "local_support": "small front-lower notch around the bottom-cover receiver",
+          "default_layer_mm": 0.2,
+          "default_nozzle_mm": 0.4,
+          "brim_mm": 4,
+          "qualification": "CAD fit and rear bed contact checked; short bridges and local support removal need slicer review and trial printing."
+        },
+        "panel_mm": [
+          77,
+          17.7,
+          2
+        ]
+      },
+      "part_identity": "8d2f063c740aa12b"
+    },
+    {
+      "id": "side_port_frame_screws",
+      "role": "side_port_frame_fasteners",
+      "name": "ISO7046 M2.5×4 十字沉头螺丝（侧接口围板）",
+      "quantity": 2,
+      "manufacturer": "ISO standard",
+      "mpn": "ISO7046-M2.5x4",
+      "part_number": "ISO7046-M2.5x4",
+      "source": "default",
+      "supplier": "Standard hardware supplier",
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "required_user_evidence": [],
+      "selection_status": "selected",
+      "part_identity": "604279b487f1a4e1",
+      "selection_reason": "Two side-frame screws plus two front-pod and two rear-retainer M2.5x4 give six installed M2.5x4 total. Front blind receiver and rear compact through receiver retain side removal.",
+      "description": "Two standard ISO7046 M2.5-0.45x4 countersunk cross-recess screws. Front uses2mm nominal engagement into existing deep shell column; rear uses1.2mm nominal engagement in2mm through-receiver, with0.1mm tip protrusion and clearance to the sink. Kit baselines require PLA trial fitting.",
+      "cad_library_reference": {
+        "provider": "bd-warehouse",
+        "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
+        "parameters": {
+          "size": "M2.5-0.45",
+          "length": 4,
+          "fastener_type": "iso7046"
+        },
+        "selection": "M2.5 standard with kit-matched ISO7046 head and0.2mm recess"
+      },
+      "cad_relevance": {
+        "object_ids": [
+          "side_port_panel_screw_1",
+          "side_port_panel_screw_2"
+        ],
+        "axes_yz_mm": [
+          [
+            -31.5,
+            17.5
+          ],
+          [
+            32.5,
+            17.5
+          ]
+        ],
+        "direction": "+X head side"
+      }
     }
   ],
   "alternatives": [

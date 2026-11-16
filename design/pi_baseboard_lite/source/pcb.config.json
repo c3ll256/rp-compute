@@ -328,7 +328,7 @@
         "inner2",
         "bottom"
       ],
-      "rationale": "M2 upper-shell beam attachment,2.2mm NPTH; copper/parts clear screw heads."
+      "rationale": "M2 upper-shell beam attachment,2.2mm NPTH; copper/parts clear screw heads. Ordered board geometry retained."
     },
     {
       "name": "H2_CLEARANCE",
@@ -343,7 +343,7 @@
         "inner2",
         "bottom"
       ],
-      "rationale": "M2 upper-shell beam attachment,2.2mm NPTH; copper/parts clear screw heads."
+      "rationale": "M2 upper-shell beam attachment,2.2mm NPTH; copper/parts clear screw heads. Ordered board geometry retained."
     }
   ],
   "allowedOverlaps": [],

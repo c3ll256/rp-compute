@@ -1,1 +1,1 @@
-publish("pi_baseboard_lite", asset("design/handheld_computer/source/assets/d5eedbdd2e46ee9693cc34f90c7cba7747c453ec3ba94badc9c13c7c85ab0b27.step"), "Compact rectangular baseboard")
+publish("pi_baseboard_lite", asset("design/handheld_computer/source/assets/9646c96b6ef8b9988d3382da1e969c014f99d7fc087cdfb053901519d2101f27.step"), "Ordered lite PCB")

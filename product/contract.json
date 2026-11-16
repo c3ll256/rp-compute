@@ -49,7 +49,7 @@
     {
       "id": "pi_native_ports",
       "kind": "external_access",
-      "description": "精简版：Pi自身USB-C须可用，GPIO仅向基板显示和模块支路取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：Pi原生USB-A、Ethernet、micro-HDMI和3.5mm接口保留外部插拔空间，microSD保留维护通道，不增加CSI/DSI扩展。Pi自身USB-C在装机状态由防误插联锁盖覆盖，拆下Pi后恢复；基板USB-C是日常唯一充电/供电入口。开口坐标及插拔空间待真实几何验证。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。",
+      "description": "精简版：Pi自身USB-C须可用，GPIO仅向基板显示和模块支路取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：Pi原生USB-A、Ethernet、micro-HDMI和3.5mm接口保留外部插拔空间，microSD保留维护通道，不增加CSI/DSI扩展。Pi自身USB-C在装机状态由防误插联锁盖覆盖，拆下Pi后恢复；基板USB-C是日常唯一充电/供电入口。开口坐标及插拔空间待真实几何验证。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。 当前精简版右侧采用可侧向拆卸的内凹围板：插头外壳凹舱与小接口开口分层，周围封闭；先拆围板再取Pi，保留原固定与GPIO拔出路径。",
       "source": "user_requested",
       "required": true
     },
@@ -174,8 +174,8 @@
     }
   ],
   "assembly_story": {
-    "installation": "断电装配：Pi与P165-B通过四个原孔固定在独立托架上；从下方竖直插入上壳内的GPIO母座，再以三颗独立螺丝固定托架到上壳，最后安装只负责封闭的底盖。屏舱固定先于Pi/托架装入。没有风扇、风扇电源座或风扇线束。接口位置保留，原生排线与散热实物试装仍需验证。",
-    "maintenance": "先软件关机并拔除电源；单独卸下底盖时Pi、散热片及GPIO连接保持固定。拆Pi时先卸三颗托架螺丝，再竖直拔出Pi/托架；拆屏舱须先移出Pi托架。",
+    "installation": "断电装配：Pi与P165-B通过四个原孔固定在独立托架上；从下方竖直插入上壳内的GPIO母座，再以三颗独立螺丝固定托架到上壳，最后安装只负责封闭的底盖。屏舱固定先于Pi/托架装入。没有风扇、风扇电源座或风扇线束。接口位置保留，原生排线与散热实物试装仍需验证。 上壳和接口围板配套使用，底盖装好后，将同色侧围板从右侧推入，用两颗M2.5×4沉头固定。",
+    "maintenance": "先软件关机、断电并拔下全部外部线缆；卸两颗侧围板螺丝，沿右侧向外取下围板，然后单独卸底盖。此时Pi、散热片及GPIO连接保持固定；拆Pi再卸三颗托架螺丝，竖直拔出Pi/托架。拆屏舱须先移出Pi托架。",
     "user_access": [
       "Pi native USB-C and other native ports",
       "replaceable cold-plug 8-pin GPIO module",
@@ -190,9 +190,6 @@
         "design_id": "handheld_computer",
         "description": "外观及Pi接口布局STEP：后方USB/RJ45，右侧micro-HDMI/AV，精简版右侧Pi原生USB-C供电、左侧连续封闭；未验证紧固、工作联锁、真实插头或电池仓。 屏舱前沿高出平台名义约1.67mm。 用户取消侧面按钮；右侧原按钮位置为连续全厚侧壁。 两件式屏幕框：一体屏舱前框、平板后压框；名义CAD检查不能替代实物打印及玻璃受压试验。",
         "delivery_target": "visual_review",
-        "required_formats": [
-          "step"
-        ],
         "interface_ids": [
           "compute_mount",
           "sharp_display_fit",

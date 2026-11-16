@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 2,
+  "coordinateFrame": "makit-world-z-up",
+  "placements": {},
+  "fits": [],
+  "steps": [
+    {
+      "title": "准备屏舱前框",
+      "note": "先完成深色遮蔽喷涂并充分固化；饰面示意不是额外打印件。装配前断电，屏面朝下操作。",
+      "parts": [
+        "handheld_computer:fascia",
+        "handheld_computer:screen_face_finish"
+      ]
+    },
+    {
+      "title": "放入前泡棉圈",
+      "note": "使用用户0.2mm泡棉，保持光学窗口、排线缺口和螺孔清洁。",
+      "parts": [
+        "handheld_computer:front_cushion"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "放入显示屏",
+      "note": "按实测1.8mm厚度适配；图中外形为屏幕机械包络，注意原生排线方向。",
+      "parts": [
+        "handheld_computer:display_placeholder"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "放入后泡棉圈",
+      "note": "使用0.2mm泡棉，缺口朝Pi排针一侧。",
+      "parts": [
+        "handheld_computer:rear_cushion"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "插入压框前舌并抬后端",
+      "note": "后端先下倾约6°，前舌向屏幕前方推入1.7mm，再抬后端到硬止口；用本版配套前框和压框。",
+      "parts": [
+        "handheld_computer:retainer"
+      ],
+      "from": "+y"
+    },
+    {
+      "title": "轻紧屏幕压框",
+      "note": "两颗后侧M2.5×4交替轻紧到硬止口；前端由承托槽支承，不继续拧紧来强压玻璃。",
+      "parts": [
+        "handheld_computer:retainer_screw_1",
+        "handheld_computer:retainer_screw_2"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "对准上壳承力舌",
+      "note": "屏舱底脚与上壳对应承力舌自然贴合，先不装Pi组件或侧接口围板。",
+      "parts": [
+        "handheld_computer:shell"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "从内侧固定屏舱",
+      "note": "前两颗M2.5×4、后两颗M3×6。左后点用直杆螺丝刀，经现有通道操作。",
+      "parts": [
+        "handheld_computer:screen_mount_screw_1",
+        "handheld_computer:screen_mount_screw_2",
+        "handheld_computer:screen_mount_screw_3",
+        "handheld_computer:screen_mount_screw_4"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "安装显示基板",
+      "note": "母座后焊完成后，让基板自然坐到上壳横梁及后导轨；保留原GPIO和FPC基准。",
+      "parts": [
+        "handheld_computer:pi_baseboard_lite"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "固定基板并接好屏线",
+      "note": "两颗原M2×3轻紧。先打开FPC滑盖，原生排线露铜朝上插到底，再推回滑盖；实际长度和插入深度须试装。",
+      "parts": [
+        "handheld_computer:pcb_mount_screw_1",
+        "handheld_computer:pcb_mount_screw_2"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "竖直装入Pi组件",
+      "note": "先在机外将Pi、导热垫、P165-B与独立托架用四颗M2.5×6组装。侧围板保持取下，从底部竖直对准GPIO，手工插入，不能用螺丝拉紧插针。",
+      "parts": [
+        "handheld_computer:pi4b",
+        "handheld_computer:passive_heatsink",
+        "handheld_computer:cpu_thermal_tape",
+        "handheld_computer:ram_thermal_tape",
+        "handheld_computer:pi_carrier",
+        "handheld_computer:pi_mount_screw_1",
+        "handheld_computer:pi_mount_screw_2",
+        "handheld_computer:pi_mount_screw_3",
+        "handheld_computer:pi_mount_screw_4"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "固定独立Pi托架",
+      "note": "三颗M2.5×6交替轻紧。确认microSD、GPIO及接口没有受力。",
+      "parts": [
+        "handheld_computer:pi_carrier_shell_screw_1",
+        "handheld_computer:pi_carrier_shell_screw_2",
+        "handheld_computer:pi_carrier_shell_screw_3"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "合上底盖",
+      "note": "对准边缘和后接口隔条，不用底盖强压Pi或散热片。",
+      "parts": [
+        "handheld_computer:base"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "固定底盖",
+      "note": "四颗M3×6从下方对角轻紧。",
+      "parts": [
+        "handheld_computer:base_mount_screw_1",
+        "handheld_computer:base_mount_screw_2",
+        "handheld_computer:base_mount_screw_3",
+        "handheld_computer:base_mount_screw_4"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "放上可拆前盖板",
+      "note": "盖板底面平整，母座净空约0.205mm，先核对实物高度及平面度。",
+      "parts": [
+        "handheld_computer:front_module_blank"
+      ],
+      "from": "+z"
+    },
+    {
+      "title": "固定前盖板",
+      "note": "四颗M3×6轻紧，不能靠螺丝拉平翘曲盖板。",
+      "parts": [
+        "handheld_computer:front_module_screw_1",
+        "handheld_computer:front_module_screw_2",
+        "handheld_computer:front_module_screw_3",
+        "handheld_computer:front_module_screw_4"
+      ],
+      "from": "+z"
+    },
+    {
+      "title": "从侧面推入接口围板",
+      "note": "先拔下所有线缆，围板从右侧水平推入，使四个接口自然对中。不要先装围板再强塞Pi。",
+      "parts": [
+        "handheld_computer:side_port_panel"
+      ],
+      "from": "+x"
+    },
+    {
+      "title": "固定接口围板",
+      "note": "新增两颗ISO7046 M2.5×4沉头螺丝，轻紧即可。维护按相反顺序：先拆围板，再拆底盖和Pi组件。",
+      "parts": [
+        "handheld_computer:side_port_panel_screw_1",
+        "handheld_computer:side_port_panel_screw_2"
+      ],
+      "from": "+x"
+    }
+  ],
+  "updatedAt": "2026-11-16T15:38:42.773Z"
+}

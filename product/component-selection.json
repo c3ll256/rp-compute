@@ -97,7 +97,7 @@
       "supply_risk": "No exact Basic candidate evidenced; Extended lookup retained. Prototype manual/reflow assembly, not a verified JLC placement BOM.",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "selection_reason": "Exact LS027B7DH01 retained. CAD now has a rear-loading63.4x43.42mm negative pocket with0.3mm nominal per-side allowance and1.77mm active-area offset. Front rise1mm and slope13deg retained. No exact panel STEP found. Glass retention, rear support, polarizer load and actual fit are NOT completed; current pocket is not a secured mount.",
-      "mechanical_integration": "Rear-loading locator retained; four M2 hard-stop rear frame, bezel rear flange, nonadhesive front/rear supports and guarded native FPC fold modeled. Physical pressure/material/length checks remain.",
+      "mechanical_integration": "Rear-loading locator retained; four M2.5 hard-stop rear frame, bezel rear flange, nonadhesive front/rear supports and guarded native FPC fold modeled. Physical pressure/material/length checks remain.",
       "assembly_dimension_assumption": {
         "value": 13.7,
         "source": "default",
@@ -856,9 +856,9 @@
       },
       "required_user_evidence": [],
       "description": "Printed upper shell, 76x115x27mm exterior, printed deck-down with no support material: flat deck (expansion cover sits on top), full-height screw columns for the bottom cover, roof-backed PCB beams, 51-degree rear PCB guide. No fan bosses, cassette, pads or fan screws; existing left slots are passive ventilation. Rear USB/RJ45 windows open to the lower edge and inner grooves for the audio jack/USB-C let it drop straight over the Pi. Three internal receivers extend down to Z5.4 to accept the flat Pi carrier ears; use together with the flat carrier. CAD default PLA; print fit, strength and service life untested. Four integral roof tabs carry the screen pod via concealed underside screws; front diameter2.4mm and rear diameter3.4mm driver paths; front paths remain within the original inner cavity. Remove Pi with its independent carrier before screen service.",
-      "selection_reason": "76mm enclosure and76x59mm screen housing face with equal4.75mm borders outside66.5x49.5mm shallow border line. Glass/FPC datum unchanged; user accepts front rise approximately1.67mm. Front retainer screws at local(+/-27,-26.25), rear(+/-20,25.5); shell wells retained; independent bezel and thin flange removed. Rear pod foot stays flush atY57.5 with approximately26.29deg forward lean. Pi/heatsink offsetX-5mm, 44.5x83.5mm released PCB and capsule slots retained for passive ventilation. Existing85mm enclosure/PCB releases are not interchangeable. Side ports now clear default straight overmould envelopes12x6mm USB-C,11x6mm per micro-HDMI and diameter10mm audio, with enlarged full-depth bores and1.5mm HDMI separator; these are negative enclosure-clearance targets, not verified purchasable cable identities. Paired with M3 front-module and bottom-cover receivers, rear M3 pod mounts, and the current M2 retainer. Socket stack uses PCB bottomZ21.0 and Pi/sink lift1.3mm. Port openings follow Pi vertically; GPIO tail roof recess retains2mm skin and expanded rear-retainer gap clears untrimmed3.5mm leads.",
+      "selection_reason": "76mm enclosure and76x59mm screen housing face with equal4.75mm borders outside66.5x49.5mm shallow border line. Glass/FPC datum unchanged; user accepts front rise approximately1.67mm. Front retainer screws at local(+/-27,-26.25), rear(+/-20,25.5); shell wells retained; independent bezel and thin flange removed. Rear pod foot stays flush atY57.5 with approximately26.29deg forward lean. Pi/heatsink offsetX-5mm, 44.5x83.5mm released PCB and capsule slots retained for passive ventilation. Existing85mm enclosure/PCB releases are not interchangeable. Side ports now clear default straight overmould envelopes12x6mm USB-C,11x6mm per micro-HDMI and diameter10mm audio, with enlarged full-depth bores and1.5mm HDMI separator; these are negative enclosure-clearance targets, not verified purchasable cable identities. Paired with M3 front-module and bottom-cover receivers, rear M3 pod mounts, and the current M2.5 retainer. Socket stack uses PCB bottomZ21.0 and Pi/sink lift1.3mm. Port openings follow Pi vertically; GPIO tail roof recess retains2mm skin and expanded rear-retainer gap clears untrimmed3.5mm leads.",
       "cad_relevance": {
-        "description": "Two existing2.2mm PCB holes at world(+/-16,-32) and rear left board edge."
+        "description": "Two original2.2mm PCB holes at world(+/-16,-32) and rear left board edge; ordered PCB retained."
       },
       "part_identity": "7907fe52a3d40080",
       "mechanical_outline_revision": {
@@ -911,8 +911,8 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "description": "Two ISO4762 M2-0.4 x 3 mm socket-head screws, length under head, through the existing 2.2 mm holes in the 0.8 mm PCB, without spacers. Nominal board bottom Z21.0 and screw tip Z24.0 mm.",
-      "selection_reason": "Two M2x3 socket-cap screws bear directly on unchanged0.8mm PCB through2.2mm NPTH; raised shell beams follow newZ21.0 datum. No spacers; nominal screw tipZ24.0 leaves3mm to deck. Physical torque and thread life untested.",
+      "description": "Two ISO4762 M2-0.4 x 3 mm socket-head screws, length under head, through the original 2.2 mm holes in the ordered 0.8 mm PCB, without spacers. Nominal board bottom Z21.0 and screw tip Z24.0 mm.",
+      "selection_reason": "The already-ordered baseboard is unchanged. Two M2x3 socket-cap screws bear directly on its 0.8mm PCB through the original2.2mm NPTH; raised shell beams follow the Z21.0 datum. No spacers; nominal screw tipZ24.0 leaves3mm to deck. Physical torque and thread life untested.",
       "cad_model": {
         "format": "step",
         "source_url": "https://github.com/gumyr/bd_warehouse",
@@ -923,10 +923,10 @@
           "length": 3,
           "fastener_type": "iso4762"
         },
-        "selection": "ISO4762 M2-0.4 x3, under-head length, matches current screw hardware and spacer-free shell joint."
+        "selection": "ISO4762 M2-0.4 x3 retained for the ordered PCB; M2.5 is used on the other small enclosure joints."
       },
       "cad_relevance": {
-        "description": "WorldX+/-16,Y-32, board bottomZ21.8; existing internal socket-head screws retained because PCB holes are unmodified clearance holes."
+        "description": "World X+/-16, Y-32, board bottom Z21.0; original2.2mm NPTH and2.5mm-radius all-layer copper keepouts retained."
       },
       "part_identity": "462c9a662d57ba10",
       "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
@@ -1131,11 +1131,11 @@
     {
       "id": "lcd_retainer_screws",
       "role": "lcd_rear_retainer_fasteners",
-      "name": "ISO7046 M2 countersunk cross-recess screws,6mm",
+      "name": "ISO7046 M2.5 countersunk cross-recess screws,4mm",
       "quantity": 4,
       "manufacturer": "ISO standard",
-      "mpn": "ISO7046-M2x6",
-      "part_number": "ISO7046-M2x6",
+      "mpn": "ISO7046-M2.5x4",
+      "part_number": "ISO7046-M2.5x4",
       "source": "default",
       "supplier": "Manufacturer / authorized distributor",
       "procurement_status": "external_procurement_required",
@@ -1145,7 +1145,7 @@
       },
       "required_user_evidence": [],
       "selection_status": "selected",
-      "part_identity": "8f214a9722dbc2a7"
+      "part_identity": "0f2d9a0b430886a4"
     }
   ]
 }

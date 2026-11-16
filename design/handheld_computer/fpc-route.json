@@ -1,11 +1,15 @@
 {
   "schema_version": 6,
-  "status": "route_review_passed_after_screen_lowered_0.8mm_prototype_check_pending",
+  "status": "narrow_border_clearance_checked_native_tail_seating_requires_trial",
   "reviewed_on": "2026-11-07",
-  "cad_revision": "0872fe334c68835e8272806489a8fd59bdab74445c8ebae5adf6e79dd1591614",
+  "cad_revision": "94ea82a623e27c47c574759fdccaaffbb422f98251a237e71724fd5a552c0e34",
   "pcb_release": "69ac26497e08aced1b2858ee0777f8e5f23b9fe97a135c3ad144ca151cb584af",
   "pcb_step_sha256": "d5eedbdd2e46ee9693cc34f90c7cba7747c453ec3ba94badc9c13c7c85ab0b27",
-  "pcb_placement_world_mm": [-100, 81, 21],
+  "pcb_placement_world_mm": [
+    -100,
+    81,
+    21
+  ],
   "pcb_stack_world_z_mm": {
     "board_bottom": 21.0,
     "board_finished_top": 21.75,
@@ -30,12 +34,37 @@
     "mechanism": "sliding drawer, not flip latch",
     "socket_terminal_to_panel_terminal": "socket=11-panel; pad10 SCLK at world +X2.25, pad1 VSSA/GND at -X2.25",
     "pin_order_evidence": "Sharp LS027B7DH01 PDF26: display-side-up view marks terminal1 on the right; the 180-degree back fold about X keeps X",
-    "closed_world_bounds": { "min": [-5.3, 2.17, 21.795], "max": [5.3, 7.47, 23.805] },
-    "opened_world_bounds_conservative": { "min": [-5.3, 0.67, 21.795], "max": [5.3, 7.47, 23.805] },
+    "closed_world_bounds": {
+      "min": [
+        -5.3,
+        2.17,
+        21.795
+      ],
+      "max": [
+        5.3,
+        7.47,
+        23.805
+      ]
+    },
+    "opened_world_bounds_conservative": {
+      "min": [
+        -5.3,
+        0.67,
+        21.795
+      ],
+      "max": [
+        5.3,
+        7.47,
+        23.805
+      ]
+    },
     "slot_world_mm": {
       "drawer_front_y": 2.17,
       "housing_mouth_front_y": 3.07,
-      "mouth_z_range": [22.845, 23.245],
+      "mouth_z_range": [
+        22.845,
+        23.245
+      ],
       "cable_centre_z_used": 23.045,
       "assumed_stop_y": 5.77,
       "assumed_insertion_from_housing_front_mm": 2.7,
@@ -50,10 +79,16 @@
     "reference_cad": "design fpc_fit_reference, object c5373447"
   },
   "native_tail": {
-    "exit_world_yz_mm": [-0.5631, 27.1237],
+    "exit_world_yz_mm": [
+      -0.5631,
+      27.1237
+    ],
     "exit_basis": "Screen frame origin (0,21.5212,34.5109), rotation X13deg; glass edge local Y-23.18; tail plane local Z-2.23 (front surface -1.4 minus front polariser 0.23 and front glass 0.6)",
     "exit_tangent_deg_from_positive_Y": 193,
-    "width_mm": { "near_glass": "8.64-9.5 for the first ~6.2-6.9mm (drawing views disagree), tapering to 5.5", "stiffener": 5.5 },
+    "width_mm": {
+      "near_glass": "8.64-9.5 for the first ~6.2-6.9mm (drawing views disagree), tapering to 5.5",
+      "stiffener": 5.5
+    },
     "stiffened_thickness_mm": 0.3,
     "thickness_tolerance_mm": 0.03,
     "stiffener_minimum_straight_length_mm": 4,
@@ -61,31 +96,55 @@
       "value": 13.7,
       "source": "default",
       "uncertainty_mm": 0.5,
-      "review_range_mm": [13.2, 14.2],
+      "review_range_mm": [
+        13.2,
+        14.2
+      ],
       "status": "provisional_estimate_not_measured",
       "datum": "Along the tail from the glass exit edge to the physical tip, including the stiffener.",
       "basis": "Drawing-proportion estimate: front view scales to ~13.4mm, back view to ~14.1mm. Only dimensioned related value is 47.28+/-0.5 from panel top to the tail notch line (4.46mm below the glass edge).",
       "qualification": "User delegated estimation. Do not claim fit validation or stretch the cable."
     },
-    "permitted_bend_interval_from_glass_exit_mm": [0.8, 6.0],
+    "permitted_bend_interval_from_glass_exit_mm": [
+      0.8,
+      6.0
+    ],
     "minimum_inside_radius_mm": 0.45,
     "maximum_bend_cycles": 3,
     "copper_face_after_back_fold": "+Z"
   },
   "route_review": {
-    "result": "pass_with_assumed_insertion",
-    "summary": "Drop from the tail exit to the cable centre at the mouth is 4.079mm. With the 2.7mm insertion from the supplier drawing, 13.2/13.7/14.2mm tails end their last bend at 5.583/5.745/5.906mm from the glass edge (limit 6.0). Shortest tail that reaches the assumed stop: 12.25mm.",
+    "result": "historical_only_not_requalified_after_glass_inset",
+    "summary": "Historical analytic review before the0.3mm glass inset for the narrow border. The cases and clearances below are not current fit certification. Native tail length and real connector insertion depth remain unmeasured.",
     "route_family": "straight a=0.8 at 193deg; arc R1 to 270deg; vertical straight; arc R2=0.615 (centreline, inner R0.45 at 0.33mm worst thickness) to 0deg; horizontal straight at Z23.045 into the mouth",
     "cases_insertion_2.7mm": [
-      { "tail_length_mm": 13.2, "R1_mm": 1.444, "bend_end_mm": 5.583, "margin_mm": 0.417, "front_most_centre_y": -2.46 },
-      { "tail_length_mm": 13.7, "R1_mm": 1.881, "bend_end_mm": 5.745, "margin_mm": 0.255, "front_most_centre_y": -2.80 },
-      { "tail_length_mm": 14.2, "R1_mm": 2.318, "bend_end_mm": 5.906, "margin_mm": 0.094, "front_most_centre_y": -3.14 }
+      {
+        "tail_length_mm": 13.2,
+        "R1_mm": 1.444,
+        "bend_end_mm": 5.583,
+        "margin_mm": 0.417,
+        "front_most_centre_y": -2.46
+      },
+      {
+        "tail_length_mm": 13.7,
+        "R1_mm": 1.881,
+        "bend_end_mm": 5.745,
+        "margin_mm": 0.255,
+        "front_most_centre_y": -2.8
+      },
+      {
+        "tail_length_mm": 14.2,
+        "R1_mm": 2.318,
+        "bend_end_mm": 5.906,
+        "margin_mm": 0.094,
+        "front_most_centre_y": -3.14
+      }
     ],
     "sensitivity_insertion_1.93mm": "If the tail only enters 1.93mm past the housing front, 13.2/13.7/14.2mm end at 5.832/5.993/6.155mm: 14.2mm would exceed the zone. The real insertion depth is the main prototype check.",
     "clearances_mm": {
       "method": "Swept band 9.5mm wide to s=8.9 then 5.5mm, 0.3mm thick, exact distance to committed CAD objects, worst over the three lengths",
       "fascia": 0.58,
-      "display_glass_from_s0.8": 0.80,
+      "display_glass_from_s0.8": 0.8,
       "shell": 2.21,
       "front_cushion": 1.63,
       "rear_cushion": 3.41,
@@ -96,14 +155,25 @@
     "method": "Analytic route plus exact boolean/distance checks (cad.inspect eval)."
   },
   "negative_channel": {
-    "center_world_mm": [0, 0, 24.95],
-    "size_mm": [7.5, 7, 7.5],
+    "center_world_mm": [
+      0,
+      0,
+      24.677176363698266
+    ],
+    "size_mm": [
+      7.5,
+      7,
+      7.5
+    ],
     "scope": "Local negative clearance in fascia and retainer, centred 2.17mm below the tail exit (follows the screen). Narrower than the 8.64-9.5mm tail near the glass; the older 11mm-wide fold cut in the screen parts provides the width there."
   },
   "retired_route": {
     "status": "superseded",
     "summary": "An earlier layout assumed an inverted bottom-contact Hirose FH12 socket hanging under the screen pod, with a 180-degree fold of inner R1.35mm and an 11mm-wide negative path cut into the fascia and retainer. That socket is no longer in the design; the board uses C5373447. Only the 11mm channel cut remains, moving with the screen.",
-    "negative_path_clearance": { "width_mm": 11.0, "surface_margin_mm": 0.25 }
+    "negative_path_clearance": {
+      "width_mm": 11.0,
+      "surface_margin_mm": 0.25
+    }
   },
   "signal_review": {
     "result": "pass",
@@ -123,5 +193,27 @@
     "product/references/fpc-candidates/C5373447-easyeda.step",
     "product/references/pi-gpio-pinout.png",
     "manufacturing/pi_baseboard_lite/releases/69ac26497e08aced1b2858ee0777f8e5f23b9fe97a135c3ad144ca151cb584af/package/assembly.step"
-  ]
+  ],
+  "measured_screen_fit": {
+    "cad_revision": "28211411b622ffd1ad1b9d7c8d901d6ac06bd4e5766ea4e1e7808aa5ea066d7c",
+    "screen_thickness_mm": 1.8,
+    "foam_sheet_thickness_mm": 0.2,
+    "foam_layers_default": 2,
+    "installed_foam_mm_per_layer_default": 0.18,
+    "glass_front_normal_shift_mm": -0.28,
+    "negative_channel_datum_unchanged": false,
+    "qualification": "Glass moved inward0.3mm from the prior measured-fit revision to preserve1.2mm skin below the narrow decorative groove. Tail reserve follows the glass; mounting ears, socket and2.16mm clamp gap retained. Current CAD guards pass and no added physical overlap was reported. Historical tail-length calculations are not requalification; trial seating and pressure checks remain required.",
+    "glass_front_normal_z_mm": -1.68,
+    "glass_rear_normal_z_mm": -3.48,
+    "tail_channel_normal_z_mm": -2.51,
+    "pressure_contact_normal_z_mm": -3.66
+  },
+  "screen_front_retention": {
+    "source": "default",
+    "front": "rigid captured tongues",
+    "rear_screws": 2,
+    "clamp_gap_mm": 2.16,
+    "screen_and_fpc_datums": "unchanged by the upright-skirt and lower-body refinements",
+    "native_tail_mating": "still requires physical trial"
+  }
 }

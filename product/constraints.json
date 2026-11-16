@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "replacement_connector_specifications_ready_geometry_revision_pending",
   "bom_ready": true,
-  "requirements_digest": "199b2b78a63c661cf362c272b9502a34c024da2f70ab65a87e76a96791731aae",
+  "requirements_digest": "1bb16dee7ccf4a101799e4d623521f6ba476544937d453ae3cf2cc7f9eb88bdf",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD; LS027B7DH01A accepted one-for-one alternative, prototype verification required",
@@ -22,7 +22,7 @@
     "module_body_mm": [
       62.8,
       42.82,
-      1.64
+      1.8
     ],
     "active_area_mm": [
       58.8,
@@ -97,9 +97,9 @@
         -1.77
       ],
       "nominal_clearance_per_side_mm": 0.3,
-      "seat_plane_normal_z_mm": -1.2,
-      "glass_top_target_normal_z_mm": -1.4,
-      "glass_bottom_target_normal_z_mm": -3.04,
+      "seat_plane_normal_z_mm": -1.5,
+      "glass_top_target_normal_z_mm": -1.68,
+      "glass_bottom_target_normal_z_mm": -3.48,
       "bezel_outer_mm": [
         66,
         49,
@@ -118,8 +118,8 @@
         54
       ],
       "deck_opening_center_y_mm": 21.5,
-      "retention": "Four kit-generated M2x5 joints with hard stops, rear frame, captured bezel flange and nonadhesive0.2/1.0mm front/rear supports. No glass in screw compression stack; pad pressure and print strength not verified.",
-      "route": "Active socket is J_LCD, SHOU HAN 0.5-10P CTSJ-H2.0 119 (LCSC C5373447): top-contact sliding drawer, opening -Y, 1.5mm drawer stroke reserved; mouth from its JLCEDA STEP (seat+1.05..1.45), insertion 2.7mm read from supplier section A-A (STEP has no modelled stop). Screen plane lowered 0.8mm on 2026-11-07 (screen centre world Z34.51): 13.2/13.7/14.2mm tails end bends at 5.58/5.75/5.91mm, inside Sharp 0.8-6.0mm. Real insertion depth is the first prototype check. See design/handheld_computer/fpc-route.json.",
+      "retention": "Measured1.8mm glass, two user0.2mm foam sheets modeled installed0.18mm each, closed gap2.16mm. Original screen and FPC datums retained. Frame front is upright at worldY-4.046269mm, with0.6mm edge radius. Retainer has2mm base,1.38mm pressure rail, two rigid front tongues captured with1.5mm bearing on1.2mm floors, and two rear M2.5x4 at(±20,22.65). Inner band4.5mm and outer band3.3mm remain equal. Actual foam pressure, tongue fit and native-tail seating require prototype testing.",
+      "route": "The historical analytic native-tail review is retained as historical evidence only. Current glass front localZ=-1.68mm; tail clearance datum=-2.51mm follows the glass. Socket position unchanged. Actual tail length and insertion depth remain prototype checks; see fpc-route.json.",
       "risks": [
         "No exact panel STEP; glass fit uses a manufacturer-drawing envelope.",
         "Tail13.7±0.5mm is a delegated estimate; it is not bounded by the Sharp drawing or measured.",
@@ -137,7 +137,12 @@
         "mechanical_evidence": "Sharp LCP-1112041 PDF9/25 (printed7/23), same nominal body, active area and native FPC geometry as primary; thickness1.64mm",
         "qualification": "Prototype required: native-tail reach/bend and contact orientation; full insertion and latch retention in C5373447; glass clamping and pad pressure; all rows/text, COM inversion and controlled power sequencing; actual viewing-angle/readability. No physical or electrical qualification is claimed from datasheet matching."
       }
-    ]
+    ],
+    "thickness_evidence": {
+      "value": 1.8,
+      "source": "user",
+      "note": "Measured sample supersedes1.64mm nominal drawing for this enclosure fit."
+    }
   },
   "unresolved_items": [
     {
@@ -524,7 +529,7 @@
     "blank_size_mm": [
       70,
       37,
-      2.4
+      1.8
     ],
     "through_aperture_mm": [
       54,
@@ -547,18 +552,18 @@
       "part_name": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标"
     },
     "service": "cold-swap only; external power disconnected and battery isolated",
-    "cover_surface": "Uniform2.4mm plate, undersideZ27/topZ29.4; R4 outline, flat underside and four compensated countersinks.",
+    "cover_surface": "Uniform1.8mm removable plate, undersideZ27/topZ28.8; R6 outline,1mm upper chamfer, body-matched warm-white color, flat underside and four original compensated countersinks.",
     "connector_cover": {
       "rise_mm": 0,
       "rise_source": "user",
       "method": "uniform flat cover above socket; no local pocket or underside projection",
       "cover_underside_world_z_mm": 27,
-      "cover_top_world_z_mm": 29.4,
-      "plate_thickness_mm": 2.4,
+      "cover_top_world_z_mm": 28.8,
+      "plate_thickness_mm": 1.8,
       "nominal_socket_air_mm": 0.205001,
       "air_source": "research",
       "reference_socket_top_world_z_mm": 26.794999,
-      "assembly_note": "Flat cover remainsZ27..29.4;5mm socket nominal top26.794999, gap0.205001mm. Tight clearance needs actual part/print trial. No underside tongue or local raised cover."
+      "assembly_note": "Flat coverZ27..28.8; socket nominal top26.794999, air0.205001mm. Tight clearance needs actual part/print trial. No underside tongue or local raised cover."
     },
     "cad_part_id": "front_module_cover",
     "cad_object_id": "front_module_blank",
@@ -568,9 +573,9 @@
     },
     "seat_type": "flat shell deck, no cover locating tongue",
     "blank_corner_radius_mm": {
-      "value": 4.0,
+      "value": 6,
       "source": "default",
-      "selection_reason": "User requested a larger cover corner radius; increased from R1.8 to R4 while retaining the four existing screw centers."
+      "selection_reason": "Reference-inspired softer corner while retaining original screw axes and complete bearing rings."
     },
     "mount_xy_mm": [
       [
@@ -598,7 +603,7 @@
     "pcb_direct_mount": {
       "source": "default",
       "spacer_quantity": 0,
-      "screw": "2 x ISO4762 M2x3,3mm under-head length",
+      "screw": "2 x ISO4762 M2x3,3mm under-head length; ordered PCB retained",
       "position_xy_mm": [
         [
           -16,
@@ -615,18 +620,6 @@
       "tip_to_deck_mm": 3.0,
       "receiver": "Prior kit-owned2mm nominal-engagement receiver retained at the unchanged PCB/beam interface."
     }
-  },
-  "baseboard_integration": {
-    "source": "user",
-    "design_id": "pi_baseboard",
-    "functions": [
-      "Pi 4B GPIO docking and regulated power",
-      "1S battery charging and power path",
-      "Sharp LS027B7DH01 FPC interface",
-      "replaceable front GPIO module interface"
-    ],
-    "board_count": 1,
-    "note": "User confirmed all functions share one custom baseboard. Provisional 70x104mm planar placement holds Pi dock, FPC and front JST only; no power/display circuit or qualified stack. Retained CAD FPC connector plane is about 13deg from horizontal Pi docking plane, so a single rigid board requires a reworked horizontal FPC target and verified native-tail length while preserving the screen locator and accepted approximately1.67mm front rise. Exact outline, Z datum, keepouts and hardware fit remain open."
   },
   "battery": {
     "source": "user",
@@ -772,7 +765,7 @@
       "retain_pi_and_port_placement": true,
       "defaults": {
         "printed_material": "PLA prototype",
-        "shell_attachment": "3 x ISO7046 M2x6, self-forming printed receivers, nominal3.6mm engagement",
+        "shell_attachment": "3 x ISO7046 M2.5x6, self-forming printed receivers, nominal3.6mm engagement",
         "pi_attachment": "4 x ISO7046 M2.5x6 into existing metal heatsink threads",
         "board_bottom_z_mm": 5.3,
         "frame_bottom_z_mm": 3.0,
@@ -1279,7 +1272,7 @@
       "GPIO expansion beyond occupied dock"
     ],
     "source": "default",
-    "pi_usb_c_policy": "Userselectedinterlockedcoverwhiledocked,notanactivenormalinput. Othernativeportsaccessible. Piownportusableafterundocking. CovermechanismmustpreventplugentryuntilbaseboardGPIOoutputdisabledandresidualenergyhandled.",
+    "pi_usb_c_policy": "Active lite sole power input remains accessible, per pi_usb_c_docked_use and lite_supply_entry. Full-variant interlock text is historical.",
     "opening_dimensions_mm": [
       {
         "id": "rj45",
@@ -1363,7 +1356,7 @@
         ]
       }
     ],
-    "qualification": "Tightened opening parameters against placed Pi4B STEP and visual CAD views. Right-rear Pi board corner uses an internal blind relief, retaining the smaller outer USB aperture. Supplementary per-solid boolean found no Pi/shell solid overlap on the final committed build. Plug-body/latch/finger access, printed tolerances and the provisional baseboard charging connector still need physical validation. PiUSB-C remains covered by blind wall, working interlock not implemented."
+    "qualification": "Active lite retains accessible native Pi USB-C, HDMI and AV through a removable recessed side frame. Closed surrounds and service paths checked on current CAD. HDMI front detail and physical cable/print fit remain prototype checks; historical full-variant interlock is not this lite model."
   },
   "pi_usb_c_interface_decision": {
     "value": "baseboard_input_only_interlocked_pi_port",
@@ -1380,7 +1373,7 @@
       60
     ],
     "default_top_slope_deg": 13,
-    "interface_strategy": "Continuous front; USB/RJ45 rear; micro-HDMI/AV right; charging left. No removable port panels in current geometry."
+    "interface_strategy": "Continuous front; USB/RJ45 rear; active-lite Pi USB-C, micro-HDMI and AV right in a removable recessed port frame. No active left charging opening."
   },
   "cad_styling": {
     "status": "visual_only",
@@ -1444,7 +1437,7 @@
       },
       "source": "default",
       "reason": "Narrow GPIO spine and dense connector fanout repeatedly left unrouted power nets and disconnected ground regions on 2 layers; 4layer revision passed all connectivity and DFM gates.",
-      "outline_intent": "Four-edge rectangle; sourceX-23.5..20,Y-20.5..48. Front15mm removed, left relief straightened and rear step filled. No narrow neck. Two original M2 datums and all interfaces retained.",
+      "outline_intent": "Four-edge rectangle; sourceX-23.5..20,Y-20.5..48. Front15mm removed, left relief straightened and rear step filled. No narrow neck. Two original M2 mounting-hole datums and all interfaces retained; ordered2.2mm holes unchanged.",
       "component_sides": {
         "top": "all except J_PI",
         "bottom": [
@@ -1562,7 +1555,7 @@
       "board_finished_thickness_mm": 0.8,
       "guide_clearance_mm": 0.3,
       "remaining_blank_roof_mm": 2.055001,
-      "qualification": "Final geometry: unchanged two M2x3 joints; final5mm-OD bearing annuli outside3.4mm receiver lead-in exclusion remain complete;8mm-long rear edge support. PLA torque, insertion loads, FR4 flex and service life require prototype testing.",
+      "qualification": "Final geometry: ordered PCB keeps two ISO4762 M2x3 joints and original2.2mm holes; final5.5mm-OD shell bearing annuli remain complete;8mm-long rear edge support. PLA torque, insertion loads, FR4 flex and service life require prototype testing.",
       "bottom_world_z_mm": 21.0
     },
     "gpio_stack_conflict": {
@@ -1667,45 +1660,70 @@
       "usb_c": {
         "center_yz_mm": [
           -19.3,
-          8.18
+          9.88
         ],
-        "size_mm": [
-          10.2,
-          5.2
+        "inner_opening_mm": [
+          9.6,
+          3.9
+        ],
+        "pocket_floor_x_mm": 35.5,
+        "back_x_mm": 34.3,
+        "recess_mm": 2.5,
+        "shoulder_mm": [
+          12.35,
+          6.5
         ]
       },
       "micro_hdmi_1": {
         "center_yz_mm": [
           -4.5,
-          8.6
+          9.9
         ],
-        "size_mm": [
+        "inner_opening_mm": [
           7.4,
           4.2
+        ],
+        "pocket_floor_x_mm": 35.5,
+        "back_x_mm": 34.3,
+        "recess_mm": 2.5,
+        "shoulder_mm": [
+          11,
+          6
         ]
       },
       "micro_hdmi_2": {
         "center_yz_mm": [
           9,
-          8.6
+          9.9
         ],
-        "size_mm": [
+        "inner_opening_mm": [
           7.4,
           4.2
+        ],
+        "pocket_floor_x_mm": 35.5,
+        "back_x_mm": 34.3,
+        "recess_mm": 2.5,
+        "shoulder_mm": [
+          11,
+          6
         ]
       },
-      "av": {
+      "audio": {
         "center_yz_mm": [
           23.5,
-          9.6
+          11.3
         ],
-        "diameter_mm": 7.6
+        "inner_diameter_mm": 6.5,
+        "pocket_floor_x_mm": 36.8,
+        "back_x_mm": 35.6,
+        "recess_mm": 1.2,
+        "shoulder_diameter_mm": 10
       }
     },
     "evidence": [
       "Placed Pi4B STEP immutable asset1906d615405ba20aaaf5b4bdcd41f19fe49b8e82a87ab1387e0f1d1abfe6bbbe",
       "https://pip.raspberrypi.com/documents/RP-008343-DS",
-      "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew catalog detail,iso7046 M2-0.4 supported"
+      "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew catalog detail,iso7046 M2.5-0.45 supported; ordered PCB keeps SocketHeadCapScrew ISO4762 M2-0.4x3"
     ],
     "qualification": "Nominal CAD geometry; cable plug shoulders, insertion depth, FDM shrinkage and fastening strength require prototype. Rear port openings retained; side button opening removed at user request."
   },
@@ -1713,20 +1731,22 @@
     "width_mm": 76,
     "rear_y_mm": 57.5,
     "side_and_rear_step_mm": 0,
-    "screen_window_and_internal_mounts": "Glass/FPC datum and13deg pose retained. Independent bezel merged into housing;66.5x49.5mm boundary becomes shallow line. Front screw axes(+/-27,-26.25), rear(+/-20,25.5); all rear tabs coplanar.",
+    "screen_window_and_internal_mounts": "Integral76x52.48mm,13deg screen pod, upright front skirt at worldY-4.046269mm with0.6mm top radius. Optical opening59.4x35.88mm; equal4.5mm dark band and3.3mm outer orange band.0.5x0.25mm engraving retains complete1.2mm floor; optical lip1.5mm. Two front rigid capture slots have1.2mm bearing floors,1.5mm side walls and0.3mm upper/side assembly air. Two rear M2.5x4 receivers at(±20,22.65). Existing glass/FPC datums and0.02mm matte reference finish retained.",
     "vent_slot_mm": [
       2.4,
       4.5
     ],
     "vent_end_radius_mm": 1.2,
     "source": "default",
-    "rear_wall_lean_from_vertical_deg": 26.2871101367786,
+    "rear_wall_lean_from_vertical_deg": 38.44718962692716,
     "rear_y_datum": "foot of sloped screen housing atworldZ27.3mm",
     "screen_face_mm": [
       76,
-      59
+      52.48
     ],
-    "screen_border_mm": 4.75
+    "screen_border_mm": 4.5,
+    "screen_border_reference": "optical opening edge to decorative-line inner edge",
+    "screen_outer_border_mm": 3.3
   },
   "compact_layout": {
     "pi_translation_mm": [
@@ -1750,62 +1770,163 @@
   },
   "side_port_plug_clearance_defaults": {
     "source": "default",
-    "purpose": "Allow straight-plug overmould shoulders through the side wall, not only metal noses. Negative clearance reserves, not purchased connector CAD.",
-    "inner_plane_x_mm": 35.1,
-    "outside_plane_x_mm": 38,
-    "usb_c": {
-      "center_yz_mm": [
-        -19.3,
-        8.18
-      ],
-      "inner_bore_mm": [
-        13,
-        7
-      ],
-      "outer_mouth_mm": [
+    "implementation": "Single removable right-side frame with common rear bed plane, four original closed1.2mm throats and preserved plug shoulder recesses",
+    "outer_x_mm": 38,
+    "panel_mm": [
+      77,
+      17.7,
+      2
+    ],
+    "panel_y_bounds_mm": [
+      -38,
+      39
+    ],
+    "panel_z_bounds_mm": [
+      3.8,
+      21.5
+    ],
+    "panel_fit_mm": 0.25,
+    "ports": {
+      "usb_c": {
+        "center_yz_mm": [
+          -19.3,
+          9.88
+        ],
+        "inner_opening_mm": [
+          9.6,
+          3.9
+        ],
+        "pocket_floor_x_mm": 35.5,
+        "back_x_mm": 34.3,
+        "recess_mm": 2.5,
+        "shoulder_mm": [
+          12.35,
+          6.5
+        ]
+      },
+      "micro_hdmi_1": {
+        "center_yz_mm": [
+          -4.5,
+          9.9
+        ],
+        "inner_opening_mm": [
+          7.4,
+          4.2
+        ],
+        "pocket_floor_x_mm": 35.5,
+        "back_x_mm": 34.3,
+        "recess_mm": 2.5,
+        "shoulder_mm": [
+          11,
+          6
+        ]
+      },
+      "micro_hdmi_2": {
+        "center_yz_mm": [
+          9,
+          9.9
+        ],
+        "inner_opening_mm": [
+          7.4,
+          4.2
+        ],
+        "pocket_floor_x_mm": 35.5,
+        "back_x_mm": 34.3,
+        "recess_mm": 2.5,
+        "shoulder_mm": [
+          11,
+          6
+        ]
+      },
+      "audio": {
+        "center_yz_mm": [
+          23.5,
+          11.3
+        ],
+        "inner_diameter_mm": 6.5,
+        "pocket_floor_x_mm": 36.8,
+        "back_x_mm": 35.6,
+        "recess_mm": 1.2,
+        "shoulder_diameter_mm": 10
+      }
+    },
+    "outer_mouths_mm": {
+      "usb_c": [
         14,
         7.6
       ],
-      "checked_shoulder_mm": [
-        12,
-        6
-      ]
-    },
-    "micro_hdmi": {
-      "centers_y_mm": [
-        -4.5,
-        9
-      ],
-      "center_z_mm": 8.6,
-      "inner_bore_mm": [
-        12,
-        7
-      ],
-      "outer_mouth_mm": [
+      "micro_hdmi": [
         12,
         7.6
       ],
-      "checked_shoulder_mm": [
-        11,
-        6
-      ],
-      "retained_separator_mm": 1.5
+      "audio_diameter": 11
     },
-    "audio": {
-      "center_yz_mm": [
-        23.5,
-        9.6
-      ],
-      "bore_diameter_mm": 11,
-      "checked_shoulder_diameter_mm": 10,
-      "lower_ligament_mm": 1.4
+    "retained_separators_mm": {
+      "usb_to_hdmi": 1.8,
+      "hdmi_to_hdmi": 1.5
     },
-    "entry_radius_mm": 1,
-    "usb_to_hdmi_outer_separator_mm": 1.8,
-    "rectangular_outer_lower_ligament_min_mm": 1.68,
-    "approach": "Rectangular12x6 USB-C and11x6 HDMI reserves span X34.2..50mm; diameter10mm audio reserve spans X36.5..50mm. Source boolean asserts zero shared volume with final shell, including later-added screw columns.",
-    "model_evidence": "Placed Pi4B STEP1906d615: USB-C solid o1.1.38.s1 outer X35.2, audio solid o1.1.33.s1 outer X36.5, PCB outer X34. Case outer X38.",
-    "qualification": "No actual cable MPN or supplier plug STEP established. Numeric shoulder limits are defaults. Checks address enclosure approach only; actual seating/latching/contact, straight cable tolerances, simultaneous use, right-angle/oversized adapters and print shrinkage need prototype. Current PCB and purchased hardware unchanged."
+    "fasteners": {
+      "standard": "ISO7046",
+      "size": "M2.5",
+      "length_mm": 4,
+      "quantity": 2,
+      "receiver_engagement_mm": [
+        2,
+        1.2
+      ],
+      "rear_protrusion_mm": 0.1
+    },
+    "removal_paths": {
+      "frame_mm": [
+        8,
+        0,
+        0
+      ],
+      "Pi_after_frame_and_base_removed_mm": [
+        0,
+        0,
+        -16
+      ],
+      "mesh_tolerance_mm": 0.02,
+      "step_mm": 0.5,
+      "result": "no overlaps",
+      "frame_step_mm": 0.25,
+      "Pi_step_mm": 0.5,
+      "cad_revision": "60cd063115d328669640336d36d246f7e43d0843a7958e432f6f533ed07f417c"
+    },
+    "evidence": {
+      "usb_c_av": "bound Pi STEP1906d615 front faces X35.2 and36.5; centers Z9.88 and11.3",
+      "hdmi": "official https://pip.raspberrypi.com/documents/RP-008343-DS p1; native STEP lacks detailed HDMI connector solids",
+      "hdmi_front_overhang_mm": {
+        "value": 1.2,
+        "source": "default"
+      }
+    },
+    "qualification": "Numeric shoulder envelopes, not actual cable SKUs; actual insertion, printed hole compensation, strength and repeated service need prototype.",
+    "printing": {
+      "bed_face": "inner shared rear plane",
+      "bed_x_world_mm": 34.3,
+      "nominal_envelope_depth_mm": 3.7,
+      "rear_contact_area_mm2": 743.425591,
+      "rear_perimeter_splay_mm": 1.7,
+      "screw_recess_bridge_mm": 7.0,
+      "audio_rear_bridge_mm": 11.0,
+      "local_support": "small front-lower notch around the bottom-cover receiver",
+      "default_layer_mm": 0.2,
+      "default_nozzle_mm": 0.4,
+      "brim_mm": 4,
+      "qualification": "CAD fit and rear bed contact checked; short bridges and local support removal need slicer review and trial printing."
+    },
+    "verification": {
+      "frame_to_base_mm": 0.2121,
+      "frame_to_pi_mm": 0.2203,
+      "frame_to_heatsink_mm": 0.8,
+      "mesh_tolerance_mm": 0.02,
+      "bed_contact_islands": 1,
+      "new_static_interference_pairs": 0,
+      "port_web_protection_missing_mm3": 0,
+      "base_receiver_guard": "Same missing volume as unchanged receivers after excluding no intentional kit features:0.659393mm3 per probe due to original lead-in, no additional cut loss at(32,-35)."
+    }
   },
   "screen_two_piece_frame": {
     "source": "default",
@@ -1822,31 +1943,90 @@
       63.4,
       43.42
     ],
-    "front_lip_mm": 1.2,
+    "front_lip_mm": 1.5,
     "rear_plate_mm": 2,
-    "rear_pad_mm": 2,
+    "rear_pad_mm": 0.2,
     "rear_plate_top_screen_local_z_mm": -5.04,
     "border_line_outer_mm": [
-      66.5,
-      49.5
+      69.4,
+      45.88
     ],
     "border_line_width_depth_mm": [
       0.5,
-      0.3
+      0.25
     ],
-    "qualification": "Nominal CAD; printer fit, pad pressure and polarizer compatibility untested.",
+    "qualification": "Measured1.8mm glass and0.2mm foam sheet. Two foam layers and10percent compression are defaults. Retainer6deg/1.7mm unhooking path is clear at mesh0.02mm,step0.2mm. Captured floor and tongue protection volumes are complete. Print fit and panel pressure require trial.",
     "retainer_screws": {
-      "quantity": 4,
+      "quantity": 2,
       "standard": "ISO7046",
-      "size": "M2",
+      "size": "M2.5",
       "length_mm": 4,
       "nominal_receiver_engagement_mm": 2,
-      "source": "default"
+      "source": "default",
+      "note": "Rear pair at(±20,22.65); original2mm nominal engagement. Front pair replaced by rigid bearing slots."
     },
     "retainer_ears_mm": [
       5.4,
       6
-    ]
+    ],
+    "raised_pressure_rail_mm": 1.38,
+    "front_pad_mm": 0.2,
+    "foam_installed_mm_per_layer": 0.18,
+    "foam_layers": 2,
+    "compression_ratio": 0.1,
+    "closed_gap_mm": 2.16,
+    "pressure_contact_screen_local_z_mm": -3.66,
+    "border_line_inner_offset_from_optical_mm": 4.5,
+    "border_line_outer_radius_mm": 5.35,
+    "border_line_reference": "equal distance from optical opening, including corners",
+    "cosmetic_finish": {
+      "object_id": "screen_face_finish",
+      "role": "reference only, not a printed part",
+      "nominal_dry_mm": 0.02,
+      "method": "masked matte dark coating on4.5mm inner band and optical wall",
+      "painted_optical_clear_mm": [
+        59.36,
+        35.84
+      ],
+      "margin_to_active_area_per_side_mm": 0.28,
+      "structural_lip_and_stops": "unchanged"
+    },
+    "outer_face_mm": [
+      76,
+      52.48
+    ],
+    "outer_corner_radius_mm": 8.65,
+    "outer_border_mm": 3.3,
+    "retainer_joint_axes_screen_mm": [
+      [
+        -20,
+        22.65
+      ],
+      [
+        20,
+        22.65
+      ]
+    ],
+    "front_capture": {
+      "front_wall": "vertical in world Y; no broad front ramp",
+      "front_wall_y_world_mm": -4.04626901696457,
+      "front_edge_radius_mm": 0.6,
+      "front_capture_x_screen_mm": [
+        -28.5,
+        28.5
+      ],
+      "front_tongue_tip_y_screen_mm": -26.4,
+      "capture_overlap_mm": 1.5,
+      "capture_floor_mm": 1.2,
+      "capture_side_wall_mm": 1.5,
+      "slot_top_and_side_air_mm": 0.3,
+      "retainer_base_mm": 2,
+      "pressure_rail_mm": 1.38,
+      "rear_screws": "two ISO7046 M2.5x4 at screen(±20,22.65)",
+      "release": "remove rear screws, lower retainer rear6deg, slide rearward1.7mm, withdraw along negative screen normal",
+      "clamp_gap_mm": 2.16,
+      "qualification": "Rigid captured tongues, no flex snap; nominal bearing fixes the same pressure plane. Print variation, retention force and glass pressure require trial assembly."
+    }
   },
   "screen_pod_shell_attachment": {
     "source": "default",
@@ -1855,15 +2035,15 @@
     "axes_world_xy_mm": [
       [
         -34.4,
-        4.2
+        9.2
       ],
       [
         34.4,
-        4.2
+        9.2
       ],
       [
-        -27,
-        51
+        -26.5,
+        47
       ],
       [
         27,
@@ -1871,7 +2051,7 @@
       ]
     ],
     "hardware": {
-      "front": "2 x ISO7046 M2x4",
+      "front": "2 x ISO7046 M2.5x4",
       "rear": "2 x M3x6 90deg countersunk"
     },
     "roof_through_mm": 2.4,
@@ -1893,7 +2073,27 @@
       "retainer"
     ],
     "rear_driver_shaft_diameter_mm": 3.4,
-    "head_recess_mm": 0.2
+    "head_recess_mm": 0.2,
+    "left_rear_service_access": {
+      "source": "default",
+      "object_id": "screen_mount_screw_3",
+      "axis_world_xy_mm": [
+        -26.5,
+        47
+      ],
+      "channel_diameter_mm": 7,
+      "checked_straight_driver_diameter_mm": 6,
+      "driver_tip_plane_world_z_mm": 24.6,
+      "minimum_mesh_clearance_mm": 0.1397,
+      "mesh_tolerance_mm": 0.02,
+      "matched_prints": [
+        "shell",
+        "fascia",
+        "retainer"
+      ],
+      "hardware": "existing M3x6 countersunk",
+      "qualification": "Straight screwdriver shaft only; 1/4-inch hex bits and bit-holder sleeves are not certified. Physical printed fit untested. Install pod before Pi carrier and bottom closure."
+    }
   },
   "fastener_unification": {
     "source": "default",
@@ -1917,18 +2117,18 @@
     },
     "retained_small_fasteners": [
       {
-        "size": "M2",
+        "size": "M2.5",
         "length_mm": 4,
         "head": "ISO7046 countersunk",
         "quantity": 6,
-        "use": "pod_front2 + lcd_retainer4"
+        "use": "pod_front2 + lcd_retainer_rear2 + side_port_frame2"
       },
       {
         "size": "M2",
         "length_mm": 3,
         "head": "ISO4762 socket_cap",
         "quantity": 2,
-        "use": "PCB original2.2mm bores"
+        "use": "ordered PCB original2.2mm bores"
       },
       {
         "size": "M2.5",
@@ -1936,6 +2136,13 @@
         "head": "ISO7046 countersunk",
         "quantity": 4,
         "use": "Pi original bores and P165-B metal threads"
+      },
+      {
+        "size": "M2.5",
+        "length_mm": 6,
+        "head": "ISO7046 countersunk",
+        "quantity": 3,
+        "use": "independent carrier to upper shell"
       }
     ],
     "printed_countersinks": {
@@ -1948,10 +2155,11 @@
     "qualification": "Nominal CAD fit only; physical fit, torque and repeated service unverified.",
     "printed_joint_counts": {
       "M3": 10,
-      "M2": 8,
-      "total": 18
+      "M2.5": 9,
+      "M2": 2,
+      "total": 21
     },
-    "retainer_exception": "Retain2mm plate and M2x4:3.6mm thickening collided with the released PCB by26.589721mm3 in the failed candidate; candidate was not committed."
+    "retainer_exception": "Retainer base stays2mm; front rigid capture replaces two screws, rear uses two M2.5x4. Nominal measured clamp gap2.16mm retained."
   },
   "connector_replacement_targets": {
     "source": "user",
@@ -2090,6 +2298,56 @@
         "limits": "Geometric support review only; no load, torque, flex or insertion-cycle test."
       },
       "source": "default"
+    }
+  },
+  "front_module_cover_profile": {
+    "source": "default",
+    "object_id": "front_module_blank",
+    "thickness_mm": 1.8,
+    "bottom_world_z_mm": 27,
+    "top_world_z_mm": 28.8,
+    "existing_hardware": "4x M3x6 countersunk",
+    "nominal_counter_sink_land_mm": 0.295,
+    "corner_radius_mm": 6,
+    "upper_edge_chamfer_mm": 1,
+    "color": "same as upper shell",
+    "removal": "After removing four M3x6 screws, lift along+Z;10mm mesh path checked, tolerance0.02mm, step0.5mm, no overlap."
+  },
+  "visual_edge_profile": {
+    "source": "default",
+    "upper_bevel_mm": 1.6,
+    "upper_bevel_fade_y_mm": [
+      -18,
+      2
+    ],
+    "lower_inset_mm": 0.9,
+    "lower_height_mm": 6,
+    "lower_profile_top_world_z_mm": 8.7,
+    "bottom_bevel_mm": 0.6,
+    "bottom_edge_footprint_mm": [
+      73,
+      112
+    ],
+    "module_cover_bevel_mm": 1,
+    "matched_prints": [
+      "shell",
+      "base"
+    ],
+    "internal_datums": "retained",
+    "runout": "Tangent cubic runout, width and depth taper together; bilateral symmetry, no added flat shelf.",
+    "lower_inner_shift_mm": 0.6,
+    "nominal_lower_wall_min_mm": 2.0,
+    "base_rim_shift_mm": 0.6,
+    "base_rear_web_depth_mm": 10.7,
+    "verified_lower_clearance": {
+      "cad_revision": "94ea82a623e27c47c574759fdccaaffbb422f98251a237e71724fd5a552c0e34",
+      "base_to_pi_mm": 0.2206,
+      "base_to_carrier_mm": 0.2924,
+      "mesh_tolerance_mm": 0.02,
+      "base_withdrawal_step_mm": 0.25,
+      "base_withdrawal_mm": 8,
+      "extra_interference_pairs": 0,
+      "qualification": "Nominal geometric fit only; trial printing and actual hardware tolerances still require checking."
     }
   }
 }

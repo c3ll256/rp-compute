@@ -24,7 +24,7 @@ export const board = {
 export const PI_GPIO_CENTROID_FROM_PI_BOARD_FRONT_MM = 32.5;
 
 // M2 fixture holes. Reference only: upper-shell mounts now share these datums, with
-// two fixed upper-shell beam joints; holes are2.2mm NPTH.
+// two fixed upper-shell beam joints; holes are2.2mm NPTH on the ordered board.
 export const mountingHoles = [
   { name: "H1", x: -16, y: -13 },
   { name: "H2", x: 16, y: -13 }

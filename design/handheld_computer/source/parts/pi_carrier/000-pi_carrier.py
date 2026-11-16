@@ -1,12 +1,11 @@
 # cell: pi_carrier
-
 layout=part('shell')
 # Pi datums from the existing imported Pi4B placement and official hole pattern.
 PI_HOLE_X=tuple(x+layout.pi_offset_x for x in (-13.5,35.5))
 PI_HOLE_Y=(-27.0,31.0)
 PI_BOARD_BOTTOM_Z=5.3+getattr(layout,'pi_stack_lift',0.0)
 PI_PCB_T=1.8
-pi_carrier_bottom=layout.pi_carrier_ear_bottom  # common bed plane and shell mating datum
+pi_carrier_bottom=layout.pi_carrier_ear_bottom
 pi_carrier_rail_thickness=param('pi_carrier_rail_thickness',2.0)
 pi_carrier_rail_width=param('pi_carrier_rail_width',3.2)
 pi_carrier_left_rail_x=param('pi_carrier_left_rail_x',-24.8)
@@ -25,7 +24,14 @@ front=pi_carrier_front_rail_y
 rear=pi_carrier_rear_rail_y+w/2
 carrier=Pos((left+right)/2,front,z+t/2)*Box(right-left+w,w,t)
 carrier+=Pos(left,(front+layout.pi_carrier_left_rear_y)/2,z+t/2)*Box(w,layout.pi_carrier_left_rear_y-front+w,t)
-carrier+=Pos(right,(front+rear)/2,z+t/2)*Box(w,rear-front,t)
+# Open the non-GPIO side between the Pi mounting-hole rows.
+# The imported Pi model omits small underside components; no continuous
+# rail may occupy this corridor. End bridges connect each pad to its crossbar.
+relief_y0=PI_HOLE_Y[0]+w/2
+relief_y1=PI_HOLE_Y[1]-w/2
+assert front<relief_y0<relief_y1<rear
+carrier+=Pos(right,(front+relief_y0)/2,z+t/2)*Box(w,relief_y0-front,t)
+carrier+=Pos(right,(relief_y1+rear)/2,z+t/2)*Box(w,rear-relief_y1,t)
 carrier+=Pos((left+right)/2,pi_carrier_rear_rail_y,z+t/2)*Box(right-left+w,w,t)
 for yy in PI_HOLE_Y:
  carrier+=Pos((right+PI_HOLE_X[1])/2,yy,z+t/2)*Box(PI_HOLE_X[1]-right,w,t)
@@ -34,7 +40,6 @@ for xx in PI_HOLE_X:
  for yy in PI_HOLE_Y:
   carrier+=Pos(xx,yy,(z+PI_BOARD_BOTTOM_Z)/2)*Cylinder(pi_carrier_pad_diameter/2,PI_BOARD_BOTTOM_Z-z)
 # Flat lugs share the rail bed plane. No raised ear or undercut neck.
-# Their complete footprint is present on the first printed layer.
 for i,(xx,yy) in enumerate(layout.pi_carrier_axes):
  tab=layout.pi_carrier_tabs[i]
  if i<2:
@@ -62,14 +67,11 @@ publish('pi_carrier',carrier,'Pi independent carrier',material='pla',role='part'
 for i,screw in enumerate(pi_mount_screws):
  publish('pi_mount_screw_'+str(i+1),screw,'Pi M2.5x6 screw',material='stainless_steel',role='fastener')
 for i,screw in enumerate(layout.pi_carrier_hardware):
- publish('pi_carrier_shell_screw_'+str(i+1),screw,'Carrier M2 shell screw',material='stainless_steel',role='fastener')
-connection_inventory={**{'carrier_to_shell_'+str(i+1):'printed-screw-joint-v1, compensated standard countersink' for i in range(3)},**{'Pi_to_carrier_'+str(i+1):'free standard M2.5 screw into purchased metal receiver' for i in range(4)}}
+ publish('pi_carrier_shell_screw_'+str(i+1),screw,'Carrier M2.5 shell screw',material='stainless_steel',role='fastener')
+connection_inventory={**{'carrier_to_shell_'+str(i+1):'printed-screw-joint-v1 M2.5 matched countersink and0.2mm head recess' for i in range(3)},**{'Pi_to_carrier_'+str(i+1):'free standard M2.5 screw into purchased metal receiver' for i in range(4)}}
 assert len(connection_inventory)==7
+print('PI_CARRIER_UNDERSIDE_OPENING',dict(x_min=right-w/2,x_max=right+w/2,y_min=relief_y0,y_max=relief_y1,length=relief_y1-relief_y0))
 print('PI_CARRIER',dict(board_z=PI_BOARD_BOTTOM_Z,frame_bottom=z,frame_top=z+t,pad_thickness=PI_BOARD_BOTTOM_Z-z,metal_engagement=engagement))
 
 # The generic socket STEP intentionally models only3mm-deep visual apertures.
-# Exact inspection located every overlap solely on the40 male pin shanks at
-# Z15.915..18.3, beyond that illustrative cavity; no plastic/header body hits.
-# This is a nominal electrical mating envelope, never a plastic press fit or
-# certification of contact force/insertion stroke for an unspecified generic.
 fit('pi4b','pi_baseboard_lite',kind='nominal_contact',budget_mm=3.0,reason='Male GPIO shanks enter the unmodeled internal contact space beyond the nominal socket3mm visual cavity; pins aligned on the2.54mm grid, housing clearance checked separately. Actual generic contact geometry requires prototype mating.')
