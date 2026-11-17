@@ -9,7 +9,8 @@
       "note": "先完成深色遮蔽喷涂并充分固化；饰面示意不是额外打印件。装配前断电，屏面朝下操作。 使用25°抬高版前框及配套压框，原主壳、板件与机身螺丝不变。",
       "parts": [
         "handheld_computer:fascia",
-        "handheld_computer:screen_face_finish"
+        "handheld_computer:screen_face_finish",
+        "handheld_computer:rear_brand_finish"
       ]
     },
     {
@@ -154,10 +155,11 @@
       "from": "+z"
     },
     {
-      "title": "从侧面推入接口围板",
-      "note": "先拔下所有线缆，围板从右侧水平推入，使四个接口自然对中。不要先装围板再强塞Pi。",
+      "title": "推入已粘合的侧接口面板",
+      "note": "先在机外将两片打印件干装对准，在隐藏法兰少量点涂适用PLA的胶，按胶说明充分固化，防止胶流入接口；完整组件从右侧水平推入。仍用原安装座和两颗螺丝，不要先装面板再强塞Pi。",
       "parts": [
-        "handheld_computer:side_port_panel"
+        "handheld_computer:side_port_panel",
+        "handheld_computer:side_port_mask"
       ],
       "from": "+x"
     },
@@ -171,5 +173,5 @@
       "from": "+x"
     }
   ],
-  "updatedAt": "2026-11-16T19:32:01.450Z"
+  "updatedAt": "2026-11-17T05:04:08.712Z"
 }

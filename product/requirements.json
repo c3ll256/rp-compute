@@ -999,6 +999,18 @@
         "reuse": "Main shell, base, side panel, PCB, retainer and all mounting interfaces unchanged. Branding is integral to screen frame; no separate badge."
       },
       "source": "default"
+    },
+    "side_port_panel_change_scope": {
+      "value": "本次打印改良仅修改侧接口面板，不修改任何其他部件；保留原安装座、螺丝和孔位。",
+      "source": "user"
+    },
+    "side_port_panel_concealment": {
+      "value": "侧接口面板应更多遮盖内部，避免透过大开口露出主板；同时保留可贴床平面，其他部件不变。",
+      "source": "user"
+    },
+    "side_port_panel_no_suspended_closure": {
+      "value": "侧接口面板在保留遮挡和贴床平面的同时，避免接口凹舱缩到小孔时产生悬空封口的打印问题。",
+      "source": "user"
     }
   },
   "open_questions": []

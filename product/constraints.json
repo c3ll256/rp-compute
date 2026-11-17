@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "replacement_connector_specifications_ready_geometry_revision_pending",
   "bom_ready": true,
-  "requirements_digest": "7846854dcfda18bf491cca4bbbfbdce82f93e832ac74293cad5882992ebb8e57",
+  "requirements_digest": "1e0f2a54c1d3d2ec58d125835a4858b1b26f80e8a8f43bb03c85737b061c19eb",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD; LS027B7DH01A accepted one-for-one alternative, prototype verification required",
@@ -1789,7 +1789,7 @@
   },
   "side_port_plug_clearance_defaults": {
     "source": "default",
-    "implementation": "Original72mm removable frame interface; replacement has flat exterior for bed contact, unchanged throat webs and plug recesses. Reuse already printed upper shell.",
+    "implementation": "Panel-only redesign: outer plate and separate three-port mask, adhesive preassembly. Main shell, all other components and existing two screws unchanged. Split atX36; mask endsX35.95 leaving0.05mm glue gap. Audio throat stays in outer plate, no detached audio insert.",
     "outer_x_mm": 38,
     "panel_mm": [
       72,
@@ -1911,7 +1911,7 @@
       "result": "no overlaps",
       "frame_step_mm": 0.25,
       "Pi_step_mm": 0.5,
-      "cad_revision": "ceac98c77d704a2a4cc320f9b19366d8e17c045bf92b03b9fe793000ef88be5f"
+      "cad_revision": "57025122774b3e53d69c31fdfa762445e620f87df85a163202f59eba9b756c8d"
     },
     "evidence": {
       "usb_c_av": "bound Pi STEP1906d615 front faces X35.2 and36.5; centers Z9.88 and11.3",
@@ -1923,35 +1923,55 @@
     },
     "qualification": "Numeric shoulder envelopes, not actual cable SKUs; actual insertion, printed hole compensation, strength and repeated service need prototype.",
     "printing": {
-      "bed_face": "outer flat face with countersunk screw mouths, facing down",
-      "bed_x_world_mm": 38.0,
-      "print_growth_world_axis": "-X",
-      "nominal_envelope_depth_mm": 3.7,
-      "flat_contact_area_mm2": 792.848082,
-      "flat_contact_islands": 1,
-      "outer_edge_bevel_mm": 0.3,
-      "throat_bridge_span_mm": [
-        7.6,
-        11.0
-      ],
+      "bed_face": "Both pieces inward/small-hole side down; countersinks and larger openings up",
+      "outer_bed_x_world_mm": 36,
+      "mask_bed_x_world_mm": 34.3,
+      "print_growth_world_axis": "+X",
+      "outer_flat_contact_area_mm2": 962.3164136322118,
+      "mask_flat_contact_area_mm2": 300.411185067086,
+      "flat_contact_islands_per_piece": 1,
       "default_layer_mm": 0.2,
       "default_nozzle_mm": 0.4,
       "brim_mm": 4,
-      "lower_edge_projection_vs_inset_body_mm_approx": 0.69,
-      "existing_shell": "reuse original72mm panel seat, holes and receivers",
-      "qualification": "Geometric fit and a thin first-layer section checked; not a sliced or physically tested print. Check7–11mm pocket bridges in the slicer."
+      "qualification": "Exact solid test at0.1mm and0.2mm: material above first layer minus prior geometry shifted up one layer is zero for each piece. No unsupported closing ledge modeled. Slicer and physical print not tested."
     },
     "verification": {
-      "frame_to_base_mm": 0.38,
-      "frame_to_pi_mm": 0.2203,
-      "frame_to_heatsink_mm": 0.8,
+      "cad_revision": "57025122774b3e53d69c31fdfa762445e620f87df85a163202f59eba9b756c8d",
+      "changed_objects": [
+        "side_port_panel"
+      ],
+      "added_objects": [
+        "side_port_mask"
+      ],
+      "other_existing_objects_changed": false,
+      "valid_solids_per_piece": 1,
+      "missing_shield_guards_mm3": 0,
+      "unbacked_volume_at_0_1_and_0_2mm_layers_mm3": 0,
+      "new_static_interference_pairs": 0,
+      "plug_envelope_overlap_mm3_max": 1.889e-06,
+      "frame_withdrawal_mm": 8,
       "mesh_tolerance_mm": 0.02,
       "frame_withdrawal_step_mm": 0.25,
-      "flat_bed_contact_islands": 1,
-      "new_static_interference_pairs": 0,
-      "port_web_protection_missing_mm3": 0,
-      "shell_geometry_baseline": "94ea82a623e27c47c574759fdccaaffbb422f98251a237e71724fd5a552c0e34",
-      "shell_geometry_comparison": "unchanged; only side_port_panel geometry differs. Base/fascia metadata differences have no geometry or topology delta."
+      "frame_to_pi_mm": 0.2203,
+      "frame_to_base_mm": 0.38,
+      "frame_to_heatsink_mm": 0.8,
+      "qualification": "Geometry verified for two correctly oriented individual prints; no sliced/physical print or adhesive strength qualification. HDMI detailed connector solids still absent in original Pi model."
+    },
+    "printed_objects": [
+      "side_port_panel",
+      "side_port_mask"
+    ],
+    "mask_mm": [
+      43.2,
+      9.42,
+      1.65
+    ],
+    "joint": {
+      "implementation": "free flush adhesive joint",
+      "kit_rejection": "attach_panel_v1 glue_pad: contact too narrow for a hidden feature",
+      "glue_gap_mm": 0.05,
+      "nominal_bond_overlap_area_mm2": 134.00275792678397,
+      "method": "Small amount of PLA-compatible adhesive on mating flanges, align three apertures, cure fully off-device; test scrap first. No screw changes."
     }
   },
   "screen_two_piece_frame": {

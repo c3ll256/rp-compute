@@ -177,11 +177,27 @@
           "target": "side_port_bezel",
           "order": 0,
           "path": "design/handheld_computer/source/parts/side_port_bezel/000-side_port_bezel.py",
-          "sha256": "0ef779151953c5f5d21c4615d058e4d8576460a7e6fee7141675067bc1d3ec48"
+          "sha256": "757aa90c9ff286d56fe74746e987a24c2ef8e697db526e936752eb0923f52fa5"
         }
       ],
       "dependencies": [
         "shell"
+      ]
+    },
+    {
+      "id": "side_port_mask",
+      "label": "side_port_mask",
+      "cells": [
+        {
+          "id": "side_port_mask",
+          "target": "side_port_mask",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/side_port_mask/000-side_port_mask.py",
+          "sha256": "213365fa4ceb254a8c753e016264ef3b7b4b49d3128c5fdcfbf06c929255535d"
+        }
+      ],
+      "dependencies": [
+        "side_port_bezel"
       ]
     }
   ],
@@ -631,12 +647,13 @@
       "datums": []
     },
     {
-      "id": "rear_brand_finish",
+      "id": "fascia",
       "target": "fascia",
-      "label": "Rear brand paint",
-      "role": "reference",
+      "label": "Integral screen frame",
+      "material": "pla",
+      "role": "part",
       "kind": "generated",
-      "shapeHash": "d359021b3e86ead80870befcecb3a82ca9168c7a5ec93979204346dc7e09f2d5",
+      "shapeHash": "cf837b7c25d18dbe1d976d2f81845ca0430b2332fb0bc8ac78f7af03e2d49b43",
       "transform": {
         "positionMm": [
           0,
@@ -658,13 +675,12 @@
       "datums": []
     },
     {
-      "id": "fascia",
+      "id": "rear_brand_finish",
       "target": "fascia",
-      "label": "Integral screen frame",
-      "material": "pla",
-      "role": "part",
+      "label": "Rear brand paint",
+      "role": "reference",
       "kind": "generated",
-      "shapeHash": "cf837b7c25d18dbe1d976d2f81845ca0430b2332fb0bc8ac78f7af03e2d49b43",
+      "shapeHash": "d359021b3e86ead80870befcecb3a82ca9168c7a5ec93979204346dc7e09f2d5",
       "transform": {
         "positionMm": [
           0,
@@ -1271,11 +1287,11 @@
     {
       "id": "side_port_panel",
       "target": "side_port_bezel",
-      "label": "Recessed port frame",
+      "label": "Port panel outer",
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "f1f76f36b2b4e68ed4d58b1d98708e57b5533f6c51182bec0a12ee56da037ee6",
+      "shapeHash": "b61ed889197716b65efd51d2bb37b77412dcac3bef03cd10f05754a1d75ddc19",
       "transform": {
         "positionMm": [
           0,
@@ -1351,6 +1367,34 @@
         ]
       },
       "datums": []
+    },
+    {
+      "id": "side_port_mask",
+      "target": "side_port_mask",
+      "label": "Port panel inner mask",
+      "material": "pla",
+      "role": "part",
+      "kind": "generated",
+      "shapeHash": "c938ada92be1077aa839d0ce20b1d59080a24a005135580fed1d9bd5a05257ca",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
     }
   ],
   "assets": [
@@ -1388,7 +1432,7 @@
       "b": "pi_baseboard_lite"
     }
   ],
-  "updatedAt": "2026-11-16T19:39:05.035Z",
+  "updatedAt": "2026-11-17T05:01:17.288Z",
   "parameters": {
     "shell": {
       "case_width": 76,
@@ -1791,7 +1835,12 @@
       "pi_carrier_rear_rail_y": 36
     },
     "side_port_bezel": {
-      "side_panel_edge_bevel": 0.3
+      "side_panel_edge_bevel": 0.3,
+      "side_panel_throat_leadin": 0.5,
+      "side_panel_glue_gap": 0.05
+    },
+    "side_port_mask": {
+      "mask_print_layer": 0.2
     }
   }
 }
