@@ -9,6 +9,13 @@
       "share": false
     },
     {
+      "file": "Azoteq-ProxSense-standard-trackpad-v1.06.pdf",
+      "sha256": "a758aa7effb2a4ed758da47c4b34a0b7ad9d6d1782d2f1bfe543ff4661bd2d2e",
+      "bytes": 2811228,
+      "addedAt": "2026-11-23T11:17:39.703Z",
+      "share": false
+    },
+    {
       "file": "F16FB.STEP",
       "sha256": "e2f8b7cbed1d020a8861be66a5f32019d9404dfb20410347d0f201a42a6ba793",
       "bytes": 257692,
@@ -62,6 +69,13 @@
       "sha256": "acffce31269dd180c9010560f3a8b5499bd491469d2be85334c43cc40c17b5f6",
       "bytes": 94459,
       "addedAt": "2026-09-20T16:58:57.647Z",
+      "share": false
+    },
+    {
+      "file": "azoteq-tps43-v1.06.pdf",
+      "sha256": "a758aa7effb2a4ed758da47c4b34a0b7ad9d6d1782d2f1bfe543ff4661bd2d2e",
+      "bytes": 2811228,
+      "addedAt": "2026-11-23T10:10:06.479Z",
       "share": false
     },
     {
@@ -233,10 +247,31 @@
       "share": false
     },
     {
+      "file": "jlc-assembly/C136657-easyeda.json",
+      "sha256": "2fbac79cc45e331ad7594f6958863c3cb433eb223a0bc04ea18f4f9df056990c",
+      "bytes": 18448,
+      "addedAt": "2026-11-23T21:01:17.903Z",
+      "share": false
+    },
+    {
       "file": "jlc-assembly/C14663-easyeda.json",
       "sha256": "f0fe8bf63f3c5054a75fe465b4373c180635762f42368b239c66b36db2f81008",
       "bytes": 14249,
       "addedAt": "2026-11-06T11:18:50.408Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C160402-easyeda.json",
+      "sha256": "55915909037e86f67f33af7f8462317e98006089d503c73f4ad454227ce466d9",
+      "bytes": 15657,
+      "addedAt": "2026-11-23T21:01:17.903Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C202118-easyeda.json",
+      "sha256": "477b063407165e42381224dddd75937d9d3dec007bba93d3a2ded6395c0c4e7b",
+      "bytes": 25417,
+      "addedAt": "2026-11-23T21:01:17.904Z",
       "share": false
     },
     {
@@ -293,6 +328,13 @@
       "sha256": "9108626d93d8e4401f1eab6d101df0dbf59e973db25ce89f014a3a2c2748d9a4",
       "bytes": 25585,
       "addedAt": "2026-11-06T11:18:50.412Z",
+      "share": false
+    },
+    {
+      "file": "jlc-assembly/C5656610-easyeda.json",
+      "sha256": "25fe852b860e50ee958addc0b574503942d4bb729d5fbe3549f1d5192d79087b",
+      "bytes": 20560,
+      "addedAt": "2026-11-23T21:01:17.907Z",
       "share": false
     },
     {
@@ -846,6 +888,13 @@
       "sha256": "0be48ac330850ffbb51f246f016117d252805bd1c085597925eb651117f4cb5e",
       "bytes": 66050,
       "addedAt": "2026-11-23T07:22:18.350Z",
+      "share": false
+    },
+    {
+      "file": "uploads/20261123T095003696Z-1-mark-1.png",
+      "sha256": "244f57da496c0989a51f0f3c51b23eb0e12913a7f5ae24d5337d29e482a426a8",
+      "bytes": 777751,
+      "addedAt": "2026-11-23T09:50:03.984Z",
       "share": false
     },
     {

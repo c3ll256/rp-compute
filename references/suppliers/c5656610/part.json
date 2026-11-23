@@ -1,0 +1,74 @@
+{
+  "source": "LCSC",
+  "looked_up_at": "2026-11-23T17:47:50.480Z",
+  "lcsc_code": "C5656610",
+  "manufacturer": "TDK InvenSense(应美盛)",
+  "manufacturer_part_number": "ICS-43434",
+  "description": "1.65V~3.63V",
+  "category": "MEMS麦克风",
+  "package": "LGA-6(3.5x2.7)",
+  "jlcpcb_part_class": "extended",
+  "parameters": {
+    "Voltage - Supply": "1.65V~3.63V",
+    "Width": "2.65mm",
+    "Direction": "Omnidirectional",
+    "Current Consumption": "550uA",
+    "Length": "3.5mm",
+    "Frequency Range": "60Hz~20kHz",
+    "Sensitivity": "-26dB",
+    "Height": "0.98mm",
+    "S/N Ratio": "64dB",
+    "Operating Temperature": "-40°C~+85°C"
+  },
+  "lcsc_stock": 2,
+  "price_breaks": [
+    {
+      "quantity": 1,
+      "unitPrice": 25.94,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 10,
+      "unitPrice": 22.44,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 30,
+      "unitPrice": 20.66,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 1,
+      "unitPrice": 4.2842,
+      "currency": "USD"
+    },
+    {
+      "quantity": 10,
+      "unitPrice": 3.7062,
+      "currency": "USD"
+    },
+    {
+      "quantity": 30,
+      "unitPrice": 3.4122,
+      "currency": "USD"
+    },
+    {
+      "quantity": 100,
+      "unitPrice": 3.0158,
+      "currency": "USD"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 2.8738,
+      "currency": "USD"
+    },
+    {
+      "quantity": 1000,
+      "unitPrice": 2.8143,
+      "currency": "USD"
+    }
+  ],
+  "product_url": "https://item.szlcsc.com/6577565.html",
+  "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/71ad5077f354aad3d252d8bdaf2401d5.pdf?productCode=C5656610",
+  "datasheet_file": "references/suppliers/c5656610/c5656610-datasheet.pdf"
+}

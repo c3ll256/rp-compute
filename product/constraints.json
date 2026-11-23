@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "status": "replacement_connector_specifications_ready_geometry_revision_pending",
+  "status": "front_interfaces_defined_pending_layout",
   "bom_ready": true,
-  "requirements_digest": "1e0f2a54c1d3d2ec58d125835a4858b1b26f80e8a8f43bb03c85737b061c19eb",
+  "requirements_digest": "7e65ea2e17667ada4903642f3da4fe6efe6799d152318550640a33cb9a7a654e",
   "architecture": {
     "compute": "Customer-supplied Pi4B,4GB reference; our custom baseboard accepts40-pinGPIO, notCM",
     "display": "LS027B7DH01 serial Memory LCD; LS027B7DH01A accepted one-for-one alternative, prototype verification required",
@@ -142,7 +142,7 @@
           "fascia",
           "retainer"
         ],
-        "reuse": "Existing main shell, base, Pi carrier, front cover, side panel, PCB and fastener axes unchanged.",
+        "reuse": "Screen mounting axes, bottom cover, Pi carrier, side panel and board datums retained.",
         "qualification": "Default25deg based on user green sketch; native13.7±0.5mm tail length remains an unmeasured estimate; physical seating and print fit require trial."
       }
     },
@@ -538,87 +538,8 @@
   },
   "front_module": {
     "source": "user",
-    "reference_image": "product/references/uploads/20261005T143253795Z-1-cleanshot-2026-10-05-at-23-32-01-2x.png",
+    "reference_image": "product/references/uploads/20261123T095003696Z-1-mark-1.png",
     "coordinate_frame": "handheld_computer CAD world, mm",
-    "seat_center_mm": [
-      0,
-      -34,
-      27
-    ],
-    "blank_size_mm": [
-      70,
-      37,
-      1.8
-    ],
-    "through_aperture_mm": [
-      54,
-      26
-    ],
-    "underside_tongue_depth_mm": 0,
-    "electrical_connector": {
-      "board_mpn": null,
-      "contacts": 8,
-      "pitch_mm": 2.54,
-      "arrangement": "2x4 vertical female socket",
-      "world_xy_mm": [
-        0,
-        -34
-      ],
-      "world_top_z_mm": 26.794999,
-      "pinout_document": "product/front-module-interface.md",
-      "status": "nominal_CAD_adapted_physical_tolerances_pending",
-      "source": "research",
-      "part_name": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标"
-    },
-    "service": "cold-swap only; external power disconnected and battery isolated",
-    "cover_surface": "Uniform1.8mm removable plate, undersideZ27/topZ28.8; R6 outline,1mm upper chamfer, body-matched warm-white color, flat underside and four original compensated countersinks.",
-    "connector_cover": {
-      "rise_mm": 0,
-      "rise_source": "user",
-      "method": "uniform flat cover above socket; no local pocket or underside projection",
-      "cover_underside_world_z_mm": 27,
-      "cover_top_world_z_mm": 28.8,
-      "plate_thickness_mm": 1.8,
-      "nominal_socket_air_mm": 0.205001,
-      "air_source": "research",
-      "reference_socket_top_world_z_mm": 26.794999,
-      "assembly_note": "Flat coverZ27..28.8; socket nominal top26.794999, air0.205001mm. Tight clearance needs actual part/print trial. No underside tongue or local raised cover."
-    },
-    "cad_part_id": "front_module_cover",
-    "cad_object_id": "front_module_blank",
-    "underside_protrusion": {
-      "value": 0,
-      "source": "user"
-    },
-    "seat_type": "flat shell deck, no cover locating tongue",
-    "blank_corner_radius_mm": {
-      "value": 6,
-      "source": "default",
-      "selection_reason": "Reference-inspired softer corner while retaining original screw axes and complete bearing rings."
-    },
-    "mount_xy_mm": [
-      [
-        -29.5,
-        -45
-      ],
-      [
-        29.5,
-        -45
-      ],
-      [
-        -29.5,
-        -23
-      ],
-      [
-        29.5,
-        -23
-      ]
-    ],
-    "mount_pattern_mm": [
-      59,
-      22
-    ],
-    "fasteners": "4 x M3x6 90deg countersunk; library ISO10642 reference head6mm",
     "pcb_direct_mount": {
       "source": "default",
       "spacer_quantity": 0,
@@ -633,11 +554,103 @@
           -32
         ]
       ],
-      "pcb_bottom_z_mm": 21.0,
+      "pcb_bottom_z_mm": 21,
       "pcb_thickness_mm": 0.8,
-      "screw_tip_z_mm": 24.0,
-      "tip_to_deck_mm": 3.0,
-      "receiver": "Prior kit-owned2mm nominal-engagement receiver retained at the unchanged PCB/beam interface."
+      "screw_tip_z_mm": 24,
+      "tip_to_deck_mm": 3,
+      "receiver": "Left original blind M2 receiver; right 2.2 mm thick through tab, minimum thread engagement 1.4 mm, tip flush at Z24.0."
+    },
+    "touch_implementation": "Azoteq TPS43-201A-S, ZIF, factory PSA; no separate electrode board.",
+    "underside_protrusion": {
+      "value": 0,
+      "source": "user"
+    },
+    "cad_part_id": "shell",
+    "cad_object_id": "shell",
+    "seat_center_mm": [
+      0,
+      -30.9,
+      26.52
+    ],
+    "seat_type": "Warm-white upper shell interior, sensor bonded to 0.48 mm continuous skin",
+    "front_fastener_quantity": 0,
+    "service": "断电后拆下屏舱、断开排线并释放胶层，经屏舱取出。",
+    "touch_fit": {
+      "revision": "cb6d54ab46cfe451019b49c10cd4e228aba8afcb140bdc0af42a8446856099fd",
+      "module_center_xy_mm": [
+        0,
+        -30.9
+      ],
+      "module_nominal_outline_mm": [
+        43.3,
+        40.3
+      ],
+      "manufacturing_max_envelope_mm": [
+        43.5,
+        40.5,
+        2.233
+      ],
+      "module_top_including_adhesive_z_mm": 26.52,
+      "worst_case_module_underside_z_mm": 24.287,
+      "module_to_shell_min_mm": 0,
+      "module_to_ordered_baseboard_min_mm": 0.855,
+      "path_step_mm": 0.12,
+      "mesh_tolerance_mm": 0.02,
+      "path_first_overlap": null,
+      "scope": "Released rigid sensor against bare shell before display and carrier installation. The starting zero gap is the adhesive contact. A 9 mm bare strip faces left. Actual flex, release liner and adhesive operations require trial assembly.",
+      "bare_strip_width_mm": 9.0,
+      "bare_strip_max_stack_mm": 1.25,
+      "removal_path_mm": [
+        [
+          0,
+          0,
+          -0.14
+        ],
+        [
+          0,
+          50.5,
+          0
+        ],
+        [
+          0,
+          0,
+          12
+        ]
+      ]
+    },
+    "connector_clearance_study": {
+      "revision": "cb6d54ab46cfe451019b49c10cd4e228aba8afcb140bdc0af42a8446856099fd",
+      "body_only": true,
+      "board_top_z_mm": 21.8,
+      "description": "Closed body envelopes on original board; board XY origin projects to world (0,-19). Flex folds, open latch and mating harnesses require trial assembly.",
+      "locations": {
+        "J_TP": {
+          "board_xy_mm": [
+            0,
+            -14
+          ],
+          "envelope_mm": [
+            8.2,
+            6.4,
+            2.1
+          ],
+          "min_sensor_clearance_mm": 0.387,
+          "min_shell_clearance_mm": 2.62
+        },
+        "J_SPK": {
+          "board_xy_mm": [
+            -10,
+            15
+          ],
+          "envelope_mm": [
+            5.8,
+            6.4,
+            3
+          ],
+          "min_sensor_clearance_mm": 3.45,
+          "min_shell_clearance_mm": 1.72
+        }
+      }
     }
   },
   "battery": {
@@ -713,7 +726,7 @@
     "model": "Raspberry Pi 4 Model B",
     "selection_status": "byop_pi4b_reference_socket_selected_fit_pending",
     "ram_gb": {
-      "value": 4.0,
+      "value": 4,
       "source": "default"
     },
     "outline_mm": [
@@ -787,8 +800,8 @@
         "shell_attachment": "3 x ISO7046 M2.5x6, self-forming printed receivers, nominal3.6mm engagement",
         "pi_attachment": "4 x ISO7046 M2.5x6 into existing metal heatsink threads",
         "board_bottom_z_mm": 5.3,
-        "frame_bottom_z_mm": 3.0,
-        "rail_thickness_mm": 2.0,
+        "frame_bottom_z_mm": 3,
+        "rail_thickness_mm": 2,
         "bottom_cover_gap_mm": 0.4,
         "pi_pad_bottom_z_mm": 3.3,
         "qualification": "Nominal geometry; print fit, strength, fastener life and physical assembly require prototype.",
@@ -812,10 +825,10 @@
       ],
       "printability": {
         "source": "default",
-        "bed_plane_z_mm": 3.0,
+        "bed_plane_z_mm": 3,
         "flat_ears": true,
         "receiver_bottom_z_mm": 5.4,
-        "nominal_rail_top_z_mm": 5.0,
+        "nominal_rail_top_z_mm": 5,
         "board_bottom_z_mm": 5.3,
         "support_strategy": "Flat underside on bed; designed without support under mounting ears; confirm slicer and prototype."
       },
@@ -1417,11 +1430,12 @@
   },
   "active_lite_interface_revision": {
     "source": "user",
-    "status": "PCB_and_nominal_CAD_generic_sockets_implemented_prototype_mating_pending",
+    "status": "single_custom_pcb_with_onboard_microphone",
     "connectors": {
       "J_LCD": "0.5-10P CTSJ-H2.0 119",
       "J_PI": "20×2Pin 短排母，2.54mm，塑高8mm，脚长3.5mm",
-      "J_MOD": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标"
+      "J_TP": "FH12-6S-0.5SH(55)",
+      "J_SPK": "SM02B-SRSS-TB(LF)(SN)"
     },
     "proposal": "design/pi_baseboard_lite/interface-layout-proposal.json",
     "supersedes": "Current user direction is horizontal side entry with a bent native tail. The previous vertical FPC proposal and tooling blocker are obsolete.",
@@ -1476,10 +1490,6 @@
       "J_LCD_origin": [
         0,
         5.65
-      ],
-      "J_MOD_centroid": [
-        0,
-        -34
       ]
     },
     "cad_models": "Current PCB complete release imported; nominal socket internal cavities do not certify contact geometry.",
@@ -1494,7 +1504,7 @@
       "estimate_uncertainty_mm": 0.5,
       "estimate_qualification": "User authorized estimation.13.2..14.2mm is a design review allowance, not measured free length or a bound certified by the Sharp drawing. Do not stretch the tail or claim full installed reach.",
       "non_contact_clearance_per_side_mm": 0.5,
-      "current_board_bottom_world_z_mm": 21.0,
+      "current_board_bottom_world_z_mm": 21,
       "current_board_finished_top_world_z_mm": 21.8,
       "native_exit_world_yz_mm": [
         -0.5630557675,
@@ -1544,7 +1554,7 @@
       "prior_geometry_review_release": "ceada78d56239a5a67ad64659dc0cfd2148fbb590c4dc810c60042197d11e74f",
       "current_pcb_release_authority": "manufacturing/pi_baseboard_lite/release-index.json"
     },
-    "pcb_bottom_world_z_mm": 21.0,
+    "pcb_bottom_world_z_mm": 21,
     "pcb_rise_mm": 3.5,
     "pcb_attachment": {
       "source": "user",
@@ -1565,17 +1575,22 @@
       ],
       "support_not_on": [
         "bottom cover",
-        "removable module blank"
+        "touch sensor"
       ],
       "kit": "printed-screw-joint-v1",
       "beam_width_mm": 6,
       "beam_thickness_mm": 2,
-      "engagement_mm": 2,
       "board_finished_thickness_mm": 0.8,
       "guide_clearance_mm": 0.3,
       "remaining_blank_roof_mm": 2.055001,
       "qualification": "Final geometry: ordered PCB keeps two ISO4762 M2x3 joints and original2.2mm holes; final5.5mm-OD shell bearing annuli remain complete;8mm-long rear edge support. PLA torque, insertion loads, FR4 flex and service life require prototype testing.",
-      "bottom_world_z_mm": 21.0
+      "bottom_world_z_mm": 21,
+      "minimum_design_engagement_mm": {
+        "source": "default",
+        "left": 2.0,
+        "right": 1.4
+      },
+      "bearing_check": "Z21.8 to Z22.0; both 5.5 mm OD annuli complete outside the Ø3.3 mm pilot lead-in."
     },
     "gpio_stack_conflict": {
       "status": "nominal_stack_adapted_generic_contact_depth_unqualified",
@@ -1586,16 +1601,6 @@
       "nominal_engagement_mm": 3.885,
       "qualified_minimum_insertion_mm": null,
       "note": "Pi/sink up1.3mm and PCB down0.8mm; socket mouth from released nominal model includes0.085mm bottom model seating offset. Third-party Pi model tip is18.3mm, so its modeled entry is5.385mm. Only pin shanks overlap unmodeled interior beyond3mm visual cavity."
-    },
-    "expansion_socket": {
-      "selected": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标",
-      "body_height_mm": 5,
-      "top_world_z_mm": 26.794999,
-      "deck_top_z_mm": 27,
-      "nominal_interference_mm": 0,
-      "new_tail_projection_below_board_mm": 2.2,
-      "status": "nominal_CAD_adapted_physical_tolerances_pending",
-      "nominal_cover_gap_mm": 0.205001
     },
     "fpc_opening": "-Y, front/down in board top view; horizontal top-side top-contact connector",
     "thermal_clearance_target_mm": 1.5,
@@ -2091,7 +2096,7 @@
         "fascia",
         "retainer"
       ],
-      "reuse": "Existing main shell, base, Pi carrier, front cover, side panel, PCB and fastener axes unchanged.",
+      "reuse": "Screen mounting axes, bottom cover, Pi carrier, side panel and board datums retained.",
       "qualification": "Default25deg based on user green sketch; native13.7±0.5mm tail length remains an unmeasured estimate; physical seating and print fit require trial."
     }
   },
@@ -2125,7 +2130,7 @@
     "clamp_plane_world_z_mm": 27,
     "concealed_foot_extension_mm": 0.3,
     "front_engagement_mm": 1.2,
-    "rear_engagement_mm": 3.0,
+    "rear_engagement_mm": 3,
     "actual_closed_skin_min_mm": 1.2,
     "fine_driver_shaft_diameter_mm": 2.4,
     "assembly": "Fasten screen pod from inside upper shell before mating the Pi/bottom assembly. Remove bottom with Pi/heatsink for service. These are separate from the glass retainer screws.",
@@ -2181,9 +2186,8 @@
       },
       "source": "user"
     },
-    "m3x6_installed_quantity": 10,
+    "m3x6_installed_quantity": 6,
     "m3x6_groups": {
-      "front_module": 4,
       "bottom_cover": 4,
       "pod_rear": 2
     },
@@ -2226,10 +2230,10 @@
     "receiver_compensation": "Unchanged kit self-forming PLA profile; extra head allowance does not enlarge the receiver.",
     "qualification": "Nominal CAD fit only; physical fit, torque and repeated service unverified.",
     "printed_joint_counts": {
-      "M3": 10,
+      "M3": 6,
       "M2.5": 9,
       "M2": 2,
-      "total": 21
+      "total": 17
     },
     "retainer_exception": "Retainer base stays2mm; front rigid capture replaces two screws, rear uses two M2.5x4. Nominal measured clamp gap2.16mm retained."
   },
@@ -2280,64 +2284,17 @@
       "footprint": "vendor:KiCad_PinSocket_2x20_P2.54mm_GenericH8",
       "image": "product/references/uploads/20261106T124430370Z-1-cleanshot-2026-11-06-at-20-39-37-2x.png"
     },
-    "J_MOD": {
-      "contacts": 8,
-      "rows": 2,
-      "contacts_per_row": 4,
-      "mating_pitch_mm": {
-        "value": 2.54,
-        "source": "user"
-      },
-      "row_spacing_mm": {
-        "value": 2.54,
-        "source": "default"
-      },
-      "body_mm": {
-        "value": [
-          10.16,
-          5.08,
-          5
-        ],
-        "source": "default"
-      },
-      "tail_length_mm": {
-        "value": 3,
-        "source": "default"
-      },
-      "pin_cross_section_mm": {
-        "value": [
-          0.64,
-          0.64
-        ],
-        "source": "default"
-      },
-      "drill_mm": {
-        "value": 1,
-        "source": "research"
-      },
-      "pad_mm": {
-        "value": [
-          1.7,
-          1.7
-        ],
-        "source": "research"
-      },
-      "footprint": "vendor:KiCad_PinSocket_2x04_P2.54mm_GenericH5",
-      "reference_image": "product/references/uploads/20261106T125120328Z-1-cleanshot-2026-11-06-at-20-50-28-2x.png",
-      "reference_qualification": "Image is SMT; through-hole is user-requested adaptation.5mm remains an engineering target, not proof that the pictured item is through-hole."
-    },
     "specification_authority": "design/pi_baseboard_lite/connector-specification.json",
     "status": "PCB_and_nominal_CAD_implemented_prototype_mating_pending"
   },
   "connector_stack_implementation": {
     "source": "default",
-    "pcb_bottom_z_mm": 21.0,
+    "pcb_bottom_z_mm": 21,
     "pi_lift_mm": 1.3,
     "pi_board_bottom_z_mm": 6.6,
     "Pi_screw_seat_z_mm": 4.6,
     "retainer_through_gap_width_mm": 42,
-    "GPIO_tail_roof_skin_mm": 2.0,
-    "cover_socket_nominal_gap_mm": 0.205001,
+    "GPIO_tail_roof_skin_mm": 2,
     "review": "design/handheld_computer/connector-stack-review.json"
   },
   "pcb_mounting_strength": {
@@ -2372,19 +2329,6 @@
       "source": "default"
     }
   },
-  "front_module_cover_profile": {
-    "source": "default",
-    "object_id": "front_module_blank",
-    "thickness_mm": 1.8,
-    "bottom_world_z_mm": 27,
-    "top_world_z_mm": 28.8,
-    "existing_hardware": "4x M3x6 countersunk",
-    "nominal_counter_sink_land_mm": 0.295,
-    "corner_radius_mm": 6,
-    "upper_edge_chamfer_mm": 1,
-    "color": "same as upper shell",
-    "removal": "After removing four M3x6 screws, lift along+Z;10mm mesh path checked, tolerance0.02mm, step0.5mm, no overlap."
-  },
   "visual_edge_profile": {
     "source": "default",
     "upper_bevel_mm": 1.6,
@@ -2400,7 +2344,6 @@
       73,
       112
     ],
-    "module_cover_bevel_mm": 1,
     "matched_prints": [
       "shell",
       "base"
@@ -2408,7 +2351,7 @@
     "internal_datums": "retained",
     "runout": "Tangent cubic runout, width and depth taper together; bilateral symmetry, no added flat shelf.",
     "lower_inner_shift_mm": 0.6,
-    "nominal_lower_wall_min_mm": 2.0,
+    "nominal_lower_wall_min_mm": 2,
     "base_rim_shift_mm": 0.6,
     "base_rear_web_depth_mm": 10.7,
     "verified_lower_clearance": {
@@ -2436,5 +2379,175 @@
       "reuse": "Main shell, base, side panel, PCB, retainer and all mounting interfaces unchanged. Branding is integral to screen frame; no separate badge."
     },
     "source": "default"
+  },
+  "front_audio": {
+    "source": "default",
+    "front_wall_transducer_xz_mm": {
+      "speaker": [
+        -16,
+        15
+      ],
+      "mic": [
+        12,
+        15
+      ]
+    },
+    "speaker_body_mm": [
+      15,
+      11,
+      2.5
+    ],
+    "speaker_grille_slots": 5,
+    "mic_port_diameter_mm": 1.6,
+    "qualification": "试装喇叭独立后腔与主板麦克风密封导音件，实测录音频响、声压及回放串音。",
+    "speaker_rear_cavity_nominal_cc": 1,
+    "baseboard_nets": {
+      "V3V3_PI": [
+        "J_PI.1",
+        "J_PI.17",
+        "J_TP.3",
+        "R_TP_RST.1",
+        "R_TP_RDY.1",
+        "U_MIC.5",
+        "C_MIC.1"
+      ],
+      "GND": [
+        "J_PI.6",
+        "J_TP.4",
+        "U_AMP.3",
+        "U_AMP.11",
+        "U_AMP.15",
+        "U_AMP.EP",
+        "C_AMP_HF.2",
+        "C_AMP_BULK.2",
+        "R_MIC_SD.2",
+        "U_MIC.2",
+        "U_MIC.3",
+        "C_MIC.2"
+      ],
+      "V5_PI_IN": [
+        "J_PI.2",
+        "J_PI.4",
+        "U_AMP.7",
+        "U_AMP.8",
+        "U_AMP.4",
+        "C_AMP_HF.1",
+        "C_AMP_BULK.1",
+        "R_GAIN.1"
+      ],
+      "SDA": [
+        "J_PI.3",
+        "J_TP.1"
+      ],
+      "SCL": [
+        "J_PI.5",
+        "J_TP.2"
+      ],
+      "NRST": [
+        "J_PI.13",
+        "J_TP.5",
+        "R_TP_RST.2"
+      ],
+      "RDY": [
+        "J_PI.11",
+        "J_TP.6",
+        "R_TP_RDY.2"
+      ],
+      "BCLK": [
+        "J_PI.12",
+        "U_AMP.16",
+        "U_MIC.4"
+      ],
+      "WS": [
+        "J_PI.35",
+        "U_AMP.14",
+        "U_MIC.1"
+      ],
+      "MIC_SD": [
+        "J_PI.38",
+        "R_MIC_SD.1",
+        "U_MIC.6"
+      ],
+      "AMP_DIN": [
+        "J_PI.40",
+        "U_AMP.1"
+      ],
+      "AMP_GAIN": [
+        "U_AMP.2",
+        "R_GAIN.2"
+      ],
+      "OUTP": [
+        "U_AMP.9",
+        "R_SPK_P.1"
+      ],
+      "OUTN": [
+        "U_AMP.10",
+        "R_SPK_N.1"
+      ],
+      "SPK_P": [
+        "R_SPK_P.2",
+        "J_SPK.1"
+      ],
+      "SPK_N": [
+        "R_SPK_N.2",
+        "J_SPK.2"
+      ]
+    },
+    "amp_no_connect": [
+      5,
+      6,
+      12,
+      13
+    ],
+    "i2s": {
+      "format": "I2S",
+      "clock_master": "PI",
+      "frame_rate_hz": 48000,
+      "slots": 2,
+      "slot_width_bits": 32,
+      "bclk_hz": 3072000,
+      "capture_slot": "left",
+      "playback_slot": "left"
+    },
+    "pcb_acoustic_axis_board_xy_mm": [
+      10.5,
+      -18
+    ],
+    "pcb_acoustic_axis_world_xy_mm": [
+      10.5,
+      -37
+    ],
+    "diaphragm_on": "pi_baseboard_lite.U_MIC",
+    "sealed_duct": {
+      "inlet_world_xyz_mm": [
+        12,
+        -55.1,
+        15
+      ],
+      "outlet_world_xyz_mm": [
+        10.5,
+        -37,
+        21
+      ],
+      "inlet_cross_section_id_mm": 1.6,
+      "outer_width_mm": 4.5,
+      "board_bore_mm": 0.6,
+      "front_flange_mm": [
+        8,
+        7
+      ],
+      "material": "柔性绝缘硅胶或 TPU，板底压封；避开邻近过孔",
+      "qualification": "首件测密封、拾音灵敏度和声道频响。"
+    }
+  },
+  "touch_seat_profile": {
+    "source": "default",
+    "object_id": "shell",
+    "deck_z_mm": 27,
+    "top_z_mm": 27,
+    "surface_height_difference_mm": 0,
+    "continuous_skin_thickness_mm": 0.48,
+    "colour": "warm white, upper shell material",
+    "external_aperture_count": 0
   }
 }

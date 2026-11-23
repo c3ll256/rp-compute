@@ -5,13 +5,29 @@
   "fits": [],
   "steps": [
     {
+      "title": "准备暖白一体上壳",
+      "note": "屏舱和基板暂缓安装。将上壳平放，清洁前平台内侧的触控贴合面。",
+      "parts": [
+        "handheld_computer:shell"
+      ]
+    },
+    {
+      "title": "从屏舱开口装入触控模块",
+      "note": "模组器件朝机内，空白窄边朝左。先插好模组端排线，在空屏舱开口放入，沿内槽向前滑至定位，再从底侧托住模组使原厂胶完整贴合前平台内壁。先干装确认胶膜抽出、排线弯折和锁扣空间。",
+      "parts": [
+        "handheld_computer:tps43"
+      ],
+      "from": "+y"
+    },
+    {
       "title": "准备屏舱前框",
-      "note": "先完成深色遮蔽喷涂并充分固化；饰面示意不是额外打印件。装配前断电，屏面朝下操作。 使用25°抬高版前框及配套压框，原主壳、板件与机身螺丝不变。",
+      "note": "先完成深色遮蔽喷涂并充分固化；饰面示意不是额外打印件。装配前断电，屏面朝下操作。 使用25°抬高版前框及配套压框，",
       "parts": [
         "handheld_computer:fascia",
         "handheld_computer:screen_face_finish",
         "handheld_computer:rear_brand_finish"
-      ]
+      ],
+      "from": "+z"
     },
     {
       "title": "放入前泡棉圈",
@@ -39,7 +55,7 @@
     },
     {
       "title": "插入压框前舌并抬后端",
-      "note": "压框后端先下倾约12°，前舌沿屏面向前推入1.7mm，再抬后端到硬止口。拆卸先卸后螺丝6mm，再下转12°、向后滑1.7mm、沿屏面负法线退3mm、竖直向下取出10mm。用配套25°前框和压框，主壳沿用。",
+      "note": "压框后端先下倾约12°，前舌沿屏面向前推入1.7mm，再抬后端到硬止口。拆卸先卸后螺丝6mm，再下转12°、向后滑1.7mm、沿屏面负法线退3mm、竖直向下取出10mm。用配套25°前框和压框。",
       "parts": [
         "handheld_computer:retainer"
       ],
@@ -55,14 +71,6 @@
       "from": "-z"
     },
     {
-      "title": "对准上壳承力舌",
-      "note": "屏舱底脚与上壳对应承力舌自然贴合，先不装Pi组件或侧接口围板。",
-      "parts": [
-        "handheld_computer:shell"
-      ],
-      "from": "-z"
-    },
-    {
       "title": "从内侧固定屏舱",
       "note": "前两颗M2.5×4、后两颗M3×6。左后点用直杆螺丝刀，经现有通道操作。",
       "parts": [
@@ -74,8 +82,18 @@
       "from": "-z"
     },
     {
-      "title": "安装显示基板",
-      "note": "母座后焊完成后，让基板自然坐到上壳横梁及后导轨；保留原GPIO和FPC基准。",
+      "title": "安装喇叭、背腔与麦克风导音件",
+      "note": "喇叭用密封垫贴合前壁的五条声孔。引线穿出背腔后封住过线孔。软导音件的一端贴合独立拾音孔，另一端朝向基板底面的声孔。",
+      "parts": [
+        "handheld_computer:speaker_reference",
+        "handheld_computer:speaker_chamber",
+        "handheld_computer:mic_reference"
+      ],
+      "from": "-z"
+    },
+    {
+      "title": "安装显示、触控与音频基板",
+      "note": "将基板坐到横梁及后导轨，确认板底声孔对准软导音件。插入触控板线束和两芯喇叭线。麦克风随基板贴装。",
       "parts": [
         "handheld_computer:pi_baseboard_lite"
       ],
@@ -136,25 +154,6 @@
       "from": "-z"
     },
     {
-      "title": "放上可拆前盖板",
-      "note": "盖板底面平整，母座净空约0.205mm，先核对实物高度及平面度。",
-      "parts": [
-        "handheld_computer:front_module_blank"
-      ],
-      "from": "+z"
-    },
-    {
-      "title": "固定前盖板",
-      "note": "四颗M3×6轻紧，不能靠螺丝拉平翘曲盖板。",
-      "parts": [
-        "handheld_computer:front_module_screw_1",
-        "handheld_computer:front_module_screw_2",
-        "handheld_computer:front_module_screw_3",
-        "handheld_computer:front_module_screw_4"
-      ],
-      "from": "+z"
-    },
-    {
       "title": "推入已粘合的侧接口面板",
       "note": "先在机外将两片打印件干装对准，在隐藏法兰少量点涂适用PLA的胶，按胶说明充分固化，防止胶流入接口；完整组件从右侧水平推入。仍用原安装座和两颗螺丝，不要先装面板再强塞Pi。",
       "parts": [
@@ -173,5 +172,5 @@
       "from": "+x"
     }
   ],
-  "updatedAt": "2026-11-17T05:04:08.712Z"
+  "updatedAt": "2026-11-23T21:11:00.646Z"
 }

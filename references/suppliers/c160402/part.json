@@ -1,0 +1,96 @@
+{
+  "source": "LCSC",
+  "looked_up_at": "2026-11-23T17:47:48.067Z",
+  "lcsc_code": "C160402",
+  "manufacturer": "JST",
+  "manufacturer_part_number": "SM02B-SRSS-TB(LF)(SN)",
+  "description": "Connector Header 2 position 1mm Pitch 1A Surface Mount, Right Angle -25°C~+85°C",
+  "category": "线对板针座",
+  "package": "SMD,P=1mm,Surface Mount,Right Angle",
+  "jlcpcb_part_class": "extended",
+  "parameters": {
+    "Connector Type": "Surface Mount, Right Angle",
+    "Reference Series": "SH",
+    "Voltage Rating (Max)": "50V",
+    "Contact Material": "Copper Alloy",
+    "Number of PINs Per Row": "2",
+    "Number of Rows": "1",
+    "Pitch": "1mm",
+    "Flame Retardant Rating": "UL94V-0",
+    "Current Rating": "1A",
+    "Supplementary Features": "Auxiliary Solder Pin",
+    "Number of PINs": "2P",
+    "Operating Temperature": "-25°C~+85°C",
+    "Contact Plating": "Tin",
+    "Plastic Material": "PA",
+    "Color": "White",
+    "X-Length of Bottom Edge on Board (Spacing Line)": "4mm",
+    "Pin Structure": "1x2P"
+  },
+  "lcsc_stock": 4008,
+  "price_breaks": [
+    {
+      "quantity": 5,
+      "unitPrice": 0.7878,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 50,
+      "unitPrice": 0.6448,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 150,
+      "unitPrice": 0.5713,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 0.5107,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 3000,
+      "unitPrice": 0.4896,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 6000,
+      "unitPrice": 0.4753,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 5,
+      "unitPrice": 0.1299,
+      "currency": "USD"
+    },
+    {
+      "quantity": 50,
+      "unitPrice": 0.1063,
+      "currency": "USD"
+    },
+    {
+      "quantity": 150,
+      "unitPrice": 0.0942,
+      "currency": "USD"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 0.0842,
+      "currency": "USD"
+    },
+    {
+      "quantity": 3000,
+      "unitPrice": 0.0807,
+      "currency": "USD"
+    },
+    {
+      "quantity": 6000,
+      "unitPrice": 0.0784,
+      "currency": "USD"
+    }
+  ],
+  "product_url": "https://item.szlcsc.com/171782.html",
+  "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/40c649e22fa9bda892cfec952005fd51.pdf?productCode=C160402",
+  "datasheet_file": "references/suppliers/c160402/c160402-datasheet.pdf"
+}

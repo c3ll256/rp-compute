@@ -1,0 +1,83 @@
+{
+  "source": "LCSC",
+  "looked_up_at": "2026-11-23T17:45:07.940Z",
+  "lcsc_code": "C47971",
+  "manufacturer": "SAMSUNG(三星)",
+  "manufacturer_part_number": "CL31B106KOHNNNE",
+  "description": "10uF ±10% 16V Ceramic Capacitor X7R 1206",
+  "category": "贴片电容(MLCC)",
+  "package": "1206",
+  "jlcpcb_part_class": "extended",
+  "parameters": {
+    "Capacitance": "10uF",
+    "Temperature Coefficient": "X7R",
+    "Tolerance": "±10%",
+    "Voltage Rating": "16V"
+  },
+  "lcsc_stock": 11382,
+  "price_breaks": [
+    {
+      "quantity": 10,
+      "unitPrice": 1.4306,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 100,
+      "unitPrice": 1.133,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 300,
+      "unitPrice": 0.9877,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 2000,
+      "unitPrice": 0.687,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 4000,
+      "unitPrice": 0.6514,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 10000,
+      "unitPrice": 0.63,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 10,
+      "unitPrice": 0.2345,
+      "currency": "USD"
+    },
+    {
+      "quantity": 100,
+      "unitPrice": 0.1857,
+      "currency": "USD"
+    },
+    {
+      "quantity": 300,
+      "unitPrice": 0.1619,
+      "currency": "USD"
+    },
+    {
+      "quantity": 2000,
+      "unitPrice": 0.1126,
+      "currency": "USD"
+    },
+    {
+      "quantity": 4000,
+      "unitPrice": 0.1068,
+      "currency": "USD"
+    },
+    {
+      "quantity": 10000,
+      "unitPrice": 0.1033,
+      "currency": "USD"
+    }
+  ],
+  "product_url": "https://item.szlcsc.com/48977.html",
+  "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C47971",
+  "datasheet_file": "references/suppliers/c47971/c47971-datasheet.pdf"
+}

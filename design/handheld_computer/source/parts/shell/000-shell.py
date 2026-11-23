@@ -1,11 +1,3 @@
-# cell: shell
-# cell: shell
-# cell: shell
-# cell: shell
-# cell: shell
-# cell: shell
-# cell: shell
-# cell: shell
 # Roof-down printing; bottom cover is closure only.
 case_width=param('case_width',85.0)
 pi_offset_x=param('pi_offset_x',-5.0)
@@ -16,15 +8,16 @@ case_top_center=param('case_top_center',27.0)
 shell_wall=param('shell_wall',2.4)
 shell_lower_z=param('shell_lower_z',2.7)
 shell_edge_radius=param('shell_edge_radius',1.0)
-front_module_width=param('front_module_width',70.0)
-front_module_depth=param('front_module_depth',37.0)
-front_module_y=param('front_module_y',-34.0)
-front_module_aperture_width=param('front_module_aperture_width',54.0)
-front_module_aperture_depth=param('front_module_aperture_depth',26.0)
-front_module_screw_x=param('front_module_screw_x',31.0)
-front_module_screw_y_offset=param('front_module_screw_y_offset',15.0)
-front_module_screw_engagement=param('front_module_screw_engagement',2.0)
-front_module_blank_thickness=param('front_module_blank_thickness',1.4)
+# The upper shell owns the touch stack and its mounting seat.
+touch_y=param('touch_center_y',-30.9)
+face_t=param('integral_touch_wall',0.48)
+board_w=param('tps_pcb_width',43.3)
+board_d=param('tps_pcb_depth',40.3)
+board_tol=param('tps_pcb_size_tolerance',0.2)
+board_side_air=param('tps_side_clearance_at_max',0.4)
+window_w=board_w+board_tol+2*board_side_air
+window_d=board_d+board_tol+2*board_side_air
+FACE_WORLD=Pos(0,touch_y,case_top_center)
 shell_passage_width=param('shell_passage_width',71.0)
 shell_passage_front=param('shell_passage_front',-3.5)
 shell_passage_rear=param('shell_passage_rear',48.5)
@@ -139,6 +132,33 @@ def lower_inner_section(z,shift):
 inner=loft([lower_inner_section(0,shell_lower_inner_shift),lower_inner_section(shell_lower_z,shell_lower_inner_shift),lower_inner_section(shell_lower_z+shell_lower_visual_height,0),lower_inner_section(roof_under,0)],ruled=True)
 lower_inner_void=inner
 body=outer-inner
+# Front-facing acoustic paths. The speaker seals against the inner face with a gasket.
+audio_z=param('audio_z',15.0)
+speaker_x=param('speaker_x',-16.0)
+mic_x=param('mic_x',19.0)
+mic_port_d=param('mic_port_d',1.6)
+grille_pitch=param('grille_pitch',2.6)
+grille_width=param('grille_width',1.4)
+grille_height=param('grille_height',7.0)
+inner_front=-case_depth/2+shell_wall
+for column in range(-2,3):
+ h=grille_height-0.8*abs(column)
+ opening=Plane.XZ*Pos(speaker_x+column*grille_pitch,audio_z)*SlotOverall(h,grille_width,rotation=90)
+ body-=Pos(0,inner_front+0.3,0)*extrude(opening,amount=shell_wall+0.6)
+body-=Pos(mic_x,inner_front-shell_wall/2,audio_z)*Cylinder(mic_port_d/2,shell_wall+1,rotation=(90,0,0))
+# Low locating rims leave the rear of each transducer accessible from the base.
+speaker_face_w=param('speaker_face_w',15.0)
+speaker_face_h=param('speaker_face_h',11.0)
+rim_wall=param('audio_rim_wall',1.4)
+rim_depth=param('audio_rim_depth',2.0)
+seat_clearance=param('audio_seat_side_clearance',0.25)
+mic_carrier_w=param('mic_carrier_w',8.0)
+mic_carrier_h=param('mic_carrier_h',7.0)
+for cx,w,h in [(speaker_x,speaker_face_w,speaker_face_h),(mic_x,mic_carrier_w,mic_carrier_h)]:
+ iw=w+2*seat_clearance
+ ih=h+2*seat_clearance
+ rim=Box(iw+2*rim_wall,rim_depth+0.1,ih+2*rim_wall)-Box(iw,rim_depth+1,ih)
+ body+=Pos(cx,inner_front+(rim_depth-0.1)/2,audio_z)*rim
 assert len(body.solids())==1, ('shell body',len(body.solids()))
 PCB_FINISHED_T=0.8 # Ordered pi_baseboard_lite; original M2 clearance holes 2.2mm.
 PCB_LEFT_EDGE=-23.5
@@ -156,10 +176,6 @@ for xx,yy in base_mount_axes:
  column=Pos(sx*(tip+root)/2,yy,(base_thickness+roof_under+0.2)/2)*Box(root-tip,shell_base_pad_width,roof_under+0.2-base_thickness)
  body+=column & column_envelope
 body-=Pos(0,shell_passage_y,roof_under)*extrude(RectangleRounded(shell_passage_width,shell_passage_depth,shell_passage_radius),amount=2*shell_wall)
-aperture=Pos(0,front_module_y,roof_under-0.5)*extrude(RectangleRounded(front_module_aperture_width,front_module_aperture_depth,1.5),amount=shell_wall+1.0)
-for sx in [-1,1]:
- aperture-=Pos(sx*(beam_tip+front_module_aperture_width/2+1)/2,pcb_mount_y,case_top_center)*Box(front_module_aperture_width/2+1-beam_tip,pcb_mount_beam_width,10)
-body-=aperture
 rear_ports=[(shell_rj45_x,shell_rj45_z,shell_rj45_width,shell_rj45_height),(shell_usb_mid_x,shell_usb_mid_z,shell_usb_mid_width,shell_usb_mid_height),(shell_usb_right_x,shell_usb_right_z,shell_usb_right_width,shell_usb_right_height)]
 rear_window_left=min(x-w/2 for x,z,w,h in rear_ports)
 rear_window_right=max(x+w/2 for x,z,w,h in rear_ports)
@@ -363,45 +379,37 @@ def flush_joint(frame,sheet,thickness,engagement,host,label,size='M2.5'):
  print('FLUSH_JOINT',label,size,joint.screw_length_mm,joint.head_above_surface_mm,joint.seat_opening_diameter_mm)
  return joint,seat,hardware
 m2_flush_joint=flush_joint
-front_module_receiver_width=param('front_module_receiver_width',7.2)
-for xx in [-front_module_screw_x,front_module_screw_x]:
- for yy in [front_module_y-front_module_screw_y_offset,front_module_y+front_module_screw_y_offset]:
-  body+=Pos(xx,yy,case_top_center-shell_wall/2)*Box(front_module_receiver_width,front_module_receiver_width,shell_wall)
-front_module_seats=[]
-front_module=Pos(0,front_module_y,case_top_center)*extrude(RectangleRounded(front_module_width,front_module_depth,1.8),amount=front_module_blank_thickness)
-front_module_screws=[]
-for xx in [-front_module_screw_x,front_module_screw_x]:
- for yy in [front_module_y-front_module_screw_y_offset,front_module_y+front_module_screw_y_offset]:
-  joint,seat,hardware=m2_flush_joint(Location((xx,yy,case_top_center+front_module_blank_thickness)),front_module,front_module_blank_thickness,front_module_screw_engagement,body,'front-module',size='M3')
-  if len(joint.bosses.solids())>0:
-   body=body+joint.bosses
-  body=body-joint.engage_cuts
-  assert joint.screw_length_mm==6.0
-  front_module_seats.append(seat)
-  front_module_screws.append(hardware)
+left_tip_cap=param('internal_touch_left_cap',0.9)
 pcb_mount_screws=[]
 for sx in [-1,1]:
  xx=sx*pcb_mount_x
  through_probe=Pos(xx,pcb_mount_y,pcb_mount_bottom_z+PCB_FINISHED_T/2)*Box(pcb_mount_beam_width,pcb_mount_beam_width,PCB_FINISHED_T)
  frame=Location((xx,pcb_mount_y,pcb_mount_bottom_z),(180,0,0))
- try:
-  joint=make_screw_joint_v1(size='M2',at=frame,through=[(through_probe,PCB_FINISHED_T)],seat='surface',engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='blind',label='upper-shell-pcb-direct')
- except ScrewJointNotApplicableV1 as exc:
-  print('PCB_DIRECT_FREE_STANDARD_LENGTH',str(exc))
-  PCB_RECEIVER_GAUGE_T=2.0
-  gauge_frame=frame*Pos(0,0,PCB_RECEIVER_GAUGE_T-PCB_FINISHED_T)
-  gauge=Pos(xx,pcb_mount_y,mount_top-PCB_RECEIVER_GAUGE_T/2)*Box(pcb_mount_beam_width,pcb_mount_beam_width,PCB_RECEIVER_GAUGE_T)
-  joint=make_screw_joint_v1(size='M2',at=gauge_frame,through=[(gauge,PCB_RECEIVER_GAUGE_T)],seat='surface',engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='blind',label='pcb-receiver-gauge-only')
-  PCB_DIRECT_SCREW_LENGTH=3.0
-  actual=SocketHeadCapScrew('M2-0.4',length=PCB_DIRECT_SCREW_LENGTH,fastener_type='iso4762')
-  dk,k=actual.head_diameter,actual.head_height
-  head=actual & Pos(0,0,k/2)*Box(2*dk,2*dk,k)
-  shaft=joint.hardware.moved(gauge_frame.inverse()) & Pos(0,0,-PCB_DIRECT_SCREW_LENGTH/2)*Box(dk,dk,PCB_DIRECT_SCREW_LENGTH)
-  hardware=frame*(head+shaft)
-  length=PCB_DIRECT_SCREW_LENGTH
- else:
+ if sx>0:
+  tab_depth=3.0-PCB_FINISHED_T
+  tab=Pos(xx,pcb_mount_y,mount_top+tab_depth/2)*Box(pcb_mount_beam_width,pcb_mount_beam_width,tab_depth)
+  joint=make_screw_joint_v1(size='M2',at=frame,through=[(through_probe,PCB_FINISHED_T)],seat='surface',engage_depth=1.4,into=tab,head='socket_cap',material='PLA',boss='none',termination='through',lengths=(3.0,),label='flush-touch-right-pcb-mount')
   hardware=joint.hardware
   length=joint.screw_length_mm
+ else:
+  try:
+   joint=make_screw_joint_v1(size='M2',at=frame,through=[(through_probe,PCB_FINISHED_T)],seat='surface',engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='blind',label='upper-shell-pcb-direct')
+  except ScrewJointNotApplicableV1 as exc:
+   print('PCB_DIRECT_FREE_STANDARD_LENGTH',str(exc))
+   PCB_RECEIVER_GAUGE_T=2.0
+   gauge_frame=frame*Pos(0,0,PCB_RECEIVER_GAUGE_T-PCB_FINISHED_T)
+   gauge=Pos(xx,pcb_mount_y,mount_top-PCB_RECEIVER_GAUGE_T/2)*Box(pcb_mount_beam_width,pcb_mount_beam_width,PCB_RECEIVER_GAUGE_T)
+   joint=make_screw_joint_v1(size='M2',at=gauge_frame,through=[(gauge,PCB_RECEIVER_GAUGE_T)],seat='surface',engage_depth=pcb_mount_engagement,into=body,head='socket_cap',material='PLA',boss='none',termination='blind',label='pcb-receiver-gauge-only')
+   PCB_DIRECT_SCREW_LENGTH=3.0
+   actual=SocketHeadCapScrew('M2-0.4',length=PCB_DIRECT_SCREW_LENGTH,fastener_type='iso4762')
+   dk,k=actual.head_diameter,actual.head_height
+   head=actual & Pos(0,0,k/2)*Box(2*dk,2*dk,k)
+   shaft=joint.hardware.moved(gauge_frame.inverse()) & Pos(0,0,-PCB_DIRECT_SCREW_LENGTH/2)*Box(dk,dk,PCB_DIRECT_SCREW_LENGTH)
+   hardware=frame*(head+shaft)
+   length=PCB_DIRECT_SCREW_LENGTH
+  else:
+   hardware=joint.hardware
+   length=joint.screw_length_mm
  assert len(joint.bosses.solids())==0
  assert length==3.0, ('Ordered PCB screw must remain M2x3',length)
  body=body-joint.engage_cuts
@@ -555,6 +563,18 @@ assert len(side_panel_connections)==2
 # Keep the same profile across every outer boss and the matching closure.
 body=body & lower_visual_envelope
 body=body-upper_edge_waste
+# Blind internal pocket. The original exterior deck forms the touch dielectric.
+# Access from the open screen bay before the screen and baseboard are fitted.
+cut_z=mount_top+0.15
+front=touch_y-window_d/2
+rear=shell_passage_front+2.0
+window=Pos(0,(front+rear)/2,cut_z)*extrude(RectangleRounded(window_w,rear-front,0.5),amount=case_top_center-face_t-cut_z)
+for sx in (-1,1):
+ beam_top=pcb_mount_bottom_z+3.0+(left_tip_cap if sx<0 else 0.0)
+ beam=Pos(sx*(beam_tip+case_width/2)/2,pcb_mount_y,(cut_z+beam_top)/2)*Box(case_width/2-beam_tip,pcb_mount_beam_width,beam_top-cut_z)
+ window-=beam
+body=body-window
+assert len(body.solids())==1, "window cut"
 print('VISUAL_EDGE_PROFILE',dict(lower_inset=shell_lower_visual_inset,lower_height=shell_lower_visual_height,bottom_bevel=base_visual_bevel,front_top_bevel=shell_front_edge_bevel,min_nominal_lower_wall=shell_wall-shell_lower_visual_inset+shell_lower_inner_shift-shell_edge_radius))
 for label,probe in plug_reserves:
  overlap=body & probe
@@ -564,8 +584,6 @@ for label,probe in plug_reserves:
 assert len(body.solids())==1, ('final body',[round(s.volume,1) for s in body.solids()])
 body.color=Color(0.88,0.86,0.79)
 publish('shell',body,'Upper shell',material='pla',role='part')
-for i,screw in enumerate(front_module_screws):
- publish('front_module_screw_'+str(i+1),screw,'M3 module screw',role='fastener')
 for i,screw in enumerate(pcb_mount_screws):
  publish('pcb_mount_screw_'+str(i+1),screw,'Ordered PCB M2 mount screw',material='stainless_steel',role='fastener')
 for i,screw in enumerate(base_mount_screws):publish('base_mount_screw_'+str(i+1),screw,'Bottom cover screw',material='stainless_steel',role='fastener')

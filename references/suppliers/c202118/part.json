@@ -1,0 +1,88 @@
+{
+  "source": "LCSC",
+  "looked_up_at": "2026-11-23T10:09:29.962Z",
+  "lcsc_code": "C202118",
+  "manufacturer": "HRS(广濑)",
+  "manufacturer_part_number": "FH12-6S-0.5SH(55)",
+  "description": "FFC/FPC Connector 6 Position 0.5mm Pitch Bottom Contact Surface Mount, Right Angle -40°C~+85°C",
+  "category": "FFC/FPC连接器",
+  "package": "SMD,P=0.5mm,Surface Mount,Right Angle",
+  "jlcpcb_part_class": "extended",
+  "parameters": {
+    "Operating Temperature": "-40°C~+85°C",
+    "Locking Feature": "Flip-Top",
+    "Number of Contacts": "6P",
+    "Pitch": "0.5mm",
+    "Contact Plating": "Gold",
+    "Contact Type": "Bottom Contact",
+    "Mounting Type": "Surface Mount, Right Angle",
+    "FFC, FCB Thickness": "0.3mm",
+    "Contact Material": "Phosphor Bronze"
+  },
+  "lcsc_stock": 5953,
+  "price_breaks": [
+    {
+      "quantity": 5,
+      "unitPrice": 2.4616,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 50,
+      "unitPrice": 1.9713,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 150,
+      "unitPrice": 1.7611,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 1.4989,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 2000,
+      "unitPrice": 1.3821,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 4000,
+      "unitPrice": 1.312,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 5,
+      "unitPrice": 0.4057,
+      "currency": "USD"
+    },
+    {
+      "quantity": 50,
+      "unitPrice": 0.3249,
+      "currency": "USD"
+    },
+    {
+      "quantity": 150,
+      "unitPrice": 0.2903,
+      "currency": "USD"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 0.2471,
+      "currency": "USD"
+    },
+    {
+      "quantity": 2000,
+      "unitPrice": 0.2278,
+      "currency": "USD"
+    },
+    {
+      "quantity": 4000,
+      "unitPrice": 0.2163,
+      "currency": "USD"
+    }
+  ],
+  "product_url": "https://item.szlcsc.com/203295.html",
+  "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/6e8da5fecf0f520788a618d6da1919a1.pdf?productCode=C202118",
+  "datasheet_file": "references/suppliers/c202118/c202118-datasheet.pdf"
+}

@@ -1,0 +1,81 @@
+{
+  "source": "LCSC",
+  "looked_up_at": "2026-11-23T17:45:25.127Z",
+  "lcsc_code": "C25489",
+  "manufacturer": "UNI-ROYAL(厚声)",
+  "manufacturer_part_number": "25121WJ047JT4E",
+  "description": "4.7Ω ±5% 1W 2512 Thick Film Resistor",
+  "category": "贴片电阻",
+  "package": "2512",
+  "jlcpcb_part_class": "extended",
+  "parameters": {
+    "Power(Watts)": "1W",
+    "Resistance": "4.7Ω",
+    "Voltage Rating": "200V",
+    "Type": "Thick Film Resistor",
+    "Tolerance": "±5%",
+    "Temperature Coefficient": "±200ppm/°C",
+    "Operating Temperature": "-55°C~+155°C"
+  },
+  "lcsc_stock": 19013,
+  "price_breaks": [
+    {
+      "quantity": 10,
+      "unitPrice": 0.2027,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 100,
+      "unitPrice": 0.1585,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 300,
+      "unitPrice": 0.134,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 1000,
+      "unitPrice": 0.1192,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 4000,
+      "unitPrice": 0.101,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 10,
+      "unitPrice": 0.0335,
+      "currency": "USD"
+    },
+    {
+      "quantity": 100,
+      "unitPrice": 0.0262,
+      "currency": "USD"
+    },
+    {
+      "quantity": 300,
+      "unitPrice": 0.0222,
+      "currency": "USD"
+    },
+    {
+      "quantity": 1000,
+      "unitPrice": 0.0197,
+      "currency": "USD"
+    },
+    {
+      "quantity": 4000,
+      "unitPrice": 0.0167,
+      "currency": "USD"
+    },
+    {
+      "quantity": 8000,
+      "unitPrice": 0.0156,
+      "currency": "USD"
+    }
+  ],
+  "product_url": "https://item.szlcsc.com/26232.html",
+  "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25489",
+  "datasheet_file": "references/suppliers/c25489/c25489-datasheet.pdf"
+}

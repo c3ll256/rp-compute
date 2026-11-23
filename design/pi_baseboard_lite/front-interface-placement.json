@@ -1,0 +1,54 @@
+[
+  {
+    "reference": "J_TP",
+    "lcsc_code": "C202118",
+    "board": "pi_baseboard_lite",
+    "production_rotation_deg": 180,
+    "max_relative_pad_error_mm": 0.00112,
+    "library_origin_shift_mm": [
+      0.00021,
+      0.22504
+    ],
+    "numbered_pads_checked": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  {
+    "reference": "J_SPK",
+    "lcsc_code": "C160402",
+    "board": "pi_baseboard_lite",
+    "production_rotation_deg": 0,
+    "max_relative_pad_error_mm": 0.0,
+    "library_origin_shift_mm": [
+      0.0,
+      0.06249
+    ],
+    "numbered_pads_checked": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "reference": "U_MIC",
+    "lcsc_code": "C5656610",
+    "board": "pi_baseboard_lite",
+    "production_rotation_deg": 270,
+    "max_relative_pad_error_mm": 0.0001,
+    "library_origin_shift_mm": [
+      3e-05,
+      0.07772
+    ],
+    "numbered_pads_checked": [
+      "1",
+      "2",
+      "4",
+      "5",
+      "6"
+    ]
+  }
+]

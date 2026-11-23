@@ -1,0 +1,6 @@
+s=part('shell')
+depth=param('speaker_body_depth',2.5)
+gasket=param('speaker_gasket',0.5)
+sh=Pos(s.speaker_x,s.inner_front+gasket+depth/2,s.audio_z)*Box(s.speaker_face_w,depth,s.speaker_face_h)
+sh.color=Color(0.22,0.22,0.22)
+publish('speaker_reference',sh,'HDK-151108ZA-6 nominal body',role='reference')

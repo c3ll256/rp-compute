@@ -1,0 +1,88 @@
+{
+  "source": "LCSC",
+  "looked_up_at": "2026-11-23T09:51:55.774Z",
+  "lcsc_code": "C910544",
+  "manufacturer": "ADI(亚德诺)/MAXIM(美信)",
+  "manufacturer_part_number": "MAX98357AETE+T",
+  "description": "微型、低成本、PCM 类 D 级放大器具有 AB 级性能",
+  "category": "音频功率放大器",
+  "package": "TQFN-16-EP(3x3)",
+  "jlcpcb_part_class": "extended",
+  "parameters": {
+    "Quiescent Current": "2.4mA",
+    "Voltage - Supply": "2.5V~5.5V",
+    "Features": "Filterless architecture;Automatic mute/no-noise switch;Enable/shutdown function",
+    "Total Harmonic Distortion + Noise (THD+N)": "0.06%",
+    "Operating Temperature": "-40°C~+85°C",
+    "Efficiency": "92%",
+    "Output Power": "3.2Wx1@4Ω",
+    "Class": "Class D",
+    "Power Supply Rejection Ratio (PSRR)": "77dB"
+  },
+  "lcsc_stock": 23834,
+  "price_breaks": [
+    {
+      "quantity": 1,
+      "unitPrice": 7.61,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 10,
+      "unitPrice": 6.61,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 30,
+      "unitPrice": 5.66,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 100,
+      "unitPrice": 4.95,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 4.66,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 1000,
+      "unitPrice": 4.52,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 1,
+      "unitPrice": 1.2575,
+      "currency": "USD"
+    },
+    {
+      "quantity": 10,
+      "unitPrice": 1.0922,
+      "currency": "USD"
+    },
+    {
+      "quantity": 30,
+      "unitPrice": 0.9353,
+      "currency": "USD"
+    },
+    {
+      "quantity": 100,
+      "unitPrice": 0.8179,
+      "currency": "USD"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 0.77,
+      "currency": "USD"
+    },
+    {
+      "quantity": 1000,
+      "unitPrice": 0.7469,
+      "currency": "USD"
+    }
+  ],
+  "product_url": "https://item.szlcsc.com/978950.html",
+  "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544",
+  "datasheet_file": "references/suppliers/c910544/c910544-datasheet.pdf"
+}

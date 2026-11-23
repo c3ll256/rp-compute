@@ -1,4 +1,3 @@
-# cell: pi_carrier
 layout=part('shell')
 # Pi datums from the existing imported Pi4B placement and official hole pattern.
 PI_HOLE_X=tuple(x+layout.pi_offset_x for x in (-13.5,35.5))
@@ -74,4 +73,3 @@ print('PI_CARRIER_UNDERSIDE_OPENING',dict(x_min=right-w/2,x_max=right+w/2,y_min=
 print('PI_CARRIER',dict(board_z=PI_BOARD_BOTTOM_Z,frame_bottom=z,frame_top=z+t,pad_thickness=PI_BOARD_BOTTOM_Z-z,metal_engagement=engagement))
 
 # The generic socket STEP intentionally models only3mm-deep visual apertures.
-fit('pi4b','pi_baseboard_lite',kind='nominal_contact',budget_mm=3.0,reason='Male GPIO shanks enter the unmodeled internal contact space beyond the nominal socket3mm visual cavity; pins aligned on the2.54mm grid, housing clearance checked separately. Actual generic contact geometry requires prototype mating.')

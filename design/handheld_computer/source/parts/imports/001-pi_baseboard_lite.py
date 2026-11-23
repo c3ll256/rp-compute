@@ -1,1 +1,0 @@
-publish("pi_baseboard_lite", asset("design/handheld_computer/source/assets/9646c96b6ef8b9988d3382da1e969c014f99d7fc087cdfb053901519d2101f27.step"), "Ordered lite PCB")

@@ -12,7 +12,7 @@
           "target": "shell",
           "order": 0,
           "path": "design/handheld_computer/source/parts/shell/000-shell.py",
-          "sha256": "14f5a0e23de4af06521fa59ae488e56f548734806b5fb527ca3f936987242c7d"
+          "sha256": "e467ac77455503466b8211c314e9a1fe7dc6b6ae88213ce998c019e21a6de02f"
         }
       ],
       "dependencies": []
@@ -61,13 +61,6 @@
           "order": 0,
           "path": "design/handheld_computer/source/parts/imports/000-pi4b.py",
           "sha256": "39b48b59fd876545050f7276efa635d3505a3091ad321ebab75170d415c6ec40"
-        },
-        {
-          "id": "pi_baseboard_lite",
-          "target": "imports",
-          "order": 1,
-          "path": "design/handheld_computer/source/parts/imports/001-pi_baseboard_lite.py",
-          "sha256": "8bf609cd0aab706e0249bbb5744408e5bf17d6a1067e90176b764b87c89225ee"
         }
       ],
       "dependencies": []
@@ -98,22 +91,6 @@
           "order": 0,
           "path": "design/handheld_computer/source/parts/thermal_stack/000-thermal_stack.py",
           "sha256": "3179f41768d0c5cd3a1c9476130eca1f00578229edf3234a66d0d7c92bbfd2c4"
-        }
-      ],
-      "dependencies": [
-        "shell"
-      ]
-    },
-    {
-      "id": "front_module_cover",
-      "label": "front_module_cover",
-      "cells": [
-        {
-          "id": "front_module_cover",
-          "target": "front_module_cover",
-          "order": 0,
-          "path": "design/handheld_computer/source/parts/front_module_cover/000-front_module_cover.py",
-          "sha256": "d823bf63656e5a79a0c118734b6bf2ee443f1aa1497dedbcd4dd35dea1aa31a8"
         }
       ],
       "dependencies": [
@@ -161,7 +138,7 @@
           "target": "pi_carrier",
           "order": 0,
           "path": "design/handheld_computer/source/parts/pi_carrier/000-pi_carrier.py",
-          "sha256": "5dbafebbf87447813baba872b01396cce754f17a761805b7e232a1a77c01d812"
+          "sha256": "49e5e2ea2e5c94102d728e7e4c2dd0f4b11e96700732d7b91565f9d1ef7c1310"
         }
       ],
       "dependencies": [
@@ -198,6 +175,85 @@
       ],
       "dependencies": [
         "side_port_bezel"
+      ]
+    },
+    {
+      "id": "speaker_reference",
+      "label": "speaker_reference",
+      "cells": [
+        {
+          "id": "speaker_reference",
+          "target": "speaker_reference",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/speaker_reference/000-speaker_reference.py",
+          "sha256": "18a89f646ccf035d074c7cd5a4261f1374e12e3fbe48fe2a2280b58932a8bf6c"
+        }
+      ],
+      "dependencies": [
+        "shell"
+      ]
+    },
+    {
+      "id": "mic_reference",
+      "label": "mic_reference",
+      "cells": [
+        {
+          "id": "mic_reference",
+          "target": "mic_reference",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/mic_reference/000-mic_reference.py",
+          "sha256": "c27b9fa90199a82b600047b7607d405dc49a6335f6484367e20c5dbb5d8190ec"
+        }
+      ],
+      "dependencies": [
+        "shell"
+      ]
+    },
+    {
+      "id": "speaker_chamber",
+      "label": "speaker_chamber",
+      "cells": [
+        {
+          "id": "speaker_chamber",
+          "target": "speaker_chamber",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/speaker_chamber/000-speaker_chamber.py",
+          "sha256": "6bd253aa4b7af43afd984247b79317b810a78d489c09fcfb597a601878c86345"
+        }
+      ],
+      "dependencies": [
+        "shell",
+        "speaker_reference"
+      ]
+    },
+    {
+      "id": "ordered_board_dnp",
+      "label": "ordered_board_dnp",
+      "cells": [
+        {
+          "id": "ordered_board_dnp",
+          "target": "ordered_board_dnp",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/ordered_board_dnp/000-ordered_board_dnp.py",
+          "sha256": "bce178a2e34bdc329372e86432b71c85117426a4f8bc5e04aa7a4461d46c27ca"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "tps43_module",
+      "label": "tps43_module",
+      "cells": [
+        {
+          "id": "tps43_module",
+          "target": "tps43_module",
+          "order": 0,
+          "path": "design/handheld_computer/source/parts/tps43_module/000-tps43_module.py",
+          "sha256": "9cd130b1f74d838e63670794df68bec4a67f28e55bf5930f16894daa6e3359e9"
+        }
+      ],
+      "dependencies": [
+        "shell"
       ]
     }
   ],
@@ -294,114 +350,6 @@
       "role": "fastener",
       "kind": "generated",
       "shapeHash": "77ac79862dfbc422726d730cafe1207ca9c113d188acb75c05abf34536270699",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "front_module_screw_1",
-      "target": "shell",
-      "label": "M3 module screw",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "33208e952ac17e16e9e6e90267759adc7fc2dc8f94ad2054a25fb26edffa45aa",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "front_module_screw_2",
-      "target": "shell",
-      "label": "M3 module screw",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "616021015d94997429699cc7bbf7634845baf30481e59934007f1c2834bec0fb",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "front_module_screw_3",
-      "target": "shell",
-      "label": "M3 module screw",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "7eec1a342f46894bfd078182df610d0cb3c2a6829c1f2f22305bbabf129b0f1e",
-      "transform": {
-        "positionMm": [
-          0,
-          0,
-          0
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "front_module_screw_4",
-      "target": "shell",
-      "label": "M3 module screw",
-      "role": "fastener",
-      "kind": "generated",
-      "shapeHash": "dc59b32f4d75d22f194bd23cf33178c6518b65f9aaa8e19d65565bd99fa94cc6",
       "transform": {
         "positionMm": [
           0,
@@ -597,7 +545,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "e73711509d4caffe6b04a663d561a7d6bb06ec2b6a588a94b6cb77d90891b76b",
+      "shapeHash": "9894739da9993b1b3269649acbd198532bd6d08486ce056da0354cc718725fec",
       "transform": {
         "positionMm": [
           0,
@@ -653,7 +601,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "cf837b7c25d18dbe1d976d2f81845ca0430b2332fb0bc8ac78f7af03e2d49b43",
+      "shapeHash": "3b2a6ac3ebf2c00fbf9d49ef43b45c3d6d336067d8920b6abcdca635fbd52749",
       "transform": {
         "positionMm": [
           0,
@@ -680,7 +628,7 @@
       "label": "Rear brand paint",
       "role": "reference",
       "kind": "generated",
-      "shapeHash": "d359021b3e86ead80870befcecb3a82ca9168c7a5ec93979204346dc7e09f2d5",
+      "shapeHash": "c4b9ffce82fe70df517ae9ed70b4b4d4903b825aeaf3fdee399738a8764e7d64",
       "transform": {
         "positionMm": [
           0,
@@ -743,32 +691,6 @@
         "rotationDeg": [
           90,
           90,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
-      "id": "pi_baseboard_lite",
-      "target": "imports",
-      "label": "Ordered lite PCB",
-      "kind": "imported",
-      "shapeHash": "4601500294ea7a25c4aec09661246a29b07123f0ae82685c0bddf8bebf33d068",
-      "transform": {
-        "positionMm": [
-          -100,
-          81,
-          21
-        ],
-        "rotationDeg": [
-          0,
-          0,
           0
         ],
         "rotationOrder": "XYZ",
@@ -921,34 +843,6 @@
       "datums": []
     },
     {
-      "id": "front_module_blank",
-      "target": "front_module_cover",
-      "label": "Independent expansion cover",
-      "material": "pla",
-      "role": "part",
-      "kind": "generated",
-      "shapeHash": "b897899e14a54e02d80a96eb2de3f5b3cf6f8096dbe07fd4edd744adf48e6dd9",
-      "transform": {
-        "positionMm": [
-          0,
-          -34,
-          28.8
-        ],
-        "rotationDeg": [
-          0,
-          0,
-          0
-        ],
-        "rotationOrder": "XYZ",
-        "scale": [
-          1,
-          1,
-          1
-        ]
-      },
-      "datums": []
-    },
-    {
       "id": "display_placeholder",
       "target": "display_placeholder",
       "label": "LCD placeholder",
@@ -1067,7 +961,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "dd90373f0f9a265e91e7e70c0332619ac2c925bec04017e760efb2598aab7bde",
+      "shapeHash": "70c5fd1741fb985a7d85a5f9699c885b856e2257a1fc34444a402fc2c07b94c7",
       "transform": {
         "positionMm": [
           0,
@@ -1291,7 +1185,7 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "b61ed889197716b65efd51d2bb37b77412dcac3bef03cd10f05754a1d75ddc19",
+      "shapeHash": "be358586ffc43fc22712c62d3e6572e0b16a868288262da85b0b48f7374703b3",
       "transform": {
         "positionMm": [
           0,
@@ -1375,7 +1269,142 @@
       "material": "pla",
       "role": "part",
       "kind": "generated",
-      "shapeHash": "c938ada92be1077aa839d0ce20b1d59080a24a005135580fed1d9bd5a05257ca",
+      "shapeHash": "904d78aec73fd79e0a6f52205ac710372ddfb8f1715c371442ece6438cd4f8ff",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "speaker_reference",
+      "target": "speaker_reference",
+      "label": "HDK-151108ZA-6 nominal body",
+      "role": "reference",
+      "kind": "generated",
+      "shapeHash": "edefc0dd18d3515af2a8b9f9f94bf475cfa5f25a7f997e5e8612f2065245a448",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "mic_reference",
+      "target": "mic_reference",
+      "label": "Sealed microphone elbow, front wall to PCB underside",
+      "kind": "generated",
+      "shapeHash": "74eea38c15643e8cc62b8ad4dcf8051d989b82e1ea0e9a1b1d1d5bf5ed15e463",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "speaker_chamber",
+      "target": "speaker_chamber",
+      "label": "Speaker rear chamber, seal lead entry after wiring",
+      "material": "pla",
+      "role": "part",
+      "kind": "generated",
+      "shapeHash": "31efdc53b8bb8ec0c59ef4ede11066bce294c10c714c9ebb50bca8ce364ee276",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pi_baseboard_lite",
+      "target": "ordered_board_dnp",
+      "label": "Single populated display, touch and audio board",
+      "role": "reference",
+      "kind": "generated",
+      "shapeHash": "c02a3c255b6300db187fde830b29de178999c5f515f6dde10de0e586fbac4e92",
+      "transform": {
+        "positionMm": [
+          -100,
+          81,
+          21
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "tps43",
+      "target": "tps43_module",
+      "label": "TPS43-201A-S oriented fit envelope (incl. PSA)",
+      "role": "reference",
+      "kind": "generated",
+      "shapeHash": "7b964be7051c32b0acccc964977c0de2f5a3cce624bbe573a831674b5d58df2f",
       "transform": {
         "positionMm": [
           0,
@@ -1421,9 +1450,27 @@
       "provenance": {
         "sourcePath": "manufacturing/pi_baseboard_lite/releases/652af371684be9547491468057c5040d54a8621926537a530785095f68458473/package/assembly.step"
       }
+    },
+    {
+      "id": "integrated_pcb_asset",
+      "kind": "step",
+      "path": "design/handheld_computer/source/assets/f4d1106e00ef9053f18fdde994fa0399b11c6b7e574b0a45fb63718ecb94f9ea.step",
+      "sha256": "f4d1106e00ef9053f18fdde994fa0399b11c6b7e574b0a45fb63718ecb94f9ea",
+      "label": "Populated single-PCB release",
+      "provenance": {
+        "sourcePath": "manufacturing/pi_baseboard_lite/releases/6d55045e23f2a47891f3c201e65706b24b49aaa16ed987ab99bb53cbfe7cf693/package/assembly.step",
+        "declaredSha256": "f4d1106e00ef9053f18fdde994fa0399b11c6b7e574b0a45fb63718ecb94f9ea"
+      }
     }
   ],
   "fits": [
+    {
+      "kind": "nominal_contact",
+      "budget_mm": 0.15,
+      "reason": "The soft lip of the acoustic seal compresses against underside copper around the board sound hole.",
+      "a": "mic_reference",
+      "b": "pi_baseboard_lite"
+    },
     {
       "kind": "nominal_contact",
       "budget_mm": 3,
@@ -1432,7 +1479,7 @@
       "b": "pi_baseboard_lite"
     }
   ],
-  "updatedAt": "2026-11-17T05:01:17.288Z",
+  "updatedAt": "2026-11-23T21:16:27.439Z",
   "parameters": {
     "shell": {
       "case_width": 76,
@@ -1624,7 +1671,41 @@
       "shell_passage_front": -3.5,
       "shell_passage_rear": 48.5,
       "side_panel_print_bridge_air": 0.3,
-      "side_panel_base_receiver_radius": 3
+      "side_panel_base_receiver_radius": 3,
+      "audio_z": 15,
+      "speaker_x": -16,
+      "mic_x": 12,
+      "mic_port_d": 1.6,
+      "grille_pitch": 2.6,
+      "grille_width": 1.4,
+      "grille_height": 7,
+      "speaker_face_w": 15,
+      "speaker_face_h": 11,
+      "audio_rim_wall": 1.4,
+      "audio_rim_depth": 2,
+      "audio_seat_side_clearance": 0.25,
+      "mic_carrier_w": 8,
+      "mic_carrier_h": 7,
+      "touch_center_y": -30.9,
+      "touch_deck_rise": 1.7,
+      "tps_face_width": 47.3,
+      "tps_face_depth": 44.3,
+      "tps_face_corner": 3,
+      "touch_face_thickness": 0.8,
+      "touch_rim_tape": 0.1,
+      "touch_face_clearance": 0.2,
+      "tps_pcb_width": 43.3,
+      "tps_pcb_depth": 40.3,
+      "tps_pcb_size_tolerance": 0.2,
+      "tps_side_clearance_at_max": 0.4,
+      "touch_side_blend": 9,
+      "touch_end_blend": 1.65,
+      "touch_lip_width": 1.1,
+      "touch_beam_tip_skin": 1.2,
+      "flush_overlay_gauge": 0.3,
+      "flush_left_receiver_cap": 1.2,
+      "integral_touch_wall": 0.48,
+      "internal_touch_left_cap": 0.9
     },
     "base": {
       "base_depth": 115,
@@ -1794,17 +1875,6 @@
       "passive_heatsink_poe_relief_x": -7.36,
       "passive_heatsink_poe_relief_y": 31
     },
-    "front_module_cover": {
-      "front_module_width": 70,
-      "front_module_depth": 37,
-      "front_module_blank_corner": 6,
-      "front_module_blank_edge_chamfer": 1,
-      "front_module_opening_width": 40,
-      "front_module_opening_depth": 20,
-      "front_module_opening_radius": 2,
-      "front_module_opening_x": 0,
-      "front_module_opening_y": 0
-    },
     "display_placeholder": {
       "display_placeholder_width": 62.8,
       "display_placeholder_height": 42.82,
@@ -1841,6 +1911,36 @@
     },
     "side_port_mask": {
       "mask_print_layer": 0.2
+    },
+    "speaker_reference": {
+      "speaker_body_depth": 2.5,
+      "speaker_gasket": 0.5
+    },
+    "mic_reference": {
+      "mic_board_t": 0.8,
+      "mic_gasket": 0.5,
+      "duct_outer_d": 4.5,
+      "duct_bore_d": 1.6,
+      "front_sealing_flange_t": 1.1,
+      "flange_side_clearance": 0.2,
+      "mic_axis_world_y": -37,
+      "pcb_underside_z": 21,
+      "outlet_offset_x": -1.5
+    },
+    "speaker_chamber": {
+      "speaker_cup_wall": 1.3,
+      "speaker_bond_width": 0.9,
+      "speaker_cavity_cc": 1,
+      "speaker_lead_hole": 1.6
+    },
+    "ordered_board_dnp": {
+      "board_reference_width": 43.5
+    },
+    "tps43_module": {
+      "tps43_nominal_stack": 2.03,
+      "tps43_fractional_stack_tol": 0.1,
+      "laminate_and_psa_limit": 1.25,
+      "unpopulated_edge_allowance": 9
     }
   }
 }

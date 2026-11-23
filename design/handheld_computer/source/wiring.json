@@ -9,24 +9,136 @@
       "ref": "BASE",
       "name": "pi_baseboard_lite2x20 GPIO dock; selected generic8mm-body through-hole socket",
       "quantity": 1
+    },
+    {
+      "ref": "TP",
+      "name": "Azoteq TPS43-201A-S",
+      "quantity": 1
+    },
+    {
+      "ref": "AMP",
+      "name": "MAX98357AETE+T on baseboard U_AMP",
+      "quantity": 1
+    },
+    {
+      "ref": "MIC",
+      "name": "ICS-43434 on main baseboard U_MIC",
+      "quantity": 1
+    },
+    {
+      "ref": "SPK",
+      "name": "HDK-151108ZA-6",
+      "quantity": 1
     }
   ],
   "connections": [
     {
       "from": {
         "part": "PI",
-        "pin": "2"
+        "pin": "3"
       },
       "to": {
         "part": "BASE",
-        "pin": "J_PI P2 (pad2)"
+        "pin": "J_TP.1"
+      },
+      "bus": "i2c",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf"
+      ],
+      "notes": "J_PI.3 → J_TP.1，SDA。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "J_TP.1"
+      },
+      "to": {
+        "part": "TP",
+        "pin": "J1.6 SDA"
+      },
+      "bus": "i2c",
+      "via": "other",
+      "evidence": [
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf",
+        "https://datasheet.lcsc.com/datasheet/pdf/6e8da5fecf0f520788a618d6da1919a1.pdf?productCode=C202118",
+        "https://datasheet.lcsc.com/datasheet/pdf/4473fd017b5a0e00e673a72de9071a76.pdf?productCode=C53155383",
+        "https://github.com/mjdigit/tps43-ek/blob/main/assemble/tps43-ek_Assemble.kicad_pcb"
+      ],
+      "notes": "同面 6 芯排线。"
+    },
+    {
+      "from": {
+        "part": "PI",
+        "pin": "5"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "J_TP.2"
+      },
+      "bus": "i2c",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf"
+      ],
+      "notes": "J_PI.5 → J_TP.2，SCL。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "J_TP.2"
+      },
+      "to": {
+        "part": "TP",
+        "pin": "J1.5 SCL"
+      },
+      "bus": "i2c",
+      "via": "other",
+      "evidence": [
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf",
+        "https://datasheet.lcsc.com/datasheet/pdf/6e8da5fecf0f520788a618d6da1919a1.pdf?productCode=C202118",
+        "https://datasheet.lcsc.com/datasheet/pdf/4473fd017b5a0e00e673a72de9071a76.pdf?productCode=C53155383",
+        "https://github.com/mjdigit/tps43-ek/blob/main/assemble/tps43-ek_Assemble.kicad_pcb"
+      ],
+      "notes": "同面 6 芯排线。"
+    },
+    {
+      "from": {
+        "part": "PI",
+        "pin": "1"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "J_TP.3"
       },
       "bus": "power",
       "via": "other",
       "evidence": [
-        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png"
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf"
       ],
-      "notes": "Existing Pi dock5V input; Pi supplies display/module baseboard. No fan load or fan harness. Logical Pi power/GND assignment retained. Generic KiCad replacement now maps Pi physicalPn directly to padn. All40 physical pin XY positions and logical functions were compared to the prior PCB and preserved."
+      "notes": "J_PI.1 → J_TP.3，VDDHI。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "J_TP.3"
+      },
+      "to": {
+        "part": "TP",
+        "pin": "J1.4 VDDHI"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf",
+        "https://datasheet.lcsc.com/datasheet/pdf/6e8da5fecf0f520788a618d6da1919a1.pdf?productCode=C202118",
+        "https://datasheet.lcsc.com/datasheet/pdf/4473fd017b5a0e00e673a72de9071a76.pdf?productCode=C53155383",
+        "https://github.com/mjdigit/tps43-ek/blob/main/assemble/tps43-ek_Assemble.kicad_pcb"
+      ],
+      "notes": "同面 6 芯排线。"
     },
     {
       "from": {
@@ -35,14 +147,548 @@
       },
       "to": {
         "part": "BASE",
-        "pin": "J_PI P6 (pad6)"
+        "pin": "J_TP.4"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf"
+      ],
+      "notes": "J_PI.6 → J_TP.4，GND。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "J_TP.4"
+      },
+      "to": {
+        "part": "TP",
+        "pin": "J1.3 GND"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf",
+        "https://datasheet.lcsc.com/datasheet/pdf/6e8da5fecf0f520788a618d6da1919a1.pdf?productCode=C202118",
+        "https://datasheet.lcsc.com/datasheet/pdf/4473fd017b5a0e00e673a72de9071a76.pdf?productCode=C53155383",
+        "https://github.com/mjdigit/tps43-ek/blob/main/assemble/tps43-ek_Assemble.kicad_pcb"
+      ],
+      "notes": "同面 6 芯排线。"
+    },
+    {
+      "from": {
+        "part": "PI",
+        "pin": "13"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "J_TP.5"
+      },
+      "bus": "gpio",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf"
+      ],
+      "notes": "J_PI.13 → J_TP.5，NRST。GPIO27 开漏复位，10 kΩ 上拉至 3.3 V。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "J_TP.5"
+      },
+      "to": {
+        "part": "TP",
+        "pin": "J1.2 NRST"
+      },
+      "bus": "gpio",
+      "via": "other",
+      "evidence": [
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf",
+        "https://datasheet.lcsc.com/datasheet/pdf/6e8da5fecf0f520788a618d6da1919a1.pdf?productCode=C202118",
+        "https://datasheet.lcsc.com/datasheet/pdf/4473fd017b5a0e00e673a72de9071a76.pdf?productCode=C53155383",
+        "https://github.com/mjdigit/tps43-ek/blob/main/assemble/tps43-ek_Assemble.kicad_pcb"
+      ],
+      "notes": "同面 6 芯排线。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "J_TP.6"
+      },
+      "to": {
+        "part": "PI",
+        "pin": "11"
+      },
+      "bus": "gpio",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf"
+      ],
+      "notes": "J_PI.11 → J_TP.6，RDY。GPIO17 输入，10 kΩ 上拉至 3.3 V。"
+    },
+    {
+      "from": {
+        "part": "TP",
+        "pin": "J1.1 RDY"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "J_TP.6"
+      },
+      "bus": "gpio",
+      "via": "other",
+      "evidence": [
+        "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf",
+        "https://datasheet.lcsc.com/datasheet/pdf/6e8da5fecf0f520788a618d6da1919a1.pdf?productCode=C202118",
+        "https://datasheet.lcsc.com/datasheet/pdf/4473fd017b5a0e00e673a72de9071a76.pdf?productCode=C53155383",
+        "https://github.com/mjdigit/tps43-ek/blob/main/assemble/tps43-ek_Assemble.kicad_pcb"
+      ],
+      "notes": "同面 6 芯排线。"
+    },
+    {
+      "from": {
+        "part": "PI",
+        "pin": "2"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "V5_PI_IN"
       },
       "bus": "power",
       "via": "other",
       "evidence": [
         "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png"
       ],
-      "notes": "Existing dock GND. Mapping matches released baseboard J_PI pin labels. Logical Pi power/GND assignment retained. Generic KiCad replacement now maps Pi physicalPn directly to padn. All40 physical pin XY positions and logical functions were compared to the prior PCB and preserved."
+      "notes": "经 J_PI.2 取 5 V。"
+    },
+    {
+      "from": {
+        "part": "PI",
+        "pin": "4"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "V5_PI_IN"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png"
+      ],
+      "notes": "经 J_PI.4 取 5 V。"
+    },
+    {
+      "from": {
+        "part": "PI",
+        "pin": "12"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "BCLK"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://datasheets.raspberrypi.com/bcm2711/bcm2711-peripherals.pdf",
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "I²S。经 J_PI.12；Pi 为 I²S 主机。"
+    },
+    {
+      "from": {
+        "part": "PI",
+        "pin": "35"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "WS"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://datasheets.raspberrypi.com/bcm2711/bcm2711-peripherals.pdf",
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "I²S。经 J_PI.35；Pi 为 I²S 主机。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "MIC_SD"
+      },
+      "to": {
+        "part": "PI",
+        "pin": "38"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://datasheets.raspberrypi.com/bcm2711/bcm2711-peripherals.pdf",
+        "https://datasheet.lcsc.com/datasheet/pdf/71ad5077f354aad3d252d8bdaf2401d5.pdf?productCode=C5656610"
+      ],
+      "notes": "I²S。经 J_PI.38 至 Pi 数据输入。"
+    },
+    {
+      "from": {
+        "part": "PI",
+        "pin": "40"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "AMP_DIN"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://raw.githubusercontent.com/raspberrypi/documentation/master/documentation/asciidoc/computers/raspberry-pi/images/GPIO-Pinout-Diagram-2.png",
+        "https://datasheets.raspberrypi.com/bcm2711/bcm2711-peripherals.pdf",
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "I²S。经 J_PI.40；Pi 为 I²S 主机。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "BCLK"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "16"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "I²S。基板铜线；SD_MODE 置高，选择左声道。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "WS"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "14"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "I²S。基板铜线；SD_MODE 置高，选择左声道。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "AMP_DIN"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "1"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "I²S。基板铜线；SD_MODE 置高，选择左声道。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "V5_PI_IN"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "7"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "基板铜线；SD_MODE 置高，选择左声道。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "V5_PI_IN"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "8"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "基板铜线；SD_MODE 置高，选择左声道。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "V5_PI_IN"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "4"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "基板铜线；SD_MODE 置高，选择左声道。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "GND"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "3"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "基板铜线；SD_MODE 置高，选择左声道。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "GND"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "11"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "基板铜线；SD_MODE 置高，选择左声道。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "GND"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "15"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "基板铜线；SD_MODE 置高，选择左声道。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "GND"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "EP"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "基板铜线；SD_MODE 置高，选择左声道。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "V5_PI_IN"
+      },
+      "to": {
+        "part": "AMP",
+        "pin": "2"
+      },
+      "bus": "power",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "经 R_GAIN 100 kΩ，固定 3 dB。"
+    },
+    {
+      "from": {
+        "part": "AMP",
+        "pin": "9"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "J_SPK.1"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "差分音频。经独立 4.7 Ω / 1 W 串联电阻。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "J_SPK.1"
+      },
+      "to": {
+        "part": "SPK",
+        "pin": "+"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544",
+        "https://datasheet.lcsc.com/datasheet/pdf/536554ff2f1c14207416a46063d46777.pdf?productCode=C50198761"
+      ],
+      "notes": "差分音频。两芯双绞线，浮地桥接输出。"
+    },
+    {
+      "from": {
+        "part": "AMP",
+        "pin": "10"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "J_SPK.2"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544"
+      ],
+      "notes": "差分音频。经独立 4.7 Ω / 1 W 串联电阻。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "J_SPK.2"
+      },
+      "to": {
+        "part": "SPK",
+        "pin": "−"
+      },
+      "bus": "other",
+      "via": "other",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544",
+        "https://datasheet.lcsc.com/datasheet/pdf/536554ff2f1c14207416a46063d46777.pdf?productCode=C50198761"
+      ],
+      "notes": "差分音频。两芯双绞线，浮地桥接输出。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "V3V3_PI"
+      },
+      "to": {
+        "part": "MIC",
+        "pin": "5"
+      },
+      "bus": "power",
+      "via": "solder",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/71ad5077f354aad3d252d8bdaf2401d5.pdf?productCode=C5656610"
+      ],
+      "notes": "主基板铜线。LR 接地选左时隙，电源旁路 C_MIC 100 nF。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "GND"
+      },
+      "to": {
+        "part": "MIC",
+        "pin": "3"
+      },
+      "bus": "power",
+      "via": "solder",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/71ad5077f354aad3d252d8bdaf2401d5.pdf?productCode=C5656610"
+      ],
+      "notes": "主基板铜线。LR 接地选左时隙，电源旁路 C_MIC 100 nF。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "GND"
+      },
+      "to": {
+        "part": "MIC",
+        "pin": "2"
+      },
+      "bus": "power",
+      "via": "solder",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/71ad5077f354aad3d252d8bdaf2401d5.pdf?productCode=C5656610"
+      ],
+      "notes": "主基板铜线。LR 接地选左时隙，电源旁路 C_MIC 100 nF。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "WS"
+      },
+      "to": {
+        "part": "MIC",
+        "pin": "1"
+      },
+      "bus": "other",
+      "via": "solder",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/71ad5077f354aad3d252d8bdaf2401d5.pdf?productCode=C5656610"
+      ],
+      "notes": "主基板铜线。LR 接地选左时隙，电源旁路 C_MIC 100 nF。"
+    },
+    {
+      "from": {
+        "part": "BASE",
+        "pin": "BCLK"
+      },
+      "to": {
+        "part": "MIC",
+        "pin": "4"
+      },
+      "bus": "other",
+      "via": "solder",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/71ad5077f354aad3d252d8bdaf2401d5.pdf?productCode=C5656610"
+      ],
+      "notes": "主基板铜线。LR 接地选左时隙，电源旁路 C_MIC 100 nF。"
+    },
+    {
+      "from": {
+        "part": "MIC",
+        "pin": "6"
+      },
+      "to": {
+        "part": "BASE",
+        "pin": "MIC_SD"
+      },
+      "bus": "other",
+      "via": "solder",
+      "evidence": [
+        "https://datasheet.lcsc.com/datasheet/pdf/71ad5077f354aad3d252d8bdaf2401d5.pdf?productCode=C5656610"
+      ],
+      "notes": "主基板铜线。LR 接地选左时隙，电源旁路 C_MIC 100 nF。"
     }
   ],
   "power": [],

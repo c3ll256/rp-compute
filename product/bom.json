@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "dd98391326b3481f3eacbebc5c17924b8bbf0e200ec21375a151b9398f8f704e",
+  "requirements_digest": "7e65ea2e17667ada4903642f3da4fe6efe6799d152318550640a33cb9a7a654e",
   "items": [
     {
       "id": "compute",
@@ -45,7 +45,7 @@
         "license": "not returned by provider; do not infer the license of the different FreeCAD seed asset",
         "asset_note": "Bundled exact FreeCAD STEP missing at installation; exact-model fallback, not a Pi5/Pico substitution."
       },
-      "part_identity": "9274337c427b1308",
+      "part_identity": "1ee97ce502b5d33b",
       "supply_model": "customer_supplied_reference_board",
       "included_in_product_kit": false,
       "include_in_procurement_totals": false,
@@ -83,7 +83,7 @@
         "population": "not_mounted",
         "method": "not_assembled"
       },
-      "part_identity": "4612e73150b55cf7",
+      "part_identity": "3f2bc5eddcf211cc",
       "datasheet_url": "https://media.digikey.com/pdf/Data%20Sheets/Sharp%20PDFs/LS027B7DH01.pdf",
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
@@ -161,7 +161,7 @@
       "observed_date": "2026-10-02",
       "required_user_evidence": [],
       "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
-      "part_identity": "9c5a25df559dd9ae",
+      "part_identity": "d36ea902ecb37a1b",
       "catalog_evidence": {
         "url": "https://easyeda.com/api/products/C5373447/components",
         "path": "product/references/jlc-assembly/C5373447-easyeda.json",
@@ -171,14 +171,13 @@
         "jlc_on_sale": 1,
         "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
         "live_stock_verified": false
-      },
-      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
+      }
     },
     {
       "id": "ldo_3v3",
       "role": "display_logic_and_module_3v3_regulators",
       "name": "TLV75533PDBVR",
-      "quantity": 2,
+      "quantity": 1,
       "supplier": "LCSC",
       "manufacturer": "Texas Instruments",
       "part_number": "TLV75533PDBVR",
@@ -203,12 +202,11 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
-      "part_identity": "7286a48c8388d7b9",
+      "part_identity": "f1fcb37b6ecdf118",
       "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "designators": [
-        "U_LCD_LDO",
-        "U_AUX_LDO"
+        "U_LCD_LDO"
       ],
       "catalog_evidence": {
         "url": "https://easyeda.com/api/products/C404027/components",
@@ -252,7 +250,7 @@
       "observed_date": "2026-09-20",
       "required_user_evidence": [],
       "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
-      "part_identity": "a64234362567ca9d",
+      "part_identity": "92c508680dfac711",
       "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "designators": [
@@ -289,7 +287,7 @@
       },
       "selection_status": "selected_generic_through_hole_PCB_verified",
       "required_user_evidence": [],
-      "supply_risk": "Generic user-purchased dimensions, not a certified manufacturer contact design. CAD uses current PCB nominal geometry atZ21.0, Pi/sink lifted1.3mm. GPIO nominal engagement3.885mm at official Pi tip datum;8Pin cover gap0.205mm is tight and must be checked with actual part/print tolerances. Native-tail seating remains a prototype check.",
+      "supply_risk": "Generic user-purchased dimensions, not a certified manufacturer contact design. CAD uses current PCB nominal geometry atZ21.0, Pi/sink lifted1.3mm. GPIO nominal engagement3.885mm at official Pi tip datum. Native-tail seating remains a prototype check.",
       "reference_image": "product/references/uploads/20261106T124430370Z-1-cleanshot-2026-11-06-at-20-39-37-2x.png",
       "superseded_built_reference": {
         "id": "gpio_dock",
@@ -372,80 +370,13 @@
         },
         "evidence": "design/pi_baseboard_lite/connector-specification.json"
       },
-      "part_identity": "a98d6a26b0dbb360"
-    },
-    {
-      "id": "front_module_blank",
-      "role": "project_printed_part",
-      "name": "Custom replaceable front-module blank, 70x37mm",
-      "quantity": 1,
-      "supplier": "Prototype fabrication",
-      "manufacturer": "Project custom",
-      "part_number": "handheld_computer-front-module-blank",
-      "mpn": "handheld_computer-front-module-blank",
-      "stock": null,
-      "source": "default",
-      "procurement_status": "project_fabrication_required",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "description": "Project removable front cover70x37x1.8mm, R6 corners,1.0mm upper chamfer. Shares the warm-white upper-shell color. Original four M3 countersinks on59x22mm pattern, flat undersideZ27, topZ28.8 and original M3x6 hardware retained. No underside boss or locating tongue. PLA default; actual flatness, countersink fit and0.205mm socket air need trial assembly.",
-      "selection_reason": "Reference-inspired same-color front deck and softer corners, while retaining1.8mm structural thickness, original screw access and removable-module interface. Four lower bearing rings remain complete; upward removal checked with no new interference.",
-      "part_identity": "9b40e8120055ef93",
-      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
-      "cad_relevance": {
-        "part_id": "front_module_cover",
-        "object_id": "front_module_blank",
-        "placement_mm": [
-          0,
-          -34,
-          28.8
-        ],
-        "minimum_socket_roof_mm": 2.05,
-        "physical_fit": "unverified prototype",
-        "thickness_mm": 1.8,
-        "projection_above_deck_mm": 1.8
-      },
-      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
-    },
-    {
-      "id": "front_module_screws",
-      "role": "standard_fastener",
-      "name": "M3×6 90°沉头螺丝",
-      "quantity": 4,
-      "supplier": "User-owned M3 stock",
-      "manufacturer": "ISO 10642 standard",
-      "part_number": "ISO10642-M3-0.5x6",
-      "mpn": "ISO10642-M3-0.5x6",
-      "stock": null,
-      "source": "default",
-      "procurement_status": "external_procurement_required",
-      "assembly": {
-        "population": "not_mounted",
-        "method": "not_assembled"
-      },
-      "description": "Four original ISO10642 M3-0.5x6 countersunk screws in the1.8mm front cover, matched kit seats and3.6mm nominal receiver engagement. Nominal remaining countersink land about0.295mm; lightly tighten, physical print fit untested.",
-      "selection_reason": "Retain user-owned M3x6 screws after thinning cover to1.8mm; current kit selected the same length.",
-      "part_identity": "735e4e922fc128f2",
-      "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
-      "cad_library_reference": {
-        "provider": "bd-warehouse",
-        "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
-        "parameters": {
-          "size": "M3-0.5",
-          "length": 6,
-          "fastener_type": "iso10642"
-        },
-        "selection": "M3 diameter and6mm length from user inventory;90deg,6mm head model is a disclosed default."
-      },
-      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
+      "part_identity": "67d89e18034ccf90"
     },
     {
       "id": "gpio_aux_limiter",
-      "role": "display_and_module_branch_current_limit",
+      "role": "display_branch_current_limit",
       "name": "TPS2553DBVR",
-      "quantity": 2,
+      "quantity": 1,
       "supplier": "LCSC / JLCPCB",
       "manufacturer": "Texas Instruments",
       "mpn": "TPS2553DBVR",
@@ -465,14 +396,13 @@
         "jlc_smt_rotation": 270
       },
       "required_user_evidence": [],
-      "selection_reason": "TI SLVS841F pp5,6,15,25: active-high 2.5-6.5V adjustable current-limit switch, 169k 1% RILIM gives approximately 136-187mA limits ahead of a dedicated 3.3V LDO; normal module allocation is100mA. Pi3.3V only controls enable. Exact DBV stock KiCad footprint. Exact unchanged TPS2553DBVR (not the -1 latch-off variant) now matched to C55266 in the JLCPCB catalog and official EasyEDA library; preserve existing KiCad SOT-23-6 copper and topology. Extended retained to preserve the qualified exact part. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
+      "selection_reason": "TPS2553DBVR retains independent protection for the LCD supply.",
       "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
-      "part_identity": "75e6ea40403af1fc",
+      "part_identity": "77394c38da87bdc6",
       "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
       "designators": [
-        "U_LCD_LIMIT",
-        "U_AUX_LIMIT"
+        "U_LCD_LIMIT"
       ],
       "lcsc_code": "C55266",
       "jlc_smt_library": "extended",
@@ -490,119 +420,13 @@
       }
     },
     {
-      "id": "lite_header",
-      "role": "lite_header",
-      "name": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标",
-      "quantity": 1,
-      "designators": [
-        "J_MOD"
-      ],
-      "supplier": "User supplied / generic connector selected by dimensions",
-      "source": "user",
-      "stock": null,
-      "procurement_status": "external_procurement_required",
-      "assembly": {
-        "population": "mounted",
-        "method": "through_hole",
-        "side": "top"
-      },
-      "selection_status": "selected_generic_through_hole_PCB_verified",
-      "required_user_evidence": [],
-      "supply_risk": "Generic user-purchased dimensions, not a certified manufacturer contact design. CAD uses current PCB nominal geometry atZ21.0, Pi/sink lifted1.3mm. GPIO nominal engagement3.885mm at official Pi tip datum;8Pin cover gap0.205mm is tight and must be checked with actual part/print tolerances. Native-tail seating remains a prototype check.",
-      "reference_image": "product/references/uploads/20261106T125120328Z-1-cleanshot-2026-11-06-at-20-50-28-2x.png",
-      "superseded_built_reference": {
-        "id": "lite_header",
-        "role": "lite_header",
-        "quantity": 1,
-        "designators": [
-          "J_MOD"
-        ],
-        "source": "default",
-        "stock": null,
-        "observed_date": "2026-09-30",
-        "assembly": {
-          "population": "mounted",
-          "method": "manual",
-          "side": "top"
-        },
-        "required_user_evidence": [],
-        "name": "HLE-104-02-G-DV",
-        "mpn": "HLE-104-02-G-DV",
-        "part_number": "HLE-104-02-G-DV",
-        "manufacturer": "SAMTEC",
-        "supplier": "Samtec / authorized distributor",
-        "procurement_status": "external_procurement_required",
-        "product_url": "https://www.samtec.com/products/hle-104-02-g-dv",
-        "datasheet_url": "https://suddendocs.samtec.com/catalog_english/hle.pdf",
-        "package": "2x4 SMT, 2.54mm mating pitch/row spacing",
-        "footprint": "vendor:Samtec_HLE-104-02-xxx-DV_2x04_P2.54mm_Horizontal",
-        "description": "HLE-104-02-G-DV: installed housing height 3.66mm; SMT top entry; insertion1.78..3.43mm; native land centres5.05mm apart.",
-        "selection_reason": "User requested a lower8pin interface. HLE3.66mm is0.91mm lower than SLW4.57mm; same2.54mm mating pitch, new verified SMT land pattern.",
-        "supply_risk": "Retain exact HLE-104-02-G-DV for separate soldering; no confirmed JLC placement identity for this exact variant. No substitution with -P-TR or -LC-K variants.",
-        "part_identity": "0b77c3e9c7ad5571",
-        "datasheet_path": "references/suppliers/c6630649/c6630649-datasheet.pdf",
-        "selection_status": "selected_for_interface_revision",
-        "unit_price_cny": 20.66,
-        "catalog_evidence": {
-          "lcsc": "C6630649",
-          "status": "exact identity but supplier footprint unavailable; use matching stock KiCad HLE-DV footprint"
-        }
-      },
-      "part_number": "2×4Pin 双排直插母座，2.54mm，塑高5mm目标",
-      "footprint": "vendor:KiCad_PinSocket_2x04_P2.54mm_GenericH5",
-      "package": "2x4 through-hole,2.54mm mating grid",
-      "selection_reason": "User accepts selection from supplied specifications. Use the installed standard KiCad through-hole land pattern; drill1mm/pad1.7mm verified in the library. Row spacing2.54mm and0.64mm square tails are engineering defaults. No manufacturer SKU is invented. PCB uses a project copy of the published KiCad footprint with unrelated stock3D model stanza removed and a documented rigid translation of every2D feature to the body-centre origin; pad/row spacing, pad shape and numbering are unchanged. Nominal user-specification STEP comes from connector_fit_references; no copper is hand drawn.",
-      "cad_relevance": {
-        "body_mm": {
-          "value": [
-            10.16,
-            5.08,
-            5
-          ],
-          "source": "default"
-        },
-        "tail_length_mm": {
-          "value": 3,
-          "source": "default"
-        },
-        "mating_pitch_mm": {
-          "value": 2.54,
-          "source": "user"
-        },
-        "row_spacing_mm": {
-          "value": 2.54,
-          "source": "default"
-        },
-        "pin_cross_section_mm": {
-          "value": [
-            0.64,
-            0.64
-          ],
-          "source": "default"
-        },
-        "drill_mm": {
-          "value": 1,
-          "source": "research"
-        },
-        "pad_mm": {
-          "value": [
-            1.7,
-            1.7
-          ],
-          "source": "research"
-        },
-        "evidence": "design/pi_baseboard_lite/connector-specification.json"
-      },
-      "part_identity": "f6ceed1309269ef0"
-    },
-    {
       "id": "lite_c100n",
       "role": "lite_c100n",
       "name": "CC0603KRX7R9BB104",
       "mpn": "CC0603KRX7R9BB104",
       "part_number": "CC0603KRX7R9BB104",
       "manufacturer": "YAGEO(国巨)",
-      "quantity": 3,
+      "quantity": 5,
       "supplier": "LCSC",
       "lcsc_code": "C14663",
       "stock": 51401002,
@@ -618,18 +442,20 @@
         "population": "mounted",
         "method": "jlc_smt",
         "side": "top",
-        "jlc_smt_verified": true,
+        "jlc_smt_verified": false,
         "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
-      "part_identity": "8f87eaca99f65f55",
+      "part_identity": "793924b009c093b0",
       "designators": [
         "C_BUF1",
         "C_BUF2",
-        "C_LCD_A"
+        "C_LCD_A",
+        "C_AMP_HF",
+        "C_MIC"
       ],
-      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
+      "selection_status": "selected_for_front_revision",
       "catalog_evidence": {
         "url": "https://easyeda.com/api/products/C14663/components",
         "path": "product/references/jlc-assembly/C14663-easyeda.json",
@@ -640,7 +466,21 @@
         "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
         "live_stock_verified": false
       },
-      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment."
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
+      "old_review_designators": [
+        "C_BUF1",
+        "C_BUF2",
+        "C_LCD_A"
+      ],
+      "designators_by_board": {
+        "pi_baseboard_lite": [
+          "C_BUF1",
+          "C_BUF2",
+          "C_LCD_A",
+          "C_AMP_HF",
+          "C_MIC"
+        ]
+      }
     },
     {
       "id": "lite_r10k",
@@ -649,7 +489,7 @@
       "mpn": "0603WAF1002T5E",
       "part_number": "0603WAF1002T5E",
       "manufacturer": "UNI-ROYAL(厚声)",
-      "quantity": 3,
+      "quantity": 4,
       "supplier": "LCSC",
       "lcsc_code": "C25804",
       "stock": 22998867,
@@ -665,18 +505,19 @@
         "population": "mounted",
         "method": "jlc_smt",
         "side": "top",
-        "jlc_smt_verified": true,
+        "jlc_smt_verified": false,
         "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
-      "part_identity": "4b7e4e3b801e0ae6",
+      "part_identity": "521357339b7b313a",
       "designators": [
         "R_LCD_BLEED",
-        "R_AUX_BLEED",
-        "R_FAULT_PU"
+        "R_FAULT_PU",
+        "R_TP_RST",
+        "R_TP_RDY"
       ],
-      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
+      "selection_status": "selected_for_front_revision",
       "catalog_evidence": {
         "url": "https://easyeda.com/api/products/C25804/components",
         "path": "product/references/jlc-assembly/C25804-easyeda.json",
@@ -687,7 +528,19 @@
         "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
         "live_stock_verified": false
       },
-      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment."
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
+      "old_review_designators": [
+        "R_LCD_BLEED",
+        "R_FAULT_PU"
+      ],
+      "designators_by_board": {
+        "pi_baseboard_lite": [
+          "R_LCD_BLEED",
+          "R_FAULT_PU",
+          "R_TP_RST",
+          "R_TP_RDY"
+        ]
+      }
     },
     {
       "id": "lite_r100k",
@@ -696,7 +549,7 @@
       "mpn": "0603WAF1003T5E",
       "part_number": "0603WAF1003T5E",
       "manufacturer": "UNI-ROYAL(厚声)",
-      "quantity": 7,
+      "quantity": 8,
       "supplier": "LCSC",
       "lcsc_code": "C25803",
       "stock": 22879304,
@@ -712,12 +565,12 @@
         "population": "mounted",
         "method": "jlc_smt",
         "side": "top",
-        "jlc_smt_verified": true,
+        "jlc_smt_verified": false,
         "verification_evidence": "design/pi_baseboard_lite/jlc-assembly-review.json"
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
-      "part_identity": "87519947d316cc59",
+      "part_identity": "14b2d76ef981c976",
       "designators": [
         "R_OFF_CLK",
         "R_OFF_DATA",
@@ -725,9 +578,10 @@
         "R_OFF_DISP",
         "R_OFF_COM",
         "R_LCD_EN",
-        "R_AUX_EN"
+        "R_GAIN",
+        "R_MIC_SD"
       ],
-      "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
+      "selection_status": "selected_for_front_revision",
       "catalog_evidence": {
         "url": "https://easyeda.com/api/products/C25803/components",
         "path": "product/references/jlc-assembly/C25803-easyeda.json",
@@ -738,7 +592,27 @@
         "source": "JLCEDA/EasyEDA Official Library; https://lceda.cn/ ; https://easyeda.com/",
         "live_stock_verified": false
       },
-      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment."
+      "supply_risk": "Live jlc-smt.com detail lookup hit a bot-check on 2026-11-06. Exact MPN, supplier code, package and JLC class verified through the official EasyEDA library; live order stock and price remain unverified. JLC upload placement preview must be reviewed before payment.",
+      "old_review_designators": [
+        "R_OFF_CLK",
+        "R_OFF_DATA",
+        "R_OFF_CS",
+        "R_OFF_DISP",
+        "R_OFF_COM",
+        "R_LCD_EN"
+      ],
+      "designators_by_board": {
+        "pi_baseboard_lite": [
+          "R_OFF_CLK",
+          "R_OFF_DATA",
+          "R_OFF_CS",
+          "R_OFF_DISP",
+          "R_OFF_COM",
+          "R_LCD_EN",
+          "R_GAIN",
+          "R_MIC_SD"
+        ]
+      }
     },
     {
       "id": "lite_r169k",
@@ -747,7 +621,7 @@
       "mpn": "0603WAF1693T5E",
       "part_number": "0603WAF1693T5E",
       "manufacturer": "UNI-ROYAL(厚声)",
-      "quantity": 2,
+      "quantity": 1,
       "supplier": "LCSC",
       "lcsc_code": "C22817",
       "stock": 47561,
@@ -768,10 +642,9 @@
       },
       "selection_reason": "Exact value/package verified; JLC SMT assembly. Extended resistor chosen only because no exact Basic match. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
-      "part_identity": "7ad84abcf85cd1d0",
+      "part_identity": "3f2bf7b7819c1031",
       "designators": [
-        "R_LCD_ILIM",
-        "R_AUX_ILIM"
+        "R_LCD_ILIM"
       ],
       "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "catalog_evidence": {
@@ -793,7 +666,7 @@
       "mpn": "CL21A225KBQNNNE",
       "part_number": "CL21A225KBQNNNE",
       "manufacturer": "SAMSUNG(三星)",
-      "quantity": 7,
+      "quantity": 4,
       "supplier": "LCSC",
       "lcsc_code": "C377773",
       "stock": 695665,
@@ -814,15 +687,12 @@
       },
       "selection_reason": "Exact value, package and manufacturer part verified with supplier detail; JLC SMT assembly. No unqualified substitute. User requested JLC assembly on 2026-11-06; retain exact MPN and existing land pattern.",
       "required_user_evidence": [],
-      "part_identity": "027aa59031771287",
+      "part_identity": "fca643e731731cf2",
       "designators": [
         "C_LCD_D",
         "C_LCD_IN",
         "C_LCD_LIN",
-        "C_LCD_LOUT",
-        "C_AUX_IN",
-        "C_AUX_LIN",
-        "C_AUX_LOUT"
+        "C_LCD_LOUT"
       ],
       "selection_status": "jlc_smt_local_review_passed_order_preview_pending",
       "catalog_evidence": {
@@ -840,7 +710,7 @@
     {
       "id": "upper_shell_pcb_fixture",
       "role": "printed_upper_shell",
-      "name": "Upper enclosure with integrated PCB beams and rear guide",
+      "name": "Upper shell with continuous warm-white touch surface",
       "quantity": 1,
       "manufacturer": "Project custom",
       "mpn": "handheld_computer-upper-shell-pcb-mount",
@@ -854,13 +724,13 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "description": "Printed upper shell with76x115mm maximum envelope and retained27mm deck datum. Front top edge has1.6mm bevel with a tangent cubic runout fromY-18 to+2mm beside the screen-pod front corners; bevel width and depth shrink together to zero on both sides. Lower6mm wall band insets0.9mm per side; inner wall shifts0.6mm at the bottom and tapers out to retain2mm nominal wall; matched to the0.6mm beveled bottom closure. PCB beams, carrier receivers, screen supports, board and pod-to-shell fastener axes retain their current positions. Side port web is a separate outward-removable frame held by two kit joints; upper shell includes its recessed seat and service opening. Nominal lower-wall allowance2mm after the0.1mm edge break. PLA default; physical fit untested. Screen passage front is worldY-3.5mm, closed where the old screen ramp and front screw wells were removed.",
-      "selection_reason": "Strengthens the visual lower-body inset while retaining the base screw footprint and Pi/PCB datums. Use matching bottom closure, vertical-front screen pair and side port frame.",
+      "description": "Printed upper shell with76x115mm maximum envelope and retained27mm deck datum. Front top edge has1.6mm bevel with a tangent cubic runout fromY-18 to+2mm beside the screen-pod front corners; bevel width and depth shrink together to zero on both sides. Lower6mm wall band insets0.9mm per side; inner wall shifts0.6mm at the bottom and tapers out to retain2mm nominal wall; matched to the0.6mm beveled bottom closure. PCB beams, carrier receivers, screen supports, board and pod-to-shell fastener axes retain their current positions. Side port web is a separate outward-removable frame held by two kit joints; upper shell includes its recessed seat and service opening. Nominal lower-wall allowance2mm after the0.1mm edge break. PLA default; physical fit untested. Screen passage front is worldY-3.5mm, closed where the old screen ramp and front screw wells were removed. Entire palm deck is one surface. The blind inner pocket leaves 0.48 mm of shell plastic over the touch sensor.",
+      "selection_reason": "上壳本体形成触控表面，原厂贴胶直接贴合壳内平面，成品模块从屏舱开口装入。",
       "cad_relevance": {
         "description": "Two original2.2mm PCB holes at world(+/-16,-32) and rear left board edge; ordered PCB retained.",
-        "replacement_policy": "Reuse existing upper shell unchanged: both the72mm panel-seat correction and25deg screen raise retain its geometry and receiver axes."
+        "replacement_policy": "Use the continuous touch-deck upper shell."
       },
-      "part_identity": "d715663448aa1447",
+      "part_identity": "7907fe52a3d40080",
       "mechanical_outline_revision": {
         "case_width_mm": 76,
         "screen_housing_width_mm": 76,
@@ -947,8 +817,7 @@
           }
         },
         "qualification": "Bound STEP lacks detailed HDMI connector solids; HDMI nose/overhang and actual cables need trial fitting."
-      },
-      "replacement_fit_status": "Current8mm generic Pi socket and5mm target expansion socket are represented by the active assembly. Nominal fit only; prototype connector and print tolerances require checking."
+      }
     },
     {
       "id": "pcb_upper_mount_screws",
@@ -984,8 +853,7 @@
       "cad_relevance": {
         "description": "World X+/-16, Y-32, board bottom Z21.0; original2.2mm NPTH and2.5mm-radius all-layer copper keepouts retained."
       },
-      "part_identity": "1d5ded756f20f2ee",
-      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
+      "part_identity": "462c9a662d57ba10"
     },
     {
       "id": "compact_passive_heatsink",
@@ -1021,7 +889,7 @@
       },
       "selection_reason": "Retain user-selected Geekworm P165-B on Pi4B. Internal fan and its harness/mounts removed; fanless temperature performance requires prototype testing.",
       "supply_risk": "Purchase exact 11mm P165-B standalone; no8mm P165-A or Pi5 replacement. Underside relief heights and included TIM thickness need prototype inspection; CAD is explicit photo-derived reference.",
-      "part_identity": "f6a01b3a2c8f788f"
+      "part_identity": "a69b252d0141b942"
     },
     {
       "id": "pi_upper_mount_screws",
@@ -1041,8 +909,7 @@
       "required_user_evidence": [],
       "selection_status": "selected",
       "selection_reason": "Four ISO7046 M2.5x6 cross-recess countersunk screws pass through the current independent carrier and original Pi holes into P165-B metal M2.5 receivers. Carrier seat Z4.6 and Pi underside Z6.6 mm give 2 mm nominal metal engagement; verify physical thread depth.",
-      "part_identity": "96e56c21db9e5704",
-      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
+      "part_identity": "a6c8476e34de4e99"
     },
     {
       "id": "lcd_retainer_screws",
@@ -1061,7 +928,7 @@
       },
       "required_user_evidence": [],
       "selection_status": "selected",
-      "part_identity": "604279b487f1a4e1",
+      "part_identity": "0f2d9a0b430886a4",
       "selection_reason": "Keeps blind receiving material and the2.16mm hard-stop clamp stack while allowing a vertical front skirt. Use with the matching front-capture frame and retainer.",
       "description": "Two ISO7046 M2.5x4 rear countersunk screws through2mm ears, with2mm nominal receiver engagement. Front retention uses rigid captured tongues instead of screws. Both screws withdraw6mm along negative screen normal through new frame access pockets; checked at mesh0.02mm,step0.2mm.",
       "cad_library_reference": {
@@ -1115,7 +982,7 @@
         "receiving_host": "upper shell",
         "head_flush_world_z_mm": 0.2
       },
-      "part_identity": "735e4e922fc128f2",
+      "part_identity": "9bce79979275ed00",
       "cad_library_reference": {
         "provider": "bd-warehouse",
         "model_id": "bd-warehouse:bd_warehouse.fastener.CounterSunkScrew",
@@ -1126,8 +993,7 @@
         },
         "selection": "M3 diameter and6mm length from user inventory;90deg,6mm head model is a disclosed default."
       },
-      "description": "Four ISO10642 M3-0.5 x 6 mm countersunk screws, length including head, 90 degree seat and nominal 6 mm head. Current bottom joints have 2.4 mm pass-through and 3.6 mm receiver engagement at the four existing asymmetric axes.",
-      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
+      "description": "Four ISO10642 M3-0.5 x 6 mm countersunk screws, length including head, 90 degree seat and nominal 6 mm head. Current bottom joints have 2.4 mm pass-through and 3.6 mm receiver engagement at the four existing asymmetric axes."
     },
     {
       "id": "screen_integral_frame",
@@ -1147,7 +1013,7 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "f2af863175cdae4c",
+      "part_identity": "037420504f2bb5c2",
       "selection_reason": "Raises screen rear by about10.34mm while retaining user1.67mm front rise and the already printed main shell. Replace only this frame and matching retainer; reuse all four pod mounting screws and fixed PCB. Native tail route remains provisional. Rear branding preserves internal wall material and original mounting fit; no additional main-shell replacement.",
       "surface_finish": {
         "source": "default",
@@ -1195,7 +1061,7 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "490de999c7d823fe",
+      "part_identity": "84e4ae5e7be00bf5",
       "selection_reason": "Matching25deg frame; rear-left fixed-post relief6mm and continuous3.3mm bridge keep one valid solid. Front bearing and clamp gap retained.12deg release path checked at mesh0.02mm,step0.2mm; print strength, pressure and fit need trial."
     },
     {
@@ -1216,7 +1082,7 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "9b956a99a3a344e7",
+      "part_identity": "2d5dcabd07434d5f",
       "selection_reason": "Uses user-measured0.2mm foam, one ring on this screen face by default; matched to1.8mm screen and2.16mm hard-stop gap."
     },
     {
@@ -1237,7 +1103,7 @@
         "method": "not_assembled"
       },
       "required_user_evidence": [],
-      "part_identity": "e7506d2f7b4d4ce6",
+      "part_identity": "79a10da63c6fcdfd",
       "selection_reason": "Uses user-measured0.2mm foam, one ring on this screen face by default; matched to1.8mm screen and2.16mm hard-stop gap."
     },
     {
@@ -1268,7 +1134,7 @@
         "length_mm": 4,
         "driver_shaft_diameter_mm": 2.4
       },
-      "part_identity": "604279b487f1a4e1"
+      "part_identity": "0f2d9a0b430886a4"
     },
     {
       "id": "screen_shell_rear_screws",
@@ -1312,7 +1178,7 @@
         ],
         "left_access_channel_diameter_mm": 7
       },
-      "part_identity": "735e4e922fc128f2",
+      "part_identity": "9bce79979275ed00",
       "description": "Two ISO10642 M3-0.5 x 6 mm countersunk screws, length including head, 90 degree seat and nominal 6 mm head, secure the rear screen pod to the upper shell. Current joint has 2.4 mm pass-through and 3 mm nominal receiver engagement.",
       "cad_library_reference": {
         "provider": "bd-warehouse",
@@ -1344,8 +1210,7 @@
       },
       "required_user_evidence": [],
       "selection_status": "selected",
-      "part_identity": "d918f50230ae76da",
-      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
+      "part_identity": "957eb1bec98b6aef"
     },
     {
       "id": "pi_carrier_shell_screws",
@@ -1367,8 +1232,7 @@
       "required_user_evidence": [],
       "selection_status": "selected",
       "procurement_status": "external_procurement_required",
-      "part_identity": "96e56c21db9e5704",
-      "replacement_fit_status": "Current dimensions and quantities describe the built Samtec-socket assembly only. Recheck against the user-selected8mm Pi socket and new2x4 through-hole expansion socket; no thinner-enclosure fit claim yet."
+      "part_identity": "a6c8476e34de4e99"
     },
     {
       "id": "bottom_closure",
@@ -1389,8 +1253,7 @@
       },
       "required_user_evidence": [],
       "selection_status": "selected",
-      "part_identity": "907e9b5fc646abd6",
-      "replacement_fit_status": "Current8mm generic Pi socket and5mm target expansion socket are represented by the active assembly. Nominal fit only; prototype connector and print tolerances require checking."
+      "part_identity": "f91a09a96cf9816e"
     },
     {
       "id": "side_port_frame",
@@ -1505,7 +1368,7 @@
           "side_port_mask"
         ]
       },
-      "part_identity": "8d2f063c740aa12b"
+      "part_identity": "cefeb19eab1ada28"
     },
     {
       "id": "side_port_frame_screws",
@@ -1524,7 +1387,7 @@
       },
       "required_user_evidence": [],
       "selection_status": "selected",
-      "part_identity": "604279b487f1a4e1",
+      "part_identity": "0f2d9a0b430886a4",
       "selection_reason": "Two side-frame screws plus two front-pod and two rear-retainer M2.5x4 give six installed M2.5x4 total. Front blind receiver and rear compact through receiver retain side removal.",
       "description": "Two standard ISO7046 M2.5-0.45x4 countersunk cross-recess screws. Front uses2mm nominal engagement into existing deep shell column; rear uses1.2mm nominal engagement in2mm through-receiver, with0.1mm tip protrusion and clearance to the sink. Kit baselines require PLA trial fitting.",
       "cad_library_reference": {
@@ -1591,7 +1454,8 @@
           "nominal_bond_overlap_area_mm2": 134.00275792678397,
           "method": "Small amount of PLA-compatible adhesive on mating flanges, align three apertures, cure fully off-device; test scrap first. No screw changes."
         }
-      }
+      },
+      "part_identity": "7cd9bedfb9b2cceb"
     },
     {
       "id": "side_port_panel_adhesive",
@@ -1608,7 +1472,368 @@
       },
       "required_user_evidence": [],
       "description": "Small dots on hidden mask-to-panel flanges, keep out of connector pockets and screw seats. Align off-device and fully cure per adhesive instructions.134mm2 nominal geometric overlap does not certify bond strength.",
-      "selection_reason": "A flush adhesive bond fits the narrow existing flange without changing the main shell, screws or port positions."
+      "selection_reason": "A flush adhesive bond fits the narrow existing flange without changing the main shell, screws or port positions.",
+      "part_identity": "df3f619804a92fdb"
+    },
+    {
+      "id": "touch_sensor",
+      "role": "touch_sensor",
+      "name": "TPS43-201A-S",
+      "quantity": 1,
+      "source": "default",
+      "selection_reason": "成品二维 I²C 触控板，六针 ZIF。用模块自带胶贴在暖白上壳内侧，器件面朝内。",
+      "mpn": "TPS43-201A-S",
+      "part_number": "TPS43-201A-S",
+      "manufacturer": "Azoteq",
+      "supplier": "LCSC",
+      "lcsc_code": "C7073363",
+      "product_url": "https://item.szlcsc.com/8039974.html",
+      "datasheet_url": "https://www.azoteq.com/images/stories/pdf/proxsense_i2c_trackpad_datasheet.pdf",
+      "datasheet_path": "product/references/azoteq-tps43-v1.06.pdf",
+      "stock": 0,
+      "procurement_status": "external_procurement_required",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "cad_relevance": {
+        "object_id": "tps43",
+        "model": "Oriented maximum stack: reserve full height over populated side, with only the far bare 9 mm strip at laminate and adhesive height (1.25 mm). Derived from Azoteq v1.06 figs 1.1 and 2.1–2.2, confirm on purchased unit.",
+        "size_mm": [
+          43.5,
+          40.5,
+          2.233
+        ]
+      },
+      "part_identity": "aba5c71d7017c131"
+    },
+    {
+      "id": "speaker",
+      "role": "speaker",
+      "name": "HDK-151108ZA-6",
+      "quantity": 1,
+      "source": "default",
+      "selection_reason": "15 × 11 × 2.5 mm，8 Ω，额定 1 W 的条件为 1 cc 后腔。",
+      "manufacturer": "Dragonstate(华龙)",
+      "mpn": "HDK-151108ZA-6",
+      "part_number": "HDK-151108ZA-6",
+      "lcsc_code": "C50198761",
+      "stock": 72,
+      "supplier": "LCSC",
+      "procurement_status": "catalog_verified",
+      "package": "SMD,15x11mm",
+      "jlc_smt_library": "unknown",
+      "product_url": "https://item.szlcsc.com/52776856.html",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/536554ff2f1c14207416a46063d46777.pdf?productCode=C50198761",
+      "part_identity": "f4d25b74d72257e0",
+      "datasheet_path": "references/suppliers/c50198761/c50198761-datasheet.pdf"
+    },
+    {
+      "id": "speaker_amp",
+      "role": "speaker_amp",
+      "name": "MAX98357AETE+T",
+      "quantity": 1,
+      "source": "default",
+      "selection_reason": "5 V BTL 功放，共用 Pi 的 I²S 时钟。左声道，3 dB，两个输出各串 4.7 Ω。",
+      "manufacturer": "ADI(亚德诺)/MAXIM(美信)",
+      "mpn": "MAX98357AETE+T",
+      "part_number": "MAX98357AETE+T",
+      "lcsc_code": "C910544",
+      "stock": 23834,
+      "supplier": "LCSC",
+      "procurement_status": "catalog_verified",
+      "package": "TQFN-16-EP(3x3)",
+      "jlc_smt_library": "extended",
+      "product_url": "https://item.szlcsc.com/978950.html",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/9dd365a93d191d8d6f09766b0e3ea172.pdf?productCode=C910544",
+      "part_identity": "147edb70186e4045",
+      "datasheet_path": "references/suppliers/c910544/c910544-datasheet.pdf",
+      "designators": [
+        "U_AMP"
+      ],
+      "board": "pi_baseboard_lite",
+      "selection_status": "selected_for_front_revision",
+      "assembly": {
+        "population": "mounted",
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": false
+      }
+    },
+    {
+      "id": "microphone",
+      "role": "microphone",
+      "name": "ICS-43434",
+      "quantity": 1,
+      "source": "default",
+      "selection_reason": "底部进声麦克风直接贴在主基板顶面，经居中的 Ø0.60 mm 非镀通孔和密封导音件连通前壁。",
+      "manufacturer": "TDK InvenSense(应美盛)",
+      "mpn": "ICS-43434",
+      "part_number": "ICS-43434",
+      "lcsc_code": "C5656610",
+      "stock": 2,
+      "supplier": "LCSC",
+      "procurement_status": "catalog_verified",
+      "package": "LGA-6(3.5x2.7)",
+      "jlc_smt_library": "extended",
+      "product_url": "https://item.szlcsc.com/6577565.html",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/71ad5077f354aad3d252d8bdaf2401d5.pdf?productCode=C5656610",
+      "part_identity": "b7318bf518f68f78",
+      "datasheet_path": "references/suppliers/c5656610/c5656610-datasheet.pdf",
+      "designators": [
+        "U_MIC"
+      ],
+      "board": "pi_baseboard_lite",
+      "selection_status": "selected_for_front_revision",
+      "assembly": {
+        "population": "mounted",
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": false,
+        "jlc_smt_rotation": 270,
+        "verification_evidence": "design/pi_baseboard_lite/front-interface-placement.json"
+      },
+      "physical_interface": {
+        "kind": "mems_microphone",
+        "acoustic_port_face": "toward_pcb",
+        "paste_exclusion_required": true,
+        "port_diameter_mm": 0.6,
+        "evidence_refs": [
+          "https://datasheet.lcsc.com/datasheet/pdf/71ad5077f354aad3d252d8bdaf2401d5.pdf?productCode=C5656610"
+        ]
+      },
+      "package_sound_port_diameter_mm": 0.375,
+      "carrier_opening_note": "TDK p17 recommends ≥0.50 mm in PCB; choose 0.60 mm centered on Ø0.375 package port. Front shell hole remains Ø1.60."
+    },
+    {
+      "id": "speaker_chamber",
+      "name": "喇叭背腔，名义 1 cm³",
+      "quantity": 1,
+      "role": "printed_speaker_chamber",
+      "source": "default",
+      "description": "封闭后腔粘合至单元后周边，出线后密封过线孔，实际净容积和泄漏需检验。",
+      "part_identity": "df3f619804a92fdb"
+    },
+    {
+      "id": "audio_seals",
+      "name": "喇叭密封垫及一体式麦克风导音密封件",
+      "quantity": 2,
+      "role": "acoustic_gasket",
+      "source": "default",
+      "description": "各一片；闭孔泡棉，装配厚度目标 0.5 mm，开孔避开振膜及拾音孔。",
+      "part_identity": "df3f619804a92fdb",
+      "selection_reason": "喇叭垫一件，麦克风弹性导音件一件。导音件前端配 8×7 mm 壳内座，后端压封在主基板底部声孔四周。"
+    },
+    {
+      "id": "touch_host_zif",
+      "role": "touch_host_zif",
+      "quantity": 1,
+      "selection_status": "selected_for_front_revision",
+      "name": "FH12-6S-0.5SH(55)",
+      "mpn": "FH12-6S-0.5SH(55)",
+      "part_number": "FH12-6S-0.5SH(55)",
+      "manufacturer": "HRS(广濑)",
+      "supplier": "LCSC",
+      "lcsc_code": "C202118",
+      "product_url": "https://item.szlcsc.com/203295.html",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/6e8da5fecf0f520788a618d6da1919a1.pdf?productCode=C202118",
+      "source": "default",
+      "selection_reason": "六针卧式下接触，基板 J_TP 1 至 6 对应模块 J1 6 至 1。",
+      "part_identity": "14199e99f6eebbf6",
+      "designators": [
+        "J_TP"
+      ],
+      "board": "pi_baseboard_lite",
+      "assembly": {
+        "population": "mounted",
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": false,
+        "jlc_smt_rotation": 180,
+        "verification_evidence": "design/pi_baseboard_lite/front-interface-placement.json"
+      },
+      "physical_interface": {
+        "kind": "fpc_connector",
+        "pin_count": 6,
+        "pitch_mm": 0.5,
+        "cable_contacts_face_when_mounted_on_top": "toward_pcb",
+        "pin1_position": "Left in manufacturer drawing with cable entry below.",
+        "evidence_refs": [
+          "https://datasheet.lcsc.com/datasheet/pdf/6e8da5fecf0f520788a618d6da1919a1.pdf?productCode=C202118"
+        ]
+      }
+    },
+    {
+      "id": "touch_flex",
+      "role": "touch_flex",
+      "quantity": 1,
+      "selection_status": "selected_for_front_revision",
+      "name": "0.5-06-30-A-3344",
+      "mpn": "0.5-06-30-A-3344",
+      "part_number": "0.5-06-30-A-3344",
+      "manufacturer": "XFCN(兴飞)",
+      "supplier": "LCSC",
+      "lcsc_code": "C53155383",
+      "product_url": "https://item.szlcsc.com/56160031.html",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/4473fd017b5a0e00e673a72de9071a76.pdf?productCode=C53155383",
+      "source": "default",
+      "selection_reason": "0.5 mm 节距六芯同面排线，30 ±2 mm，端厚 0.30 ±0.03 mm。装配时先插线，再合拢基板。",
+      "part_identity": "1524b023114f2c9d"
+    },
+    {
+      "id": "spk_header",
+      "role": "spk_header",
+      "name": "SM02B-SRSS-TB(LF)(SN)",
+      "quantity": 1,
+      "mpn": "SM02B-SRSS-TB(LF)(SN)",
+      "part_number": "SM02B-SRSS-TB(LF)(SN)",
+      "manufacturer": "JST",
+      "supplier": "LCSC",
+      "lcsc_code": "C160402",
+      "source": "default",
+      "selection_reason": "基板二针卧式 JST SH，差分喇叭输出。",
+      "selection_status": "selected_for_front_revision",
+      "stock": 4008,
+      "package": "SMD,P=1mm,Surface Mount,Right Angle",
+      "product_url": "https://item.szlcsc.com/171782.html",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/40c649e22fa9bda892cfec952005fd51.pdf?productCode=C160402",
+      "jlc_smt_library": "extended",
+      "procurement_status": "catalog_verified",
+      "designators": [
+        "J_SPK"
+      ],
+      "board": "pi_baseboard_lite",
+      "assembly": {
+        "population": "mounted",
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": false,
+        "verification_evidence": "design/pi_baseboard_lite/front-interface-placement.json"
+      },
+      "part_identity": "b498c04dd113b5a4"
+    },
+    {
+      "id": "spk_limit",
+      "role": "spk_limit",
+      "name": "25121WJ047JT4E",
+      "quantity": 2,
+      "mpn": "25121WJ047JT4E",
+      "part_number": "25121WJ047JT4E",
+      "manufacturer": "UNI-ROYAL(厚声)",
+      "supplier": "LCSC",
+      "lcsc_code": "C25489",
+      "source": "default",
+      "selection_reason": "4.7 Ω ±5%，每路 1 W，OUTP 与 OUTN 各串一个。",
+      "selection_status": "selected_for_front_revision",
+      "stock": 19013,
+      "package": "2512",
+      "product_url": "https://item.szlcsc.com/26232.html",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf?productCode=C25489",
+      "jlc_smt_library": "extended",
+      "procurement_status": "catalog_verified",
+      "designators": [
+        "R_SPK_P",
+        "R_SPK_N"
+      ],
+      "board": "pi_baseboard_lite",
+      "assembly": {
+        "population": "mounted",
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": false
+      },
+      "part_identity": "7d4d3c9d90ce5861"
+    },
+    {
+      "id": "amp_bulk",
+      "role": "amp_bulk",
+      "name": "CL31B106KOHNNNE",
+      "quantity": 1,
+      "mpn": "CL31B106KOHNNNE",
+      "part_number": "CL31B106KOHNNNE",
+      "manufacturer": "SAMSUNG(三星)",
+      "supplier": "LCSC",
+      "lcsc_code": "C47971",
+      "source": "default",
+      "selection_reason": "功放 5 V 输入就近储能，10 µF，16 V X7R。",
+      "selection_status": "selected_for_front_revision",
+      "stock": 11382,
+      "package": "1206",
+      "product_url": "https://item.szlcsc.com/48977.html",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf?productCode=C47971",
+      "jlc_smt_library": "extended",
+      "procurement_status": "catalog_verified",
+      "designators": [
+        "C_AMP_BULK"
+      ],
+      "board": "pi_baseboard_lite",
+      "assembly": {
+        "population": "mounted",
+        "method": "jlc_smt",
+        "side": "top",
+        "jlc_smt_verified": false
+      },
+      "part_identity": "857d4b211cec4f54"
+    },
+    {
+      "id": "spk_plug",
+      "role": "spk_plug",
+      "name": "SHR-02V-S",
+      "quantity": 1,
+      "mpn": "SHR-02V-S",
+      "part_number": "SHR-02V-S",
+      "manufacturer": "JST",
+      "supplier": "LCSC",
+      "lcsc_code": "C398472",
+      "source": "default",
+      "selection_reason": "喇叭预制线束插壳。",
+      "selection_status": "selected_for_front_revision",
+      "stock": 390,
+      "package": "P=1mm",
+      "product_url": "https://item.szlcsc.com/380810.html",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/e4ee27ecd922dc1778711e336e5fcf0a.pdf?productCode=C398472",
+      "jlc_smt_library": "unknown",
+      "procurement_status": "catalog_verified",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "part_identity": "0d032db75e398e99"
+    },
+    {
+      "id": "audio_crimps",
+      "role": "audio_crimps",
+      "name": "SSH-003T-P0.2-H",
+      "quantity": 2,
+      "mpn": "SSH-003T-P0.2-H",
+      "part_number": "SSH-003T-P0.2-H",
+      "manufacturer": "JST",
+      "supplier": "LCSC",
+      "lcsc_code": "C263995",
+      "source": "default",
+      "selection_reason": "预制喇叭两芯插头压接端子。",
+      "selection_status": "selected_for_front_revision",
+      "stock": 6432,
+      "package": "-",
+      "product_url": "https://item.szlcsc.com/254752.html",
+      "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/db160e543e1b6c5991eca6adf02030a1.pdf?productCode=C263995",
+      "jlc_smt_library": "unknown",
+      "procurement_status": "catalog_verified",
+      "assembly": {
+        "population": "not_mounted",
+        "method": "not_assembled"
+      },
+      "part_identity": "ff8f0765f3956612"
+    },
+    {
+      "id": "audio_wire_set",
+      "role": "audio_wire_set",
+      "name": "二芯喇叭预制线束用线及加工",
+      "quantity": 1,
+      "source": "default",
+      "selection_reason": "默认 75 mm 双绞 28 AWG；喇叭端预焊，基板端 JST SH 压接。",
+      "selection_status": "specified_custom_assembly",
+      "part_identity": "df3f619804a92fdb"
     }
   ],
   "alternatives": [
@@ -1659,14 +1884,19 @@
     },
     {
       "id": "jlc_assembly_order_preview",
-      "description": "29 top-side devices across9 exact supplier part numbers selected for JLC SMT. J_PI and J_MOD remain separately through-hole soldered; J_FAN is removed. Catalog bot check bypassed through official EasyEDA evidence; actual inventory, prices and JLC upload placement preview remain order-time checks."
+      "description": "屏幕版的既有贴装核对仅适用于旧版。新增触控、音频及载板需要新版贴装预览。"
     },
     {
-      "id": "generic_connector_fit",
-      "description": "User accepts specification-based generic connectors.1mm PTH/1.7mm pad and2.54mm row spacing use standard KiCad land patterns;8Pin body10.16x5.08x5mm,3mm tails and0.64mm square pins are disclosed defaults. Prototype fit is pending; no more supplier-link question is open."
+      "id": "mic_supply",
+      "description": "ICS-43434 查询时 LCSC 有 2 个，投产前复核现货。"
+    },
+    {
+      "id": "tps43_lifecycle",
+      "description": "Azoteq 2026-10 公告将 TPS43-201x 列为 Closed / Contact Sales；原型使用指定型号的渠道库存。",
+      "source_url": "https://www.azoteq.com/wp-content/uploads/2026/10/EOL_Notice_October_2026.pdf"
     }
   ],
   "unresolved_items": [],
-  "scope": "Active pi_baseboard_lite connector replacement:8mm40Pin through-hole GPIO socket and2.54mm2x4 through-hole expansion socket. Existing release and CAD still represent superseded sockets. Other SMT components retained.",
-  "review_status": "specification_selection_ready_PCB_CAD_implementation_pending"
+  "scope": "Pi 4B display, front touchpad and internal audio.",
+  "review_status": "single_custom_pcb"
 }

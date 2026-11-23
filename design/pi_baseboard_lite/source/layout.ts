@@ -65,21 +65,31 @@ export const interfaces = {
     opening: "-Y / down in board top view"
   },
 
-  // Generic5mm-height2x4 PTH socket.90deg rotates native longY
-  // to longX; physical pin1 remains upper/left,2 lower/left.
-  frontModule: { centerX: 0, centerY: -15, x: 0, y: -15, rotation: 90, side: "top", mating: "+Z" },
 
-  // Keepout the socket body needs through the deck aperture.
-  frontModuleAperture: { width: 54.0, depth: 26.0, centreY: -34.0 }
 };
 
 // Placement-only cleanup: fixed interfaces, outline, holes and the FPC service
 // corridor above are assembly datums. Movable electronics use these functional
 // clusters on top; only J_PI is on bottom. Values are engineering defaults.
 // Display buffers share a row behind the FPC, with their input pull-downs behind
-// them and bypass capacitors at VCC. Parallel LCD/module power clusters place
-// each limiter, LDO and its support parts together instead of at opposite ends.
+// them and bypass capacitors at VCC. The LCD power cluster places
+// the limiter, LDO and its support parts together instead of at opposite ends.
 export const placements = {
+  J_TP: { pcbX: 0, pcbY: -14, pcbRotation: 0 },
+  // The sound bore is 0.71 mm toward the front of U_MIC centre.
+  U_MIC: { pcbX: 10.5, pcbY: -17.29, pcbRotation: 0 },
+  C_MIC: { pcbX: 7.75, pcbY: -17.4, pcbRotation: 270 },
+  J_SPK: { pcbX: -10, pcbY: 15, pcbRotation: 0 },
+  U_AMP: { pcbX: 3.8, pcbY: 2.5, pcbRotation: 0 },
+  C_AMP_HF: { pcbX: 6.9, pcbY: 2.5, pcbRotation: 90 },
+  C_AMP_BULK: { pcbX: 9.8, pcbY: 2.3, pcbRotation: 90 },
+  R_GAIN: { pcbX: 6.8, pcbY: -0.7, pcbRotation: 180 },
+  R_MIC_SD: { pcbX: 12, pcbY: 8.3, pcbRotation: 0 },
+  R_SPK_P: { pcbX: 9.0, pcbY: -5.8, pcbRotation: 90 },
+  R_SPK_N: { pcbX: 14.1, pcbY: -5.8, pcbRotation: 90 },
+  R_TP_RST: { pcbX: 4.5, pcbY: -7, pcbRotation: 0 },
+  R_TP_RDY: { pcbX: 4.5, pcbY: -10, pcbRotation: 0 },
+
   U_BUF1: { pcbX: -7.5, pcbY: 32, pcbRotation: 90 },
   U_BUF2: { pcbX: 11.5, pcbY: 32, pcbRotation: 90 },
   C_BUF1: { pcbX: -13, pcbY: 30.05, pcbRotation: 90 },
@@ -94,19 +104,11 @@ export const placements = {
   U_LCD_LIMIT: { pcbX: -9, pcbY: 2, pcbRotation: 90 },
   C_LCD_IN: { pcbX: -13, pcbY: 1, pcbRotation: 90 },
   R_LCD_EN: { pcbX: -6, pcbY: -1, pcbRotation: 0 },
-  R_LCD_ILIM: { pcbX: -9, pcbY: 6, pcbRotation: 0 },
+  R_LCD_ILIM: { pcbX: -12, pcbY: 5.7, pcbRotation: 0 },
   U_LCD_LDO: { pcbX: -9, pcbY: -7.5, pcbRotation: 180 },
   C_LCD_LIN: { pcbX: -13, pcbY: -6.5, pcbRotation: 90 },
   C_LCD_LOUT: { pcbX: -5, pcbY: -6.5, pcbRotation: 90 },
   R_LCD_BLEED: { pcbX: -9, pcbY: -11.0, pcbRotation: 0 },
-  U_AUX_LIMIT: { pcbX: 10, pcbY: 2, pcbRotation: 90 },
-  C_AUX_IN: { pcbX: 6, pcbY: 1, pcbRotation: 90 },
-  R_AUX_EN: { pcbX: 13, pcbY: -1, pcbRotation: 0 },
-  R_AUX_ILIM: { pcbX: 10, pcbY: 6, pcbRotation: 0 },
-  U_AUX_LDO: { pcbX: 10, pcbY: -7.5, pcbRotation: 180 },
-  C_AUX_LIN: { pcbX: 6, pcbY: -6.5, pcbRotation: 90 },
-  C_AUX_LOUT: { pcbX: 14, pcbY: -6.5, pcbRotation: 90 },
-  R_AUX_BLEED: { pcbX: 10, pcbY: -11.0, pcbRotation: 0 },
   R_FAULT_PU: { pcbX: 0, pcbY: 1, pcbRotation: 0 },
 } as const;
 
@@ -115,7 +117,5 @@ export const functionalLabels = [
   { text: "U_BUF2", pcbX: 11.5, pcbY: 28.2 },
   { text: "LCD / FPC", pcbX: 0, pcbY: 18 },
   { text: "LCD PWR", pcbX: -9, pcbY: 9 },
-  { text: "AUX PWR", pcbX: 10, pcbY: 9 },
-  { text: "MODULE", pcbX: 0, pcbY: -11 },
   { text: "PI LITE", pcbX: 10, pcbY: 22 },
 ] as const;

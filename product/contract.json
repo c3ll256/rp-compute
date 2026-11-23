@@ -2,7 +2,7 @@
   "version": 2,
   "artifact_level": "assembly",
   "deliverable_intent": "visual_draft",
-  "summary": "紧凑Pi4B终端采用P165-B被动散热片，取消内部风扇及专用固定和线束；保留上壳固定HAT、平底Pi托架及上接触FPC。无风扇温升和实物装配尚需验证。",
+  "summary": "紧凑Pi4B终端采用P165-B被动散热片，取消内部风扇及专用固定和线束；保留上壳固定HAT、平底Pi托架及上接触FPC。无风扇温升和实物装配尚需验证。 前平台采用触控板和内置音频。",
   "required_interfaces": [
     {
       "id": "compute_mount",
@@ -21,7 +21,7 @@
     {
       "id": "usb_access",
       "kind": "external_access",
-      "description": "精简版：Pi自身USB-C须可用，GPIO仅向基板显示和模块支路取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：Pi原生USB-A接口与基板充电USB-C插拔空间；基板不新增USB-A、Hub或USB延长线。开口不能挡住插头外壳和手指操作空间；外设预算仍500mA，不承诺多口同时满载。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。",
+      "description": "精简版：Pi自身USB-C须可用，基板从GPIO取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：Pi原生USB-A接口与基板充电USB-C插拔空间；基板不新增USB-A、Hub或USB延长线。开口不能挡住插头外壳和手指操作空间；外设预算仍500mA，不承诺多口同时满载。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。",
       "source": "user_requested",
       "required": true
     },
@@ -42,28 +42,28 @@
     {
       "id": "gpio_dock",
       "kind": "internal_fit",
-      "description": "精简版：Pi自身USB-C须可用，GPIO仅向基板显示和模块支路取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：40针GPIO电源/信号插接接口：接触电流、排针方向、完整插入及防偏排，基板受保护5V供电；仅断电插拔，不以GPIO同形宣称兼容其他Pi。 联锁盖打开或联锁断线时硬件禁止基板GPIO供电；释放端口前须断开并处理残留能量，关盖后不得自动重启。",
+      "description": "精简版：Pi自身USB-C须可用，基板从GPIO取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：40针GPIO电源/信号插接接口：接触电流、排针方向、完整插入及防偏排，基板受保护5V供电；仅断电插拔，不以GPIO同形宣称兼容其他Pi。 联锁盖打开或联锁断线时硬件禁止基板GPIO供电；释放端口前须断开并处理残留能量，关盖后不得自动重启。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "pi_native_ports",
       "kind": "external_access",
-      "description": "精简版：Pi自身USB-C须可用，GPIO仅向基板显示和模块支路取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：Pi原生USB-A、Ethernet、micro-HDMI和3.5mm接口保留外部插拔空间，microSD保留维护通道，不增加CSI/DSI扩展。Pi自身USB-C在装机状态由防误插联锁盖覆盖，拆下Pi后恢复；基板USB-C是日常唯一充电/供电入口。开口坐标及插拔空间待真实几何验证。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。 当前精简版右侧采用外面板与内遮挡片分别平放打印后粘合的遮蔽围板，两片均以内侧小孔面贴床，不再悬空封孔；成组侧向拆卸，主板周边封闭；先拆围板再取Pi，保留原固定与GPIO拔出路径。",
+      "description": "精简版：Pi自身USB-C须可用，基板从GPIO取电，无电池/充电/向Pi供电或联锁；原有后侧接口位置原则保留。完整版仍适用以下要求：Pi原生USB-A、Ethernet、micro-HDMI和3.5mm接口保留外部插拔空间，microSD保留维护通道，不增加CSI/DSI扩展。Pi自身USB-C在装机状态由防误插联锁盖覆盖，拆下Pi后恢复；基板USB-C是日常唯一充电/供电入口。开口坐标及插拔空间待真实几何验证。 用户明确所有对外接口位于后方或侧面，前方不得开接口；本轮按真实Pi模型预留USB/RJ45。 当前精简版右侧采用外面板与内遮挡片分别平放打印后粘合的遮蔽围板，两片均以内侧小孔面贴床，不再悬空封孔；成组侧向拆卸，主板周边封闭；先拆围板再取Pi，保留原固定与GPIO拔出路径。",
       "source": "user_requested",
       "required": true
     },
     {
-      "id": "front_gpio_module",
+      "id": "front_touchpad",
       "kind": "internal_fit",
-      "description": "可换模块使用2×4、2.54mm通孔母座与配套公排针，保留8路逻辑功能；模块螺丝承担固定载荷，仅断电插拔。通孔母座具体尺寸核实后修改PCB钻孔、布局和盖板净空。",
+      "description": "触控区与周围暖白上壳由同一种材料一体成形，整片前平台为连续平面。模组从壳内贴合，正面没有触控板边框或开口。",
       "source": "user_requested",
       "required": true
     },
     {
       "id": "single_baseboard_fit",
       "kind": "internal_fit",
-      "description": "精简版一块基板承担Pi40针插接、Sharp屏幕FPC与2.54mm 2x4母座扩展。需复核水平PCB/短FPC、GPIO堆叠、固定点、散热和Pi USB-C外壳开口；完整版电源电池集成单独保留。",
+      "description": "精简版一块基板承担Pi40针插接、Sharp屏幕FPC及触控和音频信号连接。需复核水平PCB/短FPC、GPIO堆叠、固定点、散热和Pi USB-C外壳开口；完整版电源电池集成单独保留。",
       "source": "user_requested",
       "required": true
     },
@@ -71,6 +71,13 @@
       "id": "processor_memory_cooling",
       "kind": "internal_fit",
       "description": "Pi4B保留Geekworm P165-B被动散热片，主板与散热片共用四角螺丝固定到独立平底托架，托架连接上壳。取消风扇、托架、软垫、专用螺丝和线束，现有左侧通风孔保留。无风扇温升须实测。",
+      "source": "user_requested",
+      "required": true
+    },
+    {
+      "id": "front_audio",
+      "kind": "internal_fit",
+      "description": "喇叭经基板两芯座连接，麦克风直接贴装在唯一一款定制基板。前壁拾音孔经密封导音件接到板底声孔。",
       "source": "user_requested",
       "required": true
     }
@@ -167,19 +174,19 @@
       "path": "product/references/uploads/20261106T124430370Z-1-cleanshot-2026-11-06-at-20-39-37-2x.png"
     },
     {
-      "id": "user_replacement_lite_header",
+      "id": "front_touch_mark",
       "source": "user_requested",
-      "description": "Image shows5mm SMT female sockets; it is a visual height reference and does not identify the requested through-hole replacement.",
-      "path": "product/references/uploads/20261106T125120328Z-1-cleanshot-2026-11-06-at-20-50-28-2x.png"
+      "description": "用户圈出的屏幕下方触控区",
+      "path": "product/references/uploads/20261123T095003696Z-1-mark-1.png"
     }
   ],
   "assembly_story": {
     "installation": "断电装配：Pi与P165-B通过四个原孔固定在独立托架上；从下方竖直插入上壳内的GPIO母座，再以三颗独立螺丝固定托架到上壳，最后安装只负责封闭的底盖。屏舱固定先于Pi/托架装入。没有风扇、风扇电源座或风扇线束。接口位置保留，原生排线与散热实物试装仍需验证。 上壳和接口围板配套使用，底盖装好后，将同色侧围板从右侧推入，用两颗M2.5×4沉头固定。",
     "maintenance": "先软件关机、断电并拔下全部外部线缆；卸两颗侧围板螺丝，沿右侧向外取下围板，然后单独卸底盖。此时Pi、散热片及GPIO连接保持固定；拆Pi再卸三颗托架螺丝，竖直拔出Pi/托架。拆屏舱须先移出Pi托架。",
     "user_access": [
-      "Pi native USB-C and other native ports",
-      "replaceable cold-plug 8-pin GPIO module",
-      "microSD service"
+      "Pi 原生接口",
+      "前面板触控、喇叭出声和麦克风拾音",
+      "microSD 维护"
     ]
   },
   "cad": {
@@ -197,9 +204,10 @@
           "battery_fit",
           "gpio_dock",
           "pi_native_ports",
-          "front_gpio_module",
+          "front_touchpad",
           "single_baseboard_fit",
-          "processor_memory_cooling"
+          "processor_memory_cooling",
+          "front_audio"
         ],
         "reference_ids": [
           "reference_photo_angled",
@@ -215,7 +223,8 @@
           "pi4_passive_sink_user",
           "p165_manufacturer_reliefs",
           "fan_SH_datasheet",
-          "sharp_datasheet_alternative_a"
+          "sharp_datasheet_alternative_a",
+          "front_touch_mark"
         ]
       }
     ]

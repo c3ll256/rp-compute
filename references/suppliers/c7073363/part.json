@@ -1,0 +1,66 @@
+{
+  "source": "LCSC",
+  "looked_up_at": "2026-11-23T17:44:07.996Z",
+  "lcsc_code": "C7073363",
+  "manufacturer": "Azoteq",
+  "manufacturer_part_number": "TPS43-201A-S",
+  "description": "TPS43-201A-S",
+  "category": "专用传感器",
+  "package": "-",
+  "jlcpcb_part_class": "unknown",
+  "parameters": {
+    "Interface": "I2C",
+    "Width": "40mm",
+    "Features": "Auto calibration;Low-power mode;Interrupt output",
+    "Operating Temperature": "-40°C~+85°C",
+    "Length": "43mm",
+    "Sensor Type": "Capacitive Sensor",
+    "Voltage - Supply": "1.65V~3.6V"
+  },
+  "lcsc_stock": null,
+  "price_breaks": [
+    {
+      "quantity": 1,
+      "unitPrice": 48.16,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 200,
+      "unitPrice": 19.22,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 18.58,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 1000,
+      "unitPrice": 18.26,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 1,
+      "unitPrice": 7.2982,
+      "currency": "USD"
+    },
+    {
+      "quantity": 200,
+      "unitPrice": 2.9127,
+      "currency": "USD"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 2.8157,
+      "currency": "USD"
+    },
+    {
+      "quantity": 1000,
+      "unitPrice": 2.7672,
+      "currency": "USD"
+    }
+  ],
+  "product_url": "https://item.szlcsc.com/8039974.html",
+  "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/04ae88ee12783847828d409cc00d0f5e.pdf?productCode=C7073363",
+  "datasheet_file": null
+}

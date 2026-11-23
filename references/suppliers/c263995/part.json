@@ -1,0 +1,86 @@
+{
+  "source": "LCSC",
+  "looked_up_at": "2026-11-23T17:47:56.275Z",
+  "lcsc_code": "C263995",
+  "manufacturer": "JST",
+  "manufacturer_part_number": "SSH-003T-P0.2-H",
+  "description": "Connector Terminal SH APSH Tin 28~32 AWG Crimp",
+  "category": "胶壳端子",
+  "package": "-",
+  "jlcpcb_part_class": "unknown",
+  "parameters": {
+    "Current Rating": "1A",
+    "Wire Gauge - mm2": "0.032~0.08",
+    "Wire Gauge - AWG": "28~32",
+    "Contact Plating": "Tin",
+    "Contact Material": "Phosphor Bronze",
+    "Reference Series": "SH;APSH",
+    "Insulation OD": "0.4mm~0.8mm"
+  },
+  "lcsc_stock": 6432,
+  "price_breaks": [
+    {
+      "quantity": 50,
+      "unitPrice": 0.1303,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 0.1018,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 1500,
+      "unitPrice": 0.086,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 5000,
+      "unitPrice": 0.0765,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 23000,
+      "unitPrice": 0.0624,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 46000,
+      "unitPrice": 0.058,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 50,
+      "unitPrice": 0.0215,
+      "currency": "USD"
+    },
+    {
+      "quantity": 500,
+      "unitPrice": 0.0168,
+      "currency": "USD"
+    },
+    {
+      "quantity": 1500,
+      "unitPrice": 0.0142,
+      "currency": "USD"
+    },
+    {
+      "quantity": 5000,
+      "unitPrice": 0.0127,
+      "currency": "USD"
+    },
+    {
+      "quantity": 23000,
+      "unitPrice": 0.0103,
+      "currency": "USD"
+    },
+    {
+      "quantity": 46000,
+      "unitPrice": 0.0096,
+      "currency": "USD"
+    }
+  ],
+  "product_url": "https://item.szlcsc.com/254752.html",
+  "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/db160e543e1b6c5991eca6adf02030a1.pdf?productCode=C263995",
+  "datasheet_file": "references/suppliers/c263995/c263995-datasheet.pdf"
+}

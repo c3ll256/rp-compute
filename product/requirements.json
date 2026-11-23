@@ -50,7 +50,7 @@
       "source": "user"
     },
     "local_input": {
-      "value": "Prototype baseboard provides power, display and a user-replaceable front-deck GPIO module interface; no fixed navigation/confirm/back button bank; text and navigation via external keyboard on Pi native USB",
+      "value": "屏幕下方绿圈区域为二维触控板，外接 USB 键盘输入文字。",
       "source": "user"
     },
     "battery_runtime_hours": {
@@ -99,8 +99,6 @@
       "value": [
         "screen illumination",
         "touchscreen overlay",
-        "microphone",
-        "speaker",
         "decorative light",
         "hinge"
       ],
@@ -204,9 +202,9 @@
     },
     "baseboard_extension_scope": {
       "value": [
-        "power and battery management",
-        "Sharp LS027B7DH01 (or accepted alternative LS027B7DH01A) display interface",
-        "user-replaceable front-deck GPIO expansion interface"
+        "显示接口",
+        "前置触控板",
+        "内置播放与拾音"
       ],
       "source": "user"
     },
@@ -244,7 +242,7 @@
         "screen_angle_deg_from_horizontal": 13,
         "screen_pod_width_mm": 76,
         "screen_face_depth_mm": 59,
-        "front_groove": "replaced by a removable blank module in a common locating seat",
+        "front_groove": "触控区与周围暖白上壳由同一种材料一体成形，整片前平台为连续平面。",
         "power_button": "none; continuous right-side wall"
       },
       "source": "default"
@@ -283,68 +281,36 @@
       "source": "default"
     },
     "front_module_replaceability": {
-      "value": "The front-deck cover is a separate removable part in CAD and in the physical assembly, replaceable by user-designed expansion modules using the same flat deck support and four corner mounting points. The cover underside has no locating tongue or raised boss. The supplied blank has a flat outer face, with no central opening or raised patch, and leaves clearance above the internal female socket. Preserve display mounting and the accepted approximately1.67mm screen-pod rise above the fixed shell deck.",
+      "value": "触控区与周围暖白上壳由同一种材料一体成形，整片前平台为连续平面。感应模块藏在内侧，取消前舱 8 针扩展接口。",
       "source": "user"
     },
     "front_module_service_policy": {
-      "value": "Power off, disconnect external input and isolate the battery before removing or connecting a front module; no live hot swap claim.",
+      "value": "先断电，拆开屏舱并断开排线，从壳内释放原厂贴胶，再经屏舱开口取出模组。",
       "source": "default"
     },
     "single_baseboard_integration": {
-      "value": "One custom baseboard integrates the Sharp display interface, user-replaceable front GPIO expansion, battery charging and Pi 4B power supply; no separate board for these functions.",
+      "value": "整机仅需打样一款定制 PCB，主基板直接承载麦克风和喇叭功放、显示与成品触控模块接口。",
       "source": "user"
     },
     "lite_baseboard_scope": {
       "value": [
-        "Sharp LS027B7DH01 (or accepted alternative LS027B7DH01A) display FPC interface",
-        "8-contact GPIO-style expansion connector"
+        "Sharp 显示 FPC",
+        "前置触控板",
+        "内置喇叭和麦克风"
       ],
       "source": "user"
     },
-    "lite_expansion_contacts": {
-      "value": 8,
-      "source": "user"
-    },
-    "lite_expansion_pitch_mm": {
-      "value": 2.54,
-      "source": "user"
-    },
     "variant_scope_policy": {
-      "value": "Active lite variant has display and 8-contact expansion only. The legacy full pi_baseboard design is deleted; battery, charger, MCU, Pi supply and interlock text is historical and is not a current delivery requirement.",
+      "value": "精简版包括显示、触控及音频。电池、充电与电源联锁属于历史完整版。",
       "source": "default"
     },
-    "lite_expansion_form": {
-      "value": "2x4 vertical female socket, 2.54mm mating pitch, through-hole solder tails for repeated module insertion; module side uses matching male header.",
-      "source": "user"
-    },
     "lite_supply_entry": {
-      "value": "Pi native USB-C powers Pi; GPIO 5V pins supply only display and module branches. Enclosure must allow Pi USB-C in lite variant.",
+      "value": "Pi 原生 USB-C 供电，精简基板从 Pi GPIO 取电。",
       "source": "user"
     },
     "active_baseboard_variant": {
       "value": "pi_baseboard_lite",
       "source": "user"
-    },
-    "lite_module_power_budget_ma": {
-      "value": 100,
-      "source": "default"
-    },
-    "lite_module_pinout": {
-      "value": {
-        "1": "AUX_3V3",
-        "2": "GND",
-        "3": "GPIO2/SDA",
-        "4": "GPIO3/SCL",
-        "5": "GPIO10/MOSI",
-        "6": "GPIO9/MISO",
-        "7": "GPIO11/SCLK",
-        "8": "GPIO7/CE1"
-      },
-      "source": "default"
-    },
-    "lite_module_service": {
-      "value": "Cold plug only; modules powered solely by AUX_3V3, no external supply and no 5V logic. Pinout is custom, not Pi header pins 1-8.",
-      "source": "default"
     },
     "lite_fpc_placement": {
       "value": "Horizontal side-entry FPC on top of compact PCB; opening toward down/front (-Y in top view). Native tail folds behind panel with exposed copper upward; use top contacts and verify installation access.",
@@ -354,7 +320,6 @@
       "value": {
         "display": "SHOU HAN 0.5-10P CTSJ-H2.0 119 / C5373447; retain top contacts and front/-Y entrance",
         "pi_dock": "User-selected generic2x20 female through-hole socket,8mm housing,3.5mm tails,51x5mm body; use2.54mm standard mating grid.",
-        "expansion": "Generic2x4 female through-hole socket,2.54mm pitch; nominal5mm body target and standard land-pattern details are engineering defaults.",
         "intent": "Prefer cheaper connectors and a thinner enclosure; PCB and enclosure may change to suit verified replacement geometry."
       },
       "source": "user"
@@ -386,7 +351,7 @@
       "source": "default"
     },
     "lite_baseboard_attachment": {
-      "value": "Raise the compact PCB toward the screen and fasten it to the upper enclosure; its support must not rely on the bottom cover or removable front module blank.",
+      "value": "Raise the compact PCB toward the screen and fasten it to the upper enclosure; its support must not rely on the bottom cover or touch sensor.",
       "source": "user"
     },
     "lite_baseboard_raised_datum_mm": {
@@ -457,7 +422,7 @@
     },
     "lite_component_side_policy": {
       "value": {
-        "top": "All populated components except J_PI, including buffers, passives, power branches, FPC, module and fan connectors",
+        "top": "All populated components except J_PI on top",
         "bottom": [
           "J_PI"
         ],
@@ -475,20 +440,8 @@
           40,
           83.5
         ],
-        "approach": "Fill former electronics recess while preserving Pi, module, screw and rear guide datums; screen screw notch retained"
+        "approach": "Fill former electronics recess while preserving Pi, screw and rear guide datums; screen screw notch retained"
       },
-      "source": "default"
-    },
-    "front_module_blank_socket_cover_rise_mm": {
-      "value": 0,
-      "source": "user"
-    },
-    "front_module_blank_socket_air_mm": {
-      "value": 0.1,
-      "source": "default"
-    },
-    "front_module_blank_socket_min_roof_mm": {
-      "value": 0.6,
       "source": "default"
     },
     "rear_left_wall_openings": {
@@ -508,7 +461,7 @@
         "case_width_mm": 76,
         "screen_housing_width_mm": 76,
         "rear_world_y_mm": 57.5,
-        "approach": "Narrow the case and pod together to76mm. Pi/heatsink move5mm left; re-layout J_PI while retaining the LCD FPC and expansion socket datums. Front screen retainer screws move toX+/-27mm.",
+        "approach": "Narrow the case and pod together to76mm. Pi/heatsink move5mm left; re-layout J_PI while retaining the LCD FPC datum. Front screen retainer screws move toX+/-27mm.",
         "vent_slot_mm": [
           2.4,
           4.5
@@ -689,7 +642,7 @@
       "source": "research"
     },
     "connector_cost_and_enclosure_priority": {
-      "value": "Use affordable generic40Pin and8Pin sockets instead of the prior exact Samtec selections; accept PCB and enclosure redesign and prefer a thinner assembly.",
+      "value": "40 针采用低成本通孔母座，优先薄型装配。",
       "source": "user"
     },
     "lite_pi_socket_housing_height_mm": {
@@ -698,14 +651,6 @@
     },
     "lite_pi_socket_tail_length_mm": {
       "value": 3.5,
-      "source": "user"
-    },
-    "lite_expansion_body_height_target_mm": {
-      "value": 5,
-      "source": "default"
-    },
-    "lite_expansion_retention": {
-      "value": "Use through-hole soldered module socket to reduce pad-peel risk under repeated insertion; module screws carry assembly loads.",
       "source": "user"
     },
     "screen_measured_thickness_mm": {
@@ -728,15 +673,11 @@
       "source": "default"
     },
     "front_module_cover_lower_profile": {
-      "value": "Reduce the front-module cover thickness and projection above the platform.",
+      "value": "触控区域与整个前平台为同一连续表面，高差 0 mm，正面无拼缝和固定孔。",
       "source": "user"
     },
-    "front_module_cover_thickness_mm": {
-      "value": 1.8,
-      "source": "default"
-    },
     "design_direction": {
-      "value": "参考用户图片的橙色外圈、深色屏幕边框与暖白平台，统一前盖板和机身颜色，柔化边角、减轻视觉厚重感；保持结构可用性、可拆装与原有安装接口。",
+      "value": "沿用用户参考图的橙色屏框、深色屏幕内圈与暖白平台，柔化边角。触控区和周边上壳统一为无分色、无拼缝的暖白平面，其他部位保留安装及维护接口。",
       "source": "user"
     },
     "visual_edge_profile_defaults": {
@@ -749,7 +690,6 @@
         "lower_side_inset_mm": 0.9,
         "lower_side_facet_height_mm": 6,
         "bottom_cover_45deg_bevel_mm": 0.6,
-        "module_cover_face_bevel_mm": 1,
         "body_height_and_internal_datums": "retained",
         "bevel_runout": "Cubic tangent runout on both sides; bevel width and depth taper together from1.6mm to0. Ends beside the screen-pod front corner.",
         "lower_inner_wall_shift_mm": 0.6,
@@ -779,10 +719,6 @@
         "screen_inner_band_mm": 4.5,
         "screen_inner_color_hex": "#26282b",
         "screen_outer_color_hex": "#e87736",
-        "front_cover_color": "same as upper shell",
-        "cover_corner_radius_mm": 6,
-        "cover_top_chamfer_mm": 1,
-        "cover_thickness_mm": 1.8,
         "cosmetic_finish": "masked matte coating on front inner band and optical opening wall",
         "nominal_dry_finish_mm": 0.02,
         "painted_optical_clear_mm": [
@@ -791,14 +727,14 @@
         ],
         "minimum_active_area_margin_mm": 0.28,
         "printed_screen_piece_count": 2,
-        "fastener_access": "retain four front-access M3x6 cover screws",
         "qualification": "Appearance trial; actual coating and print fit still require prototype checks.",
         "screen_outer_band_mm": 3.3,
         "screen_face_mm": [
           76,
           52.48
         ],
-        "screen_face_corner_radius_mm": 8.65
+        "screen_face_corner_radius_mm": 8.65,
+        "touch_deck": "Continuous warm-white upper-shell material. Sensor bonded to inside of the front deck."
       },
       "source": "default"
     },
@@ -972,7 +908,7 @@
           "fascia",
           "retainer"
         ],
-        "reuse": "Existing main shell, base, Pi carrier, front cover, side panel, PCB and fastener axes unchanged.",
+        "reuse": "Screen mounting axes, bottom cover, Pi carrier, side panel and board datums retained.",
         "qualification": "Default25deg based on user green sketch; native13.7±0.5mm tail length remains an unmeasured estimate; physical seating and print fit require trial."
       },
       "source": "default"
@@ -1014,6 +950,33 @@
     },
     "replacement_compute_board_budget_cny": {
       "value": 200,
+      "source": "user"
+    },
+    "lite_expansion_contacts": {
+      "value": 0,
+      "source": "user"
+    },
+    "integrated_audio": {
+      "value": [
+        "内置喇叭",
+        "内置麦克风"
+      ],
+      "source": "user"
+    },
+    "touch_audio_acceptance": {
+      "value": [
+        "Linux 收到水平、垂直滑动与轻触单击事件",
+        "通过内置喇叭播放提示音",
+        "从内置麦克风录制一句话并回放验证清晰度"
+      ],
+      "source": "default"
+    },
+    "front_touchpad_selection": {
+      "source": "user",
+      "value": "屏幕下方使用成品触控板，上壳按成品外形调整。"
+    },
+    "front_touch_center_rise_mm": {
+      "value": 0,
       "source": "user"
     }
   },

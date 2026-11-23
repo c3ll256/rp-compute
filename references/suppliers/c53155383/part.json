@@ -1,0 +1,69 @@
+{
+  "source": "LCSC",
+  "looked_up_at": "2026-11-23T10:09:27.138Z",
+  "lcsc_code": "C53155383",
+  "manufacturer": "XFCN(兴飞)",
+  "manufacturer_part_number": "0.5-06-30-A-3344",
+  "description": "FFC 0.5mm间距 06P L=30mm A型 金手指3x3 补强板4x4 同面 镀锡",
+  "category": "FFC连接线(柔性扁平线缆)",
+  "package": "P=0.5mm",
+  "jlcpcb_part_class": "unknown",
+  "parameters": {
+    "Insert Thickness": "0.3mm",
+    "Number of Pins": "6P",
+    "Pitch": "0.5mm",
+    "Contact Location": "Same Side",
+    "Total Length": "3cm"
+  },
+  "lcsc_stock": 98,
+  "price_breaks": [
+    {
+      "quantity": 10,
+      "unitPrice": 0.3903,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 100,
+      "unitPrice": 0.3111,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 300,
+      "unitPrice": 0.2715,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 10,
+      "unitPrice": 0.0645,
+      "currency": "USD"
+    },
+    {
+      "quantity": 100,
+      "unitPrice": 0.0514,
+      "currency": "USD"
+    },
+    {
+      "quantity": 300,
+      "unitPrice": 0.0449,
+      "currency": "USD"
+    },
+    {
+      "quantity": 1000,
+      "unitPrice": 0.04,
+      "currency": "USD"
+    },
+    {
+      "quantity": 5000,
+      "unitPrice": 0.0361,
+      "currency": "USD"
+    },
+    {
+      "quantity": 10000,
+      "unitPrice": 0.0341,
+      "currency": "USD"
+    }
+  ],
+  "product_url": "https://item.szlcsc.com/56160031.html",
+  "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/4473fd017b5a0e00e673a72de9071a76.pdf?productCode=C53155383",
+  "datasheet_file": "references/suppliers/c53155383/c53155383-datasheet.pdf"
+}

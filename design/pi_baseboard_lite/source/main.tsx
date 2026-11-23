@@ -6,7 +6,7 @@ import { boardPropsFromRules, groundPourPropsFromRules, keepoutPropsFromRules, n
 // TI DBV/PW pin maps and Sharp external-COM mode: see implementation.md.
 // Leave Pi reserved/unused pins, LDO NC and disabled buffer outputs unconnected.
 // Ordinary parts target >=2mm land-envelope clearance from every outline edge.
-// The Pi/module interfaces retain their mechanical datums; decouplers follow their ICs.
+// The Pi/display interfaces retain their mechanical datums; decouplers follow their ICs.
 // Wider outline removes the recess bottleneck. Only J_PI remains on bottom.
 // Functional clusters and side map are declared in layout.ts; bypass caps follow VCC.
 export default () => (
@@ -14,7 +14,7 @@ export default () => (
     {Object.keys(pcbRules.nets).map(n => <net key={n} name={n} {...netPropsFor(n)} />)}
     {groundPourPropsFromRules().map(p => <copperpour key={p.name} {...p} />)}
     {keepoutPropsFromRules().map(k => <keepout {...k} />)}
-    {["Pi and expansion", "LCD interface", "LCD SPI buffer", "LCD COM buffer", "LCD supply", "Module supply"].map(n => <schematicsection key={n} name={n} />)}
+    {["Touch and audio", "Pi dock", "LCD interface", "LCD SPI buffer", "LCD COM buffer", "LCD supply"].map(n => <schematicsection key={n} name={n} />)}
     {functionalLabels.map(label => <silkscreentext key={label.text} {...label} fontSize="1mm" layer="top" />)}
     {mountingHoles.map(h => <hole key={h.name} name={h.name} pcbX={h.x} pcbY={h.y} diameter="2.2mm" />)}
     <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }}
@@ -26,12 +26,12 @@ export default () => (
       cadModel={{stepUrl:"./source/models/generic_40pin-nominal.step",modelOriginPosition:{x:-1.27,y:-24.13,z:0},positionOffset:{x:0,y:0,z:0},rotationOffset:{x:0,y:0,z:0},modelUnitToMmScale:1,modelBoardNormalDirection:"z+"}}
       footprint="vendor:KiCad_PinSocket_2x20_P2.54mm_GenericH8"
       pinLabels={{"pin1": "P1", "pin2": "P2", "pin3": "P3", "pin4": "P4", "pin5": "P5", "pin6": "P6", "pin7": "P7", "pin8": "P8", "pin9": "P9", "pin10": "P10", "pin11": "P11", "pin12": "P12", "pin13": "P13", "pin14": "P14", "pin15": "P15", "pin16": "P16", "pin17": "P17", "pin18": "P18", "pin19": "P19", "pin20": "P20", "pin21": "P21", "pin22": "P22", "pin23": "P23", "pin24": "P24", "pin25": "P25", "pin26": "P26", "pin27": "P27", "pin28": "P28", "pin29": "P29", "pin30": "P30", "pin31": "P31", "pin32": "P32", "pin33": "P33", "pin34": "P34", "pin35": "P35", "pin36": "P36", "pin37": "P37", "pin38": "P38", "pin39": "P39", "pin40": "P40"}}
-      connections={{"P2": "net.V5_PI_IN", "P4": "net.V5_PI_IN", "P1": "net.V3V3_PI", "P17": "net.V3V3_PI", "P3": "net.GPIO2", "P5": "net.GPIO3", "P19": "net.GPIO10", "P21": "net.GPIO9", "P23": "net.GPIO11", "P24": "net.GPIO8", "P26": "net.GPIO7", "P32": "net.GPIO12", "P22": "net.GPIO25", "P18": "net.GPIO24", "P36": "net.FAULT_N", "P6": "net.GND", "P9": "net.GND", "P14": "net.GND", "P20": "net.GND", "P25": "net.GND", "P30": "net.GND", "P34": "net.GND", "P39": "net.GND"}}
+      connections={{"P3": "net.SDA", "P5": "net.SCL", "P13": "net.NRST", "P11": "net.RDY", "P12": "net.BCLK", "P35": "net.WS", "P38": "net.MIC_SD", "P40": "net.AMP_DIN", "P2": "net.V5_PI_IN", "P4": "net.V5_PI_IN", "P1": "net.V3V3_PI", "P17": "net.V3V3_PI", "P19": "net.GPIO10", "P23": "net.GPIO11", "P24": "net.GPIO8", "P32": "net.GPIO12", "P22": "net.GPIO25", "P18": "net.GPIO24", "P36": "net.FAULT_N", "P6": "net.GND", "P9": "net.GND", "P14": "net.GND", "P20": "net.GND", "P25": "net.GND", "P30": "net.GND", "P34": "net.GND", "P39": "net.GND"}}
       layer="bottom"
       pcbX={interfaces.piDock.x}
       pcbY={interfaces.piDock.y}
       pcbRotation={interfaces.piDock.rotation}
-      schSectionName="Pi and expansion" />
+      schSectionName="Pi dock" />
     <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="J_LCD"
       pinAttributes={electrical.J_LCD}
@@ -53,21 +53,6 @@ export default () => (
       pcbRotation={interfaces.displayFpc.rotation}
       schSectionName="LCD interface"
       supplierPartNumbers={{"jlcpcb": ["C5373447"]}} />
-    <connector pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="J_MOD"
-      pinAttributes={electrical.J_MOD}
-      // Repeated-insertion module port:8 PTH terminals, standard1mm drills.
-      // Copper is the unchanged KiCad library;5mm/3mm are disclosed nominal reference dimensions.
-      cadModel={{stepUrl:"./source/models/generic_8pin-nominal.step",modelOriginPosition:{x:-1.27,y:-3.81,z:0},positionOffset:{x:0,y:0,z:0},rotationOffset:{x:0,y:0,z:0},modelUnitToMmScale:1,modelBoardNormalDirection:"z+"}}
-      footprint="vendor:KiCad_PinSocket_2x04_P2.54mm_GenericH5"
-      pinLabels={{"pin1": "M1", "pin2": "M2", "pin3": "M3", "pin4": "M4", "pin5": "M5", "pin6": "M6", "pin7": "M7", "pin8": "M8"}}
-      connections={{"M1": "net.AUX_3V3", "M2": "net.GND", "M3": "net.GPIO2", "M4": "net.GPIO3", "M5": "net.GPIO10", "M6": "net.GPIO9", "M7": "net.GPIO11", "M8": "net.GPIO7"}}
-      layer="top"
-      pcbX={interfaces.frontModule.x}
-      pcbY={interfaces.frontModule.y}
-      pcbRotation={interfaces.frontModule.rotation}
-      schSectionName="Pi and expansion"
-      />
     <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="U_BUF1"
       pinAttributes={electrical.U_BUF1}
@@ -204,7 +189,7 @@ export default () => (
       {...placements.U_LCD_LIMIT}
       schSectionName="LCD supply" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="R_LCD_ILIM"
+      name="R_LCD_ILIM" schRotation={90}
       manufacturerPartNumber="0603WAF1693T5E"
       footprint="jlcpcb:C22817"
       connections={{"pin1": "net.LCD_ILIM", "pin2": "net.GND"}}
@@ -275,88 +260,6 @@ export default () => (
       schSectionName="LCD supply"
       supplierPartNumbers={{"jlcpcb": ["C25804"]}}
       resistance="10k" />
-    <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="U_AUX_LIMIT"
-      pinAttributes={electrical.U_AUX_LIMIT}
-      manufacturerPartNumber="TPS2553DBVR"
-      footprint="kicad:Package_TO_SOT_SMD/SOT-23-6"
-      pinLabels={{"pin1": "IN", "pin2": "GND", "pin3": "EN", "pin4": "FAULT_N", "pin5": "ILIM", "pin6": "OUT"}}
-      connections={{"IN": "net.V5_PI_IN", "GND": "net.GND", "EN": "net.V3V3_PI", "FAULT_N": "net.FAULT_N", "ILIM": "net.AUX_ILIM", "OUT": "net.V5_AUX"}}
-      layer="top"
-      {...placements.U_AUX_LIMIT}
-      schSectionName="Module supply" />
-    <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="R_AUX_ILIM"
-      manufacturerPartNumber="0603WAF1693T5E"
-      footprint="jlcpcb:C22817"
-      connections={{"pin1": "net.AUX_ILIM", "pin2": "net.GND"}}
-      layer="top"
-      {...placements.R_AUX_ILIM}
-      schSectionName="Module supply"
-      supplierPartNumbers={{"jlcpcb": ["C22817"]}}
-      resistance="169k" />
-    <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="R_AUX_EN"
-      manufacturerPartNumber="0603WAF1003T5E"
-      footprint="jlcpcb:C25803"
-      connections={{"pin1": "net.V3V3_PI", "pin2": "net.GND"}}
-      layer="top"
-      {...placements.R_AUX_EN}
-      schSectionName="Module supply"
-      supplierPartNumbers={{"jlcpcb": ["C25803"]}}
-      resistance="100k" />
-    <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="C_AUX_IN"
-      manufacturerPartNumber="CL21A225KBQNNNE"
-      footprint="jlcpcb:C377773"
-      connections={{"pin1": "net.V5_PI_IN", "pin2": "net.GND"}}
-      layer="top"
-      {...placements.C_AUX_IN}
-      schSectionName="Module supply"
-      supplierPartNumbers={{"jlcpcb": ["C377773"]}}
-      capacitance="2.2uF" />
-    <chip pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="U_AUX_LDO"
-      pinAttributes={electrical.U_AUX_LDO}
-      noConnect={["NC"]}
-      manufacturerPartNumber="TLV75533PDBVR"
-      footprint="jlcpcb:C404027"
-      pinLabels={{"pin1": "IN", "pin2": "GND", "pin3": "EN", "pin4": "NC", "pin5": "OUT"}}
-      connections={{"IN": "net.V5_AUX", "GND": "net.GND", "EN": "net.V5_AUX", "OUT": "net.AUX_3V3"}}
-      layer="top"
-      {...placements.U_AUX_LDO}
-      schSectionName="Module supply"
-      supplierPartNumbers={{"jlcpcb": ["C404027"]}} />
-    <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="C_AUX_LIN"
-      manufacturerPartNumber="CL21A225KBQNNNE"
-      footprint="jlcpcb:C377773"
-      connections={{"pin1": "net.V5_AUX", "pin2": "net.GND"}}
-      layer="top"
-      {...placements.C_AUX_LIN}
-      schSectionName="Module supply"
-      supplierPartNumbers={{"jlcpcb": ["C377773"]}}
-      capacitance="2.2uF" />
-    <capacitor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="C_AUX_LOUT"
-      manufacturerPartNumber="CL21A225KBQNNNE"
-      footprint="jlcpcb:C377773"
-      connections={{"pin1": "net.AUX_3V3", "pin2": "net.GND"}}
-      layer="top"
-      {...placements.C_AUX_LOUT}
-      schSectionName="Module supply"
-      supplierPartNumbers={{"jlcpcb": ["C377773"]}}
-      capacitance="2.2uF" />
-    <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
-      name="R_AUX_BLEED"
-      manufacturerPartNumber="0603WAF1002T5E"
-      footprint="jlcpcb:C25804"
-      connections={{"pin1": "net.V5_AUX", "pin2": "net.GND"}}
-      layer="top"
-      {...placements.R_AUX_BLEED}
-      schSectionName="Module supply"
-      supplierPartNumbers={{"jlcpcb": ["C25804"]}}
-      resistance="10k" />
     <resistor pcbStyle={{ silkscreenTextVisibility: "hidden" }}
       name="R_FAULT_PU"
       manufacturerPartNumber="0603WAF1002T5E"
@@ -364,8 +267,75 @@ export default () => (
       connections={{"pin1": "net.V3V3_PI", "pin2": "net.FAULT_N"}}
       layer="top"
       {...placements.R_FAULT_PU}
-      schSectionName="Pi and expansion"
+      schSectionName="Pi dock"
       supplierPartNumbers={{"jlcpcb": ["C25804"]}}
       resistance="10k" />
+    <connector name="J_TP"
+      manufacturerPartNumber="FH12-6S-0.5SH(55)" supplierPartNumbers={{ jlcpcb: ["C202118"] }}
+      footprint="kicad:Connector_FFC-FPC/Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal" layer="top" {...placements.J_TP}
+      connections={{"pin3": "net.V3V3_PI", "pin4": "net.GND", "pin1": "net.SDA", "pin2": "net.SCL", "pin5": "net.NRST", "pin6": "net.RDY"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" pinLabels={{"pin1": "SDA", "pin2": "SCL", "pin3": "VDD", "pin4": "GND", "pin5": "NRST", "pin6": "RDY"}} pinAttributes={{RDY:{isOutput:true,canUseOpenDrain:true,isUsingOpenDrain:true}}}/>
+    <chip name="U_MIC"
+      manufacturerPartNumber="ICS-43434" supplierPartNumbers={{ jlcpcb: ["C5656610"] }}
+      // Library STEP uses the same pin-1 datum as the copper; JLC tape zero is rotated 270° here.
+      cadModel={{stepUrl:"./source/models/InvenSense_ICS-43434-6_3.5x2.65mm.step", modelOriginPosition:{x:0,y:0,z:0}, modelUnitToMmScale:1, modelBoardNormalDirection:"z+"}}
+      footprint="vendor:ICS43434_Acoustic_0p60" layer="top" {...placements.U_MIC}
+      connections={{"pin1": "net.WS", "pin2": "net.GND", "pin3": "net.GND", "pin4": "net.BCLK", "pin5": "net.V3V3_PI", "pin6": "net.MIC_SD"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" pinLabels={{pin1:"WS",pin2:"LR",pin3:"GND",pin4:"SCK",pin5:"VDD",pin6:"SD"}} pinAttributes={{VDD:{requiresPower:true,requiresVoltage:3.3},GND:{requiresGround:true},SD:{isOutput:true},WS:{isInput:true},SCK:{isInput:true},LR:{isInput:true}}}/>
+    <capacitor name="C_MIC"
+      manufacturerPartNumber="CC0603KRX7R9BB104" supplierPartNumbers={{ jlcpcb: ["C14663"] }}
+      footprint="jlcpcb:C14663" layer="top" {...placements.C_MIC}
+      connections={{"pin1": "net.V3V3_PI", "pin2": "net.GND"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" capacitance="100nF"/>
+    <connector name="J_SPK"
+      manufacturerPartNumber="SM02B-SRSS-TB(LF)(SN)" supplierPartNumbers={{ jlcpcb: ["C160402"] }}
+      footprint="kicad:Connector_JST/JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal" layer="top" {...placements.J_SPK}
+      connections={{"pin1": "net.SPK_P", "pin2": "net.SPK_N"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" pinLabels={{"pin1": "SPKP", "pin2": "SPKN"}}/>
+    <chip name="U_AMP"
+      manufacturerPartNumber="MAX98357AETE+T" supplierPartNumbers={{ jlcpcb: ["C910544"] }}
+      footprint="jlcpcb:C910544" layer="top" {...placements.U_AMP}
+      connections={{"pin3": "net.GND", "pin11": "net.GND", "pin15": "net.GND", "pin17": "net.GND", "pin7": "net.V5_PI_IN", "pin8": "net.V5_PI_IN", "pin4": "net.V5_PI_IN", "pin16": "net.BCLK", "pin14": "net.WS", "pin1": "net.AMP_DIN", "pin2": "net.AMP_GAIN", "pin9": "net.OUTP", "pin10": "net.OUTN"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" pinAttributes={{"pin1": {"isInput": true, "mustBeConnected": true}, "pin2": {"isInput": true, "mustBeConnected": true}, "pin4": {"isInput": true, "mustBeConnected": true}, "pin14": {"isInput": true, "mustBeConnected": true}, "pin16": {"isInput": true, "mustBeConnected": true}, "pin7": {"requiresPower": true, "requiresVoltage": 5}, "pin8": {"requiresPower": true, "requiresVoltage": 5}, "pin9": {"isOutput": true}, "pin10": {"isOutput": true}, "pin3": {"requiresGround": true}, "pin11": {"requiresGround": true}, "pin15": {"requiresGround": true}, "pin17": {"requiresGround": true}}} noConnect={["pin5","pin6","pin12","pin13"]} pinLabels={{"pin1": "DIN", "pin2": "GAIN_SLOT", "pin3": "GND1", "pin4": "SD_MODE", "pin5": "NC5", "pin6": "NC6", "pin7": "VDD1", "pin8": "VDD2", "pin9": "OUTP", "pin10": "OUTN", "pin11": "GND2", "pin12": "NC12", "pin13": "NC13", "pin14": "LRCLK", "pin15": "GND3", "pin16": "BCLK", "pin17": "EP"}}/>
+    <capacitor name="C_AMP_HF"
+      manufacturerPartNumber="CC0603KRX7R9BB104" supplierPartNumbers={{ jlcpcb: ["C14663"] }}
+      footprint="jlcpcb:C14663" layer="top" {...placements.C_AMP_HF}
+      connections={{"pin2": "net.GND", "pin1": "net.V5_PI_IN"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" capacitance="100nF"/>
+    <capacitor name="C_AMP_BULK"
+      manufacturerPartNumber="CL31B106KOHNNNE" supplierPartNumbers={{ jlcpcb: ["C47971"] }}
+      footprint="jlcpcb:C47971" layer="top" {...placements.C_AMP_BULK}
+      connections={{"pin2": "net.GND", "pin1": "net.V5_PI_IN"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" capacitance="10uF"/>
+    <resistor name="R_GAIN"
+      manufacturerPartNumber="0603WAF1003T5E" supplierPartNumbers={{ jlcpcb: ["C25803"] }}
+      footprint="jlcpcb:C25803" layer="top" {...placements.R_GAIN}
+      connections={{"pin1": "net.V5_PI_IN", "pin2": "net.AMP_GAIN"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" resistance="100k"/>
+    <resistor name="R_MIC_SD"
+      manufacturerPartNumber="0603WAF1003T5E" supplierPartNumbers={{ jlcpcb: ["C25803"] }}
+      footprint="jlcpcb:C25803" layer="top" {...placements.R_MIC_SD}
+      connections={{"pin2": "net.GND", "pin1": "net.MIC_SD"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" resistance="100k"/>
+    <resistor name="R_SPK_P"
+      manufacturerPartNumber="25121WJ047JT4E" supplierPartNumbers={{ jlcpcb: ["C25489"] }}
+      footprint="jlcpcb:C25489" layer="top" {...placements.R_SPK_P}
+      connections={{"pin1": "net.OUTP", "pin2": "net.SPK_P"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" resistance="4.7"/>
+    <resistor name="R_SPK_N"
+      manufacturerPartNumber="25121WJ047JT4E" supplierPartNumbers={{ jlcpcb: ["C25489"] }}
+      footprint="jlcpcb:C25489" layer="top" {...placements.R_SPK_N}
+      connections={{"pin1": "net.OUTN", "pin2": "net.SPK_N"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" resistance="4.7"/>
+    <resistor name="R_TP_RST"
+      manufacturerPartNumber="0603WAF1002T5E" supplierPartNumbers={{ jlcpcb: ["C25804"] }}
+      footprint="jlcpcb:C25804" layer="top" {...placements.R_TP_RST}
+      connections={{"pin1": "net.V3V3_PI", "pin2": "net.NRST"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" resistance="10k"/>
+    <resistor name="R_TP_RDY"
+      manufacturerPartNumber="0603WAF1002T5E" supplierPartNumbers={{ jlcpcb: ["C25804"] }}
+      footprint="jlcpcb:C25804" layer="top" {...placements.R_TP_RDY}
+      connections={{"pin1": "net.V3V3_PI", "pin2": "net.RDY"}}
+      pcbStyle={{ silkscreenTextVisibility: "hidden" }} schSectionName="Touch and audio" resistance="10k"/>
   </board>
 );

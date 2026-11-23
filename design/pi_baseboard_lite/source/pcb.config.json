@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "title": "Pi display and 8-pin GPIO baseboard",
+  "title": "Pi handheld \u00b7 single display, touch and audio PCB",
   "manufacturing": {
     "name": "compact-4layer-fr4-1oz",
     "layers": 4,
@@ -66,25 +66,13 @@
     }
   },
   "nets": {
-    "AUX_3V3": {
-      "class": "power",
-      "currentCapacity": {
-        "currentA": 0.2,
-        "copperThicknessOz": 1,
-        "maxTemperatureRiseC": 10,
-        "requiredWidthMm": 0.2,
-        "calculationMethod": "IPC-2221 internal coefficient0.024, 1oz, 10C rise; conservative minimum for any routing layer",
-        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board."
-      }
-    },
-    "AUX_ILIM": {
-      "class": "sensitive_analog"
-    },
     "FAULT_N": {
       "class": "signal"
     },
     "GND": {
-      "class": "ground"
+      "class": "ground",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
     },
     "GPIO10": {
       "class": "cpu_io"
@@ -95,25 +83,13 @@
     "GPIO12": {
       "class": "cpu_io"
     },
-    "GPIO2": {
-      "class": "cpu_io"
-    },
     "GPIO24": {
       "class": "cpu_io"
     },
     "GPIO25": {
       "class": "cpu_io"
     },
-    "GPIO3": {
-      "class": "cpu_io"
-    },
-    "GPIO7": {
-      "class": "cpu_io"
-    },
     "GPIO8": {
-      "class": "cpu_io"
-    },
-    "GPIO9": {
       "class": "cpu_io"
     },
     "LCD_COM": {
@@ -211,18 +187,9 @@
       }
     },
     "V3V3_PI": {
-      "class": "power"
-    },
-    "V5_AUX": {
       "class": "power",
-      "currentCapacity": {
-        "currentA": 0.2,
-        "copperThicknessOz": 1,
-        "maxTemperatureRiseC": 10,
-        "requiredWidthMm": 0.2,
-        "calculationMethod": "IPC-2221 internal coefficient0.024, 1oz, 10C rise; conservative minimum for any routing layer",
-        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board."
-      }
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
     },
     "V5_LCD": {
       "class": "power",
@@ -249,18 +216,86 @@
     "V5_PI_IN": {
       "class": "power",
       "currentCapacity": {
-        "currentA": 0.5,
+        "currentA": 0.65,
         "copperThicknessOz": 1,
         "maxTemperatureRiseC": 10,
-        "requiredWidthMm": 0.31,
-        "calculationMethod": "IPC-2221 internal coefficient0.024, 1oz, 10C rise; conservative minimum for any routing layer",
-        "rationale": "4layer, all copper1oz. IPC-2221 internal bound at10C rise:500mA needs0.30038mm,200mA needs0.08488mm. Impose0.31mm input/0.20mm branch minimum. Pi operating current does not traverse this board. Includes2x200mA display/aux branch budgets plus100mA design margin; fan connector removed."
+        "requiredWidthMm": 0.44,
+        "calculationMethod": "IPC-2221 internal k=0.024, 1 oz, 10 C: 0.65 A requires 0.432 mm. Routed supply trunks use 0.50 mm.",
+        "rationale": "Up to 0.20 A display, 0.34 A speaker peak at 5.25 V and minimum total load, 0.11 A margin. Inner 1 oz conservative IPC-2221 design at 10 C rise."
       },
-      "minimumWidthMm": 0.31,
-      "rationale": "500mA input on 1oz internal copper needs0.30038mm by IPC-2221 coefficient0.024 at10C rise; impose0.31mm floor while retaining0.50mm nominal."
+      "minimumWidthMm": 0.44,
+      "rationale": "Up to 0.20 A display, 0.34 A speaker peak at 5.25 V and minimum total load, 0.11 A margin. Inner 1 oz conservative IPC-2221 design at 10 C rise.",
+      "clearanceMm": 0.15
+    },
+    "SDA": {
+      "class": "cpu_io",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
+    },
+    "SCL": {
+      "class": "cpu_io",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
+    },
+    "NRST": {
+      "class": "cpu_io",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
+    },
+    "RDY": {
+      "class": "cpu_io",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
+    },
+    "BCLK": {
+      "class": "cpu_io",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
+    },
+    "WS": {
+      "class": "cpu_io",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
+    },
+    "MIC_SD": {
+      "class": "cpu_io"
+    },
+    "AMP_DIN": {
+      "class": "cpu_io",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
+    },
+    "AMP_GAIN": {
+      "class": "signal",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
+    },
+    "OUTP": {
+      "class": "signal",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
+    },
+    "OUTN": {
+      "class": "signal",
+      "clearanceMm": 0.15,
+      "rationale": "0.4 mm TQFN and 0.5 mm FFC lead escape; 0.15 mm board process."
+    },
+    "SPK_P": {
+      "class": "signal"
+    },
+    "SPK_N": {
+      "class": "signal"
     }
   },
-  "footprintExceptions": [],
+  "footprintExceptions": [
+    {
+      "componentRef": "U_MIC",
+      "identity": "ICS-43434",
+      "logicalPadGrouping": "same-pcb-port",
+      "minimumInternalPadClearanceMm": 0.15,
+      "rationale": "Four pad-3 ground sectors are one electrical terminal; aperture derived from TDK figure 14. No other signals share this group."
+    }
+  ],
   "copperPours": {
     "enabled": true,
     "groundLayers": [
@@ -273,7 +308,10 @@
     "traceMarginMm": 0.25,
     "boardEdgeMarginMm": 1,
     "cutoutMarginMm": 0.5,
-    "removeIslands": true
+    "removeIslands": true,
+    "planeLayers": [
+      "inner1"
+    ]
   },
   "stitchingVias": [
     {
@@ -311,9 +349,125 @@
       "diameterMm": 0.6,
       "drillMm": 0.3,
       "rationale": "Measured isolated F.Cu5.346427mm2 lobe near C_BUF1 on board SHA c62cc767. Point(native87.957908,69.480072) lies in lobe and largest In1.Cu plane: boundary distances0.449188/1.335900mm. All pads, foreign tracks and vias on the whole stack excluded with0.46mm offset; residual0.139689mm. Targeted return-path bridge, no rule relaxation."
+    },
+    {
+      "name": "AMP_FEED",
+      "net": "V5_PI_IN",
+      "xMm": 8.55,
+      "yMm": 0.3,
+      "diameterMm": 0.65,
+      "drillMm": 0.3,
+      "rationale": "Connect the local top supply area to the inner 5 V distribution area, clear of solder lands."
+    },
+    {
+      "name": "LCD_FEED",
+      "net": "V5_PI_IN",
+      "xMm": -13.95,
+      "yMm": -0.2,
+      "diameterMm": 0.65,
+      "drillMm": 0.3,
+      "rationale": "Connect the local top supply area to the inner 5 V distribution area, clear of solder lands."
+    },
+    {
+      "name": "V5_PI_IN_HAND_VIA_1",
+      "net": "V5_PI_IN",
+      "xMm": -10.45,
+      "yMm": -0.05,
+      "rationale": "Layer change of a hand-laid V5_PI_IN trace."
+    },
+    {
+      "name": "V3V3_PI_HAND_VIA_1",
+      "net": "V3V3_PI",
+      "xMm": 11.4,
+      "yMm": -15.326,
+      "rationale": "Layer change of a hand-laid V3V3_PI trace."
+    },
+    {
+      "name": "V3V3_PI_HAND_VIA_2",
+      "net": "V3V3_PI",
+      "xMm": 8.9,
+      "yMm": -17.526,
+      "rationale": "Layer change of a hand-laid V3V3_PI trace."
     }
   ],
-  "copperAreas": [],
+  "copperAreas": [
+    {
+      "name": "AMP_VDD",
+      "net": "V5_PI_IN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          4.32,
+          0.33
+        ],
+        [
+          6,
+          0.33
+        ],
+        [
+          6.5,
+          -1.25
+        ],
+        [
+          10.8,
+          -1.25
+        ],
+        [
+          10.8,
+          1.5
+        ],
+        [
+          7.6,
+          2.14
+        ],
+        [
+          6.1,
+          2.14
+        ],
+        [
+          5.8,
+          3.62
+        ],
+        [
+          5,
+          3.62
+        ],
+        [
+          5,
+          1.35
+        ],
+        [
+          4.32,
+          1.35
+        ]
+      ],
+      "rationale": "Solid top copper joins U_AMP power and mode pins with the local bulk and HF capacitor supply lands; retain wide supply trunk from GPIO."
+    },
+    {
+      "name": "LCD_INPUT_FEED",
+      "net": "V5_PI_IN",
+      "layer": "top",
+      "polygonMm": [
+        [
+          -14.5,
+          -0.8
+        ],
+        [
+          -12.45,
+          -0.8
+        ],
+        [
+          -12.45,
+          0.6
+        ],
+        [
+          -14.5,
+          0.6
+        ]
+      ],
+      "rationale": "Top copper joins LCD input bypass to its feed via; the limiter has its own feed trace."
+    }
+  ],
   "keepouts": [
     {
       "name": "H1_CLEARANCE",
@@ -353,12 +507,7 @@
     {
       "componentRef": "J_PI",
       "vertical": true,
-      "rationale": "J_PI 是板背面的 GPIO 堆叠母座，Pi 排针沿垂直 PCB 的方向插入。"
-    },
-    {
-      "componentRef": "J_MOD",
-      "vertical": true,
-      "rationale": "J_MOD 是板正面的直立 2×4 母座，扩展模块的公排针沿垂直 PCB 的方向插入。"
+      "rationale": "J_PI \u662f\u677f\u80cc\u9762\u7684 GPIO \u5806\u53e0\u6bcd\u5ea7\uff0cPi \u6392\u9488\u6cbf\u5782\u76f4 PCB \u7684\u65b9\u5411\u63d2\u5165\u3002"
     },
     {
       "componentRef": "J_LCD",
@@ -366,6 +515,20 @@
       "targetOpening": "down",
       "expectedLayer": "top",
       "rationale": "Delegated modeled replacement SHOU HAN C5373447: top contacts, native/target entrance -Y on top, pin1 left; native screen copper upward after back fold."
+    },
+    {
+      "componentRef": "J_TP",
+      "nativeOpening": "down",
+      "targetOpening": "down",
+      "expectedLayer": "top",
+      "rationale": "Horizontal top-side connector facing the front harness or flex."
+    },
+    {
+      "componentRef": "J_SPK",
+      "nativeOpening": "down",
+      "targetOpening": "down",
+      "expectedLayer": "top",
+      "rationale": "Horizontal top-side connector facing the front harness or flex."
     }
   ],
   "bomBindings": [
@@ -384,13 +547,6 @@
       "populate": true
     },
     {
-      "bomItemId": "lite_header",
-      "designators": [
-        "J_MOD"
-      ],
-      "populate": true
-    },
-    {
       "bomItemId": "display_buffer",
       "designators": [
         "U_BUF1",
@@ -403,7 +559,9 @@
       "designators": [
         "C_BUF1",
         "C_BUF2",
-        "C_LCD_A"
+        "C_LCD_A",
+        "C_AMP_HF",
+        "C_MIC"
       ],
       "populate": true
     },
@@ -413,10 +571,7 @@
         "C_LCD_D",
         "C_LCD_IN",
         "C_LCD_LIN",
-        "C_LCD_LOUT",
-        "C_AUX_IN",
-        "C_AUX_LIN",
-        "C_AUX_LOUT"
+        "C_LCD_LOUT"
       ],
       "populate": true
     },
@@ -429,31 +584,29 @@
         "R_OFF_DISP",
         "R_OFF_COM",
         "R_LCD_EN",
-        "R_AUX_EN"
+        "R_GAIN",
+        "R_MIC_SD"
       ],
       "populate": true
     },
     {
       "bomItemId": "gpio_aux_limiter",
       "designators": [
-        "U_LCD_LIMIT",
-        "U_AUX_LIMIT"
+        "U_LCD_LIMIT"
       ],
       "populate": true
     },
     {
       "bomItemId": "lite_r169k",
       "designators": [
-        "R_LCD_ILIM",
-        "R_AUX_ILIM"
+        "R_LCD_ILIM"
       ],
       "populate": true
     },
     {
       "bomItemId": "ldo_3v3",
       "designators": [
-        "U_LCD_LDO",
-        "U_AUX_LDO"
+        "U_LCD_LDO"
       ],
       "populate": true
     },
@@ -461,10 +614,243 @@
       "bomItemId": "lite_r10k",
       "designators": [
         "R_LCD_BLEED",
-        "R_AUX_BLEED",
-        "R_FAULT_PU"
+        "R_FAULT_PU",
+        "R_TP_RST",
+        "R_TP_RDY"
       ],
       "populate": true
+    },
+    {
+      "bomItemId": "touch_host_zif",
+      "designators": [
+        "J_TP"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "spk_header",
+      "designators": [
+        "J_SPK"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "speaker_amp",
+      "designators": [
+        "U_AMP"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "amp_bulk",
+      "designators": [
+        "C_AMP_BULK"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "spk_limit",
+      "designators": [
+        "R_SPK_P",
+        "R_SPK_N"
+      ],
+      "populate": true
+    },
+    {
+      "bomItemId": "microphone",
+      "designators": [
+        "U_MIC"
+      ],
+      "populate": true
+    }
+  ],
+  "traces": [
+    {
+      "name": "FRONT_SUPPLY_1",
+      "net": "V5_PI_IN",
+      "layer": "bottom",
+      "widthMm": 0.5,
+      "points": [
+        "AMP_FEED",
+        [
+          -13.45,
+          0.3
+        ],
+        "LCD_FEED"
+      ],
+      "rationale": "Joins AMP_FEED to LCD_FEED by hand; the router left this connection open."
+    },
+    {
+      "name": "FRONT_SUPPLY_2",
+      "net": "V5_PI_IN",
+      "layer": "bottom",
+      "widthMm": 0.5,
+      "points": [
+        "LCD_FEED",
+        [
+          -15.95,
+          -2.2
+        ],
+        [
+          -15.95,
+          -4.15
+        ],
+        [
+          -16.2,
+          -4.4
+        ],
+        [
+          -18.5,
+          -4.4
+        ],
+        "J_PI-2"
+      ],
+      "rationale": "Joins LCD_FEED to J_PI-2 by hand; the router left this connection open."
+    },
+    {
+      "name": "FRONT_SUPPLY_3",
+      "net": "V5_PI_IN",
+      "layer": "inner2",
+      "widthMm": 0.5,
+      "points": [
+        "LCD_FEED",
+        [
+          -10.6,
+          -0.2
+        ],
+        "V5_PI_IN_HAND_VIA_1"
+      ],
+      "rationale": "Keep inner1 continuous for GND. Connect the two 5 V feed vias through inner2."
+    },
+    {
+      "name": "FRONT_SUPPLY_4",
+      "net": "V5_PI_IN",
+      "layer": "top",
+      "widthMm": 0.5,
+      "points": [
+        "V5_PI_IN_HAND_VIA_1",
+        [
+          -9.95,
+          0.45
+        ],
+        "U_LCD_LIMIT-1"
+      ],
+      "rationale": "Joins LCD_FEED to U_LCD_LIMIT-1 by hand; the router left this connection open."
+    },
+    {
+      "name": "V3V3_PI_HAND_1",
+      "net": "V3V3_PI",
+      "layer": "top",
+      "widthMm": 0.25,
+      "points": [
+        "U_MIC-5",
+        "V3V3_PI_HAND_VIA_1"
+      ],
+      "rationale": "Joins U_MIC-5 to C_MIC-1 by hand; the router left this connection open."
+    },
+    {
+      "name": "V3V3_PI_HAND_2",
+      "net": "V3V3_PI",
+      "layer": "inner2",
+      "widthMm": 0.25,
+      "points": [
+        "V3V3_PI_HAND_VIA_1",
+        [
+          11.1,
+          -15.326
+        ],
+        "V3V3_PI_HAND_VIA_2"
+      ],
+      "rationale": "Joins U_MIC-5 to C_MIC-1 by hand; the router left this connection open."
+    },
+    {
+      "name": "V3V3_PI_HAND_3",
+      "net": "V3V3_PI",
+      "layer": "top",
+      "widthMm": 0.25,
+      "points": [
+        "V3V3_PI_HAND_VIA_2",
+        [
+          8.05,
+          -16.676
+        ],
+        [
+          7.800000000000001,
+          -16.676
+        ],
+        "C_MIC-1"
+      ],
+      "rationale": "Joins U_MIC-5 to C_MIC-1 by hand; the router left this connection open."
+    },
+    {
+      "name": "PI_5V_PARALLEL_CONTACTS",
+      "net": "V5_PI_IN",
+      "layer": "bottom",
+      "widthMm": 0.5,
+      "points": [
+        "J_PI-2",
+        "J_PI-4"
+      ],
+      "rationale": "Connect the two adjacent same-column GPIO power pins directly on the socket face."
+    },
+    {
+      "name": "AMP_SUPPLY_PINS",
+      "net": "V5_PI_IN",
+      "layer": "top",
+      "widthMm": 0.5,
+      "points": [
+        "C_AMP_HF-1",
+        [
+          6.85,
+          1.8
+        ],
+        [
+          5.67,
+          2.98
+        ],
+        [
+          5.3,
+          2.98
+        ]
+      ],
+      "rationale": "Reserve continuous 0.50 mm top copper from the bypass supply to the local amplifier land group before the output nets are routed."
+    },
+    {
+      "name": "AMP_MODE_SUPPLY",
+      "net": "V5_PI_IN",
+      "layer": "top",
+      "widthMm": 0.5,
+      "points": [
+        "C_AMP_HF-1",
+        [
+          6.66,
+          1.8
+        ],
+        [
+          5.68,
+          0.82
+        ],
+        [
+          4.68,
+          0.82
+        ]
+      ],
+      "rationale": "Reserve continuous 0.50 mm top copper from the bypass supply to the local amplifier land group before the output nets are routed."
+    },
+    {
+      "name": "AMP_BYPASS_FEED",
+      "net": "V5_PI_IN",
+      "layer": "top",
+      "widthMm": 0.5,
+      "points": [
+        "AMP_FEED",
+        [
+          8.4,
+          0.3
+        ],
+        "C_AMP_HF-1"
+      ],
+      "rationale": "Continuous board supply from the input via to the local high-frequency capacitor and both amplifier branches."
     }
   ]
 }

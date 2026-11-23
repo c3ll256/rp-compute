@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "releaseId": "652af371684be9547491468057c5040d54a8621926537a530785095f68458473",
+  "releaseId": "6d55045e23f2a47891f3c201e65706b24b49aaa16ed987ab99bb53cbfe7cf693",
   "designId": "pi_baseboard_lite",
-  "buildId": "79bd4703ca74b68657cedc6c0047d7b303a28029ab08fdb193790a23785d389e",
-  "candidateId": "496f2519e451ff2a5c456078fdfc6d496ce94c5c3e66796e0e6bbc7e717a2447",
-  "approvedAt": "2026-11-09T12:24:27.396Z",
+  "buildId": "51609da52479143d8b8eed8e13725a0878b42f86d64ef879a96611476daf488c",
+  "candidateId": "3daaacd6f10143ccc9d4b0344c31207d18a72d14f86da1a21a3e633895000103",
+  "approvedAt": "2026-11-23T21:14:26.408Z",
   "sections": [
     {
       "id": "fabrication",
@@ -46,8 +46,11 @@
         "3dmodels/pi_baseboard_lite.3dshapes/fh12a-10s-0.5sh-drawing-reference.step",
         "3dmodels/pi_baseboard_lite.3dshapes/generic_40pin-nominal.step",
         "3dmodels/pi_baseboard_lite.3dshapes/generic_8pin-nominal.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal.step",
         "3dmodels/pi_baseboard_lite.3dshapes/hle-104-02-g-dv-drawing-reference.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/InvenSense_ICS-43434-6_3.5x2.65mm.step",
         "3dmodels/pi_baseboard_lite.3dshapes/JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal.step",
+        "3dmodels/pi_baseboard_lite.3dshapes/JST_SH_SM05B-SRSS-TB_1x05-1MP_P1.00mm_Horizontal.step",
         "3dmodels/pi_baseboard_lite.3dshapes/PinHeader_2x04_P2.54mm_Vertical.step",
         "3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x04_P2.54mm_Vertical.step",
         "3dmodels/pi_baseboard_lite.3dshapes/PinSocket_2x20_P2.54mm_Vertical.step",
@@ -65,9 +68,24 @@
       "sizeBytes": 1948246
     },
     {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/Hirose_FH12-6S-0.5SH_1x06-1MP_P0.50mm_Horizontal.step",
+      "sha256": "169f57e63174da73fc359b969a8c5aca9728c3333f0fe82f6fa2b0a618990b68",
+      "sizeBytes": 185440
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/InvenSense_ICS-43434-6_3.5x2.65mm.step",
+      "sha256": "f02a7427658e9b815639a8599501b47d22fa9c90982458b2b8627ea69254b506",
+      "sizeBytes": 37283
+    },
+    {
       "path": "3dmodels/pi_baseboard_lite.3dshapes/JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal.step",
       "sha256": "c7580ba6320b5978fc3e659ad51a0c3ae8aba7e2d06dfd92fed391446fa3c525",
       "sizeBytes": 54957
+    },
+    {
+      "path": "3dmodels/pi_baseboard_lite.3dshapes/JST_SH_SM05B-SRSS-TB_1x05-1MP_P1.00mm_Horizontal.step",
+      "sha256": "4c29844e2d9b11ef1675df49f2721391945ba3764a3b04c72c2f20a5215c0e0c",
+      "sizeBytes": 80559
     },
     {
       "path": "3dmodels/pi_baseboard_lite.3dshapes/PinHeader_2x04_P2.54mm_Vertical.step",
@@ -116,128 +134,128 @@
     },
     {
       "path": "assembly.glb",
-      "sha256": "18727aacd9723ad5d99a6b701c25247f07d8c09e74647290b47ac85dfdc49568",
-      "sizeBytes": 47004264
+      "sha256": "ab4ba20e432c9350cf9466d0d5e34d700375fb8c8863bfb4a04d3668ea3ac531",
+      "sizeBytes": 53623100
     },
     {
       "path": "assembly.step",
-      "sha256": "9646c96b6ef8b9988d3382da1e969c014f99d7fc087cdfb053901519d2101f27",
-      "sizeBytes": 17283890
+      "sha256": "f4d1106e00ef9053f18fdde994fa0399b11c6b7e574b0a45fb63718ecb94f9ea",
+      "sizeBytes": 22772414
     },
     {
       "path": "circuit.json",
-      "sha256": "b3a515011ee24a19304dc0117d37fa4d1729a527852c240c3403c1135b75cb5f",
-      "sizeBytes": 994895
+      "sha256": "e284868f3a9a83faa1e247761104a394e0a9afc31ca6bce8417aa6d1977b12ee",
+      "sizeBytes": 1581192
     },
     {
       "path": "drill/board-NPTH.drl",
-      "sha256": "8ce9d3aff701c2ad8690080568ef20da3ba9095b3650b31e43bcc31d1b696fec",
-      "sizeBytes": 355
+      "sha256": "310ac036fb1a2468459f675a912adc4438bfcc3abbc8a379e99cf343e475b836",
+      "sizeBytes": 433
     },
     {
       "path": "drill/board-PTH.drl",
-      "sha256": "c045ca700c2401415341daa7dd75a1217f7b610f85bc248f0cbc9adbf566bdde",
-      "sizeBytes": 1431
+      "sha256": "4a6554f446d1a7404f13227e9526a69c64cdacf520c3be097bdf311b1acc0385",
+      "sizeBytes": 2187
     },
     {
       "path": "drill/pi_baseboard_lite-drill-report.txt",
-      "sha256": "5d6cfb64d923593322d7e7c5ad91aa177e5a9312bc4bb0635d157a4618b688d1",
-      "sizeBytes": 759
+      "sha256": "8d684d68c46c4505542653965da59d4fe21f27969ef59295c3309fcc67ba2944",
+      "sizeBytes": 795
     },
     {
       "path": "gerbers/board-B_Cu.gbl",
-      "sha256": "81bb835cd1a7ed7411c75943e3702dceb46cffdcd556af017827719f4e00f469",
-      "sizeBytes": 90089
+      "sha256": "ca6e2beb9917e0f2d36a23dbc0f8ba6a8fee43de61784b2d6ff289217922a697",
+      "sizeBytes": 112758
     },
     {
       "path": "gerbers/board-B_Mask.gbs",
-      "sha256": "6436763a7715225afbae7d0c1798af394016ef57f11cc1491f2dd3bfd47dd685",
-      "sizeBytes": 1842
+      "sha256": "40474ed468beb146497c0f9527c7bebc873a6551e983c362a5428d7d003dc7f5",
+      "sizeBytes": 1683
     },
     {
       "path": "gerbers/board-B_Paste.gbp",
-      "sha256": "4755b2bacde416c9f82c00e2d990a49737db40f63edb83d2bd7890bd6f15114d",
+      "sha256": "46ba04838bedc7308dde7e9422736423d63cdcc153b3e28eb49a53babc5f40be",
       "sizeBytes": 450
     },
     {
       "path": "gerbers/board-B_Silkscreen.gbo",
-      "sha256": "c0a3e4bed491aa198cf7f67499e2ac4e79e80fc024e0704c639965cd5f82179a",
+      "sha256": "c41322364c79bb67a7636fde6c09f21c399ff209b0a0d90af3466c7de8110318",
       "sizeBytes": 890
     },
     {
       "path": "gerbers/board-Edge_Cuts.gm1",
-      "sha256": "147c371e4a29f097209bebd9e79d669d686bd1968ce9d32cf360de7bcc7afb18",
+      "sha256": "dc0091a2a4b2d8d519434a08ac6741a375cdabacc0638966786bb82575445b12",
       "sizeBytes": 680
     },
     {
       "path": "gerbers/board-F_Cu.gtl",
-      "sha256": "171197ec717e40af3854f355195ebf2f39781eaa4b9a97a21d11d62b49496731",
-      "sizeBytes": 172105
+      "sha256": "1d45922bbc3ef981985d41752af3bf7a9ccdbace0e2fabbc1b800ab904be3e94",
+      "sizeBytes": 280550
     },
     {
       "path": "gerbers/board-F_Mask.gts",
-      "sha256": "87f4db084142906451d42c5d28182993601e2065232fbb14eb8b577a924e1dd4",
-      "sizeBytes": 5544
+      "sha256": "5064b5360cc05f4dea0621fa757a76a3280be445a357e89b4fccaf1a8fa1363d",
+      "sizeBytes": 8603
     },
     {
       "path": "gerbers/board-F_Paste.gtp",
-      "sha256": "1dd240fe338c66cafdcb4b4c844df038aa581889ae9d919d404f2a32b9d57be5",
-      "sizeBytes": 4142
+      "sha256": "8aa7a100686d9577aa9d36180cf35f34fbfe9c06c4707659f363c59837dd07e6",
+      "sizeBytes": 7390
     },
     {
       "path": "gerbers/board-F_Silkscreen.gto",
-      "sha256": "d4b1791b932bbcce5f8614f040fadd70fffc7932a55719e14ce83230e0447999",
-      "sizeBytes": 23987
+      "sha256": "bc00af241b4958fe7bb7a146cff0ea33bdc2cd69a9939b05e987890a41126a8b",
+      "sizeBytes": 19053
     },
     {
       "path": "gerbers/board-In1_Cu.g1",
-      "sha256": "f46d11f4d32e55e1f271f31c5e7402b213d0a073884b1c610028aeaf7088ce22",
-      "sizeBytes": 91829
+      "sha256": "3035d306d9646ccf382cf049df2d7af0809d7bc6dcc44d5c9d849e9a12a4a09e",
+      "sizeBytes": 110559
     },
     {
       "path": "gerbers/board-In2_Cu.g2",
-      "sha256": "dcbb7dbf1accb694d31b54eb5a70e55d3d657800725a36457ee66154146d62c5",
-      "sizeBytes": 4754
+      "sha256": "e68ef9b8c283f1d1d70262ca3d6b72ea89f2487f3a83e7b3f7d00d8a585cc8c6",
+      "sizeBytes": 10894
     },
     {
       "path": "gerbers/board-job.gbrjob",
-      "sha256": "fe224eb05d7465d9462b526ecb7a0d8dbf4cbee8b9228df214ba6fd5b7fccfed",
+      "sha256": "fa08060775ef1804d1fe72eba414b09df9a033dd0d7b28805d08f85fcb693923",
       "sizeBytes": 3644
     },
     {
       "path": "jlc-smt-bom.csv",
-      "sha256": "c5802b294e80d9492111fa7511fdbdb80b6dd1d5b093d00b263eaef86f87e837",
-      "sizeBytes": 1017
+      "sha256": "377c61710a15904e3a052d832db36ecb11bb5d7f356b9199c9656992ef7db5d0",
+      "sizeBytes": 1344
     },
     {
       "path": "jlc-smt-placement.csv",
-      "sha256": "c4c8e9f6083d4c74259a23aaae35f9ec004a18c61ab8c4279944729a3f3af465",
-      "sizeBytes": 1996
+      "sha256": "993c775d07ce3f82f64739d37e8baa36050a79d7d55025bca3e37405133eb66b",
+      "sizeBytes": 2350
     },
     {
       "path": "manifest.json",
-      "sha256": "8e401e67dbf55072d0bceb123a06515f1023737bdcd8b1c648021b094d637515",
-      "sizeBytes": 31305
+      "sha256": "5c24d1c0084b919af72e6f6c436ff76f495fda8d269ec0c276c5f99a6207094c",
+      "sizeBytes": 43622
     },
     {
       "path": "previews/gerber-bottom.png",
-      "sha256": "c2f2d14d3586d32c3c2ac460b7462fa2f22c63299521257beeceff41ea40c518",
-      "sizeBytes": 184447
+      "sha256": "eb81e85aa97022223517682e488d64393ec2f26b53227b0d93f85b3c1fd80395",
+      "sizeBytes": 217640
     },
     {
       "path": "previews/gerber-bottom.svg",
-      "sha256": "2cce1ef04c15bc4a45ca7fbc834542be9f4d74c31aa5b62908183624f5401368",
-      "sizeBytes": 88726
+      "sha256": "25fce28911ac54bb8defca0fd703cbe7f393394d3b5807289fadfece95d5e40e",
+      "sizeBytes": 112687
     },
     {
       "path": "previews/gerber-top.png",
-      "sha256": "b743e69682a42089dd15db5aee05d371d709608083f0c0e1eb3ab051ecd4e094",
-      "sizeBytes": 305218
+      "sha256": "b9a664d2ec12dc52ec068806fbe9c5763c4c6156acac879fb739c2aa820d98d2",
+      "sizeBytes": 345776
     },
     {
       "path": "previews/gerber-top.svg",
-      "sha256": "fbddb49ce3c739f1798e15645e59bbe0c9e440087f66e01765ac9fb4f3092e51",
-      "sizeBytes": 189803
+      "sha256": "45f1aa770f9661e464245af3616122f9cff874a88e7832c6b1d20282b5d8198a",
+      "sizeBytes": 293813
     }
   ]
 }

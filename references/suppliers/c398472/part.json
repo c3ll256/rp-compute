@@ -1,0 +1,80 @@
+{
+  "source": "LCSC",
+  "looked_up_at": "2026-11-23T17:47:53.237Z",
+  "lcsc_code": "C398472",
+  "manufacturer": "JST",
+  "manufacturer_part_number": "SHR-02V-S",
+  "description": "Connector Housing 2 Position 1mm Pitch Single Row SH Series PBT -25°C~+85°C",
+  "category": "胶壳(线对板/线对线)",
+  "package": "P=1mm",
+  "jlcpcb_part_class": "unknown",
+  "parameters": {
+    "Pitch": "1mm",
+    "Flame Retardant Rating": "UL94V-0",
+    "Number of Rows": "1",
+    "With Wings": "Without Fins",
+    "Operating Temperature": "-25°C~+85°C",
+    "Reference Series": "SH",
+    "Holes Structure": "1x2P",
+    "Color": "White",
+    "Plastic Material": "PBT",
+    "Number of PINs Per Row": "2",
+    "With Locker": "Non-Latching"
+  },
+  "lcsc_stock": 390,
+  "price_breaks": [
+    {
+      "quantity": 20,
+      "unitPrice": 0.2493,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 200,
+      "unitPrice": 0.2007,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 600,
+      "unitPrice": 0.1737,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 2000,
+      "unitPrice": 0.1522,
+      "currency": "CNY"
+    },
+    {
+      "quantity": 20,
+      "unitPrice": 0.0408,
+      "currency": "USD"
+    },
+    {
+      "quantity": 200,
+      "unitPrice": 0.0328,
+      "currency": "USD"
+    },
+    {
+      "quantity": 600,
+      "unitPrice": 0.0284,
+      "currency": "USD"
+    },
+    {
+      "quantity": 2000,
+      "unitPrice": 0.0249,
+      "currency": "USD"
+    },
+    {
+      "quantity": 10000,
+      "unitPrice": 0.0226,
+      "currency": "USD"
+    },
+    {
+      "quantity": 20000,
+      "unitPrice": 0.0214,
+      "currency": "USD"
+    }
+  ],
+  "product_url": "https://item.szlcsc.com/380810.html",
+  "datasheet_url": "https://datasheet.lcsc.com/datasheet/pdf/e4ee27ecd922dc1778711e336e5fcf0a.pdf?productCode=C398472",
+  "datasheet_file": "references/suppliers/c398472/c398472-datasheet.pdf"
+}
