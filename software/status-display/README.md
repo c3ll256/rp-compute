@@ -2,52 +2,39 @@
 
 400×240 黑白状态屏，面向当前 Pi 4B 基板及实物 Sharp LS027B7DH01A。复用 `../display-test/display_test.py` 中已完成上机测试的电源、SPI、COM 与清屏逻辑。
 
-顶部固定显示 Makit Compute，右侧展示 Hermes 任务阶段、工具名称、任务耗时、已完成工具数和并行任务数。CPU、内存、温度和根分区占用缩为底部四个分段条形图，并附小号数值，左下方显示 IPv4 地址。指标每秒采样，角色默认按 60fps 目标绘制。系统采样与 Hermes 事件接收分别在独立线程执行。指标缺失显示 `--`，采样超过 5 秒时显示 Metrics unavailable。
+屏幕主体是一个全宽工作间。透视桌面、墙角、地板、窗框与桌柜带出前后层次，远处城市窗景有轻微视差。画面以原生 400×240 像素绘制，阴影使用锁定在像素网格上的黑白点阵。顶部保留 Makit Compute 和时钟。
 
-## 角色与状态
+## Codex 联动
 
-角色依据用户提供的 Grok Bot 图片重绘为圆形黑色主体，两只不同大小的白色胶囊眼睛位于右上部，默认倾斜约 25°。角色动作由 Hermes 的实际任务阶段驱动，空闲时根据系统低负载情况进入休息状态。不同状态使用不同的起伏节奏、轻微拉伸、摇摆、视线、眨眼与小型状态特效。[官方动效参考](https://x.ai/news/designing-grok-bot#what-are-they-doing)
+桌面显示器和角色动作跟随 Pi 本机 Codex。显示服务用后台线程读取 `--terminal-user` 对应用户的 `~/.codex/sessions`，每 0.5 秒观察可见的新事件。支持 SSH、网页终端和小屏终端启动的同一用户 Codex。自定义会话目录可用 `--codex-sessions` 指定。
 
-界面采用左侧房间场景与右侧任务状态。房间包含深色纹理墙面、窗帘、城市窗景与月牙、挂历、书架、绿植、透视木地板、地毯、台灯、抽屉柜和带键盘的电脑桌。桌上有小风扇和咖啡杯，绿植缓慢摇摆，风扇根据角色动作的连续相位运转，忙碌时加速，休息时减速。咖啡热气在清醒状态下缓慢飘动。
+| Codex 阶段 | 工作间反馈 |
+| --- | --- |
+| Ready | 眨眼、轻微浮动，空闲且低负载时休息 |
+| Thinking | 思考气泡与桌面屏幕动效 |
+| Working | 敲键盘动作和滚动短线 |
+| Replying | 屏幕进入回复状态 |
+| Needs you | 检测到用户输入工具时显示问号 |
+| Done | 小跳和勾号，完成反馈保留 8 秒 |
+| Attention / Stopped | 显示错误提示或任务中止 |
 
-桌面显示器会根据角色状态显示终端、传输箭头、月亮或告警，终端下方进度条对应实际 CPU 使用率。背景仅使用黑白像素，墙面、地板和窗景纹理保持静止，场景底图预先缓存，房间绘制限定在左侧区域。
+观测器只向渲染器传递阶段和活动任务数。该联动依赖当前 Codex CLI 的本地 JSONL 会话格式。没有新事件的未结束任务在 15 分钟后归为空闲。
 
-顶部显示 Makit Compute 与时间，底部采用黑底白字显示图形指标。任务标题使用 780 字重，顶部标题与耗时使用 750 字重，时钟使用 700 字重，底部图形指标使用 650 字重。屏幕字体使用随程序打包的 Inter，字体许可位于 `fonts/OFL.txt`。视觉排版参考 OpenAI 官网及 ChatGPT 产品界面，并依据用户提供的房间场景图片补充背景。[OpenAI 官网](https://openai.com/)、[ChatGPT](https://chatgpt.com/)、[字体来源](https://github.com/google/fonts/tree/main/ofl/inter)
+## 键盘与 Terminal 模式
 
-| 任务状态 | Hermes 事件 | 屏幕反馈 |
-| --- | --- | --- |
-| Connect Hermes | 尚无插件心跳，或心跳中断10秒 | 等待连接 |
-| Ready | 插件已连接且无任务 | 呼吸、眨眼，持续低负载后闭眼休息 |
-| Thinking | pre_llm_call / pre_api_request | 张望思索、环绕点、风扇加速 |
-| Replying | post_api_request 明确返回零个工具调用 | 专注动作 |
-| Using tools | pre_tool_call 至对应 post_tool_call | 显示工具名、敲击效果、完成次数，多个任务时动作更忙 |
-| Needs you | on_human_input_request 至 resolved | 面向用户、问号气泡，说明审批、密码或输入请求 |
-| Retrying | api_request_error 且 retryable | 等待动效 |
-| Recovering | 工具错误或非重试 API 错误，任务仍在执行 | 等待后续处理 |
-| Done | post_llm_call 或 completed=true 的 on_session_end | 开心小跳、屏幕勾号，显示本次耗时 |
-| Failed | on_session_end 且 failed=true | 警觉与告警 |
-| Stopped | on_session_end 且 interrupted=true 或 completed=false | 停止状态 |
+接入 USB 键盘或已由 Linux 配对的蓝牙键盘后，按 `Ctrl+Alt+T` 在角色界面与 Terminal 模式之间切换。程序约每秒检测一次新键盘，检测到后在工作间顶部显示快捷键提示。按住快捷键重复触发的按键事件会被吞掉，一次按下切换一次。
 
-连接基于 NousResearch Hermes Agent 的 Python 插件事件。每个进程保留独立会话与任务状态，工具调用通过 tool_call_id 配对，缺少 ID 的旧载荷按名称逐个配对。等待用户输入优先展示，其余优先展示最早开始的任务。完成反馈保留8秒。模型或工具的内部错误会展示重试或恢复状态，最终结果依据任务结束事件判断。[接口参考](https://github.com/NousResearch/hermes-agent/blob/main/website/docs/developer-guide/observer-hooks.md)
+Terminal 使用真实 PTY 会话，默认以 `xonar` 用户及其登录 shell 运行。切回角色界面时会话与正在运行的命令继续保留，再次切入后恢复。输入 `exit` 或在空提示符按 `Ctrl+D` 会结束 shell 并返回角色界面，下次切入会创建新会话。显示服务重启会结束其终端子进程。PTY 输出解析按帧设置短时间预算，大量输出时采用管道背压维持快捷键和屏幕响应。
 
-插件每秒经本机 Unix datagram socket `/run/rp-compute/activity.sock` 发送完整状态快照，事件到来时立即发送。显示服务重启后通过下一次心跳恢复当前状态，10秒未收到心跳则显示等待连接。传输内容包括阶段、工具名称、时间和计数。回调返回 None。模型提示词、工具参数、工具返回值和用户输入内容均未纳入快照。底部 RAM/DISK≥90%、温度≥75°C 时显示额外告警线，温度条形图的量程为0–85°C。
+终端为49列×15行，每个字符占8×14像素。常规和粗体正文使用随程序打包的 Terminus Font 14像素原生点阵字体，许可位于 `fonts/terminus/LICENSE.txt`。斜体使用 DejaVu Sans Mono，中文使用12像素 Noto CJK 字体回退，统一基线。按 ANSI 属性区分常规、加粗、斜体、下划线与反白。ANSI 16色、256色和RGB真彩色背景按亮度映射为固定4×4 Bayer点阵灰阶，文字使用实心黑白笔画，灰色背景上的字符增加对比轮廓。显式相同的前景色和背景色保持隐藏文字效果。显示帧始终输出1bit黑白格式，点阵位置固定于物理像素。支持方向键、Home/End、PageUp/PageDown、功能键、Tab、Ctrl+C 和应用光标模式，并保留独立的全屏应用缓冲区。`Shift+PageUp` / `Shift+PageDown` 浏览最多1000行滚动历史。键盘布局读取 `/etc/default/keyboard`，支持 Shift、Caps Lock、Num Lock、AltGr 和组合字符。
 
-## 接入 Hermes
+命令由树莓派本机的独立 PTY 登录 shell 执行，显示前端使用 pyte 解析常用 ANSI/VT 控制序列。高级 xterm 扩展、图形协议及复杂 TUI 的兼容性需按应用验证。Sharp LS027B7DH01A 使用每像素1bit存储，灰阶以黑白像素密度模拟。[屏幕规格](https://d7rh5s3nxmpy4.cloudfront.net/CMP7377/files/LS027B7DH01A_06Aug12_Spec_LCP-1112041.pdf)
 
-先安装并配置 NousResearch Hermes Agent，再将随显示程序安装的插件复制到当前 Hermes 配置目录并启用。默认配置目录为 `~/.hermes`，自定义 profile 请使用对应的 HERMES_HOME。
-
-```sh
-mkdir -p ~/.hermes/plugins/rp-compute-display
-cp /opt/rp-compute/software/status-display/hermes_display/{__init__.py,bridge.py,plugin.yaml} ~/.hermes/plugins/rp-compute-display/
-hermes plugins enable rp-compute-display
-hermes plugins doctor rp-compute-display
-```
-
-重新启动 Hermes CLI 会话或 gateway 后生效。插件使用 Python 标准库，可用于 CLI 和 gateway。显示程序与插件的 socket 可通过 `--activity-socket` 和插件进程的 `RP_COMPUTE_ACTIVITY_SOCKET` 环境变量同时调整。显示服务使用 systemd RuntimeDirectory 创建 `/run/rp-compute`。
+键盘事件通过 evdev 独占接收，显示程序运行期间连接的完整键盘由 LCD 界面接管，程序退出后释放。可用 `--no-keyboard` 将键盘留给系统控制台，或通过 `--terminal-user` 指定终端用户。键盘热拔插会保留终端会话。
 
 ## 开机动画与启动时机
 
-显示服务启动时默认播放4秒 Makit Compute 动画，包含角色睁眼、轻微呼吸、眨眼和启动指示点，然后自动进入任务状态界面。临近动画结束时，系统关键指标已就绪则显示 Ready。可用 `--boot-seconds 0` 关闭动画，或设置其他非负秒数。`--duration` 包含动画播放时间。
+显示服务启动时默认播放4秒 Makit Compute 动画，包含角色睁眼、轻微呼吸、眨眼和启动指示点，然后自动进入工作间。临近动画结束时，系统关键指标已就绪则显示 Ready。可用 `--boot-seconds 0` 关闭动画，或设置其他非负秒数。`--duration` 包含动画播放时间。
 
 服务安装到 `sysinit.target`，在所需挂载点、根文件系统重挂载、模块加载和 udev 服务启动后运行，关闭默认的 basic.target 排序依赖，并在关机时先完成屏幕清理。每次重启显示服务也会播放动画。动画开始于 Linux 的早期用户空间，上电至首帧的时间仍包含固件、内核、initrd 和屏幕初始化阶段。
 
@@ -60,7 +47,7 @@ python3 status_display.py --boot-preview --preview boot.png
 
 ## 本地预览
 
-预览使用明确标注的模拟数据，可在安装 Pillow 的 macOS/Linux 上运行。
+预览使用明确标注的模拟 Codex 状态，可在安装 Pillow 的 macOS/Linux 上运行。
 
 ```sh
 python3 status_display.py --preview preview.png
@@ -68,7 +55,7 @@ python3 status_display.py --preview preview.gif
 python3 status_display.py --preview states.gif --showcase
 ```
 
-PNG 为400×240，默认 GIF 为20fps的6秒任务动画。`--showcase` 生成连接、思考、执行工具、等待输入、回复、重试、恢复、完成、失败、停止与休息等状态的30秒演示。预览使用标注 Preview 的模拟事件和指标。
+PNG 为400×240，默认 GIF 为20fps的6秒任务动画。`--showcase` 生成八种 Codex 状态的 16 秒演示。
 
 ## 树莓派前台运行
 
@@ -76,7 +63,7 @@ PNG 为400×240，默认 GIF 为20fps的6秒任务动画。`--showcase` 生成�
 
 ```sh
 sudo apt-get update
-sudo apt-get install -y python3-libgpiod python3-pil gpiod device-tree-compiler iproute2
+sudo apt-get install -y python3-libgpiod python3-pil python3-evdev python3-pyte python3-xkbcommon fonts-dejavu-core fonts-noto-cjk gpiod device-tree-compiler iproute2
 cd software/status-display
 sudo python3 status_display.py --fps 60
 ```
@@ -87,7 +74,7 @@ sudo python3 status_display.py --fps 60
 sudo python3 status_display.py --fps 60 --duration 120 --interface eth0
 ```
 
-`--fps 20` 使用 2MHz SPI。显示电源故障或 COM 线程异常会退出，日志记录错误，驱动关闭显示电源。
+`--fps 20` 使用 2MHz SPI。原有驱动在显示电源故障或 COM 线程异常时退出。样机还保留此前同步的可选 `--ignore-fault` 参数及设备上的 systemd 覆盖配置，启用时低电平 `FAULT_N` 以告警记录。
 
 ## 开机自启
 
@@ -121,9 +108,12 @@ sudo systemctl disable --now rp-compute-display
 - 停止服务后确认清屏、关闭显示电源。卸载实时 overlay、恢复默认低有效片选后，再启动服务，准备脚本成功重新加载高有效片选配置，程序恢复运行。
 - 加粗字体与房间背景版已更新至样机，首轮30秒统计为59.93fps、1799帧，COM最大软件边沿间隔0.5028秒，服务无异常重启。树莓派预览渲染正常，安装代码的SHA-256与本地一致。
 - 设备切换至 wlan0 地址 `192.168.50.83` 后，丰富背景版已部署。新增墙面、窗帘、地板、地毯、台灯、挂历、抽屉柜、小风扇及咖啡杯。十二状态通过本地渲染检查，房间像素范围检查通过，树莓派预览正常。上机首轮30秒为59.93fps，COM最大软件边沿间隔0.5028秒，随后正常进入休息状态，服务保持开机启用且无异常重启。
-- Makit Compute / Hermes 任务界面已上机。以普通用户身份加载配套插件并回放模拟事件，服务日志确认 thinking → tool → waiting → thinking → responding → done → idle → disconnected。连续60秒统计59.97fps，COM最大软件边沿间隔0.5048秒，无异常重启。并行同名工具、多个会话、旧载荷缺少ID、心跳失效、显示服务重连、重复监听保护和CLI退出清理已通过本地检查。
 - 4秒 Makit Compute 开机动画已部署，并验证软件重启后自动播放及进入主界面。将服务提前至 sysinit 阶段后，发现早期 udev 自动加载 spidev 导致缓冲恢复4096字节的竞态，已通过 modprobe.d 固定16384字节并增加准备阶段复查。修复后两次软件重启均无服务异常重启。最新一次内核单调计时约12.216秒开始动画、16.154秒结束动画。此时间基准从内核启动计时，电源接通至首帧还包含固件启动时间。
+- 2026-11-17 已部署键盘 Terminal 模式。真实 PTY 验证用户UID为1000、终端尺寸15×56、控制终端有效，中文输出与 top 渲染正常。使用 uinput 虚拟键盘完成生产服务入口测试，覆盖 Ctrl+Alt+T 往返切换、会话环境变量保留、Ctrl+C、Tab 补全、方向键命令历史、Ctrl+D、重新打开终端，以及持续输出下切换与中断。独立测试通过长按快捷键抑制、Shift、Caps Lock、键盘拔插、独立应用屏幕和子进程清理。服务保持开机启用、无异常重启，测试结束恢复角色界面。实物 USB/蓝牙键盘待接入验证。
+- 2026-11-17 已补充终端灰阶映射与 ANSI 字重处理。测试通过普通/明亮16色、256色、RGB颜色、反白、固定像素点阵和1bit帧格式，以及真实PTY会话、top、Ctrl+C和退出。更新后再次通过生产服务虚拟键盘完整入口测试，测试结束回到角色界面。
+- 2026-11-17 粗体清晰版改为49列×15行，常规及粗体正文采用 Terminus Font 14像素点阵字形，文字笔画使用实心黑白，中文回退字体对齐基线。已通过常规、粗体、斜体、中文、隐藏文字、主/备用屏幕切换和真实PTY中的Codex登录界面检查。样机部署文件校验一致，显示服务启动正常，实物观感待确认。
 
-Hermes Agent 本体在该样机上尚未安装，因此以上任务事件来自模拟回放，真实模型任务及当前 Hermes 安装版本的插件加载待安装后验证。插件文件随显示程序部署在 `/opt/rp-compute/software/status-display/hermes_display/`。
+日志另记录到2026-11-17 16:34、16:41、16:56先后触发LCD/扩展模块共享的 FAULT_N 故障标志并保护性重启。供电或信号原因需要实物测量确认。
+
 
 用户已确认装机屏幕界面正常且能看到角色。随后按用户提供的场景参考，进一步加粗字体并加入房间背景。软件重启后的自启与开机动画已验证，断电冷启动的实际首帧观感和长期运行稳定性待确认。

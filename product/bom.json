@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "ready",
   "bom_ready": true,
-  "requirements_digest": "1e0f2a54c1d3d2ec58d125835a4858b1b26f80e8a8f43bb03c85737b061c19eb",
+  "requirements_digest": "dd98391326b3481f3eacbebc5c17924b8bbf0e200ec21375a151b9398f8f704e",
   "items": [
     {
       "id": "compute",
@@ -33,7 +33,7 @@
         "source": "default"
       },
       "description": "Complete Raspberry Pi 4 Model B, 4GB LPDDR4 variant. Official product brief p3: BCM2711 quad-core Cortex-A72, two USB 2.0 and two USB 3.0 ports, 40-pin GPIO, microSD storage, USB-C 5V supply minimum 3A subject to p5 footnote. 3A is supply sizing, not measured consumption. Customer-supplied SBC docks through40-pin GPIO and is mechanically supported; not CM or a soldered component. Baseboard supplies regulated5V through header power contacts; no internalUSB-C cable.",
-      "selection_reason": "User-supplied Pi4B,4GB remains default reference. Quantity1 is the assembled reference, not a board to buy with product kit. Baseboard mates viaGPIO; board revision/other models not yet qualified. User requests simple mount and enclosure access to native ports; no addedbaseboardUSB-A. User installation should not require soldering or individual GPIO jumpers. UsernowselectsPiUSB-Ccovered/interlockedwhiledocked;baseboardinputonly. Othernativeportsremainaccessible. Pi4B reference now placed with USB/RJ45 rear and micro-HDMI/AV right. Openings derive from imported board geometry; retention, actual plugs, GPIO stack and production fit remain unverified. No front ports.",
+      "selection_reason": "User-supplied Pi4B,4GB remains default reference. Quantity1 is the assembled reference, not a board to buy with product kit. Baseboard mates viaGPIO; board revision/other models not yet qualified. User requests simple mount and enclosure access to native ports; no addedbaseboardUSB-A. User installation should not require soldering or individual GPIO jumpers. UsernowselectsPiUSB-Ccovered/interlockedwhiledocked;baseboardinputonly. Othernativeportsremainaccessible. Pi4B reference now placed with USB/RJ45 rear and micro-HDMI/AV right. Openings derive from imported board geometry; retention, actual plugs, GPIO stack and production fit remain unverified. No front ports. 替代主板评估预算为人民币200元，仅约束后续低成本候选，不代表已更换当前Pi4B参考装配；候选须核实现货版本和价格后再选择。",
       "supply_risk": "Supplier query returned unrelated passive/diode/crystal rows; all rejected. No stock, price, reseller SKU or board-revision claim. Procurement availability is advisory; thermal and power integration remain unresolved.",
       "board_model_reference": {
         "id": "raspberry_pi_4_model_b",
@@ -50,7 +50,18 @@
       "included_in_product_kit": false,
       "include_in_procurement_totals": false,
       "requirements_review": "Selected for active pi_baseboard_lite; no charging/battery/Pi-power electronics.",
-      "platform_ref": "raspberrypi/raspberry-pi-4-model-b"
+      "platform_ref": "raspberrypi/raspberry-pi-4-model-b",
+      "replacement_evaluation": {
+        "budget_cny": {
+          "value": 200,
+          "source": "user"
+        },
+        "budget_scope": "Replacement compute board only; screen, custom baseboard and enclosure excluded.",
+        "status": "candidate_evaluation_only_existing_assembly_not_replaced",
+        "candidate": "Orange Pi Zero 3W",
+        "price_evidence_status": "Current domestic in-stock variant at <=200 CNY not verified. Launch prices do not prove current availability.",
+        "implementation_notes": "Retain Linux terminal and Sharp display functionality. GPIO/SPI software, startup pin states, board power, mounting and port openings require qualification before replacement."
+      }
     },
     {
       "id": "display",

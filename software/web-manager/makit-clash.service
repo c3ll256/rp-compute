@@ -1,0 +1,25 @@
+[Unit]
+Description=Makit Compute Clash proxy (Mihomo)
+Wants=network-online.target
+After=network-online.target
+RequiresMountsFor=/etc/makit-clash
+
+[Service]
+User=makit-clash
+Group=makit-clash
+StateDirectory=makit-clash
+StateDirectoryMode=0700
+RuntimeDirectory=makit-clash
+RuntimeDirectoryMode=0700
+Environment=SAFE_PATHS=/run/makit-clash
+ExecStart=/usr/local/bin/mihomo -d /var/lib/makit-clash -f /etc/makit-clash/config.yaml
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

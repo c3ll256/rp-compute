@@ -1011,6 +1011,10 @@
     "side_port_panel_no_suspended_closure": {
       "value": "侧接口面板在保留遮挡和贴床平面的同时，避免接口凹舱缩到小孔时产生悬空封口的打印问题。",
       "source": "user"
+    },
+    "replacement_compute_board_budget_cny": {
+      "value": 200,
+      "source": "user"
     }
   },
   "open_questions": []

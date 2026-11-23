@@ -1,0 +1,23 @@
+[Unit]
+Description=Makit Compute network and Bluetooth settings
+After=network.target bluetooth.service
+Wants=bluetooth.service
+RequiresMountsFor=/var/lib/makit-settings /etc/netplan
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/rp-compute/software/web-manager
+ExecStart=/usr/bin/python3 /opt/rp-compute/software/web-manager/settings_daemon.py
+RuntimeDirectory=makit-settings
+RuntimeDirectoryMode=0750
+StateDirectory=makit-settings
+StateDirectoryMode=0700
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=10
+UMask=0077
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+
+[Install]
+WantedBy=multi-user.target

@@ -359,6 +359,13 @@
       "share": false
     },
     {
+      "file": "orangepi-zero3w-pinout.webp",
+      "sha256": "d342f7a1a858f6ead167bf3c258e641379b74e52a339f84496785ad15c33990f",
+      "bytes": 66344,
+      "addedAt": "2026-11-17T13:48:32.933Z",
+      "share": false
+    },
+    {
       "file": "p165-detail-0.jpg",
       "sha256": "361d4cba3d5ead1b2c9a831416a89fa42ad2d3abd4293d5c9f3f75dd4b04013f",
       "bytes": 309969,
@@ -832,6 +839,13 @@
       "sha256": "e9d6aca5f7d3725b763f8bfaf4a79376aa33aa42071d19039161761b9fc73192",
       "bytes": 5493,
       "addedAt": "2026-11-16T19:32:45.324Z",
+      "share": false
+    },
+    {
+      "file": "uploads/20261123T072218123Z-1-cleanshot-2026-11-23-at-15-22-10-2x.png",
+      "sha256": "0be48ac330850ffbb51f246f016117d252805bd1c085597925eb651117f4cb5e",
+      "bytes": 66050,
+      "addedAt": "2026-11-23T07:22:18.350Z",
       "share": false
     },
     {

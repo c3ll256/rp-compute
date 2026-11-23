@@ -61,7 +61,7 @@ class SpiTransfer(ctypes.Structure):
 
 
 class Display:
-    def __init__(self, fps=2, spi_hz=None):
+    def __init__(self, fps=2, spi_hz=None, *, ignore_fault=False):
         import gpiod
         from gpiod.line import Direction, Value
 
@@ -71,6 +71,8 @@ class Display:
         self.clock_stop = threading.Event()
         self.clock_thread = None
         self.clock_error = None
+        self.ignore_fault = ignore_fault
+        self.last_fault_warning = -math.inf
         self.powered = False
         self.last_transfer = 0.0
         self.frames = 0
@@ -143,7 +145,12 @@ class Display:
         if self.clock_error is not None:
             raise RuntimeError("COM generator failed") from self.clock_error
         if self.lines.get_value(FAULT) == self.low:
-            raise RuntimeError("FAULT_N is low (LCD/module power-limit fault)")
+            if not self.ignore_fault:
+                raise RuntimeError("FAULT_N is low (LCD/module power-limit fault)")
+            now = time.monotonic()
+            if now - self.last_fault_warning >= 30:
+                self.last_fault_warning = now
+                LOG.warning("FAULT_N is low; continuing display updates")
 
     def clock(self):
         try:
